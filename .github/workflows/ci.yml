@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm content:validate
+      - run: pnpm safety:scan
+      - run: pnpm test
+      - name: Build explicitly labelled draft preview
+        run: pnpm build:preview
+        env:
+          ENABLE_GPT56: "false"
+          NEXT_PUBLIC_DEMO_MODE: "true"
+          ALLOW_DRAFT_CONTENT: "true"
+
