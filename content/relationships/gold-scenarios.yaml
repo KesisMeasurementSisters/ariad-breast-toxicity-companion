@@ -1,0 +1,105 @@
+- kind: treatment_toxicity_relationship
+  id: weekly-paclitaxel-peripheral-neuropathy
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  treatment_kind: regimen
+  treatment_id: weekly-paclitaxel
+  symptom_id: peripheral-neuropathy
+  relationship_type: associated_with
+  support_status: full_guidance
+  frequency_band: null
+  seriousness_flags: []
+  timing: null
+  modules:
+    about: [neuropathy-about]
+    treatment_context: [paclitaxel-neuropathy-context]
+    home_management: [neuropathy-home-safety]
+    contact_team: [neuropathy-contact-team]
+    urgent_attention: [neuropathy-urgent-neurological-signs]
+    reporting_checklist: [neuropathy-reporting-checklist]
+  question_ids:
+    - q-neuropathy-location
+    - q-neuropathy-onset
+    - q-neuropathy-trend
+    - q-neuropathy-hand-tasks
+    - q-neuropathy-walking-balance
+    - q-neuropathy-weakness
+  source_ids:
+    - cco-paclitaxel-patient-information
+    - eviq-weekly-paclitaxel-breast-patient-information
+    - bc-cancer-peripheral-neuropathy-handout
+
+- kind: treatment_toxicity_relationship
+  id: capecitabine-diarrhea
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  treatment_kind: regimen
+  treatment_id: capecitabine-monotherapy
+  symptom_id: diarrhea
+  relationship_type: associated_with
+  support_status: full_guidance
+  frequency_band: null
+  seriousness_flags: []
+  timing: null
+  modules:
+    about: [diarrhea-about]
+    treatment_context: [capecitabine-diarrhea-context]
+    home_management: [diarrhea-home-management]
+    contact_team: [diarrhea-contact-team]
+    urgent_attention: [diarrhea-urgent-attention]
+    reporting_checklist: [diarrhea-reporting-checklist]
+  question_ids:
+    - q-diarrhea-onset
+    - q-diarrhea-count
+    - q-diarrhea-drinking
+    - q-diarrhea-vomiting
+    - q-diarrhea-dizziness
+    - q-diarrhea-temperature
+    - q-diarrhea-blood
+  source_ids:
+    - cco-capecitabine-patient-information
+    - cco-manage-diarrhea
+    - health-canada-capecitabine-product-record
+    - health-canada-fluoropyrimidine-infowatch
+
+- kind: treatment_toxicity_relationship
+  id: ac-fever-infection-concern
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  treatment_kind: regimen
+  treatment_id: ac
+  symptom_id: fever-infection-concern
+  relationship_type: associated_with
+  support_status: full_guidance
+  frequency_band: null
+  seriousness_flags: []
+  timing: null
+  modules:
+    about: [fever-infection-about]
+    treatment_context: [ac-fever-infection-context]
+    home_management: [infection-home-preparation]
+    contact_team: [infection-contact-team]
+    urgent_attention: [infection-urgent-attention]
+    reporting_checklist: [infection-reporting-checklist]
+  question_ids:
+    - q-infection-temperature
+    - q-infection-chills
+    - q-infection-feeling-unwell
+    - q-infection-signs
+    - q-infection-fever-medicine
+  source_ids:
+    - cco-ac-breast-patient-information
+    - cco-fever-patient-guide
+    - cco-fever-assessment-guideline
+    - eviq-dose-dense-ac-breast-patient-information
+    - eviq-infection-during-cancer-treatment
+

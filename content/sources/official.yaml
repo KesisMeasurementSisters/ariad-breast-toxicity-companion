@@ -1,0 +1,226 @@
+- kind: source
+  id: cco-paclitaxel-patient-information
+  version: 1.0.0
+  title: PACLitaxel patient information
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/drugs/infosheet/44151
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: Revised June 2024
+  permitted_excerpt: null
+  notes:
+    - Used for paclitaxel and peripheral-neuropathy claim mapping.
+    - Exact day of the June 2024 revision was not verified.
+  verification_status: verified
+
+- kind: source
+  id: eviq-weekly-paclitaxel-breast-patient-information
+  version: 1.0.0
+  title: Breast neoadjuvant/adjuvant PACLitaxel weekly patient information
+  organization: eviQ Cancer Treatments Online
+  canonical_url: https://www.eviq.org.au/medical-oncology/breast/neoadjuvant-adjuvant/4103-breast-neoadjuvant-adjuvant-paclitaxel-weekly/patient-information
+  source_type: regimen_information
+  jurisdiction: Australia
+  publication_or_revision_date: 2024-06-05
+  accessed_date: 2026-07-18
+  source_version: Review due 31 December 2028
+  permitted_excerpt: null
+  notes:
+    - Used to confirm the exact weekly regimen and practical injury precautions.
+  verification_status: verified
+
+- kind: source
+  id: bc-cancer-peripheral-neuropathy-handout
+  version: 1.0.0
+  title: Peripheral Neuropathy
+  organization: BC Cancer
+  canonical_url: https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Peripheral-Neuropathy.pdf
+  source_type: patient_information
+  jurisdiction: British Columbia, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: February 2020
+  permitted_excerpt: null
+  notes:
+    - Link and paraphrase only; do not reproduce the handout.
+    - Vitamin or supplement suggestions are intentionally excluded pending clinical review.
+  verification_status: verified
+
+- kind: source
+  id: cco-capecitabine-patient-information
+  version: 1.0.0
+  title: CAPE patient information
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/45016
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: December 2023 revision note
+  permitted_excerpt: null
+  notes:
+    - Exact loperamide dosing and treatment-hold instructions are intentionally excluded.
+  verification_status: verified
+
+- kind: source
+  id: cco-manage-diarrhea
+  version: 1.0.0
+  title: How to Manage Diarrhea
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/guidelines-advice/symptom-management/diarrhea/how-to-manage-diarrhea
+  source_type: clinical_guidance
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: Updated June 2025
+  permitted_excerpt: null
+  notes:
+    - Primary Ontario source for draft patient-management wording.
+  verification_status: verified
+
+- kind: source
+  id: health-canada-capecitabine-product-record
+  version: 1.0.0
+  title: Capecitabine drug product record
+  organization: Health Canada
+  canonical_url: https://health-products.canada.ca/dpd-bdpp/info?code=100911&lang=eng
+  source_type: product_monograph
+  jurisdiction: Canada
+  publication_or_revision_date: 2026-05-01
+  accessed_date: 2026-07-18
+  source_version: Product monograph dated 1 May 2026
+  permitted_excerpt: null
+  notes:
+    - Label and safety cross-check only; not copied into patient guidance.
+  verification_status: verified
+
+- kind: source
+  id: health-canada-fluoropyrimidine-infowatch
+  version: 1.0.0
+  title: Health Product InfoWatch, March 2025
+  organization: Health Canada
+  canonical_url: https://www.canada.ca/en/health-canada/services/drugs-health-products/medeffect-canada/health-product-infowatch/march-2025.html
+  source_type: safety_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: March 2025
+  permitted_excerpt: null
+  notes:
+    - Safety cross-check for potentially severe fluoropyrimidine toxicity.
+  verification_status: verified
+
+- kind: source
+  id: cco-ac-breast-patient-information
+  version: 1.0.0
+  title: AC breast patient information
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/46111
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: May 2016
+  permitted_excerpt: null
+  notes:
+    - Legacy source; cycle-day timing is intentionally excluded.
+  verification_status: verified
+
+- kind: source
+  id: cco-fever-patient-guide
+  version: 1.0.0
+  title: Fever patient guide
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/system/files_force/symptoms/CCOFeverPostcard.pdf?download=1
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: Undated patient PDF; underlying guideline dated December 2015
+  permitted_excerpt: null
+  notes:
+    - Numeric fever thresholds remain unresolved and are not included in the preview.
+  verification_status: verified
+
+- kind: source
+  id: cco-fever-assessment-guideline
+  version: 1.0.0
+  title: Fever Assessment and Management Clinical Practice Guideline
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/guidelines-advice/types-of-cancer/1376
+  source_type: clinical_guidance
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: December 2015; website status Current
+  permitted_excerpt: null
+  notes:
+    - Source age requires clinician-owner acceptance before release approval.
+  verification_status: verified
+
+- kind: source
+  id: eviq-dose-dense-ac-breast-patient-information
+  version: 1.0.0
+  title: Breast neoadjuvant/adjuvant AC dose dense patient information
+  organization: eviQ Cancer Treatments Online
+  canonical_url: https://www.eviq.org.au/medical-oncology/breast/neoadjuvant-adjuvant/4102-breast-neoadjuvant-adjuvant-ac-doxorubicin-a/patient-information
+  source_type: regimen_information
+  jurisdiction: Australia
+  publication_or_revision_date: 2023-12-05
+  accessed_date: 2026-07-18
+  source_version: Review due 31 December 2027
+  permitted_excerpt: null
+  notes:
+    - Cross-check only; exact AC variant is unresolved for the general preview pathway.
+  verification_status: verified
+
+- kind: source
+  id: eviq-infection-during-cancer-treatment
+  version: 1.0.0
+  title: Infection during cancer treatment
+  organization: eviQ Cancer Treatments Online
+  canonical_url: https://www.eviq.org.au/getmedia/474a3ca7-e4da-4e2b-95ee-e026cd10028a/eviQ-PI-3098-Infection-during-cancer-treatment-V5-02.pdf.aspx?ext=.pdf
+  source_type: patient_information
+  jurisdiction: Australia
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: Version 5.02, copyright 2025
+  permitted_excerpt: null
+  notes:
+    - Used for observable infection signs and thermometer preparedness.
+  verification_status: verified
+
+- kind: source
+  id: cco-systemic-treatment-information
+  version: 1.0.0
+  title: Drug Formulary and systemic treatment information
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary
+  source_type: clinical_guidance
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: Current website directory
+  permitted_excerpt: null
+  notes:
+    - Catalogue-level provenance only; individual treatment guidance remains unsupported unless separately sourced.
+  verification_status: link_only
+
+- kind: source
+  id: cco-symptom-management-directory
+  version: 1.0.0
+  title: Symptom management guides
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/symptom-management
+  source_type: clinical_guidance
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-18
+  source_version: Current website directory
+  permitted_excerpt: null
+  notes:
+    - Catalogue-level provenance only; no unsourced management content is generated from this directory.
+  verification_status: link_only
+

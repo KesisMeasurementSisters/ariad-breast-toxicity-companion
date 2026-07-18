@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "pnpm content:build:preview && pnpm --filter @ariad/web dev",
     "build": "pnpm content:build && pnpm typecheck && pnpm --filter @ariad/web build",
-    "build:preview": "ALLOW_DRAFT_CONTENT=true NEXT_PUBLIC_DEMO_MODE=true pnpm content:build && pnpm typecheck && pnpm --filter @ariad/web build",
+    "build:preview": "ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW NEXT_PUBLIC_DEMO_MODE=true pnpm content:build && pnpm typecheck && pnpm --filter @ariad/web build",
     "lint": "eslint .",
     "typecheck": "pnpm -r typecheck",
     "test": "vitest run",
@@ -18,7 +18,7 @@
     "test:a11y": "playwright test tests/accessibility",
     "content:validate": "tsx scripts/content-cli.ts validate",
     "content:build": "tsx scripts/content-cli.ts build",
-    "content:build:preview": "ALLOW_DRAFT_CONTENT=true tsx scripts/content-cli.ts build",
+    "content:build:preview": "ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW tsx scripts/content-cli.ts build",
     "content:report": "tsx scripts/content-cli.ts report",
     "safety:scan": "tsx scripts/safety-scan.ts"
   },

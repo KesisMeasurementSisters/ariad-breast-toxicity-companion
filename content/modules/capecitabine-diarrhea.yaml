@@ -1,0 +1,97 @@
+- &module_base
+  kind: educational_module
+  id: diarrhea-about
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  audience: patient
+  jurisdiction: Ontario, Canada
+  section: about
+  title: About this symptom
+  paragraphs:
+    - Diarrhea means loose, watery, or unformed bowel movements, or going more often than is usual for you. It may come with urgency, bloating, or cramps.
+    - Other conditions can cause similar symptoms. Ariad cannot determine the cause.
+  bullets: []
+  applicability: { treatment_ids: [capecitabine-monotherapy, capecitabine], symptom_ids: [diarrhea] }
+  priority_tags: []
+  source_ids: [cco-capecitabine-patient-information, cco-manage-diarrhea]
+  claim_ids: [claim-diarrhea-description]
+  placeholders: []
+  review_due: null
+
+- <<: *module_base
+  id: capecitabine-diarrhea-context
+  section: treatment_context
+  title: Why it matters with this treatment
+  paragraphs:
+    - Diarrhea can occur with capecitabine. Ongoing diarrhea can cause loss of fluid and body salts.
+  applicability: { treatment_ids: [capecitabine-monotherapy, capecitabine], symptom_ids: [diarrhea] }
+  priority_tags: [hydration]
+  source_ids: [cco-capecitabine-patient-information, cco-manage-diarrhea, health-canada-fluoropyrimidine-infowatch]
+  claim_ids: [claim-capecitabine-diarrhea-association, claim-diarrhea-fluid-loss]
+
+- <<: *module_base
+  id: diarrhea-home-management
+  section: home_management
+  title: What you can generally do at home
+  paragraphs:
+    - These are general measures. Follow any fluid, diet, or medicine instructions provided by your cancer team.
+  bullets:
+    - Keep a record of bowel movements.
+    - Unless your team has limited your fluids, sip fluids regularly.
+    - Choose small meals and limit caffeine, alcohol, spicy foods, and high-fat foods.
+    - Use anti-diarrheal medicine only as your cancer team instructed.
+    - Keep the skin around the anus clean and dry, and use gentle care after bowel movements.
+  applicability: { treatment_ids: [capecitabine-monotherapy, capecitabine], symptom_ids: [diarrhea] }
+  priority_tags: [tracking, hydration, team-instructions]
+  source_ids: [cco-capecitabine-patient-information, cco-manage-diarrhea]
+  claim_ids: [claim-diarrhea-tracking, claim-diarrhea-hydration, claim-diarrhea-foods, claim-diarrhea-team-directed-medicine]
+
+- <<: *module_base
+  id: diarrhea-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - There are more than seven loose or watery bowel movements in 24 hours.
+    - Diarrhea continues for more than 24 hours after medicine used according to your team's instructions.
+    - You cannot drink enough, there is blood, or you have belly pain other than your usual cramping.
+    - You notice thirst, dry mouth, dark or reduced urine, dizziness, vomiting, or a fast heartbeat.
+  applicability: { treatment_ids: [capecitabine-monotherapy, capecitabine], symptom_ids: [diarrhea] }
+  priority_tags: [contact-information, hydration]
+  source_ids: [cco-capecitabine-patient-information, cco-manage-diarrhea]
+  claim_ids: [claim-diarrhea-contact-observations]
+
+- <<: *module_base
+  id: diarrhea-urgent-attention
+  section: urgent_attention
+  title: Seek urgent medical attention if…
+  paragraphs:
+    - This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team.
+  bullets:
+    - You cannot reach your cancer team and have the warning signs listed above.
+    - You think this may be a medical emergency.
+  applicability: { treatment_ids: [capecitabine-monotherapy, capecitabine], symptom_ids: [diarrhea] }
+  priority_tags: []
+  source_ids: [cco-manage-diarrhea, cco-fever-patient-guide]
+  claim_ids: [claim-diarrhea-urgent-fallback, claim-fever-threshold-owner-pending]
+  placeholders: [clinic-specific fever threshold pending clinician review]
+
+- <<: *module_base
+  id: diarrhea-reporting-checklist
+  section: reporting_checklist
+  title: What information to have ready
+  paragraphs: []
+  bullets:
+    - When the diarrhea began and the number of loose or watery bowel movements in 24 hours.
+    - How that compares with your usual bowel pattern, including nighttime episodes.
+    - Any blood, mucus, vomiting, dizziness, belly pain, or measured temperature.
+    - How much you have been able to drink and any change in urination.
+    - Any anti-diarrheal medicine used according to your team's instructions and your last capecitabine dose.
+  applicability: { treatment_ids: [capecitabine-monotherapy, capecitabine], symptom_ids: [diarrhea] }
+  priority_tags: [tracking]
+  source_ids: [cco-capecitabine-patient-information, cco-manage-diarrhea]
+  claim_ids: [claim-diarrhea-reporting-information]
+

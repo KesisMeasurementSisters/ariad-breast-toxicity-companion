@@ -1,0 +1,32 @@
+{
+  "releaseId": "build-week-preview-2026-07-18",
+  "channel": "preview",
+  "contentHash": "b3e8b481b45e0004f01d68ea8c5150e6f0ad4a1dc0ab62291bbd2e9efe630ad5",
+  "treatmentId": "ac",
+  "symptomId": "fever-infection-concern",
+  "relationshipId": "ac-fever-infection-concern",
+  "supportStatus": "full_guidance",
+  "questionIds": [
+    "q-infection-temperature",
+    "q-infection-chills",
+    "q-infection-feeling-unwell",
+    "q-infection-signs",
+    "q-infection-fever-medicine"
+  ],
+  "sections": {
+    "about": ["fever-infection-about"],
+    "treatment_context": ["ac-fever-infection-context"],
+    "home_management": ["infection-home-preparation"],
+    "contact_team": ["infection-contact-team"],
+    "urgent_attention": ["infection-urgent-attention"],
+    "reporting_checklist": ["infection-reporting-checklist"]
+  },
+  "sourceIds": [
+    "cco-ac-breast-patient-information",
+    "cco-fever-assessment-guideline",
+    "cco-fever-patient-guide",
+    "eviq-dose-dense-ac-breast-patient-information",
+    "eviq-infection-during-cancer-treatment"
+  ]
+}
+

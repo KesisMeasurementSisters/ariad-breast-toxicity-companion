@@ -1,0 +1,264 @@
+- &question_base
+  kind: question
+  id: q-neuropathy-location
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  symptom_ids: [peripheral-neuropathy]
+  feature_id: neuropathy-location
+  prompt: Where do you feel the tingling, numbness, burning, or pain?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: fingers, label: Fingers, summary_text: Fingers, priority_tags: [hand-safety] }
+    - { value: hands, label: Hands, summary_text: Hands, priority_tags: [hand-safety] }
+    - { value: toes, label: Toes, summary_text: Toes, priority_tags: [foot-safety] }
+    - { value: feet, label: Feet, summary_text: Feet, priority_tags: [foot-safety] }
+    - { value: elsewhere, label: Somewhere else, summary_text: Another location, priority_tags: [] }
+  optional: false
+  summary_label: Location
+  priority_tags: [neuropathy]
+  prohibited_interpretation_notes:
+    - Do not infer cause, grade, distribution pattern, or urgency.
+  source_ids: [cco-paclitaxel-patient-information, bc-cancer-peripheral-neuropathy-handout]
+
+- <<: *question_base
+  id: q-neuropathy-onset
+  feature_id: neuropathy-onset
+  prompt: When did you first notice it?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: today, label: Today, summary_text: Began today, priority_tags: [] }
+    - { value: past-week, label: In the past week, summary_text: Began in the past week, priority_tags: [] }
+    - { value: over-week, label: More than a week ago, summary_text: Began more than a week ago, priority_tags: [] }
+    - { value: unsure, label: I am not sure, summary_text: Onset is uncertain, priority_tags: [] }
+  summary_label: Onset
+
+- <<: *question_base
+  id: q-neuropathy-trend
+  feature_id: neuropathy-trend
+  prompt: How has it changed since you first noticed it?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: worsening, label: Getting stronger or spreading, summary_text: Symptoms are getting stronger or spreading, priority_tags: [change-noted] }
+    - { value: same, label: About the same, summary_text: Symptoms are about the same, priority_tags: [] }
+    - { value: improving, label: Improving, summary_text: Symptoms are improving, priority_tags: [] }
+    - { value: comes-goes, label: They come and go, summary_text: Symptoms come and go, priority_tags: [] }
+    - { value: unsure, label: I am not sure, summary_text: Change is uncertain, priority_tags: [] }
+  summary_label: Change
+
+- <<: *question_base
+  id: q-neuropathy-hand-tasks
+  feature_id: neuropathy-hand-tasks
+  prompt: Does it affect any of these hand tasks?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: buttons, label: Fastening buttons, summary_text: Affects fastening buttons, priority_tags: [hand-safety, daily-activities] }
+    - { value: writing, label: Writing, summary_text: Affects writing, priority_tags: [hand-safety, daily-activities] }
+    - { value: small-objects, label: Picking up small objects, summary_text: Affects picking up small objects, priority_tags: [hand-safety, daily-activities] }
+    - { value: none, label: None of these, summary_text: Does not affect the listed hand tasks, priority_tags: [] }
+  summary_label: Hand tasks
+
+- <<: *question_base
+  id: q-neuropathy-walking-balance
+  feature_id: neuropathy-walking-balance
+  prompt: Has it affected your walking or balance?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: Walking and balance are not affected, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Walking or balance is affected, priority_tags: [foot-safety, fall-prevention] }
+    - { value: fall, label: I have fallen or nearly fallen, summary_text: There has been a fall or near-fall, priority_tags: [foot-safety, fall-prevention] }
+    - { value: unsure, label: I am not sure, summary_text: Effect on walking or balance is uncertain, priority_tags: [] }
+  summary_label: Walking or balance
+
+- <<: *question_base
+  id: q-neuropathy-weakness
+  feature_id: neuropathy-weakness
+  prompt: Have you noticed new weakness?
+  help_text: This asks only what you have observed.
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No new weakness reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: New weakness is reported, priority_tags: [change-noted] }
+    - { value: unsure, label: I am not sure, summary_text: Weakness is uncertain, priority_tags: [] }
+  summary_label: Weakness
+
+- <<: *question_base
+  id: q-diarrhea-onset
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-onset
+  prompt: When did the loose or watery bowel movements begin?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: today, label: Today, summary_text: Began today, priority_tags: [] }
+    - { value: yesterday, label: Yesterday, summary_text: Began yesterday, priority_tags: [] }
+    - { value: earlier, label: More than one day ago, summary_text: Began more than one day ago, priority_tags: [hydration] }
+    - { value: unsure, label: I am not sure, summary_text: Onset is uncertain, priority_tags: [] }
+  summary_label: Onset
+  priority_tags: [diarrhea]
+  source_ids: [cco-capecitabine-patient-information, cco-manage-diarrhea]
+
+- <<: *question_base
+  id: q-diarrhea-count
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-count
+  prompt: About how many loose or watery bowel movements have you had in the past 24 hours?
+  help_text: An estimate is okay.
+  answer_type: single_choice
+  options:
+    - { value: one-three, label: 1–3, summary_text: 1–3 loose or watery bowel movements in 24 hours, priority_tags: [] }
+    - { value: four-six, label: 4–6, summary_text: 4–6 loose or watery bowel movements in 24 hours, priority_tags: [tracking, hydration] }
+    - { value: seven-plus, label: 7 or more, summary_text: 7 or more loose or watery bowel movements in 24 hours, priority_tags: [tracking, hydration, contact-information] }
+    - { value: unsure, label: I am not sure, summary_text: Number in 24 hours is uncertain, priority_tags: [tracking] }
+  summary_label: Bowel movements in 24 hours
+
+- <<: *question_base
+  id: q-diarrhea-baseline-change
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-baseline-change
+  prompt: How does that compare with what is usual for you?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: no-change, label: No change, summary_text: No change from the usual bowel pattern, priority_tags: [] }
+    - { value: one-three-more, label: 1–3 more than usual, summary_text: 1–3 more bowel movements than usual, priority_tags: [] }
+    - { value: four-plus-more, label: 4 or more more than usual, summary_text: 4 or more bowel movements above usual, priority_tags: [tracking, hydration] }
+    - { value: unsure, label: I am not sure, summary_text: Change from usual is uncertain, priority_tags: [] }
+  summary_label: Change from usual
+
+- <<: *question_base
+  id: q-diarrhea-drinking
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-drinking
+  prompt: Are you able to drink fluids?
+  help_text: Follow any fluid limit your cancer team has given you.
+  answer_type: single_choice
+  options:
+    - { value: usual, label: Drinking about the usual amount, summary_text: Drinking about the usual amount, priority_tags: [] }
+    - { value: less, label: Drinking less than usual, summary_text: Drinking less than usual, priority_tags: [hydration] }
+    - { value: cannot, label: Unable to keep fluids down, summary_text: Unable to keep fluids down, priority_tags: [hydration, contact-information] }
+    - { value: fluid-limit, label: My team limits my fluids, summary_text: The cancer team has provided a fluid limit, priority_tags: [team-instructions] }
+  summary_label: Drinking fluids
+
+- <<: *question_base
+  id: q-diarrhea-vomiting
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-vomiting
+  prompt: Are you also vomiting?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No vomiting reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Vomiting is also occurring, priority_tags: [hydration] }
+  summary_label: Vomiting
+
+- <<: *question_base
+  id: q-diarrhea-dizziness
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-dizziness
+  prompt: Have you felt dizzy or faint?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No dizziness or faintness reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Dizziness or faintness is reported, priority_tags: [hydration, contact-information] }
+  summary_label: Dizziness or faintness
+
+- <<: *question_base
+  id: q-diarrhea-temperature
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-temperature
+  prompt: If you measured your temperature, what was the highest reading and how did you measure it?
+  help_text: Leave this blank if you did not measure it.
+  answer_type: short_text
+  options: []
+  optional: true
+  summary_label: Measured temperature
+  source_ids: [cco-manage-diarrhea, cco-fever-patient-guide]
+
+- <<: *question_base
+  id: q-diarrhea-blood
+  symptom_ids: [diarrhea]
+  feature_id: diarrhea-blood
+  prompt: Have you seen blood in a bowel movement?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No blood reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Blood is reported, priority_tags: [contact-information] }
+    - { value: unsure, label: I am not sure, summary_text: Presence of blood is uncertain, priority_tags: [] }
+  summary_label: Blood
+
+- <<: *question_base
+  id: q-infection-temperature
+  symptom_ids: [fever-infection-concern]
+  feature_id: infection-temperature
+  prompt: What was the highest temperature you measured, and how did you measure it?
+  help_text: Leave this blank if you did not measure it.
+  answer_type: short_text
+  options: []
+  optional: true
+  summary_label: Measured temperature
+  priority_tags: [fever, infection]
+  source_ids: [cco-fever-patient-guide, eviq-infection-during-cancer-treatment]
+
+- <<: *question_base
+  id: q-infection-chills
+  symptom_ids: [fever-infection-concern]
+  feature_id: infection-chills
+  prompt: Have you had chills, shaking, or sweats?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: chills, label: Chills, summary_text: Chills are present, priority_tags: [infection-observations] }
+    - { value: shaking, label: Shaking, summary_text: Shaking is present, priority_tags: [infection-observations] }
+    - { value: sweats, label: Sweats, summary_text: Sweats are present, priority_tags: [infection-observations] }
+    - { value: none, label: None of these, summary_text: "No chills, shaking, or sweats reported", priority_tags: [] }
+  summary_label: Chills, shaking, or sweats
+
+- <<: *question_base
+  id: q-infection-feeling-unwell
+  symptom_ids: [fever-infection-concern]
+  feature_id: infection-feeling-unwell
+  prompt: Do you feel generally unwell, even if you have not measured a fever?
+  help_text: This records what you notice; it does not diagnose an infection.
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: Does not feel generally unwell, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Feels generally unwell, priority_tags: [infection-observations] }
+    - { value: unsure, label: I am not sure, summary_text: General unwellness is uncertain, priority_tags: [] }
+  summary_label: Feeling unwell
+
+- <<: *question_base
+  id: q-infection-signs
+  symptom_ids: [fever-infection-concern]
+  feature_id: infection-signs
+  prompt: Have you noticed any of these changes?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: cough-throat, label: Cough or sore throat, summary_text: Cough or sore throat is present, priority_tags: [infection-observations] }
+    - { value: urine, label: Burning or blood with urination, summary_text: Urinary burning or blood is present, priority_tags: [infection-observations] }
+    - { value: mouth, label: Mouth sores, summary_text: Mouth sores are present, priority_tags: [infection-observations] }
+    - { value: skin-line, label: Redness or tenderness around a wound or line, summary_text: Redness or tenderness around a wound or line is present, priority_tags: [infection-observations] }
+    - { value: none, label: None of these, summary_text: None of the listed infection signs are reported, priority_tags: [] }
+  summary_label: Other observable changes
+
+- <<: *question_base
+  id: q-infection-fever-medicine
+  symptom_ids: [fever-infection-concern]
+  feature_id: infection-fever-medicine
+  prompt: Have you taken acetaminophen, ibuprofen, or another fever-reducing medicine? If yes, when?
+  help_text: Leave this blank if you did not take one or do not know.
+  answer_type: short_text
+  options: []
+  optional: true
+  summary_label: Fever-reducing medicine
+  source_ids: [cco-fever-patient-guide, eviq-infection-during-cancer-treatment]

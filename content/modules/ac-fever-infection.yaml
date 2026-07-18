@@ -1,0 +1,96 @@
+- &module_base
+  kind: educational_module
+  id: fever-infection-about
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  audience: patient
+  jurisdiction: Ontario, Canada
+  section: about
+  title: About this symptom
+  paragraphs:
+    - Fever, chills, or feeling unwell can be signs of infection. Infection can sometimes occur without a fever.
+    - Ariad cannot diagnose an infection or tell whether white blood cells are low.
+  bullets: []
+  applicability: { treatment_ids: [ac], symptom_ids: [fever-infection-concern] }
+  priority_tags: []
+  source_ids: [cco-fever-patient-guide, eviq-infection-during-cancer-treatment]
+  claim_ids: [claim-infection-observable-signs, claim-infection-without-fever]
+  placeholders: []
+  review_due: null
+
+- <<: *module_base
+  id: ac-fever-infection-context
+  section: treatment_context
+  title: Why it matters with this treatment
+  paragraphs:
+    - AC contains doxorubicin and cyclophosphamide. Chemotherapy can lower infection-fighting white blood cells, which can allow an infection to become serious.
+  applicability: { treatment_ids: [ac], symptom_ids: [fever-infection-concern] }
+  priority_tags: [infection-observations]
+  source_ids: [cco-ac-breast-patient-information, eviq-dose-dense-ac-breast-patient-information]
+  claim_ids: [claim-ac-components, claim-chemotherapy-infection-risk]
+
+- <<: *module_base
+  id: infection-home-preparation
+  section: home_management
+  title: What you can generally do at home
+  paragraphs:
+    - Follow the infection and fever instructions provided by your cancer team.
+  bullets:
+    - Keep a working digital thermometer available.
+    - If you feel hot, chilled, or unwell, take your temperature before using fever-reducing medicine, because that medicine can hide a fever.
+    - Avoid hot or cold food and drink immediately before an oral temperature measurement.
+    - Wash your hands often and keep cuts or line sites clean.
+  applicability: { treatment_ids: [ac], symptom_ids: [fever-infection-concern] }
+  priority_tags: [infection-observations]
+  source_ids: [cco-fever-patient-guide, eviq-infection-during-cancer-treatment]
+  claim_ids: [claim-thermometer-readiness, claim-fever-medicine-masking, claim-infection-precautions]
+
+- <<: *module_base
+  id: infection-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have chills, shaking, sweats, a sore throat, or a cough.
+    - You have burning or blood with urination, mouth sores, or redness or tenderness around a wound or line.
+    - You have uncontrolled vomiting or diarrhea.
+    - You feel unwell even without a measured fever.
+  applicability: { treatment_ids: [ac], symptom_ids: [fever-infection-concern] }
+  priority_tags: [infection-observations, contact-information]
+  source_ids: [cco-ac-breast-patient-information, eviq-infection-during-cancer-treatment]
+  claim_ids: [claim-infection-contact-observations]
+
+- <<: *module_base
+  id: infection-urgent-attention
+  section: urgent_attention
+  title: Seek urgent medical attention if…
+  paragraphs:
+    - This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team.
+  bullets:
+    - You cannot reach your cancer team and feel acutely unwell.
+    - You have shortness of breath, faintness, marked dizziness, or a fast heartbeat.
+    - You think this may be a medical emergency.
+  applicability: { treatment_ids: [ac], symptom_ids: [fever-infection-concern] }
+  priority_tags: []
+  source_ids: [cco-fever-patient-guide, cco-fever-assessment-guideline, eviq-infection-during-cancer-treatment]
+  claim_ids: [claim-infection-urgent-observations, claim-fever-threshold-owner-pending]
+  placeholders: [clinic-specific fever threshold and destination pending clinician review]
+
+- <<: *module_base
+  id: infection-reporting-checklist
+  section: reporting_checklist
+  title: What information to have ready
+  paragraphs: []
+  bullets:
+    - Your highest temperature, how it was measured, and the times it was measured.
+    - Any chills, shaking, sweats, cough, sore throat, breathing, urinary, bowel, mouth, skin, or line symptoms.
+    - When AC was last given.
+    - Whether fever-reducing medicine was taken and when.
+  applicability: { treatment_ids: [ac], symptom_ids: [fever-infection-concern] }
+  priority_tags: [tracking]
+  source_ids: [cco-ac-breast-patient-information, cco-fever-patient-guide, eviq-infection-during-cancer-treatment]
+  claim_ids: [claim-infection-reporting-information]
+

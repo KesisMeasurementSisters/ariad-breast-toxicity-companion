@@ -1,0 +1,208 @@
+- &feature_base
+  kind: observable_feature
+  id: neuropathy-location
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  patient_wording: Where the tingling, numbness, burning, or pain is felt
+  answer_type: multi_choice
+  options:
+    - { value: fingers, label: Fingers, summary_text: Fingers, priority_tags: [hand-safety] }
+    - { value: hands, label: Hands, summary_text: Hands, priority_tags: [hand-safety] }
+    - { value: toes, label: Toes, summary_text: Toes, priority_tags: [foot-safety] }
+    - { value: feet, label: Feet, summary_text: Feet, priority_tags: [foot-safety] }
+    - { value: elsewhere, label: Somewhere else, summary_text: Another location, priority_tags: [] }
+  summary_field: location
+  relevance_tags: [neuropathy]
+  source_ids: [cco-paclitaxel-patient-information, bc-cancer-peripheral-neuropathy-handout]
+
+- <<: *feature_base
+  id: neuropathy-onset
+  patient_wording: When the symptoms began
+  answer_type: single_choice
+  options:
+    - { value: today, label: Today, summary_text: Began today, priority_tags: [] }
+    - { value: past-week, label: In the past week, summary_text: Began in the past week, priority_tags: [] }
+    - { value: over-week, label: More than a week ago, summary_text: Began more than a week ago, priority_tags: [] }
+    - { value: unsure, label: I am not sure, summary_text: Onset is uncertain, priority_tags: [] }
+  summary_field: onset
+
+- <<: *feature_base
+  id: neuropathy-trend
+  patient_wording: Whether the symptoms are changing
+  answer_type: single_choice
+  options:
+    - { value: worsening, label: Getting stronger or spreading, summary_text: Symptoms are getting stronger or spreading, priority_tags: [change-noted] }
+    - { value: same, label: About the same, summary_text: Symptoms are about the same, priority_tags: [] }
+    - { value: improving, label: Improving, summary_text: Symptoms are improving, priority_tags: [] }
+    - { value: comes-goes, label: They come and go, summary_text: Symptoms come and go, priority_tags: [] }
+    - { value: unsure, label: I am not sure, summary_text: Change is uncertain, priority_tags: [] }
+  summary_field: change
+
+- <<: *feature_base
+  id: neuropathy-hand-tasks
+  patient_wording: Whether hand symptoms affect buttons, writing, or small objects
+  answer_type: multi_choice
+  options:
+    - { value: buttons, label: Fastening buttons, summary_text: Affects fastening buttons, priority_tags: [hand-safety, daily-activities] }
+    - { value: writing, label: Writing, summary_text: Affects writing, priority_tags: [hand-safety, daily-activities] }
+    - { value: small-objects, label: Picking up small objects, summary_text: Affects picking up small objects, priority_tags: [hand-safety, daily-activities] }
+    - { value: none, label: None of these, summary_text: Does not affect the listed hand tasks, priority_tags: [] }
+  summary_field: hand_tasks
+
+- <<: *feature_base
+  id: neuropathy-walking-balance
+  patient_wording: Whether walking or balance is affected
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: Walking and balance are not affected, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Walking or balance is affected, priority_tags: [foot-safety, fall-prevention] }
+    - { value: fall, label: I have fallen or nearly fallen, summary_text: There has been a fall or near-fall, priority_tags: [foot-safety, fall-prevention] }
+    - { value: unsure, label: I am not sure, summary_text: Effect on walking or balance is uncertain, priority_tags: [] }
+  summary_field: walking_balance
+
+- <<: *feature_base
+  id: neuropathy-weakness
+  patient_wording: Whether new weakness is present
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No new weakness reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: New weakness is reported, priority_tags: [change-noted] }
+    - { value: unsure, label: I am not sure, summary_text: Weakness is uncertain, priority_tags: [] }
+  summary_field: weakness
+
+- <<: *feature_base
+  id: diarrhea-onset
+  patient_wording: When the loose or watery bowel movements began
+  answer_type: single_choice
+  options:
+    - { value: today, label: Today, summary_text: Began today, priority_tags: [] }
+    - { value: yesterday, label: Yesterday, summary_text: Began yesterday, priority_tags: [] }
+    - { value: earlier, label: More than one day ago, summary_text: Began more than one day ago, priority_tags: [hydration] }
+    - { value: unsure, label: I am not sure, summary_text: Onset is uncertain, priority_tags: [] }
+  summary_field: onset
+  relevance_tags: [diarrhea]
+  source_ids: [cco-capecitabine-patient-information, cco-manage-diarrhea]
+
+- <<: *feature_base
+  id: diarrhea-count
+  patient_wording: Number of loose or watery bowel movements in the past 24 hours
+  answer_type: single_choice
+  options:
+    - { value: one-three, label: 1–3, summary_text: 1–3 loose or watery bowel movements in 24 hours, priority_tags: [] }
+    - { value: four-six, label: 4–6, summary_text: 4–6 loose or watery bowel movements in 24 hours, priority_tags: [tracking, hydration] }
+    - { value: seven-plus, label: 7 or more, summary_text: 7 or more loose or watery bowel movements in 24 hours, priority_tags: [tracking, hydration, contact-information] }
+    - { value: unsure, label: I am not sure, summary_text: Number in 24 hours is uncertain, priority_tags: [tracking] }
+  summary_field: bowel_movement_count
+
+- <<: *feature_base
+  id: diarrhea-baseline-change
+  patient_wording: How this compares with the usual bowel pattern
+  answer_type: single_choice
+  options:
+    - { value: no-change, label: No change, summary_text: No change from the usual bowel pattern, priority_tags: [] }
+    - { value: one-three-more, label: 1–3 more than usual, summary_text: 1–3 more bowel movements than usual, priority_tags: [] }
+    - { value: four-plus-more, label: 4 or more more than usual, summary_text: 4 or more bowel movements above usual, priority_tags: [tracking, hydration] }
+    - { value: unsure, label: I am not sure, summary_text: Change from usual is uncertain, priority_tags: [] }
+  summary_field: baseline_change
+
+- <<: *feature_base
+  id: diarrhea-drinking
+  patient_wording: Ability to drink fluids
+  answer_type: single_choice
+  options:
+    - { value: usual, label: Drinking about the usual amount, summary_text: Drinking about the usual amount, priority_tags: [] }
+    - { value: less, label: Drinking less than usual, summary_text: Drinking less than usual, priority_tags: [hydration] }
+    - { value: cannot, label: Unable to keep fluids down, summary_text: Unable to keep fluids down, priority_tags: [hydration, contact-information] }
+    - { value: fluid-limit, label: My team limits my fluids, summary_text: The cancer team has provided a fluid limit, priority_tags: [team-instructions] }
+  summary_field: drinking
+
+- <<: *feature_base
+  id: diarrhea-vomiting
+  patient_wording: Whether vomiting is also occurring
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No vomiting reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Vomiting is also occurring, priority_tags: [hydration] }
+  summary_field: vomiting
+
+- <<: *feature_base
+  id: diarrhea-dizziness
+  patient_wording: Whether dizziness or faintness is present
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No dizziness or faintness reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Dizziness or faintness is reported, priority_tags: [hydration, contact-information] }
+  summary_field: dizziness
+
+- <<: *feature_base
+  id: diarrhea-temperature
+  patient_wording: Highest measured temperature and how it was measured
+  answer_type: short_text
+  options: []
+  summary_field: measured_temperature
+  relevance_tags: [diarrhea, fever]
+  source_ids: [cco-manage-diarrhea, cco-fever-patient-guide]
+
+- <<: *feature_base
+  id: diarrhea-blood
+  patient_wording: Whether there is blood in the bowel movement
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: No blood reported, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Blood is reported, priority_tags: [contact-information] }
+    - { value: unsure, label: I am not sure, summary_text: Presence of blood is uncertain, priority_tags: [] }
+  summary_field: blood
+
+- <<: *feature_base
+  id: infection-temperature
+  patient_wording: Highest measured temperature and how it was measured
+  answer_type: short_text
+  options: []
+  summary_field: measured_temperature
+  relevance_tags: [fever, infection]
+  source_ids: [cco-fever-patient-guide, eviq-infection-during-cancer-treatment]
+
+- <<: *feature_base
+  id: infection-chills
+  patient_wording: Whether chills, shaking, or sweats are present
+  answer_type: multi_choice
+  options:
+    - { value: chills, label: Chills, summary_text: Chills are present, priority_tags: [infection-observations] }
+    - { value: shaking, label: Shaking, summary_text: Shaking is present, priority_tags: [infection-observations] }
+    - { value: sweats, label: Sweats, summary_text: Sweats are present, priority_tags: [infection-observations] }
+    - { value: none, label: None of these, summary_text: "No chills, shaking, or sweats reported", priority_tags: [] }
+  summary_field: chills_shaking_sweats
+
+- <<: *feature_base
+  id: infection-feeling-unwell
+  patient_wording: Whether the person feels unwell even without a measured fever
+  answer_type: single_choice
+  options:
+    - { value: no, label: No, summary_text: Does not feel generally unwell, priority_tags: [] }
+    - { value: yes, label: Yes, summary_text: Feels generally unwell, priority_tags: [infection-observations] }
+    - { value: unsure, label: I am not sure, summary_text: General unwellness is uncertain, priority_tags: [] }
+  summary_field: feeling_unwell
+
+- <<: *feature_base
+  id: infection-signs
+  patient_wording: Other observable infection signs
+  answer_type: multi_choice
+  options:
+    - { value: cough-throat, label: Cough or sore throat, summary_text: Cough or sore throat is present, priority_tags: [infection-observations] }
+    - { value: urine, label: Burning or blood with urination, summary_text: Urinary burning or blood is present, priority_tags: [infection-observations] }
+    - { value: mouth, label: Mouth sores, summary_text: Mouth sores are present, priority_tags: [infection-observations] }
+    - { value: skin-line, label: Redness or tenderness around a wound or line, summary_text: Redness or tenderness around a wound or line is present, priority_tags: [infection-observations] }
+    - { value: none, label: None of these, summary_text: None of the listed infection signs are reported, priority_tags: [] }
+  summary_field: other_infection_signs
+
+- <<: *feature_base
+  id: infection-fever-medicine
+  patient_wording: Whether fever-reducing medicine was taken, and when
+  answer_type: short_text
+  options: []
+  summary_field: fever_reducing_medicine
+  relevance_tags: [fever, infection]
+  source_ids: [cco-fever-patient-guide, eviq-infection-during-cancer-treatment]

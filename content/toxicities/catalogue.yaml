@@ -1,0 +1,343 @@
+- &symptom_base
+  kind: symptom
+  id: peripheral-neuropathy
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  patient_label: Tingling, numbness, or burning
+  clinical_label: Peripheral neuropathy
+  synonyms: [neuropathy, pins and needles, numb fingers, numb toes, burning feet]
+  navigation_terms: [tingling fingers, dropping things, hand numbness, foot numbness]
+  body_system_tags: [nervous-system, hands, feet]
+  observable_feature_ids:
+    - neuropathy-location
+    - neuropathy-onset
+    - neuropathy-trend
+    - neuropathy-hand-tasks
+    - neuropathy-walking-balance
+    - neuropathy-weakness
+  general_module_ids: []
+  source_ids:
+    - cco-paclitaxel-patient-information
+    - eviq-weekly-paclitaxel-breast-patient-information
+    - bc-cancer-peripheral-neuropathy-handout
+  concept_kind: patient_observable
+  support_status: full_guidance
+
+- <<: *symptom_base
+  id: diarrhea
+  patient_label: Diarrhea
+  clinical_label: Diarrhea
+  synonyms: [loose stool, loose stools, watery stool, watery poo, frequent bowel movements]
+  navigation_terms: [the runs, going more often, watery bowel movement]
+  body_system_tags: [digestive-system]
+  observable_feature_ids:
+    - diarrhea-onset
+    - diarrhea-count
+    - diarrhea-baseline-change
+    - diarrhea-drinking
+    - diarrhea-vomiting
+    - diarrhea-dizziness
+    - diarrhea-temperature
+    - diarrhea-blood
+  source_ids:
+    - cco-capecitabine-patient-information
+    - cco-manage-diarrhea
+  support_status: full_guidance
+
+- <<: *symptom_base
+  id: fever-infection-concern
+  patient_label: Fever, chills, or infection concern
+  clinical_label: Fever or possible infection
+  synonyms: [fever, chills, shivering, shaking, infection, feeling feverish]
+  navigation_terms: [high temperature, feel hot, sweats, sore throat on chemo]
+  body_system_tags: [whole-body, infection]
+  observable_feature_ids:
+    - infection-temperature
+    - infection-chills
+    - infection-feeling-unwell
+    - infection-signs
+    - infection-fever-medicine
+  source_ids:
+    - cco-fever-patient-guide
+    - cco-fever-assessment-guideline
+    - eviq-infection-during-cancer-treatment
+  support_status: full_guidance
+
+- <<: *symptom_base
+  id: fatigue
+  patient_label: Tiredness or low energy
+  clinical_label: Fatigue
+  synonyms: [fatigue, tired, exhausted, low energy]
+  navigation_terms: [no energy, worn out]
+  body_system_tags: [whole-body]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: nausea
+  patient_label: Nausea
+  clinical_label: Nausea
+  synonyms: [feeling sick, queasy, upset stomach]
+  navigation_terms: [feel like vomiting]
+  body_system_tags: [digestive-system]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: vomiting
+  patient_label: Vomiting
+  clinical_label: Vomiting
+  synonyms: [throwing up, being sick]
+  navigation_terms: [cannot keep fluids down]
+  body_system_tags: [digestive-system]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: constipation
+  patient_label: Constipation
+  clinical_label: Constipation
+  synonyms: [hard stool, cannot poop, no bowel movement]
+  navigation_terms: [straining]
+  body_system_tags: [digestive-system]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: appetite-taste-changes
+  patient_label: Appetite or taste changes
+  clinical_label: Appetite and taste changes
+  synonyms: [no appetite, food tastes different, metallic taste]
+  navigation_terms: [not hungry]
+  body_system_tags: [nutrition]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: mouth-soreness
+  patient_label: Mouth soreness
+  clinical_label: Oral mucositis or stomatitis
+  synonyms: [mouth sores, sore mouth, ulcers, painful mouth]
+  navigation_terms: [mouth full of sores]
+  body_system_tags: [mouth]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: rash-itching
+  patient_label: Rash or itching
+  clinical_label: Rash or pruritus
+  synonyms: [itchy skin, red spots, skin rash]
+  navigation_terms: [hives, itchy]
+  body_system_tags: [skin]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: hand-foot-symptoms
+  patient_label: Hand or foot skin changes
+  clinical_label: Hand-foot syndrome
+  synonyms: [sore palms, sore soles, peeling hands, peeling feet, hand foot syndrome]
+  navigation_terms: [red palms, burning soles]
+  body_system_tags: [skin, hands, feet]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: joint-muscle-symptoms
+  patient_label: Joint or muscle aches
+  clinical_label: Arthralgia or myalgia
+  synonyms: [joint pain, muscle pain, body aches, stiffness]
+  navigation_terms: [aching joints]
+  body_system_tags: [musculoskeletal]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: headache
+  patient_label: Headache
+  clinical_label: Headache
+  synonyms: [head pain, migraine]
+  navigation_terms: [head hurts]
+  body_system_tags: [nervous-system]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: dizziness
+  patient_label: Dizziness or faintness
+  clinical_label: Dizziness
+  synonyms: [lightheaded, faint, woozy, unsteady]
+  navigation_terms: [feel like passing out]
+  body_system_tags: [nervous-system]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: hot-flashes
+  patient_label: Hot flashes
+  clinical_label: Vasomotor symptoms
+  synonyms: [hot flushes, night sweats]
+  navigation_terms: [suddenly hot]
+  body_system_tags: [endocrine]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: vaginal-genitourinary-symptoms
+  patient_label: Vaginal or urinary symptoms
+  clinical_label: Genitourinary symptoms
+  synonyms: [vaginal dryness, pain with sex, urinary discomfort]
+  navigation_terms: [burning urine, vaginal soreness]
+  body_system_tags: [genitourinary]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: sleep-concerns
+  patient_label: Sleep concerns
+  clinical_label: Sleep disturbance
+  synonyms: [insomnia, cannot sleep, waking often]
+  navigation_terms: [poor sleep]
+  body_system_tags: [sleep]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: mood-cognitive-concerns
+  patient_label: Mood, memory, or concentration concerns
+  clinical_label: Mood or cognitive symptoms
+  synonyms: [brain fog, low mood, anxious, forgetful]
+  navigation_terms: [cannot concentrate]
+  body_system_tags: [mental-health, cognition]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: pain
+  patient_label: Pain
+  clinical_label: Pain
+  synonyms: [ache, hurts, soreness]
+  navigation_terms: [new pain]
+  body_system_tags: [whole-body]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: shortness-of-breath-cough
+  patient_label: Shortness of breath or cough
+  clinical_label: Respiratory symptoms
+  synonyms: [breathless, trouble breathing, coughing, winded]
+  navigation_terms: [cannot catch breath]
+  body_system_tags: [respiratory]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: chest-symptoms
+  patient_label: Chest pain or pressure
+  clinical_label: Chest symptoms
+  synonyms: [chest pain, chest pressure, chest tightness]
+  navigation_terms: [heavy chest]
+  body_system_tags: [cardiovascular, respiratory]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: edema-swelling
+  patient_label: Swelling
+  clinical_label: Edema
+  synonyms: [puffy ankles, swollen legs, swollen arm]
+  navigation_terms: [fluid retention]
+  body_system_tags: [cardiovascular, lymphatic]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: palpitations
+  patient_label: Fast or irregular heartbeat
+  clinical_label: Palpitations
+  synonyms: [heart racing, skipped beats, pounding heart]
+  navigation_terms: [fluttering heart]
+  body_system_tags: [cardiovascular]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: bleeding-bruising
+  patient_label: Bleeding or bruising
+  clinical_label: Bleeding or bruising
+  synonyms: [easy bruising, nosebleed, bleeding gums]
+  navigation_terms: [unusual bleeding]
+  body_system_tags: [blood]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: blood-clot-warning-symptoms
+  patient_label: Possible blood-clot symptoms
+  clinical_label: Thromboembolic warning symptoms
+  synonyms: [one swollen leg, calf pain, sudden breathlessness]
+  navigation_terms: [possible clot]
+  body_system_tags: [blood, cardiovascular]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: eye-vision-symptoms
+  patient_label: Eye or vision changes
+  clinical_label: Ocular symptoms
+  synonyms: [blurred vision, sore eyes, dry eyes, vision change]
+  navigation_terms: [cannot see clearly]
+  body_system_tags: [eyes]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: nail-hair-changes
+  patient_label: Nail or hair changes
+  clinical_label: Nail or hair changes
+  synonyms: [hair loss, brittle nails, nail pain]
+  navigation_terms: [losing hair]
+  body_system_tags: [skin, hair, nails]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+
+- <<: *symptom_base
+  id: infusion-allergic-symptoms
+  patient_label: Infusion or allergic-type symptoms
+  clinical_label: Infusion or hypersensitivity symptoms
+  synonyms: [facial swelling, hives, wheeze, reaction during infusion]
+  navigation_terms: [allergic reaction]
+  body_system_tags: [immune-system, respiratory, skin]
+  observable_feature_ids: []
+  source_ids: [cco-symptom-management-directory]
+  support_status: catalogued
+

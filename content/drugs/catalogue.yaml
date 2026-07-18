@@ -1,0 +1,235 @@
+- &drug_base
+  kind: drug
+  id: paclitaxel
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  generic_name: paclitaxel
+  brand_names: [Taxol]
+  aliases: [paclitaxel weekly, weekly Taxol]
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [cco-paclitaxel-patient-information, cco-systemic-treatment-information]
+  support_status: full_guidance
+
+- <<: *drug_base
+  id: capecitabine
+  generic_name: capecitabine
+  brand_names: [Xeloda]
+  aliases: [CAPE]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [oral]
+  source_ids: [cco-capecitabine-patient-information, health-canada-capecitabine-product-record]
+
+- <<: *drug_base
+  id: doxorubicin
+  generic_name: doxorubicin
+  brand_names: [Adriamycin]
+  aliases: [doxorubicin hydrochloride]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [cco-ac-breast-patient-information, cco-systemic-treatment-information]
+  support_status: education_only
+
+- <<: *drug_base
+  id: cyclophosphamide
+  generic_name: cyclophosphamide
+  brand_names: [Procytox, Cytoxan]
+  aliases: []
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous, oral]
+  source_ids: [cco-ac-breast-patient-information, cco-systemic-treatment-information]
+  support_status: education_only
+
+- <<: *drug_base
+  id: docetaxel
+  generic_name: docetaxel
+  brand_names: [Taxotere]
+  aliases: []
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: carboplatin
+  generic_name: carboplatin
+  brand_names: []
+  aliases: []
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: trastuzumab
+  generic_name: trastuzumab
+  brand_names: [Herceptin]
+  aliases: []
+  class_ids: [her2-directed-therapy]
+  routes: [intravenous, subcutaneous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: pertuzumab
+  generic_name: pertuzumab
+  brand_names: [Perjeta]
+  aliases: []
+  class_ids: [her2-directed-therapy]
+  routes: [intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: tamoxifen
+  generic_name: tamoxifen
+  brand_names: [Nolvadex]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: letrozole
+  generic_name: letrozole
+  brand_names: [Femara]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: anastrozole
+  generic_name: anastrozole
+  brand_names: [Arimidex]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: exemestane
+  generic_name: exemestane
+  brand_names: [Aromasin]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: abemaciclib
+  generic_name: abemaciclib
+  brand_names: [Verzenio]
+  aliases: []
+  class_ids: [cdk46-inhibitor]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: ribociclib
+  generic_name: ribociclib
+  brand_names: [Kisqali]
+  aliases: []
+  class_ids: [cdk46-inhibitor]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: palbociclib
+  generic_name: palbociclib
+  brand_names: [Ibrance]
+  aliases: []
+  class_ids: [cdk46-inhibitor]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: olaparib
+  generic_name: olaparib
+  brand_names: [Lynparza]
+  aliases: []
+  class_ids: [parp-inhibitor]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: talazoparib
+  generic_name: talazoparib
+  brand_names: [Talzenna]
+  aliases: []
+  class_ids: [parp-inhibitor]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: pembrolizumab
+  generic_name: pembrolizumab
+  brand_names: [Keytruda]
+  aliases: []
+  class_ids: [immune-checkpoint-inhibitor]
+  routes: [intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: trastuzumab-deruxtecan
+  generic_name: trastuzumab deruxtecan
+  brand_names: [Enhertu]
+  aliases: [T-DXd, TDXd]
+  class_ids: [antibody-drug-conjugate, her2-directed-therapy]
+  routes: [intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: sacituzumab-govitecan
+  generic_name: sacituzumab govitecan
+  brand_names: [Trodelvy]
+  aliases: []
+  class_ids: [antibody-drug-conjugate]
+  routes: [intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: alpelisib
+  generic_name: alpelisib
+  brand_names: [Piqray]
+  aliases: []
+  class_ids: [pi3k-akt-mtor-pathway-therapy]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: capivasertib
+  generic_name: capivasertib
+  brand_names: [Truqap]
+  aliases: []
+  class_ids: [pi3k-akt-mtor-pathway-therapy]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *drug_base
+  id: everolimus
+  generic_name: everolimus
+  brand_names: [Afinitor]
+  aliases: []
+  class_ids: [pi3k-akt-mtor-pathway-therapy]
+  routes: [oral]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+

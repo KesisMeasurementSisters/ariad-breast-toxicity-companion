@@ -1,0 +1,182 @@
+release_id: build-week-preview-2026-07-18
+version: 0.1.0
+channel: preview
+publication_status: draft
+clinical_use: false
+generated_at: 2026-07-18T00:00:00-04:00
+clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 1.0.0 }
+included_objects:
+  - { kind: clinic_config, id: build-week-demo-clinic, version: 1.0.0 }
+  - { kind: drug, id: abemaciclib, version: 1.0.0 }
+  - { kind: drug, id: alpelisib, version: 1.0.0 }
+  - { kind: drug, id: anastrozole, version: 1.0.0 }
+  - { kind: drug, id: capecitabine, version: 1.0.0 }
+  - { kind: drug, id: capivasertib, version: 1.0.0 }
+  - { kind: drug, id: carboplatin, version: 1.0.0 }
+  - { kind: drug, id: cyclophosphamide, version: 1.0.0 }
+  - { kind: drug, id: docetaxel, version: 1.0.0 }
+  - { kind: drug, id: doxorubicin, version: 1.0.0 }
+  - { kind: drug, id: everolimus, version: 1.0.0 }
+  - { kind: drug, id: exemestane, version: 1.0.0 }
+  - { kind: drug, id: letrozole, version: 1.0.0 }
+  - { kind: drug, id: olaparib, version: 1.0.0 }
+  - { kind: drug, id: paclitaxel, version: 1.0.0 }
+  - { kind: drug, id: palbociclib, version: 1.0.0 }
+  - { kind: drug, id: pembrolizumab, version: 1.0.0 }
+  - { kind: drug, id: pertuzumab, version: 1.0.0 }
+  - { kind: drug, id: ribociclib, version: 1.0.0 }
+  - { kind: drug, id: sacituzumab-govitecan, version: 1.0.0 }
+  - { kind: drug, id: talazoparib, version: 1.0.0 }
+  - { kind: drug, id: tamoxifen, version: 1.0.0 }
+  - { kind: drug, id: trastuzumab, version: 1.0.0 }
+  - { kind: drug, id: trastuzumab-deruxtecan, version: 1.0.0 }
+  - { kind: educational_module, id: ac-fever-infection-context, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-diarrhea-context, version: 1.0.0 }
+  - { kind: educational_module, id: diarrhea-about, version: 1.0.0 }
+  - { kind: educational_module, id: diarrhea-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: diarrhea-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: diarrhea-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: diarrhea-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: fever-infection-about, version: 1.0.0 }
+  - { kind: educational_module, id: infection-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: infection-home-preparation, version: 1.0.0 }
+  - { kind: educational_module, id: infection-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: infection-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: neuropathy-about, version: 1.0.0 }
+  - { kind: educational_module, id: neuropathy-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: neuropathy-home-safety, version: 1.0.0 }
+  - { kind: educational_module, id: neuropathy-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: neuropathy-urgent-neurological-signs, version: 1.0.0 }
+  - { kind: educational_module, id: paclitaxel-neuropathy-context, version: 1.0.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.0.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.0.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.0.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-baseline-change, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-blood, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-count, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-dizziness, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-drinking, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-onset, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-temperature, version: 1.0.0 }
+  - { kind: observable_feature, id: diarrhea-vomiting, version: 1.0.0 }
+  - { kind: observable_feature, id: infection-chills, version: 1.0.0 }
+  - { kind: observable_feature, id: infection-feeling-unwell, version: 1.0.0 }
+  - { kind: observable_feature, id: infection-fever-medicine, version: 1.0.0 }
+  - { kind: observable_feature, id: infection-signs, version: 1.0.0 }
+  - { kind: observable_feature, id: infection-temperature, version: 1.0.0 }
+  - { kind: observable_feature, id: neuropathy-hand-tasks, version: 1.0.0 }
+  - { kind: observable_feature, id: neuropathy-location, version: 1.0.0 }
+  - { kind: observable_feature, id: neuropathy-onset, version: 1.0.0 }
+  - { kind: observable_feature, id: neuropathy-trend, version: 1.0.0 }
+  - { kind: observable_feature, id: neuropathy-walking-balance, version: 1.0.0 }
+  - { kind: observable_feature, id: neuropathy-weakness, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-baseline-change, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-blood, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-count, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-dizziness, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-drinking, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-onset, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-temperature, version: 1.0.0 }
+  - { kind: question, id: q-diarrhea-vomiting, version: 1.0.0 }
+  - { kind: question, id: q-infection-chills, version: 1.0.0 }
+  - { kind: question, id: q-infection-feeling-unwell, version: 1.0.0 }
+  - { kind: question, id: q-infection-fever-medicine, version: 1.0.0 }
+  - { kind: question, id: q-infection-signs, version: 1.0.0 }
+  - { kind: question, id: q-infection-temperature, version: 1.0.0 }
+  - { kind: question, id: q-neuropathy-hand-tasks, version: 1.0.0 }
+  - { kind: question, id: q-neuropathy-location, version: 1.0.0 }
+  - { kind: question, id: q-neuropathy-onset, version: 1.0.0 }
+  - { kind: question, id: q-neuropathy-trend, version: 1.0.0 }
+  - { kind: question, id: q-neuropathy-walking-balance, version: 1.0.0 }
+  - { kind: question, id: q-neuropathy-weakness, version: 1.0.0 }
+  - { kind: regimen, id: ac, version: 1.0.0 }
+  - { kind: regimen, id: capecitabine-monotherapy, version: 1.0.0 }
+  - { kind: regimen, id: tc, version: 1.0.0 }
+  - { kind: regimen, id: tchp, version: 1.0.0 }
+  - { kind: regimen, id: weekly-paclitaxel, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-peripheral-neuropathy-handout, version: 1.0.0 }
+  - { kind: source, id: cco-ac-breast-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-capecitabine-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-fever-assessment-guideline, version: 1.0.0 }
+  - { kind: source, id: cco-fever-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-manage-diarrhea, version: 1.0.0 }
+  - { kind: source, id: cco-paclitaxel-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-symptom-management-directory, version: 1.0.0 }
+  - { kind: source, id: cco-systemic-treatment-information, version: 1.0.0 }
+  - { kind: source, id: eviq-dose-dense-ac-breast-patient-information, version: 1.0.0 }
+  - { kind: source, id: eviq-infection-during-cancer-treatment, version: 1.0.0 }
+  - { kind: source, id: eviq-weekly-paclitaxel-breast-patient-information, version: 1.0.0 }
+  - { kind: source, id: health-canada-capecitabine-product-record, version: 1.0.0 }
+  - { kind: source, id: health-canada-fluoropyrimidine-infowatch, version: 1.0.0 }
+  - { kind: symptom, id: appetite-taste-changes, version: 1.0.0 }
+  - { kind: symptom, id: bleeding-bruising, version: 1.0.0 }
+  - { kind: symptom, id: blood-clot-warning-symptoms, version: 1.0.0 }
+  - { kind: symptom, id: chest-symptoms, version: 1.0.0 }
+  - { kind: symptom, id: constipation, version: 1.0.0 }
+  - { kind: symptom, id: diarrhea, version: 1.0.0 }
+  - { kind: symptom, id: dizziness, version: 1.0.0 }
+  - { kind: symptom, id: edema-swelling, version: 1.0.0 }
+  - { kind: symptom, id: eye-vision-symptoms, version: 1.0.0 }
+  - { kind: symptom, id: fatigue, version: 1.0.0 }
+  - { kind: symptom, id: fever-infection-concern, version: 1.0.0 }
+  - { kind: symptom, id: hand-foot-symptoms, version: 1.0.0 }
+  - { kind: symptom, id: headache, version: 1.0.0 }
+  - { kind: symptom, id: hot-flashes, version: 1.0.0 }
+  - { kind: symptom, id: infusion-allergic-symptoms, version: 1.0.0 }
+  - { kind: symptom, id: joint-muscle-symptoms, version: 1.0.0 }
+  - { kind: symptom, id: mood-cognitive-concerns, version: 1.0.0 }
+  - { kind: symptom, id: mouth-soreness, version: 1.0.0 }
+  - { kind: symptom, id: nail-hair-changes, version: 1.0.0 }
+  - { kind: symptom, id: nausea, version: 1.0.0 }
+  - { kind: symptom, id: pain, version: 1.0.0 }
+  - { kind: symptom, id: palpitations, version: 1.0.0 }
+  - { kind: symptom, id: peripheral-neuropathy, version: 1.0.0 }
+  - { kind: symptom, id: rash-itching, version: 1.0.0 }
+  - { kind: symptom, id: shortness-of-breath-cough, version: 1.0.0 }
+  - { kind: symptom, id: sleep-concerns, version: 1.0.0 }
+  - { kind: symptom, id: vaginal-genitourinary-symptoms, version: 1.0.0 }
+  - { kind: symptom, id: vomiting, version: 1.0.0 }
+  - { kind: treatment_class, id: antibody-drug-conjugate, version: 1.0.0 }
+  - { kind: treatment_class, id: cdk46-inhibitor, version: 1.0.0 }
+  - { kind: treatment_class, id: cytotoxic-chemotherapy, version: 1.0.0 }
+  - { kind: treatment_class, id: endocrine-therapy, version: 1.0.0 }
+  - { kind: treatment_class, id: her2-directed-therapy, version: 1.0.0 }
+  - { kind: treatment_class, id: immune-checkpoint-inhibitor, version: 1.0.0 }
+  - { kind: treatment_class, id: parp-inhibitor, version: 1.0.0 }
+  - { kind: treatment_class, id: pi3k-akt-mtor-pathway-therapy, version: 1.0.0 }
+  - { kind: treatment_class, id: systemic-therapy, version: 1.0.0 }
+  - { kind: treatment_class, id: taxane, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: ac-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: capecitabine-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: weekly-paclitaxel-peripheral-neuropathy, version: 1.0.0 }
+source_inventory:
+  - bc-cancer-peripheral-neuropathy-handout
+  - cco-ac-breast-patient-information
+  - cco-capecitabine-patient-information
+  - cco-fever-assessment-guideline
+  - cco-fever-patient-guide
+  - cco-manage-diarrhea
+  - cco-paclitaxel-patient-information
+  - cco-symptom-management-directory
+  - cco-systemic-treatment-information
+  - eviq-dose-dense-ac-breast-patient-information
+  - eviq-infection-during-cancer-treatment
+  - eviq-weekly-paclitaxel-breast-patient-information
+  - health-canada-capecitabine-product-record
+  - health-canada-fluoropyrimidine-infowatch
+reviewer_metadata:
+  reviewer: null
+  reviewed_at: null
+  release_approval_id: null
+known_gaps:
+  - All patient-facing clinical modules are draft and require clinician review.
+  - The fictional demo clinic has no approved fever threshold or destination.
+  - The exact AC schedule variant is unresolved; no nadir timing is included.
+  - Catalogue-level treatment and symptom entries do not imply full guidance.
+  - Two broad catalogue sources are link-only and cannot enter a published release.
+release_notes:
+  - Immutable, content-addressed Build Week preview for synthetic demonstration only.
+  - Contains three complete draft gold pathways and one draft weekly-paclitaxel preparation flow.
+  - GPT-5.6 is not a source of clinical guidance.
+

@@ -1,0 +1,6791 @@
+{
+  "approval_summary": {
+    "approved": 0,
+    "draft": 130,
+    "in_review": 0,
+    "retired": 0
+  },
+  "channel": "preview",
+  "clinical_use": false,
+  "compiler_version": "0.1.0",
+  "contains_unapproved_content": true,
+  "content_hash": "b3e8b481b45e0004f01d68ea8c5150e6f0ad4a1dc0ab62291bbd2e9efe630ad5",
+  "generated_at": "2026-07-18T00:00:00-04:00",
+  "indexes": {
+    "relationships_by_symptom": {
+      "diarrhea": [
+        "capecitabine-diarrhea"
+      ],
+      "fever-infection-concern": [
+        "ac-fever-infection-concern"
+      ],
+      "peripheral-neuropathy": [
+        "weekly-paclitaxel-peripheral-neuropathy"
+      ]
+    },
+    "relationships_by_treatment": {
+      "ac": [
+        "ac-fever-infection-concern"
+      ],
+      "capecitabine-monotherapy": [
+        "capecitabine-diarrhea"
+      ],
+      "weekly-paclitaxel": [
+        "weekly-paclitaxel-peripheral-neuropathy"
+      ]
+    },
+    "symptoms": [
+      {
+        "aliases": [
+          "no appetite",
+          "food tastes different",
+          "metallic taste",
+          "not hungry"
+        ],
+        "display_name": "Appetite or taste changes",
+        "id": "appetite-taste-changes",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "no appetite",
+          "food tastes different",
+          "metallic taste",
+          "not hungry"
+        ],
+        "normalized_name": "appetite or taste changes",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "easy bruising",
+          "nosebleed",
+          "bleeding gums",
+          "unusual bleeding"
+        ],
+        "display_name": "Bleeding or bruising",
+        "id": "bleeding-bruising",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "easy bruising",
+          "nosebleed",
+          "bleeding gums",
+          "unusual bleeding"
+        ],
+        "normalized_name": "bleeding or bruising",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "chest pain",
+          "chest pressure",
+          "chest tightness",
+          "heavy chest"
+        ],
+        "display_name": "Chest pain or pressure",
+        "id": "chest-symptoms",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "chest pain",
+          "chest pressure",
+          "chest tightness",
+          "heavy chest"
+        ],
+        "normalized_name": "chest pain or pressure",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "hard stool",
+          "cannot poop",
+          "no bowel movement",
+          "straining"
+        ],
+        "display_name": "Constipation",
+        "id": "constipation",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "hard stool",
+          "cannot poop",
+          "no bowel movement",
+          "straining"
+        ],
+        "normalized_name": "constipation",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "loose stool",
+          "loose stools",
+          "watery stool",
+          "watery poo",
+          "frequent bowel movements",
+          "the runs",
+          "going more often",
+          "watery bowel movement"
+        ],
+        "display_name": "Diarrhea",
+        "id": "diarrhea",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "loose stool",
+          "loose stools",
+          "watery stool",
+          "watery poo",
+          "frequent bowel movements",
+          "the runs",
+          "going more often",
+          "watery bowel movement"
+        ],
+        "normalized_name": "diarrhea",
+        "support_status": "full_guidance"
+      },
+      {
+        "aliases": [
+          "lightheaded",
+          "faint",
+          "woozy",
+          "unsteady",
+          "feel like passing out"
+        ],
+        "display_name": "Dizziness or faintness",
+        "id": "dizziness",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "lightheaded",
+          "faint",
+          "woozy",
+          "unsteady",
+          "feel like passing out"
+        ],
+        "normalized_name": "dizziness or faintness",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "blurred vision",
+          "sore eyes",
+          "dry eyes",
+          "vision change",
+          "cannot see clearly"
+        ],
+        "display_name": "Eye or vision changes",
+        "id": "eye-vision-symptoms",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "blurred vision",
+          "sore eyes",
+          "dry eyes",
+          "vision change",
+          "cannot see clearly"
+        ],
+        "normalized_name": "eye or vision changes",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "heart racing",
+          "skipped beats",
+          "pounding heart",
+          "fluttering heart"
+        ],
+        "display_name": "Fast or irregular heartbeat",
+        "id": "palpitations",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "heart racing",
+          "skipped beats",
+          "pounding heart",
+          "fluttering heart"
+        ],
+        "normalized_name": "fast or irregular heartbeat",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "fever",
+          "chills",
+          "shivering",
+          "shaking",
+          "infection",
+          "feeling feverish",
+          "high temperature",
+          "feel hot",
+          "sweats",
+          "sore throat on chemo"
+        ],
+        "display_name": "Fever, chills, or infection concern",
+        "id": "fever-infection-concern",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "fever",
+          "chills",
+          "shivering",
+          "shaking",
+          "infection",
+          "feeling feverish",
+          "high temperature",
+          "feel hot",
+          "sweats",
+          "sore throat on chemo"
+        ],
+        "normalized_name": "fever chills or infection concern",
+        "support_status": "full_guidance"
+      },
+      {
+        "aliases": [
+          "sore palms",
+          "sore soles",
+          "peeling hands",
+          "peeling feet",
+          "hand foot syndrome",
+          "red palms",
+          "burning soles"
+        ],
+        "display_name": "Hand or foot skin changes",
+        "id": "hand-foot-symptoms",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "sore palms",
+          "sore soles",
+          "peeling hands",
+          "peeling feet",
+          "hand foot syndrome",
+          "red palms",
+          "burning soles"
+        ],
+        "normalized_name": "hand or foot skin changes",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "head pain",
+          "migraine",
+          "head hurts"
+        ],
+        "display_name": "Headache",
+        "id": "headache",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "head pain",
+          "migraine",
+          "head hurts"
+        ],
+        "normalized_name": "headache",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "hot flushes",
+          "night sweats",
+          "suddenly hot"
+        ],
+        "display_name": "Hot flashes",
+        "id": "hot-flashes",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "hot flushes",
+          "night sweats",
+          "suddenly hot"
+        ],
+        "normalized_name": "hot flashes",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "facial swelling",
+          "hives",
+          "wheeze",
+          "reaction during infusion",
+          "allergic reaction"
+        ],
+        "display_name": "Infusion or allergic-type symptoms",
+        "id": "infusion-allergic-symptoms",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "facial swelling",
+          "hives",
+          "wheeze",
+          "reaction during infusion",
+          "allergic reaction"
+        ],
+        "normalized_name": "infusion or allergic type symptoms",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "joint pain",
+          "muscle pain",
+          "body aches",
+          "stiffness",
+          "aching joints"
+        ],
+        "display_name": "Joint or muscle aches",
+        "id": "joint-muscle-symptoms",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "joint pain",
+          "muscle pain",
+          "body aches",
+          "stiffness",
+          "aching joints"
+        ],
+        "normalized_name": "joint or muscle aches",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "brain fog",
+          "low mood",
+          "anxious",
+          "forgetful",
+          "cannot concentrate"
+        ],
+        "display_name": "Mood, memory, or concentration concerns",
+        "id": "mood-cognitive-concerns",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "brain fog",
+          "low mood",
+          "anxious",
+          "forgetful",
+          "cannot concentrate"
+        ],
+        "normalized_name": "mood memory or concentration concerns",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "mouth sores",
+          "sore mouth",
+          "ulcers",
+          "painful mouth",
+          "mouth full of sores"
+        ],
+        "display_name": "Mouth soreness",
+        "id": "mouth-soreness",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "mouth sores",
+          "sore mouth",
+          "ulcers",
+          "painful mouth",
+          "mouth full of sores"
+        ],
+        "normalized_name": "mouth soreness",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "hair loss",
+          "brittle nails",
+          "nail pain",
+          "losing hair"
+        ],
+        "display_name": "Nail or hair changes",
+        "id": "nail-hair-changes",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "hair loss",
+          "brittle nails",
+          "nail pain",
+          "losing hair"
+        ],
+        "normalized_name": "nail or hair changes",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "feeling sick",
+          "queasy",
+          "upset stomach",
+          "feel like vomiting"
+        ],
+        "display_name": "Nausea",
+        "id": "nausea",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "feeling sick",
+          "queasy",
+          "upset stomach",
+          "feel like vomiting"
+        ],
+        "normalized_name": "nausea",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "ache",
+          "hurts",
+          "soreness",
+          "new pain"
+        ],
+        "display_name": "Pain",
+        "id": "pain",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "ache",
+          "hurts",
+          "soreness",
+          "new pain"
+        ],
+        "normalized_name": "pain",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "one swollen leg",
+          "calf pain",
+          "sudden breathlessness",
+          "possible clot"
+        ],
+        "display_name": "Possible blood-clot symptoms",
+        "id": "blood-clot-warning-symptoms",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "one swollen leg",
+          "calf pain",
+          "sudden breathlessness",
+          "possible clot"
+        ],
+        "normalized_name": "possible blood clot symptoms",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "itchy skin",
+          "red spots",
+          "skin rash",
+          "hives",
+          "itchy"
+        ],
+        "display_name": "Rash or itching",
+        "id": "rash-itching",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "itchy skin",
+          "red spots",
+          "skin rash",
+          "hives",
+          "itchy"
+        ],
+        "normalized_name": "rash or itching",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "breathless",
+          "trouble breathing",
+          "coughing",
+          "winded",
+          "cannot catch breath"
+        ],
+        "display_name": "Shortness of breath or cough",
+        "id": "shortness-of-breath-cough",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "breathless",
+          "trouble breathing",
+          "coughing",
+          "winded",
+          "cannot catch breath"
+        ],
+        "normalized_name": "shortness of breath or cough",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "insomnia",
+          "cannot sleep",
+          "waking often",
+          "poor sleep"
+        ],
+        "display_name": "Sleep concerns",
+        "id": "sleep-concerns",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "insomnia",
+          "cannot sleep",
+          "waking often",
+          "poor sleep"
+        ],
+        "normalized_name": "sleep concerns",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "puffy ankles",
+          "swollen legs",
+          "swollen arm",
+          "fluid retention"
+        ],
+        "display_name": "Swelling",
+        "id": "edema-swelling",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "puffy ankles",
+          "swollen legs",
+          "swollen arm",
+          "fluid retention"
+        ],
+        "normalized_name": "swelling",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "neuropathy",
+          "pins and needles",
+          "numb fingers",
+          "numb toes",
+          "burning feet",
+          "tingling fingers",
+          "dropping things",
+          "hand numbness",
+          "foot numbness"
+        ],
+        "display_name": "Tingling, numbness, or burning",
+        "id": "peripheral-neuropathy",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "neuropathy",
+          "pins and needles",
+          "numb fingers",
+          "numb toes",
+          "burning feet",
+          "tingling fingers",
+          "dropping things",
+          "hand numbness",
+          "foot numbness"
+        ],
+        "normalized_name": "tingling numbness or burning",
+        "support_status": "full_guidance"
+      },
+      {
+        "aliases": [
+          "fatigue",
+          "tired",
+          "exhausted",
+          "low energy",
+          "no energy",
+          "worn out"
+        ],
+        "display_name": "Tiredness or low energy",
+        "id": "fatigue",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "fatigue",
+          "tired",
+          "exhausted",
+          "low energy",
+          "no energy",
+          "worn out"
+        ],
+        "normalized_name": "tiredness or low energy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "vaginal dryness",
+          "pain with sex",
+          "urinary discomfort",
+          "burning urine",
+          "vaginal soreness"
+        ],
+        "display_name": "Vaginal or urinary symptoms",
+        "id": "vaginal-genitourinary-symptoms",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "vaginal dryness",
+          "pain with sex",
+          "urinary discomfort",
+          "burning urine",
+          "vaginal soreness"
+        ],
+        "normalized_name": "vaginal or urinary symptoms",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "throwing up",
+          "being sick",
+          "cannot keep fluids down"
+        ],
+        "display_name": "Vomiting",
+        "id": "vomiting",
+        "kind": "symptom",
+        "normalized_aliases": [
+          "throwing up",
+          "being sick",
+          "cannot keep fluids down"
+        ],
+        "normalized_name": "vomiting",
+        "support_status": "catalogued"
+      }
+    ],
+    "treatments": [
+      {
+        "aliases": [
+          "Verzenio"
+        ],
+        "display_name": "abemaciclib",
+        "id": "abemaciclib",
+        "kind": "drug",
+        "normalized_aliases": [
+          "verzenio"
+        ],
+        "normalized_name": "abemaciclib",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "AC",
+          "doxorubicin cyclophosphamide",
+          "Adriamycin Cytoxan"
+        ],
+        "display_name": "AC chemotherapy",
+        "id": "ac",
+        "kind": "regimen",
+        "normalized_aliases": [
+          "ac",
+          "doxorubicin cyclophosphamide",
+          "adriamycin cytoxan"
+        ],
+        "normalized_name": "ac chemotherapy",
+        "support_status": "full_guidance"
+      },
+      {
+        "aliases": [
+          "Piqray"
+        ],
+        "display_name": "alpelisib",
+        "id": "alpelisib",
+        "kind": "drug",
+        "normalized_aliases": [
+          "piqray"
+        ],
+        "normalized_name": "alpelisib",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Arimidex"
+        ],
+        "display_name": "anastrozole",
+        "id": "anastrozole",
+        "kind": "drug",
+        "normalized_aliases": [
+          "arimidex"
+        ],
+        "normalized_name": "anastrozole",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "ADC"
+        ],
+        "display_name": "Antibody-drug conjugate",
+        "id": "antibody-drug-conjugate",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "adc"
+        ],
+        "normalized_name": "antibody drug conjugate",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Xeloda",
+          "CAPE"
+        ],
+        "display_name": "capecitabine",
+        "id": "capecitabine",
+        "kind": "drug",
+        "normalized_aliases": [
+          "xeloda",
+          "cape"
+        ],
+        "normalized_name": "capecitabine",
+        "support_status": "full_guidance"
+      },
+      {
+        "aliases": [
+          "CAPE",
+          "Xeloda",
+          "capecitabine tablets"
+        ],
+        "display_name": "Capecitabine",
+        "id": "capecitabine-monotherapy",
+        "kind": "regimen",
+        "normalized_aliases": [
+          "cape",
+          "xeloda",
+          "capecitabine tablets"
+        ],
+        "normalized_name": "capecitabine",
+        "support_status": "full_guidance"
+      },
+      {
+        "aliases": [
+          "Truqap"
+        ],
+        "display_name": "capivasertib",
+        "id": "capivasertib",
+        "kind": "drug",
+        "normalized_aliases": [
+          "truqap"
+        ],
+        "normalized_name": "capivasertib",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [],
+        "display_name": "carboplatin",
+        "id": "carboplatin",
+        "kind": "drug",
+        "normalized_aliases": [],
+        "normalized_name": "carboplatin",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "CDK inhibitor",
+          "CDK4 6 inhibitor"
+        ],
+        "display_name": "CDK4/6 inhibitor",
+        "id": "cdk46-inhibitor",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "cdk inhibitor",
+          "cdk4 6 inhibitor"
+        ],
+        "normalized_name": "cdk4 6 inhibitor",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Procytox",
+          "Cytoxan"
+        ],
+        "display_name": "cyclophosphamide",
+        "id": "cyclophosphamide",
+        "kind": "drug",
+        "normalized_aliases": [
+          "procytox",
+          "cytoxan"
+        ],
+        "normalized_name": "cyclophosphamide",
+        "support_status": "education_only"
+      },
+      {
+        "aliases": [
+          "chemotherapy",
+          "chemo"
+        ],
+        "display_name": "Cytotoxic chemotherapy",
+        "id": "cytotoxic-chemotherapy",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "chemotherapy",
+          "chemo"
+        ],
+        "normalized_name": "cytotoxic chemotherapy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Taxotere"
+        ],
+        "display_name": "docetaxel",
+        "id": "docetaxel",
+        "kind": "drug",
+        "normalized_aliases": [
+          "taxotere"
+        ],
+        "normalized_name": "docetaxel",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Adriamycin",
+          "doxorubicin hydrochloride"
+        ],
+        "display_name": "doxorubicin",
+        "id": "doxorubicin",
+        "kind": "drug",
+        "normalized_aliases": [
+          "adriamycin",
+          "doxorubicin hydrochloride"
+        ],
+        "normalized_name": "doxorubicin",
+        "support_status": "education_only"
+      },
+      {
+        "aliases": [
+          "hormone therapy",
+          "hormonal therapy"
+        ],
+        "display_name": "Endocrine therapy",
+        "id": "endocrine-therapy",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "hormone therapy",
+          "hormonal therapy"
+        ],
+        "normalized_name": "endocrine therapy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Afinitor"
+        ],
+        "display_name": "everolimus",
+        "id": "everolimus",
+        "kind": "drug",
+        "normalized_aliases": [
+          "afinitor"
+        ],
+        "normalized_name": "everolimus",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Aromasin"
+        ],
+        "display_name": "exemestane",
+        "id": "exemestane",
+        "kind": "drug",
+        "normalized_aliases": [
+          "aromasin"
+        ],
+        "normalized_name": "exemestane",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "HER2 therapy",
+          "anti-HER2 therapy"
+        ],
+        "display_name": "HER2-directed therapy",
+        "id": "her2-directed-therapy",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "her2 therapy",
+          "anti her2 therapy"
+        ],
+        "normalized_name": "her2 directed therapy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "immunotherapy",
+          "checkpoint inhibitor"
+        ],
+        "display_name": "Immune checkpoint inhibitor",
+        "id": "immune-checkpoint-inhibitor",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "immunotherapy",
+          "checkpoint inhibitor"
+        ],
+        "normalized_name": "immune checkpoint inhibitor",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Femara"
+        ],
+        "display_name": "letrozole",
+        "id": "letrozole",
+        "kind": "drug",
+        "normalized_aliases": [
+          "femara"
+        ],
+        "normalized_name": "letrozole",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Lynparza"
+        ],
+        "display_name": "olaparib",
+        "id": "olaparib",
+        "kind": "drug",
+        "normalized_aliases": [
+          "lynparza"
+        ],
+        "normalized_name": "olaparib",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Taxol",
+          "paclitaxel weekly",
+          "weekly Taxol"
+        ],
+        "display_name": "paclitaxel",
+        "id": "paclitaxel",
+        "kind": "drug",
+        "normalized_aliases": [
+          "taxol",
+          "paclitaxel weekly",
+          "weekly taxol"
+        ],
+        "normalized_name": "paclitaxel",
+        "support_status": "full_guidance"
+      },
+      {
+        "aliases": [
+          "Ibrance"
+        ],
+        "display_name": "palbociclib",
+        "id": "palbociclib",
+        "kind": "drug",
+        "normalized_aliases": [
+          "ibrance"
+        ],
+        "normalized_name": "palbociclib",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "PARP therapy"
+        ],
+        "display_name": "PARP inhibitor",
+        "id": "parp-inhibitor",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "parp therapy"
+        ],
+        "normalized_name": "parp inhibitor",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Keytruda"
+        ],
+        "display_name": "pembrolizumab",
+        "id": "pembrolizumab",
+        "kind": "drug",
+        "normalized_aliases": [
+          "keytruda"
+        ],
+        "normalized_name": "pembrolizumab",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Perjeta"
+        ],
+        "display_name": "pertuzumab",
+        "id": "pertuzumab",
+        "kind": "drug",
+        "normalized_aliases": [
+          "perjeta"
+        ],
+        "normalized_name": "pertuzumab",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "PI3K inhibitor",
+          "AKT inhibitor",
+          "mTOR inhibitor"
+        ],
+        "display_name": "PI3K/AKT/mTOR-pathway therapy",
+        "id": "pi3k-akt-mtor-pathway-therapy",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "pi3k inhibitor",
+          "akt inhibitor",
+          "mtor inhibitor"
+        ],
+        "normalized_name": "pi3k akt mtor pathway therapy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Kisqali"
+        ],
+        "display_name": "ribociclib",
+        "id": "ribociclib",
+        "kind": "drug",
+        "normalized_aliases": [
+          "kisqali"
+        ],
+        "normalized_name": "ribociclib",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Trodelvy"
+        ],
+        "display_name": "sacituzumab govitecan",
+        "id": "sacituzumab-govitecan",
+        "kind": "drug",
+        "normalized_aliases": [
+          "trodelvy"
+        ],
+        "normalized_name": "sacituzumab govitecan",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "systemic treatment"
+        ],
+        "display_name": "Systemic therapy",
+        "id": "systemic-therapy",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "systemic treatment"
+        ],
+        "normalized_name": "systemic therapy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Talzenna"
+        ],
+        "display_name": "talazoparib",
+        "id": "talazoparib",
+        "kind": "drug",
+        "normalized_aliases": [
+          "talzenna"
+        ],
+        "normalized_name": "talazoparib",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Nolvadex"
+        ],
+        "display_name": "tamoxifen",
+        "id": "tamoxifen",
+        "kind": "drug",
+        "normalized_aliases": [
+          "nolvadex"
+        ],
+        "normalized_name": "tamoxifen",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "taxane chemotherapy"
+        ],
+        "display_name": "Taxane",
+        "id": "taxane",
+        "kind": "treatment_class",
+        "normalized_aliases": [
+          "taxane chemotherapy"
+        ],
+        "normalized_name": "taxane",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "TC",
+          "docetaxel cyclophosphamide"
+        ],
+        "display_name": "TC chemotherapy",
+        "id": "tc",
+        "kind": "regimen",
+        "normalized_aliases": [
+          "tc",
+          "docetaxel cyclophosphamide"
+        ],
+        "normalized_name": "tc chemotherapy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "TCHP",
+          "docetaxel carboplatin trastuzumab pertuzumab"
+        ],
+        "display_name": "TCHP chemotherapy",
+        "id": "tchp",
+        "kind": "regimen",
+        "normalized_aliases": [
+          "tchp",
+          "docetaxel carboplatin trastuzumab pertuzumab"
+        ],
+        "normalized_name": "tchp chemotherapy",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Herceptin"
+        ],
+        "display_name": "trastuzumab",
+        "id": "trastuzumab",
+        "kind": "drug",
+        "normalized_aliases": [
+          "herceptin"
+        ],
+        "normalized_name": "trastuzumab",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "Enhertu",
+          "T-DXd",
+          "TDXd"
+        ],
+        "display_name": "trastuzumab deruxtecan",
+        "id": "trastuzumab-deruxtecan",
+        "kind": "drug",
+        "normalized_aliases": [
+          "enhertu",
+          "t dxd",
+          "tdxd"
+        ],
+        "normalized_name": "trastuzumab deruxtecan",
+        "support_status": "catalogued"
+      },
+      {
+        "aliases": [
+          "weekly Taxol",
+          "paclitaxel weekly"
+        ],
+        "display_name": "Weekly paclitaxel",
+        "id": "weekly-paclitaxel",
+        "kind": "regimen",
+        "normalized_aliases": [
+          "weekly taxol",
+          "paclitaxel weekly"
+        ],
+        "normalized_name": "weekly paclitaxel",
+        "support_status": "full_guidance"
+      }
+    ]
+  },
+  "known_gaps": [
+    "All patient-facing clinical modules are draft and require clinician review.",
+    "The fictional demo clinic has no approved fever threshold or destination.",
+    "The exact AC schedule variant is unresolved; no nadir timing is included.",
+    "Catalogue-level treatment and symptom entries do not imply full guidance.",
+    "Two broad catalogue sources are link-only and cannot enter a published release."
+  ],
+  "mandatory_notice": "Unreviewed prototype content — not for clinical use",
+  "objects": [
+    {
+      "after_hours_contact": "Demo after-hours line: 416-555-0184",
+      "clinic_name": "Threadline Demo Cancer Centre",
+      "daytime_contact": "Demo daytime line: 416-555-0142",
+      "emergency_statement": "If you think you may be experiencing a medical emergency, call 911 or your local emergency service.",
+      "fever_instruction": "This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team.",
+      "id": "build-week-demo-clinic",
+      "kind": "clinic_config",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "supportive_care_note": "Follow supportive-care medicine and fluid instructions provided by your own cancer team.",
+      "synthetic": true,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Verzenio"
+      ],
+      "class_ids": [
+        "cdk46-inhibitor"
+      ],
+      "generic_name": "abemaciclib",
+      "id": "abemaciclib",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Piqray"
+      ],
+      "class_ids": [
+        "pi3k-akt-mtor-pathway-therapy"
+      ],
+      "generic_name": "alpelisib",
+      "id": "alpelisib",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Arimidex"
+      ],
+      "class_ids": [
+        "endocrine-therapy"
+      ],
+      "generic_name": "anastrozole",
+      "id": "anastrozole",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "CAPE"
+      ],
+      "brand_names": [
+        "Xeloda"
+      ],
+      "class_ids": [
+        "cytotoxic-chemotherapy"
+      ],
+      "generic_name": "capecitabine",
+      "id": "capecitabine",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "health-canada-capecitabine-product-record"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Truqap"
+      ],
+      "class_ids": [
+        "pi3k-akt-mtor-pathway-therapy"
+      ],
+      "generic_name": "capivasertib",
+      "id": "capivasertib",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [],
+      "class_ids": [
+        "cytotoxic-chemotherapy"
+      ],
+      "generic_name": "carboplatin",
+      "id": "carboplatin",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Procytox",
+        "Cytoxan"
+      ],
+      "class_ids": [
+        "cytotoxic-chemotherapy"
+      ],
+      "generic_name": "cyclophosphamide",
+      "id": "cyclophosphamide",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous",
+        "oral"
+      ],
+      "source_ids": [
+        "cco-ac-breast-patient-information",
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "education_only",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Taxotere"
+      ],
+      "class_ids": [
+        "taxane",
+        "cytotoxic-chemotherapy"
+      ],
+      "generic_name": "docetaxel",
+      "id": "docetaxel",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "doxorubicin hydrochloride"
+      ],
+      "brand_names": [
+        "Adriamycin"
+      ],
+      "class_ids": [
+        "cytotoxic-chemotherapy"
+      ],
+      "generic_name": "doxorubicin",
+      "id": "doxorubicin",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-ac-breast-patient-information",
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "education_only",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Afinitor"
+      ],
+      "class_ids": [
+        "pi3k-akt-mtor-pathway-therapy"
+      ],
+      "generic_name": "everolimus",
+      "id": "everolimus",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Aromasin"
+      ],
+      "class_ids": [
+        "endocrine-therapy"
+      ],
+      "generic_name": "exemestane",
+      "id": "exemestane",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Femara"
+      ],
+      "class_ids": [
+        "endocrine-therapy"
+      ],
+      "generic_name": "letrozole",
+      "id": "letrozole",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Lynparza"
+      ],
+      "class_ids": [
+        "parp-inhibitor"
+      ],
+      "generic_name": "olaparib",
+      "id": "olaparib",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "paclitaxel weekly",
+        "weekly Taxol"
+      ],
+      "brand_names": [
+        "Taxol"
+      ],
+      "class_ids": [
+        "taxane",
+        "cytotoxic-chemotherapy"
+      ],
+      "generic_name": "paclitaxel",
+      "id": "paclitaxel",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Ibrance"
+      ],
+      "class_ids": [
+        "cdk46-inhibitor"
+      ],
+      "generic_name": "palbociclib",
+      "id": "palbociclib",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Keytruda"
+      ],
+      "class_ids": [
+        "immune-checkpoint-inhibitor"
+      ],
+      "generic_name": "pembrolizumab",
+      "id": "pembrolizumab",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Perjeta"
+      ],
+      "class_ids": [
+        "her2-directed-therapy"
+      ],
+      "generic_name": "pertuzumab",
+      "id": "pertuzumab",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Kisqali"
+      ],
+      "class_ids": [
+        "cdk46-inhibitor"
+      ],
+      "generic_name": "ribociclib",
+      "id": "ribociclib",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Trodelvy"
+      ],
+      "class_ids": [
+        "antibody-drug-conjugate"
+      ],
+      "generic_name": "sacituzumab govitecan",
+      "id": "sacituzumab-govitecan",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Talzenna"
+      ],
+      "class_ids": [
+        "parp-inhibitor"
+      ],
+      "generic_name": "talazoparib",
+      "id": "talazoparib",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Nolvadex"
+      ],
+      "class_ids": [
+        "endocrine-therapy"
+      ],
+      "generic_name": "tamoxifen",
+      "id": "tamoxifen",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "oral"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "T-DXd",
+        "TDXd"
+      ],
+      "brand_names": [
+        "Enhertu"
+      ],
+      "class_ids": [
+        "antibody-drug-conjugate",
+        "her2-directed-therapy"
+      ],
+      "generic_name": "trastuzumab deruxtecan",
+      "id": "trastuzumab-deruxtecan",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [],
+      "brand_names": [
+        "Herceptin"
+      ],
+      "class_ids": [
+        "her2-directed-therapy"
+      ],
+      "generic_name": "trastuzumab",
+      "id": "trastuzumab",
+      "kind": "drug",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "routes": [
+        "intravenous",
+        "subcutaneous"
+      ],
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "fever-infection-concern"
+        ],
+        "treatment_ids": [
+          "ac"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-ac-components",
+        "claim-chemotherapy-infection-risk"
+      ],
+      "id": "ac-fever-infection-context",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "AC contains doxorubicin and cyclophosphamide. Chemotherapy can lower infection-fighting white blood cells, which can allow an infection to become serious."
+      ],
+      "placeholders": [],
+      "priority_tags": [
+        "infection-observations"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "treatment_context",
+      "source_ids": [
+        "cco-ac-breast-patient-information",
+        "eviq-dose-dense-ac-breast-patient-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Why it matters with this treatment",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "diarrhea"
+        ],
+        "treatment_ids": [
+          "capecitabine-monotherapy",
+          "capecitabine"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-capecitabine-diarrhea-association",
+        "claim-diarrhea-fluid-loss"
+      ],
+      "id": "capecitabine-diarrhea-context",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Diarrhea can occur with capecitabine. Ongoing diarrhea can cause loss of fluid and body salts."
+      ],
+      "placeholders": [],
+      "priority_tags": [
+        "hydration"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "treatment_context",
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea",
+        "health-canada-fluoropyrimidine-infowatch"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Why it matters with this treatment",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "diarrhea"
+        ],
+        "treatment_ids": [
+          "capecitabine-monotherapy",
+          "capecitabine"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-diarrhea-description"
+      ],
+      "id": "diarrhea-about",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Diarrhea means loose, watery, or unformed bowel movements, or going more often than is usual for you. It may come with urgency, bloating, or cramps.",
+        "Other conditions can cause similar symptoms. Ariad cannot determine the cause."
+      ],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "about",
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "About this symptom",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "diarrhea"
+        ],
+        "treatment_ids": [
+          "capecitabine-monotherapy",
+          "capecitabine"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "There are more than seven loose or watery bowel movements in 24 hours.",
+        "Diarrhea continues for more than 24 hours after medicine used according to your team's instructions.",
+        "You cannot drink enough, there is blood, or you have belly pain other than your usual cramping.",
+        "You notice thirst, dry mouth, dark or reduced urine, dizziness, vomiting, or a fast heartbeat."
+      ],
+      "claim_ids": [
+        "claim-diarrhea-contact-observations"
+      ],
+      "id": "diarrhea-contact-team",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [],
+      "placeholders": [],
+      "priority_tags": [
+        "contact-information",
+        "hydration"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "contact_team",
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Contact your cancer team if…",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "diarrhea"
+        ],
+        "treatment_ids": [
+          "capecitabine-monotherapy",
+          "capecitabine"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "Keep a record of bowel movements.",
+        "Unless your team has limited your fluids, sip fluids regularly.",
+        "Choose small meals and limit caffeine, alcohol, spicy foods, and high-fat foods.",
+        "Use anti-diarrheal medicine only as your cancer team instructed.",
+        "Keep the skin around the anus clean and dry, and use gentle care after bowel movements."
+      ],
+      "claim_ids": [
+        "claim-diarrhea-tracking",
+        "claim-diarrhea-hydration",
+        "claim-diarrhea-foods",
+        "claim-diarrhea-team-directed-medicine"
+      ],
+      "id": "diarrhea-home-management",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "These are general measures. Follow any fluid, diet, or medicine instructions provided by your cancer team."
+      ],
+      "placeholders": [],
+      "priority_tags": [
+        "tracking",
+        "hydration",
+        "team-instructions"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "home_management",
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "What you can generally do at home",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "diarrhea"
+        ],
+        "treatment_ids": [
+          "capecitabine-monotherapy",
+          "capecitabine"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "When the diarrhea began and the number of loose or watery bowel movements in 24 hours.",
+        "How that compares with your usual bowel pattern, including nighttime episodes.",
+        "Any blood, mucus, vomiting, dizziness, belly pain, or measured temperature.",
+        "How much you have been able to drink and any change in urination.",
+        "Any anti-diarrheal medicine used according to your team's instructions and your last capecitabine dose."
+      ],
+      "claim_ids": [
+        "claim-diarrhea-reporting-information"
+      ],
+      "id": "diarrhea-reporting-checklist",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [],
+      "placeholders": [],
+      "priority_tags": [
+        "tracking"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "reporting_checklist",
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "What information to have ready",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "diarrhea"
+        ],
+        "treatment_ids": [
+          "capecitabine-monotherapy",
+          "capecitabine"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "You cannot reach your cancer team and have the warning signs listed above.",
+        "You think this may be a medical emergency."
+      ],
+      "claim_ids": [
+        "claim-diarrhea-urgent-fallback",
+        "claim-fever-threshold-owner-pending"
+      ],
+      "id": "diarrhea-urgent-attention",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team."
+      ],
+      "placeholders": [
+        "clinic-specific fever threshold pending clinician review"
+      ],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "urgent_attention",
+      "source_ids": [
+        "cco-manage-diarrhea",
+        "cco-fever-patient-guide"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Seek urgent medical attention if…",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "fever-infection-concern"
+        ],
+        "treatment_ids": [
+          "ac"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-infection-observable-signs",
+        "claim-infection-without-fever"
+      ],
+      "id": "fever-infection-about",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Fever, chills, or feeling unwell can be signs of infection. Infection can sometimes occur without a fever.",
+        "Ariad cannot diagnose an infection or tell whether white blood cells are low."
+      ],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "about",
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "About this symptom",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "fever-infection-concern"
+        ],
+        "treatment_ids": [
+          "ac"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "You have chills, shaking, sweats, a sore throat, or a cough.",
+        "You have burning or blood with urination, mouth sores, or redness or tenderness around a wound or line.",
+        "You have uncontrolled vomiting or diarrhea.",
+        "You feel unwell even without a measured fever."
+      ],
+      "claim_ids": [
+        "claim-infection-contact-observations"
+      ],
+      "id": "infection-contact-team",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [],
+      "placeholders": [],
+      "priority_tags": [
+        "infection-observations",
+        "contact-information"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "contact_team",
+      "source_ids": [
+        "cco-ac-breast-patient-information",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Contact your cancer team if…",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "fever-infection-concern"
+        ],
+        "treatment_ids": [
+          "ac"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "Keep a working digital thermometer available.",
+        "If you feel hot, chilled, or unwell, take your temperature before using fever-reducing medicine, because that medicine can hide a fever.",
+        "Avoid hot or cold food and drink immediately before an oral temperature measurement.",
+        "Wash your hands often and keep cuts or line sites clean."
+      ],
+      "claim_ids": [
+        "claim-thermometer-readiness",
+        "claim-fever-medicine-masking",
+        "claim-infection-precautions"
+      ],
+      "id": "infection-home-preparation",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Follow the infection and fever instructions provided by your cancer team."
+      ],
+      "placeholders": [],
+      "priority_tags": [
+        "infection-observations"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "home_management",
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "What you can generally do at home",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "fever-infection-concern"
+        ],
+        "treatment_ids": [
+          "ac"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "Your highest temperature, how it was measured, and the times it was measured.",
+        "Any chills, shaking, sweats, cough, sore throat, breathing, urinary, bowel, mouth, skin, or line symptoms.",
+        "When AC was last given.",
+        "Whether fever-reducing medicine was taken and when."
+      ],
+      "claim_ids": [
+        "claim-infection-reporting-information"
+      ],
+      "id": "infection-reporting-checklist",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [],
+      "placeholders": [],
+      "priority_tags": [
+        "tracking"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "reporting_checklist",
+      "source_ids": [
+        "cco-ac-breast-patient-information",
+        "cco-fever-patient-guide",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "What information to have ready",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "fever-infection-concern"
+        ],
+        "treatment_ids": [
+          "ac"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "You cannot reach your cancer team and feel acutely unwell.",
+        "You have shortness of breath, faintness, marked dizziness, or a fast heartbeat.",
+        "You think this may be a medical emergency."
+      ],
+      "claim_ids": [
+        "claim-infection-urgent-observations",
+        "claim-fever-threshold-owner-pending"
+      ],
+      "id": "infection-urgent-attention",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team."
+      ],
+      "placeholders": [
+        "clinic-specific fever threshold and destination pending clinician review"
+      ],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "urgent_attention",
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "cco-fever-assessment-guideline",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Seek urgent medical attention if…",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "peripheral-neuropathy"
+        ],
+        "treatment_ids": [
+          "weekly-paclitaxel",
+          "paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-neuropathy-description",
+        "claim-neuropathy-function"
+      ],
+      "id": "neuropathy-about",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Peripheral neuropathy can feel like tingling, pins and needles, numbness, burning, or pain, often in the fingers or toes. It can also affect grip, balance, or movement.",
+        "Other conditions can cause similar symptoms. Ariad cannot determine the cause."
+      ],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "about",
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "About this symptom",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "peripheral-neuropathy"
+        ],
+        "treatment_ids": [
+          "weekly-paclitaxel",
+          "paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "You notice new tingling, numbness, burning, pain, or weakness.",
+        "Symptoms are worsening or spreading.",
+        "Symptoms interfere with buttons, writing, holding objects, walking, or balance."
+      ],
+      "claim_ids": [
+        "claim-neuropathy-contact-observations"
+      ],
+      "id": "neuropathy-contact-team",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [],
+      "placeholders": [],
+      "priority_tags": [
+        "change-noted",
+        "daily-activities"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "contact_team",
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Contact your cancer team if…",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "peripheral-neuropathy"
+        ],
+        "treatment_ids": [
+          "weekly-paclitaxel",
+          "paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "Protect areas with reduced feeling and check your hands and feet for cuts.",
+        "Use supportive shoes and protective gloves for household or outdoor tasks.",
+        "Test bath water with your elbow before putting numb hands or feet into it.",
+        "Keep floors and walkways well lit and clear of clutter.",
+        "Ask your team about driving if sensation or foot control is affected."
+      ],
+      "claim_ids": [
+        "claim-neuropathy-injury-prevention",
+        "claim-neuropathy-fall-prevention"
+      ],
+      "id": "neuropathy-home-safety",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "These are general precautions. Follow the instructions provided by your cancer team."
+      ],
+      "placeholders": [],
+      "priority_tags": [
+        "hand-safety",
+        "foot-safety",
+        "fall-prevention"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "home_management",
+      "source_ids": [
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "What you can generally do at home",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "peripheral-neuropathy"
+        ],
+        "treatment_ids": [
+          "weekly-paclitaxel",
+          "paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "Where the sensation is and whether it is tingling, numbness, burning, or pain.",
+        "When it began and whether it is changing.",
+        "Effects on buttons, writing, small objects, walking, or balance.",
+        "Any weakness, falls, near-falls, burns, cuts, or other injuries.",
+        "Your treatment name and the date of your last treatment."
+      ],
+      "claim_ids": [
+        "claim-neuropathy-reporting-information"
+      ],
+      "id": "neuropathy-reporting-checklist",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [],
+      "placeholders": [],
+      "priority_tags": [
+        "tracking"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "reporting_checklist",
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "What information to have ready",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "peripheral-neuropathy"
+        ],
+        "treatment_ids": [
+          "weekly-paclitaxel",
+          "paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "You develop sudden confusion or trouble speaking.",
+        "You have sudden difficulty moving an arm or leg.",
+        "You have a seizure or pass out."
+      ],
+      "claim_ids": [
+        "claim-urgent-neurological-signs"
+      ],
+      "id": "neuropathy-urgent-neurological-signs",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "These are general neurological emergency signs. They do not identify or grade peripheral neuropathy."
+      ],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "urgent_attention",
+      "source_ids": [
+        "cco-paclitaxel-patient-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Seek urgent medical attention if…",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [
+          "peripheral-neuropathy"
+        ],
+        "treatment_ids": [
+          "weekly-paclitaxel",
+          "paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-paclitaxel-neuropathy-association",
+        "claim-neuropathy-hand-function"
+      ],
+      "id": "paclitaxel-neuropathy-context",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Peripheral neuropathy can occur with paclitaxel. Symptoms may affect tasks such as fastening buttons, writing, or picking up small objects."
+      ],
+      "placeholders": [],
+      "priority_tags": [
+        "daily-activities"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "treatment_context",
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "eviq-weekly-paclitaxel-breast-patient-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Why it matters with this treatment",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [],
+        "treatment_ids": [
+          "weekly-paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-weekly-paclitaxel-regimen"
+      ],
+      "id": "weekly-paclitaxel-prep-overview",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Weekly paclitaxel is a breast-cancer chemotherapy regimen using paclitaxel, a taxane medicine given through a vein.",
+        "Your own schedule and instructions come from your cancer team."
+      ],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "preparation",
+      "source_ids": [
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "cco-paclitaxel-patient-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Your treatment at a glance",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [],
+        "treatment_ids": [
+          "weekly-paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "Tiredness, nausea, and hair loss can occur.",
+        "Lowered blood counts and infection concerns can occur.",
+        "Tingling, numbness, burning, or pain in the hands or feet can occur."
+      ],
+      "claim_ids": [
+        "claim-paclitaxel-possible-effects"
+      ],
+      "id": "weekly-paclitaxel-prep-possible-effects",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Paclitaxel can be associated with several effects. Your experience may differ, and this prototype cannot predict which effects you will have."
+      ],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "preparation",
+      "source_ids": [
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "cco-paclitaxel-patient-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Effects to know about",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [],
+        "treatment_ids": [
+          "weekly-paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [
+        "Save your cancer team's daytime and after-hours contact information.",
+        "Keep a working digital thermometer available and follow your team's fever instructions.",
+        "Bring an up-to-date medication list and follow only the medicine instructions your team provided.",
+        "Know how to reach your treatment area if you have questions before a visit."
+      ],
+      "claim_ids": [
+        "claim-treatment-preparation-checklist"
+      ],
+      "id": "weekly-paclitaxel-prep-practical",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "preparation",
+      "source_ids": [
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "cco-fever-patient-guide"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "A simple preparation checklist",
+      "version": "1.0.0"
+    },
+    {
+      "applicability": {
+        "symptom_ids": [],
+        "treatment_ids": [
+          "weekly-paclitaxel"
+        ]
+      },
+      "audience": "patient",
+      "bullets": [],
+      "claim_ids": [
+        "claim-ariad-boundary",
+        "claim-universal-emergency-boundary"
+      ],
+      "id": "weekly-paclitaxel-prep-warning-boundary",
+      "jurisdiction": "Canada",
+      "kind": "educational_module",
+      "paragraphs": [
+        "Ariad can show source-controlled warning information, but it cannot decide whether a symptom is caused by treatment or tell you what action you personally need.",
+        "Follow the instructions provided by your cancer team. If you think you may be experiencing a medical emergency, call 911 or your local emergency service."
+      ],
+      "placeholders": [],
+      "priority_tags": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "review_due": null,
+      "section": "preparation",
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "cco-fever-patient-guide"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "title": "Warning information is fixed, not personalized",
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "diarrhea-baseline-change",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "No change",
+          "priority_tags": [],
+          "summary_text": "No change from the usual bowel pattern",
+          "value": "no-change"
+        },
+        {
+          "label": "1–3 more than usual",
+          "priority_tags": [],
+          "summary_text": "1–3 more bowel movements than usual",
+          "value": "one-three-more"
+        },
+        {
+          "label": "4 or more more than usual",
+          "priority_tags": [
+            "tracking",
+            "hydration"
+          ],
+          "summary_text": "4 or more bowel movements above usual",
+          "value": "four-plus-more"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Change from usual is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "How this compares with the usual bowel pattern",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "baseline_change",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "diarrhea-blood",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No blood reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "contact-information"
+          ],
+          "summary_text": "Blood is reported",
+          "value": "yes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Presence of blood is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "Whether there is blood in the bowel movement",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "blood",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "diarrhea-count",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "1–3",
+          "priority_tags": [],
+          "summary_text": "1–3 loose or watery bowel movements in 24 hours",
+          "value": "one-three"
+        },
+        {
+          "label": "4–6",
+          "priority_tags": [
+            "tracking",
+            "hydration"
+          ],
+          "summary_text": "4–6 loose or watery bowel movements in 24 hours",
+          "value": "four-six"
+        },
+        {
+          "label": "7 or more",
+          "priority_tags": [
+            "tracking",
+            "hydration",
+            "contact-information"
+          ],
+          "summary_text": "7 or more loose or watery bowel movements in 24 hours",
+          "value": "seven-plus"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [
+            "tracking"
+          ],
+          "summary_text": "Number in 24 hours is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "Number of loose or watery bowel movements in the past 24 hours",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "bowel_movement_count",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "diarrhea-dizziness",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No dizziness or faintness reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "hydration",
+            "contact-information"
+          ],
+          "summary_text": "Dizziness or faintness is reported",
+          "value": "yes"
+        }
+      ],
+      "patient_wording": "Whether dizziness or faintness is present",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "dizziness",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "diarrhea-drinking",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Drinking about the usual amount",
+          "priority_tags": [],
+          "summary_text": "Drinking about the usual amount",
+          "value": "usual"
+        },
+        {
+          "label": "Drinking less than usual",
+          "priority_tags": [
+            "hydration"
+          ],
+          "summary_text": "Drinking less than usual",
+          "value": "less"
+        },
+        {
+          "label": "Unable to keep fluids down",
+          "priority_tags": [
+            "hydration",
+            "contact-information"
+          ],
+          "summary_text": "Unable to keep fluids down",
+          "value": "cannot"
+        },
+        {
+          "label": "My team limits my fluids",
+          "priority_tags": [
+            "team-instructions"
+          ],
+          "summary_text": "The cancer team has provided a fluid limit",
+          "value": "fluid-limit"
+        }
+      ],
+      "patient_wording": "Ability to drink fluids",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "drinking",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "diarrhea-onset",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Today",
+          "priority_tags": [],
+          "summary_text": "Began today",
+          "value": "today"
+        },
+        {
+          "label": "Yesterday",
+          "priority_tags": [],
+          "summary_text": "Began yesterday",
+          "value": "yesterday"
+        },
+        {
+          "label": "More than one day ago",
+          "priority_tags": [
+            "hydration"
+          ],
+          "summary_text": "Began more than one day ago",
+          "value": "earlier"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Onset is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "When the loose or watery bowel movements began",
+      "relevance_tags": [
+        "diarrhea"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea"
+      ],
+      "status": "draft",
+      "summary_field": "onset",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "short_text",
+      "id": "diarrhea-temperature",
+      "kind": "observable_feature",
+      "options": [],
+      "patient_wording": "Highest measured temperature and how it was measured",
+      "relevance_tags": [
+        "diarrhea",
+        "fever"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-manage-diarrhea",
+        "cco-fever-patient-guide"
+      ],
+      "status": "draft",
+      "summary_field": "measured_temperature",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "diarrhea-vomiting",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No vomiting reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "hydration"
+          ],
+          "summary_text": "Vomiting is also occurring",
+          "value": "yes"
+        }
+      ],
+      "patient_wording": "Whether vomiting is also occurring",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "vomiting",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "id": "infection-chills",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Chills",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Chills are present",
+          "value": "chills"
+        },
+        {
+          "label": "Shaking",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Shaking is present",
+          "value": "shaking"
+        },
+        {
+          "label": "Sweats",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Sweats are present",
+          "value": "sweats"
+        },
+        {
+          "label": "None of these",
+          "priority_tags": [],
+          "summary_text": "No chills, shaking, or sweats reported",
+          "value": "none"
+        }
+      ],
+      "patient_wording": "Whether chills, shaking, or sweats are present",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "chills_shaking_sweats",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "infection-feeling-unwell",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "Does not feel generally unwell",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Feels generally unwell",
+          "value": "yes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "General unwellness is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "Whether the person feels unwell even without a measured fever",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "feeling_unwell",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "short_text",
+      "id": "infection-fever-medicine",
+      "kind": "observable_feature",
+      "options": [],
+      "patient_wording": "Whether fever-reducing medicine was taken, and when",
+      "relevance_tags": [
+        "fever",
+        "infection"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "summary_field": "fever_reducing_medicine",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "id": "infection-signs",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Cough or sore throat",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Cough or sore throat is present",
+          "value": "cough-throat"
+        },
+        {
+          "label": "Burning or blood with urination",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Urinary burning or blood is present",
+          "value": "urine"
+        },
+        {
+          "label": "Mouth sores",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Mouth sores are present",
+          "value": "mouth"
+        },
+        {
+          "label": "Redness or tenderness around a wound or line",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Redness or tenderness around a wound or line is present",
+          "value": "skin-line"
+        },
+        {
+          "label": "None of these",
+          "priority_tags": [],
+          "summary_text": "None of the listed infection signs are reported",
+          "value": "none"
+        }
+      ],
+      "patient_wording": "Other observable infection signs",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "other_infection_signs",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "short_text",
+      "id": "infection-temperature",
+      "kind": "observable_feature",
+      "options": [],
+      "patient_wording": "Highest measured temperature and how it was measured",
+      "relevance_tags": [
+        "fever",
+        "infection"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "summary_field": "measured_temperature",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "id": "neuropathy-hand-tasks",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Fastening buttons",
+          "priority_tags": [
+            "hand-safety",
+            "daily-activities"
+          ],
+          "summary_text": "Affects fastening buttons",
+          "value": "buttons"
+        },
+        {
+          "label": "Writing",
+          "priority_tags": [
+            "hand-safety",
+            "daily-activities"
+          ],
+          "summary_text": "Affects writing",
+          "value": "writing"
+        },
+        {
+          "label": "Picking up small objects",
+          "priority_tags": [
+            "hand-safety",
+            "daily-activities"
+          ],
+          "summary_text": "Affects picking up small objects",
+          "value": "small-objects"
+        },
+        {
+          "label": "None of these",
+          "priority_tags": [],
+          "summary_text": "Does not affect the listed hand tasks",
+          "value": "none"
+        }
+      ],
+      "patient_wording": "Whether hand symptoms affect buttons, writing, or small objects",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "hand_tasks",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "id": "neuropathy-location",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Fingers",
+          "priority_tags": [
+            "hand-safety"
+          ],
+          "summary_text": "Fingers",
+          "value": "fingers"
+        },
+        {
+          "label": "Hands",
+          "priority_tags": [
+            "hand-safety"
+          ],
+          "summary_text": "Hands",
+          "value": "hands"
+        },
+        {
+          "label": "Toes",
+          "priority_tags": [
+            "foot-safety"
+          ],
+          "summary_text": "Toes",
+          "value": "toes"
+        },
+        {
+          "label": "Feet",
+          "priority_tags": [
+            "foot-safety"
+          ],
+          "summary_text": "Feet",
+          "value": "feet"
+        },
+        {
+          "label": "Somewhere else",
+          "priority_tags": [],
+          "summary_text": "Another location",
+          "value": "elsewhere"
+        }
+      ],
+      "patient_wording": "Where the tingling, numbness, burning, or pain is felt",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "location",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "neuropathy-onset",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Today",
+          "priority_tags": [],
+          "summary_text": "Began today",
+          "value": "today"
+        },
+        {
+          "label": "In the past week",
+          "priority_tags": [],
+          "summary_text": "Began in the past week",
+          "value": "past-week"
+        },
+        {
+          "label": "More than a week ago",
+          "priority_tags": [],
+          "summary_text": "Began more than a week ago",
+          "value": "over-week"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Onset is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "When the symptoms began",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "onset",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "neuropathy-trend",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "Getting stronger or spreading",
+          "priority_tags": [
+            "change-noted"
+          ],
+          "summary_text": "Symptoms are getting stronger or spreading",
+          "value": "worsening"
+        },
+        {
+          "label": "About the same",
+          "priority_tags": [],
+          "summary_text": "Symptoms are about the same",
+          "value": "same"
+        },
+        {
+          "label": "Improving",
+          "priority_tags": [],
+          "summary_text": "Symptoms are improving",
+          "value": "improving"
+        },
+        {
+          "label": "They come and go",
+          "priority_tags": [],
+          "summary_text": "Symptoms come and go",
+          "value": "comes-goes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Change is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "Whether the symptoms are changing",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "change",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "neuropathy-walking-balance",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "Walking and balance are not affected",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "foot-safety",
+            "fall-prevention"
+          ],
+          "summary_text": "Walking or balance is affected",
+          "value": "yes"
+        },
+        {
+          "label": "I have fallen or nearly fallen",
+          "priority_tags": [
+            "foot-safety",
+            "fall-prevention"
+          ],
+          "summary_text": "There has been a fall or near-fall",
+          "value": "fall"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Effect on walking or balance is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "Whether walking or balance is affected",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "walking_balance",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "id": "neuropathy-weakness",
+      "kind": "observable_feature",
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No new weakness reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "change-noted"
+          ],
+          "summary_text": "New weakness is reported",
+          "value": "yes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Weakness is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "patient_wording": "Whether new weakness is present",
+      "relevance_tags": [
+        "neuropathy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_field": "weakness",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "diarrhea-baseline-change",
+      "help_text": null,
+      "id": "q-diarrhea-baseline-change",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "No change",
+          "priority_tags": [],
+          "summary_text": "No change from the usual bowel pattern",
+          "value": "no-change"
+        },
+        {
+          "label": "1–3 more than usual",
+          "priority_tags": [],
+          "summary_text": "1–3 more bowel movements than usual",
+          "value": "one-three-more"
+        },
+        {
+          "label": "4 or more more than usual",
+          "priority_tags": [
+            "tracking",
+            "hydration"
+          ],
+          "summary_text": "4 or more bowel movements above usual",
+          "value": "four-plus-more"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Change from usual is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "How does that compare with what is usual for you?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Change from usual",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "diarrhea-blood",
+      "help_text": null,
+      "id": "q-diarrhea-blood",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No blood reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "contact-information"
+          ],
+          "summary_text": "Blood is reported",
+          "value": "yes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Presence of blood is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Have you seen blood in a bowel movement?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Blood",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "diarrhea-count",
+      "help_text": "An estimate is okay.",
+      "id": "q-diarrhea-count",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "1–3",
+          "priority_tags": [],
+          "summary_text": "1–3 loose or watery bowel movements in 24 hours",
+          "value": "one-three"
+        },
+        {
+          "label": "4–6",
+          "priority_tags": [
+            "tracking",
+            "hydration"
+          ],
+          "summary_text": "4–6 loose or watery bowel movements in 24 hours",
+          "value": "four-six"
+        },
+        {
+          "label": "7 or more",
+          "priority_tags": [
+            "tracking",
+            "hydration",
+            "contact-information"
+          ],
+          "summary_text": "7 or more loose or watery bowel movements in 24 hours",
+          "value": "seven-plus"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [
+            "tracking"
+          ],
+          "summary_text": "Number in 24 hours is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "About how many loose or watery bowel movements have you had in the past 24 hours?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Bowel movements in 24 hours",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "diarrhea-dizziness",
+      "help_text": null,
+      "id": "q-diarrhea-dizziness",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No dizziness or faintness reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "hydration",
+            "contact-information"
+          ],
+          "summary_text": "Dizziness or faintness is reported",
+          "value": "yes"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Have you felt dizzy or faint?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Dizziness or faintness",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "diarrhea-drinking",
+      "help_text": "Follow any fluid limit your cancer team has given you.",
+      "id": "q-diarrhea-drinking",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Drinking about the usual amount",
+          "priority_tags": [],
+          "summary_text": "Drinking about the usual amount",
+          "value": "usual"
+        },
+        {
+          "label": "Drinking less than usual",
+          "priority_tags": [
+            "hydration"
+          ],
+          "summary_text": "Drinking less than usual",
+          "value": "less"
+        },
+        {
+          "label": "Unable to keep fluids down",
+          "priority_tags": [
+            "hydration",
+            "contact-information"
+          ],
+          "summary_text": "Unable to keep fluids down",
+          "value": "cannot"
+        },
+        {
+          "label": "My team limits my fluids",
+          "priority_tags": [
+            "team-instructions"
+          ],
+          "summary_text": "The cancer team has provided a fluid limit",
+          "value": "fluid-limit"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Are you able to drink fluids?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Drinking fluids",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "diarrhea-onset",
+      "help_text": null,
+      "id": "q-diarrhea-onset",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Today",
+          "priority_tags": [],
+          "summary_text": "Began today",
+          "value": "today"
+        },
+        {
+          "label": "Yesterday",
+          "priority_tags": [],
+          "summary_text": "Began yesterday",
+          "value": "yesterday"
+        },
+        {
+          "label": "More than one day ago",
+          "priority_tags": [
+            "hydration"
+          ],
+          "summary_text": "Began more than one day ago",
+          "value": "earlier"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Onset is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "diarrhea"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "When did the loose or watery bowel movements begin?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea"
+      ],
+      "status": "draft",
+      "summary_label": "Onset",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "short_text",
+      "feature_id": "diarrhea-temperature",
+      "help_text": "Leave this blank if you did not measure it.",
+      "id": "q-diarrhea-temperature",
+      "kind": "question",
+      "optional": true,
+      "options": [],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "If you measured your temperature, what was the highest reading and how did you measure it?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-manage-diarrhea",
+        "cco-fever-patient-guide"
+      ],
+      "status": "draft",
+      "summary_label": "Measured temperature",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "diarrhea-vomiting",
+      "help_text": null,
+      "id": "q-diarrhea-vomiting",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No vomiting reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "hydration"
+          ],
+          "summary_text": "Vomiting is also occurring",
+          "value": "yes"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Are you also vomiting?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Vomiting",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "diarrhea"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "feature_id": "infection-chills",
+      "help_text": "Select all that apply.",
+      "id": "q-infection-chills",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Chills",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Chills are present",
+          "value": "chills"
+        },
+        {
+          "label": "Shaking",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Shaking is present",
+          "value": "shaking"
+        },
+        {
+          "label": "Sweats",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Sweats are present",
+          "value": "sweats"
+        },
+        {
+          "label": "None of these",
+          "priority_tags": [],
+          "summary_text": "No chills, shaking, or sweats reported",
+          "value": "none"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Have you had chills, shaking, or sweats?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Chills, shaking, or sweats",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "fever-infection-concern"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "infection-feeling-unwell",
+      "help_text": "This records what you notice; it does not diagnose an infection.",
+      "id": "q-infection-feeling-unwell",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "Does not feel generally unwell",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Feels generally unwell",
+          "value": "yes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "General unwellness is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Do you feel generally unwell, even if you have not measured a fever?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Feeling unwell",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "fever-infection-concern"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "short_text",
+      "feature_id": "infection-fever-medicine",
+      "help_text": "Leave this blank if you did not take one or do not know.",
+      "id": "q-infection-fever-medicine",
+      "kind": "question",
+      "optional": true,
+      "options": [],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Have you taken acetaminophen, ibuprofen, or another fever-reducing medicine? If yes, when?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "summary_label": "Fever-reducing medicine",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "fever-infection-concern"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "feature_id": "infection-signs",
+      "help_text": "Select all that apply.",
+      "id": "q-infection-signs",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Cough or sore throat",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Cough or sore throat is present",
+          "value": "cough-throat"
+        },
+        {
+          "label": "Burning or blood with urination",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Urinary burning or blood is present",
+          "value": "urine"
+        },
+        {
+          "label": "Mouth sores",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Mouth sores are present",
+          "value": "mouth"
+        },
+        {
+          "label": "Redness or tenderness around a wound or line",
+          "priority_tags": [
+            "infection-observations"
+          ],
+          "summary_text": "Redness or tenderness around a wound or line is present",
+          "value": "skin-line"
+        },
+        {
+          "label": "None of these",
+          "priority_tags": [],
+          "summary_text": "None of the listed infection signs are reported",
+          "value": "none"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Have you noticed any of these changes?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Other observable changes",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "fever-infection-concern"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "short_text",
+      "feature_id": "infection-temperature",
+      "help_text": "Leave this blank if you did not measure it.",
+      "id": "q-infection-temperature",
+      "kind": "question",
+      "optional": true,
+      "options": [],
+      "priority_tags": [
+        "fever",
+        "infection"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "What was the highest temperature you measured, and how did you measure it?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "summary_label": "Measured temperature",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "fever-infection-concern"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "feature_id": "neuropathy-hand-tasks",
+      "help_text": "Select all that apply.",
+      "id": "q-neuropathy-hand-tasks",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Fastening buttons",
+          "priority_tags": [
+            "hand-safety",
+            "daily-activities"
+          ],
+          "summary_text": "Affects fastening buttons",
+          "value": "buttons"
+        },
+        {
+          "label": "Writing",
+          "priority_tags": [
+            "hand-safety",
+            "daily-activities"
+          ],
+          "summary_text": "Affects writing",
+          "value": "writing"
+        },
+        {
+          "label": "Picking up small objects",
+          "priority_tags": [
+            "hand-safety",
+            "daily-activities"
+          ],
+          "summary_text": "Affects picking up small objects",
+          "value": "small-objects"
+        },
+        {
+          "label": "None of these",
+          "priority_tags": [],
+          "summary_text": "Does not affect the listed hand tasks",
+          "value": "none"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Does it affect any of these hand tasks?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Hand tasks",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "peripheral-neuropathy"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "multi_choice",
+      "feature_id": "neuropathy-location",
+      "help_text": "Select all that apply.",
+      "id": "q-neuropathy-location",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Fingers",
+          "priority_tags": [
+            "hand-safety"
+          ],
+          "summary_text": "Fingers",
+          "value": "fingers"
+        },
+        {
+          "label": "Hands",
+          "priority_tags": [
+            "hand-safety"
+          ],
+          "summary_text": "Hands",
+          "value": "hands"
+        },
+        {
+          "label": "Toes",
+          "priority_tags": [
+            "foot-safety"
+          ],
+          "summary_text": "Toes",
+          "value": "toes"
+        },
+        {
+          "label": "Feet",
+          "priority_tags": [
+            "foot-safety"
+          ],
+          "summary_text": "Feet",
+          "value": "feet"
+        },
+        {
+          "label": "Somewhere else",
+          "priority_tags": [],
+          "summary_text": "Another location",
+          "value": "elsewhere"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Where do you feel the tingling, numbness, burning, or pain?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Location",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "peripheral-neuropathy"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "neuropathy-onset",
+      "help_text": null,
+      "id": "q-neuropathy-onset",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Today",
+          "priority_tags": [],
+          "summary_text": "Began today",
+          "value": "today"
+        },
+        {
+          "label": "In the past week",
+          "priority_tags": [],
+          "summary_text": "Began in the past week",
+          "value": "past-week"
+        },
+        {
+          "label": "More than a week ago",
+          "priority_tags": [],
+          "summary_text": "Began more than a week ago",
+          "value": "over-week"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Onset is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "When did you first notice it?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Onset",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "peripheral-neuropathy"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "neuropathy-trend",
+      "help_text": null,
+      "id": "q-neuropathy-trend",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "Getting stronger or spreading",
+          "priority_tags": [
+            "change-noted"
+          ],
+          "summary_text": "Symptoms are getting stronger or spreading",
+          "value": "worsening"
+        },
+        {
+          "label": "About the same",
+          "priority_tags": [],
+          "summary_text": "Symptoms are about the same",
+          "value": "same"
+        },
+        {
+          "label": "Improving",
+          "priority_tags": [],
+          "summary_text": "Symptoms are improving",
+          "value": "improving"
+        },
+        {
+          "label": "They come and go",
+          "priority_tags": [],
+          "summary_text": "Symptoms come and go",
+          "value": "comes-goes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Change is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "How has it changed since you first noticed it?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Change",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "peripheral-neuropathy"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "neuropathy-walking-balance",
+      "help_text": null,
+      "id": "q-neuropathy-walking-balance",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "Walking and balance are not affected",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "foot-safety",
+            "fall-prevention"
+          ],
+          "summary_text": "Walking or balance is affected",
+          "value": "yes"
+        },
+        {
+          "label": "I have fallen or nearly fallen",
+          "priority_tags": [
+            "foot-safety",
+            "fall-prevention"
+          ],
+          "summary_text": "There has been a fall or near-fall",
+          "value": "fall"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Effect on walking or balance is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Has it affected your walking or balance?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Walking or balance",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "peripheral-neuropathy"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "answer_type": "single_choice",
+      "feature_id": "neuropathy-weakness",
+      "help_text": "This asks only what you have observed.",
+      "id": "q-neuropathy-weakness",
+      "kind": "question",
+      "optional": false,
+      "options": [
+        {
+          "label": "No",
+          "priority_tags": [],
+          "summary_text": "No new weakness reported",
+          "value": "no"
+        },
+        {
+          "label": "Yes",
+          "priority_tags": [
+            "change-noted"
+          ],
+          "summary_text": "New weakness is reported",
+          "value": "yes"
+        },
+        {
+          "label": "I am not sure",
+          "priority_tags": [],
+          "summary_text": "Weakness is uncertain",
+          "value": "unsure"
+        }
+      ],
+      "priority_tags": [
+        "neuropathy"
+      ],
+      "prohibited_interpretation_notes": [
+        "Do not infer cause, grade, distribution pattern, or urgency."
+      ],
+      "prompt": "Have you noticed new weakness?",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "summary_label": "Weakness",
+      "superseded_by": null,
+      "supersedes": null,
+      "symptom_ids": [
+        "peripheral-neuropathy"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "abbreviation": "AC",
+      "aliases": [
+        "doxorubicin cyclophosphamide",
+        "Adriamycin Cytoxan"
+      ],
+      "class_ids": [
+        "cytotoxic-chemotherapy"
+      ],
+      "component_drug_ids": [
+        "doxorubicin",
+        "cyclophosphamide"
+      ],
+      "context_tags": [
+        "breast-cancer",
+        "intravenous",
+        "exact-schedule-unresolved"
+      ],
+      "display_name": "AC chemotherapy",
+      "id": "ac",
+      "kind": "regimen",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-ac-breast-patient-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "version": "1.0.0"
+    },
+    {
+      "abbreviation": "CAPE",
+      "aliases": [
+        "Xeloda",
+        "capecitabine tablets"
+      ],
+      "class_ids": [
+        "cytotoxic-chemotherapy"
+      ],
+      "component_drug_ids": [
+        "capecitabine"
+      ],
+      "context_tags": [
+        "breast-cancer",
+        "oral"
+      ],
+      "display_name": "Capecitabine",
+      "id": "capecitabine-monotherapy",
+      "kind": "regimen",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "health-canada-capecitabine-product-record"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "version": "1.0.0"
+    },
+    {
+      "abbreviation": "TC",
+      "aliases": [
+        "docetaxel cyclophosphamide"
+      ],
+      "class_ids": [
+        "taxane",
+        "cytotoxic-chemotherapy"
+      ],
+      "component_drug_ids": [
+        "docetaxel",
+        "cyclophosphamide"
+      ],
+      "context_tags": [
+        "breast-cancer",
+        "intravenous"
+      ],
+      "display_name": "TC chemotherapy",
+      "id": "tc",
+      "kind": "regimen",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "abbreviation": "TCHP",
+      "aliases": [
+        "docetaxel carboplatin trastuzumab pertuzumab"
+      ],
+      "class_ids": [
+        "taxane",
+        "cytotoxic-chemotherapy",
+        "her2-directed-therapy"
+      ],
+      "component_drug_ids": [
+        "docetaxel",
+        "carboplatin",
+        "trastuzumab",
+        "pertuzumab"
+      ],
+      "context_tags": [
+        "breast-cancer",
+        "her2-positive",
+        "intravenous"
+      ],
+      "display_name": "TCHP chemotherapy",
+      "id": "tchp",
+      "kind": "regimen",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "version": "1.0.0"
+    },
+    {
+      "abbreviation": null,
+      "aliases": [
+        "weekly Taxol",
+        "paclitaxel weekly"
+      ],
+      "class_ids": [
+        "taxane",
+        "cytotoxic-chemotherapy"
+      ],
+      "component_drug_ids": [
+        "paclitaxel"
+      ],
+      "context_tags": [
+        "breast-cancer",
+        "weekly"
+      ],
+      "display_name": "Weekly paclitaxel",
+      "id": "weekly-paclitaxel",
+      "kind": "regimen",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "cco-paclitaxel-patient-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Peripheral-Neuropathy.pdf",
+      "id": "bc-cancer-peripheral-neuropathy-handout",
+      "jurisdiction": "British Columbia, Canada",
+      "kind": "source",
+      "notes": [
+        "Link and paraphrase only; do not reproduce the handout.",
+        "Vitamin or supplement suggestions are intentionally excluded pending clinical review."
+      ],
+      "organization": "BC Cancer",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "patient_information",
+      "source_version": "February 2020",
+      "title": "Peripheral Neuropathy",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/46111",
+      "id": "cco-ac-breast-patient-information",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Legacy source; cycle-day timing is intentionally excluded."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "regimen_information",
+      "source_version": "May 2016",
+      "title": "AC breast patient information",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/45016",
+      "id": "cco-capecitabine-patient-information",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Exact loperamide dosing and treatment-hold instructions are intentionally excluded."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "regimen_information",
+      "source_version": "December 2023 revision note",
+      "title": "CAPE patient information",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/en/guidelines-advice/types-of-cancer/1376",
+      "id": "cco-fever-assessment-guideline",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Source age requires clinician-owner acceptance before release approval."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "clinical_guidance",
+      "source_version": "December 2015; website status Current",
+      "title": "Fever Assessment and Management Clinical Practice Guideline",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/system/files_force/symptoms/CCOFeverPostcard.pdf?download=1",
+      "id": "cco-fever-patient-guide",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Numeric fever thresholds remain unresolved and are not included in the preview."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "patient_information",
+      "source_version": "Undated patient PDF; underlying guideline dated December 2015",
+      "title": "Fever patient guide",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/en/guidelines-advice/symptom-management/diarrhea/how-to-manage-diarrhea",
+      "id": "cco-manage-diarrhea",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Primary Ontario source for draft patient-management wording."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "clinical_guidance",
+      "source_version": "Updated June 2025",
+      "title": "How to Manage Diarrhea",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/en/drugformulary/drugs/infosheet/44151",
+      "id": "cco-paclitaxel-patient-information",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Used for paclitaxel and peripheral-neuropathy claim mapping.",
+        "Exact day of the June 2024 revision was not verified."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "patient_information",
+      "source_version": "Revised June 2024",
+      "title": "PACLitaxel patient information",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/en/symptom-management",
+      "id": "cco-symptom-management-directory",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Catalogue-level provenance only; no unsourced management content is generated from this directory."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "clinical_guidance",
+      "source_version": "Current website directory",
+      "title": "Symptom management guides",
+      "verification_status": "link_only",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.cancercareontario.ca/en/drugformulary",
+      "id": "cco-systemic-treatment-information",
+      "jurisdiction": "Ontario, Canada",
+      "kind": "source",
+      "notes": [
+        "Catalogue-level provenance only; individual treatment guidance remains unsupported unless separately sourced."
+      ],
+      "organization": "Ontario Health (Cancer Care Ontario)",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "clinical_guidance",
+      "source_version": "Current website directory",
+      "title": "Drug Formulary and systemic treatment information",
+      "verification_status": "link_only",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.eviq.org.au/medical-oncology/breast/neoadjuvant-adjuvant/4102-breast-neoadjuvant-adjuvant-ac-doxorubicin-a/patient-information",
+      "id": "eviq-dose-dense-ac-breast-patient-information",
+      "jurisdiction": "Australia",
+      "kind": "source",
+      "notes": [
+        "Cross-check only; exact AC variant is unresolved for the general preview pathway."
+      ],
+      "organization": "eviQ Cancer Treatments Online",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": "2023-12-05",
+      "source_type": "regimen_information",
+      "source_version": "Review due 31 December 2027",
+      "title": "Breast neoadjuvant/adjuvant AC dose dense patient information",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.eviq.org.au/getmedia/474a3ca7-e4da-4e2b-95ee-e026cd10028a/eviQ-PI-3098-Infection-during-cancer-treatment-V5-02.pdf.aspx?ext=.pdf",
+      "id": "eviq-infection-during-cancer-treatment",
+      "jurisdiction": "Australia",
+      "kind": "source",
+      "notes": [
+        "Used for observable infection signs and thermometer preparedness."
+      ],
+      "organization": "eviQ Cancer Treatments Online",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "patient_information",
+      "source_version": "Version 5.02, copyright 2025",
+      "title": "Infection during cancer treatment",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.eviq.org.au/medical-oncology/breast/neoadjuvant-adjuvant/4103-breast-neoadjuvant-adjuvant-paclitaxel-weekly/patient-information",
+      "id": "eviq-weekly-paclitaxel-breast-patient-information",
+      "jurisdiction": "Australia",
+      "kind": "source",
+      "notes": [
+        "Used to confirm the exact weekly regimen and practical injury precautions."
+      ],
+      "organization": "eviQ Cancer Treatments Online",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": "2024-06-05",
+      "source_type": "regimen_information",
+      "source_version": "Review due 31 December 2028",
+      "title": "Breast neoadjuvant/adjuvant PACLitaxel weekly patient information",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://health-products.canada.ca/dpd-bdpp/info?code=100911&lang=eng",
+      "id": "health-canada-capecitabine-product-record",
+      "jurisdiction": "Canada",
+      "kind": "source",
+      "notes": [
+        "Label and safety cross-check only; not copied into patient guidance."
+      ],
+      "organization": "Health Canada",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": "2026-05-01",
+      "source_type": "product_monograph",
+      "source_version": "Product monograph dated 1 May 2026",
+      "title": "Capecitabine drug product record",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "accessed_date": "2026-07-18",
+      "canonical_url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/medeffect-canada/health-product-infowatch/march-2025.html",
+      "id": "health-canada-fluoropyrimidine-infowatch",
+      "jurisdiction": "Canada",
+      "kind": "source",
+      "notes": [
+        "Safety cross-check for potentially severe fluoropyrimidine toxicity."
+      ],
+      "organization": "Health Canada",
+      "permitted_excerpt": null,
+      "publication_or_revision_date": null,
+      "source_type": "safety_information",
+      "source_version": "March 2025",
+      "title": "Health Product InfoWatch, March 2025",
+      "verification_status": "verified",
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "nutrition"
+      ],
+      "clinical_label": "Appetite and taste changes",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "appetite-taste-changes",
+      "kind": "symptom",
+      "navigation_terms": [
+        "not hungry"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Appetite or taste changes",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "no appetite",
+        "food tastes different",
+        "metallic taste"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "blood"
+      ],
+      "clinical_label": "Bleeding or bruising",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "bleeding-bruising",
+      "kind": "symptom",
+      "navigation_terms": [
+        "unusual bleeding"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Bleeding or bruising",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "easy bruising",
+        "nosebleed",
+        "bleeding gums"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "blood",
+        "cardiovascular"
+      ],
+      "clinical_label": "Thromboembolic warning symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "blood-clot-warning-symptoms",
+      "kind": "symptom",
+      "navigation_terms": [
+        "possible clot"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Possible blood-clot symptoms",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "one swollen leg",
+        "calf pain",
+        "sudden breathlessness"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "cardiovascular",
+        "respiratory"
+      ],
+      "clinical_label": "Chest symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "chest-symptoms",
+      "kind": "symptom",
+      "navigation_terms": [
+        "heavy chest"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Chest pain or pressure",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "chest pain",
+        "chest pressure",
+        "chest tightness"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "digestive-system"
+      ],
+      "clinical_label": "Constipation",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "constipation",
+      "kind": "symptom",
+      "navigation_terms": [
+        "straining"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Constipation",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "hard stool",
+        "cannot poop",
+        "no bowel movement"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "digestive-system"
+      ],
+      "clinical_label": "Diarrhea",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "diarrhea",
+      "kind": "symptom",
+      "navigation_terms": [
+        "the runs",
+        "going more often",
+        "watery bowel movement"
+      ],
+      "observable_feature_ids": [
+        "diarrhea-onset",
+        "diarrhea-count",
+        "diarrhea-baseline-change",
+        "diarrhea-drinking",
+        "diarrhea-vomiting",
+        "diarrhea-dizziness",
+        "diarrhea-temperature",
+        "diarrhea-blood"
+      ],
+      "patient_label": "Diarrhea",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "synonyms": [
+        "loose stool",
+        "loose stools",
+        "watery stool",
+        "watery poo",
+        "frequent bowel movements"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "nervous-system"
+      ],
+      "clinical_label": "Dizziness",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "dizziness",
+      "kind": "symptom",
+      "navigation_terms": [
+        "feel like passing out"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Dizziness or faintness",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "lightheaded",
+        "faint",
+        "woozy",
+        "unsteady"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "cardiovascular",
+        "lymphatic"
+      ],
+      "clinical_label": "Edema",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "edema-swelling",
+      "kind": "symptom",
+      "navigation_terms": [
+        "fluid retention"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Swelling",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "puffy ankles",
+        "swollen legs",
+        "swollen arm"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "eyes"
+      ],
+      "clinical_label": "Ocular symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "eye-vision-symptoms",
+      "kind": "symptom",
+      "navigation_terms": [
+        "cannot see clearly"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Eye or vision changes",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "blurred vision",
+        "sore eyes",
+        "dry eyes",
+        "vision change"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "whole-body"
+      ],
+      "clinical_label": "Fatigue",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "fatigue",
+      "kind": "symptom",
+      "navigation_terms": [
+        "no energy",
+        "worn out"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Tiredness or low energy",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "fatigue",
+        "tired",
+        "exhausted",
+        "low energy"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "whole-body",
+        "infection"
+      ],
+      "clinical_label": "Fever or possible infection",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "fever-infection-concern",
+      "kind": "symptom",
+      "navigation_terms": [
+        "high temperature",
+        "feel hot",
+        "sweats",
+        "sore throat on chemo"
+      ],
+      "observable_feature_ids": [
+        "infection-temperature",
+        "infection-chills",
+        "infection-feeling-unwell",
+        "infection-signs",
+        "infection-fever-medicine"
+      ],
+      "patient_label": "Fever, chills, or infection concern",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-fever-patient-guide",
+        "cco-fever-assessment-guideline",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "synonyms": [
+        "fever",
+        "chills",
+        "shivering",
+        "shaking",
+        "infection",
+        "feeling feverish"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "skin",
+        "hands",
+        "feet"
+      ],
+      "clinical_label": "Hand-foot syndrome",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "hand-foot-symptoms",
+      "kind": "symptom",
+      "navigation_terms": [
+        "red palms",
+        "burning soles"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Hand or foot skin changes",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "sore palms",
+        "sore soles",
+        "peeling hands",
+        "peeling feet",
+        "hand foot syndrome"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "nervous-system"
+      ],
+      "clinical_label": "Headache",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "headache",
+      "kind": "symptom",
+      "navigation_terms": [
+        "head hurts"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Headache",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "head pain",
+        "migraine"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "endocrine"
+      ],
+      "clinical_label": "Vasomotor symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "hot-flashes",
+      "kind": "symptom",
+      "navigation_terms": [
+        "suddenly hot"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Hot flashes",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "hot flushes",
+        "night sweats"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "immune-system",
+        "respiratory",
+        "skin"
+      ],
+      "clinical_label": "Infusion or hypersensitivity symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "infusion-allergic-symptoms",
+      "kind": "symptom",
+      "navigation_terms": [
+        "allergic reaction"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Infusion or allergic-type symptoms",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "facial swelling",
+        "hives",
+        "wheeze",
+        "reaction during infusion"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "musculoskeletal"
+      ],
+      "clinical_label": "Arthralgia or myalgia",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "joint-muscle-symptoms",
+      "kind": "symptom",
+      "navigation_terms": [
+        "aching joints"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Joint or muscle aches",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "joint pain",
+        "muscle pain",
+        "body aches",
+        "stiffness"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "mental-health",
+        "cognition"
+      ],
+      "clinical_label": "Mood or cognitive symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "mood-cognitive-concerns",
+      "kind": "symptom",
+      "navigation_terms": [
+        "cannot concentrate"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Mood, memory, or concentration concerns",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "brain fog",
+        "low mood",
+        "anxious",
+        "forgetful"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "mouth"
+      ],
+      "clinical_label": "Oral mucositis or stomatitis",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "mouth-soreness",
+      "kind": "symptom",
+      "navigation_terms": [
+        "mouth full of sores"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Mouth soreness",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "mouth sores",
+        "sore mouth",
+        "ulcers",
+        "painful mouth"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "skin",
+        "hair",
+        "nails"
+      ],
+      "clinical_label": "Nail or hair changes",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "nail-hair-changes",
+      "kind": "symptom",
+      "navigation_terms": [
+        "losing hair"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Nail or hair changes",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "hair loss",
+        "brittle nails",
+        "nail pain"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "digestive-system"
+      ],
+      "clinical_label": "Nausea",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "nausea",
+      "kind": "symptom",
+      "navigation_terms": [
+        "feel like vomiting"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Nausea",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "feeling sick",
+        "queasy",
+        "upset stomach"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "whole-body"
+      ],
+      "clinical_label": "Pain",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "pain",
+      "kind": "symptom",
+      "navigation_terms": [
+        "new pain"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Pain",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "ache",
+        "hurts",
+        "soreness"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "cardiovascular"
+      ],
+      "clinical_label": "Palpitations",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "palpitations",
+      "kind": "symptom",
+      "navigation_terms": [
+        "fluttering heart"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Fast or irregular heartbeat",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "heart racing",
+        "skipped beats",
+        "pounding heart"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "nervous-system",
+        "hands",
+        "feet"
+      ],
+      "clinical_label": "Peripheral neuropathy",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "peripheral-neuropathy",
+      "kind": "symptom",
+      "navigation_terms": [
+        "tingling fingers",
+        "dropping things",
+        "hand numbness",
+        "foot numbness"
+      ],
+      "observable_feature_ids": [
+        "neuropathy-location",
+        "neuropathy-onset",
+        "neuropathy-trend",
+        "neuropathy-hand-tasks",
+        "neuropathy-walking-balance",
+        "neuropathy-weakness"
+      ],
+      "patient_label": "Tingling, numbness, or burning",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "synonyms": [
+        "neuropathy",
+        "pins and needles",
+        "numb fingers",
+        "numb toes",
+        "burning feet"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "skin"
+      ],
+      "clinical_label": "Rash or pruritus",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "rash-itching",
+      "kind": "symptom",
+      "navigation_terms": [
+        "hives",
+        "itchy"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Rash or itching",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "itchy skin",
+        "red spots",
+        "skin rash"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "respiratory"
+      ],
+      "clinical_label": "Respiratory symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "shortness-of-breath-cough",
+      "kind": "symptom",
+      "navigation_terms": [
+        "cannot catch breath"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Shortness of breath or cough",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "breathless",
+        "trouble breathing",
+        "coughing",
+        "winded"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "sleep"
+      ],
+      "clinical_label": "Sleep disturbance",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "sleep-concerns",
+      "kind": "symptom",
+      "navigation_terms": [
+        "poor sleep"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Sleep concerns",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "insomnia",
+        "cannot sleep",
+        "waking often"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "genitourinary"
+      ],
+      "clinical_label": "Genitourinary symptoms",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "vaginal-genitourinary-symptoms",
+      "kind": "symptom",
+      "navigation_terms": [
+        "burning urine",
+        "vaginal soreness"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Vaginal or urinary symptoms",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "vaginal dryness",
+        "pain with sex",
+        "urinary discomfort"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "body_system_tags": [
+        "digestive-system"
+      ],
+      "clinical_label": "Vomiting",
+      "concept_kind": "patient_observable",
+      "general_module_ids": [],
+      "id": "vomiting",
+      "kind": "symptom",
+      "navigation_terms": [
+        "cannot keep fluids down"
+      ],
+      "observable_feature_ids": [],
+      "patient_label": "Vomiting",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-symptom-management-directory"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "catalogued",
+      "synonyms": [
+        "throwing up",
+        "being sick"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "ADC"
+      ],
+      "description_module_ids": [],
+      "display_name": "Antibody-drug conjugate",
+      "id": "antibody-drug-conjugate",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "CDK inhibitor",
+        "CDK4 6 inhibitor"
+      ],
+      "description_module_ids": [],
+      "display_name": "CDK4/6 inhibitor",
+      "id": "cdk46-inhibitor",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "chemotherapy",
+        "chemo"
+      ],
+      "description_module_ids": [],
+      "display_name": "Cytotoxic chemotherapy",
+      "id": "cytotoxic-chemotherapy",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "hormone therapy",
+        "hormonal therapy"
+      ],
+      "description_module_ids": [],
+      "display_name": "Endocrine therapy",
+      "id": "endocrine-therapy",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "HER2 therapy",
+        "anti-HER2 therapy"
+      ],
+      "description_module_ids": [],
+      "display_name": "HER2-directed therapy",
+      "id": "her2-directed-therapy",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "immunotherapy",
+        "checkpoint inhibitor"
+      ],
+      "description_module_ids": [],
+      "display_name": "Immune checkpoint inhibitor",
+      "id": "immune-checkpoint-inhibitor",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "PARP therapy"
+      ],
+      "description_module_ids": [],
+      "display_name": "PARP inhibitor",
+      "id": "parp-inhibitor",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "PI3K inhibitor",
+        "AKT inhibitor",
+        "mTOR inhibitor"
+      ],
+      "description_module_ids": [],
+      "display_name": "PI3K/AKT/mTOR-pathway therapy",
+      "id": "pi3k-akt-mtor-pathway-therapy",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "systemic-therapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "systemic treatment"
+      ],
+      "description_module_ids": [],
+      "display_name": "Systemic therapy",
+      "id": "systemic-therapy",
+      "kind": "treatment_class",
+      "parent_class_ids": [],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "aliases": [
+        "taxane chemotherapy"
+      ],
+      "description_module_ids": [],
+      "display_name": "Taxane",
+      "id": "taxane",
+      "kind": "treatment_class",
+      "parent_class_ids": [
+        "cytotoxic-chemotherapy"
+      ],
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "source_ids": [
+        "cco-systemic-treatment-information"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "version": "1.0.0"
+    },
+    {
+      "frequency_band": null,
+      "id": "ac-fever-infection-concern",
+      "kind": "treatment_toxicity_relationship",
+      "modules": {
+        "about": [
+          "fever-infection-about"
+        ],
+        "contact_team": [
+          "infection-contact-team"
+        ],
+        "home_management": [
+          "infection-home-preparation"
+        ],
+        "reporting_checklist": [
+          "infection-reporting-checklist"
+        ],
+        "treatment_context": [
+          "ac-fever-infection-context"
+        ],
+        "urgent_attention": [
+          "infection-urgent-attention"
+        ]
+      },
+      "question_ids": [
+        "q-infection-temperature",
+        "q-infection-chills",
+        "q-infection-feeling-unwell",
+        "q-infection-signs",
+        "q-infection-fever-medicine"
+      ],
+      "relationship_type": "associated_with",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "seriousness_flags": [],
+      "source_ids": [
+        "cco-ac-breast-patient-information",
+        "cco-fever-patient-guide",
+        "cco-fever-assessment-guideline",
+        "eviq-dose-dense-ac-breast-patient-information",
+        "eviq-infection-during-cancer-treatment"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "symptom_id": "fever-infection-concern",
+      "timing": null,
+      "treatment_id": "ac",
+      "treatment_kind": "regimen",
+      "version": "1.0.0"
+    },
+    {
+      "frequency_band": null,
+      "id": "capecitabine-diarrhea",
+      "kind": "treatment_toxicity_relationship",
+      "modules": {
+        "about": [
+          "diarrhea-about"
+        ],
+        "contact_team": [
+          "diarrhea-contact-team"
+        ],
+        "home_management": [
+          "diarrhea-home-management"
+        ],
+        "reporting_checklist": [
+          "diarrhea-reporting-checklist"
+        ],
+        "treatment_context": [
+          "capecitabine-diarrhea-context"
+        ],
+        "urgent_attention": [
+          "diarrhea-urgent-attention"
+        ]
+      },
+      "question_ids": [
+        "q-diarrhea-onset",
+        "q-diarrhea-count",
+        "q-diarrhea-drinking",
+        "q-diarrhea-vomiting",
+        "q-diarrhea-dizziness",
+        "q-diarrhea-temperature",
+        "q-diarrhea-blood"
+      ],
+      "relationship_type": "associated_with",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "seriousness_flags": [],
+      "source_ids": [
+        "cco-capecitabine-patient-information",
+        "cco-manage-diarrhea",
+        "health-canada-capecitabine-product-record",
+        "health-canada-fluoropyrimidine-infowatch"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "symptom_id": "diarrhea",
+      "timing": null,
+      "treatment_id": "capecitabine-monotherapy",
+      "treatment_kind": "regimen",
+      "version": "1.0.0"
+    },
+    {
+      "frequency_band": null,
+      "id": "weekly-paclitaxel-peripheral-neuropathy",
+      "kind": "treatment_toxicity_relationship",
+      "modules": {
+        "about": [
+          "neuropathy-about"
+        ],
+        "contact_team": [
+          "neuropathy-contact-team"
+        ],
+        "home_management": [
+          "neuropathy-home-safety"
+        ],
+        "reporting_checklist": [
+          "neuropathy-reporting-checklist"
+        ],
+        "treatment_context": [
+          "paclitaxel-neuropathy-context"
+        ],
+        "urgent_attention": [
+          "neuropathy-urgent-neurological-signs"
+        ]
+      },
+      "question_ids": [
+        "q-neuropathy-location",
+        "q-neuropathy-onset",
+        "q-neuropathy-trend",
+        "q-neuropathy-hand-tasks",
+        "q-neuropathy-walking-balance",
+        "q-neuropathy-weakness"
+      ],
+      "relationship_type": "associated_with",
+      "review": {
+        "approval_id": null,
+        "review_due": null,
+        "reviewed_at": null,
+        "reviewer": null
+      },
+      "seriousness_flags": [],
+      "source_ids": [
+        "cco-paclitaxel-patient-information",
+        "eviq-weekly-paclitaxel-breast-patient-information",
+        "bc-cancer-peripheral-neuropathy-handout"
+      ],
+      "status": "draft",
+      "superseded_by": null,
+      "supersedes": null,
+      "support_status": "full_guidance",
+      "symptom_id": "peripheral-neuropathy",
+      "timing": null,
+      "treatment_id": "weekly-paclitaxel",
+      "treatment_kind": "regimen",
+      "version": "1.0.0"
+    }
+  ],
+  "release_id": "build-week-preview-2026-07-18",
+  "release_notes": [
+    "Immutable, content-addressed Build Week preview for synthetic demonstration only.",
+    "Contains three complete draft gold pathways and one draft weekly-paclitaxel preparation flow.",
+    "GPT-5.6 is not a source of clinical guidance."
+  ],
+  "release_version": "0.1.0",
+  "safety_ruleset_version": "0.1.0",
+  "schema_version": "0.1.0",
+  "source_inventory": [
+    "bc-cancer-peripheral-neuropathy-handout",
+    "cco-ac-breast-patient-information",
+    "cco-capecitabine-patient-information",
+    "cco-fever-assessment-guideline",
+    "cco-fever-patient-guide",
+    "cco-manage-diarrhea",
+    "cco-paclitaxel-patient-information",
+    "cco-symptom-management-directory",
+    "cco-systemic-treatment-information",
+    "eviq-dose-dense-ac-breast-patient-information",
+    "eviq-infection-during-cancer-treatment",
+    "eviq-weekly-paclitaxel-breast-patient-information",
+    "health-canada-capecitabine-product-record",
+    "health-canada-fluoropyrimidine-infowatch"
+  ]
+}

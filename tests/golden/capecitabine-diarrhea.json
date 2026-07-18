@@ -1,0 +1,34 @@
+{
+  "releaseId": "build-week-preview-2026-07-18",
+  "channel": "preview",
+  "contentHash": "b3e8b481b45e0004f01d68ea8c5150e6f0ad4a1dc0ab62291bbd2e9efe630ad5",
+  "treatmentId": "capecitabine-monotherapy",
+  "symptomId": "diarrhea",
+  "relationshipId": "capecitabine-diarrhea",
+  "supportStatus": "full_guidance",
+  "questionIds": [
+    "q-diarrhea-onset",
+    "q-diarrhea-count",
+    "q-diarrhea-drinking",
+    "q-diarrhea-vomiting",
+    "q-diarrhea-dizziness",
+    "q-diarrhea-temperature",
+    "q-diarrhea-blood"
+  ],
+  "sections": {
+    "about": ["diarrhea-about"],
+    "treatment_context": ["capecitabine-diarrhea-context"],
+    "home_management": ["diarrhea-home-management"],
+    "contact_team": ["diarrhea-contact-team"],
+    "urgent_attention": ["diarrhea-urgent-attention"],
+    "reporting_checklist": ["diarrhea-reporting-checklist"]
+  },
+  "sourceIds": [
+    "cco-capecitabine-patient-information",
+    "cco-fever-patient-guide",
+    "cco-manage-diarrhea",
+    "health-canada-capecitabine-product-record",
+    "health-canada-fluoropyrimidine-infowatch"
+  ]
+}
+

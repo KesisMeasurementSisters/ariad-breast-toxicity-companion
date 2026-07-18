@@ -1,0 +1,99 @@
+- &module_base
+  kind: educational_module
+  id: neuropathy-about
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  audience: patient
+  jurisdiction: Canada
+  section: about
+  title: About this symptom
+  paragraphs:
+    - Peripheral neuropathy can feel like tingling, pins and needles, numbness, burning, or pain, often in the fingers or toes. It can also affect grip, balance, or movement.
+    - Other conditions can cause similar symptoms. Ariad cannot determine the cause.
+  bullets: []
+  applicability: { treatment_ids: [weekly-paclitaxel, paclitaxel], symptom_ids: [peripheral-neuropathy] }
+  priority_tags: []
+  source_ids:
+    - cco-paclitaxel-patient-information
+    - eviq-weekly-paclitaxel-breast-patient-information
+    - bc-cancer-peripheral-neuropathy-handout
+  claim_ids: [claim-neuropathy-description, claim-neuropathy-function]
+  placeholders: []
+  review_due: null
+
+- <<: *module_base
+  id: paclitaxel-neuropathy-context
+  section: treatment_context
+  title: Why it matters with this treatment
+  paragraphs:
+    - Peripheral neuropathy can occur with paclitaxel. Symptoms may affect tasks such as fastening buttons, writing, or picking up small objects.
+  applicability: { treatment_ids: [weekly-paclitaxel, paclitaxel], symptom_ids: [peripheral-neuropathy] }
+  priority_tags: [daily-activities]
+  source_ids: [cco-paclitaxel-patient-information, eviq-weekly-paclitaxel-breast-patient-information]
+  claim_ids: [claim-paclitaxel-neuropathy-association, claim-neuropathy-hand-function]
+
+- <<: *module_base
+  id: neuropathy-home-safety
+  section: home_management
+  title: What you can generally do at home
+  paragraphs:
+    - These are general precautions. Follow the instructions provided by your cancer team.
+  bullets:
+    - Protect areas with reduced feeling and check your hands and feet for cuts.
+    - Use supportive shoes and protective gloves for household or outdoor tasks.
+    - Test bath water with your elbow before putting numb hands or feet into it.
+    - Keep floors and walkways well lit and clear of clutter.
+    - Ask your team about driving if sensation or foot control is affected.
+  applicability: { treatment_ids: [weekly-paclitaxel, paclitaxel], symptom_ids: [peripheral-neuropathy] }
+  priority_tags: [hand-safety, foot-safety, fall-prevention]
+  source_ids: [eviq-weekly-paclitaxel-breast-patient-information, bc-cancer-peripheral-neuropathy-handout]
+  claim_ids: [claim-neuropathy-injury-prevention, claim-neuropathy-fall-prevention]
+
+- <<: *module_base
+  id: neuropathy-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You notice new tingling, numbness, burning, pain, or weakness.
+    - Symptoms are worsening or spreading.
+    - Symptoms interfere with buttons, writing, holding objects, walking, or balance.
+  applicability: { treatment_ids: [weekly-paclitaxel, paclitaxel], symptom_ids: [peripheral-neuropathy] }
+  priority_tags: [change-noted, daily-activities]
+  source_ids: [cco-paclitaxel-patient-information, eviq-weekly-paclitaxel-breast-patient-information, bc-cancer-peripheral-neuropathy-handout]
+  claim_ids: [claim-neuropathy-contact-observations]
+
+- <<: *module_base
+  id: neuropathy-urgent-neurological-signs
+  section: urgent_attention
+  title: Seek urgent medical attention if…
+  paragraphs:
+    - These are general neurological emergency signs. They do not identify or grade peripheral neuropathy.
+  bullets:
+    - You develop sudden confusion or trouble speaking.
+    - You have sudden difficulty moving an arm or leg.
+    - You have a seizure or pass out.
+  applicability: { treatment_ids: [weekly-paclitaxel, paclitaxel], symptom_ids: [peripheral-neuropathy] }
+  priority_tags: []
+  source_ids: [cco-paclitaxel-patient-information]
+  claim_ids: [claim-urgent-neurological-signs]
+
+- <<: *module_base
+  id: neuropathy-reporting-checklist
+  section: reporting_checklist
+  title: What information to have ready
+  paragraphs: []
+  bullets:
+    - Where the sensation is and whether it is tingling, numbness, burning, or pain.
+    - When it began and whether it is changing.
+    - Effects on buttons, writing, small objects, walking, or balance.
+    - Any weakness, falls, near-falls, burns, cuts, or other injuries.
+    - Your treatment name and the date of your last treatment.
+  applicability: { treatment_ids: [weekly-paclitaxel, paclitaxel], symptom_ids: [peripheral-neuropathy] }
+  priority_tags: [tracking]
+  source_ids: [cco-paclitaxel-patient-information, bc-cancer-peripheral-neuropathy-handout]
+  claim_ids: [claim-neuropathy-reporting-information]
+

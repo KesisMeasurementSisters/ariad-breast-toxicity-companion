@@ -1,0 +1,59 @@
+- &regimen_base
+  kind: regimen
+  id: weekly-paclitaxel
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  display_name: Weekly paclitaxel
+  abbreviation: null
+  aliases: [weekly Taxol, paclitaxel weekly]
+  component_drug_ids: [paclitaxel]
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  context_tags: [breast-cancer, weekly]
+  source_ids: [eviq-weekly-paclitaxel-breast-patient-information, cco-paclitaxel-patient-information]
+  support_status: full_guidance
+
+- <<: *regimen_base
+  id: capecitabine-monotherapy
+  display_name: Capecitabine
+  abbreviation: CAPE
+  aliases: [Xeloda, capecitabine tablets]
+  component_drug_ids: [capecitabine]
+  class_ids: [cytotoxic-chemotherapy]
+  context_tags: [breast-cancer, oral]
+  source_ids: [cco-capecitabine-patient-information, health-canada-capecitabine-product-record]
+
+- <<: *regimen_base
+  id: ac
+  display_name: AC chemotherapy
+  abbreviation: AC
+  aliases: [doxorubicin cyclophosphamide, Adriamycin Cytoxan]
+  component_drug_ids: [doxorubicin, cyclophosphamide]
+  class_ids: [cytotoxic-chemotherapy]
+  context_tags: [breast-cancer, intravenous, exact-schedule-unresolved]
+  source_ids: [cco-ac-breast-patient-information]
+
+- <<: *regimen_base
+  id: tc
+  display_name: TC chemotherapy
+  abbreviation: TC
+  aliases: [docetaxel cyclophosphamide]
+  component_drug_ids: [docetaxel, cyclophosphamide]
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  context_tags: [breast-cancer, intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+
+- <<: *regimen_base
+  id: tchp
+  display_name: TCHP chemotherapy
+  abbreviation: TCHP
+  aliases: [docetaxel carboplatin trastuzumab pertuzumab]
+  component_drug_ids: [docetaxel, carboplatin, trastuzumab, pertuzumab]
+  class_ids: [taxane, cytotoxic-chemotherapy, her2-directed-therapy]
+  context_tags: [breast-cancer, her2-positive, intravenous]
+  source_ids: [cco-systemic-treatment-information]
+  support_status: catalogued
+

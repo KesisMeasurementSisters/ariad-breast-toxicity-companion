@@ -31,7 +31,8 @@ only reorder approved modules and create a neutral fact summary.
   explicitly reviews and approves it.
 - Never invent reviewer identity, review date, source, clinical fact, or local
   policy.
-- A draft preview release requires `ALLOW_DRAFT_CONTENT=true` and must display
+- A draft preview release requires
+  `ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW` and must display
   an unreviewed-prototype notice. A production release may include only exact
   approved object versions and must fail closed otherwise.
 - Preserve source jurisdiction, revision date, link, claim mapping, and known
@@ -70,4 +71,3 @@ Follow the parent Kesis & Sisters git protocol. Never commit directly to
 `main`; use `Codex/<short-slug>-YYYY-MM-DD`. Never force-push or auto-resolve a
 rebase conflict. Do not expose `.env.local` or `OPENAI_API_KEY`. Do not approve
 clinical content merely to make a build pass.
-

@@ -1,0 +1,16 @@
+kind: clinic_config
+id: build-week-demo-clinic
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+clinic_name: Threadline Demo Cancer Centre
+synthetic: true
+daytime_contact: "Demo daytime line: 416-555-0142"
+after_hours_contact: "Demo after-hours line: 416-555-0184"
+emergency_statement: If you think you may be experiencing a medical emergency, call 911 or your local emergency service.
+fever_instruction: This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team.
+supportive_care_note: Follow supportive-care medicine and fluid instructions provided by your own cancer team.
+source_ids: []
+

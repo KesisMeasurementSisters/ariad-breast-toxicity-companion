@@ -1,0 +1,68 @@
+- &class_base
+  kind: treatment_class
+  id: systemic-therapy
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  display_name: Systemic therapy
+  aliases: [systemic treatment]
+  parent_class_ids: []
+  description_module_ids: []
+  source_ids: [cco-systemic-treatment-information]
+
+- <<: *class_base
+  id: cytotoxic-chemotherapy
+  display_name: Cytotoxic chemotherapy
+  aliases: [chemotherapy, chemo]
+  parent_class_ids: [systemic-therapy]
+
+- <<: *class_base
+  id: taxane
+  display_name: Taxane
+  aliases: [taxane chemotherapy]
+  parent_class_ids: [cytotoxic-chemotherapy]
+
+- <<: *class_base
+  id: her2-directed-therapy
+  display_name: HER2-directed therapy
+  aliases: [HER2 therapy, anti-HER2 therapy]
+  parent_class_ids: [systemic-therapy]
+
+- <<: *class_base
+  id: endocrine-therapy
+  display_name: Endocrine therapy
+  aliases: [hormone therapy, hormonal therapy]
+  parent_class_ids: [systemic-therapy]
+
+- <<: *class_base
+  id: cdk46-inhibitor
+  display_name: CDK4/6 inhibitor
+  aliases: [CDK inhibitor, CDK4 6 inhibitor]
+  parent_class_ids: [systemic-therapy]
+
+- <<: *class_base
+  id: parp-inhibitor
+  display_name: PARP inhibitor
+  aliases: [PARP therapy]
+  parent_class_ids: [systemic-therapy]
+
+- <<: *class_base
+  id: immune-checkpoint-inhibitor
+  display_name: Immune checkpoint inhibitor
+  aliases: [immunotherapy, checkpoint inhibitor]
+  parent_class_ids: [systemic-therapy]
+
+- <<: *class_base
+  id: antibody-drug-conjugate
+  display_name: Antibody-drug conjugate
+  aliases: [ADC]
+  parent_class_ids: [systemic-therapy]
+
+- <<: *class_base
+  id: pi3k-akt-mtor-pathway-therapy
+  display_name: PI3K/AKT/mTOR-pathway therapy
+  aliases: [PI3K inhibitor, AKT inhibitor, mTOR inhibitor]
+  parent_class_ids: [systemic-therapy]
+

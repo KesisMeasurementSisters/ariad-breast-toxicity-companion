@@ -1,0 +1,31 @@
+{
+  "releaseId": "build-week-preview-2026-07-18",
+  "channel": "preview",
+  "contentHash": "b3e8b481b45e0004f01d68ea8c5150e6f0ad4a1dc0ab62291bbd2e9efe630ad5",
+  "treatmentId": "weekly-paclitaxel",
+  "symptomId": "peripheral-neuropathy",
+  "relationshipId": "weekly-paclitaxel-peripheral-neuropathy",
+  "supportStatus": "full_guidance",
+  "questionIds": [
+    "q-neuropathy-location",
+    "q-neuropathy-onset",
+    "q-neuropathy-trend",
+    "q-neuropathy-hand-tasks",
+    "q-neuropathy-walking-balance",
+    "q-neuropathy-weakness"
+  ],
+  "sections": {
+    "about": ["neuropathy-about"],
+    "treatment_context": ["paclitaxel-neuropathy-context"],
+    "home_management": ["neuropathy-home-safety"],
+    "contact_team": ["neuropathy-contact-team"],
+    "urgent_attention": ["neuropathy-urgent-neurological-signs"],
+    "reporting_checklist": ["neuropathy-reporting-checklist"]
+  },
+  "sourceIds": [
+    "bc-cancer-peripheral-neuropathy-handout",
+    "cco-paclitaxel-patient-information",
+    "eviq-weekly-paclitaxel-breast-patient-information"
+  ]
+}
+

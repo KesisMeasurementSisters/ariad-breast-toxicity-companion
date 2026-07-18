@@ -5,6 +5,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@ariad/contracts": path.resolve(__dirname, "packages/contracts/src/index.ts"),
+      "@ariad/knowledge-core/node": path.resolve(
+        __dirname,
+        "packages/knowledge-core/src/node.ts",
+      ),
       "@ariad/knowledge-core": path.resolve(
         __dirname,
         "packages/knowledge-core/src/index.ts",
@@ -19,4 +23,3 @@ export default defineConfig({
     },
   },
 });
-

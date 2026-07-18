@@ -29,6 +29,17 @@
   quality commands, repository instructions, and credential boundary.
 - Installed the official OpenAI Developer Docs MCP for subsequent sessions and
   used official OpenAI web documentation as the current-session fallback.
+- Implemented strict Zod contracts for all first-class knowledge objects,
+  review evidence, immutable releases, guidance assembly, and bounded AI data.
+- Built a deterministic YAML loader, graph/reference validation, safety scan,
+  search indexes, exact-version compiler, content hash, and fail-closed release
+  policies.
+- Curated 144 pinned preview objects: 23 drugs, five regimens, ten treatment
+  classes, 28 patient-observable symptom concepts, 19 observable features, 19
+  questions, 22 draft patient modules, three gold relationships, 14 sources,
+  and one synthetic clinic configuration.
+- Added three structured golden fixtures plus a complete weekly-paclitaxel
+  preparation pathway. All clinical modules remain draft.
 
 ### Commands and checks
 
@@ -37,6 +48,14 @@
 - `node --version` — v25.2.1.
 - `pnpm --version` — 11.9.0.
 - Package versions checked against the npm registry before pinning.
+- `pnpm content:validate` — 144 objects, zero errors and zero warnings.
+- `pnpm content:build` — correctly failed closed without the explicit preview
+  acknowledgement.
+- `pnpm content:build:preview` — compiled immutable preview hash
+  `b3e8b481b45e0004f01d68ea8c5150e6f0ad4a1dc0ab62291bbd2e9efe630ad5`.
+- `pnpm safety:scan` — zero prohibited-language findings.
+- `pnpm test` — 19 tests passed, including golden pathways, hash
+  reproducibility, safety invariants, and deterministic recognition.
 
 ### Clinical review required
 
@@ -49,4 +68,3 @@
 
 - Foundation in progress; no content is approved or published.
 - `/feedback` Codex Session ID: **TODO before submission**.
-
