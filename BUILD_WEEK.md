@@ -82,7 +82,7 @@
 - `pnpm content:build:preview` — compiled immutable preview hash
   `d538f6870ef8f5c15349120d7e8a2f1e95aa4519ed5f8d0915dc4b1094760cbf`.
 - `pnpm safety:scan` — zero prohibited-language findings.
-- `pnpm test` — 79 tests passed, including golden pathways, hash
+- `pnpm test` — 80 tests passed, including golden pathways, hash
   reproducibility, governance invariants, adversarial AI validation, HTTP
   controls, local-storage migration, and deterministic recognition.
 - `pnpm lint` and `pnpm typecheck` — passed.
@@ -127,8 +127,37 @@
 
 - No content is approved or published; the ordinary production build remains
   intentionally blocked.
-- Live GPT-5.6 demonstration remains blocked by project quota/billing.
+- GPT-5.6 is intentionally disabled by owner decision while work focuses on
+  deterministic behavior and clinic data. The earlier quota result remains
+  recorded evidence, not an active implementation priority.
 - No public deployment or video is claimed.
 - Manual screen-reader smoke testing and final cross-browser/device review
   remain submission gates.
 - `/feedback` Codex Session ID: **TODO before submission**.
+
+## 2026-07-19 — Deterministic and clinic-data focus
+
+### Human-locked decision
+
+- Disable all LLM provider calls at this time.
+- Preserve the bounded adapter and locally stored key for possible later
+  reactivation; do not delete or broaden them.
+- Prioritize deterministic behavior, governed clinical content, and clinic
+  configuration data.
+
+### Implementation
+
+- Set the ignored local runtime and tracked example to `ENABLE_GPT56=false`.
+- Kept the server feature gate fail-closed: only the exact string `true` can
+  enable provider calls.
+- Added a regression test proving that an absent flag remains disabled even
+  when a key and model are configured.
+- Updated current-state documentation and deferred the live-model demo script.
+
+### Verification
+
+- `pnpm lint` — passed.
+- `pnpm typecheck` — passed across all three workspace packages.
+- `pnpm test` — 80 tests passed across eight files.
+- Local `/api/health` — `ai.enabled: false`, `ai.reason: disabled`, preview
+  release `0.1.1`, and `clinicalUse: false`.

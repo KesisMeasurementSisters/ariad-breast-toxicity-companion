@@ -8,6 +8,10 @@ It covers the Next.js application, local browser state, compiled release, and
 bounded OpenAI routes. The intended demo uses synthetic data and must not be
 used with identifying or real patient information.
 
+Current mode sets `ENABLE_GPT56=false`. The OpenAI adapters remain dormant, so
+patient input does not cross the provider boundary during deterministic and
+clinic-data development.
+
 ## Assets and trust boundaries
 
 Assets:

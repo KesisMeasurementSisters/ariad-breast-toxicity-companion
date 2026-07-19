@@ -133,8 +133,10 @@ summary content remain in active React state and are cleared by reset or normal
 session termination. “Reset demo and clear saved treatments” removes the local
 storage key and ephemeral state.
 
-When GPT-5.6 is enabled, the minimum request data crosses the server/provider
-trust boundary. Users are explicitly asked not to enter identifying
-information; this prototype is not authorized for PHI.
+The current owner-directed mode sets `ENABLE_GPT56=false`, so no request data
+crosses the OpenAI provider boundary. If GPT-5.6 is explicitly re-enabled in a
+later phase, the minimum request data crosses that boundary. Users are always
+asked not to enter identifying information; this prototype is not authorized
+for PHI.
 
 See [threat model](./threat-model.md) and [architecture](./architecture.md).

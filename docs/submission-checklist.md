@@ -4,6 +4,10 @@ Use the official Devpost [rules](https://openai.devpost.com/rules) and
 [FAQ](https://openai.devpost.com/details/faqs) as the final source of truth.
 This checklist records gates; unchecked items are not claims of completion.
 
+Current owner decision (2026-07-19): GPT-5.6 is disabled while development
+focuses on deterministic behavior and clinic data. Live-model and video checks
+remain deferred until explicit reauthorization.
+
 Recorded deadline: **Tuesday, July 21, 2026 at 5:00 PM Pacific / 8:00 PM
 Toronto**. Reconfirm the deadline and eligibility on Devpost before submitting.
 

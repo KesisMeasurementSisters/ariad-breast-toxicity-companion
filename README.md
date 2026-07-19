@@ -14,6 +14,11 @@ cancer team.
 
 The central design choice is a hard separation of responsibilities:
 
+> **Current runtime mode — deterministic only.** By owner decision on
+> 2026-07-19, the optional GPT-5.6 adapter is disabled while development focuses
+> on governed deterministic behavior and clinic data. No patient input is sent
+> to OpenAI in this mode.
+
 > **GPT-5.6 handles natural-language symptom navigation and neutral
 > symptom-summary generation. It never generates clinical guidance. The
 > clinical guidance is assembled deterministically from an immutable,
@@ -46,8 +51,8 @@ Life** track.
 - One complete draft weekly-paclitaxel treatment-preparation path.
 - Observable questions that may change section emphasis, but never calculate a
   grade, diagnosis, cause, or personal urgency.
-- GPT-5.6 Structured Outputs for controlled symptom-ID selection and neutral
-  fact restatement, with deterministic fallbacks for both tasks.
+- Deterministic controlled-vocabulary symptom matching and neutral fact
+  summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
 - A content-addressed preview release containing 144 exact object versions.
 - Source panels, a synthetic clinic configuration, treatment-code demos, local
   saved treatments, and copy/print/download symptom summaries.
@@ -143,10 +148,11 @@ More detail: [architecture](./docs/architecture.md), [data
 flow](./docs/data-flow.md), [knowledge model](./docs/knowledge-model.md), and
 [ADRs](./docs/adr/README.md).
 
-## GPT-5.6 integration
+## Optional GPT-5.6 integration — currently disabled
 
 The OpenAI API key remains server-side. The runtime model defaults to
-`gpt-5.6` and is optional.
+`gpt-5.6`, but `ENABLE_GPT56=false` is the repository and local default. The
+current development mode does not call OpenAI.
 
 1. **Natural-language symptom navigator.** The client first tries deterministic
    synonym/fuzzy matching. If confidence is insufficient, the server asks
@@ -163,8 +169,8 @@ selection and deterministic summaries.
 
 ## Quick local setup
 
-Prerequisites: Node.js 22 or newer (Node 24 is used in CI), pnpm 11.9.0, and an
-optional OpenAI API key.
+Prerequisites: Node.js 22 or newer (Node 24 is used in CI) and pnpm 11.9.0. No
+OpenAI API key is required for deterministic-only development.
 
 ```bash
 pnpm install --frozen-lockfile
@@ -175,7 +181,9 @@ pnpm dev
 Open `http://localhost:3000`. The development command compiles the explicitly
 labelled unreviewed preview before starting Next.js.
 
-To exercise GPT-5.6, put these server-only values in `.env.local`:
+Do not enable GPT-5.6 during the current deterministic and clinic-data phase.
+If the owner later reauthorizes model testing, the dormant server adapter
+requires these server-only values in `.env.local`:
 
 ```text
 OPENAI_API_KEY=<your key>
@@ -183,8 +191,9 @@ OPENAI_MODEL=gpt-5.6
 ENABLE_GPT56=true
 ```
 
-To demonstrate the deterministic fallback, set `ENABLE_GPT56=false` or leave
-the key blank. Never commit `.env.local`.
+The checked-in example and current local configuration set
+`ENABLE_GPT56=false`. The API key may remain stored for later use; never commit
+`.env.local`.
 
 ### Environment variables
 
@@ -192,7 +201,7 @@ the key blank. Never commit `.env.local`.
 |---|---|---|
 | `OPENAI_API_KEY` | Server-only credential | blank |
 | `OPENAI_MODEL` | Runtime language model | `gpt-5.6` |
-| `ENABLE_GPT56` | Enables optional model calls | `true` |
+| `ENABLE_GPT56` | Exact opt-in for optional model calls; keep disabled during the current phase | `false` |
 | `AI_MAX_INPUT_CHARS` | Server request input limit, clamped to 50–500 characters | `500` |
 | `AI_REQUEST_TIMEOUT_MS` | Provider timeout | `12000` |
 | `CONTENT_RELEASE_ID` | Exact release manifest to compile | `build-week-preview-2026-07-18` |

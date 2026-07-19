@@ -46,6 +46,14 @@ afterEach(() => {
 });
 
 describe("GPT-5.6 runtime status", () => {
+  it("defaults to deterministic-only mode when the feature flag is absent", () => {
+    delete process.env.ENABLE_GPT56;
+    process.env.OPENAI_API_KEY = "test-key";
+    process.env.OPENAI_MODEL = "gpt-5.6";
+    expect(runtimeStatus()).toEqual({ enabled: false, model: "gpt-5.6", reason: "disabled" });
+    expect(openAiMock.construct).not.toHaveBeenCalled();
+  });
+
   it("stays disabled unless explicitly enabled", () => {
     process.env.ENABLE_GPT56 = "false";
     process.env.OPENAI_API_KEY = "test-key";

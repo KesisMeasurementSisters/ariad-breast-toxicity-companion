@@ -1,5 +1,10 @@
 # Demo video script — 2:58 target
 
+> **Deferred while LLM use is disabled.** Do not record the live-model version
+> of this script until the owner explicitly re-enables GPT-5.6. Demonstrate the
+> deterministic experience in the meantime without representing it as a model
+> result.
+
 This plan stays below the three-minute limit and uses only generic treatment
 names and synthetic answers. Record in a mobile-width browser with audible
 narration. Keep the preview banner and emergency boundary visible.
