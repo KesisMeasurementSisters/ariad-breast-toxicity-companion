@@ -23,6 +23,11 @@ queue. Generating the report, validating content, or compiling a preview does
 not approve anything. The structured clinic schema and its operational
 verification fields likewise do not establish clinical review or approval.
 
+Use the version-bound [clinician review brief](./clinical-review-brief.md) and
+its [review record template](./templates/clinician-review-record-template.md)
+to conduct, document, and sign the human review without conflating it with
+release or testing authorization.
+
 ## Lifecycle
 
 ```text
