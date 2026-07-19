@@ -27,8 +27,6 @@
 - Created the isolated repository and protected feature branch.
 - Established the initial pnpm/Next.js monorepo contract, strict TypeScript,
   quality commands, repository instructions, and credential boundary.
-- Installed the official OpenAI Developer Docs MCP for subsequent sessions and
-  used official OpenAI web documentation as the current-session fallback.
 - Implemented strict Zod contracts for all first-class knowledge objects,
   review evidence, immutable releases, guidance assembly, and bounded AI data.
 - Built a deterministic YAML loader, graph/reference validation, safety scan,
@@ -40,6 +38,36 @@
   and one synthetic clinic configuration.
 - Added three structured golden fixtures plus a complete weekly-paclitaxel
   preparation pathway. All clinical modules remain draft.
+- Built the complete mobile-first patient interface: dual entry, deterministic
+  treatment and symptom search, required patient confirmation, observable
+  question flows, guidance and source panels, education-only and unsupported
+  states, local saved treatments, reset, and neutral copy/print/download
+  summaries.
+- Added bounded server routes for GPT-5.6 classification and neutral summary
+  restatement using the official OpenAI SDK, Structured Outputs, `store: false`,
+  no tools, input and timeout limits, same-origin checks, rate limiting, and
+  deterministic fail-closed fallbacks.
+- Added governance validation for status histories, allowed transitions,
+  supersession integrity, dependency closure, approval hashes, expiry and
+  review dates, and exact source inventory equality.
+- Added unit, golden, adversarial AI, accessibility, responsive, keyboard, and
+  end-to-end browser coverage, plus a reproducible screenshot harness.
+- Added CI, a standalone Docker preview, architecture and safety documentation,
+  six ADRs, a demo script, submission gates, and the generated review report.
+
+### Delivered architecture
+
+- **Build time:** versioned YAML → strict schemas → governance/reference/safety
+  validation → deterministic compiler → immutable JSON + SHA-256.
+- **Runtime:** the client reads one exact compiled release and pure query
+  functions assemble guidance. No model can author, alter, or rank clinical
+  instructions.
+- **Bounded AI:** GPT-5.6 may return controlled symptom IDs or restate an exact
+  finite set of supplied facts. Provider, schema, provenance, or safety failure
+  returns a deterministic result.
+- **Data boundary:** no accounts, database, server symptom history, analytics,
+  uploads, or patient record. Only treatment IDs and a notice flag may persist
+  locally.
 
 ### Commands and checks
 
@@ -52,10 +80,41 @@
 - `pnpm content:build` — correctly failed closed without the explicit preview
   acknowledgement.
 - `pnpm content:build:preview` — compiled immutable preview hash
-  `b3e8b481b45e0004f01d68ea8c5150e6f0ad4a1dc0ab62291bbd2e9efe630ad5`.
+  `d538f6870ef8f5c15349120d7e8a2f1e95aa4519ed5f8d0915dc4b1094760cbf`.
 - `pnpm safety:scan` — zero prohibited-language findings.
-- `pnpm test` — 19 tests passed, including golden pathways, hash
-  reproducibility, safety invariants, and deterministic recognition.
+- `pnpm test` — 79 tests passed, including golden pathways, hash
+  reproducibility, governance invariants, adversarial AI validation, HTTP
+  controls, local-storage migration, and deterministic recognition.
+- `pnpm lint` and `pnpm typecheck` — passed.
+- `pnpm build:preview` — passed with Next.js 16.2.10's Webpack path; the preview
+  includes the static patient interface and three bounded dynamic API routes.
+- `pnpm test:e2e` — 14 tests passed on Pixel 7 and desktop Chromium, including
+  all three gold scenarios, preparation and education-only paths, axe checks,
+  a 320 px overflow check, and keyboard focus/skip-link behavior.
+- `pnpm screenshots` — regenerated four 390 px production-preview captures;
+  the harness uses deterministic fixtures and makes no live-model claim.
+
+### OpenAI runtime verification
+
+- The competition key is stored only in the ignored root `.env.local` and is
+  loaded server-side by the monorepo web app. No credential value is logged or
+  tracked.
+- With GPT-5.6 enabled, `/api/health` reported that the configured model path
+  was ready.
+- A synthetic live request reached the OpenAI API and returned a sanitized
+  `429 insufficient_quota`. Ariad returned its deterministic fallback without
+  exposing provider details.
+- A successful live GPT-5.6 response is therefore **not** claimed. Project
+  quota/billing must be enabled, then the live path must be rerun before the
+  demo and submission gates can be checked.
+
+### Evidence commits
+
+- `6c27f30` — Establish Ariad safety-first Build Week foundation.
+- `d4627fe` — Build governed draft knowledge release and golden pathways.
+- `0d56f28` — Build patient experience and bounded AI runtime.
+- Final deployed submission commit — pending owner deployment decision and the
+  remaining external submission gates.
 
 ### Clinical review required
 
@@ -66,5 +125,10 @@
 
 ### Known limitations / next work
 
-- Foundation in progress; no content is approved or published.
+- No content is approved or published; the ordinary production build remains
+  intentionally blocked.
+- Live GPT-5.6 demonstration remains blocked by project quota/billing.
+- No public deployment or video is claimed.
+- Manual screen-reader smoke testing and final cross-browser/device review
+  remain submission gates.
 - `/feedback` Codex Session ID: **TODO before submission**.
