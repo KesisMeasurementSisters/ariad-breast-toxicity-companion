@@ -368,6 +368,53 @@
                 ],
                 "type": "string"
               },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
               "superseded_by": {
                 "anyOf": [
                   {
@@ -611,6 +658,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "superseded_by": {
                 "anyOf": [
@@ -874,6 +968,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "superseded_by": {
                 "anyOf": [
@@ -1139,6 +1280,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "superseded_by": {
                 "anyOf": [
@@ -1423,6 +1611,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "summary_field": {
                 "minLength": 1,
@@ -1719,6 +1954,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "summary_label": {
                 "minLength": 1,
@@ -2045,6 +2327,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "superseded_by": {
                 "anyOf": [
@@ -2375,6 +2704,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "superseded_by": {
                 "anyOf": [
@@ -2758,6 +3134,53 @@
                   "retired"
                 ],
                 "type": "string"
+              },
+              "status_history": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "from_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "reason": {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    "to_status": {
+                      "enum": [
+                        "draft",
+                        "in_review",
+                        "approved",
+                        "retired"
+                      ],
+                      "type": "string"
+                    },
+                    "transitioned_at": {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    "transitioned_by": {
+                      "minLength": 2,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from_status",
+                    "to_status",
+                    "transitioned_at",
+                    "transitioned_by",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
               },
               "superseded_by": {
                 "anyOf": [

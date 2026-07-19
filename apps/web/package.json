@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@next/env": "16.2.10",
     "@ariad/contracts": "workspace:*",
     "@ariad/knowledge-core": "workspace:*",
     "fuse.js": "7.5.0",

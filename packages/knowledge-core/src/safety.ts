@@ -29,6 +29,27 @@ export function normalizeSafetyText(value: string): string {
     .trim();
 }
 
+export function scanPatientTextSafety(
+  objectId: string,
+  field: string,
+  value: string,
+): SafetyFinding[] {
+  const normalized = normalizeSafetyText(value);
+  return PROHIBITED_PATTERNS.flatMap((rule) =>
+    rule.pattern.test(normalized)
+      ? [
+          {
+            ruleId: rule.id,
+            severity: "error" as const,
+            objectId,
+            field,
+            excerpt: value.slice(0, 180),
+          },
+        ]
+      : [],
+  );
+}
+
 export function scanModuleSafety(module: EducationalModule): SafetyFinding[] {
   const fields: Array<[string, string]> = [
     ["title", module.title],
@@ -38,18 +59,7 @@ export function scanModuleSafety(module: EducationalModule): SafetyFinding[] {
   const findings: SafetyFinding[] = [];
 
   for (const [field, value] of fields) {
-    const normalized = normalizeSafetyText(value);
-    for (const rule of PROHIBITED_PATTERNS) {
-      if (rule.pattern.test(normalized)) {
-        findings.push({
-          ruleId: rule.id,
-          severity: "error",
-          objectId: module.id,
-          field,
-          excerpt: value.slice(0, 180),
-        });
-      }
-    }
+    findings.push(...scanPatientTextSafety(module.id, field, value));
 
     if (/\b38(?:[.,]\d)?\s*(?:°\s*)?c\b/iu.test(value) && module.status !== "approved") {
       findings.push({
@@ -69,4 +79,3 @@ export function prohibitedRecommendationLanguage(value: string): boolean {
   const normalized = normalizeSafetyText(value);
   return PROHIBITED_PATTERNS.some((rule) => rule.pattern.test(normalized));
 }
-

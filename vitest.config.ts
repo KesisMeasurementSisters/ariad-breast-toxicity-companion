@@ -5,6 +5,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@ariad/contracts": path.resolve(__dirname, "packages/contracts/src/index.ts"),
+      "@ariad/knowledge-core/canonical": path.resolve(
+        __dirname,
+        "packages/knowledge-core/src/canonical.ts",
+      ),
       "@ariad/knowledge-core/node": path.resolve(
         __dirname,
         "packages/knowledge-core/src/node.ts",
@@ -17,7 +21,7 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    include: ["packages/**/*.test.ts", "tests/**/*.test.ts"],
+    include: ["apps/**/*.test.ts", "packages/**/*.test.ts", "tests/**/*.test.ts"],
     coverage: {
       reporter: ["text", "html"],
     },

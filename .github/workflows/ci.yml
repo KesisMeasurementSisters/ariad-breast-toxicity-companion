@@ -30,3 +30,7 @@ jobs:
           ENABLE_GPT56: "false"
           NEXT_PUBLIC_DEMO_MODE: "true"
           ALLOW_DRAFT_CONTENT: "ARIAD_EXPLICIT_UNREVIEWED_PREVIEW"
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Run browser and accessibility checks
+        run: pnpm test:e2e

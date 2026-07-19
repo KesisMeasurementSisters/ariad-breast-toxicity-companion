@@ -1,6 +1,10 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import type { CompiledRelease, EducationalModule } from "@ariad/contracts";
+import type {
+  CompiledRelease,
+  EducationalModule,
+  TreatmentToxicityRelationship,
+} from "@ariad/contracts";
 import { PREVIEW_ACKNOWLEDGEMENT } from "@ariad/contracts";
 import {
   answerPriorityTags,
@@ -107,6 +111,33 @@ describe("release and safety invariants", () => {
     );
   });
 
+  it("rejects a release that omits a pinned runtime dependency", () => {
+    const manifest = structuredClone(
+      findReleaseManifest(repository, "build-week-preview-2026-07-18"),
+    );
+    manifest.included_objects = manifest.included_objects.filter(
+      (reference) =>
+        !(reference.kind === "educational_module" && reference.id === "neuropathy-about"),
+    );
+    expect(() => compileRelease(repository, manifest, PREVIEW_ACKNOWLEDGEMENT)).toThrow(
+      "release-dependency-not-included",
+    );
+  });
+
+  it("rejects a relationship wired to the wrong module section", () => {
+    const copy = structuredClone(repository) as KnowledgeRepository;
+    const educationalModule = copy.objects.find(
+      (object): object is EducationalModule =>
+        object.kind === "educational_module" && object.id === "neuropathy-about",
+    );
+    if (!educationalModule) throw new Error("gold module missing");
+    educationalModule.section = "urgent_attention";
+    const manifest = findReleaseManifest(copy, "build-week-preview-2026-07-18");
+    expect(() => compileRelease(copy, manifest, PREVIEW_ACKNOWLEDGEMENT)).toThrow(
+      "relationship-module-section-mismatch",
+    );
+  });
+
   it("never changes warning membership based on answers", () => {
     const base = assembleGuidance(release, "weekly-paclitaxel", "peripheral-neuropathy");
     const answered = assembleGuidance(release, "weekly-paclitaxel", "peripheral-neuropathy", [
@@ -130,6 +161,9 @@ describe("deterministic recognition", () => {
     expect(searchTreatments(release, "capecitbine")[0]?.record.id).toBe(
       "capecitabine-monotherapy",
     );
+    expect(searchTreatments(release, "capecitabine")[0]?.record.id).toBe(
+      "capecitabine-monotherapy",
+    );
   });
 
   it("recognizes the locked neuropathy demo phrase without generating guidance", () => {
@@ -139,5 +173,95 @@ describe("deterministic recognition", () => {
     );
     expect(result.candidates[0]?.symptomId).toBe("peripheral-neuropathy");
     expect(result.reasonCode).toBe("matched");
+  });
+});
+
+describe("transparent guidance fallback hierarchy", () => {
+  function releaseWithFallback(
+    treatmentKind: TreatmentToxicityRelationship["treatment_kind"],
+    treatmentId: string,
+  ): CompiledRelease {
+    const copy = structuredClone(release) as CompiledRelease;
+    const exact = copy.objects.find(
+      (object): object is TreatmentToxicityRelationship =>
+        object.kind === "treatment_toxicity_relationship" &&
+        object.id === "weekly-paclitaxel-peripheral-neuropathy",
+    );
+    if (!exact) throw new Error("gold relationship missing");
+    copy.objects = copy.objects.filter((object) => object.id !== exact.id);
+    copy.objects.push({
+      ...exact,
+      id: `fallback-${treatmentId}-peripheral-neuropathy`,
+      treatment_kind: treatmentKind,
+      treatment_id: treatmentId,
+      relationship_type: treatmentKind === "treatment_class" ? "class_general" : "associated_with",
+    });
+    return copy;
+  }
+
+  it("resolves regimen component guidance and labels it as a fallback", () => {
+    const componentRelease = releaseWithFallback("drug", "paclitaxel");
+    const guidance = assembleGuidance(
+      componentRelease,
+      "weekly-paclitaxel",
+      "peripheral-neuropathy",
+    );
+    expect(guidance?.guidance_basis).toBe("component");
+    expect(guidance?.guidance_basis_label).toBe("Component guidance: paclitaxel");
+    expect(guidance?.fallback_reason).toContain("No complete pathway exists for the exact regimen");
+  });
+
+  it("walks from a regimen to its nearest treatment class", () => {
+    const classRelease = releaseWithFallback("treatment_class", "taxane");
+    const guidance = assembleGuidance(
+      classRelease,
+      "weekly-paclitaxel",
+      "peripheral-neuropathy",
+    );
+    expect(guidance?.guidance_basis).toBe("class");
+    expect(guidance?.guidance_basis_label).toContain("Taxane");
+    expect(guidance?.fallback_reason).toContain("broader");
+  });
+
+  it("returns no guidance when no complete exact or fallback relationship exists", () => {
+    expect(assembleGuidance(release, "tchp", "peripheral-neuropathy")).toBeNull();
+  });
+
+  it("moves answer-relevant modules first without changing section membership", () => {
+    const copy = structuredClone(release) as CompiledRelease;
+    const relationship = copy.objects.find(
+      (object): object is TreatmentToxicityRelationship =>
+        object.kind === "treatment_toxicity_relationship" &&
+        object.id === "weekly-paclitaxel-peripheral-neuropathy",
+    );
+    const homeModule = copy.objects.find(
+      (object): object is EducationalModule =>
+        object.kind === "educational_module" && object.id === "neuropathy-home-safety",
+    );
+    if (!relationship?.modules || !homeModule) throw new Error("gold home module missing");
+    const relevantModule: EducationalModule = {
+      ...structuredClone(homeModule),
+      id: "neuropathy-fall-prevention-demo",
+      priority_tags: ["fall-prevention"],
+    };
+    homeModule.priority_tags = [];
+    copy.objects.push(relevantModule);
+    relationship.modules.home_management = [homeModule.id, relevantModule.id];
+
+    const base = assembleGuidance(copy, "weekly-paclitaxel", "peripheral-neuropathy");
+    const answered = assembleGuidance(
+      copy,
+      "weekly-paclitaxel",
+      "peripheral-neuropathy",
+      [{ questionId: "q-neuropathy-walking-balance", value: "fall" }],
+    );
+    const baseHome = base?.sections.find((section) => section.section === "home_management");
+    const answeredHome = answered?.sections.find(
+      (section) => section.section === "home_management",
+    );
+
+    expect(baseHome?.module_ids).toEqual([homeModule.id, relevantModule.id]);
+    expect(answeredHome?.module_ids).toEqual([relevantModule.id, homeModule.id]);
+    expect(new Set(answeredHome?.module_ids)).toEqual(new Set(baseHome?.module_ids));
   });
 });

@@ -1,4 +1,15 @@
+import { loadEnvConfig } from "@next/env";
+import path from "node:path";
 import type { NextConfig } from "next";
+
+// Next runs from apps/web in this workspace; keep one ignored local credential
+// file at the repository root while preserving normal deployment environment variables.
+loadEnvConfig(
+  path.resolve(process.cwd(), "../.."),
+  process.env.NODE_ENV !== "production",
+  console,
+  true,
+);
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -15,6 +26,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   output: "standalone",
   reactStrictMode: true,
+  allowedDevOrigins: ["localhost", "127.0.0.1"],
   transpilePackages: ["@ariad/contracts", "@ariad/knowledge-core"],
   poweredByHeader: false,
   async headers() {
@@ -23,4 +35,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-

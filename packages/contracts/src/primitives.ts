@@ -55,3 +55,4 @@ export type StableId = z.infer<typeof StableIdSchema>;
 export type VersionedRef = z.infer<typeof VersionedRefSchema>;
 export type SupportStatus = z.infer<typeof SupportStatusSchema>;
 export type ObjectKind = z.infer<typeof ObjectKindSchema>;
+export type ContentStatus = z.infer<typeof ContentStatusSchema>;

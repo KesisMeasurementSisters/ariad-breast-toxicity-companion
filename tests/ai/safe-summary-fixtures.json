@@ -1,0 +1,26 @@
+[
+  {
+    "id": "weekly-paclitaxel-neuropathy",
+    "text": [
+      "Location: Fingers.",
+      "Onset: Began today.",
+      "Hand tasks: Affects picking up small objects."
+    ]
+  },
+  {
+    "id": "capecitabine-diarrhea",
+    "text": [
+      "Onset: Began today.",
+      "Bowel movements in 24 hours: 4–6 loose or watery bowel movements in 24 hours.",
+      "Drinking fluids: Drinking less than usual."
+    ]
+  },
+  {
+    "id": "ac-infection-concern",
+    "text": [
+      "Chills, shaking, or sweats: Chills are present.",
+      "Feeling unwell: Feels generally unwell.",
+      "Other observable changes: Mouth sores are present."
+    ]
+  }
+]

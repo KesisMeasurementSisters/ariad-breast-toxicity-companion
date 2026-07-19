@@ -15,7 +15,7 @@ import { objectKey, type KnowledgeRepository } from "./repository";
 import { normalizeSearchText } from "./search";
 import { validateReleaseInclusion, validateRepository } from "./validation";
 
-export const COMPILER_VERSION = "0.1.0" as const;
+export const COMPILER_VERSION = "0.1.1" as const;
 export const SCHEMA_VERSION = "0.1.0" as const;
 export const SAFETY_RULESET_VERSION = "0.1.0" as const;
 
@@ -142,6 +142,17 @@ export function compileRelease(
     release_notes: manifest.release_notes,
   };
   const contentHash = sha256(canonicalJson(base));
+  if (manifest.channel === "published") {
+    const approval = repository.releaseApprovals.find(
+      (candidate) => candidate.id === manifest.reviewer_metadata.release_approval_id,
+    );
+    if (!approval || approval.candidate_payload_hash !== contentHash) {
+      throw new Error(
+        "Content compilation failed:\n- [release-approval-payload-mismatch] " +
+          `${manifest.release_id}: release approval does not match candidate payload '${contentHash}'`,
+      );
+    }
+  }
   const release = CompiledReleaseSchema.parse({ ...base, content_hash: contentHash });
   return { release, json: canonicalJson(release) };
 }

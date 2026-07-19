@@ -11,6 +11,13 @@ export interface SearchResult {
   matchType: "exact_name" | "exact_alias" | "prefix" | "token" | "fuzzy";
 }
 
+const SUPPORT_RANK: Record<SearchRecord["support_status"], number> = {
+  full_guidance: 4,
+  education_only: 3,
+  catalogued: 2,
+  unsupported: 1,
+};
+
 export function normalizeSearchText(value: string): string {
   return value
     .normalize("NFKD")
@@ -66,6 +73,7 @@ export function searchRecords(records: SearchRecord[], input: string, limit = 8)
     .sort(
       (left, right) =>
         right.score - left.score ||
+        SUPPORT_RANK[right.record.support_status] - SUPPORT_RANK[left.record.support_status] ||
         left.record.display_name.localeCompare(right.record.display_name) ||
         left.record.id.localeCompare(right.record.id),
     )
@@ -80,10 +88,27 @@ export function searchSymptoms(release: CompiledRelease, query: string, limit = 
   return searchRecords(release.indexes.symptoms, query, limit);
 }
 
+const NON_SYMPTOM_REQUEST_PATTERN =
+  /\b(?:ignore (?:all |any )?(?:previous |prior )?instructions?|system prompt|developer message|is (?:it|this) normal|are these normal|what should i do|do i have|tell me (?:if|whether)|(?:is|could) this (?:grade|caused)|can i (?:take|use|stop|hold)|how (?:serious|bad|urgent)|will (?:this|it) go away)\b/iu;
+
+export function looksLikeNonSymptomRequest(input: string): boolean {
+  return NON_SYMPTOM_REQUEST_PATTERN.test(input);
+}
+
 export function classifySymptomDeterministically(
   release: CompiledRelease,
   input: string,
 ): SymptomClassifierResult {
+  if (looksLikeNonSymptomRequest(input)) {
+    return {
+      candidates: [],
+      needsClarification: true,
+      clarificationQuestion:
+        "Describe only what you are noticing, or choose a symptom from the controlled catalogue.",
+      outOfScope: true,
+      reasonCode: "non_symptom_request",
+    };
+  }
   const normalizedInput = normalizeSearchText(input);
   const embedded = release.indexes.symptoms
     .map((record) => {
@@ -124,4 +149,3 @@ export function classifySymptomDeterministically(
     reasonCode: candidates.length > 1 ? "ambiguous" : "matched",
   };
 }
-

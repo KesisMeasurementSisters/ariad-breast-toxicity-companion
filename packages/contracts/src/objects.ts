@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ReviewMetadataSchema } from "./governance";
+import { ContentStatusTransitionSchema, ReviewMetadataSchema } from "./governance";
 import {
   ContentStatusSchema,
   IsoDateSchema,
@@ -16,6 +16,7 @@ const governedFields = {
   id: StableIdSchema,
   version: SemVerSchema,
   status: ContentStatusSchema,
+  status_history: z.array(ContentStatusTransitionSchema).optional(),
   review: ReviewMetadataSchema,
   supersedes: VersionedRefSchema.nullable().default(null),
   superseded_by: VersionedRefSchema.nullable().default(null),
@@ -270,4 +271,3 @@ export type TreatmentToxicityRelationship = z.infer<
 export type Source = z.infer<typeof SourceSchema>;
 export type ClinicConfig = z.infer<typeof ClinicConfigSchema>;
 export type KnowledgeObject = z.infer<typeof KnowledgeObjectSchema>;
-

@@ -16,9 +16,20 @@ export const ReviewMetadataSchema = z
   })
   .strict();
 
+export const ContentStatusTransitionSchema = z
+  .object({
+    from_status: ContentStatusSchema,
+    to_status: ContentStatusSchema,
+    transitioned_at: IsoDateTimeSchema,
+    transitioned_by: z.string().min(2),
+    reason: z.string().min(2),
+  })
+  .strict();
+
 export const GovernedMetadataSchema = z
   .object({
     status: ContentStatusSchema,
+    status_history: z.array(ContentStatusTransitionSchema).optional(),
     review: ReviewMetadataSchema,
     supersedes: VersionedRefSchema.nullable().default(null),
     superseded_by: VersionedRefSchema.nullable().default(null),
@@ -51,6 +62,6 @@ export const ReleaseApprovalSchema = z
   .strict();
 
 export type ReviewMetadata = z.infer<typeof ReviewMetadataSchema>;
+export type ContentStatusTransition = z.infer<typeof ContentStatusTransitionSchema>;
 export type ContentApproval = z.infer<typeof ContentApprovalSchema>;
 export type ReleaseApproval = z.infer<typeof ReleaseApprovalSchema>;
-

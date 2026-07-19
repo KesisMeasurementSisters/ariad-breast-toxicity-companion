@@ -1,5 +1,5 @@
 release_id: build-week-preview-2026-07-18
-version: 0.1.0
+version: 0.1.1
 channel: preview
 publication_status: draft
 clinical_use: false
@@ -10,7 +10,7 @@ included_objects:
   - { kind: drug, id: abemaciclib, version: 1.0.0 }
   - { kind: drug, id: alpelisib, version: 1.0.0 }
   - { kind: drug, id: anastrozole, version: 1.0.0 }
-  - { kind: drug, id: capecitabine, version: 1.0.0 }
+  - { kind: drug, id: capecitabine, version: 1.0.1 }
   - { kind: drug, id: capivasertib, version: 1.0.0 }
   - { kind: drug, id: carboplatin, version: 1.0.0 }
   - { kind: drug, id: cyclophosphamide, version: 1.0.0 }
@@ -20,7 +20,7 @@ included_objects:
   - { kind: drug, id: exemestane, version: 1.0.0 }
   - { kind: drug, id: letrozole, version: 1.0.0 }
   - { kind: drug, id: olaparib, version: 1.0.0 }
-  - { kind: drug, id: paclitaxel, version: 1.0.0 }
+  - { kind: drug, id: paclitaxel, version: 1.0.1 }
   - { kind: drug, id: palbociclib, version: 1.0.0 }
   - { kind: drug, id: pembrolizumab, version: 1.0.0 }
   - { kind: drug, id: pertuzumab, version: 1.0.0 }
@@ -176,7 +176,7 @@ known_gaps:
   - Catalogue-level treatment and symptom entries do not imply full guidance.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.1.1 corrects drug-level support labels so only complete regimen pathways display full guidance.
   - Immutable, content-addressed Build Week preview for synthetic demonstration only.
   - Contains three complete draft gold pathways and one draft weekly-paclitaxel preparation flow.
   - GPT-5.6 is not a source of clinical guidance.
-

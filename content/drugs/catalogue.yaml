@@ -1,7 +1,7 @@
 - &drug_base
   kind: drug
   id: paclitaxel
-  version: 1.0.0
+  version: 1.0.1
   status: draft
   review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
   supersedes: null
@@ -12,10 +12,11 @@
   class_ids: [taxane, cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [cco-paclitaxel-patient-information, cco-systemic-treatment-information]
-  support_status: full_guidance
+  support_status: catalogued
 
 - <<: *drug_base
   id: capecitabine
+  version: 1.0.1
   generic_name: capecitabine
   brand_names: [Xeloda]
   aliases: [CAPE]
@@ -25,6 +26,7 @@
 
 - <<: *drug_base
   id: doxorubicin
+  version: 1.0.0
   generic_name: doxorubicin
   brand_names: [Adriamycin]
   aliases: [doxorubicin hydrochloride]
@@ -35,6 +37,7 @@
 
 - <<: *drug_base
   id: cyclophosphamide
+  version: 1.0.0
   generic_name: cyclophosphamide
   brand_names: [Procytox, Cytoxan]
   aliases: []
@@ -45,6 +48,7 @@
 
 - <<: *drug_base
   id: docetaxel
+  version: 1.0.0
   generic_name: docetaxel
   brand_names: [Taxotere]
   aliases: []
@@ -55,6 +59,7 @@
 
 - <<: *drug_base
   id: carboplatin
+  version: 1.0.0
   generic_name: carboplatin
   brand_names: []
   aliases: []
@@ -65,6 +70,7 @@
 
 - <<: *drug_base
   id: trastuzumab
+  version: 1.0.0
   generic_name: trastuzumab
   brand_names: [Herceptin]
   aliases: []
@@ -75,6 +81,7 @@
 
 - <<: *drug_base
   id: pertuzumab
+  version: 1.0.0
   generic_name: pertuzumab
   brand_names: [Perjeta]
   aliases: []
@@ -85,6 +92,7 @@
 
 - <<: *drug_base
   id: tamoxifen
+  version: 1.0.0
   generic_name: tamoxifen
   brand_names: [Nolvadex]
   aliases: []
@@ -95,6 +103,7 @@
 
 - <<: *drug_base
   id: letrozole
+  version: 1.0.0
   generic_name: letrozole
   brand_names: [Femara]
   aliases: []
@@ -105,6 +114,7 @@
 
 - <<: *drug_base
   id: anastrozole
+  version: 1.0.0
   generic_name: anastrozole
   brand_names: [Arimidex]
   aliases: []
@@ -115,6 +125,7 @@
 
 - <<: *drug_base
   id: exemestane
+  version: 1.0.0
   generic_name: exemestane
   brand_names: [Aromasin]
   aliases: []
@@ -125,6 +136,7 @@
 
 - <<: *drug_base
   id: abemaciclib
+  version: 1.0.0
   generic_name: abemaciclib
   brand_names: [Verzenio]
   aliases: []
@@ -135,6 +147,7 @@
 
 - <<: *drug_base
   id: ribociclib
+  version: 1.0.0
   generic_name: ribociclib
   brand_names: [Kisqali]
   aliases: []
@@ -145,6 +158,7 @@
 
 - <<: *drug_base
   id: palbociclib
+  version: 1.0.0
   generic_name: palbociclib
   brand_names: [Ibrance]
   aliases: []
@@ -155,6 +169,7 @@
 
 - <<: *drug_base
   id: olaparib
+  version: 1.0.0
   generic_name: olaparib
   brand_names: [Lynparza]
   aliases: []
@@ -165,6 +180,7 @@
 
 - <<: *drug_base
   id: talazoparib
+  version: 1.0.0
   generic_name: talazoparib
   brand_names: [Talzenna]
   aliases: []
@@ -175,6 +191,7 @@
 
 - <<: *drug_base
   id: pembrolizumab
+  version: 1.0.0
   generic_name: pembrolizumab
   brand_names: [Keytruda]
   aliases: []
@@ -185,6 +202,7 @@
 
 - <<: *drug_base
   id: trastuzumab-deruxtecan
+  version: 1.0.0
   generic_name: trastuzumab deruxtecan
   brand_names: [Enhertu]
   aliases: [T-DXd, TDXd]
@@ -195,6 +213,7 @@
 
 - <<: *drug_base
   id: sacituzumab-govitecan
+  version: 1.0.0
   generic_name: sacituzumab govitecan
   brand_names: [Trodelvy]
   aliases: []
@@ -205,6 +224,7 @@
 
 - <<: *drug_base
   id: alpelisib
+  version: 1.0.0
   generic_name: alpelisib
   brand_names: [Piqray]
   aliases: []
@@ -215,6 +235,7 @@
 
 - <<: *drug_base
   id: capivasertib
+  version: 1.0.0
   generic_name: capivasertib
   brand_names: [Truqap]
   aliases: []
@@ -225,6 +246,7 @@
 
 - <<: *drug_base
   id: everolimus
+  version: 1.0.0
   generic_name: everolimus
   brand_names: [Afinitor]
   aliases: []
@@ -232,4 +254,3 @@
   routes: [oral]
   source_ids: [cco-systemic-treatment-information]
   support_status: catalogued
-
