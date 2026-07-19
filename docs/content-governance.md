@@ -4,19 +4,24 @@
 
 The repository contains no clinician-approved or published clinical content.
 
-- 130 governed objects are `draft`.
+- The active release contains 130 governed objects, all `draft`.
+- The repository review queue contains 131 governed object versions because the
+  v1 and v2 clinic configurations coexist prospectively; only v2 is pinned by
+  the active release.
 - 22 patient-facing modules are `draft`.
 - Approved patient-facing modules: **0**.
 - Reviewer identities: **none recorded**.
 - Clinical review dates: **none recorded**.
 - Content/release approval records: **none**.
-- Two modules retain unresolved fever-threshold/destination placeholders.
+- Two modules retain unresolved fever placeholders, and the v2 clinic's fever
+  and supportive-care policy bindings remain `unresolved`.
 - The active release is `preview`, `publication_status: draft`, and
   `clinical_use: false`.
 
 The generated [review report](../content/review-report.md) is the current review
 queue. Generating the report, validating content, or compiling a preview does
-not approve anything.
+not approve anything. The structured clinic schema and its operational
+verification fields likewise do not establish clinical review or approval.
 
 ## Lifecycle
 
@@ -68,7 +73,10 @@ draft-preview path.
 Repository validation rejects malformed schemas, duplicate exact object keys,
 broken references, treatment-class cycles, incomplete full-guidance
 relationships, missing source links, invalid approval metadata, and safety-scan
-findings.
+findings. It also requires a single exact clinic-config reference, validates
+contact-role and verification coherence, resolves any policy module by exact
+version, scans clinic display fields for prohibited language, and exposes no v2
+field for patient-facing clinical instructions.
 
 Preview compilation additionally requires:
 
@@ -87,6 +95,12 @@ Published compilation additionally rejects:
 - any governed object not marked `approved`;
 - any source not marked `verified`;
 - any patient module with an unresolved placeholder;
+- a synthetic clinic configuration, an unresolved clinic policy binding, a
+  missing exact policy-module reference, or an operational contact that is not
+  verified for institutional use;
+- a future-dated or expired contact verification, and—in P0—any configured or
+  delegated clinic policy until purpose compatibility and exact runtime
+  rendering are implemented;
 - missing release-approval metadata;
 - an envelope that is not `publication_status: published` and
   `clinical_use: true`.
@@ -117,14 +131,24 @@ wording/rationale, and unresolved discrepancy. Do not silently harmonize them.
 
 - Review and edit all 22 patient-facing modules and all claim-to-source
   mappings.
-- Choose and source a fictional-demo fever threshold/destination, or retain the
-  explicit no-threshold boundary.
+- Resolve the clinic's fever and supportive-care policy bindings. Any
+  patient-facing wording must be source-linked in an educational module, not
+  written into clinic configuration.
+- Define a governed module-purpose discriminator and exact non-personalized
+  rendering contract before authorizing configured/delegated policy
+  publication; exact reference existence alone is insufficient.
+- For any future institutional release, verify the exact clinic identity,
+  service scope, daytime and after-hours contact routes, and verification
+  evidence through a separately authorized onboarding.
 - Resolve the Ontario/eviQ diarrhea-threshold discrepancy.
 - Confirm the exact AC regimen variant before adding any cycle or nadir timing.
 - Decide whether any team-directed over-the-counter medicine module is
   appropriate; none is approved here.
 - Decide review-due dates and prospective change/supersession policy.
 - Create content and release approval evidence only after the actual reviews.
+
+The universal emergency statement is governed as an application safety
+constant and cannot be overridden by clinic data.
 
 ## Supersession discipline
 

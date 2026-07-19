@@ -8,6 +8,10 @@ deterministic knowledge layer chooses every clinical module and fixed warning
 section. Neither path is permitted to diagnose, grade, infer causation, perform
 personalized triage, prescribe, or recommend a cancer-treatment change.
 
+The current owner-directed mode disables all LLM calls. Deterministic matching,
+release assembly, clinic-data display, and neutral summary fallback remain
+available without sending patient input to a model provider.
+
 This is an architectural safety claim, not evidence that the draft clinical
 wording is approved. **All patient-facing modules remain unreviewed drafts.**
 
@@ -79,7 +83,10 @@ clinical statements. Ariad does not produce “you should contact your team now,
   `ARIAD_EXPLICIT_UNREVIEWED_PREVIEW`, enforces `clinical_use: false`, and adds
   a mandatory notice.
 - A published channel rejects unapproved governed objects, unverified sources,
-  unresolved placeholders, and missing release-approval metadata.
+  unresolved placeholders or clinic policy bindings, synthetic clinic data,
+  unverified or expired institutional contacts, future-dated verification, and
+  missing release-approval metadata. P0 also rejects non-unresolved clinic
+  policies until semantic compatibility and exact rendering are implemented.
 - Generated output is canonicalized and content-addressed; the web app parses
   it against the compiled-release schema at startup.
 
@@ -90,9 +97,33 @@ source adjudication, usability testing, hazard analysis, or release approval.
 
 The current preview does not choose a local fever threshold or destination.
 Ontario Health/Cancer Care Ontario and eviQ sources use differing fever wording;
-the fictional clinic configuration tells users to follow their cancer team's
-instructions. Two urgent modules visibly retain this owner-decision
-placeholder.
+the structured fictional clinic configuration records the fever and
+supportive-care policy bindings as unresolved. It contains no patient-facing
+clinical instruction prose and no module reference for either unresolved
+binding. Two urgent modules visibly retain the fever owner-decision placeholder.
+
+## Clinic configuration safety boundary
+
+- A release pins one clinic configuration by kind, ID, and exact version.
+- Clinic data may carry identity, jurisdiction, care scope, structured contact
+  routes, operational verification, and policy bindings only.
+- Patient-facing fever and supportive-care instructions belong in separately
+  governed, source-linked educational modules.
+- The current configuration is `synthetic_demo`; its fictional telephone values
+  are display-only and never actionable `tel:` links.
+- Unresolved policies carry neither a clinical module nor a destination; the
+  schema cannot silently turn candidate contacts into a local routing decision.
+- Future institutional contact values stay hidden unless their verification is
+  current at viewing time; expiry is rechecked while the page is open.
+- The runtime does not calculate whether a contact route is open, select a
+  destination from patient answers, or turn a policy binding into personalized
+  advice.
+- An unresolved binding blocks a clinical-use publication. A real institutional
+  configuration requires verified contacts and genuinely approved referenced
+  modules; changing a mode field is not approval. P0 additionally blocks
+  configured/delegated policy publication because exact reference existence is
+  not proof that a module matches the policy purpose or that the renderer uses
+  it safely.
 
 Clinical-owner review is also required to:
 
@@ -110,7 +141,8 @@ invented to make a build pass.
 
 Every symptom experience must explain that Ariad cannot determine the cause,
 grade the symptom, or make a personal treatment/triage decision. This statement
-is persistent and never triggered by model inference:
+is persistent, never triggered by model inference, and cannot be replaced,
+suppressed, or edited by clinic configuration:
 
 > If you think you may be experiencing a medical emergency, call 911 or your
 > local emergency service.

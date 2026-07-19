@@ -14,9 +14,10 @@ import {
   type TreatmentClass,
   type TreatmentToxicityRelationship,
   type VersionedRef,
+  calendarDateInTimeZone,
 } from "@ariad/contracts";
 import { objectKey, type KnowledgeRepository } from "./repository";
-import { scanModuleSafety, type SafetyFinding } from "./safety";
+import { scanClinicConfigSafety, scanModuleSafety, type SafetyFinding } from "./safety";
 import { canonicalJson, sha256 } from "./canonical";
 
 export interface ValidationIssue {
@@ -46,6 +47,7 @@ interface ObjectDependency {
   kinds: KnowledgeObject["kind"][];
   id: string;
   label: string;
+  version?: string;
 }
 
 function dependenciesForObject(object: KnowledgeObject): ObjectDependency[] {
@@ -54,6 +56,13 @@ function dependenciesForObject(object: KnowledgeObject): ObjectDependency[] {
     ids.forEach((id) => dependencies.push({ kinds, id, label }));
   };
   const sources = (sourceIds: string[]) => add(["source"], sourceIds, "source_ids");
+  const exact = (reference: VersionedRef, label: string) =>
+    dependencies.push({
+      kinds: [reference.kind],
+      id: reference.id,
+      label,
+      version: reference.version,
+    });
 
   switch (object.kind) {
     case "treatment_class":
@@ -102,7 +111,16 @@ function dependenciesForObject(object: KnowledgeObject): ObjectDependency[] {
       sources(object.source_ids);
       break;
     case "clinic_config":
-      sources(object.source_ids);
+      if ("mode" in object) {
+        add(["source"], object.operational_source_ids, "operational_source_ids");
+        for (const [policyName, policy] of Object.entries(object.clinical_policy_bindings)) {
+          if (policy.module_ref) {
+            exact(policy.module_ref, `clinical_policy_bindings.${policyName}.module_ref`);
+          }
+        }
+      } else {
+        sources(object.source_ids);
+      }
       break;
     case "source":
       break;
@@ -112,6 +130,7 @@ function dependenciesForObject(object: KnowledgeObject): ObjectDependency[] {
 
 function collectReferenceIssues(objects: KnowledgeObject[]): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
+  const objectsByKey = new Map(objects.map((object) => [objectKey(object), object]));
   const exists = (kinds: KnowledgeObject["kind"][], id: string, owner: string, label: string) => {
     if (!idExists(objects, kinds, id)) {
       issues.push({
@@ -122,8 +141,8 @@ function collectReferenceIssues(objects: KnowledgeObject[]): ValidationIssue[] {
       });
     }
   };
-  const source = (owner: string, sourceIds: string[]) =>
-    sourceIds.forEach((id) => exists(["source"], id, owner, "source_ids"));
+  const source = (owner: string, sourceIds: string[], label = "source_ids") =>
+    sourceIds.forEach((id) => exists(["source"], id, owner, label));
 
   for (const object of objects) {
     switch (object.kind) {
@@ -196,7 +215,31 @@ function collectReferenceIssues(objects: KnowledgeObject[]): ValidationIssue[] {
         break;
       }
       case "clinic_config": {
-        source(object.id, (object as ClinicConfig).source_ids);
+        const item = object as ClinicConfig;
+        if ("mode" in item) {
+          source(item.id, item.operational_source_ids, "operational_source_ids");
+          for (const [policyName, policy] of Object.entries(item.clinical_policy_bindings)) {
+            if (!policy.module_ref) continue;
+            const target = objectsByKey.get(refKey(policy.module_ref));
+            if (!target) {
+              issues.push({
+                severity: "error",
+                code: "clinic-policy-module-missing",
+                objectId: item.id,
+                message: `clinical_policy_bindings.${policyName}.module_ref references missing educational module '${refKey(policy.module_ref)}'`,
+              });
+            } else if (target.kind !== "educational_module") {
+              issues.push({
+                severity: "error",
+                code: "clinic-policy-module-kind-invalid",
+                objectId: item.id,
+                message: `clinical_policy_bindings.${policyName}.module_ref must reference an educational module`,
+              });
+            }
+          }
+        } else {
+          source(item.id, item.source_ids);
+        }
         break;
       }
       case "source":
@@ -531,9 +574,11 @@ export function validateRepository(repository: KnowledgeRepository): ValidationR
   issues.push(...collectSupersessionIssues(repository.objects));
   issues.push(...collectGovernanceIssues(repository));
 
-  const safetyFindings = repository.objects
-    .filter((object): object is EducationalModule => object.kind === "educational_module")
-    .flatMap(scanModuleSafety);
+  const safetyFindings = repository.objects.flatMap((object) => {
+    if (object.kind === "educational_module") return scanModuleSafety(object);
+    if (object.kind === "clinic_config") return scanClinicConfigSafety(object);
+    return [];
+  });
   issues.push(
     ...safetyFindings.map((finding) => ({
       severity: finding.severity,
@@ -560,6 +605,10 @@ export function validateReleaseInclusion(
   const issues: ValidationIssue[] = [];
   const objectsByKey = new Map(repository.objects.map((object) => [objectKey(object), object]));
   const included = release.included_objects.map((reference) => objectsByKey.get(refKey(reference)));
+  const includedKeys = new Set(release.included_objects.map(refKey));
+  const clinicKey = refKey(release.clinic_config);
+  const clinicCandidate = objectsByKey.get(clinicKey);
+  const clinicConfig = clinicCandidate?.kind === "clinic_config" ? clinicCandidate : undefined;
 
   release.included_objects.forEach((reference, index) => {
     if (!included[index]) {
@@ -571,6 +620,36 @@ export function validateReleaseInclusion(
       });
     }
   });
+
+  if (!clinicConfig) {
+    issues.push({
+      severity: "error",
+      code: "clinic-config-missing",
+      objectId: release.release_id,
+      message: `Release clinic_config references missing clinic configuration '${clinicKey}'`,
+    });
+  }
+
+  if (!includedKeys.has(clinicKey)) {
+    issues.push({
+      severity: "error",
+      code: "clinic-config-not-included",
+      objectId: release.release_id,
+      message: `Clinic config '${clinicKey}' must be included in the release object list`,
+    });
+  }
+
+  const includedClinicConfigs = included.filter(
+    (object): object is ClinicConfig => object?.kind === "clinic_config",
+  );
+  if (includedClinicConfigs.length > 1) {
+    issues.push({
+      severity: "error",
+      code: "multiple-clinic-configs-in-release",
+      objectId: release.release_id,
+      message: `Release includes ${includedClinicConfigs.length} clinic configurations; exactly one is allowed`,
+    });
+  }
 
   if (release.channel === "preview") {
     if (release.clinical_use || release.publication_status !== "draft") {
@@ -624,6 +703,87 @@ export function validateReleaseInclusion(
         });
       }
     }
+
+    if (clinicConfig) {
+      if (!("mode" in clinicConfig) || clinicConfig.mode === "synthetic_demo") {
+        issues.push({
+          severity: "error",
+          code: "synthetic-clinic-in-published-release",
+          objectId: clinicConfig.id,
+          message: "Published releases require an institutional clinic configuration",
+        });
+      } else {
+        for (const [policyName, policy] of Object.entries(
+          clinicConfig.clinical_policy_bindings,
+        )) {
+          if (policy.state === "unresolved") {
+            issues.push({
+              severity: "error",
+              code: "unresolved-clinic-policy-in-published-release",
+              objectId: clinicConfig.id,
+              message: `Published release cannot include unresolved clinic policy '${policyName}'`,
+            });
+          } else {
+            issues.push({
+              severity: "error",
+              code: "clinic-policy-publication-not-supported",
+              objectId: clinicConfig.id,
+              message: `Clinic policy '${policyName}' cannot be published until purpose compatibility and exact runtime rendering are implemented`,
+            });
+          }
+        }
+
+        if (clinicConfig.mode === "institutional") {
+          const releaseDate = calendarDateInTimeZone(
+            release.generated_at,
+            clinicConfig.identity.timezone,
+          );
+          const releaseTimestamp = Date.parse(release.generated_at);
+          if (releaseDate === null) {
+            issues.push({
+              severity: "error",
+              code: "clinic-release-date-resolution-failed",
+              objectId: clinicConfig.id,
+              message: "Release time could not be resolved in the clinic timezone",
+            });
+          }
+          for (const contact of clinicConfig.contact_routes) {
+            if (contact.verification.status !== "verified") {
+              issues.push({
+                severity: "error",
+                code: "unverified-clinic-contact-in-published-release",
+                objectId: clinicConfig.id,
+                message: `Institutional contact '${contact.id}' is not verified`,
+              });
+            } else {
+              if (
+                contact.verification.verified_at &&
+                Date.parse(contact.verification.verified_at) > releaseTimestamp
+              ) {
+                issues.push({
+                  severity: "error",
+                  code: "future-clinic-contact-verification",
+                  objectId: clinicConfig.id,
+                  message: `Contact '${contact.id}' was verified after the release generation time`,
+                });
+              }
+              if (
+                contact.verification.review_due &&
+                releaseDate !== null &&
+                contact.verification.review_due < releaseDate
+              ) {
+                issues.push({
+                  severity: "error",
+                  code: "expired-clinic-contact-verification",
+                  objectId: clinicConfig.id,
+                  message: `Contact '${contact.id}' verification expired before release date ${releaseDate}`,
+                });
+              }
+            }
+          }
+        }
+      }
+    }
     if (!release.reviewer_metadata.release_approval_id) {
       issues.push({
         severity: "error",
@@ -634,29 +794,27 @@ export function validateReleaseInclusion(
     }
   }
 
-  const includedKeys = new Set(release.included_objects.map(refKey));
-  const clinicKey = refKey(release.clinic_config);
-  if (!includedKeys.has(clinicKey)) {
-    issues.push({
-      severity: "error",
-      code: "clinic-config-not-included",
-      objectId: release.release_id,
-      message: `Clinic config '${clinicKey}' must be included in the release object list`,
-    });
-  }
-
   const includedObjects = included.filter(Boolean) as KnowledgeObject[];
   const includedKindIds = new Set(
     includedObjects.map((object) => `${object.kind}:${object.id}`),
   );
   for (const object of includedObjects) {
     for (const dependency of dependenciesForObject(object)) {
-      if (!dependency.kinds.some((kind) => includedKindIds.has(`${kind}:${dependency.id}`))) {
+      const dependencyIncluded = dependency.version
+        ? dependency.kinds.some((kind) =>
+            includedKeys.has(`${kind}:${dependency.id}@${dependency.version}`),
+          )
+        : dependency.kinds.some((kind) => includedKindIds.has(`${kind}:${dependency.id}`));
+      if (!dependencyIncluded) {
         issues.push({
           severity: "error",
-          code: "release-dependency-not-included",
+          code: dependency.version
+            ? "release-exact-dependency-not-included"
+            : "release-dependency-not-included",
           objectId: object.id,
-          message: `${dependency.label} dependency '${dependency.id}' is not pinned in the release`,
+          message: dependency.version
+            ? `${dependency.label} dependency '${dependency.kinds[0]}:${dependency.id}@${dependency.version}' is not exactly pinned in the release`
+            : `${dependency.label} dependency '${dependency.id}' is not pinned in the release`,
         });
       }
     }

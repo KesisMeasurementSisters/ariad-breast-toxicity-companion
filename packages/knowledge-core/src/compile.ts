@@ -15,9 +15,9 @@ import { objectKey, type KnowledgeRepository } from "./repository";
 import { normalizeSearchText } from "./search";
 import { validateReleaseInclusion, validateRepository } from "./validation";
 
-export const COMPILER_VERSION = "0.1.1" as const;
-export const SCHEMA_VERSION = "0.1.0" as const;
-export const SAFETY_RULESET_VERSION = "0.1.0" as const;
+export const COMPILER_VERSION = "0.2.0" as const;
+export const SCHEMA_VERSION = "0.2.0" as const;
+export const SAFETY_RULESET_VERSION = "0.2.0" as const;
 
 function refKey(reference: ContentReleaseManifest["included_objects"][number]): string {
   return `${reference.kind}:${reference.id}@${reference.version}`;
@@ -124,6 +124,7 @@ export function compileRelease(
     safety_ruleset_version: SAFETY_RULESET_VERSION,
     release_id: manifest.release_id,
     release_version: manifest.version,
+    clinic_config: manifest.clinic_config,
     channel: manifest.channel,
     clinical_use: manifest.clinical_use,
     contains_unapproved_content: approvalSummary.draft + approvalSummary.in_review > 0,

@@ -23,6 +23,10 @@ test.beforeEach(async ({ page }) => {
   await expect(
     page.getByText("Unreviewed prototype content — not for clinical use").first(),
   ).toBeVisible();
+  await expect(page.locator('meta[name="format-detection"]')).toHaveAttribute(
+    "content",
+    /telephone=no/u,
+  );
 });
 
 test("mocked GPT navigation completes the neuropathy path and neutral summary", async ({
@@ -105,6 +109,16 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   ).toBeVisible();
   await expect(page.getByText("Contact your cancer team if…")).toBeVisible();
   await expect(page.getByText("Seek urgent medical attention if…")).toBeVisible();
+  const clinicCard = page.locator(".clinic-card");
+  await expect(clinicCard.getByText("Synthetic demo clinic configuration")).toBeVisible();
+  await expect(
+    clinicCard.getByRole("heading", { name: "Threadline Demo Cancer Centre" }),
+  ).toBeVisible();
+  await expect(clinicCard.getByRole("heading", { name: "Demo daytime cancer team" })).toBeVisible();
+  await expect(
+    clinicCard.getByRole("heading", { name: "Demo after-hours cancer team" }),
+  ).toBeVisible();
+  await expect(clinicCard.locator("a[href^='tel:']")).toHaveCount(0);
 
   await choose(page, /Create a summary for my cancer team/);
   await expect(page.getByText("GPT‑5.6 restated supplied facts")).toBeVisible();
@@ -176,4 +190,12 @@ test("AC demo preserves the unresolved fever threshold as a visible review bound
   ).toBeVisible();
   await expect(page.getByText("Clinical-owner decision pending")).toBeVisible();
   await expect(page.getByText(/follow the fever instructions .*your cancer team/i).first()).toBeVisible();
+  const clinicCard = page.locator(".clinic-card");
+  await expect(
+    clinicCard.getByText("Fictional contact details for demonstration only — do not call or use for care."),
+  ).toBeVisible();
+  await expect(
+    clinicCard.getByText("Local fever instruction pending clinical review in this prototype"),
+  ).toBeVisible();
+  await expect(clinicCard.locator("a[href^='tel:']")).toHaveCount(0);
 });

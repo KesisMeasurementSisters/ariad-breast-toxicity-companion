@@ -19,10 +19,10 @@ The central design choice is a hard separation of responsibilities:
 > on governed deterministic behavior and clinic data. No patient input is sent
 > to OpenAI in this mode.
 
-> **GPT-5.6 handles natural-language symptom navigation and neutral
-> symptom-summary generation. It never generates clinical guidance. The
-> clinical guidance is assembled deterministically from an immutable,
-> source-controlled, clinician-approved content release.**
+> **If reauthorized in a later phase, GPT-5.6 may handle bounded
+> natural-language symptom navigation and neutral symptom-summary generation.
+> It never generates clinical guidance. Clinical guidance is assembled
+> deterministically from an immutable, source-controlled release.**
 
 That is the production architecture contract. In this Build Week artifact, the
 immutable release is an explicitly unreviewed draft preview, is not approved
@@ -54,8 +54,10 @@ Life** track.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
   summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
 - A content-addressed preview release containing 144 exact object versions.
-- Source panels, a synthetic clinic configuration, treatment-code demos, local
-  saved treatments, and copy/print/download symptom summaries.
+- Source panels, an exact-version structured synthetic clinic configuration,
+  treatment-code demos, local saved treatments, and copy/print/download symptom
+  summaries. The clinic's fever and supportive-care policy bindings remain
+  explicitly unresolved.
 
 ## Product evidence
 
@@ -78,9 +80,9 @@ No account or patient information is required.
 
 | Scenario | Fastest path | What it shows |
 |---|---|---|
-| Weekly paclitaxel + neuropathy | Home → sample 01; use the prefilled wording | Bounded symptom navigation (GPT-5.6 when enabled and available), patient confirmation, six observable questions, fixed guidance, neutral summary |
+| Weekly paclitaxel + neuropathy | Home → sample 01; use the prefilled wording | Controlled-vocabulary navigation (deterministic now), patient confirmation, six observable questions, fixed guidance, neutral summary |
 | Capecitabine + diarrhea | Home → sample 02 | Seven observable questions, fixed home-management and warning sections, summary |
-| AC + infection concern | Home → sample 03 | Conservative high-stakes boundary, synthetic clinic seam, no invented fever threshold |
+| AC + infection concern | Home → sample 03 | Conservative high-stakes boundary, non-actionable synthetic clinic contacts, unresolved local fever policy, no invented threshold |
 
 The treatment-code demonstration accepts `THREAD-PAC-01`, `THREAD-CAPE-02`,
 and `THREAD-AC-03`. These codes contain no personal information.
@@ -107,6 +109,9 @@ universal statement visible:
 
 > If you think you may be experiencing a medical emergency, call 911 or your
 > local emergency service.
+
+This statement is an application safety constant. Clinic configuration cannot
+replace, suppress, or edit it.
 
 See [intended use](./docs/intended-use.md), [product
 scope](./docs/product-scope.md), and [clinical
@@ -232,16 +237,22 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.1.1`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.2.0`,
 with content hash
-`d538f6870ef8f5c15349120d7e8a2f1e95aa4519ed5f8d0915dc4b1094760cbf`.
+`80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
 
 ## Content and source governance
 
 The current release pins 144 object versions: 130 governed draft objects and
 14 source records. Its 22 patient-facing modules have zero recorded clinical
-approvals. Two modules retain explicit placeholders for a clinic-specific fever
-threshold/destination. Catalogue presence never implies a complete pathway.
+approvals. The repository review queue contains 131 governed object versions
+because the superseded v1 and active v2 clinic configurations coexist; the
+release pins only v2. That structured synthetic configuration contains identity
+and non-actionable contact data, not patient-facing clinical instructions. Its
+fever and supportive-care policy bindings are unresolved, and two modules retain
+explicit fever placeholders. Catalogue presence never implies a complete
+pathway. No schema, validation, or preview compilation result records or implies
+a clinical approval.
 
 Sources are recorded with organization, jurisdiction, canonical HTTPS link,
 date/version when available, access date, verification state, and notes.
@@ -315,10 +326,17 @@ as a shortcut.
 - No content is approved for patient care.
 - Complete education exists only for three symptom combinations and one
   preparation path; the remaining catalogue is primarily navigational.
-- Fever threshold/destination, the Ontario/eviQ diarrhea wording discrepancy,
-  and exact AC schedule remain owner-review items.
-- The fictional clinic configuration is synthetic and represents no real
-  institution.
+- The clinic's fever and supportive-care policy bindings, the Ontario/eviQ
+  diarrhea wording discrepancy, and exact AC schedule remain owner-review
+  items.
+- The exact-version clinic configuration is synthetic, its displayed telephone
+  values are non-actionable, and it represents no real institution.
+- Clinic configuration contains operational identity/contact data and policy
+  references only. Patient-facing fever or supportive-care wording must live in
+  separately governed educational modules.
+- P0 intentionally blocks configured/delegated clinic-policy publication until
+  module-purpose compatibility and exact runtime rendering are implemented;
+  exact reference existence alone is not treated as deployable policy.
 - This is not a formal clinical safety case, privacy impact assessment,
   penetration test, multilingual release, or institutional configuration.
 
@@ -333,6 +351,7 @@ guide—the Next.js interface is one renderer, not the knowledge system itself.
 - [Product scope](./docs/product-scope.md)
 - [Clinical safety](./docs/clinical-safety.md)
 - [Knowledge model](./docs/knowledge-model.md)
+- [Clinic configuration](./docs/clinic-configuration.md)
 - [Content governance](./docs/content-governance.md)
 - [Architecture](./docs/architecture.md)
 - [Data flow](./docs/data-flow.md)

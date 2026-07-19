@@ -1,14 +1,31 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { CompiledReleaseSchema, type EducationalModule } from "@ariad/contracts";
-import { scanModuleSafety, scanPatientTextSafety } from "@ariad/knowledge-core";
+import {
+  CompiledReleaseSchema,
+  type ClinicConfig,
+  type EducationalModule,
+  type KnowledgeObject,
+} from "@ariad/contracts";
+import {
+  scanClinicConfigSafety,
+  scanModuleSafety,
+  scanPatientTextSafety,
+} from "@ariad/knowledge-core";
 import { loadKnowledgeRepository } from "@ariad/knowledge-core/node";
+
+function scanKnowledgeObject(object: KnowledgeObject, idPrefix = "") {
+  if (object.kind === "educational_module") {
+    return scanModuleSafety({ ...object, id: `${idPrefix}${object.id}` } as EducationalModule);
+  }
+  if (object.kind === "clinic_config") {
+    return scanClinicConfigSafety({ ...object, id: `${idPrefix}${object.id}` } as ClinicConfig);
+  }
+  return [];
+}
 
 async function main() {
   const repository = await loadKnowledgeRepository(path.join(process.cwd(), "content"));
-  const sourceFindings = repository.objects
-    .filter((object): object is EducationalModule => object.kind === "educational_module")
-    .flatMap(scanModuleSafety);
+  const sourceFindings = repository.objects.flatMap((object) => scanKnowledgeObject(object));
   const generatedRelease = CompiledReleaseSchema.parse(
     JSON.parse(
       await readFile(
@@ -17,11 +34,9 @@ async function main() {
       ),
     ) as unknown,
   );
-  const generatedFindings = generatedRelease.objects
-    .filter((object): object is EducationalModule => object.kind === "educational_module")
-    .flatMap((module) =>
-      scanModuleSafety({ ...module, id: `generated-${module.id}` }),
-    );
+  const generatedFindings = generatedRelease.objects.flatMap((object) =>
+    scanKnowledgeObject(object, "generated-"),
+  );
   const summaryFixtures = JSON.parse(
     await readFile(path.join(process.cwd(), "tests/ai/safe-summary-fixtures.json"), "utf8"),
   ) as Array<{ id: string; text: string[] }>;
@@ -39,7 +54,7 @@ async function main() {
   });
 
   console.info(
-    `Safety scan: ${findings.length} finding(s) across source modules, compiled modules, and summary fixtures`,
+    `Safety scan: ${findings.length} finding(s) across source content, compiled content, and summary fixtures`,
   );
   if (findings.length > 0) process.exitCode = 1;
 }

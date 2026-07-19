@@ -1,6 +1,8 @@
 "use client";
 
 import type {
+  ClinicConfigV2,
+  ClinicContactRoute,
   EducationalModule,
   Question,
   SearchRecord,
@@ -48,6 +50,7 @@ import {
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   activeRelease,
+  clinicContactHref,
   clinicConfig,
   moduleById,
   questionById,
@@ -128,10 +131,16 @@ function renderAnswer(question: Question, answer: string | string[] | undefined)
 }
 
 function PrototypeBanner() {
+  const messages = [
+    activeRelease.mandatory_notice,
+    clinicConfig.mode === "synthetic_demo" ? "Synthetic demo data only" : null,
+  ].filter((message): message is string => Boolean(message));
+  if (messages.length === 0) return null;
+
   return (
     <div className="prototype-banner" role="status">
       <ShieldCheck aria-hidden="true" size={18} />
-      <span>{activeRelease.mandatory_notice}. Synthetic demo data only.</span>
+      <span>{messages.join(". ")}.</span>
     </div>
   );
 }
@@ -279,7 +288,7 @@ function HomeScreen({
         <div className="demo-grid">
           <button className="demo-card demo-featured" type="button" onClick={() => runDemo("neuropathy")}>
             <span className="demo-number">01</span>
-            <span className="ai-chip"><Sparkles aria-hidden="true" size={14} /> GPT‑5.6 navigation</span>
+            <span className="ai-chip"><Search aria-hidden="true" size={14} /> Controlled navigation</span>
             <strong>“My fingertips feel buzzy and small things keep slipping.”</strong>
             <small>Weekly paclitaxel · peripheral neuropathy</small>
             <span className="text-link">Try this demo <ChevronRight aria-hidden="true" size={16} /></span>
@@ -802,15 +811,10 @@ function GuidanceScreen({
         })}
       </div>
 
-      {clinicConfig ? (
-        <aside className="clinic-card">
-          <p className="eyebrow">Synthetic demo clinic configuration</p>
-          <h2>{clinicConfig.clinic_name}</h2>
-          <p>{clinicConfig.daytime_contact}</p>
-          <p>{clinicConfig.after_hours_contact}</p>
-          <strong>{clinicConfig.fever_instruction}</strong>
-        </aside>
-      ) : null}
+      <ClinicConfigCard
+        config={clinicConfig}
+        showFeverPolicyNotice={symptomId === "fever-infection-concern"}
+      />
 
       <SourcesPanel sourceIds={guidance.source_ids} />
 
@@ -821,6 +825,99 @@ function GuidanceScreen({
         </button>
       </div>
     </>
+  );
+}
+
+const CLINIC_CONTACT_ROLE_ORDER: Record<ClinicContactRoute["role"], number> = {
+  daytime_team: 0,
+  after_hours_team: 1,
+};
+
+function ClinicConfigCard({
+  config,
+  showFeverPolicyNotice,
+}: {
+  config: ClinicConfigV2;
+  showFeverPolicyNotice: boolean;
+}) {
+  const contacts = [...config.contact_routes].sort(
+    (left, right) =>
+      CLINIC_CONTACT_ROLE_ORDER[left.role] - CLINIC_CONTACT_ROLE_ORDER[right.role] ||
+      left.id.localeCompare(right.id),
+  );
+  const synthetic = config.mode === "synthetic_demo";
+  const feverPolicyPending = config.clinical_policy_bindings.fever.state === "unresolved";
+  const [contactActionabilityCheckedAt, setContactActionabilityCheckedAt] = useState<
+    string | null
+  >(null);
+
+  useEffect(() => {
+    const refresh = () => setContactActionabilityCheckedAt(new Date().toISOString());
+    const initialTimer = window.setTimeout(refresh, 0);
+    const interval = window.setInterval(refresh, 60_000);
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") refresh();
+    };
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
+  }, []);
+
+  return (
+    <aside className="clinic-card" aria-labelledby="clinic-config-title">
+      <p className="eyebrow">
+        {synthetic ? "Synthetic demo clinic configuration" : "Institutional clinic configuration"}
+      </p>
+      <h2 id="clinic-config-title">{config.identity.display_name}</h2>
+      {synthetic ? (
+        <p className="clinic-mode-note">
+          Fictional contact details for demonstration only — do not call or use for care.
+        </p>
+      ) : null}
+      <div className="clinic-contact-list">
+        {contacts.map((route) => {
+          const telephoneHref = contactActionabilityCheckedAt
+            ? clinicContactHref(config, route, contactActionabilityCheckedAt)
+            : null;
+          return (
+            <section className="clinic-contact" key={route.id}>
+              <h3>{route.label}</h3>
+              {telephoneHref ? (
+                <a href={telephoneHref}>{route.display_value}</a>
+              ) : synthetic ? (
+                <span className="clinic-contact-value">{route.display_value}</span>
+              ) : (
+                <small className="clinic-verification-note">
+                  Contact details unavailable pending current verification
+                </small>
+              )}
+              {synthetic || telephoneHref ? (
+                route.availability.state === "display_only" ? (
+                  <small>Availability: {route.availability.label}</small>
+                ) : (
+                  <small>Availability not configured</small>
+                )
+              ) : (
+                <small>Availability withheld until contact verification is current</small>
+              )}
+            </section>
+          );
+        })}
+      </div>
+      <p className="clinic-availability-note">
+        When contact details are available, availability is shown as configured. Ariad does not
+        calculate whether a line is open now.
+      </p>
+      {showFeverPolicyNotice && feverPolicyPending ? (
+        <div className="clinic-policy-notice" role="note">
+          <CircleAlert aria-hidden="true" size={17} />
+          <span>Local fever instruction pending clinical review in this prototype</span>
+        </div>
+      ) : null}
+    </aside>
   );
 }
 

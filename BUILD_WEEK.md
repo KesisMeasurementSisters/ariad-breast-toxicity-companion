@@ -80,7 +80,8 @@
 - `pnpm content:build` — correctly failed closed without the explicit preview
   acknowledgement.
 - `pnpm content:build:preview` — compiled immutable preview hash
-  `d538f6870ef8f5c15349120d7e8a2f1e95aa4519ed5f8d0915dc4b1094760cbf`.
+  `d538f6870ef8f5c15349120d7e8a2f1e95aa4519ed5f8d0915dc4b1094760cbf`
+  for the historical `0.1.1` release recorded on 2026-07-18.
 - `pnpm safety:scan` — zero prohibited-language findings.
 - `pnpm test` — 80 tests passed, including golden pathways, hash
   reproducibility, governance invariants, adversarial AI validation, HTTP
@@ -160,4 +161,68 @@
 - `pnpm typecheck` — passed across all three workspace packages.
 - `pnpm test` — 80 tests passed across eight files.
 - Local `/api/health` — `ai.enabled: false`, `ai.reason: disabled`, preview
-  release `0.1.1`, and `clinicalUse: false`.
+  release `0.1.1`, and `clinicalUse: false` at this initial checkpoint. The
+  active preview was subsequently superseded by `0.2.0` below.
+
+## 2026-07-19 — Clinic-configuration v2
+
+### Human-locked boundary
+
+- Treat clinic configuration as exact-version operational deployment data, not
+  as a second clinical-content store.
+- Keep patient-facing fever and supportive-care instructions in separately
+  governed educational modules.
+- Keep the universal emergency statement application-owned and
+  non-overridable by a clinic.
+- Continue deterministic-only runtime operation with all LLM calls disabled.
+- Do not infer a reviewer, approval, publication decision, or real institution
+  from the new schema, validators, or preview artifact.
+
+### Implementation
+
+- Added a strict v2 clinic schema for identity, jurisdiction, timezone, locale,
+  care scope, structured daytime/after-hours contact routes, operational
+  verification, and exact clinical-policy bindings.
+- Preserved the v1 synthetic object and historical content-addressed release;
+  created v2 prospectively and made the active manifest pin it by kind, ID, and
+  exact version.
+- Kept all patient-facing clinical instruction prose out of clinic
+  configuration. The fever and supportive-care bindings remain explicitly
+  `unresolved` with no educational-module reference or selected destination.
+- Rendered synthetic contact values as fictional, non-actionable display data
+  and added deterministic unresolved-policy messaging.
+- Added validation and publication gates for exact clinic/module references,
+  synthetic mode, contact verification freshness, and unresolved policy
+  bindings. Configured/delegated policy publication also fails closed until a
+  governed purpose-compatibility contract and exact runtime rendering exist.
+
+### Release evidence
+
+- Active preview: `build-week-preview-2026-07-18@0.2.0`.
+- Content hash:
+  `80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
+- The release still pins 144 exact object versions: 130 governed draft objects
+  and 14 source records. The repository review queue contains 131 governed
+  versions because both v1 and v2 clinic objects are retained, while the active
+  release pins only v2.
+- Patient-facing module approvals remain **0**. The clinic object is a synthetic
+  fixture; no real contact, clinician review, approval, or publication is
+  claimed.
+
+### Verification
+
+- `pnpm test` — 123 tests passed across 11 files.
+- `pnpm lint` and `pnpm typecheck` — passed across the workspace.
+- `pnpm content:validate` — 146 repository objects, 0 errors, 0 warnings.
+- `pnpm safety:scan` — 0 findings across source content, compiled content, and
+  summary fixtures.
+- `pnpm test:e2e` — 14 mobile/desktop journey and accessibility checks passed.
+- `pnpm build:preview` — production-style preview build passed at the exact
+  `80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`
+  content hash.
+- `pnpm build` — correctly failed closed without the explicit unreviewed-preview
+  acknowledgement.
+- Local `/api/health` — `ai.enabled: false`, `ai.reason: disabled`, release
+  `0.2.0`, `clinicalUse: false`, and the exact hash above.
+- Four 390 px screenshots were regenerated from the final production-style
+  preview and visually inspected.

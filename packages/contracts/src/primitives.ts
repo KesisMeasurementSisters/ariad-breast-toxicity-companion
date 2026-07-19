@@ -1,5 +1,26 @@
 import { z } from "zod";
 
+export function calendarDateInTimeZone(value: string, timeZone: string): string | null {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  try {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      day: "2-digit",
+      month: "2-digit",
+      timeZone,
+      year: "numeric",
+    }).formatToParts(date);
+    const part = (type: "year" | "month" | "day") =>
+      parts.find((candidate) => candidate.type === type)?.value;
+    const year = part("year");
+    const month = part("month");
+    const day = part("day");
+    return year && month && day ? `${year}-${month}-${day}` : null;
+  } catch {
+    return null;
+  }
+}
+
 export const StableIdSchema = z
   .string()
   .min(2)
@@ -12,7 +33,14 @@ export const SemVerSchema = z
 
 export const IsoDateSchema = z
   .string()
-  .regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD dates");
+  .regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD dates")
+  .refine(
+    (value) => {
+      const date = new Date(`${value}T00:00:00.000Z`);
+      return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+    },
+    "Use a real calendar date",
+  );
 
 export const IsoDateTimeSchema = z.string().datetime({ offset: true });
 

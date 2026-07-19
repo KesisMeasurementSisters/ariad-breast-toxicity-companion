@@ -26,8 +26,11 @@ The Build Week preview contains:
 - three exact regimen–symptom relationships with complete six-section draft
   guidance;
 - one weekly-paclitaxel preparation pathway;
-- 14 source records and one synthetic clinic configuration;
-- one immutable 144-object preview release.
+- 14 source records and one exact-version structured synthetic clinic
+  configuration;
+- one immutable 144-object preview release,
+  `build-week-preview-2026-07-18@0.2.0`, with content hash
+  `80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
 
 The polished pathways are weekly paclitaxel/peripheral neuropathy,
 capecitabine/diarrhea, and AC/fever or infection concern. Catalogue breadth is a
@@ -67,12 +70,24 @@ Support labels mean:
 - Three home-screen sample scenarios.
 - Treatment codes `THREAD-PAC-01`, `THREAD-CAPE-02`, and `THREAD-AC-03`.
 - Query-string code resolution through `?code=THREAD-PAC-01`.
-- Synthetic clinic contact and fever-instruction seam.
+- Structured fictional daytime/after-hours clinic contacts, rendered as
+  non-actionable display data, plus explicit unresolved fever and
+  supportive-care policy states.
 - Reset and clear-saved-treatment action.
 - Summary copy, print, and plain-text download.
 
 Treatment codes and the demo clinic contain no personal information and do not
-represent a real institution.
+represent a real institution. Clinic configuration contains no patient-facing
+clinical instruction prose: any future local fever or supportive-care wording
+must be an exact, separately governed educational-module version. The universal
+emergency statement remains application-owned and cannot be changed by clinic
+data.
+
+The current runtime is deterministic only; all LLM calls are disabled. This
+does not change the product boundary or confer any review or approval on the
+130 governed draft objects in the active release. Configured/delegated local
+policies are a future schema seam only: P0 blocks their publication until
+purpose compatibility and exact runtime rendering exist.
 
 ## Explicit non-goals
 

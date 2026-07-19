@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "oneOf": [
+  "anyOf": [
     {
       "additionalProperties": false,
       "properties": {
@@ -2781,48 +2781,599 @@
       "type": "object"
     },
     {
-      "additionalProperties": false,
-      "properties": {
-        "after_hours_contact": {
-          "minLength": 2,
-          "type": "string"
-        },
-        "clinic_name": {
-          "minLength": 2,
-          "type": "string"
-        },
-        "daytime_contact": {
-          "minLength": 2,
-          "type": "string"
-        },
-        "emergency_statement": {
-          "minLength": 2,
-          "type": "string"
-        },
-        "fever_instruction": {
-          "minLength": 2,
-          "type": "string"
-        },
-        "id": {
-          "maxLength": 120,
-          "minLength": 2,
-          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-          "type": "string"
-        },
-        "kind": {
-          "const": "clinic_config",
-          "type": "string"
-        },
-        "review": {
+      "anyOf": [
+        {
           "additionalProperties": false,
           "properties": {
-            "approval_id": {
+            "clinical_policy_bindings": {
+              "additionalProperties": false,
+              "properties": {
+                "fever": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "destination_contact_ids": {
+                      "items": {
+                        "maxLength": 120,
+                        "minLength": 2,
+                        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "module_ref": {
+                      "anyOf": [
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "id": {
+                              "maxLength": 120,
+                              "minLength": 2,
+                              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                              "type": "string"
+                            },
+                            "kind": {
+                              "const": "educational_module",
+                              "type": "string"
+                            },
+                            "version": {
+                              "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "id",
+                            "version"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "state": {
+                      "enum": [
+                        "unresolved",
+                        "delegated_to_team",
+                        "configured"
+                      ],
+                      "type": "string"
+                    },
+                    "unresolved_reason": {
+                      "anyOf": [
+                        {
+                          "maxLength": 360,
+                          "minLength": 2,
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "module_ref",
+                    "destination_contact_ids",
+                    "unresolved_reason"
+                  ],
+                  "type": "object"
+                },
+                "supportive_care": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "destination_contact_ids": {
+                      "items": {
+                        "maxLength": 120,
+                        "minLength": 2,
+                        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "module_ref": {
+                      "anyOf": [
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "id": {
+                              "maxLength": 120,
+                              "minLength": 2,
+                              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                              "type": "string"
+                            },
+                            "kind": {
+                              "const": "educational_module",
+                              "type": "string"
+                            },
+                            "version": {
+                              "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "id",
+                            "version"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "state": {
+                      "enum": [
+                        "unresolved",
+                        "delegated_to_team",
+                        "configured"
+                      ],
+                      "type": "string"
+                    },
+                    "unresolved_reason": {
+                      "anyOf": [
+                        {
+                          "maxLength": 360,
+                          "minLength": 2,
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "module_ref",
+                    "destination_contact_ids",
+                    "unresolved_reason"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "fever",
+                "supportive_care"
+              ],
+              "type": "object"
+            },
+            "contact_routes": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "availability": {
+                    "oneOf": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "state": {
+                            "const": "not_configured",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "state"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "label": {
+                            "maxLength": 160,
+                            "minLength": 2,
+                            "type": "string"
+                          },
+                          "state": {
+                            "const": "display_only",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "state",
+                          "label"
+                        ],
+                        "type": "object"
+                      }
+                    ]
+                  },
+                  "channel": {
+                    "const": "phone",
+                    "type": "string"
+                  },
+                  "display_value": {
+                    "maxLength": 80,
+                    "minLength": 7,
+                    "pattern": "^\\+?[0-9][0-9 .()-]*$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "maxLength": 120,
+                    "minLength": 2,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  },
+                  "label": {
+                    "maxLength": 160,
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "normalized_value": {
+                    "pattern": "^\\+[1-9]\\d{1,14}$",
+                    "type": "string"
+                  },
+                  "role": {
+                    "enum": [
+                      "daytime_team",
+                      "after_hours_team"
+                    ],
+                    "type": "string"
+                  },
+                  "verification": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "method": {
+                        "anyOf": [
+                          {
+                            "maxLength": 160,
+                            "minLength": 2,
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "review_due": {
+                        "anyOf": [
+                          {
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "status": {
+                        "enum": [
+                          "synthetic_fixture",
+                          "unverified",
+                          "verified"
+                        ],
+                        "type": "string"
+                      },
+                      "verified_at": {
+                        "anyOf": [
+                          {
+                            "format": "date-time",
+                            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "verified_by": {
+                        "anyOf": [
+                          {
+                            "maxLength": 160,
+                            "minLength": 2,
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "method",
+                      "verified_by",
+                      "verified_at",
+                      "review_due"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "id",
+                  "role",
+                  "channel",
+                  "label",
+                  "display_value",
+                  "normalized_value",
+                  "availability",
+                  "verification"
+                ],
+                "type": "object"
+              },
+              "minItems": 2,
+              "type": "array"
+            },
+            "id": {
+              "maxLength": 120,
+              "minLength": 2,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "identity": {
+              "additionalProperties": false,
+              "properties": {
+                "care_scope": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "modality_ids": {
+                      "items": {
+                        "maxLength": 120,
+                        "minLength": 2,
+                        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "tumour_site_ids": {
+                      "items": {
+                        "maxLength": 120,
+                        "minLength": 2,
+                        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "tumour_site_ids",
+                    "modality_ids"
+                  ],
+                  "type": "object"
+                },
+                "display_name": {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "jurisdiction": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "country_code": {
+                      "const": "CA",
+                      "type": "string"
+                    },
+                    "subdivision_code": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "CA-AB",
+                            "CA-BC",
+                            "CA-MB",
+                            "CA-NB",
+                            "CA-NL",
+                            "CA-NS",
+                            "CA-NT",
+                            "CA-NU",
+                            "CA-ON",
+                            "CA-PE",
+                            "CA-QC",
+                            "CA-SK",
+                            "CA-YT"
+                          ],
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "country_code",
+                    "subdivision_code"
+                  ],
+                  "type": "object"
+                },
+                "locales": {
+                  "items": {
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "timezone": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "display_name",
+                "jurisdiction",
+                "timezone",
+                "locales",
+                "care_scope"
+              ],
+              "type": "object"
+            },
+            "kind": {
+              "const": "clinic_config",
+              "type": "string"
+            },
+            "mode": {
+              "enum": [
+                "synthetic_demo",
+                "institutional"
+              ],
+              "type": "string"
+            },
+            "operational_source_ids": {
+              "items": {
+                "maxLength": 120,
+                "minLength": 2,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "review": {
+              "additionalProperties": false,
+              "properties": {
+                "approval_id": {
+                  "anyOf": [
+                    {
+                      "maxLength": 120,
+                      "minLength": 2,
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null
+                },
+                "review_due": {
+                  "anyOf": [
+                    {
+                      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reviewed_at": {
+                  "anyOf": [
+                    {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reviewer": {
+                  "anyOf": [
+                    {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "reviewer",
+                "reviewed_at",
+                "review_due",
+                "approval_id"
+              ],
+              "type": "object"
+            },
+            "status": {
+              "enum": [
+                "draft",
+                "in_review",
+                "approved",
+                "retired"
+              ],
+              "type": "string"
+            },
+            "status_history": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "from_status": {
+                    "enum": [
+                      "draft",
+                      "in_review",
+                      "approved",
+                      "retired"
+                    ],
+                    "type": "string"
+                  },
+                  "reason": {
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "to_status": {
+                    "enum": [
+                      "draft",
+                      "in_review",
+                      "approved",
+                      "retired"
+                    ],
+                    "type": "string"
+                  },
+                  "transitioned_at": {
+                    "format": "date-time",
+                    "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                    "type": "string"
+                  },
+                  "transitioned_by": {
+                    "minLength": 2,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "from_status",
+                  "to_status",
+                  "transitioned_at",
+                  "transitioned_by",
+                  "reason"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "superseded_by": {
               "anyOf": [
                 {
-                  "maxLength": 120,
-                  "minLength": 2,
-                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-                  "type": "string"
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "maxLength": 120,
+                      "minLength": 2,
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                      "type": "string"
+                    },
+                    "kind": {
+                      "enum": [
+                        "treatment_class",
+                        "drug",
+                        "regimen",
+                        "symptom",
+                        "observable_feature",
+                        "question",
+                        "educational_module",
+                        "treatment_toxicity_relationship",
+                        "source",
+                        "clinic_config"
+                      ],
+                      "type": "string"
+                    },
+                    "version": {
+                      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "version"
+                  ],
+                  "type": "object"
                 },
                 {
                   "type": "null"
@@ -2830,234 +3381,351 @@
               ],
               "default": null
             },
-            "review_due": {
+            "supersedes": {
               "anyOf": [
                 {
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                  "type": "string"
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "maxLength": 120,
+                      "minLength": 2,
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                      "type": "string"
+                    },
+                    "kind": {
+                      "enum": [
+                        "treatment_class",
+                        "drug",
+                        "regimen",
+                        "symptom",
+                        "observable_feature",
+                        "question",
+                        "educational_module",
+                        "treatment_toxicity_relationship",
+                        "source",
+                        "clinic_config"
+                      ],
+                      "type": "string"
+                    },
+                    "version": {
+                      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "version"
+                  ],
+                  "type": "object"
                 },
                 {
                   "type": "null"
                 }
-              ]
+              ],
+              "default": null
             },
-            "reviewed_at": {
-              "anyOf": [
-                {
-                  "format": "date-time",
-                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "reviewer": {
-              "anyOf": [
-                {
-                  "minLength": 2,
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+            "version": {
+              "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+              "type": "string"
             }
           },
           "required": [
-            "reviewer",
-            "reviewed_at",
-            "review_due",
-            "approval_id"
+            "kind",
+            "id",
+            "version",
+            "status",
+            "review",
+            "supersedes",
+            "superseded_by",
+            "mode",
+            "identity",
+            "contact_routes",
+            "clinical_policy_bindings",
+            "operational_source_ids"
           ],
           "type": "object"
         },
-        "source_ids": {
-          "default": [],
-          "items": {
-            "maxLength": 120,
-            "minLength": 2,
-            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "status": {
-          "enum": [
-            "draft",
-            "in_review",
-            "approved",
-            "retired"
-          ],
-          "type": "string"
-        },
-        "status_history": {
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "from_status": {
-                "enum": [
-                  "draft",
-                  "in_review",
-                  "approved",
-                  "retired"
-                ],
-                "type": "string"
-              },
-              "reason": {
-                "minLength": 2,
-                "type": "string"
-              },
-              "to_status": {
-                "enum": [
-                  "draft",
-                  "in_review",
-                  "approved",
-                  "retired"
-                ],
-                "type": "string"
-              },
-              "transitioned_at": {
-                "format": "date-time",
-                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
-                "type": "string"
-              },
-              "transitioned_by": {
-                "minLength": 2,
-                "type": "string"
-              }
+        {
+          "additionalProperties": false,
+          "properties": {
+            "after_hours_contact": {
+              "minLength": 2,
+              "type": "string"
             },
-            "required": [
-              "from_status",
-              "to_status",
-              "transitioned_at",
-              "transitioned_by",
-              "reason"
-            ],
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "superseded_by": {
-          "anyOf": [
-            {
+            "clinic_name": {
+              "minLength": 2,
+              "type": "string"
+            },
+            "daytime_contact": {
+              "minLength": 2,
+              "type": "string"
+            },
+            "emergency_statement": {
+              "minLength": 2,
+              "type": "string"
+            },
+            "fever_instruction": {
+              "minLength": 2,
+              "type": "string"
+            },
+            "id": {
+              "maxLength": 120,
+              "minLength": 2,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "kind": {
+              "const": "clinic_config",
+              "type": "string"
+            },
+            "review": {
               "additionalProperties": false,
               "properties": {
-                "id": {
-                  "maxLength": 120,
-                  "minLength": 2,
-                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-                  "type": "string"
-                },
-                "kind": {
-                  "enum": [
-                    "treatment_class",
-                    "drug",
-                    "regimen",
-                    "symptom",
-                    "observable_feature",
-                    "question",
-                    "educational_module",
-                    "treatment_toxicity_relationship",
-                    "source",
-                    "clinic_config"
+                "approval_id": {
+                  "anyOf": [
+                    {
+                      "maxLength": 120,
+                      "minLength": 2,
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
                   ],
-                  "type": "string"
+                  "default": null
                 },
-                "version": {
-                  "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
-                  "type": "string"
+                "review_due": {
+                  "anyOf": [
+                    {
+                      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reviewed_at": {
+                  "anyOf": [
+                    {
+                      "format": "date-time",
+                      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reviewer": {
+                  "anyOf": [
+                    {
+                      "minLength": 2,
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 }
               },
               "required": [
-                "kind",
-                "id",
-                "version"
+                "reviewer",
+                "reviewed_at",
+                "review_due",
+                "approval_id"
               ],
               "type": "object"
             },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        },
-        "supersedes": {
-          "anyOf": [
-            {
-              "additionalProperties": false,
-              "properties": {
-                "id": {
-                  "maxLength": 120,
-                  "minLength": 2,
-                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-                  "type": "string"
-                },
-                "kind": {
-                  "enum": [
-                    "treatment_class",
-                    "drug",
-                    "regimen",
-                    "symptom",
-                    "observable_feature",
-                    "question",
-                    "educational_module",
-                    "treatment_toxicity_relationship",
-                    "source",
-                    "clinic_config"
-                  ],
-                  "type": "string"
-                },
-                "version": {
-                  "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
-                  "type": "string"
-                }
+            "source_ids": {
+              "default": [],
+              "items": {
+                "maxLength": 120,
+                "minLength": 2,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
               },
-              "required": [
-                "kind",
-                "id",
-                "version"
-              ],
-              "type": "object"
+              "type": "array"
             },
-            {
-              "type": "null"
+            "status": {
+              "enum": [
+                "draft",
+                "in_review",
+                "approved",
+                "retired"
+              ],
+              "type": "string"
+            },
+            "status_history": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "from_status": {
+                    "enum": [
+                      "draft",
+                      "in_review",
+                      "approved",
+                      "retired"
+                    ],
+                    "type": "string"
+                  },
+                  "reason": {
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  "to_status": {
+                    "enum": [
+                      "draft",
+                      "in_review",
+                      "approved",
+                      "retired"
+                    ],
+                    "type": "string"
+                  },
+                  "transitioned_at": {
+                    "format": "date-time",
+                    "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                    "type": "string"
+                  },
+                  "transitioned_by": {
+                    "minLength": 2,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "from_status",
+                  "to_status",
+                  "transitioned_at",
+                  "transitioned_by",
+                  "reason"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "superseded_by": {
+              "anyOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "maxLength": 120,
+                      "minLength": 2,
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                      "type": "string"
+                    },
+                    "kind": {
+                      "enum": [
+                        "treatment_class",
+                        "drug",
+                        "regimen",
+                        "symptom",
+                        "observable_feature",
+                        "question",
+                        "educational_module",
+                        "treatment_toxicity_relationship",
+                        "source",
+                        "clinic_config"
+                      ],
+                      "type": "string"
+                    },
+                    "version": {
+                      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "version"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "supersedes": {
+              "anyOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "maxLength": 120,
+                      "minLength": 2,
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                      "type": "string"
+                    },
+                    "kind": {
+                      "enum": [
+                        "treatment_class",
+                        "drug",
+                        "regimen",
+                        "symptom",
+                        "observable_feature",
+                        "question",
+                        "educational_module",
+                        "treatment_toxicity_relationship",
+                        "source",
+                        "clinic_config"
+                      ],
+                      "type": "string"
+                    },
+                    "version": {
+                      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "version"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "supportive_care_note": {
+              "minLength": 2,
+              "type": "string"
+            },
+            "synthetic": {
+              "const": true,
+              "type": "boolean"
+            },
+            "version": {
+              "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+              "type": "string"
             }
+          },
+          "required": [
+            "kind",
+            "id",
+            "version",
+            "status",
+            "review",
+            "supersedes",
+            "superseded_by",
+            "clinic_name",
+            "synthetic",
+            "daytime_contact",
+            "after_hours_contact",
+            "emergency_statement",
+            "fever_instruction",
+            "supportive_care_note",
+            "source_ids"
           ],
-          "default": null
-        },
-        "supportive_care_note": {
-          "minLength": 2,
-          "type": "string"
-        },
-        "synthetic": {
-          "const": true,
-          "type": "boolean"
-        },
-        "version": {
-          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
-          "type": "string"
+          "type": "object"
         }
-      },
-      "required": [
-        "kind",
-        "id",
-        "version",
-        "status",
-        "review",
-        "supersedes",
-        "superseded_by",
-        "clinic_name",
-        "synthetic",
-        "daytime_contact",
-        "after_hours_contact",
-        "emergency_statement",
-        "fever_instruction",
-        "supportive_care_note",
-        "source_ids"
-      ],
-      "type": "object"
+      ]
     }
   ]
 }

@@ -24,12 +24,20 @@ move into Nyx.
 | `educational_module` | Small source-controlled patient content unit | section, applicability, claims, sources, review status |
 | `treatment_toxicity_relationship` | Exact connection driving a complete path | treatment, symptom, questions, six module slots, sources |
 | `source` | Provenance metadata | organization, jurisdiction, URL, date/version, verification state |
-| `clinic_config` | Synthetic local-delivery seam | contacts, emergency statement, fever/supportive-care wording |
+| `clinic_config` | Exact-version local-delivery bundle | identity, structured operational contact routes, exact fever/supportive-care policy bindings |
 
 Every governed object has a stable lowercase ID, semantic version, status,
 review metadata, and prospective supersession links. Version references include
 kind, ID, and exact version; a changed payload is a new version rather than an
 ambient edit to a published release.
+
+Clinic configuration contains no patient-facing clinical instruction prose.
+Its local-policy bindings point to exact educational-module versions when a
+policy is governed and ready; `unresolved` bindings carry no module reference
+and block publication. In P0, non-unresolved policies also remain
+non-publishable until governed purpose compatibility and exact renderer
+consumption are implemented. The universal emergency statement is an
+application safety constant and is not a clinic-configurable field.
 
 ## Relationship and guidance assembly
 
@@ -90,7 +98,7 @@ The release manifest pins every object by kind, ID, and version and records:
 - release ID and semantic version;
 - preview/published channel and clinical-use flag;
 - deterministic generation time;
-- clinic configuration ref;
+- exact clinic configuration ref (kind, ID, and version);
 - source inventory;
 - reviewer/release-approval metadata;
 - known gaps and release notes.
@@ -107,7 +115,7 @@ Generated files are compiler outputs and must never be hand-edited.
 
 ## Current preview inventory
 
-Release `build-week-preview-2026-07-18@0.1.1` pins 144 objects:
+Release `build-week-preview-2026-07-18@0.2.0` pins 144 objects:
 
 | Kind | Count |
 |---|---:|
@@ -123,9 +131,17 @@ Release `build-week-preview-2026-07-18@0.1.1` pins 144 objects:
 | Clinic configurations | 1 |
 
 Its content hash is
-`d538f6870ef8f5c15349120d7e8a2f1e95aa4519ed5f8d0915dc4b1094760cbf`.
+`80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
 All 130 governed objects are draft; the 14 source records have independent
-verification states.
+verification states. The active release resolves exactly one structured v2
+synthetic clinic configuration. Its contact values are explicitly fictional and
+non-actionable, and its fever and supportive-care policy bindings are
+unresolved.
+
+Repository-level review reports 131 governed object versions because it retains
+both the superseded v1 clinic configuration and prospective v2 successor. That
+history does not increase the release inventory: the manifest pins v2 only.
+Neither versioning nor compilation creates clinical approval evidence.
 
 ## Query behavior
 

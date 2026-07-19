@@ -1,16 +1,73 @@
-kind: clinic_config
-id: build-week-demo-clinic
-version: 1.0.0
-status: draft
-review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
-supersedes: null
-superseded_by: null
-clinic_name: Threadline Demo Cancer Centre
-synthetic: true
-daytime_contact: "Demo daytime line: 416-555-0142"
-after_hours_contact: "Demo after-hours line: 416-555-0184"
-emergency_statement: If you think you may be experiencing a medical emergency, call 911 or your local emergency service.
-fever_instruction: This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team.
-supportive_care_note: Follow supportive-care medicine and fluid instructions provided by your own cancer team.
-source_ids: []
+- kind: clinic_config
+  id: build-week-demo-clinic
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
+  clinic_name: Threadline Demo Cancer Centre
+  synthetic: true
+  daytime_contact: "Demo daytime line: 416-555-0142"
+  after_hours_contact: "Demo after-hours line: 416-555-0184"
+  emergency_statement: If you think you may be experiencing a medical emergency, call 911 or your local emergency service.
+  fever_instruction: This prototype does not provide a local fever threshold. Follow the fever instructions provided by your cancer team.
+  supportive_care_note: Follow supportive-care medicine and fluid instructions provided by your own cancer team.
+  source_ids: []
 
+- kind: clinic_config
+  id: build-week-demo-clinic
+  version: 2.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: { kind: clinic_config, id: build-week-demo-clinic, version: 1.0.0 }
+  superseded_by: null
+  mode: synthetic_demo
+  identity:
+    display_name: Threadline Demo Cancer Centre
+    jurisdiction:
+      country_code: CA
+      subdivision_code: CA-ON
+    timezone: America/Toronto
+    locales: [en-CA]
+    care_scope:
+      tumour_site_ids: [breast]
+      modality_ids: [systemic-therapy]
+  contact_routes:
+    - id: daytime-cancer-team
+      role: daytime_team
+      channel: phone
+      label: Demo daytime cancer team
+      display_value: 416-555-0142
+      normalized_value: "+14165550142"
+      availability: { state: not_configured }
+      verification:
+        status: synthetic_fixture
+        method: null
+        verified_by: null
+        verified_at: null
+        review_due: null
+    - id: after-hours-cancer-team
+      role: after_hours_team
+      channel: phone
+      label: Demo after-hours cancer team
+      display_value: 416-555-0184
+      normalized_value: "+14165550184"
+      availability: { state: not_configured }
+      verification:
+        status: synthetic_fixture
+        method: null
+        verified_by: null
+        verified_at: null
+        review_due: null
+  clinical_policy_bindings:
+    fever:
+      state: unresolved
+      module_ref: null
+      destination_contact_ids: []
+      unresolved_reason: Clinic-specific fever threshold and destination require clinical review.
+    supportive_care:
+      state: unresolved
+      module_ref: null
+      destination_contact_ids: []
+      unresolved_reason: Clinic-specific supportive-care instructions require clinical review.
+  operational_source_ids: []

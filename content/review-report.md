@@ -4,12 +4,22 @@
 
 ## Review summary
 
-- Draft governed objects: 130
+- Draft governed objects: 131
 - Patient-facing modules: 22
 - Approved patient-facing modules: 0
 - Modules missing sources: 0
 - Modules with unresolved placeholders: 2
 - Source records: 14
+- Clinic configuration versions: 2
+- Structured clinic configuration v2 objects: 1
+- Unresolved clinic policy bindings: 2
+
+## Clinic configuration
+
+| Clinic | Version | Mode | Status | Contacts | Fever policy | Supportive-care policy |
+|---|---:|---|---|---:|---|---|
+| build-week-demo-clinic | 1.0.0 | legacy_v1 | draft | legacy flat fields | retained history | retained history |
+| build-week-demo-clinic | 2.0.0 | synthetic_demo | draft | 2 | unresolved | unresolved |
 
 ## Patient-facing modules
 
@@ -60,7 +70,8 @@
 ## Required clinical-owner decisions
 
 - Review and edit every patient-facing module and its claim-to-source mapping.
-- Choose and source the fictional demo clinic's fever threshold and destination, or retain the explicit no-threshold prototype boundary.
+- Replace synthetic identity and contact fixtures with verified institutional data before any published release.
+- Define governed policy-purpose compatibility and exact runtime rendering, then resolve fever and supportive-care through approved module references; exact references alone are not publishable in P0.
 - Resolve the Ontario/eviQ diarrhea-threshold discrepancy.
 - Confirm the exact AC regimen variant before any cycle-timing statement is introduced.
 - Decide whether any team-directed over-the-counter medicine module is appropriate; none is approved here.

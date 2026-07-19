@@ -1344,10 +1344,83 @@ details[open] > summary .summary-chevron {
   margin-block-end: 0.35rem;
 }
 
-.clinic-card > strong {
-  display: block;
-  margin-block-start: 0.75rem;
+.clinic-mode-note {
+  max-width: 42rem;
   color: var(--coral-dark);
+  font-weight: 700;
+}
+
+.clinic-contact-list {
+  display: grid;
+  gap: 0.7rem;
+  margin-block: 1rem;
+}
+
+.clinic-contact {
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgb(255 255 255 / 76%);
+}
+
+.clinic-contact h3 {
+  margin: 0 0 0.15rem;
+  font-size: 0.9rem;
+}
+
+.clinic-contact a,
+.clinic-contact-value {
+  display: block;
+  width: fit-content;
+  color: var(--ink-strong);
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.clinic-contact a {
+  color: var(--thread-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.clinic-contact small {
+  display: block;
+  margin-block-start: 0.3rem;
+  color: var(--muted);
+}
+
+.clinic-verification-note {
+  color: var(--coral-dark) !important;
+  font-weight: 700;
+}
+
+.clinic-availability-note {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.clinic-policy-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-block-start: 0.9rem;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  color: #654819;
+  background: var(--amber-soft);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.clinic-policy-notice svg {
+  flex: 0 0 auto;
+  margin-block-start: 0.08rem;
+}
+
+@media (min-width: 42rem) {
+  .clinic-contact-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .sources-panel {

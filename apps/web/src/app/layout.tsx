@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Ariad: Breast — A trusted thread through treatment",
   description:
     "A breast cancer treatment side-effect companion built as an unreviewed OpenAI Build Week prototype.",
+  formatDetection: { address: false, email: false, telephone: false },
   robots:
     activeRelease.channel === "preview"
       ? { index: false, follow: false, nocache: true }

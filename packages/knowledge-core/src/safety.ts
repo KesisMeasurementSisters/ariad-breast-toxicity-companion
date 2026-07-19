@@ -1,4 +1,4 @@
-import type { EducationalModule } from "@ariad/contracts";
+import type { ClinicConfig, EducationalModule } from "@ariad/contracts";
 
 export interface SafetyFinding {
   ruleId: string;
@@ -73,6 +73,36 @@ export function scanModuleSafety(module: EducationalModule): SafetyFinding[] {
   }
 
   return findings;
+}
+
+export function scanClinicConfigSafety(config: ClinicConfig): SafetyFinding[] {
+  const fields: Array<[string, string]> = "mode" in config
+    ? [
+        ["identity.display_name", config.identity.display_name],
+        ...config.contact_routes.flatMap((contact) => {
+          const contactFields: Array<[string, string]> = [
+            [`contact_routes.${contact.id}.label`, contact.label],
+            [`contact_routes.${contact.id}.display_value`, contact.display_value],
+          ];
+          if (contact.availability.state === "display_only") {
+            contactFields.push([
+              `contact_routes.${contact.id}.availability.label`,
+              contact.availability.label,
+            ]);
+          }
+          return contactFields;
+        }),
+      ]
+    : [
+        ["clinic_name", config.clinic_name],
+        ["daytime_contact", config.daytime_contact],
+        ["after_hours_contact", config.after_hours_contact],
+        ["emergency_statement", config.emergency_statement],
+        ["fever_instruction", config.fever_instruction],
+        ["supportive_care_note", config.supportive_care_note],
+      ];
+
+  return fields.flatMap(([field, value]) => scanPatientTextSafety(config.id, field, value));
 }
 
 export function prohibitedRecommendationLanguage(value: string): boolean {

@@ -1,6 +1,9 @@
 import {
   CompiledReleaseSchema,
-  type ClinicConfig,
+  ClinicConfigV2Schema,
+  calendarDateInTimeZone,
+  type ClinicContactRoute,
+  type ClinicConfigV2,
   type CompiledRelease,
   type Drug,
   type EducationalModule,
@@ -12,7 +15,7 @@ import {
   type TreatmentClass,
   type TreatmentToxicityRelationship,
 } from "@ariad/contracts";
-import rawRelease from "@/generated/release.json";
+import rawRelease from "../generated/release.json";
 
 export const activeRelease: CompiledRelease = CompiledReleaseSchema.parse(rawRelease);
 
@@ -75,11 +78,57 @@ export function relationshipFor(
   );
 }
 
-export const clinicConfig = activeRelease.objects.find(
-  (object): object is ClinicConfig => object.kind === "clinic_config",
-);
+export function resolveClinicConfig(release: CompiledRelease): ClinicConfigV2 {
+  const reference = release.clinic_config;
+  const exactMatches = release.objects.filter(
+    (object) =>
+      object.kind === reference.kind &&
+      object.id === reference.id &&
+      object.version === reference.version,
+  );
+
+  if (exactMatches.length !== 1) {
+    throw new Error(
+      `Clinic configuration ${reference.id}@${reference.version} must resolve exactly once`,
+    );
+  }
+
+  const parsed = ClinicConfigV2Schema.safeParse(exactMatches[0]);
+  if (!parsed.success) {
+    throw new Error(
+      `Active clinic configuration ${reference.id}@${reference.version} is not a v2 configuration`,
+    );
+  }
+  return parsed.data;
+}
+
+export const clinicConfig = resolveClinicConfig(activeRelease);
+
+export function clinicContactHref(
+  config: ClinicConfigV2,
+  route: ClinicContactRoute,
+  actionabilityCheckedAt: string,
+): string | null {
+  const currentDate = calendarDateInTimeZone(
+    actionabilityCheckedAt,
+    config.identity.timezone,
+  );
+  const checkedTimestamp = Date.parse(actionabilityCheckedAt);
+  if (
+    config.mode !== "institutional" ||
+    route.verification.status !== "verified" ||
+    route.verification.verified_at === null ||
+    route.verification.review_due === null ||
+    currentDate === null ||
+    Number.isNaN(checkedTimestamp) ||
+    Date.parse(route.verification.verified_at) > checkedTimestamp ||
+    route.verification.review_due < currentDate
+  ) {
+    return null;
+  }
+  return `tel:${route.normalized_value}`;
+}
 
 if (activeRelease.channel === "preview" && !activeRelease.mandatory_notice) {
   throw new Error("Preview release is missing its mandatory prototype notice");
 }
-

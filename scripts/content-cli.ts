@@ -3,6 +3,8 @@ import path from "node:path";
 import {
   CompiledReleaseSchema,
   KnowledgeObjectSchema,
+  type ClinicConfig,
+  type ClinicConfigV2,
   type EducationalModule,
   type KnowledgeObject,
   type Source,
@@ -38,11 +40,26 @@ function reviewReport(objects: KnowledgeObject[]): string {
   const sources = objects
     .filter((object): object is Source => object.kind === "source")
     .sort((left, right) => left.id.localeCompare(right.id));
+  const clinicConfigVersions = objects
+    .filter((object): object is ClinicConfig => object.kind === "clinic_config")
+    .sort((left, right) =>
+      `${left.id}:${left.version}`.localeCompare(`${right.id}:${right.version}`),
+    );
+  const clinicConfigs = clinicConfigVersions
+    .filter(
+      (object): object is ClinicConfigV2 => "mode" in object,
+    )
+    .sort((left, right) => left.version.localeCompare(right.version));
   const drafts = objects.filter(
     (object) => object.kind !== "source" && "status" in object && object.status === "draft",
   );
   const missingSourceModules = modules.filter((module) => module.source_ids.length === 0);
   const placeholders = modules.filter((module) => module.placeholders.length > 0);
+  const unresolvedClinicPolicies = clinicConfigs.flatMap((clinic) =>
+    Object.entries(clinic.clinical_policy_bindings).filter(
+      ([, binding]) => binding.state === "unresolved",
+    ),
+  );
 
   return `# Ariad content review report
 
@@ -56,6 +73,22 @@ function reviewReport(objects: KnowledgeObject[]): string {
 - Modules missing sources: ${missingSourceModules.length}
 - Modules with unresolved placeholders: ${placeholders.length}
 - Source records: ${sources.length}
+- Clinic configuration versions: ${clinicConfigVersions.length}
+- Structured clinic configuration v2 objects: ${clinicConfigs.length}
+- Unresolved clinic policy bindings: ${unresolvedClinicPolicies.length}
+
+## Clinic configuration
+
+| Clinic | Version | Mode | Status | Contacts | Fever policy | Supportive-care policy |
+|---|---:|---|---|---:|---|---|
+${clinicConfigVersions
+  .map(
+    (clinic) =>
+      "mode" in clinic
+        ? `| ${clinic.id} | ${clinic.version} | ${clinic.mode} | ${clinic.status} | ${clinic.contact_routes.length} | ${clinic.clinical_policy_bindings.fever.state} | ${clinic.clinical_policy_bindings.supportive_care.state} |`
+        : `| ${clinic.id} | ${clinic.version} | legacy_v1 | ${clinic.status} | legacy flat fields | retained history | retained history |`,
+  )
+  .join("\n")}
 
 ## Patient-facing modules
 
@@ -82,7 +115,8 @@ ${sources
 ## Required clinical-owner decisions
 
 - Review and edit every patient-facing module and its claim-to-source mapping.
-- Choose and source the fictional demo clinic's fever threshold and destination, or retain the explicit no-threshold prototype boundary.
+- Replace synthetic identity and contact fixtures with verified institutional data before any published release.
+- Define governed policy-purpose compatibility and exact runtime rendering, then resolve fever and supportive-care through approved module references; exact references alone are not publishable in P0.
 - Resolve the Ontario/eviQ diarrhea-threshold discrepancy.
 - Confirm the exact AC regimen variant before any cycle-timing statement is introduced.
 - Decide whether any team-directed over-the-counter medicine module is appropriate; none is approved here.
@@ -154,4 +188,3 @@ main().catch((error: unknown) => {
   console.error(error instanceof Error ? error.message : String(error));
   process.exitCode = 1;
 });
-

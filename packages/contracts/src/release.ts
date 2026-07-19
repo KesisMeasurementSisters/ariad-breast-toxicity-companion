@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { KnowledgeObjectSchema } from "./objects";
+import { ClinicConfigRefSchema, KnowledgeObjectSchema } from "./objects";
 import { IsoDateTimeSchema, SemVerSchema, StableIdSchema, VersionedRefSchema } from "./primitives";
 
 export const PREVIEW_ACKNOWLEDGEMENT = "ARIAD_EXPLICIT_UNREVIEWED_PREVIEW" as const;
@@ -14,7 +14,7 @@ export const ContentReleaseManifestSchema = z
     clinical_use: z.boolean(),
     generated_at: IsoDateTimeSchema,
     included_objects: z.array(VersionedRefSchema).min(1),
-    clinic_config: VersionedRefSchema,
+    clinic_config: ClinicConfigRefSchema,
     source_inventory: z.array(StableIdSchema).min(1),
     reviewer_metadata: z
       .object({
@@ -62,6 +62,7 @@ export const CompiledReleaseSchema = z
       })
       .strict(),
     objects: z.array(KnowledgeObjectSchema),
+    clinic_config: ClinicConfigRefSchema,
     indexes: z
       .object({
         treatments: z.array(SearchRecordSchema),
@@ -79,4 +80,3 @@ export const CompiledReleaseSchema = z
 export type ContentReleaseManifest = z.infer<typeof ContentReleaseManifestSchema>;
 export type CompiledRelease = z.infer<typeof CompiledReleaseSchema>;
 export type SearchRecord = z.infer<typeof SearchRecordSchema>;
-
