@@ -36,6 +36,39 @@ export const TreatmentClassSchema = z
   })
   .strict();
 
+export const FdaLabelSafetySectionSchema = z.enum([
+  "boxed_warning",
+  "contraindications",
+  "warnings_and_cautions",
+  "warnings",
+  "precautions",
+  "adverse_reactions",
+  "clinical_trials_experience",
+  "postmarketing_experience",
+  "information_for_patients",
+  "patient_counseling_information",
+]);
+
+export const FdaRegulatoryLabelSchema = z
+  .object({
+    authority: z.literal("U.S. Food and Drug Administration"),
+    application_number: z.string().regex(/^(?:ANDA|BLA|NDA)\d{6}$/u),
+    spl_set_id: z
+      .string()
+      .regex(/^[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$/u),
+    label_effective_date: IsoDateSchema,
+    marketing_status: z.literal("Prescription"),
+    product_names: z.array(z.string().min(1)).min(1),
+    dosage_forms: z.array(z.string().min(1)).min(1),
+    fda_routes: z.array(z.string().min(1)).min(1),
+    indication_section: z.literal("indications_and_usage"),
+    safety_sections: z.array(FdaLabelSafetySectionSchema).min(1),
+    evidence_mapping_status: z.enum(["source_indexed", "event_mapped"]),
+    source_id: StableIdSchema,
+    verified_at: IsoDateSchema,
+  })
+  .strict();
+
 export const DrugSchema = z
   .object({
     kind: z.literal("drug"),
@@ -47,8 +80,46 @@ export const DrugSchema = z
     routes: z.array(z.enum(["oral", "intravenous", "subcutaneous", "intramuscular"])).min(1),
     source_ids: SourceIdsSchema,
     support_status: SupportStatusSchema,
+    catalogue_basis: z.enum(["fda_breast_cancer_treatment", "breast_regimen_component"]),
+    searchable: z.boolean(),
+    regulatory_labels: z.array(FdaRegulatoryLabelSchema),
   })
-  .strict();
+  .strict()
+  .superRefine((drug, context) => {
+    if (drug.catalogue_basis === "fda_breast_cancer_treatment" && drug.regulatory_labels.length === 0) {
+      context.addIssue({
+        code: "custom",
+        path: ["regulatory_labels"],
+        message: "An FDA breast-cancer treatment entry requires at least one exact regulatory label",
+      });
+    }
+    if (drug.catalogue_basis === "breast_regimen_component" && drug.regulatory_labels.length > 0) {
+      context.addIssue({
+        code: "custom",
+        path: ["regulatory_labels"],
+        message: "A regimen-component entry cannot claim an FDA breast-cancer treatment label",
+      });
+    }
+
+    const labelSourceIds = new Set<string>();
+    drug.regulatory_labels.forEach((label, index) => {
+      if (!drug.source_ids.includes(label.source_id)) {
+        context.addIssue({
+          code: "custom",
+          path: ["regulatory_labels", index, "source_id"],
+          message: "The exact FDA label source must also appear in source_ids",
+        });
+      }
+      if (labelSourceIds.has(label.source_id)) {
+        context.addIssue({
+          code: "custom",
+          path: ["regulatory_labels", index, "source_id"],
+          message: "Each exact FDA label source may be listed only once per drug",
+        });
+      }
+      labelSourceIds.add(label.source_id);
+    });
+  });
 
 export const RegimenSchema = z
   .object({
@@ -221,6 +292,7 @@ export const SourceSchema = z
       "clinical_guidance",
       "regimen_information",
       "safety_information",
+      "regulatory_label",
     ]),
     jurisdiction: z.string().min(2),
     publication_or_revision_date: IsoDateSchema.nullable(),

@@ -1,35 +1,65 @@
 release_id: build-week-preview-2026-07-18
-version: 0.2.0
+version: 0.3.0
 channel: preview
 publication_status: draft
 clinical_use: false
-generated_at: 2026-07-19T00:00:00-04:00
+generated_at: 2026-07-20T12:00:00-04:00
 clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
 included_objects:
   - { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
-  - { kind: drug, id: abemaciclib, version: 1.0.0 }
-  - { kind: drug, id: alpelisib, version: 1.0.0 }
-  - { kind: drug, id: anastrozole, version: 1.0.0 }
-  - { kind: drug, id: capecitabine, version: 1.0.1 }
-  - { kind: drug, id: capivasertib, version: 1.0.0 }
-  - { kind: drug, id: carboplatin, version: 1.0.0 }
-  - { kind: drug, id: cyclophosphamide, version: 1.0.0 }
-  - { kind: drug, id: docetaxel, version: 1.0.0 }
-  - { kind: drug, id: doxorubicin, version: 1.0.0 }
-  - { kind: drug, id: everolimus, version: 1.0.0 }
-  - { kind: drug, id: exemestane, version: 1.0.0 }
-  - { kind: drug, id: letrozole, version: 1.0.0 }
-  - { kind: drug, id: olaparib, version: 1.0.0 }
-  - { kind: drug, id: paclitaxel, version: 1.0.1 }
-  - { kind: drug, id: palbociclib, version: 1.0.0 }
-  - { kind: drug, id: pembrolizumab, version: 1.0.0 }
-  - { kind: drug, id: pertuzumab, version: 1.0.0 }
-  - { kind: drug, id: ribociclib, version: 1.0.0 }
-  - { kind: drug, id: sacituzumab-govitecan, version: 1.0.0 }
-  - { kind: drug, id: talazoparib, version: 1.0.0 }
-  - { kind: drug, id: tamoxifen, version: 1.0.0 }
-  - { kind: drug, id: trastuzumab, version: 1.0.0 }
-  - { kind: drug, id: trastuzumab-deruxtecan, version: 1.0.0 }
+  - { kind: drug, id: abemaciclib, version: 2.0.0 }
+  - { kind: drug, id: ado-trastuzumab-emtansine, version: 2.0.0 }
+  - { kind: drug, id: alpelisib, version: 2.0.0 }
+  - { kind: drug, id: anastrozole, version: 2.0.0 }
+  - { kind: drug, id: capecitabine, version: 2.0.0 }
+  - { kind: drug, id: capivasertib, version: 2.0.0 }
+  - { kind: drug, id: carboplatin, version: 2.0.0 }
+  - { kind: drug, id: conjugated-estrogens, version: 2.0.0 }
+  - { kind: drug, id: cyclophosphamide, version: 2.0.0 }
+  - { kind: drug, id: datopotamab-deruxtecan, version: 2.0.0 }
+  - { kind: drug, id: docetaxel, version: 2.0.0 }
+  - { kind: drug, id: doxorubicin, version: 2.0.0 }
+  - { kind: drug, id: elacestrant, version: 2.0.0 }
+  - { kind: drug, id: epirubicin, version: 2.0.0 }
+  - { kind: drug, id: eribulin, version: 2.0.0 }
+  - { kind: drug, id: estradiol, version: 2.0.0 }
+  - { kind: drug, id: everolimus, version: 2.0.0 }
+  - { kind: drug, id: exemestane, version: 2.0.0 }
+  - { kind: drug, id: fluorouracil, version: 2.0.0 }
+  - { kind: drug, id: fulvestrant, version: 2.0.0 }
+  - { kind: drug, id: gemcitabine, version: 2.0.0 }
+  - { kind: drug, id: goserelin, version: 2.0.0 }
+  - { kind: drug, id: imlunestrant, version: 2.0.0 }
+  - { kind: drug, id: inavolisib, version: 2.0.0 }
+  - { kind: drug, id: ixabepilone, version: 2.0.0 }
+  - { kind: drug, id: lapatinib, version: 2.0.0 }
+  - { kind: drug, id: letrozole, version: 2.0.0 }
+  - { kind: drug, id: margetuximab, version: 2.0.0 }
+  - { kind: drug, id: megestrol-acetate, version: 2.0.0 }
+  - { kind: drug, id: methotrexate, version: 2.0.0 }
+  - { kind: drug, id: methyltestosterone, version: 2.0.0 }
+  - { kind: drug, id: neratinib, version: 2.0.0 }
+  - { kind: drug, id: olaparib, version: 2.0.0 }
+  - { kind: drug, id: paclitaxel, version: 2.0.0 }
+  - { kind: drug, id: paclitaxel-protein-bound, version: 2.0.0 }
+  - { kind: drug, id: palbociclib, version: 2.0.0 }
+  - { kind: drug, id: pembrolizumab, version: 2.0.0 }
+  - { kind: drug, id: pembrolizumab-berahyaluronidase, version: 2.0.0 }
+  - { kind: drug, id: pertuzumab, version: 2.0.0 }
+  - { kind: drug, id: pertuzumab-trastuzumab-hyaluronidase, version: 2.0.0 }
+  - { kind: drug, id: ribociclib, version: 2.0.0 }
+  - { kind: drug, id: sacituzumab-govitecan, version: 2.0.0 }
+  - { kind: drug, id: talazoparib, version: 2.0.0 }
+  - { kind: drug, id: tamoxifen, version: 2.0.0 }
+  - { kind: drug, id: testosterone-enanthate, version: 2.0.0 }
+  - { kind: drug, id: thiotepa, version: 2.0.0 }
+  - { kind: drug, id: toremifene, version: 2.0.0 }
+  - { kind: drug, id: trastuzumab, version: 2.0.0 }
+  - { kind: drug, id: trastuzumab-deruxtecan, version: 2.0.0 }
+  - { kind: drug, id: trastuzumab-hyaluronidase, version: 2.0.0 }
+  - { kind: drug, id: tucatinib, version: 2.0.0 }
+  - { kind: drug, id: vepdegestrant, version: 2.0.0 }
+  - { kind: drug, id: vinblastine, version: 2.0.0 }
   - { kind: educational_module, id: ac-fever-infection-context, version: 1.0.0 }
   - { kind: educational_module, id: capecitabine-diarrhea-context, version: 1.0.0 }
   - { kind: educational_module, id: diarrhea-about, version: 1.0.0 }
@@ -91,22 +121,81 @@ included_objects:
   - { kind: question, id: q-neuropathy-walking-balance, version: 1.0.0 }
   - { kind: question, id: q-neuropathy-weakness, version: 1.0.0 }
   - { kind: regimen, id: ac, version: 1.0.0 }
+  - { kind: regimen, id: capedocetaxel, version: 1.0.0 }
   - { kind: regimen, id: capecitabine-monotherapy, version: 1.0.0 }
+  - { kind: regimen, id: capetuca-tras, version: 1.0.0 }
   - { kind: regimen, id: tc, version: 1.0.0 }
-  - { kind: regimen, id: tchp, version: 1.0.0 }
+  - { kind: regimen, id: tch, version: 1.0.0 }
+  - { kind: regimen, id: tchp, version: 1.1.0 }
   - { kind: regimen, id: weekly-paclitaxel, version: 1.0.0 }
   - { kind: source, id: bc-cancer-peripheral-neuropathy-handout, version: 1.0.0 }
   - { kind: source, id: cco-ac-breast-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-capedoce-breast-regimen, version: 1.0.0 }
   - { kind: source, id: cco-capecitabine-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-capetuca-tras-breast-regimen, version: 1.0.0 }
   - { kind: source, id: cco-fever-assessment-guideline, version: 1.0.0 }
   - { kind: source, id: cco-fever-patient-guide, version: 1.0.0 }
   - { kind: source, id: cco-manage-diarrhea, version: 1.0.0 }
   - { kind: source, id: cco-paclitaxel-patient-information, version: 1.0.0 }
   - { kind: source, id: cco-symptom-management-directory, version: 1.0.0 }
   - { kind: source, id: cco-systemic-treatment-information, version: 1.0.0 }
+  - { kind: source, id: cco-tch-breast-regimen, version: 1.0.0 }
+  - { kind: source, id: cco-tchp-breast-regimen, version: 1.0.0 }
   - { kind: source, id: eviq-dose-dense-ac-breast-patient-information, version: 1.0.0 }
   - { kind: source, id: eviq-infection-during-cancer-treatment, version: 1.0.0 }
   - { kind: source, id: eviq-weekly-paclitaxel-breast-patient-information, version: 1.0.0 }
+  - { kind: source, id: fda-label-abemaciclib, version: 1.0.0 }
+  - { kind: source, id: fda-label-ado-trastuzumab-emtansine, version: 1.0.0 }
+  - { kind: source, id: fda-label-alpelisib, version: 1.0.0 }
+  - { kind: source, id: fda-label-anastrozole, version: 1.0.0 }
+  - { kind: source, id: fda-label-capecitabine, version: 1.0.0 }
+  - { kind: source, id: fda-label-capivasertib, version: 1.0.0 }
+  - { kind: source, id: fda-label-conjugated-estrogens, version: 1.0.0 }
+  - { kind: source, id: fda-label-cyclophosphamide, version: 1.0.0 }
+  - { kind: source, id: fda-label-datopotamab-deruxtecan, version: 1.0.0 }
+  - { kind: source, id: fda-label-docetaxel, version: 1.0.0 }
+  - { kind: source, id: fda-label-doxorubicin, version: 1.0.0 }
+  - { kind: source, id: fda-label-elacestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-epirubicin, version: 1.0.0 }
+  - { kind: source, id: fda-label-eribulin, version: 1.0.0 }
+  - { kind: source, id: fda-label-estradiol, version: 1.0.0 }
+  - { kind: source, id: fda-label-everolimus, version: 1.0.0 }
+  - { kind: source, id: fda-label-exemestane, version: 1.0.0 }
+  - { kind: source, id: fda-label-fluorouracil, version: 1.0.0 }
+  - { kind: source, id: fda-label-fulvestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-gemcitabine, version: 1.0.0 }
+  - { kind: source, id: fda-label-goserelin, version: 1.0.0 }
+  - { kind: source, id: fda-label-imlunestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-inavolisib, version: 1.0.0 }
+  - { kind: source, id: fda-label-ixabepilone, version: 1.0.0 }
+  - { kind: source, id: fda-label-lapatinib, version: 1.0.0 }
+  - { kind: source, id: fda-label-letrozole, version: 1.0.0 }
+  - { kind: source, id: fda-label-margetuximab, version: 1.0.0 }
+  - { kind: source, id: fda-label-megestrol-acetate, version: 1.0.0 }
+  - { kind: source, id: fda-label-methotrexate, version: 1.0.0 }
+  - { kind: source, id: fda-label-methyltestosterone, version: 1.0.0 }
+  - { kind: source, id: fda-label-neratinib, version: 1.0.0 }
+  - { kind: source, id: fda-label-olaparib, version: 1.0.0 }
+  - { kind: source, id: fda-label-paclitaxel, version: 1.0.0 }
+  - { kind: source, id: fda-label-paclitaxel-protein-bound, version: 1.0.0 }
+  - { kind: source, id: fda-label-palbociclib, version: 1.0.0 }
+  - { kind: source, id: fda-label-pembrolizumab, version: 1.0.0 }
+  - { kind: source, id: fda-label-pembrolizumab-berahyaluronidase, version: 1.0.0 }
+  - { kind: source, id: fda-label-pertuzumab, version: 1.0.0 }
+  - { kind: source, id: fda-label-pertuzumab-trastuzumab-hyaluronidase, version: 1.0.0 }
+  - { kind: source, id: fda-label-ribociclib, version: 1.0.0 }
+  - { kind: source, id: fda-label-sacituzumab-govitecan, version: 1.0.0 }
+  - { kind: source, id: fda-label-talazoparib, version: 1.0.0 }
+  - { kind: source, id: fda-label-tamoxifen, version: 1.0.0 }
+  - { kind: source, id: fda-label-testosterone-enanthate, version: 1.0.0 }
+  - { kind: source, id: fda-label-thiotepa, version: 1.0.0 }
+  - { kind: source, id: fda-label-toremifene, version: 1.0.0 }
+  - { kind: source, id: fda-label-trastuzumab, version: 1.0.0 }
+  - { kind: source, id: fda-label-trastuzumab-deruxtecan, version: 1.0.0 }
+  - { kind: source, id: fda-label-trastuzumab-hyaluronidase, version: 1.0.0 }
+  - { kind: source, id: fda-label-tucatinib, version: 1.0.0 }
+  - { kind: source, id: fda-label-vepdegestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-vinblastine, version: 1.0.0 }
   - { kind: source, id: health-canada-capecitabine-product-record, version: 1.0.0 }
   - { kind: source, id: health-canada-fluoropyrimidine-infowatch, version: 1.0.0 }
   - { kind: symptom, id: appetite-taste-changes, version: 1.0.0 }
@@ -153,16 +242,72 @@ included_objects:
 source_inventory:
   - bc-cancer-peripheral-neuropathy-handout
   - cco-ac-breast-patient-information
+  - cco-capedoce-breast-regimen
   - cco-capecitabine-patient-information
+  - cco-capetuca-tras-breast-regimen
   - cco-fever-assessment-guideline
   - cco-fever-patient-guide
   - cco-manage-diarrhea
   - cco-paclitaxel-patient-information
   - cco-symptom-management-directory
   - cco-systemic-treatment-information
+  - cco-tch-breast-regimen
+  - cco-tchp-breast-regimen
   - eviq-dose-dense-ac-breast-patient-information
   - eviq-infection-during-cancer-treatment
   - eviq-weekly-paclitaxel-breast-patient-information
+  - fda-label-abemaciclib
+  - fda-label-ado-trastuzumab-emtansine
+  - fda-label-alpelisib
+  - fda-label-anastrozole
+  - fda-label-capecitabine
+  - fda-label-capivasertib
+  - fda-label-conjugated-estrogens
+  - fda-label-cyclophosphamide
+  - fda-label-datopotamab-deruxtecan
+  - fda-label-docetaxel
+  - fda-label-doxorubicin
+  - fda-label-elacestrant
+  - fda-label-epirubicin
+  - fda-label-eribulin
+  - fda-label-estradiol
+  - fda-label-everolimus
+  - fda-label-exemestane
+  - fda-label-fluorouracil
+  - fda-label-fulvestrant
+  - fda-label-gemcitabine
+  - fda-label-goserelin
+  - fda-label-imlunestrant
+  - fda-label-inavolisib
+  - fda-label-ixabepilone
+  - fda-label-lapatinib
+  - fda-label-letrozole
+  - fda-label-margetuximab
+  - fda-label-megestrol-acetate
+  - fda-label-methotrexate
+  - fda-label-methyltestosterone
+  - fda-label-neratinib
+  - fda-label-olaparib
+  - fda-label-paclitaxel
+  - fda-label-paclitaxel-protein-bound
+  - fda-label-palbociclib
+  - fda-label-pembrolizumab
+  - fda-label-pembrolizumab-berahyaluronidase
+  - fda-label-pertuzumab
+  - fda-label-pertuzumab-trastuzumab-hyaluronidase
+  - fda-label-ribociclib
+  - fda-label-sacituzumab-govitecan
+  - fda-label-talazoparib
+  - fda-label-tamoxifen
+  - fda-label-testosterone-enanthate
+  - fda-label-thiotepa
+  - fda-label-toremifene
+  - fda-label-trastuzumab
+  - fda-label-trastuzumab-deruxtecan
+  - fda-label-trastuzumab-hyaluronidase
+  - fda-label-tucatinib
+  - fda-label-vepdegestrant
+  - fda-label-vinblastine
   - health-canada-capecitabine-product-record
   - health-canada-fluoropyrimidine-infowatch
 reviewer_metadata:
@@ -174,8 +319,13 @@ known_gaps:
   - The fictional demo clinic has unresolved fever and supportive-care policy bindings.
   - The exact AC schedule variant is unresolved; no nadir timing is included.
   - Catalogue-level treatment and symptom entries do not imply full guidance.
+  - FDA safety sections are source-indexed; drug-event evidence and qualitative patient frequency groups are not yet mapped.
+  - Carboplatin is retained as a breast-regimen component and does not claim its own FDA breast-cancer indication.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.3.0 rebuilds drug search on exact current FDA breast-cancer treatment labels and canonical drug identities.
+  - Release 0.3.0 keeps a canonical capecitabine drug result while offering two source-verified multi-drug regimens that contain it.
+  - Release 0.3.0 adds separate TCH and TCHP regimen results with ordered component-drug destinations.
   - Release 0.2.0 separates structured clinic operations data from governed clinical-policy modules.
   - Release 0.1.1 corrects drug-level support labels so only complete regimen pathways display full guidance.
   - Immutable, content-addressed Build Week preview for synthetic demonstration only.

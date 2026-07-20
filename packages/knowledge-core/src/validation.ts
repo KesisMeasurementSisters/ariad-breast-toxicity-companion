@@ -159,6 +159,20 @@ function collectReferenceIssues(objects: KnowledgeObject[]): ValidationIssue[] {
         const item = object as Drug;
         item.class_ids.forEach((id) => exists(["treatment_class"], id, item.id, "class_ids"));
         source(item.id, item.source_ids);
+        item.regulatory_labels.forEach((label) => {
+          const labelSource = objects.find(
+            (candidate): candidate is Source =>
+              candidate.kind === "source" && candidate.id === label.source_id,
+          );
+          if (labelSource && labelSource.source_type !== "regulatory_label") {
+            issues.push({
+              severity: "error",
+              code: "invalid-regulatory-label-source",
+              objectId: item.id,
+              message: `regulatory_labels references non-regulatory source '${label.source_id}'`,
+            });
+          }
+        });
         break;
       }
       case "regimen": {

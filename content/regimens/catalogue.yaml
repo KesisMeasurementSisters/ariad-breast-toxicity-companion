@@ -36,6 +36,28 @@
   source_ids: [cco-ac-breast-patient-information]
 
 - <<: *regimen_base
+  id: capedocetaxel
+  display_name: CAPEDOCE treatment
+  abbreviation: CAPEDOCE
+  aliases: [capecitabine docetaxel, capecitabine-DOCEtaxel]
+  component_drug_ids: [capecitabine, docetaxel]
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  context_tags: [breast-cancer, oral, intravenous]
+  source_ids: [cco-capedoce-breast-regimen]
+  support_status: catalogued
+
+- <<: *regimen_base
+  id: capetuca-tras
+  display_name: CAPETUCA+TRAS treatment
+  abbreviation: CAPETUCA+TRAS
+  aliases: [capecitabine tucatinib trastuzumab]
+  component_drug_ids: [capecitabine, tucatinib, trastuzumab]
+  class_ids: [cytotoxic-chemotherapy, her2-directed-therapy]
+  context_tags: [breast-cancer, her2-positive, oral, intravenous]
+  source_ids: [cco-capetuca-tras-breast-regimen]
+  support_status: catalogued
+
+- <<: *regimen_base
   id: tc
   display_name: TC chemotherapy
   abbreviation: TC
@@ -47,13 +69,24 @@
   support_status: catalogued
 
 - <<: *regimen_base
+  id: tch
+  display_name: TCH chemotherapy
+  abbreviation: TCH
+  aliases: [DCH, CRBPDOCETRAS, docetaxel carboplatin trastuzumab]
+  component_drug_ids: [docetaxel, carboplatin, trastuzumab]
+  class_ids: [taxane, cytotoxic-chemotherapy, her2-directed-therapy]
+  context_tags: [breast-cancer, her2-positive, intravenous]
+  source_ids: [cco-tch-breast-regimen]
+  support_status: catalogued
+
+- <<: *regimen_base
   id: tchp
+  version: 1.1.0
   display_name: TCHP chemotherapy
   abbreviation: TCHP
-  aliases: [docetaxel carboplatin trastuzumab pertuzumab]
+  aliases: [CRBPDOCETRAS+PERT, docetaxel carboplatin trastuzumab pertuzumab]
   component_drug_ids: [docetaxel, carboplatin, trastuzumab, pertuzumab]
   class_ids: [taxane, cytotoxic-chemotherapy, her2-directed-therapy]
   context_tags: [breast-cancer, her2-positive, intravenous]
-  source_ids: [cco-systemic-treatment-information]
+  source_ids: [cco-tchp-breast-regimen]
   support_status: catalogued
-

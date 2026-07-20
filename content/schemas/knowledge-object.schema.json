@@ -300,6 +300,13 @@
           },
           "type": "array"
         },
+        "catalogue_basis": {
+          "enum": [
+            "fda_breast_cancer_treatment",
+            "breast_regimen_component"
+          ],
+          "type": "string"
+        },
         "class_ids": {
           "items": {
             "maxLength": 120,
@@ -323,6 +330,114 @@
         "kind": {
           "const": "drug",
           "type": "string"
+        },
+        "regulatory_labels": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "application_number": {
+                "pattern": "^(?:ANDA|BLA|NDA)\\d{6}$",
+                "type": "string"
+              },
+              "authority": {
+                "const": "U.S. Food and Drug Administration",
+                "type": "string"
+              },
+              "dosage_forms": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "evidence_mapping_status": {
+                "enum": [
+                  "source_indexed",
+                  "event_mapped"
+                ],
+                "type": "string"
+              },
+              "fda_routes": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "indication_section": {
+                "const": "indications_and_usage",
+                "type": "string"
+              },
+              "label_effective_date": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "type": "string"
+              },
+              "marketing_status": {
+                "const": "Prescription",
+                "type": "string"
+              },
+              "product_names": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "safety_sections": {
+                "items": {
+                  "enum": [
+                    "boxed_warning",
+                    "contraindications",
+                    "warnings_and_cautions",
+                    "warnings",
+                    "precautions",
+                    "adverse_reactions",
+                    "clinical_trials_experience",
+                    "postmarketing_experience",
+                    "information_for_patients",
+                    "patient_counseling_information"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "source_id": {
+                "maxLength": 120,
+                "minLength": 2,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "spl_set_id": {
+                "pattern": "^[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$",
+                "type": "string"
+              },
+              "verified_at": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "authority",
+              "application_number",
+              "spl_set_id",
+              "label_effective_date",
+              "marketing_status",
+              "product_names",
+              "dosage_forms",
+              "fda_routes",
+              "indication_section",
+              "safety_sections",
+              "evidence_mapping_status",
+              "source_id",
+              "verified_at"
+            ],
+            "type": "object"
+          },
+          "type": "array"
         },
         "review": {
           "additionalProperties": false,
@@ -396,6 +511,9 @@
           },
           "minItems": 1,
           "type": "array"
+        },
+        "searchable": {
+          "type": "boolean"
         },
         "source_ids": {
           "items": {
@@ -579,7 +697,10 @@
         "class_ids",
         "routes",
         "source_ids",
-        "support_status"
+        "support_status",
+        "catalogue_basis",
+        "searchable",
+        "regulatory_labels"
       ],
       "type": "object"
     },
@@ -2729,7 +2850,8 @@
             "product_monograph",
             "clinical_guidance",
             "regimen_information",
-            "safety_information"
+            "safety_information",
+            "regulatory_label"
           ],
           "type": "string"
         },
