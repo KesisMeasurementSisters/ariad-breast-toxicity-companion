@@ -1,9 +1,9 @@
 release_id: build-week-preview-2026-07-18
-version: 0.3.0
+version: 0.5.0
 channel: preview
 publication_status: draft
 clinical_use: false
-generated_at: 2026-07-20T12:00:00-04:00
+generated_at: 2026-07-20T18:00:00-04:00
 clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
 included_objects:
   - { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
@@ -60,6 +60,31 @@ included_objects:
   - { kind: drug, id: tucatinib, version: 2.0.0 }
   - { kind: drug, id: vepdegestrant, version: 2.0.0 }
   - { kind: drug, id: vinblastine, version: 2.0.0 }
+  - { kind: drug_toxicity_presentation, id: docetaxel-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: abemaciclib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: ado-trastuzumab-emtansine-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: anastrozole-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: capecitabine-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: datopotamab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: elacestrant-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: eribulin-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: exemestane-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: fulvestrant-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: goserelin-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: imlunestrant-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: ixabepilone-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: letrozole-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: neratinib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: olaparib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: paclitaxel-protein-bound-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: paclitaxel-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: sacituzumab-govitecan-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: talazoparib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: tamoxifen-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: toremifene-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: trastuzumab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: trastuzumab-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: vepdegestrant-patient-side-effects, version: 1.0.0 }
   - { kind: educational_module, id: ac-fever-infection-context, version: 1.0.0 }
   - { kind: educational_module, id: capecitabine-diarrhea-context, version: 1.0.0 }
   - { kind: educational_module, id: diarrhea-about, version: 1.0.0 }
@@ -319,10 +344,16 @@ known_gaps:
   - The fictional demo clinic has unresolved fever and supportive-care policy bindings.
   - The exact AC schedule variant is unresolved; no nadir timing is included.
   - Catalogue-level treatment and symptom entries do not imply full guidance.
-  - FDA safety sections are source-indexed; drug-event evidence and qualitative patient frequency groups are not yet mapped.
+  - Twenty-five drugs have draft FDA single-agent breast evidence maps and patient presentations; all require clinician review.
+  - Twenty-eight catalogue entries do not have a qualifying FDA breast-cancer single-agent frequency population and intentionally have no patient frequency page.
   - Carboplatin is retained as a breast-regimen component and does not claim its own FDA breast-cancer indication.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.5.0 adds unreviewed patient-only side-effect previews for the other 24 drugs with qualifying FDA breast-cancer single-agent frequency populations.
+  - Release 0.5.0 records exact private FDA evidence for 25 drugs total and does not attribute combination-study rates to individual drugs.
+  - Release 0.5.0 corrects the conventional paclitaxel record, which had pointed to a second albumin-bound paclitaxel label.
+  - Release 0.4.0 adds one unreviewed patient-only docetaxel side-effect preview backed by a separately stored exact FDA evidence record.
+  - Release 0.4.0 keeps FDA percentages, severity fields, laboratory thresholds, and dose context out of the patient-facing release payload.
   - Release 0.3.0 rebuilds drug search on exact current FDA breast-cancer treatment labels and canonical drug identities.
   - Release 0.3.0 keeps a canonical capecitabine drug result while offering two source-verified multi-drug regimens that contain it.
   - Release 0.3.0 adds separate TCH and TCHP regimen results with ordered component-drug destinations.

@@ -93,7 +93,9 @@ test("a drug opens one drug page and a regimen opens ordered component cards", a
 
   await expect(page.getByRole("heading", { name: "Capecitabine (Xeloda)" })).toBeVisible();
   await expect(page.locator(".regimen-medication-card")).toHaveCount(0);
-  await expect(page.getByText("Information for this drug is being prepared")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Side effects reported with capecitabine alone" }),
+  ).toBeVisible();
 
   await page.getByRole("button", { name: "Back" }).click();
   await search.fill("TCHP");
@@ -115,4 +117,84 @@ test("a drug opens one drug page and a regimen opens ordered component cards", a
   await expect(cards.nth(2).locator("h2")).toHaveText("Trastuzumab (Herceptin)");
   await expect(cards.nth(3).locator("h2")).toHaveText("Pertuzumab (Perjeta)");
   await expect(page.getByText("Information for this drug is being prepared")).toHaveCount(4);
+});
+
+test("a catalogue drug without FDA single-agent breast frequencies stays in preparation", async ({
+  page,
+}) => {
+  await page.goto("/?treatment=alpelisib");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  await expect(page.getByRole("heading", { name: "Alpelisib (Piqray)" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Information for this drug is being prepared" }),
+  ).toBeVisible();
+  await expect(page.locator(".toxicity-presentation")).toHaveCount(0);
+});
+
+test("representative single drugs open separate FDA-linked qualitative pages", async ({ page }) => {
+  const examples = [
+    ["anastrozole", "Anastrozole (Arimidex)"],
+    ["capecitabine", "Capecitabine (Xeloda)"],
+    ["goserelin", "Goserelin (Zoladex)"],
+    ["paclitaxel", "Paclitaxel (Taxol)"],
+    ["paclitaxel-protein-bound", "Paclitaxel protein-bound (Abraxane)"],
+    ["trastuzumab-deruxtecan", "Trastuzumab deruxtecan (Enhertu)"],
+  ] as const;
+
+  for (const [drugId, heading] of examples) {
+    await page.goto(`/?treatment=${drugId}`);
+    await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+    await expect(page.getByRole("heading", { name: heading })).toBeVisible();
+    await expect(page.locator(".toxicity-presentation")).toBeVisible();
+    await expect(page.getByText("Ariad cannot determine the cause of a symptom.")).toBeVisible();
+    const patientText = await page.locator(".toxicity-presentation").innerText();
+    expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);
+  }
+
+  const sourceLinks = page.locator(".toxicity-presentation .sources-panel a");
+  await expect(sourceLinks).toHaveCount(1);
+  await expect(sourceLinks).toHaveAttribute("href", /dailymed\.nlm\.nih\.gov/u);
+});
+
+test("docetaxel opens a patient-only side-effect presentation without numerical frequencies", async ({
+  page,
+}) => {
+  await page.goto("/?treatment=docetaxel");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  await expect(page.getByRole("heading", { name: "Docetaxel (Taxotere)" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Side effects reported with docetaxel alone" }),
+  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Seen in many people" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Seen in some people" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Seen in fewer people" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Changes your team checks for" })).toBeVisible();
+
+  const effects = page.locator(".toxicity-effect");
+  await expect(effects).toHaveCount(17);
+  await expect(effects.first()).not.toHaveAttribute("open", "");
+  await page.getByText("Hair loss", { exact: true }).click();
+  await expect(effects.first()).toHaveAttribute("open", "");
+  await expect(page.getByRole("heading", { name: "What you may notice" }).first()).toBeVisible();
+
+  const patientText = await page.locator("main").innerText();
+  expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);
+  expect(patientText).not.toMatch(/\bgrade\s*\d+\b/iu);
+  expect(patientText).not.toContain("mg/m");
+  expect(patientText).not.toContain("cells/mm");
+  await expect(
+    page.getByRole("heading", { name: "When to contact your cancer team" }),
+  ).toBeVisible();
+  await expect(page.getByText(/If you think you may be experiencing a medical emergency/).first()).toBeVisible();
+
+  await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
+  await expect(effects).toHaveCount(17);
+  for (let index = 0; index < 17; index += 1) {
+    await expect(effects.nth(index)).toHaveAttribute("open", "");
+  }
+  await expect(page.locator(".toxicity-presentation .sources-panel")).toHaveAttribute("open", "");
+  await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+  await expect(effects.nth(1)).not.toHaveAttribute("open", "");
 });

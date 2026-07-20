@@ -78,3 +78,18 @@ test("three live treatment results fit at 320px without horizontal overflow", as
     )
     .toBe(true);
 });
+
+test("a new single-drug patient presentation is accessible and fits at 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("/?treatment=capecitabine");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  const result = await new AxeBuilder({ page }).analyze();
+  expect(
+    result.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
+  ).toEqual([]);
+
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
+    .toBe(true);
+});

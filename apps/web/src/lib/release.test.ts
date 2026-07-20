@@ -2,8 +2,86 @@ import { describe, expect, it } from "vitest";
 import {
   activeRelease,
   clinicContactHref,
+  drugToxicityPresentationForDrug,
   resolveClinicConfig,
+  sourceById,
 } from "./release";
+
+describe("patient-safe drug toxicity release", () => {
+  it("ships every supported single-drug presentation without private numerical evidence", () => {
+    const supportedDrugIds = [
+      "abemaciclib",
+      "ado-trastuzumab-emtansine",
+      "anastrozole",
+      "capecitabine",
+      "datopotamab-deruxtecan",
+      "docetaxel",
+      "elacestrant",
+      "eribulin",
+      "exemestane",
+      "fulvestrant",
+      "goserelin",
+      "imlunestrant",
+      "ixabepilone",
+      "letrozole",
+      "neratinib",
+      "olaparib",
+      "paclitaxel",
+      "paclitaxel-protein-bound",
+      "sacituzumab-govitecan",
+      "talazoparib",
+      "tamoxifen",
+      "toremifene",
+      "trastuzumab",
+      "trastuzumab-deruxtecan",
+      "vepdegestrant",
+    ];
+    const presentations = activeRelease.objects.filter(
+      (object) => object.kind === "drug_toxicity_presentation",
+    );
+
+    expect(presentations).toHaveLength(25);
+    expect(presentations.map(({ drug_id }) => drug_id).sort()).toEqual(supportedDrugIds);
+    for (const drugId of supportedDrugIds) {
+      expect(drugToxicityPresentationForDrug(drugId)).toBeDefined();
+    }
+    expect(drugToxicityPresentationForDrug("alpelisib")).toBeUndefined();
+    expect(
+      activeRelease.objects.some((object) => object.kind === "drug_toxicity_evidence"),
+    ).toBe(false);
+
+    const patientPayload = JSON.stringify(presentations);
+    for (const privateField of [
+      "all_grade_pct",
+      "all_grade_pct_qualifier",
+      "severe_pct",
+      "fatal_pct",
+      "dose_mg_per_m2",
+      "dose_description",
+      "grading_system",
+      "severe_source_label",
+      "severity_values",
+      "n_treatment",
+      "n_comparator",
+    ]) {
+      expect(patientPayload).not.toContain(`"${privateField}":`);
+    }
+  });
+
+  it("keeps conventional and protein-bound paclitaxel as separate source-bound pages", () => {
+    const conventional = drugToxicityPresentationForDrug("paclitaxel");
+    const proteinBound = drugToxicityPresentationForDrug("paclitaxel-protein-bound");
+
+    expect(conventional?.drug_id).toBe("paclitaxel");
+    expect(proteinBound?.drug_id).toBe("paclitaxel-protein-bound");
+    expect(sourceById(conventional?.source_ids[0] ?? "")?.canonical_url).toContain(
+      "setid=ea28753a-8631-460a-bfdc-b101eb8ac84a",
+    );
+    expect(sourceById(proteinBound?.source_ids[0] ?? "")?.canonical_url).toContain(
+      "setid=24d10449-2936-4cd3-b7db-a7683db721e4",
+    );
+  });
+});
 
 describe("active clinic configuration resolution", () => {
   it("resolves the exact kind, id, and version pinned by the compiled release", () => {

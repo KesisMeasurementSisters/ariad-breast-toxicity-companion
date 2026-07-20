@@ -182,10 +182,32 @@ describe("treatment search", () => {
           drug.searchable &&
           drug.regulatory_labels.length > 0 &&
           drug.regulatory_labels.every(
-            (label) =>
-              label.evidence_mapping_status === "source_indexed" &&
-              drug.source_ids.includes(label.source_id),
+            (label) => drug.source_ids.includes(label.source_id),
           ),
+      ),
+    ).toBe(true);
+    const eventMappedDrugs = fdaDrugs.filter((drug) =>
+      drug.regulatory_labels.some(
+        (label) => label.evidence_mapping_status === "event_mapped",
+      ),
+    );
+    const presentationDrugIds = release.objects
+      .filter((object) => object.kind === "drug_toxicity_presentation")
+      .map(({ drug_id }) => drug_id);
+    const sourceIndexedDrugs = fdaDrugs.filter(
+      (drug) => !eventMappedDrugs.includes(drug),
+    );
+
+    expect(eventMappedDrugs).toHaveLength(25);
+    expect(new Set(eventMappedDrugs.map(({ id }) => id))).toEqual(
+      new Set(presentationDrugIds),
+    );
+    expect(sourceIndexedDrugs).toHaveLength(27);
+    expect(
+      sourceIndexedDrugs.every((drug) =>
+        drug.regulatory_labels.every(
+          (label) => label.evidence_mapping_status === "source_indexed",
+        ),
       ),
     ).toBe(true);
     expect(searchTreatments(release, "Veppanu")[0]?.record.id).toBe("vepdegestrant");
