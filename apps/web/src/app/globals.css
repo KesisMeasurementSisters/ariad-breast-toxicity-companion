@@ -584,6 +584,8 @@ button:disabled {
 .question-actions,
 .overview-meta,
 .module-stack,
+.regimen-medication-stack,
+.information-pending,
 .guidance-sections,
 .clinic-card,
 .sources-panel,
@@ -654,6 +656,12 @@ button:disabled {
   min-height: 3.2rem;
 }
 
+.search-help {
+  margin: 0.45rem 0 0;
+  color: var(--kesis-color-text-secondary);
+  font-size: 0.78rem;
+}
+
 input::placeholder,
 textarea::placeholder {
   color: var(--kesis-color-text-secondary);
@@ -670,6 +678,14 @@ textarea::placeholder {
   box-shadow: var(--shadow-sm);
 }
 
+.result-list-heading {
+  margin: 0;
+  padding: 0.65rem 0.9rem 0.45rem;
+  color: var(--kesis-color-navy-700);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 .saved-list .field-label {
   margin: 0;
   padding: 0.65rem 0.9rem 0.45rem;
@@ -683,7 +699,7 @@ textarea::placeholder {
   display: grid;
   width: 100%;
   min-height: 4.8rem;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.65rem;
   padding: 0.85rem;
@@ -701,6 +717,18 @@ textarea::placeholder {
   background: var(--thread-pale);
 }
 
+.result-main {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.result-copy {
+  min-width: 0;
+}
+
 .result-row strong,
 .result-row small {
   display: block;
@@ -711,6 +739,31 @@ textarea::placeholder {
   color: var(--muted);
   font-size: 0.79rem;
   line-height: 1.35;
+}
+
+.result-kind,
+.selection-kind {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.52rem;
+  border-radius: var(--kesis-radius-full);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.result-kind-drug,
+.selection-kind-drug {
+  color: var(--kesis-color-navy-700);
+  background: var(--kesis-color-navy-100);
+}
+
+.result-kind-regimen,
+.selection-kind-regimen {
+  color: var(--kesis-color-rose-700);
+  background: var(--kesis-color-rose-100);
 }
 
 .support-pill {
@@ -891,6 +944,78 @@ textarea::placeholder {
   flex-basis: 100%;
 }
 
+.regimen-medication-stack {
+  display: grid;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.regimen-medication-card {
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-top: 3px solid var(--kesis-color-rose-400);
+  border-radius: var(--kesis-radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.regimen-medication-header {
+  padding: 1.1rem 1.15rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.regimen-medication-header > span {
+  display: block;
+  margin-block-end: 0.35rem;
+  color: var(--kesis-color-rose-700);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.regimen-medication-header h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4.5vw, 1.65rem);
+}
+
+.regimen-medication-card .module-stack,
+.regimen-medication-card .sources-panel {
+  margin: 0 1.15rem 1.15rem;
+}
+
+.information-pending {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-block: 1.5rem;
+  padding: 1rem;
+  border: 1px dashed var(--kesis-color-navy-200);
+  border-radius: var(--kesis-radius-md);
+  background: var(--kesis-color-navy-50);
+}
+
+.regimen-medication-card .information-pending {
+  margin: 1.15rem;
+}
+
+.information-pending > svg {
+  flex: 0 0 auto;
+  margin-block-start: 0.12rem;
+  color: var(--kesis-color-navy-700);
+}
+
+.information-pending h2,
+.information-pending h3 {
+  margin-block-end: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.information-pending p {
+  color: var(--kesis-color-text-secondary);
+  font-size: 0.9rem;
+}
+
 .module-stack {
   margin-block: 2rem;
 }
@@ -920,7 +1045,8 @@ textarea::placeholder {
   font-weight: 800;
 }
 
-.preparation-module h2 {
+.preparation-module h2,
+.preparation-module h3 {
   font-size: 1.25rem;
 }
 
@@ -1733,6 +1859,11 @@ details[open] > summary .summary-chevron {
 
   .result-row .support-pill {
     max-width: 6.2rem;
+  }
+
+  .result-main {
+    grid-template-columns: 1fr;
+    gap: 0.42rem;
   }
 
   .symptom-chip-grid {

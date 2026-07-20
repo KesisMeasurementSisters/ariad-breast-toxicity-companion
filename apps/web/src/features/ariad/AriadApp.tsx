@@ -3,6 +3,7 @@
 import type {
   ClinicConfigV2,
   ClinicContactRoute,
+  Drug,
   EducationalModule,
   Question,
   SearchRecord,
@@ -18,10 +19,13 @@ import {
   assembleGuidance,
   classifySymptomDeterministically,
   deterministicSummary,
+  normalizeSearchText,
   preparationModules,
+  regimenComponentDrugs,
   resolveGuidanceRelationship,
   searchSymptoms,
   searchTreatments,
+  treatmentSearchDisplayName,
   type AnswerValue,
 } from "@ariad/knowledge-core";
 import {
@@ -110,13 +114,6 @@ const SECTION_ICONS = {
   urgent_attention: TriangleAlert,
   reporting_checklist: Clipboard,
 } as const;
-
-function recordType(record: SearchRecord): string {
-  if (record.kind === "regimen") return "Regimen";
-  if (record.kind === "drug") return "Medication";
-  if (record.kind === "treatment_class") return "Treatment class";
-  return "Symptom";
-}
 
 function renderAnswer(question: Question, answer: string | string[] | undefined): string | null {
   if (answer === undefined || answer === "" || (Array.isArray(answer) && answer.length === 0)) {
@@ -314,13 +311,11 @@ function HomeScreen({
 
 function TreatmentSearchScreen({
   mode,
-  preferences,
   onSelect,
   onUnknown,
   onBack,
 }: {
   mode: EntryMode;
-  preferences: Preferences;
   onSelect: (id: string) => void;
   onUnknown: () => void;
   onBack: () => void;
@@ -328,10 +323,11 @@ function TreatmentSearchScreen({
   const [query, setQuery] = useState("");
   const [code, setCode] = useState("");
   const [codeError, setCodeError] = useState<string | null>(null);
-  const results = query.trim() ? searchTreatments(activeRelease, query) : [];
-  const savedRecords = activeRelease.indexes.treatments.filter((record) =>
-    preferences.savedTreatmentIds.includes(record.id),
-  );
+  const normalizedQuery = normalizeSearchText(query).replace(/\s+/gu, "");
+  const readyToSearch = normalizedQuery.length >= 2;
+  const results = readyToSearch ? searchTreatments(activeRelease, query) : [];
+  const spellingSuggestions =
+    results.length > 0 && results.every(({ matchType }) => matchType === "fuzzy");
 
   const resolveCode = () => {
     const treatmentId = DEMO_CODES[code.trim().toUpperCase()];
@@ -350,52 +346,62 @@ function TreatmentSearchScreen({
         title={mode === "prepare" ? "Which treatment are you starting?" : "Which treatment are you receiving?"}
         onBack={onBack}
       >
-        Search by generic name, brand name, regimen abbreviation, or individual component.
-        Coverage is shown before you choose.
+        Search for one drug by its generic or brand name, or for a regimen by its
+        abbreviation or full name.
       </PageIntro>
 
       <div className="search-panel">
-        <label htmlFor="treatment-search">Treatment or regimen</label>
+        <label htmlFor="treatment-search">Drug or regimen</label>
         <div className="search-field">
           <Search aria-hidden="true" size={20} />
           <input
             id="treatment-search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Try paclitaxel, Taxol, AC, or TCHP"
+            placeholder="Try capecitabine, Xeloda, TC, or TCHP"
             autoComplete="off"
+            aria-describedby="treatment-search-help"
           />
         </div>
-        {query.trim() ? (
-          <div className="result-list" aria-live="polite">
+        <p className="search-help" id="treatment-search-help">
+          Type at least two characters. Up to three close matches will appear.
+        </p>
+        {readyToSearch ? (
+          <div className="result-list" aria-live="polite" aria-label="Drug and regimen results">
+            {spellingSuggestions ? <p className="result-list-heading">Did you mean?</p> : null}
             {results.length ? (
-              results.map(({ record, matchType }) => (
-                <button className="result-row" type="button" key={`${record.kind}:${record.id}`} onClick={() => onSelect(record.id)}>
-                  <span>
-                    <strong>{record.display_name}</strong>
-                    <small>{recordType(record)} · matched by {matchType.replaceAll("_", " ")}</small>
-                  </span>
-                  <SupportPill status={record.support_status} />
-                  <ChevronRight aria-hidden="true" size={18} />
-                </button>
-              ))
+              results.map(({ record }) => {
+                const isDrug = record.kind === "drug";
+                const typeLabel = isDrug ? "Drug" : "Regimen";
+                const destination = isDrug
+                  ? "View this drug’s information"
+                  : "View information for each drug in this regimen";
+                const displayName = treatmentSearchDisplayName(activeRelease, record.id);
+                return (
+                  <button
+                    className="result-row"
+                    type="button"
+                    key={`${record.kind}:${record.id}`}
+                    onClick={() => onSelect(record.id)}
+                    aria-label={`${typeLabel}: ${displayName}. ${destination}`}
+                  >
+                    <span className="result-main">
+                      <span className={`result-kind result-kind-${record.kind}`}>{typeLabel}</span>
+                      <span className="result-copy">
+                        <strong>{displayName}</strong>
+                        <small>{destination}</small>
+                      </span>
+                    </span>
+                    <ChevronRight aria-hidden="true" size={18} />
+                  </button>
+                );
+              })
             ) : (
               <div className="empty-result">
-                <strong>No treatment match found.</strong>
-                <p>Try a generic name, brand name, abbreviation, or an individual component.</p>
+                <strong>No matching drug or regimen found.</strong>
+                <p>Check the spelling or try another generic, brand, or regimen name.</p>
               </div>
             )}
-          </div>
-        ) : savedRecords.length ? (
-          <div className="saved-list">
-            <p className="field-label">Saved on this device</p>
-            {savedRecords.map((record) => (
-              <button className="result-row" type="button" key={record.id} onClick={() => onSelect(record.id)}>
-                <span><strong>{record.display_name}</strong><small>{recordType(record)}</small></span>
-                <SupportPill status={record.support_status} />
-                <ChevronRight aria-hidden="true" size={18} />
-              </button>
-            ))}
           </div>
         ) : null}
       </div>
@@ -418,32 +424,115 @@ function TreatmentSearchScreen({
   );
 }
 
+function PreparationModuleList({
+  modules,
+  nested = false,
+}: {
+  modules: EducationalModule[];
+  nested?: boolean;
+}) {
+  const Heading = nested ? "h3" : "h2";
+  return (
+    <div className="module-stack preparation-stack">
+      {modules.map((item, index) => (
+        <section className="preparation-module" key={item.id}>
+          <span className="module-index">{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <Heading>{item.title}</Heading>
+            {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {item.bullets.length ? (
+              <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+            ) : null}
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+function InformationPending({ nested = false }: { nested?: boolean }) {
+  const Heading = nested ? "h3" : "h2";
+  return (
+    <div className="information-pending">
+      <Info aria-hidden="true" size={22} />
+      <div>
+        <Heading>Information for this drug is being prepared</Heading>
+        <p>
+          Drug-specific information is not shown here yet. Follow the information provided
+          by your cancer team.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function RegimenMedicationCard({ drug, index }: { drug: Drug; index: number }) {
+  const modules = preparationModules(activeRelease, drug.id);
+  const sourceIds = [...new Set(modules.flatMap((item) => item.source_ids))].sort();
+  const headingId = `regimen-drug-${drug.id}`;
+
+  return (
+    <article className="regimen-medication-card" aria-labelledby={headingId}>
+      <header className="regimen-medication-header">
+        <span>Drug {String(index + 1).padStart(2, "0")}</span>
+        <h2 id={headingId}>{treatmentSearchDisplayName(activeRelease, drug.id)}</h2>
+      </header>
+      {modules.length ? (
+        <>
+          <PreparationModuleList modules={modules} nested />
+          <SourcesPanel sourceIds={sourceIds} />
+        </>
+      ) : (
+        <InformationPending nested />
+      )}
+    </article>
+  );
+}
+
 function TreatmentOverviewScreen({
   treatmentId,
   saved,
   onSave,
   onBack,
   onSymptom,
+  onSymptomLabel,
 }: {
   treatmentId: string;
   saved: boolean;
   onSave: () => void;
   onBack: () => void;
   onSymptom: () => void;
+  onSymptomLabel: string;
 }) {
   const treatment = treatmentById(treatmentId);
   const modules = preparationModules(activeRelease, treatmentId);
   const sourceIds = [...new Set(modules.flatMap((item) => item.source_ids))].sort();
+  const regimenDrugs = treatment?.kind === "regimen"
+    ? regimenComponentDrugs(activeRelease, treatment.id)
+    : [];
+  const isMultiDrugRegimen = treatment?.kind === "regimen" && regimenDrugs.length > 1;
+  const overviewTitle = treatment?.kind === "drug" || isMultiDrugRegimen
+    ? treatmentSearchDisplayName(activeRelease, treatmentId)
+    : treatmentName(treatmentId);
+  const selectionType = treatment?.kind === "regimen" ? "Regimen" : "Drug";
 
   return (
     <>
-      <PageIntro eyebrow="Treatment guide" title={treatmentName(treatmentId)} onBack={onBack}>
-        A draft, source-linked preparation view for this treatment. It does not replace the
-        teaching or instructions from your own cancer team.
+      <PageIntro
+        eyebrow={treatment?.kind === "regimen" ? "Regimen information" : "Drug information"}
+        title={overviewTitle}
+        onBack={onBack}
+      >
+        {isMultiDrugRegimen
+          ? "Each anticancer drug in this regimen is shown in its own card."
+          : treatment?.kind === "drug"
+            ? "This page is for this drug only. Information for other drugs is kept separate."
+            : "This page shows the current preparation information for this regimen."}
       </PageIntro>
       <div className="overview-meta">
-        <SupportPill status={treatment && "support_status" in treatment ? treatment.support_status : "catalogued"} />
-        <span>{treatment?.kind === "regimen" ? "Exact regimen" : "Treatment entry"}</span>
+        <span className={`selection-kind selection-kind-${treatment?.kind ?? "drug"}`}>
+          {selectionType}
+        </span>
         <button className="secondary-button" type="button" onClick={onSave}>
           {saved ? <Check aria-hidden="true" size={17} /> : null}
           {saved ? "Saved on this device" : "Save this treatment"}
@@ -452,23 +541,23 @@ function TreatmentOverviewScreen({
 
       <BoundaryCard />
 
-      <div className="module-stack preparation-stack">
-        {modules.map((item, index) => (
-          <article className="preparation-module" key={item.id}>
-            <span className="module-index">{String(index + 1).padStart(2, "0")}</span>
-            <div>
-              <h2>{item.title}</h2>
-              {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              {item.bullets.length ? <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul> : null}
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <SourcesPanel sourceIds={sourceIds} />
+      {isMultiDrugRegimen ? (
+        <section className="regimen-medication-stack" aria-label="Drugs in this regimen">
+          {regimenDrugs.map((drug, index) => (
+            <RegimenMedicationCard drug={drug} index={index} key={drug.id} />
+          ))}
+        </section>
+      ) : modules.length ? (
+        <>
+          <PreparationModuleList modules={modules} />
+          <SourcesPanel sourceIds={sourceIds} />
+        </>
+      ) : (
+        <InformationPending />
+      )}
       <div className="action-row">
         <button className="primary-button" type="button" onClick={onSymptom}>
-          I’m having a symptom <ArrowRight aria-hidden="true" size={18} />
+          {onSymptomLabel} <ArrowRight aria-hidden="true" size={18} />
         </button>
       </div>
     </>
@@ -1155,25 +1244,22 @@ export function AriadApp() {
 
   const chooseTreatment = (id: string) => {
     setSelectedTreatmentId(id);
-    const treatment = treatmentById(id);
+    setScreen("treatment-overview");
+  };
+
+  const continueFromTreatment = () => {
+    if (!selectedTreatmentId) return;
+    if (!selectedSymptomId) {
+      setMode("symptom");
+      setScreen("symptom-entry");
+      return;
+    }
+
+    const treatment = treatmentById(selectedTreatmentId);
     const supportStatus = treatment && "support_status" in treatment
       ? treatment.support_status
       : "catalogued";
-    if (mode === "prepare") {
-      const prep = preparationModules(activeRelease, id);
-      if (!prep.length) {
-        if (supportStatus === "education_only") {
-          setScreen("education-only");
-        } else {
-          setUnsupportedReason("The treatment is catalogued, but the preparation pathway is not complete.");
-          setScreen("unsupported");
-        }
-      } else {
-        setScreen("treatment-overview");
-      }
-      return;
-    }
-    if (selectedSymptomId && resolveGuidanceRelationship(activeRelease, id, selectedSymptomId)) {
+    if (resolveGuidanceRelationship(activeRelease, selectedTreatmentId, selectedSymptomId)) {
       setAnswers({});
       setQuestionIndex(0);
       setScreen("questions");
@@ -1288,7 +1374,6 @@ export function AriadApp() {
         {screen === "treatment-search" || screen === "treatment-context" ? (
           <TreatmentSearchScreen
             mode={screen === "treatment-context" ? "symptom" : mode}
-            preferences={preferences}
             onSelect={chooseTreatment}
             onUnknown={() => { setUnsupportedReason("Without treatment context, Ariad cannot provide treatment-specific guidance."); setScreen("unsupported"); }}
             onBack={() => setScreen(screen === "treatment-context" ? "symptom-entry" : "home")}
@@ -1300,8 +1385,9 @@ export function AriadApp() {
             treatmentId={selectedTreatmentId}
             saved={preferences.savedTreatmentIds.includes(selectedTreatmentId)}
             onSave={() => setPreferences(saveTreatment(preferences, selectedTreatmentId))}
-            onBack={() => setScreen("treatment-search")}
-            onSymptom={() => { setMode("symptom"); setScreen("symptom-entry"); }}
+            onBack={() => setScreen(selectedSymptomId ? "treatment-context" : "treatment-search")}
+            onSymptom={continueFromTreatment}
+            onSymptomLabel={selectedSymptomId ? "Continue with this treatment" : "I’m having a symptom"}
           />
         ) : null}
 

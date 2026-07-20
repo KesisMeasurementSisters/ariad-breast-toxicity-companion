@@ -88,8 +88,9 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   await expect(page.getByText("GPT‑5.6 mapped the wording only")).toBeVisible();
   await choose(page, /Tingling, numbness, or burning.*This is closest/);
 
-  await page.getByLabel("Treatment or regimen").fill("weekly paclitaxel");
-  await choose(page, /Weekly paclitaxel.*Full demo guidance/);
+  await page.getByLabel("Treatment code").fill("THREAD-PAC-01");
+  await choose(page, "Use code");
+  await choose(page, "Continue with this treatment");
 
   await choose(page, "Fingers");
   await nextQuestion(page);
@@ -128,22 +129,22 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   ).toBeVisible();
 });
 
-test("education-only treatment status opens a truthful source-linked boundary", async ({ page }) => {
+test("a drug result opens the single-drug information fallback", async ({ page }) => {
   await choose(page, /I’m starting treatment/);
-  await page.getByLabel("Treatment or regimen").fill("doxorubicin");
-  await choose(page, /doxorubicin.*Education only/);
+  await page.getByLabel("Drug or regimen").fill("doxorubicin");
+  await choose(page, /Drug: Doxorubicin \(Adriamycin\).*View this drug’s information/);
 
   await expect(
-    page.getByRole("heading", { name: /doxorubicin has a source-linked catalogue entry/i }),
+    page.getByRole("heading", { name: "Doxorubicin (Adriamycin)" }),
   ).toBeVisible();
-  await expect(page.getByText("Reference information is available; clinical guidance is not.")).toBeVisible();
+  await expect(page.getByText("Information for this drug is being prepared")).toBeVisible();
   await expect(page.getByText("Ariad cannot determine the cause").first()).toBeVisible();
 });
 
-test("starting-treatment path opens the complete weekly paclitaxel preparation guide", async ({ page }) => {
+test("a clinic code still opens the complete weekly paclitaxel preparation guide", async ({ page }) => {
   await choose(page, /I’m starting treatment/);
-  await page.getByLabel("Treatment or regimen").fill("weekly paclitaxel");
-  await choose(page, /Weekly paclitaxel.*Full demo guidance/);
+  await page.getByLabel("Treatment code").fill("THREAD-PAC-01");
+  await choose(page, "Use code");
 
   await expect(page.getByRole("heading", { name: "Weekly paclitaxel" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Your treatment at a glance" })).toBeVisible();

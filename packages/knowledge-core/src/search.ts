@@ -1,14 +1,24 @@
 import Fuse from "fuse.js";
 import type {
   CompiledRelease,
+  Drug,
+  Regimen,
   SearchRecord,
   SymptomClassifierResult,
 } from "@ariad/contracts";
 
+export type SearchMatchType =
+  | "exact_name"
+  | "exact_alias"
+  | "component"
+  | "prefix"
+  | "token"
+  | "fuzzy";
+
 export interface SearchResult {
   record: SearchRecord;
   score: number;
-  matchType: "exact_name" | "exact_alias" | "prefix" | "token" | "fuzzy";
+  matchType: SearchMatchType;
 }
 
 const SUPPORT_RANK: Record<SearchRecord["support_status"], number> = {
@@ -28,18 +38,38 @@ export function normalizeSearchText(value: string): string {
     .replace(/\s+/gu, " ");
 }
 
+function compactSearchText(value: string): string {
+  return normalizeSearchText(value).replace(/\s+/gu, "");
+}
+
+function matchesExact(candidate: string, query: string): boolean {
+  return candidate === query || compactSearchText(candidate) === compactSearchText(query);
+}
+
+function startsWithQuery(candidate: string, query: string): boolean {
+  return candidate.startsWith(query) || compactSearchText(candidate).startsWith(compactSearchText(query));
+}
+
+function includesQuery(candidate: string, query: string): boolean {
+  return candidate.includes(query) || compactSearchText(candidate).includes(compactSearchText(query));
+}
+
 function rankRecord(record: SearchRecord, query: string): SearchResult | null {
-  if (record.normalized_name === query) return { record, score: 1, matchType: "exact_name" };
-  if (record.normalized_aliases.includes(query)) return { record, score: 0.98, matchType: "exact_alias" };
+  if (matchesExact(record.normalized_name, query)) {
+    return { record, score: 1, matchType: "exact_name" };
+  }
+  if (record.normalized_aliases.some((alias) => matchesExact(alias, query))) {
+    return { record, score: 0.98, matchType: "exact_alias" };
+  }
   if (
-    record.normalized_name.startsWith(query) ||
-    record.normalized_aliases.some((alias) => alias.startsWith(query))
+    startsWithQuery(record.normalized_name, query) ||
+    record.normalized_aliases.some((alias) => startsWithQuery(alias, query))
   ) {
     return { record, score: 0.9, matchType: "prefix" };
   }
   if (
-    record.normalized_name.includes(query) ||
-    record.normalized_aliases.some((alias) => alias.includes(query))
+    includesQuery(record.normalized_name, query) ||
+    record.normalized_aliases.some((alias) => includesQuery(alias, query))
   ) {
     return { record, score: 0.82, matchType: "token" };
   }
@@ -51,9 +81,9 @@ export function searchRecords(records: SearchRecord[], input: string, limit = 8)
   if (!query) return [];
 
   const direct = records.map((record) => rankRecord(record, query)).filter(Boolean) as SearchResult[];
-  const directIds = new Set(direct.map((result) => result.record.id));
+  const directIds = new Set(direct.map((result) => `${result.record.kind}:${result.record.id}`));
   const fuzzy =
-    query.length < 4
+    compactSearchText(query).length < 4
       ? []
       : new Fuse(records, {
           keys: ["normalized_name", "normalized_aliases"],
@@ -62,7 +92,7 @@ export function searchRecords(records: SearchRecord[], input: string, limit = 8)
           includeScore: true,
         })
           .search(query)
-          .filter((result) => !directIds.has(result.item.id))
+          .filter((result) => !directIds.has(`${result.item.kind}:${result.item.id}`))
           .map<SearchResult>((result) => ({
             record: result.item,
             score: Math.max(0.4, 0.75 - (result.score ?? 1) * 0.5),
@@ -80,8 +110,147 @@ export function searchRecords(records: SearchRecord[], input: string, limit = 8)
     .slice(0, limit);
 }
 
-export function searchTreatments(release: CompiledRelease, query: string, limit = 8): SearchResult[] {
-  return searchRecords(release.indexes.treatments, query, limit);
+function treatmentById(release: CompiledRelease, id: string): Drug | Regimen | undefined {
+  return release.objects.find(
+    (object): object is Drug | Regimen =>
+      object.id === id && (object.kind === "drug" || object.kind === "regimen"),
+  );
+}
+
+export function regimenComponentDrugs(release: CompiledRelease, regimenId: string): Drug[] {
+  const regimen = treatmentById(release, regimenId);
+  if (regimen?.kind !== "regimen") return [];
+
+  const drugsById = new Map(
+    release.objects
+      .filter((object): object is Drug => object.kind === "drug")
+      .map((drug) => [drug.id, drug]),
+  );
+  return regimen.component_drug_ids
+    .map((componentId) => drugsById.get(componentId))
+    .filter((drug): drug is Drug => Boolean(drug));
+}
+
+function sentenceCaseName(value: string): string {
+  return value.length > 0 ? `${value[0]?.toLocaleUpperCase("en-CA")}${value.slice(1)}` : value;
+}
+
+export function treatmentSearchDisplayName(release: CompiledRelease, treatmentId: string): string {
+  const treatment = treatmentById(release, treatmentId);
+  if (!treatment) return treatmentId;
+
+  if (treatment.kind === "drug") {
+    const genericName = sentenceCaseName(treatment.generic_name);
+    const primaryBrand = treatment.brand_names[0];
+    return primaryBrand ? `${genericName} (${primaryBrand})` : genericName;
+  }
+
+  const componentNames = regimenComponentDrugs(release, treatment.id).map((drug) =>
+    sentenceCaseName(drug.generic_name),
+  );
+  const expandedName = componentNames.join(" + ");
+  const primaryName = treatment.abbreviation ?? treatment.display_name;
+  return expandedName ? `${primaryName}: ${expandedName}` : treatment.display_name;
+}
+
+function searchableTreatmentRecords(release: CompiledRelease): SearchRecord[] {
+  return release.indexes.treatments.flatMap((record) => {
+    const treatment = treatmentById(release, record.id);
+    if (!treatment || treatment.kind !== record.kind) return [];
+    if (treatment.kind === "regimen" && treatment.component_drug_ids.length < 2) return [];
+
+    if (treatment.kind === "drug") return [record];
+
+    const expandedName = regimenComponentDrugs(release, treatment.id)
+      .map((drug) => drug.generic_name)
+      .join(" ");
+    const aliases = [
+      ...record.aliases,
+      expandedName,
+      treatment.abbreviation ? `${treatment.abbreviation} ${expandedName}` : "",
+    ].filter(Boolean);
+    const uniqueAliases = new Map<string, string>();
+    for (const alias of aliases) {
+      const normalized = normalizeSearchText(alias);
+      if (normalized && !uniqueAliases.has(normalized)) uniqueAliases.set(normalized, alias);
+    }
+    return [
+      {
+        ...record,
+        normalized_name: normalizeSearchText(treatment.abbreviation ?? treatment.display_name),
+        aliases: [...uniqueAliases.values()],
+        normalized_aliases: [...uniqueAliases.keys()],
+      },
+    ];
+  });
+}
+
+const TREATMENT_MATCH_RANK: Record<SearchMatchType, number> = {
+  exact_name: 5,
+  exact_alias: 5,
+  component: 4,
+  prefix: 3,
+  token: 2,
+  fuzzy: 1,
+};
+
+function fuzzyDrugPriority(result: SearchResult): number {
+  return result.matchType === "fuzzy" && result.record.kind === "drug" ? 1 : 0;
+}
+
+export function searchTreatments(release: CompiledRelease, query: string, limit = 3): SearchResult[] {
+  const normalizedQuery = normalizeSearchText(query);
+  if (compactSearchText(normalizedQuery).length < 2) return [];
+
+  const records = searchableTreatmentRecords(release);
+  const allRanked = searchRecords(records, normalizedQuery, records.length);
+  const hasDirectMatch = allRanked.some((result) => result.matchType !== "fuzzy");
+  const ranked = hasDirectMatch
+    ? allRanked.filter((result) => result.matchType !== "fuzzy")
+    : allRanked;
+  const exactDrugIds = new Set(
+    ranked
+      .filter(
+        (result) =>
+          result.record.kind === "drug" &&
+          (result.matchType === "exact_name" || result.matchType === "exact_alias"),
+      )
+      .map((result) => result.record.id),
+  );
+  const combined = new Map(ranked.map((result) => [`${result.record.kind}:${result.record.id}`, result]));
+
+  if (exactDrugIds.size > 0) {
+    for (const record of records) {
+      if (record.kind !== "regimen") continue;
+      const regimen = treatmentById(release, record.id);
+      if (
+        regimen?.kind !== "regimen" ||
+        !regimen.component_drug_ids.some((componentId) => exactDrugIds.has(componentId))
+      ) {
+        continue;
+      }
+      const key = `${record.kind}:${record.id}`;
+      const componentMatch: SearchResult = { record, score: 0.94, matchType: "component" };
+      const existing = combined.get(key);
+      if (!existing || TREATMENT_MATCH_RANK[existing.matchType] < TREATMENT_MATCH_RANK.component) {
+        combined.set(key, componentMatch);
+      }
+    }
+  }
+
+  const boundedLimit = Math.max(0, Math.min(limit, 3));
+  return [...combined.values()]
+    .sort(
+      (left, right) =>
+        TREATMENT_MATCH_RANK[right.matchType] - TREATMENT_MATCH_RANK[left.matchType] ||
+        fuzzyDrugPriority(right) - fuzzyDrugPriority(left) ||
+        right.score - left.score ||
+        treatmentSearchDisplayName(release, left.record.id).localeCompare(
+          treatmentSearchDisplayName(release, right.record.id),
+        ) ||
+        left.record.id.localeCompare(right.record.id),
+    )
+    .slice(0, boundedLimit);
 }
 
 export function searchSymptoms(release: CompiledRelease, query: string, limit = 8): SearchResult[] {

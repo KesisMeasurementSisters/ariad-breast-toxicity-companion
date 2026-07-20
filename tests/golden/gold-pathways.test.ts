@@ -159,10 +159,10 @@ describe("deterministic recognition", () => {
     expect(searchTreatments(release, "AC")[0]?.record.id).toBe("ac");
     expect(searchTreatments(release, "TCHP")[0]?.record.id).toBe("tchp");
     expect(searchTreatments(release, "capecitbine")[0]?.record.id).toBe(
-      "capecitabine-monotherapy",
+      "capecitabine",
     );
     expect(searchTreatments(release, "capecitabine")[0]?.record.id).toBe(
-      "capecitabine-monotherapy",
+      "capecitabine",
     );
   });
 
