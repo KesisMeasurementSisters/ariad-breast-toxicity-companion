@@ -12,7 +12,7 @@
   class_ids: [cdk46-inhibitor]
   routes: [oral]
   source_ids: [fda-label-abemaciclib]
-  support_status: catalogued
+  support_status: education_only
   catalogue_basis: fda_breast_cancer_treatment
   searchable: true
   regulatory_labels:
@@ -28,7 +28,7 @@
       indication_section: indications_and_usage
       safety_sections: &common_safety
         [contraindications, warnings_and_cautions, adverse_reactions, information_for_patients]
-      evidence_mapping_status: source_indexed
+      evidence_mapping_status: event_mapped
       source_id: fda-label-abemaciclib
       verified_at: 2026-07-20
 
@@ -60,6 +60,7 @@
   class_ids: [pi3k-akt-mtor-pathway-therapy]
   routes: [oral]
   source_ids: [fda-label-alpelisib]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA212526
@@ -69,6 +70,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-alpelisib
 
 - <<: *drug_base
@@ -117,6 +119,7 @@
   class_ids: [pi3k-akt-mtor-pathway-therapy]
   routes: [oral]
   source_ids: [fda-label-capivasertib]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA218197
@@ -126,6 +129,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-capivasertib
 
 - <<: *drug_base
@@ -136,6 +140,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [cco-tch-breast-regimen, cco-tchp-breast-regimen]
+  support_status: catalogued
   catalogue_basis: breast_regimen_component
   regulatory_labels: []
 
@@ -147,6 +152,7 @@
   class_ids: [endocrine-therapy]
   routes: [oral]
   source_ids: [fda-label-conjugated-estrogens]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA004782
@@ -156,6 +162,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-conjugated-estrogens
 
 - <<: *drug_base
@@ -166,6 +173,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous, oral]
   source_ids: [fda-label-cyclophosphamide]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA212501
@@ -175,6 +183,7 @@
       dosage_forms: [SOLUTION]
       fda_routes: [INTRAVENOUS]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-cyclophosphamide
 
 - <<: *drug_base
@@ -204,6 +213,7 @@
   class_ids: [taxane, cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-docetaxel]
+  support_status: education_only
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA022234
@@ -213,6 +223,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: event_mapped
       source_id: fda-label-docetaxel
 
 - <<: *drug_base
@@ -223,6 +234,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-doxorubicin]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA050629
@@ -232,6 +244,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-doxorubicin
 
 - <<: *drug_base
@@ -261,6 +274,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-epirubicin]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA050778
@@ -270,6 +284,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-epirubicin
 
 - <<: *drug_base
@@ -299,6 +314,7 @@
   class_ids: [endocrine-therapy]
   routes: [oral]
   source_ids: [fda-label-estradiol]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: ANDA040275
@@ -309,6 +325,7 @@
       fda_routes: [ORAL]
       safety_sections: &legacy_boxed_safety
         [boxed_warning, contraindications, warnings, precautions, adverse_reactions, information_for_patients]
+      evidence_mapping_status: source_indexed
       source_id: fda-label-estradiol
 
 - <<: *drug_base
@@ -319,6 +336,7 @@
   class_ids: [pi3k-akt-mtor-pathway-therapy]
   routes: [oral]
   source_ids: [fda-label-everolimus]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA022334
@@ -328,6 +346,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-everolimus
 
 - <<: *drug_base
@@ -357,6 +376,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-fluorouracil]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: ANDA040278
@@ -366,6 +386,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-fluorouracil
 
 - <<: *drug_base
@@ -395,6 +416,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-gemcitabine]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA200795
@@ -404,6 +426,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-gemcitabine
 
 - <<: *drug_base
@@ -452,6 +475,7 @@
   class_ids: [pi3k-akt-mtor-pathway-therapy]
   routes: [oral]
   source_ids: [fda-label-inavolisib]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA219249
@@ -461,6 +485,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-inavolisib
 
 - <<: *drug_base
@@ -490,6 +515,7 @@
   class_ids: [her2-directed-therapy]
   routes: [oral]
   source_ids: [fda-label-lapatinib]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA022059
@@ -499,6 +525,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-lapatinib
 
 - <<: *drug_base
@@ -528,6 +555,7 @@
   class_ids: [her2-directed-therapy]
   routes: [intravenous]
   source_ids: [fda-label-margetuximab]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: BLA761150
@@ -537,6 +565,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-margetuximab
 
 - <<: *drug_base
@@ -547,6 +576,7 @@
   class_ids: [endocrine-therapy]
   routes: [oral]
   source_ids: [fda-label-megestrol-acetate]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: ANDA072423
@@ -557,6 +587,7 @@
       fda_routes: [ORAL]
       safety_sections: &legacy_safety
         [contraindications, warnings, precautions, adverse_reactions, information_for_patients]
+      evidence_mapping_status: source_indexed
       source_id: fda-label-megestrol-acetate
 
 - <<: *drug_base
@@ -567,6 +598,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous, intramuscular]
   source_ids: [fda-label-methotrexate]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA011719
@@ -576,6 +608,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAMUSCULAR, INTRAVENOUS, SUBCUTANEOUS, INTRATHECAL]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-methotrexate
 
 - <<: *drug_base
@@ -586,6 +619,7 @@
   class_ids: [endocrine-therapy]
   routes: [oral]
   source_ids: [fda-label-methyltestosterone]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: ANDA204851
@@ -595,6 +629,7 @@
       dosage_forms: [CAPSULE]
       fda_routes: [ORAL]
       safety_sections: *legacy_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-methyltestosterone
 
 - <<: *drug_base
@@ -645,11 +680,11 @@
   source_ids: [fda-label-paclitaxel]
   regulatory_labels:
     - <<: *fda_label_base
-      application_number: ANDA217877
-      spl_set_id: a1a06de1-d9a4-460a-b87d-5e40305b065c
-      label_effective_date: 2026-05-15
+      application_number: ANDA076131
+      spl_set_id: ea28753a-8631-460a-bfdc-b101eb8ac84a
+      label_effective_date: 2026-07-03
       product_names: [PACLITAXEL]
-      dosage_forms: [POWDER]
+      dosage_forms: [SOLUTION]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
       source_id: fda-label-paclitaxel
@@ -682,6 +717,7 @@
   class_ids: [cdk46-inhibitor]
   routes: [oral]
   source_ids: [fda-label-palbociclib]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA212436
@@ -691,6 +727,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-palbociclib
 
 - <<: *drug_base
@@ -701,6 +738,7 @@
   class_ids: [immune-checkpoint-inhibitor]
   routes: [intravenous]
   source_ids: [fda-label-pembrolizumab]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: BLA125514
@@ -710,6 +748,7 @@
       dosage_forms: [SOLUTION]
       fda_routes: [INTRAVENOUS]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-pembrolizumab
 
 - <<: *drug_base
@@ -720,6 +759,7 @@
   class_ids: [immune-checkpoint-inhibitor]
   routes: [subcutaneous]
   source_ids: [fda-label-pembrolizumab-berahyaluronidase]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: BLA761467
@@ -729,6 +769,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [SUBCUTANEOUS]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-pembrolizumab-berahyaluronidase
 
 - <<: *drug_base
@@ -739,6 +780,7 @@
   class_ids: [her2-directed-therapy]
   routes: [intravenous]
   source_ids: [fda-label-pertuzumab]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: BLA125409
@@ -748,6 +790,7 @@
       dosage_forms: [VIAL]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-pertuzumab
 
 - <<: *drug_base
@@ -758,6 +801,7 @@
   class_ids: [her2-directed-therapy]
   routes: [subcutaneous]
   source_ids: [fda-label-pertuzumab-trastuzumab-hyaluronidase]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: BLA761170
@@ -767,6 +811,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [SUBCUTANEOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-pertuzumab-trastuzumab-hyaluronidase
 
 - <<: *drug_base
@@ -777,6 +822,7 @@
   class_ids: [cdk46-inhibitor]
   routes: [oral]
   source_ids: [fda-label-ribociclib]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA209092
@@ -786,6 +832,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-ribociclib
 
 - <<: *drug_base
@@ -853,6 +900,7 @@
   class_ids: [endocrine-therapy]
   routes: [intramuscular]
   source_ids: [fda-label-testosterone-enanthate]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: ANDA212659
@@ -862,6 +910,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAMUSCULAR]
       safety_sections: *legacy_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-testosterone-enanthate
 
 - <<: *drug_base
@@ -872,6 +921,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-thiotepa]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA208264
@@ -881,6 +931,7 @@
       dosage_forms: [POWDER]
       fda_routes: [INTRACAVITARY, INTRAVENOUS, INTRAVESICAL]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-thiotepa
 
 - <<: *drug_base
@@ -949,6 +1000,7 @@
   class_ids: [her2-directed-therapy]
   routes: [subcutaneous]
   source_ids: [fda-label-trastuzumab-hyaluronidase]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: BLA761106
@@ -958,6 +1010,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [SUBCUTANEOUS]
       safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-trastuzumab-hyaluronidase
 
 - <<: *drug_base
@@ -968,6 +1021,7 @@
   class_ids: [her2-directed-therapy]
   routes: [oral]
   source_ids: [fda-label-tucatinib]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA213411
@@ -977,6 +1031,7 @@
       dosage_forms: [TABLET]
       fda_routes: [ORAL]
       safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-tucatinib
 
 - <<: *drug_base
@@ -1006,6 +1061,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-vinblastine]
+  support_status: catalogued
   regulatory_labels:
     - <<: *fda_label_base
       application_number: ANDA089515
@@ -1015,4 +1071,5 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *legacy_boxed_safety
+      evidence_mapping_status: source_indexed
       source_id: fda-label-vinblastine

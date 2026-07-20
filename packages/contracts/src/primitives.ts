@@ -53,6 +53,8 @@ export const ObjectKindSchema = z.enum([
   "question",
   "educational_module",
   "treatment_toxicity_relationship",
+  "drug_toxicity_evidence",
+  "drug_toxicity_presentation",
   "source",
   "clinic_config",
 ]);

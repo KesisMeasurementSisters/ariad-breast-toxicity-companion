@@ -5,6 +5,8 @@ import {
   KnowledgeObjectSchema,
   type ClinicConfig,
   type ClinicConfigV2,
+  type DrugToxicityEvidence,
+  type DrugToxicityPresentation,
   type EducationalModule,
   type KnowledgeObject,
   type Source,
@@ -60,6 +62,18 @@ function reviewReport(objects: KnowledgeObject[]): string {
       ([, binding]) => binding.state === "unresolved",
     ),
   );
+  const drugToxicityEvidence = objects
+    .filter(
+      (object): object is DrugToxicityEvidence =>
+        object.kind === "drug_toxicity_evidence",
+    )
+    .sort((left, right) => left.id.localeCompare(right.id));
+  const drugToxicityPresentations = objects
+    .filter(
+      (object): object is DrugToxicityPresentation =>
+        object.kind === "drug_toxicity_presentation",
+    )
+    .sort((left, right) => left.id.localeCompare(right.id));
 
   return `# Ariad content review report
 
@@ -70,6 +84,9 @@ function reviewReport(objects: KnowledgeObject[]): string {
 - Draft governed objects: ${drafts.length}
 - Patient-facing modules: ${modules.length}
 - Approved patient-facing modules: ${modules.filter((module) => module.status === "approved").length}
+- Private drug toxicity evidence records: ${drugToxicityEvidence.length}
+- Patient drug toxicity presentations: ${drugToxicityPresentations.length}
+- Approved patient drug toxicity presentations: ${drugToxicityPresentations.filter((presentation) => presentation.status === "approved").length}
 - Modules missing sources: ${missingSourceModules.length}
 - Modules with unresolved placeholders: ${placeholders.length}
 - Source records: ${sources.length}
@@ -101,6 +118,28 @@ ${modules
   )
   .join("\n")}
 
+## Single-drug toxicity evidence
+
+| Evidence | Drug | Version | Status | Monotherapy | Population | Denominator | Dose | Source locator | Reviewer |
+|---|---|---:|---|---|---|---:|---:|---|---|
+${drugToxicityEvidence
+  .map(
+    (evidence) =>
+      `| ${evidence.id} | ${evidence.drug_id} | ${evidence.version} | ${evidence.status} | ${evidence.monotherapy ? "yes" : "no"} | ${evidence.population} | ${evidence.n_treatment} | ${evidence.dose_description} | ${evidence.source_locator} | ${evidence.review.reviewer ?? "—"} |`,
+  )
+  .join("\n") || "| — | — | — | — | — | — | — | — | — | — |"}
+
+## Patient drug toxicity presentations
+
+| Presentation | Drug | Version | Status | Evidence | Patient rows | Sources | Reviewer |
+|---|---|---:|---|---|---:|---:|---|
+${drugToxicityPresentations
+  .map(
+    (presentation) =>
+      `| ${presentation.id} | ${presentation.drug_id} | ${presentation.version} | ${presentation.status} | ${presentation.evidence_ref.id}@${presentation.evidence_ref.version} | ${presentation.effects.length} | ${presentation.source_ids.length} | ${presentation.review.reviewer ?? "—"} |`,
+  )
+  .join("\n") || "| — | — | — | — | — | — | — | — |"}
+
 ## Source inventory
 
 | Source | Organization | Jurisdiction | Verification | Link |
@@ -114,6 +153,7 @@ ${sources
 
 ## Required clinical-owner decisions
 
+- Review the exact single-drug evidence, event dispositions, qualitative-frequency transformation, patient wording, and escalation summary.
 - Review and edit every patient-facing module and its claim-to-source mapping.
 - Replace synthetic identity and contact fixtures with verified institutional data before any published release.
 - Define governed policy-purpose compatibility and exact runtime rendering, then resolve fever and supportive-care through approved module references; exact references alone are not publishable in P0.

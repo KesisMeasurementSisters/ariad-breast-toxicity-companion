@@ -4,7 +4,10 @@ import type {
   ClinicConfigV2,
   ClinicContactRoute,
   Drug,
+  DrugToxicityPresentation,
   EducationalModule,
+  PatientToxicityEffect,
+  PatientToxicityFrequencyBand,
   Question,
   SearchRecord,
   SymptomClassifierResult,
@@ -20,6 +23,8 @@ import {
   classifySymptomDeterministically,
   deterministicSummary,
   normalizeSearchText,
+  PATIENT_FREQUENCY_BAND_LABELS,
+  PATIENT_FREQUENCY_BAND_ORDER,
   preparationModules,
   regimenComponentDrugs,
   resolveGuidanceRelationship,
@@ -57,6 +62,7 @@ import {
   activeRelease,
   clinicContactHref,
   clinicConfig,
+  drugToxicityPresentationForDrug,
   moduleById,
   questionById,
   sourceById,
@@ -466,6 +472,164 @@ function InformationPending({ nested = false }: { nested?: boolean }) {
   );
 }
 
+const PATIENT_FREQUENCY_GROUP_DESCRIPTIONS: Readonly<
+  Record<PatientToxicityFrequencyBand, string>
+> = {
+  many_people: "These effects were recorded more often in the FDA study group.",
+  some_people: "These effects were recorded in part of the FDA study group.",
+  fewer_people: "These effects were recorded less often in the FDA study group.",
+};
+
+const PATIENT_EFFECT_BLOCKS = [
+  ["what_you_may_notice", "What you may notice"],
+  ["safe_actions", "Safe actions"],
+  ["contact_team", "Contact your cancer team"],
+  ["urgent_help", "Get urgent help"],
+  ["reassuring_monitoring", "How your team may monitor"],
+] as const satisfies readonly [
+  keyof Pick<
+    PatientToxicityEffect,
+    | "what_you_may_notice"
+    | "safe_actions"
+    | "contact_team"
+    | "urgent_help"
+    | "reassuring_monitoring"
+  >,
+  string,
+][];
+
+function PatientEffectDisclosure({ effect }: { effect: PatientToxicityEffect }) {
+  return (
+    <details className="toxicity-effect">
+      <summary>
+        <span>
+          <strong>{effect.display_name}</strong>
+          <small>{effect.meaning}</small>
+        </span>
+        <ChevronRight className="summary-chevron" aria-hidden="true" size={20} />
+      </summary>
+      <div className="toxicity-effect-body">
+        {PATIENT_EFFECT_BLOCKS.map(([field, heading]) => {
+          const items = effect[field];
+          if (items.length === 0) return null;
+          return (
+            <section className={`patient-effect-block patient-effect-${field}`} key={field}>
+              <h3>{heading}</h3>
+              <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+            </section>
+          );
+        })}
+      </div>
+    </details>
+  );
+}
+
+function DrugToxicityPatientView({
+  presentation,
+}: {
+  presentation: DrugToxicityPresentation;
+}) {
+  const printSurfaceRef = useRef<HTMLElement>(null);
+  const groupedEffects = PATIENT_FREQUENCY_BAND_ORDER.map((band) => ({
+    band,
+    effects: presentation.effects.filter((effect) => effect.frequency_band === band),
+  })).filter((group) => group.effects.length > 0);
+  const monitoringEffects = presentation.effects.filter(
+    (effect) => effect.frequency_band === null,
+  );
+
+  useEffect(() => {
+    let previouslyClosed: HTMLDetailsElement[] = [];
+    const expandForPrint = () => {
+      previouslyClosed = Array.from(
+        printSurfaceRef.current?.querySelectorAll<HTMLDetailsElement>("details:not([open])") ?? [],
+      );
+      previouslyClosed.forEach((details) => {
+        details.open = true;
+      });
+    };
+    const restoreAfterPrint = () => {
+      previouslyClosed.forEach((details) => {
+        details.open = false;
+      });
+      previouslyClosed = [];
+    };
+    window.addEventListener("beforeprint", expandForPrint);
+    window.addEventListener("afterprint", restoreAfterPrint);
+    return () => {
+      window.removeEventListener("beforeprint", expandForPrint);
+      window.removeEventListener("afterprint", restoreAfterPrint);
+    };
+  }, []);
+
+  return (
+    <section
+      className="toxicity-presentation"
+      aria-labelledby="side-effects-heading"
+      ref={printSurfaceRef}
+    >
+      <header className="toxicity-presentation-header">
+        <p className="eyebrow">Single-drug side effects</p>
+        <h2 id="side-effects-heading">{presentation.subtitle}</h2>
+        <p className="route-label"><Pill aria-hidden="true" size={17} /> {presentation.route_label}</p>
+        <p>{presentation.frequency_context}</p>
+        <p className="cause-statement"><ShieldCheck aria-hidden="true" size={18} /> {presentation.cause_statement}</p>
+      </header>
+
+      <div className="toxicity-frequency-groups">
+        {groupedEffects.map(({ band, effects }) => (
+          <section className={`toxicity-frequency-group frequency-${band}`} key={band}>
+            <header>
+              <h2>{PATIENT_FREQUENCY_BAND_LABELS[band]}</h2>
+              <p>{PATIENT_FREQUENCY_GROUP_DESCRIPTIONS[band]}</p>
+            </header>
+            <div className="toxicity-effect-list">
+              {effects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
+            </div>
+          </section>
+        ))}
+
+        {monitoringEffects.length > 0 ? (
+          <section className="toxicity-frequency-group frequency-monitoring">
+            <header>
+              <h2>Changes your team checks for</h2>
+              <p>These are shown as monitoring information, not as a symptom-frequency group.</p>
+            </header>
+            <div className="toxicity-effect-list">
+              {monitoringEffects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
+            </div>
+          </section>
+        ) : null}
+      </div>
+
+      <p className="toxicity-source-context">{presentation.source_context}</p>
+      <SourcesPanel sourceIds={presentation.source_ids} />
+
+      <section className="toxicity-escalation" aria-labelledby="toxicity-escalation-heading">
+        <header>
+          <CircleAlert aria-hidden="true" size={24} />
+          <div>
+            <p className="eyebrow">Keep this easy to find</p>
+            <h2 id="toxicity-escalation-heading">{presentation.escalation_summary.heading}</h2>
+            <p>{presentation.escalation_summary.introduction}</p>
+          </div>
+        </header>
+        <div className="toxicity-escalation-grid">
+          <section>
+            <h3>Contact your cancer team right away</h3>
+            <ul>{presentation.escalation_summary.contact_team.map((item) => <li key={item}>{item}</li>)}</ul>
+          </section>
+          <section className="toxicity-urgent-list">
+            <h3>Get urgent help</h3>
+            <ul>{presentation.escalation_summary.urgent_help.map((item) => <li key={item}>{item}</li>)}</ul>
+          </section>
+        </div>
+        <p className="toxicity-emergency">{UNIVERSAL_EMERGENCY_STATEMENT}</p>
+      </section>
+    </section>
+  );
+}
+
 function RegimenMedicationCard({ drug, index }: { drug: Drug; index: number }) {
   const modules = preparationModules(activeRelease, drug.id);
   const sourceIds = [...new Set(modules.flatMap((item) => item.source_ids))].sort();
@@ -506,6 +670,9 @@ function TreatmentOverviewScreen({
 }) {
   const treatment = treatmentById(treatmentId);
   const modules = preparationModules(activeRelease, treatmentId);
+  const toxicityPresentation = treatment?.kind === "drug"
+    ? drugToxicityPresentationForDrug(treatment.id)
+    : undefined;
   const sourceIds = [...new Set(modules.flatMap((item) => item.source_ids))].sort();
   const regimenDrugs = treatment?.kind === "regimen"
     ? regimenComponentDrugs(activeRelease, treatment.id)
@@ -517,7 +684,7 @@ function TreatmentOverviewScreen({
   const selectionType = treatment?.kind === "regimen" ? "Regimen" : "Drug";
 
   return (
-    <>
+    <div className={toxicityPresentation ? "toxicity-print-surface" : undefined}>
       <PageIntro
         eyebrow={treatment?.kind === "regimen" ? "Regimen information" : "Drug information"}
         title={overviewTitle}
@@ -547,6 +714,8 @@ function TreatmentOverviewScreen({
             <RegimenMedicationCard drug={drug} index={index} key={drug.id} />
           ))}
         </section>
+      ) : toxicityPresentation ? (
+        <DrugToxicityPatientView presentation={toxicityPresentation} />
       ) : modules.length ? (
         <>
           <PreparationModuleList modules={modules} />
@@ -556,11 +725,16 @@ function TreatmentOverviewScreen({
         <InformationPending />
       )}
       <div className="action-row">
+        {toxicityPresentation ? (
+          <button className="secondary-button print-button" type="button" onClick={() => window.print()}>
+            <Printer aria-hidden="true" size={17} /> Print this page
+          </button>
+        ) : null}
         <button className="primary-button" type="button" onClick={onSymptom}>
           {onSymptomLabel} <ArrowRight aria-hidden="true" size={18} />
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -825,14 +999,14 @@ function SourcesPanel({ sourceIds }: { sourceIds: string[] }) {
       <div className="sources-content">
         <p>
           This preview content is unreviewed. No clinician reviewer or approval date has been
-          recorded. Source links were accessed on 2026-07-18.
+          recorded. Each source below shows its recorded access date.
         </p>
         <ul>
           {sources.map((source) => source ? (
             <li key={source.id}>
               <a href={source.canonical_url} target="_blank" rel="noreferrer">
                 <strong>{source.title}</strong>
-                <span>{source.organization} · {source.jurisdiction}</span>
+                <span>{source.organization} · {source.jurisdiction} · accessed {source.accessed_date}</span>
               </a>
             </li>
           ) : null)}
@@ -1192,11 +1366,16 @@ export function AriadApp() {
     document.body.dataset.ariadReady = "true";
     const timer = window.setTimeout(() => {
       setPreferences(readPreferences());
-      const code = new URLSearchParams(window.location.search).get("code")?.toUpperCase();
+      const parameters = new URLSearchParams(window.location.search);
+      const code = parameters.get("code")?.toUpperCase();
       const treatmentId = code ? DEMO_CODES[code] : undefined;
-      if (treatmentId) {
+      const requestedTreatmentId = parameters.get("treatment");
+      const directTreatmentId = requestedTreatmentId && treatmentById(requestedTreatmentId)
+        ? requestedTreatmentId
+        : undefined;
+      if (treatmentId || directTreatmentId) {
         setMode("prepare");
-        setSelectedTreatmentId(treatmentId);
+        setSelectedTreatmentId(treatmentId ?? directTreatmentId ?? null);
         setScreen("treatment-overview");
       }
     }, 0);

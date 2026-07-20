@@ -276,6 +276,232 @@ export const TreatmentToxicityRelationshipSchema = z
     }
   });
 
+const PercentageSchema = z.number().min(0).max(100);
+
+const ReportedPercentageSchema = z
+  .object({
+    source_label: z.string().min(1),
+    pct: PercentageSchema,
+    qualifier: z.enum(["exact", "less_than", "greater_than"]).default("exact"),
+  })
+  .strict();
+
+export const DrugToxicityEventSchema = z
+  .object({
+    id: StableIdSchema,
+    source_event_name: z.string().min(1),
+    frequency_basis: z.enum([
+      "adverse_reaction",
+      "adverse_event",
+      "laboratory_abnormality",
+      "fatal_outcome",
+    ]),
+    all_grade_pct: PercentageSchema.nullable(),
+    all_grade_pct_qualifier: z
+      .enum(["exact", "less_than", "greater_than"])
+      .nullable()
+      .optional(),
+    severe_pct: PercentageSchema.nullable(),
+    fatal_pct: PercentageSchema.nullable(),
+    severe_source_label: z.string().min(1).nullable(),
+    severity_values: z.array(ReportedPercentageSchema).default([]),
+    frequency_note: z.string().min(2).nullable(),
+  })
+  .strict()
+  .superRefine((event, refinement) => {
+    if ([event.all_grade_pct, event.severe_pct, event.fatal_pct].every((value) => value === null)) {
+      refinement.addIssue({ code: "custom", message: "Each event requires an FDA-reported percentage" });
+    }
+    if ((event.severe_pct === null) !== (event.severe_source_label === null)) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["severe_source_label"],
+        message: "A severe percentage and its exact source label must be stored together",
+      });
+    }
+    if (
+      event.all_grade_pct === null &&
+      event.all_grade_pct_qualifier !== null &&
+      event.all_grade_pct_qualifier !== undefined
+    ) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["all_grade_pct_qualifier"],
+        message: "An all-grade qualifier requires an all-grade percentage",
+      });
+    }
+  });
+
+export const DrugToxicityEvidenceSchema = z
+  .object({
+    kind: z.literal("drug_toxicity_evidence"),
+    ...governedFields,
+    drug_id: StableIdSchema,
+    monotherapy: z.literal(true),
+    route: z.enum(["oral", "intravenous", "subcutaneous", "intramuscular"]),
+    dose_mg_per_m2: z.number().positive().nullable(),
+    dose_description: z.string().min(2),
+    schedule: z.string().min(2),
+    indication: z.string().min(2),
+    population: z.string().min(2),
+    n_treatment: z.number().int().positive(),
+    denominator_status: z.literal("reported"),
+    comparator_description: z.string().min(2).nullable(),
+    n_comparator: z.number().int().positive().nullable(),
+    source_id: StableIdSchema,
+    source_document_version: z.string().min(2),
+    source_locator: z.string().min(2),
+    source_url: z.string().url().refine((url) => url.startsWith("https://"), {
+      message: "Evidence links must use HTTPS",
+    }),
+    grading_system: z.string().min(1).nullable(),
+    events: z.array(DrugToxicityEventSchema).min(1),
+    notes: z.array(z.string().min(2)).default([]),
+  })
+  .strict()
+  .superRefine((record, refinement) => {
+    const eventIds = new Set<string>();
+    record.events.forEach((event, index) => {
+      if (eventIds.has(event.id)) {
+        refinement.addIssue({
+          code: "custom",
+          path: ["events", index, "id"],
+          message: `Duplicate toxicity event '${event.id}'`,
+        });
+      }
+      eventIds.add(event.id);
+    });
+    if ((record.comparator_description === null) !== (record.n_comparator === null)) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["n_comparator"],
+        message: "Comparator description and denominator must be stored together",
+      });
+    }
+  });
+
+export const PatientToxicityFrequencyBandSchema = z.enum([
+  "many_people",
+  "some_people",
+  "fewer_people",
+]);
+
+const PatientToxicityTextListSchema = z.array(z.string().min(2)).default([]);
+
+export const PatientToxicityEffectSchema = z
+  .object({
+    id: StableIdSchema,
+    display_name: z.string().min(2),
+    evidence_event_ids: z.array(StableIdSchema).min(1),
+    frequency_source_event_id: StableIdSchema.nullable(),
+    frequency_band: PatientToxicityFrequencyBandSchema.nullable(),
+    meaning: z.string().min(2),
+    what_you_may_notice: PatientToxicityTextListSchema,
+    safe_actions: PatientToxicityTextListSchema,
+    contact_team: PatientToxicityTextListSchema,
+    urgent_help: PatientToxicityTextListSchema,
+    reassuring_monitoring: PatientToxicityTextListSchema,
+  })
+  .strict()
+  .superRefine((effect, refinement) => {
+    if ((effect.frequency_source_event_id === null) !== (effect.frequency_band === null)) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["frequency_band"],
+        message: "A derived patient frequency requires both its source event and qualitative band",
+      });
+    }
+    if (
+      effect.frequency_source_event_id !== null &&
+      !effect.evidence_event_ids.includes(effect.frequency_source_event_id)
+    ) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["frequency_source_event_id"],
+        message: "The frequency source event must be one of the effect's mapped evidence events",
+      });
+    }
+    const detailCount =
+      effect.what_you_may_notice.length +
+      effect.safe_actions.length +
+      effect.contact_team.length +
+      effect.urgent_help.length +
+      effect.reassuring_monitoring.length;
+    if (detailCount === 0) {
+      refinement.addIssue({
+        code: "custom",
+        message: "Each patient effect needs at least one expandable detail",
+      });
+    }
+  });
+
+export const OmittedToxicityEventSchema = z
+  .object({
+    evidence_event_id: StableIdSchema,
+    rationale: z.string().min(2),
+  })
+  .strict();
+
+export const DrugToxicityPresentationSchema = z
+  .object({
+    kind: z.literal("drug_toxicity_presentation"),
+    ...governedFields,
+    audience: z.literal("patient"),
+    drug_id: StableIdSchema,
+    monotherapy: z.literal(true),
+    evidence_ref: z
+      .object({
+        kind: z.literal("drug_toxicity_evidence"),
+        id: StableIdSchema,
+        version: SemVerSchema,
+      })
+      .strict(),
+    evidence_payload_hash: z.string().regex(/^[a-f0-9]{64}$/u),
+    source_ids: SourceIdsSchema,
+    route_label: z.string().min(2),
+    subtitle: z.string().min(2),
+    frequency_context: z.string().min(2),
+    cause_statement: z.string().min(2),
+    source_context: z.string().min(2),
+    frequency_method_id: z.literal("ariad-all-grade-frequency-v1"),
+    effects: z.array(PatientToxicityEffectSchema).min(1),
+    omitted_evidence_events: z.array(OmittedToxicityEventSchema).default([]),
+    escalation_summary: z
+      .object({
+        heading: z.string().min(2),
+        introduction: z.string().min(2),
+        contact_team: z.array(z.string().min(2)).min(1),
+        urgent_help: z.array(z.string().min(2)).min(1),
+      })
+      .strict(),
+  })
+  .strict()
+  .superRefine((presentation, refinement) => {
+    const effectIds = new Set<string>();
+    presentation.effects.forEach((effect, index) => {
+      if (effectIds.has(effect.id)) {
+        refinement.addIssue({
+          code: "custom",
+          path: ["effects", index, "id"],
+          message: `Duplicate patient effect '${effect.id}'`,
+        });
+      }
+      effectIds.add(effect.id);
+    });
+
+    const omittedIds = new Set<string>();
+    presentation.omitted_evidence_events.forEach((omission, index) => {
+      if (omittedIds.has(omission.evidence_event_id)) {
+        refinement.addIssue({
+          code: "custom",
+          path: ["omitted_evidence_events", index, "evidence_event_id"],
+          message: `Duplicate omitted evidence event '${omission.evidence_event_id}'`,
+        });
+      }
+      omittedIds.add(omission.evidence_event_id);
+    });
+  });
+
 export const SourceSchema = z
   .object({
     kind: z.literal("source"),
@@ -690,6 +916,8 @@ export const KnowledgeObjectSchema = z.union([
   QuestionSchema,
   EducationalModuleSchema,
   TreatmentToxicityRelationshipSchema,
+  DrugToxicityEvidenceSchema,
+  DrugToxicityPresentationSchema,
   SourceSchema,
   ClinicConfigSchema,
 ]);
@@ -703,6 +931,16 @@ export type Question = z.infer<typeof QuestionSchema>;
 export type EducationalModule = z.infer<typeof EducationalModuleSchema>;
 export type TreatmentToxicityRelationship = z.infer<
   typeof TreatmentToxicityRelationshipSchema
+>;
+export type DrugToxicityEvent = z.infer<typeof DrugToxicityEventSchema>;
+export type DrugToxicityEvidence = z.infer<typeof DrugToxicityEvidenceSchema>;
+export type PatientToxicityFrequencyBand = z.infer<
+  typeof PatientToxicityFrequencyBandSchema
+>;
+export type PatientToxicityEffect = z.infer<typeof PatientToxicityEffectSchema>;
+export type OmittedToxicityEvent = z.infer<typeof OmittedToxicityEventSchema>;
+export type DrugToxicityPresentation = z.infer<
+  typeof DrugToxicityPresentationSchema
 >;
 export type Source = z.infer<typeof SourceSchema>;
 export type EducationalModuleRef = z.infer<typeof EducationalModuleRefSchema>;

@@ -4,7 +4,7 @@
   version: 1.0.0
   title: VERZENIO prescribing information
   organization: U.S. Food and Drug Administration
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208716"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=be4bc0de-0fdc-4d46-8d25-be43c79e6a06"
   source_type: regulatory_label
   jurisdiction: United States
   publication_or_revision_date: 2025-08-25
@@ -13,13 +13,13 @@
   permitted_excerpt: null
   notes: &fda_source_notes
     - The current label contains a breast-cancer treatment indication in Indications and Usage.
-    - Safety sections are indexed only; event-level evidence and patient-facing frequency groups are not yet mapped.
+    - Event-level mapping status is recorded on the matching drug object; any patient presentation remains an unreviewed draft until explicitly approved.
   verification_status: verified
 
 - <<: *fda_source_base
   id: fda-label-ado-trastuzumab-emtansine
   title: KADCYLA prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=125427"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=23f3c1f4-0fc8-4804-a9e3-04cf25dd302e"
   publication_or_revision_date: 2026-04-01
   source_version: "BLA125427; SPL set 23f3c1f4-0fc8-4804-a9e3-04cf25dd302e"
   notes: *fda_source_notes
@@ -35,7 +35,7 @@
 - <<: *fda_source_base
   id: fda-label-anastrozole
   title: ARIMIDEX prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=020541"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=acbfaaa9-503c-4691-9828-76a7146ed6de"
   publication_or_revision_date: 2026-03-02
   source_version: "NDA020541; SPL set acbfaaa9-503c-4691-9828-76a7146ed6de"
   notes: *fda_source_notes
@@ -43,7 +43,7 @@
 - <<: *fda_source_base
   id: fda-label-capecitabine
   title: Capecitabine prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=207652"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=06a88b03-6c06-4dae-b3bc-1e8dd81c9067"
   publication_or_revision_date: 2026-06-17
   source_version: "ANDA207652; SPL set 06a88b03-6c06-4dae-b3bc-1e8dd81c9067"
   notes: *fda_source_notes
@@ -75,7 +75,7 @@
 - <<: *fda_source_base
   id: fda-label-datopotamab-deruxtecan
   title: DATROWAY prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761394"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0"
   publication_or_revision_date: 2026-05-27
   source_version: "BLA761394; SPL set 2950227c-6230-4ca4-a135-46e44d9424a0"
   notes: *fda_source_notes
@@ -83,10 +83,13 @@
 - <<: *fda_source_base
   id: fda-label-docetaxel
   title: Docetaxel prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=022234"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6b9999bb-869e-4d25-838c-23c3ab280044"
   publication_or_revision_date: 2025-01-31
   source_version: "NDA022234; SPL set 6b9999bb-869e-4d25-838c-23c3ab280044"
-  notes: *fda_source_notes
+  notes:
+    - The current label contains a breast-cancer treatment indication in Indications and Usage.
+    - Table 3 event data are mapped to an exact draft evidence record for docetaxel monotherapy.
+    - Patient wording and qualitative frequency groups are a separate unreviewed Ariad draft.
 
 - <<: *fda_source_base
   id: fda-label-doxorubicin
@@ -99,7 +102,7 @@
 - <<: *fda_source_base
   id: fda-label-elacestrant
   title: ORSERDU prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217639"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa66ae5c-2bd2-4444-8178-b55651e054ef"
   publication_or_revision_date: 2026-06-24
   source_version: "NDA217639; SPL set aa66ae5c-2bd2-4444-8178-b55651e054ef"
   notes: *fda_source_notes
@@ -115,7 +118,7 @@
 - <<: *fda_source_base
   id: fda-label-eribulin
   title: HALAVEN prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=201532"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=31ce4750-ded5-4a0b-95e9-f229fa6bc822"
   publication_or_revision_date: 2025-11-07
   source_version: "NDA201532; SPL set 31ce4750-ded5-4a0b-95e9-f229fa6bc822"
   notes: *fda_source_notes
@@ -139,7 +142,7 @@
 - <<: *fda_source_base
   id: fda-label-exemestane
   title: AROMASIN prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=020753"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cf066b7a-032a-416c-8d40-15ba581423e3"
   publication_or_revision_date: 2025-12-24
   source_version: "NDA020753; SPL set cf066b7a-032a-416c-8d40-15ba581423e3"
   notes: *fda_source_notes
@@ -155,7 +158,7 @@
 - <<: *fda_source_base
   id: fda-label-fulvestrant
   title: CLIGAVYX prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=210063"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e20d8ca3-8837-4003-8b01-1ebec342062a"
   publication_or_revision_date: 2026-06-24
   source_version: "NDA210063; SPL set e20d8ca3-8837-4003-8b01-1ebec342062a"
   notes: *fda_source_notes
@@ -171,7 +174,7 @@
 - <<: *fda_source_base
   id: fda-label-goserelin
   title: ZOLADEX prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=019726"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=294b168b-6e5f-4db9-bf70-d599271458b3"
   publication_or_revision_date: 2026-03-24
   source_version: "NDA019726; SPL set 294b168b-6e5f-4db9-bf70-d599271458b3"
   notes: *fda_source_notes
@@ -179,7 +182,7 @@
 - <<: *fda_source_base
   id: fda-label-imlunestrant
   title: INLURIYO prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218881"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5bc172e4-e8a2-441a-be52-279a7f890196"
   publication_or_revision_date: 2026-06-04
   source_version: "NDA218881; SPL set 5bc172e4-e8a2-441a-be52-279a7f890196"
   notes: *fda_source_notes
@@ -195,7 +198,7 @@
 - <<: *fda_source_base
   id: fda-label-ixabepilone
   title: IXEMPRA prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=022065"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=241f0b1e-8b95-470d-876f-bf1804daaf18"
   publication_or_revision_date: 2025-12-04
   source_version: "NDA022065; SPL set 241f0b1e-8b95-470d-876f-bf1804daaf18"
   notes: *fda_source_notes
@@ -211,7 +214,7 @@
 - <<: *fda_source_base
   id: fda-label-letrozole
   title: FEMARA prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=020726"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=82b77d74-085f-45ac-a7dd-1f5c038bf406"
   publication_or_revision_date: 2026-06-11
   source_version: "NDA020726; SPL set 82b77d74-085f-45ac-a7dd-1f5c038bf406"
   notes: *fda_source_notes
@@ -251,7 +254,7 @@
 - <<: *fda_source_base
   id: fda-label-neratinib
   title: NERLYNX prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208051"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d1e41dcf-e82a-47c2-a0ad-6c6eef621834"
   publication_or_revision_date: 2026-07-02
   source_version: "NDA208051; SPL set d1e41dcf-e82a-47c2-a0ad-6c6eef621834"
   notes: *fda_source_notes
@@ -259,7 +262,7 @@
 - <<: *fda_source_base
   id: fda-label-olaparib
   title: LYNPARZA prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208558"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=741ff3e3-dc1a-45a6-84e5-2481b27131aa"
   publication_or_revision_date: 2025-07-10
   source_version: "NDA208558; SPL set 741ff3e3-dc1a-45a6-84e5-2481b27131aa"
   notes: *fda_source_notes
@@ -267,15 +270,15 @@
 - <<: *fda_source_base
   id: fda-label-paclitaxel
   title: Paclitaxel prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217877"
-  publication_or_revision_date: 2026-05-15
-  source_version: "ANDA217877; SPL set a1a06de1-d9a4-460a-b87d-5e40305b065c"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ea28753a-8631-460a-bfdc-b101eb8ac84a"
+  publication_or_revision_date: 2026-07-03
+  source_version: "ANDA076131; SPL set ea28753a-8631-460a-bfdc-b101eb8ac84a"
   notes: *fda_source_notes
 
 - <<: *fda_source_base
   id: fda-label-paclitaxel-protein-bound
   title: ABRAXANE prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=021660"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24d10449-2936-4cd3-b7db-a7683db721e4"
   publication_or_revision_date: 2022-10-31
   source_version: "NDA021660; SPL set 24d10449-2936-4cd3-b7db-a7683db721e4"
   notes: *fda_source_notes
@@ -331,7 +334,7 @@
 - <<: *fda_source_base
   id: fda-label-sacituzumab-govitecan
   title: TRODELVY prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761115"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=57a597d2-03f0-472e-b148-016d7169169d"
   publication_or_revision_date: 2026-06-24
   source_version: "BLA761115; SPL set 57a597d2-03f0-472e-b148-016d7169169d"
   notes: *fda_source_notes
@@ -339,7 +342,7 @@
 - <<: *fda_source_base
   id: fda-label-talazoparib
   title: TALZENNA prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217439"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c6fd147f-a77e-4a0b-9280-e82ecc41b4be"
   publication_or_revision_date: 2026-04-10
   source_version: "NDA217439; SPL set c6fd147f-a77e-4a0b-9280-e82ecc41b4be"
   notes: *fda_source_notes
@@ -347,7 +350,7 @@
 - <<: *fda_source_base
   id: fda-label-tamoxifen
   title: SOLTAMOX prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=021807"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6ff055-590c-41e6-9530-1fdf04cdbd02"
   publication_or_revision_date: 2021-11-29
   source_version: "NDA021807; SPL set 1e6ff055-590c-41e6-9530-1fdf04cdbd02"
   notes: *fda_source_notes
@@ -371,7 +374,7 @@
 - <<: *fda_source_base
   id: fda-label-toremifene
   title: Toremifene citrate prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212818"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e897546b-4136-4cb5-a262-d94cf3fa3298"
   publication_or_revision_date: 2025-09-19
   source_version: "ANDA212818; SPL set e897546b-4136-4cb5-a262-d94cf3fa3298"
   notes: *fda_source_notes
@@ -379,7 +382,7 @@
 - <<: *fda_source_base
   id: fda-label-trastuzumab
   title: HERCEPTIN prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=103792"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=492dbdb2-077e-4064-bff3-372d6af0a7a2"
   publication_or_revision_date: 2026-05-29
   source_version: "BLA103792; SPL set 492dbdb2-077e-4064-bff3-372d6af0a7a2"
   notes: *fda_source_notes
@@ -387,7 +390,7 @@
 - <<: *fda_source_base
   id: fda-label-trastuzumab-deruxtecan
   title: ENHERTU prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761139"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7e67e73e-ddf4-4e4d-8b50-09d7514910b6"
   publication_or_revision_date: 2026-05-15
   source_version: "BLA761139; SPL set 7e67e73e-ddf4-4e4d-8b50-09d7514910b6"
   notes: *fda_source_notes
@@ -411,7 +414,7 @@
 - <<: *fda_source_base
   id: fda-label-vepdegestrant
   title: VEPPANU prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219835"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=484e21ba-8fe1-4c6d-b923-8ba4cf5b2f20"
   publication_or_revision_date: 2026-06-12
   source_version: "NDA219835; SPL set 484e21ba-8fe1-4c6d-b923-8ba4cf5b2f20"
   notes: *fda_source_notes

@@ -1579,6 +1579,250 @@ details[open] > summary .summary-chevron {
   color: var(--muted);
 }
 
+.toxicity-presentation {
+  max-width: var(--content-width);
+  margin-block: 2rem;
+}
+
+.toxicity-presentation-header {
+  padding: 1.2rem;
+  border: 1px solid var(--line-strong);
+  border-top: 4px solid var(--kesis-color-rose-400);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.toxicity-presentation-header h2 {
+  margin-block-end: 0.45rem;
+}
+
+.toxicity-presentation-header > p:not(.eyebrow, .route-label, .cause-statement) {
+  color: var(--muted);
+}
+
+.route-label,
+.cause-statement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.route-label {
+  width: fit-content;
+  margin-block-end: 1rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--kesis-radius-full);
+  color: var(--thread-dark);
+  background: var(--thread-soft);
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.route-label svg,
+.cause-statement svg {
+  flex: 0 0 auto;
+  margin-block-start: 0.1rem;
+}
+
+.cause-statement {
+  margin-block-start: 1rem;
+  padding-block-start: 0.85rem;
+  border-top: 1px solid var(--line);
+  color: var(--kesis-color-navy-700);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.toxicity-frequency-groups {
+  display: grid;
+  gap: 2rem;
+  margin-block: 2.5rem;
+}
+
+.toxicity-frequency-group > header {
+  margin-block-end: 0.8rem;
+}
+
+.toxicity-frequency-group > header h2 {
+  margin-block-end: 0.25rem;
+  font-size: 1.35rem;
+}
+
+.toxicity-frequency-group > header p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.toxicity-effect-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.toxicity-effect {
+  overflow: clip;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.toxicity-effect summary {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+}
+
+.toxicity-effect summary::-webkit-details-marker {
+  display: none;
+}
+
+.toxicity-effect summary > span:first-child {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 0.15rem;
+}
+
+.toxicity-effect summary strong {
+  color: var(--ink-strong);
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.3;
+}
+
+.toxicity-effect summary small {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.toxicity-effect-body {
+  display: grid;
+  gap: 0.9rem;
+  padding: 0.15rem 1rem 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.patient-effect-block {
+  padding-block-start: 0.8rem;
+}
+
+.patient-effect-block + .patient-effect-block {
+  border-top: 1px solid var(--line);
+}
+
+.patient-effect-block h3 {
+  margin-block-end: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.patient-effect-block ul,
+.toxicity-escalation ul {
+  margin: 0;
+  padding-inline-start: 1.2rem;
+  color: var(--muted);
+}
+
+.patient-effect-block li + li,
+.toxicity-escalation li + li {
+  margin-block-start: 0.35rem;
+}
+
+.patient-effect-contact_team {
+  color: var(--kesis-color-sage-700);
+}
+
+.patient-effect-urgent_help {
+  padding: 0.8rem;
+  border-radius: var(--radius-sm);
+  color: var(--coral-dark);
+  background: var(--coral-soft);
+}
+
+.patient-effect-reassuring_monitoring {
+  color: var(--thread-dark);
+}
+
+.frequency-monitoring {
+  padding: 1rem;
+  border: 1px solid var(--kesis-color-sage-300);
+  border-radius: var(--radius-md);
+  background: var(--kesis-color-sage-50);
+}
+
+.toxicity-source-context {
+  margin-block: 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.toxicity-presentation .sources-panel {
+  margin-block-end: 2.5rem;
+}
+
+.toxicity-escalation {
+  padding: 1.1rem;
+  border: 1px solid var(--kesis-color-rose-400);
+  border-top: 5px solid var(--coral);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.toxicity-escalation > header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-block-end: 1.1rem;
+}
+
+.toxicity-escalation > header > svg {
+  flex: 0 0 auto;
+  margin-block-start: 0.15rem;
+  color: var(--coral-dark);
+}
+
+.toxicity-escalation > header h2 {
+  margin-block-end: 0.3rem;
+}
+
+.toxicity-escalation > header p:last-child {
+  color: var(--muted);
+}
+
+.toxicity-escalation-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.toxicity-escalation-grid > section {
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--thread-pale);
+}
+
+.toxicity-escalation-grid h3 {
+  margin-block-end: 0.55rem;
+  font-size: 1rem;
+}
+
+.toxicity-urgent-list {
+  border-color: var(--kesis-color-rose-300) !important;
+  background: var(--coral-soft) !important;
+}
+
+.toxicity-emergency {
+  margin-block-start: 1rem;
+  padding: 0.8rem;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  background: var(--coral-dark);
+  font-weight: 750;
+}
+
 .summary-cta {
   display: grid;
   gap: 1rem;
@@ -1958,6 +2202,10 @@ details[open] > summary .summary-chevron {
     padding: 1.5rem;
   }
 
+  .toxicity-escalation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .summary-sheet > h2,
   .summary-sheet > h3,
   .summary-sheet > ul,
@@ -2046,7 +2294,7 @@ details[open] > summary .summary-chevron {
   .emergency-boundary,
   .site-footer,
   .skip-link,
-  .app-shell > :not(.summary-sheet) {
+  .app-shell > :not(.summary-sheet):not(.toxicity-print-surface) {
     display: none !important;
   }
 
@@ -2066,5 +2314,52 @@ details[open] > summary .summary-chevron {
   .summary-sheet .prototype-banner {
     color: #000;
     background: #eee;
+  }
+
+  .toxicity-print-surface {
+    display: block !important;
+  }
+
+  .toxicity-print-surface .back-button,
+  .toxicity-print-surface .overview-meta,
+  .toxicity-print-surface .action-row,
+  .toxicity-print-surface .summary-chevron {
+    display: none !important;
+  }
+
+  .toxicity-print-surface .boundary-card {
+    margin-block: 1rem;
+  }
+
+  .toxicity-print-surface .toxicity-presentation,
+  .toxicity-print-surface .page-intro {
+    max-width: none;
+  }
+
+  .toxicity-print-surface .toxicity-presentation-header,
+  .toxicity-print-surface .toxicity-effect,
+  .toxicity-print-surface .toxicity-escalation,
+  .toxicity-print-surface .sources-panel {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .toxicity-print-surface details:not([open]) > :not(summary) {
+    display: block !important;
+  }
+
+  .toxicity-print-surface .toxicity-effect summary {
+    border-bottom: 1px solid #aaa;
+  }
+
+  .toxicity-print-surface .toxicity-frequency-groups {
+    gap: 1.2rem;
+    margin-block: 1.5rem;
+  }
+
+  .toxicity-print-surface .toxicity-emergency {
+    border: 1px solid #333;
+    color: #000;
+    background: #fff;
   }
 }

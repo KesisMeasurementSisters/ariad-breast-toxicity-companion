@@ -1,0 +1,249 @@
+kind: drug_toxicity_evidence
+id: docetaxel-100mg-breast-table-3
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+drug_id: docetaxel
+monotherapy: true
+route: intravenous
+dose_mg_per_m2: 100
+dose_description: 100 mg/m²
+schedule: 1-hour infusion every 3 weeks
+indication: Locally advanced or metastatic breast cancer
+population: >-
+  Patients with locally advanced or metastatic breast cancer, both previously
+  treated and untreated with chemotherapy, with normal baseline liver function
+  tests.
+n_treatment: 965
+denominator_status: reported
+comparator_description: null
+n_comparator: null
+source_id: fda-label-docetaxel
+source_document_version: >-
+  NDA022234; SPL set 6b9999bb-869e-4d25-838c-23c3ab280044; DailyMed record
+  updated 2025-01-31
+source_locator: Section 6.1, Table 3, Breast Cancer Normal LFTs column (n=965)
+source_url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6b9999bb-869e-4d25-838c-23c3ab280044
+grading_system: null
+events:
+  - id: neutropenia
+    source_event_name: Neutropenia
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 99
+    severe_pct: 86
+    fatal_pct: null
+    severe_source_label: <500 cells/mm3
+    frequency_note: All-grade source threshold is <2000 cells/mm3.
+
+  - id: leukopenia
+    source_event_name: Leukopenia
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 99
+    severe_pct: 44
+    fatal_pct: null
+    severe_source_label: <1000 cells/mm3
+    frequency_note: All-grade source threshold is <4000 cells/mm3.
+
+  - id: thrombocytopenia
+    source_event_name: Thrombocytopenia
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 9
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Source threshold is <100000 cells/mm3.
+
+  - id: anemia
+    source_event_name: Anemia
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 94
+    severe_pct: 8
+    fatal_pct: null
+    severe_source_label: <8 g/dL
+    frequency_note: All-grade source threshold is <11 g/dL.
+
+  - id: febrile-neutropenia
+    source_event_name: Febrile Neutropenia
+    frequency_basis: adverse_reaction
+    all_grade_pct: 12
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Source definition is grade 4 ANC with fever >38 C and intravenous
+      antibiotics and/or hospitalization.
+
+  - id: septic-death
+    source_event_name: Septic Death
+    frequency_basis: fatal_outcome
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: 1
+    severe_source_label: null
+    frequency_note: null
+
+  - id: non-septic-death
+    source_event_name: Non-Septic Death
+    frequency_basis: fatal_outcome
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: 1
+    severe_source_label: null
+    frequency_note: null
+
+  - id: infections
+    source_event_name: Infections
+    frequency_basis: adverse_reaction
+    all_grade_pct: 22
+    severe_pct: 6
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: fever-without-infection
+    source_event_name: Fever in Absence of Infection
+    frequency_basis: adverse_reaction
+    all_grade_pct: 35
+    severe_pct: 2
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: hypersensitivity-reactions
+    source_event_name: Hypersensitivity Reactions
+    frequency_basis: adverse_reaction
+    all_grade_pct: 18
+    severe_pct: 3
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: Rates are reported regardless of premedication.
+
+  - id: fluid-retention
+    source_event_name: Fluid Retention
+    frequency_basis: adverse_reaction
+    all_grade_pct: 60
+    severe_pct: 9
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: Rates are reported regardless of premedication.
+
+  - id: neurosensory
+    source_event_name: Neurosensory
+    frequency_basis: adverse_reaction
+    all_grade_pct: 58
+    severe_pct: 6
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: cutaneous
+    source_event_name: Cutaneous
+    frequency_basis: adverse_reaction
+    all_grade_pct: 47
+    severe_pct: 5
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: nail-changes
+    source_event_name: Nail Changes
+    frequency_basis: adverse_reaction
+    all_grade_pct: 41
+    severe_pct: 4
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: nausea
+    source_event_name: Nausea
+    frequency_basis: adverse_reaction
+    all_grade_pct: 42
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: vomiting
+    source_event_name: Vomiting
+    frequency_basis: adverse_reaction
+    all_grade_pct: 23
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: diarrhea
+    source_event_name: Diarrhea
+    frequency_basis: adverse_reaction
+    all_grade_pct: 43
+    severe_pct: 6
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: stomatitis
+    source_event_name: Stomatitis
+    frequency_basis: adverse_reaction
+    all_grade_pct: 52
+    severe_pct: 7
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: alopecia
+    source_event_name: Alopecia
+    frequency_basis: adverse_reaction
+    all_grade_pct: 74
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: asthenia
+    source_event_name: Asthenia
+    frequency_basis: adverse_reaction
+    all_grade_pct: 66
+    severe_pct: 15
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: myalgia
+    source_event_name: Myalgia
+    frequency_basis: adverse_reaction
+    all_grade_pct: 21
+    severe_pct: 2
+    fatal_pct: null
+    severe_source_label: Severe
+    frequency_note: null
+
+  - id: arthralgia
+    source_event_name: Arthralgia
+    frequency_basis: adverse_reaction
+    all_grade_pct: 8
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: infusion-site-reactions
+    source_event_name: Infusion Site Reactions
+    frequency_basis: adverse_reaction
+    all_grade_pct: 4
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+notes:
+  - >-
+    Table 3 adverse reactions were described using COSTART terms and considered
+    possibly or probably related to docetaxel.
+  - >-
+    This is the largest breast-cancer population with a complete monotherapy
+    frequency column in the selected FDA label.
+  - >-
+    The population includes both previously treated and untreated patients and
+    must not be described as an indication-matched post-chemotherapy cohort.
+  - Exact percentages are evidence data and are not patient-display copy.

@@ -6,6 +6,7 @@ import {
   type ClinicConfigV2,
   type CompiledRelease,
   type Drug,
+  type DrugToxicityPresentation,
   type EducationalModule,
   type KnowledgeObject,
   type Question,
@@ -54,6 +55,15 @@ export function symptomById(id: string): Symptom | undefined {
 export function moduleById(id: string): EducationalModule | undefined {
   const object = objects.get(id);
   return object?.kind === "educational_module" ? object : undefined;
+}
+
+export function drugToxicityPresentationForDrug(
+  drugId: string,
+): DrugToxicityPresentation | undefined {
+  return activeRelease.objects.find(
+    (object): object is DrugToxicityPresentation =>
+      object.kind === "drug_toxicity_presentation" && object.drug_id === drugId,
+  );
 }
 
 export function questionById(id: string): Question | undefined {
