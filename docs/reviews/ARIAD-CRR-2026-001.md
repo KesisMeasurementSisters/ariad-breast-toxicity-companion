@@ -64,6 +64,19 @@ Exact object inventory attachment or manifest:
 compiled JSON SHA-256
 `22bdf0f9d69453747cbda3444b14843d05ef8096b6b2c681b878159aabee9c86`.
 
+### Prospective review-method clarification — 2026-07-20
+
+> Clinical review covers patient-facing clinical content, clinically meaningful
+> structured values, applicability, relationships, omissions, escalation
+> language, and rendered clinical interpretation. Source records are verified
+> as evidence inputs. Bibliographic and repository metadata are subject to
+> engineering provenance QA and are not independently accepted as clinical
+> content.
+
+The 14 sources remain within the evidence-verification scope. They are not 14
+independent clinical-approval decisions. This clarification is prospective and
+does not alter the declared review scope or any preceding record commit.
+
 ## 4. Source verification log
 
 Add one row for every source relied upon. `Repository verified` is not an
