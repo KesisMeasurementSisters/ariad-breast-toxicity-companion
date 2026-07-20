@@ -15,13 +15,13 @@
 | Status | `open` |
 | Review started | `2026-07-20T09:16:42-04:00` |
 | Review completed | `pending` |
-| Reviewer full name | `pending clinician entry` |
-| Credentials/specialty | `pending clinician entry` |
-| Professional role | `pending clinician entry` |
-| Jurisdiction | `pending clinician entry` |
-| Professional-standing verification | `pending clinician entry; keep sensitive evidence outside public Git` |
-| Conflict declaration | `pending clinician entry` |
-| Independent second reviewer | `pending clinician entry` |
+| Reviewer full name | `Henry Conter` |
+| Credentials/specialty | `BESc MD MSF MSc FRCPC, Medical Oncology` |
+| Professional role | `Clinician owner and primary clinical reviewer` |
+| Jurisdiction | `not applicable` |
+| Professional-standing verification | `not applicable` |
+| Conflict declaration | `none` |
+| Independent second reviewer | `not used` |
 
 ## 2. Frozen baseline
 
