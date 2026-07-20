@@ -8,9 +8,15 @@
 - Descriptor: **A breast cancer treatment side-effect companion**
 - Product line: **A trusted thread through treatment**
 
-In the patient experience, lead with Ariad: Breast and the product line. Kesis
-& Sisters appears discreetly in the footer or About view. Do not repeatedly use
-the company line inside symptom guidance.
+In the patient experience, lead with Ariad: Breast and the product descriptor.
+Keep Kesis & Sisters visible as the parent brand in the header and footer, with
+the product name carrying the primary hierarchy. Do not repeatedly use the
+company line inside symptom guidance.
+
+The web implementation inherits the portable Kesis brand snapshot dated
+2026-07-20. Use `apps/web/src/app/kesis-tokens.css` and the packaged logo asset
+in `apps/web/public/kesis-mark.svg` rather than reconstructing or sampling the
+brand system.
 
 ## Product metaphor
 
@@ -41,9 +47,12 @@ dark, fatalistic, or esoteric.
 
 ## Visual direction
 
-Use generous spacing, soft neutral surfaces, a restrained cool accent, and a
-clear non-colour warning hierarchy. The thread motif should appear as a fine
-continuous line, connector, or small mark—not decorative complexity.
+Use navy ink on a warm cream ground, Outfit headings, Inter body copy, generous
+spacing, hairline borders, and a clear non-colour warning hierarchy. Rose may
+add restrained warmth and distinguish urgent information. Sage may support
+positive or low-intensity information. The thread motif should appear as a fine
+continuous line or connector, not as a substitute logo or decorative
+complexity.
 
 Avoid:
 

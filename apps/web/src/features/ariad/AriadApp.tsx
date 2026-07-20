@@ -47,6 +47,7 @@ import {
   Stethoscope,
   TriangleAlert,
 } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   activeRelease,
@@ -151,10 +152,10 @@ function BrandHeader({ onHome, onAbout }: { onHome: () => void; onAbout: () => v
       <PrototypeBanner />
       <header className="site-header">
         <button className="brand" type="button" onClick={onHome} aria-label="Ariad home">
-          <span className="thread-mark" aria-hidden="true" />
-          <span>
+          <Image className="brand-mark" src="/kesis-mark.svg" alt="" width={40} height={40} priority />
+          <span className="brand-copy">
+            <small>Kesis &amp; Sisters</small>
             <strong>Ariad: Breast</strong>
-            <small>A trusted thread through treatment</small>
           </span>
         </button>
         <button className="quiet-button" type="button" onClick={onAbout}>
@@ -281,8 +282,8 @@ function HomeScreen({
 
       <section className="demo-section" aria-labelledby="demo-heading">
         <div className="section-heading">
-          <p className="eyebrow">Built for a quick, reliable evaluation</p>
-          <h2 id="demo-heading">Try a polished sample path</h2>
+          <p className="eyebrow">Explore the prototype</p>
+          <h2 id="demo-heading">Try a sample path</h2>
           <p>Each scenario uses synthetic answers and draft, source-linked content.</p>
         </div>
         <div className="demo-grid">

@@ -1,0 +1,87 @@
+/* Kesis & Sisters portable design tokens
+   Source: kesis-website/src/assets/styles/global.css
+   Snapshot: 2026-07-20 */
+
+:root {
+  /* Brand palette */
+  --kesis-color-navy-900: #1b2d4b;
+  --kesis-color-navy-800: #223759;
+  --kesis-color-navy-700: #2a4066;
+  --kesis-color-navy-600: #345380;
+  --kesis-color-navy-500: #3d5a80;
+  --kesis-color-navy-400: #5b7ba5;
+  --kesis-color-navy-300: #8aa3c4;
+  --kesis-color-navy-200: #b8cae0;
+  --kesis-color-navy-100: #e8edf4;
+  --kesis-color-navy-50: #f3f6fa;
+
+  --kesis-color-cream: #fafaf7;
+  --kesis-color-cream-dark: #f2f1ec;
+  --kesis-color-white: #ffffff;
+  --kesis-color-warm-gray-50: #f8f7f5;
+  --kesis-color-warm-gray-100: #eeedeb;
+  --kesis-color-warm-gray-200: #dddbd8;
+  --kesis-color-warm-gray-300: #c4c1bc;
+  --kesis-color-warm-gray-400: #a8a39d;
+  --kesis-color-warm-gray-500: #8a847d;
+
+  /* Shared company-wide accent: warmth and selected emphasis */
+  --kesis-color-rose-700: #a8334e;
+  --kesis-color-rose-600: #c0556e;
+  --kesis-color-rose-500: #d4849e;
+  --kesis-color-rose-400: #e8a0b4;
+  --kesis-color-rose-300: #f0bfd0;
+  --kesis-color-rose-200: #f7dbe5;
+  --kesis-color-rose-100: #fdf2f5;
+  --kesis-color-rose-50: #fef8fa;
+
+  --kesis-color-sage-700: #3d6b4f;
+  --kesis-color-sage-600: #5c8a6c;
+  --kesis-color-sage-500: #7ba38c;
+  --kesis-color-sage-400: #99baa7;
+  --kesis-color-sage-300: #b7d1c2;
+  --kesis-color-sage-200: #d5e8dd;
+  --kesis-color-sage-100: #eff5f1;
+  --kesis-color-sage-50: #f7faf8;
+
+  --kesis-color-gold-600: #93742f;
+  --kesis-color-gold-500: #b08d3e;
+  --kesis-color-gold-400: #c4a35a;
+  --kesis-color-gold-300: #d4ba7e;
+  --kesis-color-gold-200: #e5d5ab;
+  --kesis-color-gold-100: #f5edd5;
+
+  /* Semantic colours */
+  --kesis-color-text-primary: var(--kesis-color-navy-900);
+  --kesis-color-text-secondary: #51617a;
+  --kesis-color-text-muted: #818d9e;
+  --kesis-color-text-on-dark: var(--kesis-color-white);
+  --kesis-color-text-on-dark-muted: rgb(255 255 255 / 72%);
+  --kesis-color-background: var(--kesis-color-cream);
+  --kesis-color-surface: var(--kesis-color-white);
+  --kesis-color-border: rgb(27 45 75 / 8%);
+  --kesis-color-border-strong: rgb(27 45 75 / 14%);
+  --kesis-color-border-on-dark: rgb(255 255 255 / 12%);
+
+  /* Typography */
+  --kesis-font-heading: "Outfit", system-ui, -apple-system, sans-serif;
+  --kesis-font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --kesis-font-mono: "SF Mono", "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  --kesis-tracking-tighter: -0.03em;
+  --kesis-tracking-tight: -0.022em;
+  --kesis-tracking-snug: -0.014em;
+  --kesis-tracking-normal: 0;
+  --kesis-tracking-wide: 0.04em;
+
+  /* Shape and depth */
+  --kesis-radius-sm: 0.375rem;
+  --kesis-radius-md: 0.5rem;
+  --kesis-radius-lg: 0.75rem;
+  --kesis-radius-xl: 1rem;
+  --kesis-radius-2xl: 1.5rem;
+  --kesis-radius-full: 9999px;
+  --kesis-shadow-sm: 0 1px 2px rgb(16 24 40 / 4%), 0 1px 3px rgb(16 24 40 / 5%);
+  --kesis-shadow-md: 0 2px 8px rgb(16 24 40 / 4%), 0 8px 24px rgb(16 24 40 / 6%);
+  --kesis-shadow-lg: 0 8px 24px rgb(16 24 40 / 6%), 0 18px 44px rgb(16 24 40 / 8%);
+  --kesis-shadow-xl: 0 12px 32px rgb(16 24 40 / 7%), 0 28px 68px rgb(16 24 40 / 10%);
+}
