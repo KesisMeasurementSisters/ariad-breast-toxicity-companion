@@ -115,33 +115,68 @@ Generated files are compiler outputs and must never be hand-edited.
 
 ## Current preview inventory
 
-Release `build-week-preview-2026-07-18@0.2.0` pins 144 objects:
+Release `build-week-preview-2026-07-18@0.5.0` pins 258 objects:
 
 | Kind | Count |
 |---|---:|
 | Treatment classes | 10 |
-| Drugs | 23 |
-| Regimens | 5 |
+| Drugs | 53 |
+| Regimens | 8 |
 | Symptoms | 28 |
 | Observable features | 19 |
 | Questions | 19 |
 | Educational modules | 22 |
 | Treatment–symptom relationships | 3 |
-| Sources | 14 |
+| Drug toxicity presentations | 25 |
+| Sources | 70 |
 | Clinic configurations | 1 |
 
 Its content hash is
-`80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
-All 130 governed objects are draft; the 14 source records have independent
-verification states. The active release resolves exactly one structured v2
+`e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
+All 188 governed objects are draft. Of the 70 source records, 68 are marked
+`verified` and two broad catalogue sources are `link_only`. The active release
+resolves exactly one structured v2
 synthetic clinic configuration. Its contact values are explicitly fictional and
 non-actionable, and its fever and supportive-care policy bindings are
 unresolved.
 
-Repository-level review reports 131 governed object versions because it retains
-both the superseded v1 clinic configuration and prospective v2 successor. That
-history does not increase the release inventory: the manifest pins v2 only.
-Neither versioning nor compilation creates clinical approval evidence.
+Repository-level review contains 214 governed object versions: both clinic
+configuration versions and 25 private draft toxicity-evidence records in
+addition to the 188 active-release objects. The manifest pins the v2 clinic
+configuration and 25 patient-safe presentations, but not the numerical evidence
+payloads. Neither versioning nor validation creates clinical approval evidence.
+
+## Current single-drug toxicity implementation
+
+The drug catalogue contains 53 canonical drug identities. Fifty-two pin an exact
+current FDA label; carboplatin is retained as a source-verified breast-regimen
+component. A separate source-controlled toxicity evidence store contains 25
+draft records, one for each FDA label with a defensible breast-specific
+single-agent frequency population. Each stores exact source event names,
+percentage measures, population, dose, denominator, comparator, and provenance.
+None is included in the active release.
+
+Twenty-five separate `drug_toxicity_presentation` objects are included in the
+active release. Each references the exact evidence version and clinical-payload
+hash, maps every source event to a patient row or an explicit omission rationale,
+and stores only patient-safe copy and qualitative groups. Build validation
+derives each group from the matching all-grade adverse-reaction or adverse-event
+value. Laboratory abnormalities are shown as monitoring information, and
+fatal-outcome rows are not converted into patient frequency groups.
+
+The current release contains 28 symptom concepts, of which 25 are catalogue-only
+and three have complete draft guidance. Its three treatment-toxicity
+relationships are all regimen-level: weekly paclitaxel/peripheral neuropathy,
+capecitabine monotherapy/diarrhea, and AC/fever or infection concern. No
+relationship currently uses `treatment_kind: drug`.
+
+Each presentation includes broad qualitative frequency groups, expandable
+patient rows, a cause boundary, exact FDA-linked source block, and drug-specific
+final escalation summary. No presentation displays numerical frequencies,
+grades, laboratory cut-offs, dose context, or treatment-change rules. All are
+education-only, remain `draft`, and require clinical-owner review before Ariad
+can claim approved single-drug coverage. The [coverage ledger](./fda-single-drug-toxicity-coverage.md)
+records the 25 included drugs and 28 intentional evidence gaps.
 
 ## Query behavior
 

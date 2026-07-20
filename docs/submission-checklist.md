@@ -84,7 +84,7 @@ checking boxes from memory.
 - [x] Automated accessibility check
 - [ ] Manual keyboard-only smoke test with visible focus
 - [ ] Manual screen-reader label/landmark smoke test
-- [ ] Mobile visual QA and print-summary QA
+- [x] Mobile visual QA and print-summary QA
 - [ ] Clean `git status` at the submission commit
 
 ## Clinical-safety and governance gate
@@ -138,7 +138,12 @@ a post-prototype governance gate.
 
 Do not mark these resolved unless the owner actually completes the review:
 
-- [ ] All 22 patient-facing modules and claim-to-source mappings.
+- [ ] Freeze a new exact review baseline for release `0.5.0` or its successor;
+  the existing brief and review record remain bound to `0.2.0`.
+- [ ] Review all 25 exact FDA evidence records, event dispositions, qualitative
+  transformations, patient wording, source mappings, and escalation summaries.
+- [ ] All 22 patient-facing modules, all 25 drug presentations, and their
+  claim-to-source mappings.
 - [ ] Fever threshold and destination decision for the synthetic clinic, or an
   explicit decision to retain no threshold.
 - [ ] Ontario/eviQ diarrhea-threshold discrepancy.

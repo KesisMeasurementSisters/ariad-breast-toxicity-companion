@@ -40,8 +40,11 @@ Life** track.
 
 - Two equal entry points: **I’m starting treatment** and **I’m having a
   symptom**.
-- Deterministic search across 23 drugs, five regimens, ten treatment classes,
-  and 28 patient-observable symptom concepts.
+- Deterministic search across 53 canonical drug records, eight regimens, ten
+  treatment classes, and 28 patient-observable symptom concepts.
+- Fifty-two drug records pin exact FDA label identities and safety-section
+  locations. Twenty-five now have separately governed single-agent FDA evidence
+  and patient-only side-effect presentations; 27 remain source indexes.
 - Explicit coverage states: full demo guidance, education only, catalogued, or
   unsupported.
 - Three complete draft symptom pathways:
@@ -49,11 +52,14 @@ Life** track.
   - capecitabine + diarrhea;
   - AC chemotherapy + fever, chills, or infection concern.
 - One complete draft weekly-paclitaxel treatment-preparation path.
+- Twenty-five draft single-drug side-effect pages with qualitative frequency
+  groups, plain-language disclosures, FDA-linked actions, and a final escalation
+  summary for each drug.
 - Observable questions that may change section emphasis, but never calculate a
   grade, diagnosis, cause, or personal urgency.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
   summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
-- A content-addressed preview release containing 144 exact object versions.
+- A content-addressed preview release containing 258 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
   treatment-code demos, local saved treatments, and copy/print/download symptom
   summaries. The clinic's fever and supportive-care policy bindings remain
@@ -237,33 +243,48 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.2.0`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.5.0`,
 with content hash
-`80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
+`e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
 
 ## Content and source governance
 
-The current release pins 144 object versions: 130 governed draft objects and
-14 source records. Its 22 patient-facing modules have zero recorded clinical
-approvals. The repository review queue contains 131 governed object versions
-because the superseded v1 and active v2 clinic configurations coexist; the
-release pins only v2. That structured synthetic configuration contains identity
+The current release pins 258 object versions: 188 governed draft objects and
+70 source records. Its 22 patient-facing modules have zero recorded clinical
+approvals; all 25 drug presentations are also unreviewed drafts. The repository
+review queue contains 214 governed object versions: the 188 release objects, the
+retained v1 clinic configuration, and 25 private draft toxicity-evidence records.
+The release pins the v2 clinic configuration and patient-safe presentations,
+but deliberately excludes the numerical evidence payloads. That structured
+synthetic configuration contains identity
 and non-actionable contact data, not patient-facing clinical instructions. Its
 fever and supportive-care policy bindings are unresolved, and two modules retain
 explicit fever placeholders. Catalogue presence never implies a complete
 pathway. No schema, validation, or preview compilation result records or implies
 a clinical approval.
 
-Sources are recorded with organization, jurisdiction, canonical HTTPS link,
-date/version when available, access date, verification state, and notes.
-Ontario Health/Cancer Care Ontario is preferred, followed by Health Canada, BC
-Cancer, and eviQ for gaps or cross-checking. Ariad stores short metadata and
-clinician-reviewable paraphrases, not copied source documents.
+The drug catalogue remains an identity-and-provenance foundation. A separate,
+source-controlled toxicity evidence store now contains 25 draft FDA
+single-agent breast-cancer records. Each stores its exact population, dose,
+denominator, comparator, source event names, and percentages outside the browser
+release. A content hash binds each evidence record to its patient-safe
+presentation. The three complete draft treatment-toxicity relationships remain
+regimen-level; the drug pages are education-only and do not create personalized
+symptom pathways or treatment recommendations. The full eligibility and gap
+ledger is [documented here](./docs/fda-single-drug-toxicity-coverage.md).
 
-Before any clinical release, the owner must review every module and
-claim-to-source mapping, resolve the fever and diarrhea discrepancies, confirm
-the AC regimen variant, create real approval evidence, and compile a separate
-exact-version published release. See [content
+Sources are recorded with organization, jurisdiction, canonical HTTPS link,
+date/version when available, access date, verification state, and notes. Exact
+current FDA labels establish the initial breast-cancer drug identity and safety
+section index. All current single-drug toxicity drafts use FDA material only.
+Existing symptom pathways retain their governed Ontario Health/Cancer Care
+Ontario, Health Canada, BC Cancer, and eviQ sources. Ariad stores short metadata
+and clinician-reviewable paraphrases, not copied source documents.
+
+Before any clinical release, the owner must review every module, all 25
+evidence-to-presentation mappings, and each claim-to-source mapping; resolve the
+fever and diarrhea discrepancies; confirm the AC regimen variant; create real
+approval evidence; and compile a separate exact-version published release. See [content
 governance](./docs/content-governance.md) and the generated [review
 report](./content/review-report.md).
 

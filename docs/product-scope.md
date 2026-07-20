@@ -19,23 +19,34 @@ Ariad provides two equal ways into one governed knowledge source:
 
 The Build Week preview contains:
 
-- 23 drugs, five regimens, and ten treatment classes;
+- 53 canonical drug records, eight regimens, and ten treatment classes;
 - 28 patient-observable symptom concepts;
 - 19 observable features and 19 questions;
 - 22 draft educational modules;
 - three exact regimen–symptom relationships with complete six-section draft
   guidance;
 - one weekly-paclitaxel preparation pathway;
-- 14 source records and one exact-version structured synthetic clinic
+- 25 draft single-drug patient side-effect presentations, each backed by a
+  private exact FDA evidence record;
+- 70 source records and one exact-version structured synthetic clinic
   configuration;
-- one immutable 144-object preview release,
-  `build-week-preview-2026-07-18@0.2.0`, with content hash
-  `80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
+- one immutable 258-object preview release,
+  `build-week-preview-2026-07-18@0.5.0`, with content hash
+  `e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
 
 The polished pathways are weekly paclitaxel/peripheral neuropathy,
 capecitabine/diarrhea, and AC/fever or infection concern. Catalogue breadth is a
 navigation capability, not a claim that every treatment–symptom combination is
 supported.
+
+The expanded drug catalogue is a search and source-provenance foundation. Of
+the 53 canonical records, 52 point to exact FDA labels and identify their safety
+sections. Twenty-five have a draft event-level evidence record and separate
+patient-only presentation with broad qualitative frequency groups; 28 remain
+intentional no-page gaps. The private numerical evidence is not shipped in the
+browser release. The three complete symptom relationships remain regimen-level;
+the drug pages are education-only and do not calculate urgency or provide a
+treatment recommendation. See the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).
 
 ## Coverage hierarchy
 
@@ -70,6 +81,7 @@ Support labels mean:
 - Three home-screen sample scenarios.
 - Treatment codes `THREAD-PAC-01`, `THREAD-CAPE-02`, and `THREAD-AC-03`.
 - Query-string code resolution through `?code=THREAD-PAC-01`.
+- Direct treatment-preview resolution through `?treatment=<canonical-drug-id>`.
 - Structured fictional daytime/after-hours clinic contacts, rendered as
   non-actionable display data, plus explicit unresolved fever and
   supportive-care policy states.
@@ -85,7 +97,7 @@ data.
 
 The current runtime is deterministic only; all LLM calls are disabled. This
 does not change the product boundary or confer any review or approval on the
-130 governed draft objects in the active release. Configured/delegated local
+188 governed draft objects in the active release. Configured/delegated local
 policies are a future schema seam only: P0 blocks their publication until
 purpose compatibility and exact runtime rendering exist.
 

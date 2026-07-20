@@ -11,7 +11,7 @@
 |---|---|
 | Review record ID | `ARIAD-CRR-YYYY-NNN` |
 | Record version | `1.0.0` |
-| Review brief | `ARIAD-CRB-001@1.0.0` |
+| Review brief | `<brief-id>@<version>` |
 | Status | `open`, `changes-required`, `ready-for-final-sign-off`, or `signed` |
 | Review started | `<ISO-8601 timestamp with offset>` |
 | Review completed | `<ISO-8601 timestamp with offset or pending>` |
@@ -27,12 +27,12 @@
 
 | Field | Recorded value | Independently confirmed? |
 |---|---|---|
-| Git commit | `a73de792a20da8a68d91081ccd1de3201b0c7df3` | `<yes/no>` |
-| Git tree | `fe05bd2daf313e2b7bbdb26ff8ef460a7a31c05a` | `<yes/no>` |
-| Release | `build-week-preview-2026-07-18@0.2.0` | `<yes/no>` |
-| Compiled content hash | `80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b` | `<yes/no>` |
-| Compiled JSON file SHA-256 | `22bdf0f9d69453747cbda3444b14843d05ef8096b6b2c681b878159aabee9c86` | `<yes/no>` |
-| LLM state | `disabled` | `<yes/no>` |
+| Git commit | `<full commit SHA>` | `<yes/no>` |
+| Git tree | `<full tree SHA>` | `<yes/no>` |
+| Release | `<release-id>@<version>` | `<yes/no>` |
+| Compiled content hash | `<release content hash>` | `<yes/no>` |
+| Compiled JSON file SHA-256 | `<file SHA-256>` | `<yes/no>` |
+| LLM state | `<enabled/disabled and exact configuration boundary>` | `<yes/no>` |
 | Rendered environment | `<local URL/deployment ID; no patient data>` | `<yes/no>` |
 | Browser/device | `<browser, version, OS, viewport/device>` | `<recorded>` |
 
@@ -44,7 +44,7 @@ Select one:
 - [ ] Weekly paclitaxel and peripheral neuropathy
 - [ ] Capecitabine and diarrhea
 - [ ] AC and fever/infection concern
-- [ ] Full current release — attach a disposition row for all 130 governed objects
+- [ ] Full exact release — record the governed-object count and attach its exact inventory
 - [ ] Other exact scope: `<describe>`
 
 Explicit exclusions:
@@ -72,7 +72,7 @@ relationship mapping. Repeat rows as needed. Acceptance must be reproducible.
 
 | Row ID | Exact object | File and field | Exact text/value | Claim ID | Source ID/version and locator | Support | Jurisdiction/regimen/population assessment | Omission or interpretation risk | Severity | Disposition | Requested change/rationale | Re-review exact version/hash | Final state |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| `CRB-001-R001` | `<kind:id@version>` | `<path; field>` | `<text or structured value>` | `<claim-id or none>` | `<source@version; page/heading>` | `<direct/partial/context/conflicting/not supported>` | `<assessment>` | `<assessment>` | `<blocker/major/minor/editorial/none>` | `<accept/change/reject/defer/not applicable>` | `<action and rationale>` | `<new exact ref/hash or n/a>` | `<open/closed-verified>` |
+| `CRB-NNN-R001` | `<kind:id@version>` | `<path; field>` | `<text or structured value>` | `<claim-id or none>` | `<source@version; page/heading>` | `<direct/partial/context/conflicting/not supported>` | `<assessment>` | `<assessment>` | `<blocker/major/minor/editorial/none>` | `<accept/change/reject/defer/not applicable>` | `<action and rationale>` | `<new exact ref/hash or n/a>` | `<open/closed-verified>` |
 
 ## 6. Rendered-path verification
 

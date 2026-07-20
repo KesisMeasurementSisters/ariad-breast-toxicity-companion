@@ -4,10 +4,11 @@
 
 The repository contains no clinician-approved or published clinical content.
 
-- The active release contains 130 governed objects, all `draft`.
-- The repository review queue contains 131 governed object versions because the
-  v1 and v2 clinic configurations coexist prospectively; only v2 is pinned by
-  the active release.
+- The active release contains 188 governed objects, all `draft`.
+- The repository review queue contains 214 governed object versions: 188 active
+  release objects, the retained v1 clinic configuration, and 25 private draft
+  toxicity-evidence records. The active release pins neither the v1 clinic
+  object nor the private numerical evidence payloads.
 - 22 patient-facing modules are `draft`.
 - Approved patient-facing modules: **0**.
 - Reviewer identities: **none recorded**.
@@ -17,16 +18,27 @@ The repository contains no clinician-approved or published clinical content.
   and supportive-care policy bindings remain `unresolved`.
 - The active release is `preview`, `publication_status: draft`, and
   `clinical_use: false`.
+- The active release is `build-week-preview-2026-07-18@0.5.0`, with content hash
+  `e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
+- Twenty-five FDA-based drug records are `event_mapped`; 27 remain
+  `source_indexed`, and carboplatin remains a regimen-component catalogue entry.
+- The release contains 25 patient-safe drug presentations whose exact evidence
+  references and payload hashes are validated at build time. None has been
+  clinically reviewed or approved. Numerical frequencies, severity values,
+  laboratory cut-offs, and dose context are excluded from the browser release.
 
 The generated [review report](../content/review-report.md) is the current review
 queue. Generating the report, validating content, or compiling a preview does
 not approve anything. The structured clinic schema and its operational
 verification fields likewise do not establish clinical review or approval.
 
-Use the version-bound [clinician review brief](./clinical-review-brief.md) and
-its [review record template](./templates/clinician-review-record-template.md)
-to conduct, document, and sign the human review without conflating it with
-release or testing authorization.
+The existing [clinician review brief](./clinical-review-brief.md) and
+[review record](./reviews/ARIAD-CRR-2026-001.md) remain immutably bound to the
+older `0.2.0` release and do not review or approve `0.5.0`. Freeze a new commit,
+tree, release hash, compiled-file hash, and exact inventory before beginning any
+review of the current release. Use the snapshot-neutral [review record
+template](./templates/clinician-review-record-template.md) without conflating
+clinical review with release or testing authorization.
 
 ## Lifecycle
 
@@ -116,13 +128,17 @@ preview path.
 
 ## Source strategy
 
-Competition sources are prioritized as:
+Source roles are prioritized as:
 
-1. Ontario Health / Cancer Care Ontario;
-2. Health Canada product monographs and safety information;
-3. BC Cancer drug, regimen, and symptom resources;
-4. eviQ for gaps and cross-checking;
-5. professional guidance or primary literature only when needed.
+1. exact current regulatory labels for drug identity, regulatory scope, and
+   event-level safety extraction;
+2. Ontario Health / Cancer Care Ontario for Canadian patient-facing drug,
+   regimen, and symptom information;
+3. Health Canada product monographs and safety information;
+4. BC Cancer drug, regimen, and symptom resources;
+5. eviQ for gaps and cross-checking;
+6. professional guidance or primary literature when required for a specific
+   claim or management recommendation.
 
 The repository stores source metadata and reviewable paraphrases, not
 wholesale copies. Every patient module has at least one source ID. A broad
@@ -134,6 +150,9 @@ wording/rationale, and unresolved discrepancy. Do not silently harmonize them.
 
 ## Required owner decisions
 
+- Review all 25 event-level evidence records, qualitative transformations,
+  evidence-to-presentation mapping, patient wording, and FDA-supported action
+  boundaries. The implemented draft contract is not clinical approval.
 - Review and edit all 22 patient-facing modules and all claim-to-source
   mappings.
 - Resolve the clinic's fever and supportive-care policy bindings. Any

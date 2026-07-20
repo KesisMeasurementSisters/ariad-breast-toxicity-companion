@@ -58,17 +58,21 @@ Every FDA-based drug pins:
 - exact FDA product names, dosage forms, and routes;
 - the `indications_and_usage` locator;
 - the safety sections present in that exact label; and
-- a governed source record linked to the Drugs@FDA application page.
+- a governed source record linked to an exact official label or Drugs@FDA
+  application record.
 
-The current evidence status is `source_indexed`. It records where toxicity
-evidence exists without yet turning label prose or tables into drug-event
-claims. Event-level extraction must preserve breast-cancer population, arm,
-combination, denominator, and source context. Combination-arm observations must
-not be attributed to one component drug.
+Twenty-seven FDA-based entries remain `source_indexed`; 25 are `event_mapped`.
+Each private draft evidence object preserves the exact breast-cancer population,
+single-drug context, denominator, dose, comparator, source table, event names,
+and numerical measures. Combination-arm observations must not be attributed to
+one component drug. The eligibility decisions and 28 intentional gaps are in
+the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).
 
-Exact rates may be retained in governed evidence later, but this patient-facing
-application will use clinician-reviewed qualitative groups rather than display
-individual numerical rates.
+Each patient presentation is bound to its exact evidence payload by version and
+hash. Build validation checks each qualitative group against the matching
+all-grade source value. The browser release excludes the raw numerical evidence,
+severity values, laboratory cut-offs, and dose context. All evidence and patient
+wording remain unreviewed drafts.
 
 ## Search behavior
 
@@ -80,3 +84,6 @@ individual numerical rates.
 - A selected regimen opens ordered, separate cards for every component drug.
 - A source-indexed drug without approved presentation content opens a clear
   information-in-preparation fallback.
+- Selecting any of the 25 event-mapped drugs alone opens its draft patient-only
+  side-effect presentation. Selecting a regimen does not reuse a single-drug
+  presentation as combination evidence.
