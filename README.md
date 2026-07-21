@@ -250,25 +250,27 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.10.0`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.11.0`,
 with content hash
-`b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f`.
+`ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
 
 ## Content and source governance
 
-The current release pins 264 object versions: 193 governed draft objects and
-71 source records. Its 22 patient-facing modules have zero recorded clinical
+The current release pins 474 object versions: 376 governed draft objects and
+98 source records. Its 124 patient-facing modules have zero recorded clinical
 approvals; all 30 drug presentations are also unreviewed drafts. The repository
-review queue contains 224 governed object versions: the 193 release objects, the
-retained v1 clinic configuration, and 30 private draft toxicity-evidence records.
+review queue contains 432 governed object versions: the 376 release objects, 25
+superseded symptom versions, the retained v1 clinic configuration, and 30 private
+draft toxicity-evidence records.
 The release pins the v2 clinic configuration and patient-safe presentations,
 but deliberately excludes the numerical evidence payloads. That structured
 synthetic configuration contains identity
 and non-actionable contact data, not patient-facing clinical instructions. Its
 fever and supportive-care policy bindings are unresolved, and two modules retain
-explicit fever placeholders. Catalogue presence never implies a complete
-pathway. No schema, validation, or preview compilation result records or implies
-a clinical approval.
+explicit fever placeholders. The preview includes 25 general symptom fallbacks,
+but catalogue presence never implies an exact treatment-specific pathway. No
+schema, validation, or preview compilation result records or implies a clinical
+approval.
 
 The drug catalogue remains an identity-and-provenance foundation. A separate,
 source-controlled toxicity evidence store now contains 30 draft FDA evidence

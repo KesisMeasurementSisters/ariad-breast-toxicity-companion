@@ -130,8 +130,8 @@ combination rate or borrow a rate from another formulation.
 
 ## Release boundary
 
-Preview `build-week-preview-2026-07-18@0.10.0` contains 264 objects and has
+Preview `build-week-preview-2026-07-18@0.11.0` contains 474 objects and has
 content hash
-`b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f`.
+`ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
 It is explicitly unreviewed, `clinical_use: false`, and not eligible for the
 ordinary production build.

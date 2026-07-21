@@ -22,22 +22,22 @@ The Build Week preview contains:
 - 53 canonical drug records, eight regimens, and ten treatment classes;
 - 28 patient-observable symptom concepts;
 - 19 observable features and 19 questions;
-- 22 draft educational modules;
-- three exact regimen–symptom relationships with complete six-section draft
-  guidance;
+- 124 draft educational modules;
+- three exact regimen–symptom relationships and 25 clearly labelled general
+  symptom fallbacks, each with complete six-section draft guidance;
 - one weekly-paclitaxel preparation pathway;
 - 30 draft single-drug patient side-effect presentations, each backed by a
   private exact FDA evidence record;
-- 71 source records and one exact-version structured synthetic clinic
+- 98 source records and one exact-version structured synthetic clinic
   configuration;
-- one immutable 264-object preview release,
-  `build-week-preview-2026-07-18@0.10.0`, with content hash
-  `b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f`.
+- one exact-version 474-object active preview artifact,
+  `build-week-preview-2026-07-18@0.11.0`, with content hash
+  `ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
 
-The polished pathways are weekly paclitaxel/peripheral neuropathy,
-capecitabine/diarrhea, and AC/fever or infection concern. Catalogue breadth is a
-navigation capability, not a claim that every treatment–symptom combination is
-supported.
+The exact treatment-specific pathways are weekly paclitaxel/peripheral
+neuropathy, capecitabine/diarrhea, and AC/fever or infection concern. The other
+25 symptom journeys are general fallbacks. They do not claim that any selected
+treatment caused, is associated with, or changes the urgency of a symptom.
 
 The expanded drug catalogue is a search and source-provenance foundation. Of
 the 53 canonical records, 52 point to exact FDA labels and identify their safety

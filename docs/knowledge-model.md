@@ -115,7 +115,7 @@ Generated files are compiler outputs and must never be hand-edited.
 
 ## Current preview inventory
 
-Release `build-week-preview-2026-07-18@0.10.0` pins 264 objects:
+Release `build-week-preview-2026-07-18@0.11.0` pins 474 objects:
 
 | Kind | Count |
 |---|---:|
@@ -123,17 +123,17 @@ Release `build-week-preview-2026-07-18@0.10.0` pins 264 objects:
 | Drugs | 53 |
 | Regimens | 8 |
 | Symptoms | 28 |
-| Observable features | 19 |
-| Questions | 19 |
-| Educational modules | 22 |
-| Treatment–symptom relationships | 3 |
+| Observable features | 47 |
+| Questions | 47 |
+| Educational modules | 124 |
+| Treatment–symptom relationships | 28 |
 | Drug toxicity presentations | 30 |
-| Sources | 71 |
+| Sources | 98 |
 | Clinic configurations | 1 |
 
 Its content hash is
-`b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f`.
-All 193 governed objects are draft. Of the 71 source records, 69 are marked
+`ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
+All 376 governed objects are draft. Of the 98 source records, 96 are marked
 `verified` and two broad catalogue sources are `link_only`. The active release
 resolves exactly one structured v2
 synthetic clinic configuration. Its contact values are explicitly fictional and
