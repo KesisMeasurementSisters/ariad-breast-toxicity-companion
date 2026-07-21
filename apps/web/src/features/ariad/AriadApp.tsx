@@ -177,7 +177,9 @@ function EmergencyBoundary() {
   return (
     <aside className="emergency-boundary" aria-label="Emergency information">
       <CircleAlert aria-hidden="true" size={20} />
-      <span>{UNIVERSAL_EMERGENCY_STATEMENT}</span>
+      <span>
+        <strong>Emergency:</strong> {UNIVERSAL_EMERGENCY_STATEMENT}
+      </span>
     </aside>
   );
 }
@@ -186,7 +188,9 @@ function CompactSymptomBoundary() {
   return (
     <aside className="compact-symptom-boundary" aria-label="What Ariad cannot do">
       <ShieldCheck aria-hidden="true" size={17} />
-      <span>{COMPACT_CLINICAL_BOUNDARY}</span>
+      <span>
+        <strong>What Ariad cannot do:</strong> {COMPACT_CLINICAL_BOUNDARY}
+      </span>
     </aside>
   );
 }
@@ -221,10 +225,10 @@ function BoundaryCard() {
     <aside className="boundary-card">
       <ShieldCheck aria-hidden="true" size={22} />
       <div>
-        <strong>Information only. Ariad does not give medical advice.</strong>
+        <strong>Ariad cannot tell what is causing a symptom or how serious it is.</strong>
         <p>
-          Ariad cannot tell what is causing your symptom or how serious it is. It cannot
-          tell you to change cancer treatment. Follow your cancer team&apos;s instructions.
+          Use the contact and urgent-help steps on this page. Follow your cancer
+          team&apos;s instructions. Ariad cannot tell you to change cancer treatment.
         </p>
       </div>
     </aside>
@@ -812,11 +816,11 @@ function DrugToxicityPatientView({
         </header>
         <div className="toxicity-escalation-grid">
           <section>
-            <h3>Contact your cancer team right away</h3>
+            <h3>Contact your cancer team</h3>
             <ul>{presentation.escalation_summary.contact_team.map((item) => <li key={item}>{item}</li>)}</ul>
           </section>
           <section className="toxicity-urgent-list">
-            <h3>Get urgent help</h3>
+            <h3>Get urgent medical help</h3>
             <ul>{presentation.escalation_summary.urgent_help.map((item) => <li key={item}>{item}</li>)}</ul>
           </section>
         </div>
@@ -1275,23 +1279,25 @@ function GuidanceScreen({
         <span className="context-line">{treatmentName(treatmentId)} · {guidance.guidance_basis_label}</span>
         {guidance.fallback_reason ? <span className="fallback-note">{guidance.fallback_reason}</span> : null}
       </PageIntro>
-      <BoundaryCard />
-
       <div className="guidance-sections">
         {guidance.sections.map((section, index) => {
           const Icon = SECTION_ICONS[section.section as keyof typeof SECTION_ICONS] ?? Info;
           const modules = section.module_ids.map(moduleById).filter(Boolean) as EducationalModule[];
           const emphasized = section.emphasized_module_ids.length > 0;
+          const isSafetySection = section.section === "contact_team" || section.section === "urgent_attention";
           const hasPendingClinicalDecision = modules.some((item) => item.placeholders.length > 0);
           return (
             <details
               className={`guidance-section section-${section.section}`}
               key={section.section}
-              open={index < 3 || emphasized || hasPendingClinicalDecision}
+              open={isSafetySection || index < 3 || emphasized || hasPendingClinicalDecision}
             >
               <summary>
                 <span className="section-icon"><Icon aria-hidden="true" size={20} /></span>
-                <span><strong>{section.heading}</strong>{emphasized ? <small>Based on your answers</small> : null}</span>
+                <span>
+                  <strong>{section.heading}</strong>
+                  {emphasized && !isSafetySection ? <small>Moved up from your answers</small> : null}
+                </span>
                 <ChevronRight className="summary-chevron" aria-hidden="true" size={20} />
               </summary>
               <div className="guidance-body">
@@ -1522,7 +1528,6 @@ function EducationOnlyScreen({
           </p>
         </div>
       </div>
-      <BoundaryCard />
       <SourcesPanel sourceIds={sourceIds} />
       <div className="action-row wrap">
         <button className="secondary-button" type="button" onClick={onTreatment}>Search another treatment</button>
@@ -1564,7 +1569,6 @@ function UnknownTreatmentScreen({
           <p>Do not guess which treatment you are receiving.</p>
         </div>
       </section>
-      <BoundaryCard />
       <div className="action-row wrap">
         <button className="primary-button" type="button" onClick={onBack}>
           Try the treatment search <ArrowRight aria-hidden="true" size={18} />
@@ -1819,6 +1823,7 @@ export function AriadApp() {
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
       <BrandHeader onHome={goHome} onAbout={goAbout} />
+      <EmergencyBoundary />
       {[
         "symptom-entry",
         "candidate-confirm",
@@ -1941,7 +1946,6 @@ export function AriadApp() {
           />
         ) : null}
       </main>
-      <EmergencyBoundary />
       <footer className="site-footer">
         <span>Kesis &amp; Sisters · Turning complexity into clarity.</span>
         <span>Demo version {activeRelease.release_version}</span>

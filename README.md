@@ -123,8 +123,8 @@ does not interpret answers to tell an individual what action to take.
 Every symptom path states that Ariad cannot determine the cause and keeps this
 universal statement visible:
 
-> If you think you may be experiencing a medical emergency, call 911 or your
-> local emergency service.
+> If you think this is a medical emergency, call 911 or your local emergency
+> service now.
 
 This statement is an application safety constant. Clinic configuration cannot
 replace, suppress, or edit it.

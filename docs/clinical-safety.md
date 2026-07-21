@@ -144,8 +144,8 @@ grade the symptom, or make a personal treatment/triage decision. This statement
 is persistent, never triggered by model inference, and cannot be replaced,
 suppressed, or edited by clinic configuration:
 
-> If you think you may be experiencing a medical emergency, call 911 or your
-> local emergency service.
+> If you think this is a medical emergency, call 911 or your local emergency
+> service now.
 
 ## Before any real-world use
 

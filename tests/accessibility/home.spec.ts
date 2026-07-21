@@ -40,6 +40,24 @@ test("320px layout has no horizontal overflow and exposes a keyboard skip link",
   await expect(page.locator("#main-content")).toBeFocused();
 });
 
+test("the emergency boundary stays visible without covering the page flow", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("/");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  const emergencyBoundary = page.locator(".emergency-boundary");
+  await expect(emergencyBoundary).toHaveCSS("position", "sticky");
+  await expect(emergencyBoundary).toHaveCSS("font-size", "16px");
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect
+    .poll(() => emergencyBoundary.evaluate((element) => Math.round(element.getBoundingClientRect().top)))
+    .toBe(0);
+
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
+    .toBe(true);
+});
+
 test("live treatment results and regimen cards have no serious accessibility violations", async ({
   page,
 }) => {

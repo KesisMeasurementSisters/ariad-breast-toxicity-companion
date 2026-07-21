@@ -311,6 +311,15 @@ test("carboplatin shows patient copy while keeping study methodology out of view
   await expect(page.getByText("Nausea or vomiting", { exact: true })).toBeVisible();
   await expect(page.getByText("Bruising or bleeding", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Changes your team checks for" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Contact your cancer team", exact: true })).toBeVisible();
+  await expect(
+    page.getByText(
+      "Tell them about new tingling, numbness, burning, or a pins-and-needles feeling in your hands or feet.",
+    ),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Contact your cancer team right away" }),
+  ).toHaveCount(0);
 
   const patientText = await page.locator("main").innerText();
   expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);

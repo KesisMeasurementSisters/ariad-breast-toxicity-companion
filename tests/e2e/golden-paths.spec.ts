@@ -1,3 +1,4 @@
+import { UNIVERSAL_EMERGENCY_STATEMENT } from "@ariad/contracts";
 import { expect, test, type Page } from "@playwright/test";
 
 async function choose(page: Page, name: string | RegExp) {
@@ -20,6 +21,9 @@ async function nextQuestion(page: Page) {
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  const emergencyBoundary = page.locator(".emergency-boundary");
+  await expect(emergencyBoundary).toHaveCount(1);
+  await expect(emergencyBoundary).toContainText(UNIVERSAL_EMERGENCY_STATEMENT);
   await expect(
     page.getByText("Draft demo. A health professional has not reviewed this information. Do not use it for patient care").first(),
   ).toBeVisible();
@@ -110,6 +114,12 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   ).toBeVisible();
   await expect(page.getByText("When to contact your cancer team")).toBeVisible();
   await expect(page.getByText("When to get urgent medical help")).toBeVisible();
+  const contactSection = page.locator(".section-contact_team");
+  const urgentSection = page.locator(".section-urgent_attention");
+  await expect(contactSection).toHaveAttribute("open", "");
+  await expect(urgentSection).toHaveAttribute("open", "");
+  await expect(contactSection).not.toContainText("Based on your answers");
+  await expect(urgentSection).not.toContainText("Based on your answers");
   const clinicCard = page.locator(".clinic-card");
   await expect(clinicCard.getByText("Demo clinic details")).toBeVisible();
   await expect(

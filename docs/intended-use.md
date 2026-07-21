@@ -75,8 +75,8 @@ determine the cause, grade the symptom, or make a personal treatment/triage
 decision. This universal statement remains independent of all answers and model
 output:
 
-> If you think you may be experiencing a medical emergency, call 911 or your
-> local emergency service.
+> If you think this is a medical emergency, call 911 or your local emergency
+> service now.
 
 The warning is universal, not model-triggered. Fixed warning sections are
 educational content; patient answers never turn them into a personalized
