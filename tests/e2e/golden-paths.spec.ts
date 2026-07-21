@@ -92,8 +92,18 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   await expect(page.getByText("Ariad used AI only to match your words")).toBeVisible();
   await choose(page, /Tingling, numbness, or burning.*Choose this/);
 
-  await page.getByLabel("Treatment code").fill("THREAD-PAC-01");
-  await choose(page, "Use code");
+  await expect(
+    page.getByRole("heading", { name: "Drugs in Ariad that list tingling, numbness, or burning" }),
+  ).toBeVisible();
+  await expect(page.locator(".symptom-drug-row")).toHaveCount(12);
+  await expect(
+    page.getByRole("button", { name: /Drug: Docetaxel.*Numbness, tingling, or burning/ }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: /Drug: Paclitaxel.*Numbness, tingling, or weakness/ }).first(),
+  ).toBeVisible();
+  await expect(page.locator(".symptom-drug-list")).not.toContainText("Weekly paclitaxel");
+  await page.locator(".suggested-treatment-card").click();
   await choose(page, "Continue with this treatment");
 
   await choose(page, "Fingers");
@@ -184,6 +194,10 @@ test("a clinic code still opens the complete weekly paclitaxel preparation guide
 
 test("capecitabine demo reaches the fixed diarrhea guidance sections", async ({ page }) => {
   await choose(page, /Loose, watery bowel movements/);
+  await expect(page.getByRole("heading", { name: "Drugs in Ariad that list diarrhea" })).toBeVisible();
+  await expect(page.locator(".symptom-drug-row")).toHaveCount(18);
+  await page.locator(".suggested-treatment-card").click();
+  await choose(page, "Continue with this treatment");
   await choose(page, "Today");
   await nextQuestion(page);
   await choose(page, "4–6");
@@ -207,6 +221,12 @@ test("AC demo preserves the unresolved fever threshold as a visible review bound
   page,
 }) => {
   await choose(page, /Fever, chills, or feeling unwell/);
+  await expect(
+    page.getByRole("heading", { name: "Drugs in Ariad that list fever, chills, or feeling unwell" }),
+  ).toBeVisible();
+  await expect(page.locator(".symptom-drug-row")).toHaveCount(20);
+  await page.locator(".suggested-treatment-card").click();
+  await choose(page, "Continue with this treatment");
   await nextQuestion(page);
   await choose(page, "Chills");
   await nextQuestion(page);

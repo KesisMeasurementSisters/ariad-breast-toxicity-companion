@@ -35,6 +35,9 @@ test("routine symptom questions use one compact safety boundary", async ({ page 
   await page.goto("/");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
   await page.getByRole("button", { name: /Loose, watery bowel movements/ }).click();
+  await expect(page.locator(".symptom-drug-row")).toHaveCount(18);
+  await page.locator(".suggested-treatment-card").click();
+  await page.getByRole("button", { name: "Continue with this treatment" }).click();
 
   await expect(page.locator(".compact-symptom-boundary")).toHaveCount(1);
   await expect(page.locator(".boundary-card")).toHaveCount(0);
@@ -65,6 +68,22 @@ test("320px layout has no horizontal overflow and exposes a keyboard skip link",
   await expect(skipLink).toBeVisible();
   await page.keyboard.press("Enter");
   await expect(page.locator("#main-content")).toBeFocused();
+});
+
+test("source-linked symptom drug listings are accessible and fit at 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("/");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await page.getByRole("button", { name: /Loose, watery bowel movements/ }).click();
+  await expect(page.locator(".symptom-drug-row")).toHaveCount(18);
+
+  const result = await new AxeBuilder({ page }).analyze();
+  expect(
+    result.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
+  ).toEqual([]);
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
+    .toBe(true);
 });
 
 test("the main choices stay readable and horizontally contained", async ({ page }) => {
@@ -285,6 +304,15 @@ test("meaningful patient copy is at least the normal body size", async ({ page }
   await page.getByRole("button", { name: /I’m starting treatment/ }).click();
   await page.getByLabel("Drug or treatment plan").fill("docetaxel");
   await expectNormalPatientCopy(page.locator(".search-help, .result-row small, .code-panel small"));
+
+  await page.goto("/");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await page.getByRole("button", { name: /Loose, watery bowel movements/ }).click();
+  await expectNormalPatientCopy(
+    page.locator(
+      ".symptom-drug-listings-header p:not(.eyebrow), .suggested-treatment-card small, .suggested-treatment-card span span, .symptom-drug-list summary small, .symptom-drug-row small, .symptom-drug-row span span",
+    ),
+  );
 
   await page.goto("/?treatment=docetaxel");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
