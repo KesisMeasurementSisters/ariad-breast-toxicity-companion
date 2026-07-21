@@ -32,11 +32,17 @@ published release exists.
 
 Treatment and symptom indexes are generated from the active release. Browser
 search normalizes the query and ranks exact name, exact alias, prefix, token,
-and fuzzy matches. Results include the authored support status.
+and fuzzy matches. Schedule-specific or separately named one-drug plans remain
+searchable alongside their component drug. In the treatment-preparation entry,
+results show exact, general, or unavailable preparation coverage; in the
+symptom entry, they show the authored support status.
 
-Selecting a catalogue item does not synthesize a relationship. If the exact
-treatment/preparation or treatment–symptom path is missing, Ariad presents an
-unsupported boundary and alternative search options.
+Selecting a catalogue item does not synthesize a relationship. Preparation
+first resolves modules written for the exact treatment ID. If there are none,
+it may use only the clearly labelled modules written for `systemic-therapy`.
+It does not infer preparation from a drug class or regimen component. The
+treatment page then renders preparation first and available side-effect
+education below it.
 
 ## 3. Natural-language symptom navigation
 
@@ -74,7 +80,7 @@ After category confirmation, the browser selects treatment context and asks the
 pure resolver for the most specific eligible complete relationship. The
 resolver's order is exact, regimen component, nearest treatment class, then
 general safety, with a visible basis/reason for every fallback. The active
-preview has complete content only for three exact combinations. A resolved
+preview has three exact combinations and 25 general symptom fallbacks. A resolved
 relationship's 3–7 question IDs determine the observable form. Answers live in
 React state.
 
@@ -128,10 +134,11 @@ Only a versioned local-storage object persists:
 }
 ```
 
-It is capped at 12 treatment IDs. Free text, answers, candidate matches, and
-summary content remain in active React state and are cleared by reset or normal
-session termination. “Reset demo and clear saved treatments” removes the local
-storage key and ephemeral state.
+It is capped at 12 treatment IDs. Saved IDs appear on the home screen and can
+reopen a treatment page. Free text, answers, candidate matches, and summary
+content remain in active React state and are cleared by reset or normal session
+termination. “Reset demo and clear saved treatments” removes the local storage
+key and ephemeral state.
 
 The current owner-directed mode sets `ENABLE_GPT56=false`, so no request data
 crosses the OpenAI provider boundary. If GPT-5.6 is explicitly re-enabled in a

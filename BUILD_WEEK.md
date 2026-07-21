@@ -494,3 +494,64 @@
 - `pnpm build:preview` — production-style preview build passed.
 - `pnpm test:e2e` — all 46 mobile and desktop browser tests passed, including
   the standalone cyclophosphamide page and its independent TC regimen card.
+
+## 2026-07-21 — treatment preparation for every treatment choice
+
+### Patient experience
+
+- Every one of the 53 drug choices and eight regimen choices now resolves a
+  preparation guide. Weekly paclitaxel, capecitabine monotherapy, and AC use
+  exact treatment overlays; the other 58 choices use one clearly labelled
+  general systemic-treatment guide.
+- Preparation appears before side-effect education. Exact preparation replaces
+  the general fallback, while side-effect cards remain additive and preserve
+  their individual-drug evidence boundaries.
+- Weekly paclitaxel and the CAPE one-drug plan are searchable as treatment
+  plans. `THREAD-CAPE-02` renders exact capecitabine preparation and its
+  capecitabine side-effect card rather than a generic pending page.
+- Preparation pages can be printed. Saved treatment IDs appear on the home
+  screen and reopen the corresponding treatment page. “I don’t know my
+  treatment” now provides practical next steps without asking the patient to
+  guess.
+- Missing side-effect evidence is labelled only as a side-effect gap; it no
+  longer implies that preparation is unavailable.
+
+### Content and safety boundary
+
+- Added 15 new draft preparation modules, four draft weekly-paclitaxel
+  successor modules, three new Canadian source records, and three directly
+  rechecked CCO source versions.
+- The resolver uses exact treatment modules first and only the explicitly
+  authored `systemic-therapy` set as fallback. It never infers preparation from
+  a regimen component or treatment class and fails closed on missing or
+  duplicate authored order values.
+- Active preparation copy excludes dose, schedule, food, fasting, transport,
+  thermometer, medicine-change, fever-threshold, personalized-urgency, and
+  local-policy instructions. An automated Flesch-Kincaid estimate keeps all
+  four active preparation sets at or below grade 8.
+- Every new or revised patient module remains `draft`; no reviewer, review date,
+  approval, or clinical-use authorization was added.
+
+### Release evidence
+
+- Active preview: `build-week-preview-2026-07-18@0.12.0`.
+- Content hash:
+  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
+- Compiled JSON file SHA-256:
+  `ce235c2ca09c972315f4ef7781e37efef67a3c09f333b3c6e416efe11323542f`.
+- The release pins 492 exact object versions: 391 governed draft objects and
+  101 source records, including 139 active educational modules.
+
+### Verification
+
+- Content validation — 0 errors and 0 warnings across 555 repository objects.
+- `pnpm test` — 170 unit and golden tests passed.
+- `pnpm lint` — passed.
+- `pnpm typecheck` — all three workspace packages passed.
+- Safety scan — 0 findings across source content, compiled content, and summary
+  fixtures.
+- Production web build — passed with all application and API routes compiled.
+- Playwright discovered all 58 mobile and desktop browser/accessibility tests,
+  including the new preparation flows. This environment could not execute them
+  because permission to start the localhost test server was rejected after the
+  tool-approval quota was exhausted; this remains a final pre-submission run.

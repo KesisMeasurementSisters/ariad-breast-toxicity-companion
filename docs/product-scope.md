@@ -22,22 +22,26 @@ The Build Week preview contains:
 - 53 canonical drug records, eight regimens, and ten treatment classes;
 - 28 patient-observable symptom concepts;
 - 19 observable features and 19 questions;
-- 124 draft educational modules;
+- 139 active draft educational modules;
 - three exact regimen–symptom relationships and 25 clearly labelled general
   symptom fallbacks, each with complete six-section draft guidance;
-- one weekly-paclitaxel preparation pathway;
+- preparation for all 53 drug choices and eight regimen choices: exact overlays
+  for weekly paclitaxel, capecitabine monotherapy, and AC, plus a clearly
+  labelled general fallback for every other choice;
 - 30 draft single-drug patient side-effect presentations, each backed by a
   private exact FDA evidence record;
-- 98 source records and one exact-version structured synthetic clinic
+- 101 active source records and one exact-version structured synthetic clinic
   configuration;
-- one exact-version 474-object active preview artifact,
-  `build-week-preview-2026-07-18@0.11.0`, with content hash
-  `ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
+- one exact-version 492-object active preview artifact,
+  `build-week-preview-2026-07-18@0.12.0`, with content hash
+  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
 
-The exact treatment-specific pathways are weekly paclitaxel/peripheral
+The exact treatment-and-symptom pathways are weekly paclitaxel/peripheral
 neuropathy, capecitabine/diarrhea, and AC/fever or infection concern. The other
-25 symptom journeys are general fallbacks. They do not claim that any selected
-treatment caused, is associated with, or changes the urgency of a symptom.
+25 symptom journeys are general fallbacks. The three exact preparation overlays
+use the same regimen IDs but remain a separate content purpose. No preparation
+module claims that a selected treatment caused, is associated with, or changes
+the urgency of a symptom.
 
 The expanded drug catalogue is a search and source-provenance foundation. Of
 the 53 canonical records, 52 point to exact FDA labels and identify their safety
@@ -68,12 +72,14 @@ The intended hierarchy is:
 3. clearly labelled treatment-class information;
 4. general symptom-safety information.
 
-The guidance resolver implements exact regimen/treatment → regimen component →
-nearest treatment class → general safety order, and labels any fallback basis
-plainly. The active release contains complete relationships only for its three
-exact demo combinations. If no eligible complete relationship or preparation
-path exists, the interface displays a coverage boundary rather than inferring
-content from catalogue membership alone.
+The symptom-guidance resolver implements exact regimen/treatment → regimen
+component → nearest treatment class → general safety order, and labels any
+fallback basis plainly. Preparation uses a stricter resolver: exact treatment
+modules win; otherwise only the authored `systemic-therapy` general set may be
+used. It never borrows preparation from a component drug or treatment class.
+If an eligible symptom relationship or preparation set is unavailable, the
+interface displays a coverage boundary rather than inferring content from
+catalogue membership alone.
 
 Support labels mean:
 
@@ -93,6 +99,10 @@ Support labels mean:
 - Treatment codes `THREAD-PAC-01`, `THREAD-CAPE-02`, and `THREAD-AC-03`.
 - Query-string code resolution through `?code=THREAD-PAC-01`.
 - Direct treatment-preview resolution through `?treatment=<canonical-drug-id>`.
+- Help for people who do not know the treatment name, plus a local saved-list
+  control that can reopen a selected treatment.
+- Preparation-first treatment pages with side-effect education below, and a
+  print action that includes both sections.
 - Structured fictional daytime/after-hours clinic contacts, rendered as
   non-actionable display data, plus explicit unresolved fever and
   supportive-care policy states.
@@ -108,7 +118,7 @@ data.
 
 The current runtime is deterministic only; all LLM calls are disabled. This
 does not change the product boundary or confer any review or approval on the
-188 governed draft objects in the active release. Configured/delegated local
+391 governed draft objects in the active release. Configured/delegated local
 policies are a future schema seam only: P0 blocks their publication until
 purpose compatibility and exact runtime rendering exist.
 

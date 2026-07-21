@@ -67,12 +67,17 @@ A `full_guidance` relationship must define:
 At runtime, `assembleGuidance` resolves the most specific eligible complete
 relationship in exact → regimen component → nearest treatment class → general
 safety order. It labels the basis and reason whenever the result is not exact.
-The active preview contains only the three exact complete relationships, so it
-does not currently substitute broader guidance. The assembler returns authored
-module IDs in a fixed section order. Patient-answer options contribute only
-authored priority tags. Matching tags mark existing modules for emphasis; they
-cannot change module text, add a clinical conclusion, or calculate an urgency
-state.
+The active preview contains three exact complete relationships and 25 clearly
+labelled general symptom fallbacks. The assembler returns authored module IDs
+in a fixed section order. Patient-answer options contribute only authored
+priority tags. Matching tags mark existing modules for emphasis; they cannot
+change module text, add a clinical conclusion, or calculate an urgency state.
+
+Preparation modules use a separate `preparation_order` field. At runtime,
+`resolvePreparation` first looks for modules authored for the exact drug or
+regimen. If none exist, it may use only modules explicitly authored for
+`systemic-therapy`. It does not infer preparation from regimen components or
+treatment classes, and duplicate authored order values fail closed.
 
 ## Source representation
 
@@ -115,7 +120,7 @@ Generated files are compiler outputs and must never be hand-edited.
 
 ## Current preview inventory
 
-Release `build-week-preview-2026-07-18@0.11.0` pins 474 objects:
+Release `build-week-preview-2026-07-18@0.12.0` pins 492 objects:
 
 | Kind | Count |
 |---|---:|
@@ -125,26 +130,27 @@ Release `build-week-preview-2026-07-18@0.11.0` pins 474 objects:
 | Symptoms | 28 |
 | Observable features | 47 |
 | Questions | 47 |
-| Educational modules | 124 |
+| Educational modules | 139 |
 | Treatment–symptom relationships | 28 |
 | Drug toxicity presentations | 30 |
-| Sources | 98 |
+| Sources | 101 |
 | Clinic configurations | 1 |
 
 Its content hash is
-`ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
-All 376 governed objects are draft. Of the 98 source records, 96 are marked
+`e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
+All 391 governed objects are draft. Of the 101 source records, 99 are marked
 `verified` and two broad catalogue sources are `link_only`. The active release
 resolves exactly one structured v2
 synthetic clinic configuration. Its contact values are explicitly fictional and
 non-actionable, and its fever and supportive-care policy bindings are
 unresolved.
 
-Repository-level review contains 224 governed object versions: both clinic
-configuration versions and 30 private draft toxicity-evidence records in
-addition to the 193 active-release objects. The manifest pins the v2 clinic
-configuration and 30 patient-safe presentations, but not the private evidence
-payloads. Neither versioning nor validation creates clinical approval evidence.
+Repository-level review contains 451 governed object versions: the 391 active
+objects, 25 superseded symptom versions, four superseded weekly-paclitaxel
+preparation modules, the retained v1 clinic configuration, and 30 private draft
+toxicity-evidence records. The manifest pins the v2 clinic configuration and 30
+patient-safe presentations, but not the private evidence payloads. Neither
+versioning nor validation creates clinical approval evidence.
 
 ## Current single-drug toxicity implementation
 

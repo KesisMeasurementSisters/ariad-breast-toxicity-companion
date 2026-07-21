@@ -55,7 +55,9 @@ Life** track.
   - weekly paclitaxel + tingling, numbness, or burning;
   - capecitabine + diarrhea;
   - AC chemotherapy + fever, chills, or infection concern.
-- One complete draft weekly-paclitaxel treatment-preparation path.
+- A preparation guide for every one of the 53 drug choices and eight regimen
+  choices. Weekly paclitaxel, capecitabine monotherapy, and AC have exact draft
+  overlays; every other choice uses a clearly labelled general guide.
 - Thirty draft single-drug side-effect pages with qualitative frequency
   or FDA label-category groups, plain-language disclosures, FDA-linked actions,
   and a final escalation summary for each drug.
@@ -66,7 +68,7 @@ Life** track.
   grade, diagnosis, cause, or personal urgency.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
   summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
-- A content-addressed preview release containing 264 exact object versions.
+- A content-addressed preview release containing 492 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
   treatment-code demos, local saved treatments, and copy/print/download symptom
   summaries. The clinic's fever and supportive-care policy bindings remain
@@ -250,18 +252,19 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.11.0`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.12.0`,
 with content hash
-`ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
+`e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
 
 ## Content and source governance
 
-The current release pins 474 object versions: 376 governed draft objects and
-98 source records. Its 124 patient-facing modules have zero recorded clinical
+The current release pins 492 object versions: 391 governed draft objects and
+101 source records. Its 139 patient-facing modules have zero recorded clinical
 approvals; all 30 drug presentations are also unreviewed drafts. The repository
-review queue contains 432 governed object versions: the 376 release objects, 25
-superseded symptom versions, the retained v1 clinic configuration, and 30 private
-draft toxicity-evidence records.
+review queue contains 451 governed object versions: the 391 release objects, 25
+superseded symptom versions, four superseded weekly-paclitaxel preparation
+modules, the retained v1 clinic configuration, and 30 private draft
+toxicity-evidence records.
 The release pins the v2 clinic configuration and patient-safe presentations,
 but deliberately excludes the numerical evidence payloads. That structured
 synthetic configuration contains identity
@@ -358,8 +361,10 @@ as a shortcut.
 ## Limitations and future direction
 
 - No content is approved for patient care.
-- Complete education exists only for three symptom combinations and one
-  preparation path; the remaining catalogue is primarily navigational.
+- Complete exact symptom education exists only for three symptom combinations.
+  Preparation is available for all 61 treatment choices, but only weekly
+  paclitaxel, capecitabine monotherapy, and AC have exact preparation overlays;
+  the remaining choices use the general guide.
 - The clinic's fever and supportive-care policy bindings, the Ontario/eviQ
   diarrhea wording discrepancy, and exact AC schedule remain owner-review
   items.

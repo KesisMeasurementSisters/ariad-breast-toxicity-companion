@@ -4,13 +4,14 @@
 
 The repository contains no clinician-approved or published clinical content.
 
-- The active release contains 376 governed objects, all `draft`.
-- The repository review queue contains 432 governed object versions: 376 active
-  release objects, 25 superseded symptom versions, the retained v1 clinic
-  configuration, and 30 private draft toxicity-evidence records. The active
-  release pins none of the superseded symptoms, the v1 clinic object, or the
-  private evidence payloads.
-- 124 patient-facing modules are `draft`.
+- The active release contains 391 governed objects, all `draft`.
+- The repository review queue contains 451 governed object versions: 391 active
+  release objects, 25 superseded symptom versions, four superseded
+  weekly-paclitaxel preparation modules, the retained v1 clinic configuration,
+  and 30 private draft toxicity-evidence records. The active release pins none
+  of the superseded objects, the v1 clinic object, or the private evidence
+  payloads.
+- 143 patient-facing module versions are `draft`; 139 are active in the preview.
 - Approved patient-facing modules: **0**.
 - Reviewer identities: **none recorded**.
 - Clinical review dates: **none recorded**.
@@ -19,8 +20,8 @@ The repository contains no clinician-approved or published clinical content.
   and supportive-care policy bindings remain `unresolved`.
 - The active release is `preview`, `publication_status: draft`, and
   `clinical_use: false`.
-- The active release is `build-week-preview-2026-07-18@0.11.0`, with content hash
-  `ae844d5937b584e0e83e453df02de1ea8e45b113e0658e1113c9854008cc45f9`.
+- The active release is `build-week-preview-2026-07-18@0.12.0`, with content hash
+  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
 - Twenty-nine FDA-based drug records are `event_mapped`; 23 remain
   `source_indexed`. Carboplatin has a separate cross-indication FDA single-agent
   evidence map; cyclophosphamide, doxorubicin, and epirubicin have non-numerical
@@ -38,7 +39,7 @@ verification fields likewise do not establish clinical review or approval.
 
 The existing [clinician review brief](./clinical-review-brief.md) and
 [review record](./reviews/ARIAD-CRR-2026-001.md) remain immutably bound to the
-older `0.2.0` release and do not review or approve `0.11.0`. Freeze a new commit,
+older `0.2.0` release and do not review or approve `0.12.0`. Freeze a new commit,
 tree, release hash, compiled-file hash, and exact inventory before beginning any
 review of the current release. Use the snapshot-neutral [review record
 template](./templates/clinician-review-record-template.md) without conflating
@@ -157,7 +158,7 @@ wording/rationale, and unresolved discrepancy. Do not silently harmonize them.
 - Review all 30 evidence records, qualitative or categorical transformations,
   evidence-to-presentation mapping, patient wording, and FDA-supported action
   boundaries. The implemented draft contract is not clinical approval.
-- Review and edit all 124 patient-facing modules and all claim-to-source
+- Review and edit all 143 patient-facing module versions and all claim-to-source
   mappings.
 - Resolve the clinic's fever and supportive-care policy bindings. Any
   patient-facing wording must be source-linked in an educational module, not
