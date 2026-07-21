@@ -2,14 +2,12 @@ import { loadEnvConfig } from "@next/env";
 import path from "node:path";
 import type { NextConfig } from "next";
 
-// Next runs from apps/web in this workspace; keep one ignored local credential
-// file at the repository root while preserving normal deployment environment variables.
-loadEnvConfig(
-  path.resolve(process.cwd(), "../.."),
-  process.env.NODE_ENV !== "production",
-  console,
-  true,
-);
+// Next runs from apps/web in this workspace. Load the ignored root env file for
+// local development only; production builds must receive secrets at runtime
+// from the deployment platform so they cannot be copied into build artifacts.
+if (process.env.NODE_ENV !== "production") {
+  loadEnvConfig(path.resolve(process.cwd(), "../.."), true, console, true);
+}
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },

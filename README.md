@@ -342,12 +342,14 @@ record the resulting Session ID there and above.
 
 ## Deployment
 
-The app is prepared for a single Vercel deployment or the included standalone
-Docker image. No public deployment is claimed in this README.
+The competition preview targets Cloudflare Workers through the official
+OpenNext adapter. No public deployment is claimed in this README yet.
 
-- **Vercel preview:** use `pnpm build:preview` and configure server-only
-  environment variables in the project settings. Keep the prototype notice and
-  `clinical_use: false` release intact.
+- **Cloudflare preview:** use `pnpm build:cloudflare` to create the Workers
+  artifact, `pnpm preview:cloudflare` to test it in the Workers runtime, and
+  `pnpm deploy:cloudflare` to deploy. Keep `OPENAI_API_KEY` as a Workers secret;
+  the non-secret bounded runtime settings are versioned in
+  `apps/web/wrangler.jsonc`. The custom domain is `ariad.kesis.ca`.
 - **Docker preview:** pass the exact acknowledgement only to the controlled
   preview build:
 
