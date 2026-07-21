@@ -893,14 +893,39 @@ export function validateReleaseInclusion(
   const clinicKey = refKey(release.clinic_config);
   const clinicCandidate = objectsByKey.get(clinicKey);
   const clinicConfig = clinicCandidate?.kind === "clinic_config" ? clinicCandidate : undefined;
+  const seenIncludedKeys = new Set<string>();
+  const includedVersionsByIdentity = new Map<string, string>();
 
   release.included_objects.forEach((reference, index) => {
+    const key = refKey(reference);
+    const identity = `${reference.kind}:${reference.id}`;
+    if (seenIncludedKeys.has(key)) {
+      issues.push({
+        severity: "error",
+        code: "duplicate-release-object-reference",
+        objectId: release.release_id,
+        message: `Release includes duplicate object reference '${key}'`,
+      });
+    }
+    seenIncludedKeys.add(key);
+
+    const includedVersion = includedVersionsByIdentity.get(identity);
+    if (includedVersion && includedVersion !== reference.version) {
+      issues.push({
+        severity: "error",
+        code: "multiple-object-versions-in-release",
+        objectId: release.release_id,
+        message: `Release includes both '${identity}@${includedVersion}' and '${key}'`,
+      });
+    }
+    includedVersionsByIdentity.set(identity, reference.version);
+
     if (!included[index]) {
       issues.push({
         severity: "error",
         code: "release-object-missing",
         objectId: release.release_id,
-        message: `Release includes missing object '${refKey(reference)}'`,
+        message: `Release includes missing object '${key}'`,
       });
     }
   });

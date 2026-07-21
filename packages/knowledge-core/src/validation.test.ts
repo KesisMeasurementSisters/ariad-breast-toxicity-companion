@@ -275,6 +275,66 @@ function publishedManifest(clinic: ClinicConfig): ContentReleaseManifest {
   };
 }
 
+describe("release object identity", () => {
+  it("rejects duplicate exact object references", () => {
+    const moduleRef = {
+      kind: "educational_module" as const,
+      id: draftPolicyModule.id,
+      version: draftPolicyModule.version,
+    };
+    const manifest = previewManifest(draftClinic, [
+      { kind: "clinic_config", id: draftClinic.id, version: draftClinic.version },
+      moduleRef,
+      moduleRef,
+      { kind: "source", id: testSource.id, version: testSource.version },
+    ]);
+
+    const issues = validateReleaseInclusion(
+      repositoryWith(draftClinic, draftPolicyModule),
+      manifest,
+      PREVIEW_ACKNOWLEDGEMENT,
+    );
+
+    expect(issues).toContainEqual(
+      expect.objectContaining({
+        code: "duplicate-release-object-reference",
+        objectId: manifest.release_id,
+      }),
+    );
+  });
+
+  it("rejects multiple versions of one object identity", () => {
+    const newerModule = { ...draftPolicyModule, version: "2.0.0" };
+    const manifest = previewManifest(draftClinic, [
+      { kind: "clinic_config", id: draftClinic.id, version: draftClinic.version },
+      {
+        kind: "educational_module",
+        id: draftPolicyModule.id,
+        version: draftPolicyModule.version,
+      },
+      {
+        kind: "educational_module",
+        id: newerModule.id,
+        version: newerModule.version,
+      },
+      { kind: "source", id: testSource.id, version: testSource.version },
+    ]);
+
+    const issues = validateReleaseInclusion(
+      repositoryWith(draftClinic, draftPolicyModule, newerModule),
+      manifest,
+      PREVIEW_ACKNOWLEDGEMENT,
+    );
+
+    expect(issues).toContainEqual(
+      expect.objectContaining({
+        code: "multiple-object-versions-in-release",
+        objectId: manifest.release_id,
+      }),
+    );
+  });
+});
+
 describe("content status-transition governance", () => {
   it.each([
     {
