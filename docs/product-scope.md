@@ -26,13 +26,13 @@ The Build Week preview contains:
 - three exact regimen–symptom relationships with complete six-section draft
   guidance;
 - one weekly-paclitaxel preparation pathway;
-- 27 draft single-drug patient side-effect presentations, each backed by a
+- 30 draft single-drug patient side-effect presentations, each backed by a
   private exact FDA evidence record;
 - 71 source records and one exact-version structured synthetic clinic
   configuration;
-- one immutable 261-object preview release,
-  `build-week-preview-2026-07-18@0.7.0`, with content hash
-  `1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c`.
+- one immutable 264-object preview release,
+  `build-week-preview-2026-07-18@0.10.0`, with content hash
+  `b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f`.
 
 The polished pathways are weekly paclitaxel/peripheral neuropathy,
 capecitabine/diarrhea, and AC/fever or infection concern. Catalogue breadth is a
@@ -43,9 +43,11 @@ The expanded drug catalogue is a search and source-provenance foundation. Of
 the 53 canonical records, 52 point to exact FDA labels and identify their safety
 sections. Twenty-five have a breast-specific draft event-level evidence record;
 carboplatin has a separately governed cross-indication FDA single-agent record,
-and cyclophosphamide has a non-numerical FDA label-category record. Together
-they support 27 patient-only presentations with broad qualitative or categorical
-groups, while 26 drugs remain intentional no-page gaps. The private
+and cyclophosphamide, doxorubicin, and epirubicin have non-numerical FDA
+label-category records. Pembrolizumab adds a cross-cancer FDA single-agent
+label-category record. Together they support 30 patient-only presentations with
+broad qualitative or categorical groups, while 23 drugs remain intentional
+no-page gaps. The private
 numerical evidence is not shipped in the browser release. The three complete symptom relationships remain regimen-level;
 the drug pages are education-only and do not calculate urgency or provide a
 treatment recommendation. See the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).

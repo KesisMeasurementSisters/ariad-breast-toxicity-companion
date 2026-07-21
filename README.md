@@ -45,8 +45,10 @@ Life** track.
 - Fifty-two drug records pin exact FDA label identities and safety-section
   locations. Twenty-five now have separately governed single-agent FDA evidence
   from breast-cancer populations; carboplatin adds one cross-indication FDA
-  single-agent map, and cyclophosphamide adds one non-numerical FDA label-category
-  map. Twenty-six breast-label entries remain source indexes.
+  single-agent map, while cyclophosphamide, doxorubicin, and epirubicin add
+  non-numerical FDA label-category maps. Pembrolizumab adds a cross-cancer FDA
+  single-agent label-category map. Twenty-three breast-label entries remain
+  source indexes.
 - Explicit coverage states: full demo guidance, education only, catalogued, or
   unsupported.
 - Three complete draft symptom pathways:
@@ -54,7 +56,7 @@ Life** track.
   - capecitabine + diarrhea;
   - AC chemotherapy + fever, chills, or infection concern.
 - One complete draft weekly-paclitaxel treatment-preparation path.
-- Twenty-seven draft single-drug side-effect pages with qualitative frequency
+- Thirty draft single-drug side-effect pages with qualitative frequency
   or FDA label-category groups, plain-language disclosures, FDA-linked actions,
   and a final escalation summary for each drug.
 - Multi-drug regimen pages compose those existing single-drug presentations in
@@ -64,7 +66,7 @@ Life** track.
   grade, diagnosis, cause, or personal urgency.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
   summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
-- A content-addressed preview release containing 261 exact object versions.
+- A content-addressed preview release containing 264 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
   treatment-code demos, local saved treatments, and copy/print/download symptom
   summaries. The clinic's fever and supportive-care policy bindings remain
@@ -248,17 +250,17 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.7.0`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.10.0`,
 with content hash
-`1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c`.
+`b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f`.
 
 ## Content and source governance
 
-The current release pins 261 object versions: 190 governed draft objects and
+The current release pins 264 object versions: 193 governed draft objects and
 71 source records. Its 22 patient-facing modules have zero recorded clinical
-approvals; all 27 drug presentations are also unreviewed drafts. The repository
-review queue contains 218 governed object versions: the 190 release objects, the
-retained v1 clinic configuration, and 27 private draft toxicity-evidence records.
+approvals; all 30 drug presentations are also unreviewed drafts. The repository
+review queue contains 224 governed object versions: the 193 release objects, the
+retained v1 clinic configuration, and 30 private draft toxicity-evidence records.
 The release pins the v2 clinic configuration and patient-safe presentations,
 but deliberately excludes the numerical evidence payloads. That structured
 synthetic configuration contains identity
@@ -269,10 +271,12 @@ pathway. No schema, validation, or preview compilation result records or implies
 a clinical approval.
 
 The drug catalogue remains an identity-and-provenance foundation. A separate,
-source-controlled toxicity evidence store now contains 27 draft FDA evidence
+source-controlled toxicity evidence store now contains 30 draft FDA evidence
 records: 25 breast-cancer single-agent populations, one cross-indication
-carboplatin single-agent population, and one cyclophosphamide FDA label-category record
-without a usable denominator. Each stores its exact evidence boundary, source
+carboplatin single-agent population, and three FDA label-category records for
+cyclophosphamide, doxorubicin, and epirubicin without usable denominators.
+Pembrolizumab adds a cross-cancer FDA single-agent label-category record. Each
+stores its exact evidence boundary, source
 event names, frequency status, and available values outside the browser release.
 A content hash binds each evidence record to its patient-safe
 presentation. The three complete draft treatment-toxicity relationships remain

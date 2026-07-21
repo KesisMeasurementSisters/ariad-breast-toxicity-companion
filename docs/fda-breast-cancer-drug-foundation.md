@@ -61,19 +61,23 @@ Every FDA-based drug pins:
 - a governed source record linked to an exact official label or Drugs@FDA
   application record.
 
-Twenty-six FDA-based entries remain `source_indexed`; 26 are `event_mapped`.
+Twenty-three FDA-based entries remain `source_indexed`; 29 are `event_mapped`.
 The 25 breast-specific private evidence objects preserve the exact population,
 single-drug context, denominator, dose, comparator, source table, event names,
 and numerical measures. Combination-arm observations must not be attributed to
 one component drug. Carboplatin is a cross-indication single-agent exception;
-cyclophosphamide is a non-numerical label-category exception with unavailable
-frequency and denominator values. The eligibility decisions and 26
+cyclophosphamide, doxorubicin, and epirubicin are non-numerical label-category
+exceptions with unavailable frequency and denominator values. Pembrolizumab is
+a cross-cancer single-agent FDA label-category exception that excludes
+KEYNOTE-522 combination rates. The eligibility decisions and 23
 intentional gaps are in
 the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).
 
 Each patient presentation is bound to its exact evidence payload by version and
 hash. Build validation checks numerical qualitative groups against the matching
-all-grade source value and keeps cyclophosphamide's categorical groups separate.
+all-grade source value and keeps cyclophosphamide's, doxorubicin's, and
+epirubicin's categorical groups separate. Pembrolizumab's label categories also
+remain separate from its stored pooled warning rates.
 The browser release excludes the raw numerical evidence,
 severity values, laboratory cut-offs, and dose context. All evidence and patient
 wording remain unreviewed drafts.

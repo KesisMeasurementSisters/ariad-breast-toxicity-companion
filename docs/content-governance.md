@@ -4,9 +4,9 @@
 
 The repository contains no clinician-approved or published clinical content.
 
-- The active release contains 190 governed objects, all `draft`.
-- The repository review queue contains 218 governed object versions: 190 active
-  release objects, the retained v1 clinic configuration, and 27 private draft
+- The active release contains 193 governed objects, all `draft`.
+- The repository review queue contains 224 governed object versions: 193 active
+  release objects, the retained v1 clinic configuration, and 30 private draft
   toxicity-evidence records. The active release pins neither the v1 clinic
   object nor the private evidence payloads.
 - 22 patient-facing modules are `draft`.
@@ -18,12 +18,14 @@ The repository contains no clinician-approved or published clinical content.
   and supportive-care policy bindings remain `unresolved`.
 - The active release is `preview`, `publication_status: draft`, and
   `clinical_use: false`.
-- The active release is `build-week-preview-2026-07-18@0.7.0`, with content hash
-  `1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c`.
-- Twenty-six FDA-based drug records are `event_mapped`; 26 remain
+- The active release is `build-week-preview-2026-07-18@0.10.0`, with content hash
+  `b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f`.
+- Twenty-nine FDA-based drug records are `event_mapped`; 23 remain
   `source_indexed`. Carboplatin has a separate cross-indication FDA single-agent
-  evidence map; cyclophosphamide has a non-numerical FDA label-category map.
-- The release contains 27 patient-safe drug presentations whose exact evidence
+  evidence map; cyclophosphamide, doxorubicin, and epirubicin have non-numerical
+  FDA label-category maps; pembrolizumab has a cross-cancer single-agent FDA
+  label-category map.
+- The release contains 30 patient-safe drug presentations whose exact evidence
   references and payload hashes are validated at build time. None has been
   clinically reviewed or approved. Numerical frequencies, severity values,
   laboratory cut-offs, and dose context are excluded from the browser release.
@@ -35,7 +37,7 @@ verification fields likewise do not establish clinical review or approval.
 
 The existing [clinician review brief](./clinical-review-brief.md) and
 [review record](./reviews/ARIAD-CRR-2026-001.md) remain immutably bound to the
-older `0.2.0` release and do not review or approve `0.7.0`. Freeze a new commit,
+older `0.2.0` release and do not review or approve `0.10.0`. Freeze a new commit,
 tree, release hash, compiled-file hash, and exact inventory before beginning any
 review of the current release. Use the snapshot-neutral [review record
 template](./templates/clinician-review-record-template.md) without conflating
