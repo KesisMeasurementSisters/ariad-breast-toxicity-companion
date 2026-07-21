@@ -53,6 +53,24 @@ export interface PreparationResolution {
   sourceIds: string[];
 }
 
+export interface PreparationDisplayGroups {
+  treatment: EducationalModule[];
+  beforeTreatment: EducationalModule[];
+  haveReady: EducationalModule[];
+  safetyBoundary: EducationalModule[];
+}
+
+export const PREPARATION_DISPLAY_COPY = {
+  heading: "Get ready in three steps",
+  exactIntroduction: "This guide is for the treatment you chose.",
+  unavailableIntroduction: "Ariad does not have a guide for this treatment yet.",
+  steps: [
+    { id: "treatment", label: "Step 1", title: "What is this treatment?" },
+    { id: "beforeTreatment", label: "Step 2", title: "What should I do before treatment?" },
+    { id: "haveReady", label: "Step 3", title: "What should I have ready?" },
+  ],
+} as const;
+
 function eligibleRelationships(
   release: CompiledRelease,
   symptomId: string,
@@ -250,7 +268,7 @@ const GENERAL_PREPARATION_TREATMENT_ID = "systemic-therapy";
 
 function orderedPreparationModules(
   modules: EducationalModule[],
-  basis: "exact" | "general",
+  context: "exact" | "general" | "display",
 ): EducationalModule[] {
   const byOrder = new Map<number, string>();
   for (const preparationModule of modules) {
@@ -263,7 +281,7 @@ function orderedPreparationModules(
     const previousId = byOrder.get(order);
     if (previousId) {
       throw new Error(
-        `Duplicate ${basis} preparation_order ${order}: '${previousId}' and '${preparationModule.id}'`,
+        `Duplicate ${context} preparation_order ${order}: '${previousId}' and '${preparationModule.id}'`,
       );
     }
     byOrder.set(order, preparationModule.id);
@@ -273,6 +291,35 @@ function orderedPreparationModules(
       left.preparation_order! - right.preparation_order! ||
       left.id.localeCompare(right.id),
   );
+}
+
+export function groupPreparationModulesForDisplay(
+  modules: EducationalModule[],
+): PreparationDisplayGroups {
+  const groups: PreparationDisplayGroups = {
+    treatment: [],
+    beforeTreatment: [],
+    haveReady: [],
+    safetyBoundary: [],
+  };
+
+  for (const preparationModule of orderedPreparationModules(modules, "display")) {
+    if (preparationModule.claim_ids.includes("claim-ariad-boundary")) {
+      groups.safetyBoundary.push(preparationModule);
+      continue;
+    }
+
+    const order = preparationModule.preparation_order!;
+    if (order < 20) {
+      groups.treatment.push(preparationModule);
+    } else if (order < 30) {
+      groups.beforeTreatment.push(preparationModule);
+    } else {
+      groups.haveReady.push(preparationModule);
+    }
+  }
+
+  return groups;
 }
 
 function preparationResolution(
@@ -322,8 +369,8 @@ export function resolvePreparation(
     return preparationResolution(
       "exact",
       treatment.kind === "regimen"
-        ? "Information for this treatment plan"
-        : "Information for this drug",
+        ? "For this treatment plan"
+        : "For this drug",
       null,
       exactModules,
     );
@@ -336,7 +383,7 @@ export function resolvePreparation(
     return preparationResolution(
       "general",
       "General treatment preparation",
-      "Ariad does not have preparation information for this exact treatment. The information below is general and is not specific to your drug or treatment plan.",
+      "Ariad does not have a guide for this exact treatment. The steps below are general.",
       generalModules,
     );
   }

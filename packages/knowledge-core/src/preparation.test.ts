@@ -9,7 +9,11 @@ import {
 } from "@ariad/contracts";
 import { beforeAll, describe, expect, it } from "vitest";
 import { compileRelease, findReleaseManifest } from "./compile";
-import { resolvePreparation } from "./guidance";
+import {
+  groupPreparationModulesForDisplay,
+  PREPARATION_DISPLAY_COPY,
+  resolvePreparation,
+} from "./guidance";
 import { loadKnowledgeRepository } from "./repository";
 
 const moduleFixture = {
@@ -51,12 +55,7 @@ function estimatedSyllables(word: string): number {
   return Math.max(1, vowelGroups - silentE);
 }
 
-function estimatedFleschKincaidGrade(modules: EducationalModule[]): number {
-  const sentenceUnits = modules.flatMap((preparationModule) => [
-    preparationModule.title,
-    ...preparationModule.paragraphs,
-    ...preparationModule.bullets,
-  ]);
+function estimatedGradeFromSentences(sentenceUnits: string[]): number {
   const words = sentenceUnits
     .join(" ")
     .match(/[A-Za-z]+(?:[’'-][A-Za-z]+)*/gu) ?? [];
@@ -68,6 +67,16 @@ function estimatedFleschKincaidGrade(modules: EducationalModule[]): number {
   return 0.39 * (words.length / sentenceCount) +
     11.8 * (syllableCount / words.length) -
     15.59;
+}
+
+function estimatedFleschKincaidGrade(modules: EducationalModule[]): number {
+  return estimatedGradeFromSentences(
+    modules.flatMap((preparationModule) => [
+      preparationModule.title,
+      ...preparationModule.paragraphs,
+      ...preparationModule.bullets,
+    ]),
+  );
 }
 
 beforeAll(async () => {
@@ -136,6 +145,38 @@ describe("preparation resolution", () => {
     }
   });
 
+  it("organizes each active guide into three patient questions and one safety boundary", () => {
+    const representativeTreatmentIds = [
+      "alpelisib",
+      "weekly-paclitaxel",
+      "capecitabine-monotherapy",
+      "ac",
+    ];
+
+    for (const treatmentId of representativeTreatmentIds) {
+      const resolution = resolvePreparation(release, treatmentId);
+      const groups = groupPreparationModulesForDisplay(resolution.modules);
+      const displayedIds = [
+        ...groups.treatment,
+        ...groups.beforeTreatment,
+        ...groups.haveReady,
+        ...groups.safetyBoundary,
+      ].map((preparationModule) => preparationModule.id);
+
+      expect(groups.treatment, treatmentId).toHaveLength(1);
+      expect(groups.beforeTreatment, treatmentId).toHaveLength(1);
+      expect(groups.haveReady.length, treatmentId).toBeGreaterThan(0);
+      expect(groups.safetyBoundary, treatmentId).toHaveLength(1);
+      expect(
+        groups.safetyBoundary[0]?.claim_ids,
+        treatmentId,
+      ).toContain("claim-universal-emergency-boundary");
+      expect(displayedIds, treatmentId).toEqual(
+        resolution.modules.map((preparationModule) => preparationModule.id),
+      );
+    }
+  });
+
   it("returns modules in deterministic authored order without losing sources", () => {
     const treatmentIds = release.objects
       .filter(
@@ -176,6 +217,23 @@ describe("preparation resolution", () => {
       const grade = estimatedFleschKincaidGrade(resolution.modules);
       expect(grade, `${treatmentId}: estimated grade ${grade.toFixed(2)}`).toBeLessThanOrEqual(8);
     }
+  });
+
+  it("keeps preparation navigation plain and below an estimated grade 8 level", () => {
+    const generalFallback = resolvePreparation(release, "alpelisib").fallbackReason ?? "";
+    const interfaceCopy = [
+      PREPARATION_DISPLAY_COPY.heading,
+      PREPARATION_DISPLAY_COPY.exactIntroduction,
+      PREPARATION_DISPLAY_COPY.unavailableIntroduction,
+      generalFallback,
+      ...PREPARATION_DISPLAY_COPY.steps.flatMap((step) => [step.label, step.title]),
+    ];
+    const grade = estimatedGradeFromSentences(interfaceCopy);
+
+    expect(grade, `estimated grade ${grade.toFixed(2)}`).toBeLessThanOrEqual(8);
+    expect(interfaceCopy.join(" ")).not.toMatch(
+      /\b(?:administered|intravenously|pre-treatment|protocol|supportive care|systemic therapy)\b/iu,
+    );
   });
 
   it("does not infer regimen preparation from a component drug", () => {
