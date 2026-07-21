@@ -54,6 +54,10 @@ function includesQuery(candidate: string, query: string): boolean {
   return candidate.includes(query) || compactSearchText(candidate).includes(compactSearchText(query));
 }
 
+function includesNormalizedPhrase(value: string, phrase: string): boolean {
+  return ` ${value} `.includes(` ${phrase} `);
+}
+
 function rankRecord(record: SearchRecord, query: string): SearchResult | null {
   if (matchesExact(record.normalized_name, query)) {
     return { record, score: 1, matchType: "exact_name" };
@@ -282,7 +286,9 @@ export function classifySymptomDeterministically(
   const embedded = release.indexes.symptoms
     .map((record) => {
       const matchingTerms = [record.normalized_name, ...record.normalized_aliases]
-        .filter((term) => term.length >= 3 && normalizedInput.includes(term))
+        .filter(
+          (term) => term.length >= 3 && includesNormalizedPhrase(normalizedInput, term),
+        )
         .sort((left, right) => right.length - left.length);
       if (matchingTerms.length === 0) return null;
       return { record, term: matchingTerms[0] ?? "", score: 0.96 };

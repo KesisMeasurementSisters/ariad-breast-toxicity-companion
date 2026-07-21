@@ -8,6 +8,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { compileRelease, findReleaseManifest } from "./compile";
 import { loadKnowledgeRepository } from "./repository";
 import {
+  classifySymptomDeterministically,
   regimenComponentDrugs,
   searchTreatments,
   treatmentSearchDisplayName,
@@ -219,5 +220,31 @@ describe("treatment search", () => {
       searchTreatments(release, "Kanjinti").filter(({ record }) => record.kind === "drug"),
     ).toHaveLength(1);
     expect(searchTreatments(release, "Kanjinti")[0]?.record.id).toBe("trastuzumab");
+  });
+});
+
+describe("deterministic symptom classification", () => {
+  it("matches controlled symptom phrases as complete normalized phrases", () => {
+    const result = classifySymptomDeterministically(
+      release,
+      "I have pain in my hand",
+    );
+
+    expect(result.candidates[0]).toMatchObject({
+      symptomId: "pain",
+      supportingPhrases: ["pain"],
+    });
+    expect(result.needsClarification).toBe(false);
+  });
+
+  it("does not promote a symptom term embedded inside an unrelated word", () => {
+    const result = classifySymptomDeterministically(
+      release,
+      "I was painting all afternoon",
+    );
+
+    expect(result.candidates).toEqual([]);
+    expect(result.needsClarification).toBe(true);
+    expect(result.reasonCode).toBe("insufficient_information");
   });
 });
