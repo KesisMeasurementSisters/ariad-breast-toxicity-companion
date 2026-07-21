@@ -31,7 +31,7 @@ for clinical use, and cannot pass the ordinary production build gate.
 Built by **Kesis & Sisters** for the OpenAI Build Week 2026 **Apps for Your
 Life** track.
 
-- Live demo: **TODO — add public URL after deployment**
+- Live demo: [https://ariad.kesis.ca](https://ariad.kesis.ca)
 - Demo video: **TODO — add public YouTube URL, no more than three minutes**
 - Primary Codex `/feedback` Session ID: **TODO before submission**
 - Build evidence: [BUILD_WEEK.md](./BUILD_WEEK.md)
@@ -342,8 +342,9 @@ record the resulting Session ID there and above.
 
 ## Deployment
 
-The competition preview targets Cloudflare Workers through the official
-OpenNext adapter. No public deployment is claimed in this README yet.
+The competition preview is deployed to Cloudflare Workers through the official
+OpenNext adapter at [https://ariad.kesis.ca](https://ariad.kesis.ca). It is an
+explicitly labelled unreviewed prototype and is not a clinical release.
 
 - **Cloudflare preview:** use `pnpm build:cloudflare` to create the Workers
   artifact, `pnpm preview:cloudflare` to test it in the Workers runtime, and

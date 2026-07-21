@@ -22,13 +22,13 @@ Toronto**. Reconfirm the deadline and eligibility on Devpost before submitting.
 
 ## Working demo
 
-- [ ] Deploy the exact final submission commit to a public URL.
+- [x] Deploy the exact final submission commit to a public URL.
 - [ ] Keep the demo free and available through the judging period.
-- [ ] Verify no login, payment, invitation, or restricted route is required.
+- [x] Verify no login, payment, invitation, or restricted route is required.
 - [ ] Verify mobile behavior at approximately 320, 375, 390, and 430 px.
 - [ ] Run all three sample scenarios against the deployed URL.
 - [x] Verify a local synthetic GPT-5.6 neuropathy request reports an OpenAI result.
-- [ ] Verify the deployed GPT-5.6 neuropathy path visibly reports an OpenAI result.
+- [x] Verify the deployed GPT-5.6 neuropathy path visibly reports an OpenAI result.
 - [x] Verify deterministic behavior locally with `ENABLE_GPT56=false`.
 - [x] Verify `/api/health` reports the intended release and configured AI state without
   exposing secrets.
@@ -36,7 +36,8 @@ Toronto**. Reconfirm the deadline and eligibility on Devpost before submitting.
   sources, and unsupported path.
 - [ ] Verify summary copy, print, and download.
 - [x] Replace README screenshot placeholders with final local evidence images.
-- [ ] Add the live URL to `README.md` and the Devpost submission.
+- [x] Add the live URL to `README.md`.
+- [ ] Add the live URL to the Devpost submission.
 
 ## Video
 
@@ -120,7 +121,7 @@ a post-prototype governance gate.
 - [x] Confirm OpenAI requests use server-side credentials, structured output,
   input limits, timeout, no retries, `store: false`, same-origin protection, and
   rate limiting.
-- [ ] Confirm security headers on the deployed URL.
+- [x] Confirm security headers on the deployed URL.
 - [x] Confirm the UI asks users not to enter identifying information.
 - [ ] Rotate the competition key after the judging period or immediately on any
   suspected exposure.

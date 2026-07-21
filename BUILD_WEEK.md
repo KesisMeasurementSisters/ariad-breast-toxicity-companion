@@ -675,8 +675,10 @@
 
 - The competition key is scoped to the Ariad OpenAI project and remains only in
   ignored local storage and managed deployment secrets.
-- The project is limited to GPT-5.6 Luna, with a hard monthly project limit of
-  $10 and alerts at 50%, 80%, and 100%.
+- The project has a $10 monthly budget with alerts at 50%, 80%, and 100%.
+  The separate $10 prepaid balance with automatic recharge off is the spending
+  backstop; the project budget itself should not be treated as a guaranteed
+  hard stop.
 - Luna project limits are 10,000 tokens per minute and three requests per
   minute. Ariad also limits input, output, request time, retries, and route use.
 - The prepaid balance is $10 and automatic recharge is off.
@@ -694,5 +696,63 @@
 - The bounded provider timeout is 15 seconds, route duration is 20 seconds,
   retries remain off, structured output is required, and requests use
   `store: false`.
-- Public deployment, public-URL smoke checks, final key replacement, and the
-  recorded demo remain separate pending gates.
+- The recorded demo remains a separate pending gate.
+
+## 2026-07-21 — Cloudflare competition deployment
+
+### Deployment boundary
+
+- Deployed the explicitly unreviewed preview to Cloudflare Workers through
+  OpenNext at [https://ariad.kesis.ca](https://ariad.kesis.ca).
+- The first public application upload used commit
+  `30692fefd757f407288fe8a684d011cb90e7d060` and Worker version
+  `15fae213-1a82-4a5e-8b06-88ada103c048`.
+- Adding the managed `OPENAI_API_KEY` secret created Worker version
+  `5185c3bd-d089-48c6-b746-ce4c1de32870`. The secret value was not printed,
+  committed, or added to a client-visible variable.
+- The active public release remains the draft preview
+  `build-week-preview-2026-07-18@0.12.0`, content hash
+  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`,
+  with `clinicalUse: false` and `containsUnapprovedContent: true`.
+
+### Secret-safe build evidence
+
+- A predeployment inspection found that the adapter could copy the root
+  `.env.local` into its generated server environment file. That artifact was
+  never deployed.
+- The Cloudflare command wrapper now holds `.env.local` outside the adapter's
+  input during build, removes `OPENAI_API_KEY` from the child environment, and
+  restores the ignored local file in a `finally` path.
+- A fresh generated artifact was searched for the exact local key value before
+  deployment and contained no match. The compressed Worker bundle was
+  1,269.46 KiB.
+
+### Public verification
+
+- The public home page loaded without an account, payment, invitation, or
+  restricted route and visibly showed the unreviewed-prototype notice, the
+  universal emergency statement, the cause boundary, and all three sample
+  entry cards.
+- Public `/api/health` returned HTTP 200 with the intended release and content
+  hash, `gpt-5.6-luna` enabled, and a ready model status without exposing a
+  secret. The response included the intended security headers.
+- One synthetic public neuropathy request returned an OpenAI result and the
+  controlled `peripheral-neuropathy` match. The patient interface visibly
+  explained that AI only matched the supplied words to Ariad's symptom list
+  and did not decide what was wrong or write medical advice.
+- The stale viewport assertion that failed GitHub CI was replaced with a
+  patient-centred overflow and reachability check. The focused Playwright check
+  passed on mobile and desktop. Full local lint, typecheck, content validation,
+  safety scan, 175 unit/golden tests, Cloudflare build, and Workers-runtime
+  preview also passed.
+- GitHub's connected workflow view does not expose push-only runs for this
+  private branch, so the fresh remote CI result remains an explicit item to
+  confirm in GitHub rather than an inferred pass.
+
+### Remaining credential action
+
+- The new project-scoped key is active and powers the verified public path.
+  The OpenAI Platform revoke flow for the older `Codex` key redirected through
+  sign-in but continued to list that key as active. Its revocation remains a
+  manual owner action and must not be recorded as complete until the Platform
+  shows only the intended competition key.

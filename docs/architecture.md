@@ -132,10 +132,11 @@ runtime consumption are implemented.
 
 ## Deployment shape
 
-The competition target is one Vercel application with server-side environment
-variables and no database. The included multi-stage Dockerfile builds the same
-standalone Next.js output as a non-root user. No public deployment is currently
-claimed.
+The competition preview is one Cloudflare Worker built with the OpenNext
+Cloudflare adapter, with a managed server-side OpenAI secret and no database.
+The custom domain is `ariad.kesis.ca`. The included multi-stage Dockerfile
+remains an alternative way to build the standalone Next.js output as a non-root
+user.
 
 Draft preview builds require the exact explicit acknowledgement and preserve
 the visible prototype notice. The competition target also forces
