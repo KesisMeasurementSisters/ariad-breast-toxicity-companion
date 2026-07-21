@@ -755,3 +755,53 @@
 - The owner revoked the older `Codex` key after the public path was proven.
   The OpenAI Platform then showed one active key: `Ariad OpenAI Buildweek`.
   No secret value was recorded in this evidence.
+
+## 2026-07-21 — final public demo smoke test
+
+### Deployed journeys
+
+- Ran all three sample paths end to end at
+  [https://ariad.kesis.ca](https://ariad.kesis.ca):
+  - weekly paclitaxel with tingling, numbness, or burning;
+  - capecitabine with diarrhea; and
+  - AC chemotherapy with fever, chills, or feeling unwell.
+- The neuropathy path visibly used AI only to match the synthetic wording to
+  the controlled symptom list. It then completed all six questions and showed
+  the fixed home, cancer-team contact, urgent-help, source, and summary modules.
+- The diarrhea path completed all seven questions and kept the unresolved
+  clinic fever instruction visible instead of inventing a threshold.
+- The AC path completed all five questions and kept both the unresolved fever
+  instruction and made-up clinic-contact warning visible.
+
+### Public controls and safety boundaries
+
+- The public home, About and limits page, Reset demo action, source panel, and
+  unsupported-symptom path all worked. The prototype notice, emergency
+  statement, cause boundary, treatment-change boundary, and synthetic-clinic
+  warning remained visible where required.
+- The neuropathy source panel listed three linked sources with organization,
+  jurisdiction, and checked dates.
+- The neutral neuropathy summary used only the synthetic answers and retained
+  both the cause/seriousness boundary and universal emergency statement.
+- Copy changed visibly to `Copied`. Download created
+  `ariad-symptom-summary.txt` with the expected synthetic facts and both safety
+  statements. The automated browser did not surface its download event, so the
+  file's timestamp and contents were checked directly in the Downloads folder.
+- The deployed Print action is present, and the exact-final GitHub CI run passed
+  its print-state checks. Opening and closing the native print preview on the
+  judging device remains a short manual check because the controlled browser
+  does not expose that operating-system dialog.
+
+### Mobile verification
+
+- Tested the public home plus representative patient screens at 320, 375, 390,
+  and 430 CSS pixels. At each size, the document width equalled the viewport
+  width and no visible link, button, input, or text area crossed the viewport.
+- Representative screens were the neuropathy symptom entry at 320 px,
+  diarrhea question flow at 375 px, fever question flow at 390 px, and
+  treatment entry at 430 px.
+- At 320 px, the emergency bar remained pinned at the top after scrolling and
+  the page still had no horizontal overflow.
+- Manual keyboard-only and screen-reader smoke tests remain unchecked. The
+  exact-final automated accessibility suite is green, but that is not recorded
+  as a substitute for assistive-technology testing by a person.

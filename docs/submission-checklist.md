@@ -25,16 +25,18 @@ Toronto**. Reconfirm the deadline and eligibility on Devpost before submitting.
 - [x] Deploy the exact final submission commit to a public URL.
 - [ ] Keep the demo free and available through the judging period.
 - [x] Verify no login, payment, invitation, or restricted route is required.
-- [ ] Verify mobile behavior at approximately 320, 375, 390, and 430 px.
-- [ ] Run all three sample scenarios against the deployed URL.
+- [x] Verify mobile behavior at approximately 320, 375, 390, and 430 px.
+- [x] Run all three sample scenarios against the deployed URL.
 - [x] Verify a local synthetic GPT-5.6 neuropathy request reports an OpenAI result.
 - [x] Verify the deployed GPT-5.6 neuropathy path visibly reports an OpenAI result.
 - [x] Verify deterministic behavior locally with `ENABLE_GPT56=false`.
 - [x] Verify `/api/health` reports the intended release and configured AI state without
   exposing secrets.
-- [ ] Verify the prototype notice, emergency boundary, About/limits, reset,
+- [x] Verify the prototype notice, emergency boundary, About/limits, reset,
   sources, and unsupported path.
-- [ ] Verify summary copy, print, and download.
+- [x] Verify summary copy and text download against the deployed URL.
+- [x] Verify exact-final CI print-state coverage and the deployed Print action.
+- [ ] Manually open and close the native print preview on the judging device.
 - [x] Replace README screenshot placeholders with final local evidence images.
 - [x] Add the live URL to `README.md`.
 - [ ] Add the live URL to the Devpost submission.
