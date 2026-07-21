@@ -1,0 +1,385 @@
+kind: drug_toxicity_presentation
+id: pembrolizumab-patient-side-effects
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+audience: patient
+drug_id: pembrolizumab
+monotherapy: true
+evidence_scope: drug_label
+evidence_ref:
+  kind: drug_toxicity_evidence
+  id: pembrolizumab-fda-single-agent-label-safety
+  version: 1.0.0
+evidence_payload_hash: 2219dad9c397d04a2494bb98693f943fb26e624f10053b5caddc012746678418
+source_ids: [fda-label-pembrolizumab]
+route_label: Intravenous (IV) infusion
+subtitle: Side effects linked to pembrolizumab
+frequency_context: >-
+  This page groups FDA single-agent information from people treated for several
+  cancer types into common effects and serious effects. It is not a
+  breast-cancer frequency table. Side effects can be different for each person.
+cause_statement: Ariad cannot determine the cause of a symptom.
+source_context: >-
+  This draft uses FDA single-agent information for pembrolizumab from several
+  cancer types. Follow the information given by your own cancer team.
+frequency_method_id: null
+effects:
+  - id: tiredness
+    display_name: Tiredness
+    evidence_event_ids: [fatigue]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may feel more tired or have less energy than usual.
+    what_you_may_notice:
+      - Needing more rest or finding usual activities harder
+    safe_actions:
+      - Balance activity with rest and ask for help when you need it.
+    contact_team:
+      - Contact your cancer team if tiredness is new, severe, or getting worse.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: muscle-joint-or-other-pain
+    display_name: Muscle, joint, or other pain
+    evidence_event_ids: [musculoskeletal-pain, pain]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may notice aching or pain in muscles, joints, or another part of your body.
+    what_you_may_notice:
+      - New aches, stiffness, or pain
+    safe_actions: []
+    contact_team:
+      - Tell your cancer team about new, severe, or worsening pain.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: rash-or-itching
+    display_name: Rash or itching
+    evidence_event_ids: [rash, pruritus]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your skin may become itchy or develop a rash.
+    what_you_may_notice:
+      - New itching, redness, or a rash
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team promptly about a new or worsening rash.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: diarrhea
+    display_name: Diarrhea
+    evidence_event_ids: [diarrhea]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your bowel movements may become loose or happen more often.
+    what_you_may_notice:
+      - Loose or watery bowel movements
+      - More bowel movements than usual
+    safe_actions:
+      - Follow the diarrhea instructions given by your cancer team.
+    contact_team:
+      - Contact your cancer team right away for new or worsening diarrhea.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: fever
+    display_name: Fever
+    evidence_event_ids: [pyrexia]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your temperature may rise during treatment.
+    what_you_may_notice:
+      - Feeling hot, chilled, or unwell
+    safe_actions:
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team:
+      - Contact your cancer team immediately for a fever.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: cough-or-shortness-of-breath
+    display_name: Cough or shortness of breath
+    evidence_event_ids: [cough, dyspnea]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may develop a cough or feel short of breath.
+    what_you_may_notice:
+      - A new cough or a change in your usual cough
+      - Feeling short of breath during usual activities
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for a new or worsening cough or shortness of breath.
+    urgent_help:
+      - Get emergency medical help right away if you are struggling to breathe.
+    reassuring_monitoring: []
+
+  - id: decreased-appetite
+    display_name: Decreased appetite
+    evidence_event_ids: [decreased-appetite]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may feel less interested in eating than usual.
+    what_you_may_notice:
+      - Eating less or feeling full sooner
+    safe_actions:
+      - Follow the eating and drinking advice given by your cancer team.
+    contact_team:
+      - Contact your cancer team if you are unable to eat or drink enough.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: constipation
+    display_name: Constipation
+    evidence_event_ids: [constipation]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Bowel movements may become harder or less frequent.
+    what_you_may_notice:
+      - Hard stools or difficulty having a bowel movement
+    safe_actions:
+      - Follow the constipation plan provided by your cancer team.
+    contact_team:
+      - Contact your cancer team if constipation is severe or does not improve.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: nausea-or-stomach-pain
+    display_name: Nausea or stomach pain
+    evidence_event_ids: [nausea, abdominal-pain]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may feel sick to your stomach or have pain in your stomach area.
+    what_you_may_notice:
+      - A feeling that you may vomit
+      - New pain or tenderness in your stomach area
+    safe_actions:
+      - Follow the nausea plan provided by your cancer team.
+    contact_team:
+      - Contact your cancer team right away for severe nausea, vomiting, or stomach pain.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: low-thyroid-activity
+    display_name: Low thyroid activity
+    evidence_event_ids: [hypothyroidism]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Pembrolizumab can make the thyroid gland less active.
+    what_you_may_notice:
+      - Feeling unusually tired or cold
+      - Constipation, weight change, or hair changes
+    safe_actions: []
+    contact_team:
+      - Tell your cancer team about these changes, especially if they are new or getting worse.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your thyroid with blood tests.
+
+  - id: lung-inflammation
+    display_name: Lung inflammation
+    evidence_event_ids: [immune-mediated-pneumonitis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can cause the immune system to inflame the lungs.
+    what_you_may_notice:
+      - A new or worsening cough
+      - Shortness of breath or chest pain
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for any of these symptoms, even after treatment has ended.
+    urgent_help:
+      - Get emergency medical help right away for severe chest pain or severe trouble breathing.
+    reassuring_monitoring: []
+
+  - id: bowel-inflammation
+    display_name: Bowel inflammation
+    evidence_event_ids: [immune-mediated-colitis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can cause the immune system to inflame the bowel.
+    what_you_may_notice:
+      - New or worsening diarrhea
+      - Black, sticky, or bloody stools
+      - Severe pain or tenderness in the stomach area
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for any of these symptoms.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: liver-inflammation
+    display_name: Liver inflammation
+    evidence_event_ids: [immune-mediated-hepatitis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can cause the immune system to inflame the liver.
+    what_you_may_notice:
+      - Yellow skin or eyes, or dark urine
+      - Severe nausea or vomiting
+      - Pain on the right side of the stomach area
+      - Bruising or bleeding more easily than usual
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for any of these symptoms.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will use blood tests to check your liver.
+
+  - id: hormone-gland-problems
+    display_name: Hormone gland problems
+    evidence_event_ids: [immune-mediated-endocrinopathies]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can cause the immune system to affect glands that control hormones.
+    what_you_may_notice:
+      - An unusual headache, extreme tiredness, dizziness, or fainting
+      - A rapid heartbeat, increased sweating, or feeling very cold
+      - Unexplained weight change, increased thirst, or urinating more often
+      - Changes in mood, memory, or behaviour
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for new or worsening symptoms like these.
+    urgent_help:
+      - Get emergency medical help right away for loss of consciousness.
+    reassuring_monitoring:
+      - Your cancer team will use blood tests to check for hormone changes.
+
+  - id: kidney-inflammation
+    display_name: Kidney inflammation
+    evidence_event_ids: [immune-mediated-nephritis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can cause the immune system to inflame the kidneys.
+    what_you_may_notice:
+      - Less urine than usual or blood in the urine
+      - Swelling around the ankles
+      - Loss of appetite
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for any of these symptoms.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will use blood tests to check your kidneys.
+
+  - id: severe-skin-reactions
+    display_name: Severe skin reactions
+    evidence_event_ids: [immune-mediated-dermatologic-reactions]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can cause a severe immune reaction in the skin.
+    what_you_may_notice:
+      - Skin blistering or peeling
+      - Painful sores in the mouth, nose, throat, or genital area
+      - A rash with fever, flu-like symptoms, or swollen glands
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team immediately for any of these symptoms.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: other-immune-system-problems
+    display_name: Other immune-system problems
+    evidence_event_ids: [other-immune-mediated-adverse-reactions]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: The immune system can inflame other organs or tissues during or after treatment.
+    what_you_may_notice:
+      - New chest pain, an irregular heartbeat, or ankle swelling
+      - Confusion, severe weakness, balance problems, tingling, or numbness
+      - Eye pain, blurred or double vision, or another change in eyesight
+      - Severe or lasting muscle pain or weakness
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for any new or worsening symptom like these, even after treatment has ended.
+    urgent_help:
+      - Get emergency medical help right away for severe chest pain, severe trouble breathing, or loss of consciousness.
+    reassuring_monitoring: []
+
+  - id: infusion-reaction
+    display_name: Infusion reaction
+    evidence_event_ids: [infusion-related-reactions]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: A serious reaction can happen while pembrolizumab is being given.
+    what_you_may_notice:
+      - Chills, shaking, fever, itching, rash, or flushing
+      - Shortness of breath, wheezing, dizziness, or feeling like you may faint
+      - Back pain
+    safe_actions: []
+    contact_team:
+      - Tell your nurse immediately if you notice any of these symptoms during the infusion.
+    urgent_help:
+      - Get emergency medical help right away for severe trouble breathing or fainting after you leave the clinic.
+    reassuring_monitoring:
+      - Your care team will watch for a reaction while the medicine is given.
+
+  - id: transplant-complications
+    display_name: Transplant complications
+    evidence_event_ids: [solid-organ-or-tissue-transplant-rejection, allogeneic-hsct-complications]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can cause rejection or serious complications in people who have had an organ, tissue, or donor stem-cell transplant.
+    what_you_may_notice:
+      - Symptoms depend on the type of transplant.
+    safe_actions:
+      - Make sure your cancer team knows about any transplant you have had or may receive.
+    contact_team:
+      - Follow the transplant team's instructions and contact them immediately for the symptoms they told you to watch for.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your care team will monitor you based on the type of transplant.
+
+  - id: pregnancy-harm
+    display_name: Pregnancy harm
+    evidence_event_ids: [embryo-fetal-toxicity]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Pembrolizumab can harm a pregnancy.
+    what_you_may_notice:
+      - Pregnancy may not cause early symptoms.
+    safe_actions:
+      - Follow your cancer team's pregnancy-prevention and breastfeeding instructions.
+    contact_team:
+      - Tell your cancer team immediately if you are pregnant or think you may be pregnant.
+    urgent_help: []
+    reassuring_monitoring: []
+
+omitted_evidence_events: []
+
+escalation_summary:
+  heading: When to contact your cancer team
+  introduction: >-
+    Immune-system problems can happen during treatment or after it has ended.
+    Follow the instructions given by your own cancer team.
+  contact_team:
+    - Contact your cancer team right away for a new or worsening cough, shortness of breath, chest pain, diarrhea, severe stomach pain, black or bloody stools, yellow skin or eyes, dark urine, or a severe skin reaction.
+    - Contact them right away for unusual headaches, extreme tiredness, dizziness, major thirst or urine changes, ankle swelling, confusion, vision changes, severe weakness, or another new or worsening symptom.
+    - Contact your cancer team immediately for a fever.
+    - Tell your nurse immediately about chills, shaking, rash, breathing problems, dizziness, or faintness during the infusion.
+    - Tell your cancer team immediately if you are pregnant or think you may be pregnant.
+  urgent_help:
+    - Get emergency medical help right away for severe chest pain, severe trouble breathing, fainting, or loss of consciousness.

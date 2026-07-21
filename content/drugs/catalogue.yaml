@@ -234,7 +234,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-doxorubicin]
-  support_status: catalogued
+  support_status: education_only
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA050629
@@ -244,7 +244,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
-      evidence_mapping_status: source_indexed
+      evidence_mapping_status: event_mapped
       source_id: fda-label-doxorubicin
 
 - <<: *drug_base
@@ -274,7 +274,7 @@
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
   source_ids: [fda-label-epirubicin]
-  support_status: catalogued
+  support_status: education_only
   regulatory_labels:
     - <<: *fda_label_base
       application_number: NDA050778
@@ -284,7 +284,7 @@
       dosage_forms: [INJECTABLE]
       fda_routes: [INTRAVENOUS]
       safety_sections: *boxed_safety
-      evidence_mapping_status: source_indexed
+      evidence_mapping_status: event_mapped
       source_id: fda-label-epirubicin
 
 - <<: *drug_base
@@ -738,7 +738,7 @@
   class_ids: [immune-checkpoint-inhibitor]
   routes: [intravenous]
   source_ids: [fda-label-pembrolizumab]
-  support_status: catalogued
+  support_status: education_only
   regulatory_labels:
     - <<: *fda_label_base
       application_number: BLA125514
@@ -748,7 +748,7 @@
       dosage_forms: [SOLUTION]
       fda_routes: [INTRAVENOUS]
       safety_sections: *common_safety
-      evidence_mapping_status: source_indexed
+      evidence_mapping_status: event_mapped
       source_id: fda-label-pembrolizumab
 
 - <<: *drug_base

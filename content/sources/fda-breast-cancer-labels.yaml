@@ -94,10 +94,14 @@
 - <<: *fda_source_base
   id: fda-label-doxorubicin
   title: Doxorubicin hydrochloride prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=050629"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1fd148fb-0fbc-4b6f-b790-23546fb46a71&version=28"
   publication_or_revision_date: 2026-05-05
-  source_version: "NDA050629; SPL set 1fd148fb-0fbc-4b6f-b790-23546fb46a71"
-  notes: *fda_source_notes
+  source_version: "NDA050629; SPL set 1fd148fb-0fbc-4b6f-b790-23546fb46a71; version 28"
+  notes:
+    - The current label contains breast-cancer treatment indications in Indications and Usage.
+    - The three most-common reactions and four boxed warnings are mapped to a categorical draft evidence record.
+    - Table 2 reports doxorubicin with cyclophosphamide; its numerical values are not attributed to doxorubicin alone.
+    - Patient wording and the common and serious groups are a separate unreviewed Ariad draft.
 
 - <<: *fda_source_base
   id: fda-label-elacestrant
@@ -110,10 +114,14 @@
 - <<: *fda_source_base
   id: fda-label-epirubicin
   title: ELLENCE prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=050778"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?audience=consumer&setid=0a03c798-a652-4895-b29c-3b521a89ba42"
   publication_or_revision_date: 2026-05-13
   source_version: "NDA050778; SPL set 0a03c798-a652-4895-b29c-3b521a89ba42"
-  notes: *fda_source_notes
+  notes:
+    - The current label covers adjuvant treatment of node-positive breast cancer as a component of combination therapy.
+    - The fourteen most-common reaction categories and four boxed warnings are mapped to a categorical draft evidence record.
+    - Table 1 reports FEC and CEF combinations; its numerical values are not attributed to epirubicin alone.
+    - Patient wording and the common and serious groups are a separate unreviewed Ariad draft.
 
 - <<: *fda_source_base
   id: fda-label-eribulin
@@ -294,10 +302,14 @@
 - <<: *fda_source_base
   id: fda-label-pembrolizumab
   title: KEYTRUDA prescribing information
-  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=125514"
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9333c79b-d487-4538-a9f0-71b91a02b287"
   publication_or_revision_date: 2026-06-24
-  source_version: "BLA125514; SPL set 9333c79b-d487-4538-a9f0-71b91a02b287"
-  notes: *fda_source_notes
+  source_version: "BLA125514; SPL set 9333c79b-d487-4538-a9f0-71b91a02b287; revised 06/2026"
+  notes:
+    - The current label includes breast-cancer indications that begin with combination therapy; KEYNOTE-522 rates are not attributed to pembrolizumab alone.
+    - The FDA separately identifies fourteen most-common reactions for KEYTRUDA as a single agent across cancer types.
+    - Principal immune-mediated, infusion, transplant, and pregnancy warnings are mapped to a categorical draft evidence record.
+    - Patient wording and the common and serious groups are a separate unreviewed Ariad draft.
 
 - <<: *fda_source_base
   id: fda-label-pembrolizumab-berahyaluronidase
