@@ -4,9 +4,9 @@ Use the official Devpost [rules](https://openai.devpost.com/rules) and
 [FAQ](https://openai.devpost.com/details/faqs) as the final source of truth.
 This checklist records gates; unchecked items are not claims of completion.
 
-Current owner decision (2026-07-19): GPT-5.6 is disabled while development
-focuses on deterministic behavior and clinic data. Live-model and video checks
-remain deferred until explicit reauthorization.
+Current owner decision (2026-07-21): bounded GPT-5.6 Luna use is reauthorized
+for the competition preview. A fresh clone remains disabled by default. The
+public demo must prove the live path before recording or submission.
 
 Recorded deadline: **Tuesday, July 21, 2026 at 5:00 PM Pacific / 8:00 PM
 Toronto**. Reconfirm the deadline and eligibility on Devpost before submitting.
@@ -27,7 +27,8 @@ Toronto**. Reconfirm the deadline and eligibility on Devpost before submitting.
 - [ ] Verify no login, payment, invitation, or restricted route is required.
 - [ ] Verify mobile behavior at approximately 320, 375, 390, and 430 px.
 - [ ] Run all three sample scenarios against the deployed URL.
-- [ ] Verify the GPT-5.6 neuropathy path visibly reports an OpenAI result.
+- [x] Verify a local synthetic GPT-5.6 neuropathy request reports an OpenAI result.
+- [ ] Verify the deployed GPT-5.6 neuropathy path visibly reports an OpenAI result.
 - [x] Verify deterministic behavior locally with `ENABLE_GPT56=false`.
 - [x] Verify `/api/health` reports the intended release and configured AI state without
   exposing secrets.

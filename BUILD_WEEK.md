@@ -658,3 +658,41 @@
 - `pnpm test:e2e` — all 62 mobile and desktop browser/accessibility tests
   passed, including safety hierarchy, saving removal, whole-drug accordion,
   print-state, 320 px, 16 px patient-copy, and doxorubicin checks.
+
+## 2026-07-21 — bounded GPT-5.6 competition reauthorization
+
+### Human-locked decision
+
+- Reauthorize the existing bounded OpenAI paths for the competition preview.
+- Use `gpt-5.6-luna` because Ariad's model tasks are small controlled-ID
+  classification and neutral structured restatement, not clinical reasoning.
+- Keep model use optional and fail closed. The repository default remains off;
+  only the competition deployment may set `ENABLE_GPT56=true`.
+- Keep all clinical guidance deterministic and release-controlled. Model output
+  cannot diagnose, determine a cause, set urgency, or write treatment advice.
+
+### Cost and access controls
+
+- The competition key is scoped to the Ariad OpenAI project and remains only in
+  ignored local storage and managed deployment secrets.
+- The project is limited to GPT-5.6 Luna, with a hard monthly project limit of
+  $10 and alerts at 50%, 80%, and 100%.
+- Luna project limits are 10,000 tokens per minute and three requests per
+  minute. Ariad also limits input, output, request time, retries, and route use.
+- The prepaid balance is $10 and automatic recharge is off.
+
+### Controlled live verification
+
+- A local production-style preview reported release
+  `build-week-preview-2026-07-18@0.12.0`, content hash
+  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`,
+  and a ready `gpt-5.6-luna` runtime.
+- One synthetic neuropathy classifier request returned HTTP 200 with
+  `generationMode: openai`, selected the controlled
+  `peripheral-neuropathy` ID, and supplied supporting phrases. No real patient
+  information was used.
+- The bounded provider timeout is 15 seconds, route duration is 20 seconds,
+  retries remain off, structured output is required, and requests use
+  `store: false`.
+- Public deployment, public-URL smoke checks, final key replacement, and the
+  recorded demo remain separate pending gates.

@@ -49,6 +49,13 @@ afterEach(() => {
 });
 
 describe("GPT-5.6 runtime status", () => {
+  it("fails safe to the competition Luna model when no model is configured", () => {
+    process.env.ENABLE_GPT56 = "true";
+    process.env.OPENAI_API_KEY = "test-key";
+    delete process.env.OPENAI_MODEL;
+    expect(runtimeStatus()).toEqual({ enabled: true, model: "gpt-5.6-luna", reason: "ready" });
+  });
+
   it("defaults to deterministic-only mode when the feature flag is absent", () => {
     delete process.env.ENABLE_GPT56;
     process.env.OPENAI_API_KEY = "test-key";

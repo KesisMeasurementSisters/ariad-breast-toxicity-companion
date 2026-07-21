@@ -14,12 +14,12 @@ cancer team.
 
 The central design choice is a hard separation of responsibilities:
 
-> **Current runtime mode — deterministic only.** By owner decision on
-> 2026-07-19, the optional GPT-5.6 adapter is disabled while development focuses
-> on governed deterministic behavior and clinic data. No patient input is sent
-> to OpenAI in this mode.
+> **Competition runtime — bounded language support with a deterministic
+> fallback.** On 2026-07-21, the owner reauthorized GPT-5.6 Luna for the
+> competition preview. The checked-in development setting still fails closed;
+> only the competition deployment explicitly enables model calls.
 
-> **If reauthorized in a later phase, GPT-5.6 may handle bounded
+> **GPT-5.6 may handle bounded
 > natural-language symptom navigation and neutral symptom-summary generation.
 > It never generates clinical guidance. Clinical guidance is assembled
 > deterministically from an immutable, source-controlled release.**
@@ -69,7 +69,8 @@ Life** track.
 - Observable questions that may change section emphasis, but never calculate a
   grade, diagnosis, cause, or personal urgency.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
-  summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
+  summaries, with competition-authorized GPT-5.6 Luna support for language
+  ambiguity and neutral restatement only.
 - A content-addressed preview release containing 492 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
   treatment-code demos, direct treatment links, and copy/print/download symptom
@@ -170,11 +171,12 @@ More detail: [architecture](./docs/architecture.md), [data
 flow](./docs/data-flow.md), [knowledge model](./docs/knowledge-model.md), and
 [ADRs](./docs/adr/README.md).
 
-## Optional GPT-5.6 integration — currently disabled
+## Bounded GPT-5.6 competition integration
 
 The OpenAI API key remains server-side. The runtime model defaults to
-`gpt-5.6`, but `ENABLE_GPT56=false` is the repository and local default. The
-current development mode does not call OpenAI.
+`gpt-5.6-luna`, the efficient family tier suited to Ariad's small structured
+classification and restatement tasks. `ENABLE_GPT56=false` remains the safe
+repository and local default; the competition deployment opts in explicitly.
 
 1. **Natural-language symptom navigator.** The client first tries deterministic
    synonym/fuzzy matching. If confidence is insufficient, the server asks
@@ -203,27 +205,27 @@ pnpm dev
 Open `http://localhost:3000`. The development command compiles the explicitly
 labelled unreviewed preview before starting Next.js.
 
-Do not enable GPT-5.6 during the current deterministic and clinic-data phase.
-If the owner later reauthorizes model testing, the dormant server adapter
-requires these server-only values in `.env.local`:
+The owner reauthorized bounded model use for the competition preview on
+2026-07-21. To reproduce it locally, use only synthetic information and set
+these server-only values in `.env.local`:
 
 ```text
 OPENAI_API_KEY=<your key>
-OPENAI_MODEL=gpt-5.6
+OPENAI_MODEL=gpt-5.6-luna
 ENABLE_GPT56=true
 ```
 
-The checked-in example and current local configuration set
-`ENABLE_GPT56=false`. The API key may remain stored for later use; never commit
-`.env.local`.
+The checked-in example keeps `ENABLE_GPT56=false` so a fresh clone cannot send
+text to a model accidentally. The competition deployment sets it to `true`.
+Never commit `.env.local`.
 
 ### Environment variables
 
 | Variable | Purpose | Default/example |
 |---|---|---|
 | `OPENAI_API_KEY` | Server-only credential | blank |
-| `OPENAI_MODEL` | Runtime language model | `gpt-5.6` |
-| `ENABLE_GPT56` | Exact opt-in for optional model calls; keep disabled during the current phase | `false` |
+| `OPENAI_MODEL` | Runtime language model | `gpt-5.6-luna` |
+| `ENABLE_GPT56` | Exact opt-in for bounded model calls; disabled in a fresh clone | `false` |
 | `AI_MAX_INPUT_CHARS` | Server request input limit, clamped to 50–500 characters | `500` |
 | `AI_REQUEST_TIMEOUT_MS` | Provider timeout | `15000` |
 | `CONTENT_RELEASE_ID` | Exact release manifest to compile | `build-week-preview-2026-07-18` |
