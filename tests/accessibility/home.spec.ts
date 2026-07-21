@@ -133,18 +133,24 @@ test("moving to a new screen resets the page to its beginning", async ({ page })
   await expect(page.locator("#main-content")).toBeFocused();
 });
 
-test("the emergency boundary stays visible without covering the page flow", async ({ page }) => {
+test("the emergency boundary sits at the page end without covering the page flow", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("/");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
 
   const emergencyBoundary = page.locator(".emergency-boundary");
-  await expect(emergencyBoundary).toHaveCSS("position", "sticky");
+  await expect(emergencyBoundary).toHaveCSS("position", "static");
   await expect(emergencyBoundary).toHaveCSS("font-size", "16px");
-  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await expect
-    .poll(() => emergencyBoundary.evaluate((element) => Math.round(element.getBoundingClientRect().top)))
-    .toBe(0);
+    .poll(() =>
+      emergencyBoundary.evaluate((element) => ({
+        followsMain: element.previousElementSibling?.matches("main") ?? false,
+        precedesFooter: element.nextElementSibling?.matches("footer") ?? false,
+      })),
+    )
+    .toEqual({ followsMain: true, precedesFooter: true });
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect(emergencyBoundary).toBeInViewport();
 
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))

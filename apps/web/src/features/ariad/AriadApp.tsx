@@ -340,8 +340,6 @@ function HomeScreen({
         </section>
       ) : null}
 
-      <BoundaryCard />
-
       <section className="demo-section" aria-labelledby="demo-heading">
         <div className="section-heading">
           <p className="eyebrow">Explore the prototype</p>
@@ -370,6 +368,8 @@ function HomeScreen({
           </button>
         </div>
       </section>
+
+      <BoundaryCard />
     </>
   );
 }
@@ -1059,8 +1059,6 @@ function TreatmentOverviewScreen({
         ) : null}
       </div>
 
-      <BoundaryCard />
-
       <PreparationSection preparation={preparation} />
 
       <section className="side-effect-education" aria-labelledby="side-effect-education-heading">
@@ -1103,6 +1101,7 @@ function TreatmentOverviewScreen({
           {onSymptomLabel} <ArrowRight aria-hidden="true" size={18} />
         </button>
       </div>
+      <BoundaryCard />
     </div>
   );
 }
@@ -1726,12 +1725,12 @@ function UnsupportedScreen({ reason, onTreatment, onSymptom, onHome }: { reason:
           <p>If you still cannot find it, follow the information from your cancer team or ask them where to find the right patient information.</p>
         </div>
       </div>
-      <BoundaryCard />
       <div className="action-row wrap">
         <button className="secondary-button" type="button" onClick={onTreatment}>Search another treatment</button>
         <button className="secondary-button" type="button" onClick={onSymptom}>View symptom list</button>
         <button className="text-button" type="button" onClick={onHome}>Return home</button>
       </div>
+      <BoundaryCard />
     </>
   );
 }
@@ -1975,7 +1974,6 @@ export function AriadApp() {
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
       <BrandHeader onHome={goHome} onAbout={goAbout} />
-      <EmergencyBoundary />
       {[
         "symptom-entry",
         "candidate-confirm",
@@ -2104,6 +2102,7 @@ export function AriadApp() {
           />
         ) : null}
       </main>
+      <EmergencyBoundary />
       <footer className="site-footer">
         <span>Kesis &amp; Sisters · Turning complexity into clarity.</span>
         <span>Demo version {activeRelease.release_version}</span>

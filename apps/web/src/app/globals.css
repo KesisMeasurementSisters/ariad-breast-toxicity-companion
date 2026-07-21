@@ -533,7 +533,10 @@ button:disabled {
 }
 
 .boundary-card {
-  margin-block: 1.5rem 3rem;
+  margin-block: 3rem 0;
+  border-color: var(--line-strong);
+  border-left-width: 1px;
+  background: transparent;
 }
 
 .boundary-card > svg,
@@ -2528,26 +2531,28 @@ details[open] > summary .summary-chevron {
 }
 
 .emergency-boundary {
-  position: sticky;
-  z-index: 80;
-  top: 0;
   display: flex;
-  min-height: 3.75rem;
-  align-items: center;
-  justify-content: center;
+  width: min(100% - 1.5rem, var(--page-width));
+  align-items: flex-start;
   gap: 0.55rem;
-  padding: 0.65rem max(0.9rem, env(safe-area-inset-left)) calc(0.65rem + env(safe-area-inset-bottom));
-  border-top: 1px solid var(--kesis-color-rose-600);
-  color: #fff;
-  background: var(--kesis-color-rose-700);
+  margin-inline: auto;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--kesis-color-rose-200);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  background: var(--kesis-color-rose-50);
   font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.35;
-  text-align: center;
+  line-height: 1.45;
 }
 
 .emergency-boundary svg {
   flex: 0 0 auto;
+  margin-block-start: 0.1rem;
+  color: var(--kesis-color-rose-700);
+}
+
+.emergency-boundary strong {
+  color: var(--kesis-color-rose-700);
 }
 
 .site-footer {
@@ -2722,6 +2727,7 @@ details[open] > summary .summary-chevron {
 @media (min-width: 40rem) {
   .site-header,
   .app-shell,
+  .emergency-boundary,
   .site-footer {
     width: min(100% - 3rem, var(--page-width));
   }

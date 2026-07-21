@@ -191,6 +191,16 @@ test("a clinic code still opens the complete weekly paclitaxel preparation guide
         exact: true,
       }),
   ).toBeVisible();
+  await expect
+    .poll(() =>
+      page.locator(".boundary-card").evaluate((boundary) => {
+        const actions = boundary.parentElement?.querySelector(".action-row");
+        return actions
+          ? Boolean(actions.compareDocumentPosition(boundary) & Node.DOCUMENT_POSITION_FOLLOWING)
+          : false;
+      }),
+    )
+    .toBe(true);
 });
 
 test("capecitabine demo reaches the fixed diarrhea guidance sections", async ({ page }) => {
