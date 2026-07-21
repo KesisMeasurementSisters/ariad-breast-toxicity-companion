@@ -15,15 +15,16 @@ evidence_ref:
   version: 1.0.0
 evidence_payload_hash: 7de7b33fd3b8e0c05a5e6cd75cfad820a41caee01b7ab5d06bfc87f781660458
 source_ids: [fda-label-doxorubicin]
-route_label: Intravenous (IV) infusion
+route_label: Medicine given into a vein (IV)
 subtitle: Side effects linked to doxorubicin
 frequency_context: >-
-  This page groups FDA information into common effects and serious effects.
-  Side effects can be different for each person.
-cause_statement: Ariad cannot determine the cause of a symptom.
+  This page groups side effects from official U.S. drug information into common
+  and serious effects. Side effects can be different for each person.
+cause_statement: Ariad cannot tell what is causing a symptom.
 source_context: >-
-  This draft uses FDA information for doxorubicin. Follow the information given
-  by your own cancer team.
+  This draft uses official U.S. Food and Drug Administration (FDA) information
+  for doxorubicin. A health professional has not reviewed these explanations
+  and actions yet. Follow the information from your own cancer team.
 frequency_method_id: null
 effects:
   - id: hair-loss
@@ -87,9 +88,9 @@ effects:
       - Swelling in the feet or ankles, chest discomfort, dizziness, or fainting
     safe_actions: []
     contact_team:
-      - Contact a health professional immediately for any of these changes during or after treatment.
+      - Contact a health professional right away for any of these changes during or after treatment.
     urgent_help:
-      - Get emergency medical help right away for severe chest pain, severe trouble breathing, or loss of consciousness.
+      - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.
     reassuring_monitoring:
       - Your care team will check your heart before, during, and after treatment.
 
@@ -99,11 +100,11 @@ effects:
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: serious
-    meaning: Doxorubicin can increase the long-term risk of developing another blood cancer.
+    meaning: Doxorubicin can raise the chance of another blood cancer later.
     what_you_may_notice:
       - There may be no early symptom you can feel.
     safe_actions:
-      - Keep the long-term follow-up appointments recommended by your cancer team.
+      - Keep the follow-up appointments your cancer team recommends, even after treatment ends.
     contact_team:
       - Ask your cancer team if you have questions about this long-term risk.
     urgent_help: []
@@ -117,11 +118,11 @@ effects:
     presentation_group: serious
     meaning: Doxorubicin can severely damage the skin and tissue if it leaks out of the vein.
     what_you_may_notice:
-      - Burning or stinging during the infusion
+      - Burning or stinging while the medicine is being given
       - A blister, skin sore, or worsening pain near the IV site
     safe_actions: []
     contact_team:
-      - Tell your nurse immediately if you feel burning or stinging during the infusion.
+      - Tell your nurse right away if you feel burning or stinging while the medicine is being given.
       - Contact your cancer team right away for a blister, skin sore, or worsening pain near the IV site.
     urgent_help: []
     reassuring_monitoring:
@@ -135,12 +136,12 @@ effects:
     presentation_group: serious
     meaning: Doxorubicin can lower blood cells that fight infection or help stop bleeding.
     what_you_may_notice:
-      - You may not feel a low blood-cell count yourself.
+      - You may not notice this change yourself.
       - Fever or chills with shivering can be a sign of infection.
     safe_actions:
       - Follow your cancer team's instructions for checking your temperature.
     contact_team:
-      - Contact your cancer team immediately for a fever, chills with shivering, or another sign of infection.
+      - Contact your cancer team right away for a fever, chills with shivering, or another sign of infection.
     urgent_help: []
     reassuring_monitoring:
       - Your care team will check your blood cells during treatment.
@@ -151,9 +152,9 @@ escalation_summary:
   heading: When to contact your cancer team
   introduction: Follow the instructions given by your own cancer team.
   contact_team:
-    - Contact your cancer team immediately for a fever, chills with shivering, or another sign of infection.
-    - Contact a health professional immediately for new shortness of breath, extreme tiredness or weakness, heartbeat changes, swelling in the feet or ankles, chest discomfort, dizziness, or fainting.
-    - Tell your nurse immediately about burning or stinging during the infusion. Contact your cancer team right away for a blister, skin sore, or worsening pain near the IV site.
+    - Contact your cancer team right away for a fever, chills with shivering, or another sign of infection.
+    - Contact a health professional right away for new shortness of breath, extreme tiredness or weakness, or heartbeat changes. Also contact them right away for swelling in the feet or ankles, chest discomfort, dizziness, or fainting.
+    - Tell your nurse right away about burning or stinging while the medicine is being given. Contact your cancer team right away for a blister, skin sore, or worsening pain near the IV site.
     - Contact your cancer team right away if nausea or vomiting is severe or keeps you from eating or drinking.
   urgent_help:
-    - Get emergency medical help right away for severe chest pain, severe trouble breathing, or loss of consciousness.
+    - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.

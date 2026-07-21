@@ -104,14 +104,14 @@ const DEMO_CODES: Record<string, string> = {
 };
 
 const SUPPORT_LABELS: Record<SearchRecord["support_status"], string> = {
-  full_guidance: "Full demo guidance",
-  education_only: "Education only",
-  catalogued: "Catalogued",
-  unsupported: "Unsupported",
+  full_guidance: "Full guide available",
+  education_only: "Drug information only",
+  catalogued: "Listed, no guide yet",
+  unsupported: "Not available",
 };
 
 const COMPACT_CLINICAL_BOUNDARY =
-  "Ariad cannot determine the cause, assign a grade, personalize triage, or recommend a treatment change.";
+  "Ariad cannot tell what is causing your symptom or how serious it is. It cannot tell you to change your cancer treatment.";
 
 const SECTION_ICONS = {
   about: Info,
@@ -138,7 +138,7 @@ function renderAnswer(question: Question, answer: string | string[] | undefined)
 function PrototypeBanner() {
   const messages = [
     activeRelease.mandatory_notice,
-    clinicConfig.mode === "synthetic_demo" ? "Synthetic demo data only" : null,
+    clinicConfig.mode === "synthetic_demo" ? "Made-up demo details only" : null,
   ].filter((message): message is string => Boolean(message));
   if (messages.length === 0) return null;
 
@@ -181,7 +181,7 @@ function EmergencyBoundary() {
 
 function CompactSymptomBoundary() {
   return (
-    <aside className="compact-symptom-boundary" aria-label="Ariad clinical boundary">
+    <aside className="compact-symptom-boundary" aria-label="What Ariad cannot do">
       <ShieldCheck aria-hidden="true" size={17} />
       <span>{COMPACT_CLINICAL_BOUNDARY}</span>
     </aside>
@@ -218,10 +218,10 @@ function BoundaryCard() {
     <aside className="boundary-card">
       <ShieldCheck aria-hidden="true" size={22} />
       <div>
-        <strong>Education, not a diagnosis or personal triage decision</strong>
+        <strong>Information only. Ariad does not give medical advice.</strong>
         <p>
-          Ariad cannot determine the cause, assign a grade, or tell you to change cancer
-          treatment. Follow the instructions provided by your cancer team.
+          Ariad cannot tell what is causing your symptom or how serious it is. It cannot
+          tell you to change cancer treatment. Follow your cancer team&apos;s instructions.
         </p>
       </div>
     </aside>
@@ -245,11 +245,11 @@ function HomeScreen({
     <>
       <section className="hero">
         <div className="hero-copy">
-          <p className="eyebrow">A breast cancer treatment side-effect companion</p>
-          <h1>A clearer way into the questions treatment creates.</h1>
+          <p className="eyebrow">A side-effect guide for breast cancer treatment</p>
+          <h1>Clear information about treatment and side effects.</h1>
           <p className="hero-lede">
-            Start with your treatment or something you are noticing. Ariad brings the
-            relevant, source-controlled information into one calm path.
+            Start with your treatment or a symptom. Ariad helps you find the information
+            you need in one calm path.
           </p>
         </div>
         <div className="hero-thread" aria-hidden="true">
@@ -261,14 +261,14 @@ function HomeScreen({
 
       <section className="entry-grid" aria-labelledby="choose-path">
         <div className="section-heading">
-          <p className="eyebrow">Choose where to begin</p>
-          <h2 id="choose-path">Two paths. One governed knowledge source.</h2>
+          <p className="eyebrow">Choose how to start</p>
+          <h2 id="choose-path">What would you like help with?</h2>
         </div>
         <button className="entry-card" type="button" onClick={startPrepare}>
           <span className="entry-icon"><BookOpenText aria-hidden="true" /></span>
           <span>
             <strong>I’m starting treatment</strong>
-            <small>Learn what to expect and save a treatment on this device.</small>
+            <small>Learn what you may notice during treatment.</small>
           </span>
           <ArrowRight aria-hidden="true" />
         </button>
@@ -276,7 +276,7 @@ function HomeScreen({
           <span className="entry-icon"><Stethoscope aria-hidden="true" /></span>
           <span>
             <strong>I’m having a symptom</strong>
-            <small>Find a controlled symptom category and prepare a neutral summary.</small>
+            <small>Match your words to a symptom and make a summary for your cancer team.</small>
           </span>
           <ArrowRight aria-hidden="true" />
         </button>
@@ -288,14 +288,14 @@ function HomeScreen({
         <div className="section-heading">
           <p className="eyebrow">Explore the prototype</p>
           <h2 id="demo-heading">Try a sample path</h2>
-          <p>Each scenario uses synthetic answers and draft, source-linked content.</p>
+          <p>Each example uses made-up answers and draft information linked to health sources.</p>
         </div>
         <div className="demo-grid">
           <button className="demo-card demo-featured" type="button" onClick={() => runDemo("neuropathy")}>
             <span className="demo-number">01</span>
-            <span className="ai-chip"><Search aria-hidden="true" size={14} /> Controlled navigation</span>
+            <span className="ai-chip"><Search aria-hidden="true" size={14} /> Symptom match</span>
             <strong>“My fingertips feel buzzy and small things keep slipping.”</strong>
-            <small>Weekly paclitaxel · peripheral neuropathy</small>
+            <small>Weekly paclitaxel · tingling, numbness, or burning</small>
             <span className="text-link">Try this demo <ChevronRight aria-hidden="true" size={16} /></span>
           </button>
           <button className="demo-card" type="button" onClick={() => runDemo("diarrhea")}>
@@ -339,7 +339,7 @@ function TreatmentSearchScreen({
   const resolveCode = () => {
     const treatmentId = DEMO_CODES[code.trim().toUpperCase()];
     if (!treatmentId) {
-      setCodeError("That demo code was not recognized. Try THREAD-PAC-01.");
+      setCodeError("That demo code did not match. Try THREAD-PAC-01.");
       return;
     }
     setCodeError(null);
@@ -349,16 +349,16 @@ function TreatmentSearchScreen({
   return (
     <>
       <PageIntro
-        eyebrow={mode === "prepare" ? "Starting treatment" : "Treatment context"}
+        eyebrow={mode === "prepare" ? "Starting treatment" : "Your treatment"}
         title={mode === "prepare" ? "Which treatment are you starting?" : "Which treatment are you receiving?"}
         onBack={onBack}
       >
-        Search for one drug by its generic or brand name, or for a regimen by its
-        abbreviation or full name.
+        Search for one drug by the name on its label. You can also search for a
+        treatment plan by its short or full name.
       </PageIntro>
 
       <div className="search-panel">
-        <label htmlFor="treatment-search">Drug or regimen</label>
+        <label htmlFor="treatment-search">Drug or treatment plan</label>
         <div className="search-field">
           <Search aria-hidden="true" size={20} />
           <input
@@ -374,15 +374,15 @@ function TreatmentSearchScreen({
           Type at least two characters. Up to three close matches will appear.
         </p>
         {readyToSearch ? (
-          <div className="result-list" aria-live="polite" aria-label="Drug and regimen results">
+          <div className="result-list" aria-live="polite" aria-label="Drug and treatment plan results">
             {spellingSuggestions ? <p className="result-list-heading">Did you mean?</p> : null}
             {results.length ? (
               results.map(({ record }) => {
                 const isDrug = record.kind === "drug";
-                const typeLabel = isDrug ? "Drug" : "Regimen";
+                const typeLabel = isDrug ? "Drug" : "Treatment plan";
                 const destination = isDrug
                   ? "View this drug’s information"
-                  : "View information for each drug in this regimen";
+                  : "View information for each drug in this treatment plan";
                 const displayName = treatmentSearchDisplayName(activeRelease, record.id);
                 return (
                   <button
@@ -405,8 +405,8 @@ function TreatmentSearchScreen({
               })
             ) : (
               <div className="empty-result">
-                <strong>No matching drug or regimen found.</strong>
-                <p>Check the spelling or try another generic, brand, or regimen name.</p>
+                <strong>No matching drug or treatment plan found.</strong>
+                <p>Check the spelling or try another drug or treatment plan name.</p>
               </div>
             )}
           </div>
@@ -416,7 +416,7 @@ function TreatmentSearchScreen({
       <div className="code-panel">
         <div>
           <QrCode aria-hidden="true" />
-          <span><strong>Clinic-issued treatment code demo</strong><small>No personal information is encoded.</small></span>
+          <span><strong>Demo treatment code</strong><small>This code has no personal information.</small></span>
         </div>
         <div className="code-entry">
           <label className="sr-only" htmlFor="treatment-code">Treatment code</label>
@@ -463,10 +463,10 @@ function InformationPending({ nested = false }: { nested?: boolean }) {
     <div className="information-pending">
       <Info aria-hidden="true" size={22} />
       <div>
-        <Heading>Information for this drug is being prepared</Heading>
+        <Heading>We are still preparing this drug&apos;s information</Heading>
         <p>
-          Drug-specific information is not shown here yet. Follow the information provided
-          by your cancer team.
+          Ariad does not have information for this drug yet. Follow the information from
+          your cancer team.
         </p>
       </div>
     </div>
@@ -476,17 +476,17 @@ function InformationPending({ nested = false }: { nested?: boolean }) {
 const PATIENT_FREQUENCY_GROUP_DESCRIPTIONS: Readonly<
   Record<PatientToxicityFrequencyBand, string>
 > = {
-  many_people: "These effects were recorded more often in the FDA study group.",
-  some_people: "These effects were recorded in part of the FDA study group.",
-  fewer_people: "These effects were recorded less often in the FDA study group.",
+  many_people: "These side effects happened more often in the study used for FDA drug information.",
+  some_people: "These side effects happened in some people in the study used for FDA drug information.",
+  fewer_people: "These side effects happened less often in the study used for FDA drug information.",
 };
 
 const PATIENT_EFFECT_BLOCKS = [
   ["what_you_may_notice", "What you may notice"],
-  ["safe_actions", "Safe actions"],
+  ["safe_actions", "Steps that may help"],
   ["contact_team", "Contact your cancer team"],
   ["urgent_help", "Get urgent help"],
-  ["reassuring_monitoring", "How your team may monitor"],
+  ["reassuring_monitoring", "Checks your team may do"],
 ] as const satisfies readonly [
   keyof Pick<
     PatientToxicityEffect,
@@ -543,7 +543,7 @@ function DrugToxicityPatientView({
     {
       id: "common" as const,
       heading: "Common effects",
-      description: "The FDA lists these among the most common effects.",
+      description: "The FDA lists these as common side effects.",
     },
     {
       id: "serious" as const,
@@ -593,17 +593,17 @@ function DrugToxicityPatientView({
         <aside className="regimen-single-drug-boundary">
           <ShieldCheck aria-hidden="true" size={20} />
           <div>
-            <strong>Single-drug information</strong>
+            <strong>Information for one drug</strong>
             {presentation.evidence_scope === "drug_label" ? (
-              <p>{`This section shows FDA information for this individual drug. The label does not say how often these effects occur with the full ${regimenContextLabel} regimen.`}</p>
+              <p>{`This section shows FDA information for this drug. It does not say how often these effects happen with the full ${regimenContextLabel} treatment plan.`}</p>
             ) : (
-              <p>{`This section shows FDA information for this drug when studied alone. Its frequency groups do not describe how often side effects occur with the full ${regimenContextLabel} regimen.`}</p>
+              <p>{`This section shows FDA information for this drug when it was studied alone. The groups do not show how often side effects happen with the full ${regimenContextLabel} treatment plan.`}</p>
             )}
           </div>
         </aside>
       ) : null}
       <header className="toxicity-presentation-header">
-        <p className="eyebrow">Single-drug side effects</p>
+        <p className="eyebrow">Side effects for one drug</p>
         <h2 id={sideEffectsHeadingId}>{presentation.subtitle}</h2>
         <p className="route-label"><Pill aria-hidden="true" size={17} /> {presentation.route_label}</p>
         <p>{presentation.frequency_context}</p>
@@ -639,7 +639,7 @@ function DrugToxicityPatientView({
           <section className="toxicity-frequency-group frequency-monitoring">
             <header>
               <h2>Changes your team checks for</h2>
-              <p>These are shown as monitoring information, not as a symptom-frequency group.</p>
+              <p>These are changes your team may find during check-ups or tests. You may not feel them.</p>
             </header>
             <div className="toxicity-effect-list">
               {monitoringEffects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
@@ -741,20 +741,20 @@ function TreatmentOverviewScreen({
   const overviewTitle = treatment?.kind === "drug" || isMultiDrugRegimen
     ? treatmentSearchDisplayName(activeRelease, treatmentId)
     : treatmentName(treatmentId);
-  const selectionType = treatment?.kind === "regimen" ? "Regimen" : "Drug";
+  const selectionType = treatment?.kind === "regimen" ? "Treatment plan" : "Drug";
 
   return (
     <div className={hasPrintableToxicity ? "toxicity-print-surface" : undefined}>
       <PageIntro
-        eyebrow={treatment?.kind === "regimen" ? "Regimen information" : "Drug information"}
+        eyebrow={treatment?.kind === "regimen" ? "Treatment plan information" : "Drug information"}
         title={overviewTitle}
         onBack={onBack}
       >
         {isMultiDrugRegimen
-          ? "Each anticancer drug in this regimen is shown in its own card."
+          ? "Each cancer drug in this treatment plan has its own section."
           : treatment?.kind === "drug"
             ? "This page is for this drug only. Information for other drugs is kept separate."
-            : "This page shows the current preparation information for this regimen."}
+            : "This page shows information about this treatment plan."}
       </PageIntro>
       <div className="overview-meta">
         <span className={`selection-kind selection-kind-${treatment?.kind ?? "drug"}`}>
@@ -769,7 +769,7 @@ function TreatmentOverviewScreen({
       <BoundaryCard />
 
       {isMultiDrugRegimen ? (
-        <section className="regimen-medication-stack" aria-label="Drugs in this regimen">
+        <section className="regimen-medication-stack" aria-label="Drugs in this treatment plan">
           {regimenItems.map(({ drug, presentation }, index) => (
             <RegimenMedicationCard
               drug={drug}
@@ -829,7 +829,7 @@ function SymptomEntryScreen({
 
   const findCategory = async () => {
     if (text.trim().length < 2) {
-      setNote("Add a few words about what you are noticing, or choose from the catalogue.");
+      setNote("Add a few words about what you notice, or choose a symptom from the list.");
       return;
     }
     setLoading(true);
@@ -862,16 +862,16 @@ function SymptomEntryScreen({
       onCandidates(parsed, body.generationMode ?? "openai", text);
     } catch {
       setLoading(false);
-      setNote("GPT‑5.6 is unavailable right now. Ariad is using its controlled catalogue fallback.");
+      setNote("The AI service is not available. Ariad is using its built-in symptom list.");
       onCandidates(deterministic, "deterministic_fallback", text);
     }
   };
 
   return (
     <>
-      <PageIntro eyebrow="Symptom navigator" title="What are you noticing?" onBack={onBack}>
-        Use your own words or choose a controlled symptom category. Free text is used only
-        for navigation—it never becomes clinical guidance.
+      <PageIntro eyebrow="Symptom guide" title="What are you noticing?" onBack={onBack}>
+        Use your own words or choose a symptom from the list. Your words are used only to
+        find a match. They do not create medical advice.
       </PageIntro>
       <BoundaryCard />
 
@@ -885,18 +885,18 @@ function SymptomEntryScreen({
           onChange={(event) => setText(event.target.value)}
           placeholder="For example: My fingertips feel buzzy and small things keep slipping."
         />
-        <div className="input-meta"><span>{text.length}/500</span><span>No identifying information, please.</span></div>
+        <div className="input-meta"><span>{text.length}/500</span><span>Do not include your name or other personal details.</span></div>
         <button className="primary-button" type="button" onClick={findCategory} disabled={loading}>
           {loading ? <LoaderCircle className="spin" aria-hidden="true" size={18} /> : <Sparkles aria-hidden="true" size={18} />}
-          {loading ? "Finding a controlled category…" : "Find a symptom category"}
+          {loading ? "Finding a symptom…" : "Find a symptom"}
         </button>
         {note ? <p className="form-note" role="status">{note}</p> : null}
       </div>
 
-      <div className="or-divider"><span>or choose from the catalogue</span></div>
+      <div className="or-divider"><span>or choose from the symptom list</span></div>
 
       <div className="catalogue-panel">
-        <label htmlFor="symptom-catalogue">Search symptom catalogue</label>
+        <label htmlFor="symptom-catalogue">Search the symptom list</label>
         <div className="search-field">
           <Search aria-hidden="true" size={20} />
           <input id="symptom-catalogue" value={catalogueQuery} onChange={(event) => setCatalogueQuery(event.target.value)} placeholder="Try tingling, watery stool, or mouth sores" />
@@ -930,17 +930,16 @@ function CandidateConfirmScreen({
 }) {
   return (
     <>
-      <PageIntro eyebrow="Patient confirmation required" title="Which category is closest?" onBack={onBack}>
-        Ariad never treats a language match as a diagnosis. Choose a category before any
-        source-controlled information is shown.
+      <PageIntro eyebrow="Check the symptom" title="Which symptom is the closest match?" onBack={onBack}>
+        Ariad only looks for a match in its symptom list. It cannot tell what is causing the symptom.
       </PageIntro>
       <div className="quoted-input">“{input}”</div>
       <div className="match-method">
         {generationMode === "openai" ? <Sparkles aria-hidden="true" size={18} /> : <Search aria-hidden="true" size={18} />}
         <span>
           {generationMode === "openai"
-            ? "GPT‑5.6 mapped the wording only to Ariad’s controlled catalogue. It did not diagnose or generate guidance."
-            : "Ariad matched the wording using its controlled vocabulary. No model generated guidance."}
+            ? "Ariad used AI only to match your words to its symptom list. The AI did not decide what is wrong or write medical advice."
+            : "Ariad matched your words to its built-in symptom list. It did not decide what is wrong or write medical advice."}
         </span>
       </div>
       <div className="candidate-list">
@@ -949,19 +948,19 @@ function CandidateConfirmScreen({
           if (!symptom) return null;
           return (
             <button className="candidate-card" type="button" key={candidate.symptomId} onClick={() => onConfirm(candidate.symptomId)}>
-              <span><strong>{symptom.patient_label}</strong><small>{symptom.clinical_label}</small></span>
-              <span className="confirm-label">This is closest <ChevronRight aria-hidden="true" size={18} /></span>
+              <span><strong>{symptom.patient_label}</strong></span>
+              <span className="confirm-label">Choose this <ChevronRight aria-hidden="true" size={18} /></span>
             </button>
           );
         }) : (
           <div className="empty-result">
-            <strong>No safe controlled match was found.</strong>
-            <p>Choose from the catalogue or contact your cancer team for help describing the symptom.</p>
+            <strong>No close match was found.</strong>
+            <p>Choose from the symptom list or contact your cancer team for help describing the symptom.</p>
           </div>
         )}
       </div>
       <button className="text-button" type="button" onClick={onBack}>
-        {result.candidates.length ? "None of these—browse the symptom catalogue" : "Browse the symptom catalogue"}
+        {result.candidates.length ? "None of these. Browse the symptom list" : "Browse the symptom list"}
       </button>
     </>
   );
@@ -1009,7 +1008,7 @@ function QuestionScreen({
         <span style={{ width: `${((index + 1) / total) * 100}%` }} />
       </div>
       <PageIntro eyebrow={`Question ${index + 1} of ${total}`} title={question.prompt} onBack={onBack}>
-        {question.help_text ?? "Answer only what you can observe."}
+        {question.help_text ?? "Answer only what you can see or feel."}
       </PageIntro>
       <BoundaryCard />
 
@@ -1023,7 +1022,7 @@ function QuestionScreen({
             onChange={(event) => onAnswer(event.target.value)}
             placeholder={question.optional ? "Optional" : "Type your answer"}
           />
-          <small>This answer stays only in this active browser session.</small>
+          <small>This answer is cleared when you leave or refresh this page.</small>
         </div>
       ) : (
         <div className="answer-list" role={question.answer_type === "multi_choice" ? "group" : "radiogroup"} aria-label={question.prompt}>
@@ -1048,7 +1047,7 @@ function QuestionScreen({
 
       <div className="question-actions">
         <button className="primary-button" type="button" onClick={onNext} disabled={!hasAnswer}>
-          {index + 1 === total ? "View source-controlled guidance" : "Next question"}
+          {index + 1 === total ? "See information" : "Next question"}
           <ArrowRight aria-hidden="true" size={18} />
         </button>
         {question.optional && !hasAnswer ? <button className="text-button" type="button" onClick={onNext}>Skip this question</button> : null}
@@ -1061,18 +1060,18 @@ function SourcesPanel({ sourceIds }: { sourceIds: string[] }) {
   const sources = sourceIds.map(sourceById).filter(Boolean);
   return (
     <details className="sources-panel">
-      <summary><BookOpenText aria-hidden="true" size={18} /> Sources and review status <span>{sources.length}</span></summary>
+      <summary><BookOpenText aria-hidden="true" size={18} /> Where this information comes from <span>{sources.length}</span></summary>
       <div className="sources-content">
         <p>
-          This preview content is unreviewed. No clinician reviewer or approval date has been
-          recorded. Each source below shows its recorded access date.
+          This is draft information. A health professional has not reviewed or approved it yet. The
+          dates below show when each source was checked.
         </p>
         <ul>
           {sources.map((source) => source ? (
             <li key={source.id}>
               <a href={source.canonical_url} target="_blank" rel="noreferrer">
                 <strong>{source.title}</strong>
-                <span>{source.organization} · {source.jurisdiction} · accessed {source.accessed_date}</span>
+                <span>{source.organization} · {source.jurisdiction} · checked {source.accessed_date}</span>
               </a>
             </li>
           ) : null)}
@@ -1102,7 +1101,7 @@ function GuidanceScreen({
 
   return (
     <>
-      <PageIntro eyebrow="Source-controlled guidance" title={symptom.patient_label} onBack={onBack}>
+      <PageIntro eyebrow="Information for this symptom" title={symptom.patient_label} onBack={onBack}>
         <span className="context-line">{treatmentName(treatmentId)} · {guidance.guidance_basis_label}</span>
         {guidance.fallback_reason ? <span className="fallback-note">{guidance.fallback_reason}</span> : null}
       </PageIntro>
@@ -1122,7 +1121,7 @@ function GuidanceScreen({
             >
               <summary>
                 <span className="section-icon"><Icon aria-hidden="true" size={20} /></span>
-                <span><strong>{section.heading}</strong>{emphasized ? <small>Related details shown first</small> : null}</span>
+                <span><strong>{section.heading}</strong>{emphasized ? <small>Based on your answers</small> : null}</span>
                 <ChevronRight className="summary-chevron" aria-hidden="true" size={20} />
               </summary>
               <div className="guidance-body">
@@ -1131,7 +1130,7 @@ function GuidanceScreen({
                     {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     {item.bullets.length ? <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul> : null}
                     {item.placeholders.length ? (
-                      <div className="pending-review"><CircleAlert aria-hidden="true" size={17} /> Clinical-owner decision pending in this prototype.</div>
+                      <div className="pending-review"><CircleAlert aria-hidden="true" size={17} /> A clinic instruction still needs review.</div>
                     ) : null}
                   </article>
                 ))}
@@ -1149,7 +1148,7 @@ function GuidanceScreen({
       <SourcesPanel sourceIds={guidance.source_ids} />
 
       <div className="summary-cta">
-        <div><p className="eyebrow">Communication support</p><h2>Prepare a neutral summary</h2><p>Only the facts you entered are used. Ariad does not add a diagnosis, grade, or recommendation.</p></div>
+        <div><p className="eyebrow">For your cancer team</p><h2>Make a symptom summary</h2><p>The summary uses only your answers. Ariad does not say what caused the symptom or what care you need.</p></div>
         <button className="primary-button" type="button" onClick={onSummary}>
           Create a summary for my cancer team <ArrowRight aria-hidden="true" size={18} />
         </button>
@@ -1199,12 +1198,12 @@ function ClinicConfigCard({
   return (
     <aside className="clinic-card" aria-labelledby="clinic-config-title">
       <p className="eyebrow">
-        {synthetic ? "Synthetic demo clinic configuration" : "Institutional clinic configuration"}
+        {synthetic ? "Demo clinic details" : "Your clinic details"}
       </p>
       <h2 id="clinic-config-title">{config.identity.display_name}</h2>
       {synthetic ? (
         <p className="clinic-mode-note">
-          Fictional contact details for demonstration only — do not call or use for care.
+          Made-up contact details for this demo. Do not call these numbers or use them for care.
         </p>
       ) : null}
       <div className="clinic-contact-list">
@@ -1221,30 +1220,29 @@ function ClinicConfigCard({
                 <span className="clinic-contact-value">{route.display_value}</span>
               ) : (
                 <small className="clinic-verification-note">
-                  Contact details unavailable pending current verification
+                  Contact details are not available while they are being checked
                 </small>
               )}
               {synthetic || telephoneHref ? (
                 route.availability.state === "display_only" ? (
-                  <small>Availability: {route.availability.label}</small>
+                  <small>Hours: {route.availability.label}</small>
                 ) : (
-                  <small>Availability not configured</small>
+                  <small>Hours not listed</small>
                 )
               ) : (
-                <small>Availability withheld until contact verification is current</small>
+                <small>Hours are hidden until the contact details have been checked</small>
               )}
             </section>
           );
         })}
       </div>
       <p className="clinic-availability-note">
-        When contact details are available, availability is shown as configured. Ariad does not
-        calculate whether a line is open now.
+        Ariad shows the hours provided by the clinic. It does not know if a phone line is open now.
       </p>
       {showFeverPolicyNotice && feverPolicyPending ? (
         <div className="clinic-policy-notice" role="note">
           <CircleAlert aria-hidden="true" size={17} />
-          <span>Local fever instruction pending clinical review in this prototype</span>
+          <span>The clinic&apos;s fever instructions still need review.</span>
         </div>
       ) : null}
     </aside>
@@ -1287,11 +1285,11 @@ function SummaryScreen({
   return (
     <>
       <PageIntro eyebrow="Your symptom summary" title={result.title} onBack={onBack}>
-        A neutral restatement of the observable facts you entered. Review it before sharing.
+        A summary of what you entered. Check it before sharing.
       </PageIntro>
       <div className="summary-method">
         {loading ? <LoaderCircle className="spin" aria-hidden="true" size={18} /> : mode === "openai" ? <Sparkles aria-hidden="true" size={18} /> : <ShieldCheck aria-hidden="true" size={18} />}
-        <span>{loading ? "Creating the bounded summary…" : mode === "openai" ? "GPT‑5.6 restated supplied facts; Ariad validated field provenance." : "Deterministic template fallback—no model was required."}</span>
+        <span>{loading ? "Making your summary…" : mode === "openai" ? "Ariad used only the answers you gave." : "Ariad made this summary from your answers."}</span>
       </div>
       <article className="summary-sheet" aria-live="polite">
         <PrototypeBanner />
@@ -1301,13 +1299,13 @@ function SummaryScreen({
           <div className="summary-omissions">
             <strong>Not included in the summary</strong>
             <p>
-              Ariad omitted entries that could not be restated safely: {result.omittedUncertainItems.join(", ")}.
+              Ariad left out answers it could not safely rewrite: {result.omittedUncertainItems.join(", ")}.
             </p>
           </div>
         ) : null}
         {result.patientQuestions.length ? <><h3>Questions I want to ask</h3><ul>{result.patientQuestions.map((item) => <li key={item}>{item}</li>)}</ul></> : null}
         <p className="summary-boundary">
-          This summary records patient-entered facts. {COMPACT_CLINICAL_BOUNDARY}
+          This summary contains only the information you entered. {COMPACT_CLINICAL_BOUNDARY}
         </p>
         <p className="summary-emergency">{UNIVERSAL_EMERGENCY_STATEMENT}</p>
       </article>
@@ -1337,21 +1335,20 @@ function EducationOnlyScreen({
   return (
     <>
       <PageIntro
-        eyebrow="Education-only coverage"
-        title={`${treatmentName(treatmentId)} has a source-linked catalogue entry.`}
+        eyebrow="Drug information only"
+        title={`${treatmentName(treatmentId)} is in Ariad's treatment list.`}
         onBack={onTreatment}
       >
-        This preview does not yet have a complete preparation guide or a supported
-        treatment–symptom pathway for this individual medication.
+        Ariad does not yet have a full guide or symptom information for this drug.
       </PageIntro>
       <div className="unsupported-card">
         <BookOpenText aria-hidden="true" size={28} />
         <div>
           <SupportPill status="education_only" />
-          <h2>Reference information is available; clinical guidance is not.</h2>
+          <h2>Some source information is available, but Ariad does not yet have a patient guide for this treatment.</h2>
           <p>
-            Use the source links below and the education from your own cancer team. Ariad
-            will not substitute class-level information as though it were exact guidance.
+            Use the source links below and the information from your cancer team. Ariad will
+            not use general information as if it were written for this exact treatment.
           </p>
         </div>
       </div>
@@ -1359,7 +1356,7 @@ function EducationOnlyScreen({
       <SourcesPanel sourceIds={sourceIds} />
       <div className="action-row wrap">
         <button className="secondary-button" type="button" onClick={onTreatment}>Search another treatment</button>
-        <button className="secondary-button" type="button" onClick={onSymptom}>View symptom catalogue</button>
+        <button className="secondary-button" type="button" onClick={onSymptom}>View symptom list</button>
         <button className="text-button" type="button" onClick={onHome}>Return home</button>
       </div>
     </>
@@ -1369,21 +1366,21 @@ function EducationOnlyScreen({
 function UnsupportedScreen({ reason, onTreatment, onSymptom, onHome }: { reason: string; onTreatment: () => void; onSymptom: () => void; onHome: () => void }) {
   return (
     <>
-      <PageIntro eyebrow="Coverage boundary" title="Ariad does not have an exact pathway for this selection.">
+      <PageIntro eyebrow="Information not available" title="Ariad does not have a guide for this choice.">
         {reason}
       </PageIntro>
       <div className="unsupported-card">
         <CircleAlert aria-hidden="true" size={28} />
         <div>
-          <h2>We do not currently have treatment-specific guidance for this medication or regimen.</h2>
-          <p>Try another name, a generic or brand name, a regimen abbreviation, or an individual component. When broader class or general information is available, Ariad labels it as a fallback and never presents it as exact guidance.</p>
-          <p>If you still cannot find the treatment or symptom, follow the information from your own cancer team or contact them for help locating the right patient information.</p>
+          <h2>Ariad does not have information for this drug or treatment plan yet.</h2>
+          <p>Try a brand name, another drug name, the short name for a treatment plan, or one drug in the plan. Ariad will clearly say when information is general and not for the exact treatment.</p>
+          <p>If you still cannot find it, follow the information from your cancer team or ask them where to find the right patient information.</p>
         </div>
       </div>
       <BoundaryCard />
       <div className="action-row wrap">
         <button className="secondary-button" type="button" onClick={onTreatment}>Search another treatment</button>
-        <button className="secondary-button" type="button" onClick={onSymptom}>View symptom catalogue</button>
+        <button className="secondary-button" type="button" onClick={onSymptom}>View symptom list</button>
         <button className="text-button" type="button" onClick={onHome}>Return home</button>
       </div>
     </>
@@ -1393,17 +1390,17 @@ function UnsupportedScreen({ reason, onTreatment, onSymptom, onHome }: { reason:
 function AboutScreen({ onBack, onReset }: { onBack: () => void; onReset: () => void }) {
   return (
     <>
-      <PageIntro eyebrow="About this prototype" title="A trusted thread, with visible boundaries." onBack={onBack}>
-        Ariad is a downstream guide. Governed clinical knowledge remains separate from the
-        language model and from the patient interface.
+      <PageIntro eyebrow="About this prototype" title="What Ariad can and cannot do" onBack={onBack}>
+        Ariad helps you find information about treatment side effects. Its safety information
+        comes from a fixed set of health sources.
       </PageIntro>
       <div className="about-grid">
-        <article><ShieldCheck aria-hidden="true" /><h2>Deterministic clinical content</h2><p>Guidance is assembled from an immutable, source-controlled release. This preview contains unapproved drafts and cannot masquerade as a published clinical release.</p></article>
-        <article><Sparkles aria-hidden="true" /><h2>Bounded GPT‑5.6</h2><p>GPT‑5.6 may map free text to controlled symptom IDs and restate supplied facts. It cannot generate clinical guidance, diagnose, grade, or recommend action.</p></article>
-        <article><Clipboard aria-hidden="true" /><h2>Private by design</h2><p>No account, database, medical-record upload, or server symptom history. Saved treatments stay in versioned local storage; symptom answers remain ephemeral.</p></article>
+        <article><ShieldCheck aria-hidden="true" /><h2>Fixed safety information</h2><p>Ariad shows information from the sources listed in this demo. The information is still a draft and has not been approved for patient care.</p></article>
+        <article><Sparkles aria-hidden="true" /><h2>How Ariad uses AI</h2><p>AI may match your words to a symptom and rewrite the facts you enter. It cannot write safety advice, decide what is wrong, or tell you what care you need.</p></article>
+        <article><Clipboard aria-hidden="true" /><h2>Your privacy</h2><p>You do not need an account. Treatments you save stay on this device. Ariad does not keep your symptom answers after you leave or refresh the page.</p></article>
       </div>
-      <section className="intended-use"><h2>Intended use</h2><p>{ARIAD_INTENDED_USE}</p></section>
-      <section className="release-card"><p className="eyebrow">Active content artifact</p><code>{activeRelease.release_id}</code><code>{activeRelease.content_hash}</code><span>{activeRelease.objects.length} pinned objects · {activeRelease.channel} channel</span></section>
+      <section className="intended-use"><h2>What Ariad is for</h2><p>{ARIAD_INTENDED_USE}</p></section>
+      <section className="release-card"><p className="eyebrow">Version used for this demo</p><span>Demo version {activeRelease.release_version}</span></section>
       <button className="danger-text-button" type="button" onClick={onReset}><RotateCcw aria-hidden="true" size={17} /> Reset demo and clear saved treatments</button>
     </>
   );
@@ -1511,7 +1508,7 @@ export function AriadApp() {
     } else if (supportStatus === "education_only") {
       setScreen("education-only");
     } else {
-      setUnsupportedReason("The exact treatment–symptom combination is not fully supported in this preview.");
+      setUnsupportedReason("Ariad does not have a full guide for this treatment and symptom together.");
       setScreen("unsupported");
     }
   };
@@ -1620,7 +1617,7 @@ export function AriadApp() {
           <TreatmentSearchScreen
             mode={screen === "treatment-context" ? "symptom" : mode}
             onSelect={chooseTreatment}
-            onUnknown={() => { setUnsupportedReason("Without treatment context, Ariad cannot provide treatment-specific guidance."); setScreen("unsupported"); }}
+            onUnknown={() => { setUnsupportedReason("Ariad needs your treatment name to show treatment-specific information."); setScreen("unsupported"); }}
             onBack={() => setScreen(screen === "treatment-context" ? "symptom-entry" : "home")}
           />
         ) : null}
@@ -1641,7 +1638,7 @@ export function AriadApp() {
             initialText={initialSymptomText}
             onCandidates={showCandidates}
             onSelect={chooseSymptom}
-            onMissing={() => { setUnsupportedReason("The symptom could not be mapped safely to the controlled catalogue."); setScreen("unsupported"); }}
+            onMissing={() => { setUnsupportedReason("Ariad could not safely match this symptom to its list."); setScreen("unsupported"); }}
             onBack={() => setScreen(selectedTreatmentId ? "treatment-overview" : "home")}
           />
         ) : null}
@@ -1710,7 +1707,7 @@ export function AriadApp() {
       <EmergencyBoundary />
       <footer className="site-footer">
         <span>Kesis &amp; Sisters · Turning complexity into clarity.</span>
-        <span>Release {activeRelease.release_version} · {activeRelease.content_hash.slice(0, 10)}</span>
+        <span>Demo version {activeRelease.release_version}</span>
       </footer>
     </>
   );

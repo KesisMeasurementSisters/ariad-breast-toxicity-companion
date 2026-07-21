@@ -14,15 +14,16 @@ evidence_ref:
   version: 1.0.0
 evidence_payload_hash: b4d72d6cc242cc45601a93fdc3144056cf40436f8ea30d4d853eab7b103e4ca0
 source_ids: [fda-label-carboplatin]
-route_label: Intravenous (IV) infusion
+route_label: Medicine given into a vein (IV)
 subtitle: Side effects reported with carboplatin alone
 frequency_context: >-
-  Side effects can be different for each person. These broad groups are not a
-  prediction of what will happen to you.
-cause_statement: Ariad cannot determine the cause of a symptom.
+  These groups show how often side effects were reported. Side effects can be
+  different for each person. The groups cannot predict what will happen to you.
+cause_statement: Ariad cannot tell what is causing a symptom.
 source_context: >-
-  This draft uses FDA information for carboplatin. Follow the information given
-  by your own cancer team.
+  This draft uses official U.S. Food and Drug Administration (FDA) information
+  for carboplatin. A health professional has not reviewed these explanations
+  and actions yet. Follow the information from your own cancer team.
 frequency_method_id: ariad-all-grade-frequency-v1
 effects:
   - id: nausea-or-vomiting
@@ -91,7 +92,7 @@ effects:
     meaning: Carboplatin can lower the body's ability to fight infection.
     what_you_may_notice:
       - Fever, chills, cough, or feeling unwell
-      - Pain or burning when you urinate
+      - Pain or burning when you pass urine
     safe_actions:
       - Follow your cancer team's instructions for checking your temperature.
     contact_team:
@@ -105,7 +106,7 @@ effects:
     evidence_event_ids: [bleeding]
     frequency_source_event_id: bleeding
     frequency_band: fewer_people
-    meaning: Carboplatin can lower platelets, which help blood clot.
+    meaning: Carboplatin can lower cells that help your blood clot.
     what_you_may_notice:
       - Unusual bruising or bleeding
       - Black, tarry stools or blood in your urine
@@ -121,7 +122,7 @@ effects:
     evidence_event_ids: [decreased-hemoglobin, decreased-neutrophils, decreased-platelets]
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Carboplatin can lower red blood cells, infection-fighting cells, or platelets.
+    meaning: Carboplatin can lower red blood cells, infection-fighting cells, or cells that help stop bleeding.
     what_you_may_notice:
       - These changes may not cause a symptom you can feel.
     safe_actions:
@@ -180,7 +181,7 @@ escalation_summary:
   heading: When to contact your cancer team
   introduction: Follow the instructions given by your own cancer team.
   contact_team:
-    - Contact your cancer team right away for fever, chills, cough, pain or burning when you urinate, or another sign of infection.
+    - Contact your cancer team right away for fever, chills, cough, pain or burning when you pass urine, or another sign of infection.
     - Contact them right away for unusual bruising or bleeding, black stools, or blood in your urine.
     - Contact them right away if nausea or vomiting is severe, does not stop, or keeps you from drinking.
     - Tell them about new tingling, numbness, burning, or a pins-and-needles feeling in your hands or feet.

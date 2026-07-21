@@ -12,7 +12,7 @@ async function choose(page: Page, name: string | RegExp) {
 async function nextQuestion(page: Page) {
   await page
     .getByRole("button", {
-      name: /Next question|View source-controlled guidance/,
+      name: /Next question|See information/,
     })
     .click();
 }
@@ -21,7 +21,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
   await expect(
-    page.getByText("Unreviewed prototype content — not for clinical use").first(),
+    page.getByText("Draft demo. A health professional has not reviewed this information. Do not use it for patient care").first(),
   ).toBeVisible();
   await expect(page.locator('meta[name="format-detection"]')).toHaveAttribute(
     "content",
@@ -83,10 +83,10 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   await page
     .getByLabel("Describe the symptom in your own words")
     .fill("Electric sparks across my fingertips make small objects slip.");
-  await choose(page, "Find a symptom category");
+  await choose(page, "Find a symptom");
 
-  await expect(page.getByText("GPT‑5.6 mapped the wording only")).toBeVisible();
-  await choose(page, /Tingling, numbness, or burning.*This is closest/);
+  await expect(page.getByText("Ariad used AI only to match your words")).toBeVisible();
+  await choose(page, /Tingling, numbness, or burning.*Choose this/);
 
   await page.getByLabel("Treatment code").fill("THREAD-PAC-01");
   await choose(page, "Use code");
@@ -108,10 +108,10 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   await expect(
     page.getByRole("heading", { name: "Tingling, numbness, or burning" }),
   ).toBeVisible();
-  await expect(page.getByText("Contact your cancer team if…")).toBeVisible();
-  await expect(page.getByText("Seek urgent medical attention if…")).toBeVisible();
+  await expect(page.getByText("When to contact your cancer team")).toBeVisible();
+  await expect(page.getByText("When to get urgent medical help")).toBeVisible();
   const clinicCard = page.locator(".clinic-card");
-  await expect(clinicCard.getByText("Synthetic demo clinic configuration")).toBeVisible();
+  await expect(clinicCard.getByText("Demo clinic details")).toBeVisible();
   await expect(
     clinicCard.getByRole("heading", { name: "Threadline Demo Cancer Centre" }),
   ).toBeVisible();
@@ -122,23 +122,25 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
   await expect(clinicCard.locator("a[href^='tel:']")).toHaveCount(0);
 
   await choose(page, /Create a summary for my cancer team/);
-  await expect(page.getByText("GPT‑5.6 restated supplied facts")).toBeVisible();
+  await expect(page.getByText("Ariad used only the answers you gave.")).toBeVisible();
   await expect(page.getByText("Location: Fingers.")).toBeVisible();
   await expect(
-    page.locator(".summary-sheet").getByText(/cannot determine the cause, assign a grade/i),
+    page.locator(".summary-sheet").getByText(/cannot tell what is causing your symptom or how serious it is/i),
   ).toBeVisible();
 });
 
-test("a drug result opens the single-drug information fallback", async ({ page }) => {
+test("a drug result opens its single-drug information", async ({ page }) => {
   await choose(page, /I’m starting treatment/);
-  await page.getByLabel("Drug or regimen").fill("doxorubicin");
+  await page.getByLabel("Drug or treatment plan").fill("doxorubicin");
   await choose(page, /Drug: Doxorubicin \(Adriamycin\).*View this drug’s information/);
 
   await expect(
     page.getByRole("heading", { name: "Doxorubicin (Adriamycin)" }),
   ).toBeVisible();
-  await expect(page.getByText("Information for this drug is being prepared")).toBeVisible();
-  await expect(page.getByText("Ariad cannot determine the cause").first()).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Side effects linked to doxorubicin" }),
+  ).toBeVisible();
+  await expect(page.getByText("Ariad cannot tell what is causing your symptom").first()).toBeVisible();
 });
 
 test("a clinic code still opens the complete weekly paclitaxel preparation guide", async ({ page }) => {
@@ -149,7 +151,7 @@ test("a clinic code still opens the complete weekly paclitaxel preparation guide
   await expect(page.getByRole("heading", { name: "Weekly paclitaxel" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Your treatment at a glance" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "A simple preparation checklist" })).toBeVisible();
-  await expect(page.getByText(/cannot determine the cause, assign a grade/i).first()).toBeVisible();
+  await expect(page.getByText(/cannot tell what is causing your symptom or how serious it is/i).first()).toBeVisible();
 });
 
 test("capecitabine demo reaches the fixed diarrhea guidance sections", async ({ page }) => {
@@ -169,8 +171,8 @@ test("capecitabine demo reaches the fixed diarrhea guidance sections", async ({ 
   await nextQuestion(page);
 
   await expect(page.getByRole("heading", { name: "Diarrhea" })).toBeVisible();
-  await expect(page.getByText("Contact your cancer team if…")).toBeVisible();
-  await expect(page.getByText("Clinical-owner decision pending")).toBeVisible();
+  await expect(page.getByText("When to contact your cancer team")).toBeVisible();
+  await expect(page.getByText("A clinic instruction still needs review.")).toBeVisible();
 });
 
 test("AC demo preserves the unresolved fever threshold as a visible review boundary", async ({
@@ -187,16 +189,16 @@ test("AC demo preserves the unresolved fever threshold as a visible review bound
   await nextQuestion(page);
 
   await expect(
-    page.getByRole("heading", { name: "Fever, chills, or infection concern" }),
+    page.getByRole("heading", { name: "Fever, chills, or feeling unwell" }),
   ).toBeVisible();
-  await expect(page.getByText("Clinical-owner decision pending")).toBeVisible();
+  await expect(page.getByText("A clinic instruction still needs review.")).toBeVisible();
   await expect(page.getByText(/follow the fever instructions .*your cancer team/i).first()).toBeVisible();
   const clinicCard = page.locator(".clinic-card");
   await expect(
-    clinicCard.getByText("Fictional contact details for demonstration only — do not call or use for care."),
+    clinicCard.getByText("Made-up contact details for this demo. Do not call these numbers or use them for care."),
   ).toBeVisible();
   await expect(
-    clinicCard.getByText("Local fever instruction pending clinical review in this prototype"),
+    clinicCard.getByText("The clinic's fever instructions still need review."),
   ).toBeVisible();
   await expect(clinicCard.locator("a[href^='tel:']")).toHaveCount(0);
 });

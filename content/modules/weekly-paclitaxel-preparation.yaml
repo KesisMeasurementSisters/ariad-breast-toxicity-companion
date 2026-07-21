@@ -11,7 +11,7 @@
   section: preparation
   title: Your treatment at a glance
   paragraphs:
-    - Weekly paclitaxel is a breast-cancer chemotherapy regimen using paclitaxel, a taxane medicine given through a vein.
+    - Weekly paclitaxel is a breast cancer treatment. Paclitaxel is a type of chemotherapy called a taxane. It is given through a vein.
     - Your own schedule and instructions come from your cancer team.
   bullets: []
   applicability: { treatment_ids: [weekly-paclitaxel], symptom_ids: [] }
@@ -23,12 +23,12 @@
 
 - <<: *module_base
   id: weekly-paclitaxel-prep-possible-effects
-  title: Effects to know about
+  title: Side effects to know about
   paragraphs:
-    - Paclitaxel can be associated with several effects. Your experience may differ, and this prototype cannot predict which effects you will have.
+    - Several side effects can happen during treatment with paclitaxel. Each person is different. Ariad cannot tell which side effects you may have.
   bullets:
     - Tiredness, nausea, and hair loss can occur.
-    - Lowered blood counts and infection concerns can occur.
+    - Blood cell counts may fall. You may also need to watch for infection.
     - Tingling, numbness, burning, or pain in the hands or feet can occur.
   source_ids: [eviq-weekly-paclitaxel-breast-patient-information, cco-paclitaxel-patient-information]
   claim_ids: [claim-paclitaxel-possible-effects]
@@ -40,18 +40,17 @@
   bullets:
     - Save your cancer team's daytime and after-hours contact information.
     - Keep a working digital thermometer available and follow your team's fever instructions.
-    - Bring an up-to-date medication list and follow only the medicine instructions your team provided.
-    - Know how to reach your treatment area if you have questions before a visit.
+    - Bring a current list of your medicines. Follow only the medicine instructions from your team.
+    - Know how to reach the place where you get treatment if you have questions before a visit.
   source_ids: [eviq-weekly-paclitaxel-breast-patient-information, cco-fever-patient-guide]
   claim_ids: [claim-treatment-preparation-checklist]
 
 - <<: *module_base
   id: weekly-paclitaxel-prep-warning-boundary
-  title: Warning information is fixed, not personalized
+  title: Ariad gives general warning information
   paragraphs:
-    - Ariad can show source-controlled warning information, but it cannot decide whether a symptom is caused by treatment or tell you what action you personally need.
-    - Follow the instructions provided by your cancer team. If you think you may be experiencing a medical emergency, call 911 or your local emergency service.
+    - Ariad shows general warning information from listed sources. It cannot tell what caused a symptom or what you personally need to do.
+    - Follow the instructions from your cancer team. If you think this is a medical emergency, call 911 or your local emergency service now.
   bullets: []
   source_ids: [cco-paclitaxel-patient-information, cco-fever-patient-guide]
   claim_ids: [claim-ariad-boundary, claim-universal-emergency-boundary]
-

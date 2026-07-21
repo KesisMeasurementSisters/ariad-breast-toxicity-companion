@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("search stays minimal and canonicalizes generic and brand names", async ({ page }) => {
-  const search = page.getByLabel("Drug or regimen");
+  const search = page.getByLabel("Drug or treatment plan");
 
   await expect(page.locator(".result-list")).toHaveCount(0);
   await search.fill("c");
@@ -34,7 +34,7 @@ test("search stays minimal and canonicalizes generic and brand names", async ({ 
 });
 
 test("an exact drug is followed by multi-drug regimens containing it", async ({ page }) => {
-  await page.getByLabel("Drug or regimen").fill("docetaxel");
+  await page.getByLabel("Drug or treatment plan").fill("docetaxel");
 
   const results = page.locator(".result-row");
   await expect(results).toHaveCount(3);
@@ -49,7 +49,7 @@ test("an exact drug is followed by multi-drug regimens containing it", async ({ 
 });
 
 test("an exact regimen remains first while close regimen names stay visible", async ({ page }) => {
-  await page.getByLabel("Drug or regimen").fill("TC");
+  await page.getByLabel("Drug or treatment plan").fill("TC");
 
   const results = page.locator(".result-row");
   await expect(results).toHaveCount(3);
@@ -63,7 +63,7 @@ test("an exact regimen remains first while close regimen names stay visible", as
 });
 
 test("TCH is complete and TCHP remains visible as a close regimen", async ({ page }) => {
-  await page.getByLabel("Drug or regimen").fill("TCH");
+  await page.getByLabel("Drug or treatment plan").fill("TCH");
 
   const results = page.locator(".result-row");
   await expect(results).toHaveCount(2);
@@ -76,14 +76,14 @@ test("TCH is complete and TCHP remains visible as a close regimen", async ({ pag
 });
 
 test("a spelling-close result is clearly introduced as a suggestion", async ({ page }) => {
-  await page.getByLabel("Drug or regimen").fill("capecitbine");
+  await page.getByLabel("Drug or treatment plan").fill("capecitbine");
 
   await expect(page.getByText("Did you mean?")).toBeVisible();
   await expect(page.locator(".result-row").first()).toContainText("Capecitabine (Xeloda)");
 });
 
 test("a drug opens one drug page and a regimen opens ordered component cards", async ({ page }) => {
-  const search = page.getByLabel("Drug or regimen");
+  const search = page.getByLabel("Drug or treatment plan");
   await search.fill("capecitabine");
   await page
     .getByRole("button", {
@@ -101,7 +101,7 @@ test("a drug opens one drug page and a regimen opens ordered component cards", a
   await search.fill("TCHP");
   await page
     .getByRole("button", {
-      name: /Regimen: TCHP: Docetaxel \+ Carboplatin \+ Trastuzumab \+ Pertuzumab/,
+      name: /Treatment plan: TCHP: Docetaxel \+ Carboplatin \+ Trastuzumab \+ Pertuzumab/,
     })
     .click();
 
@@ -133,7 +133,7 @@ test("a drug opens one drug page and a regimen opens ordered component cards", a
   await expect(
     cards.nth(2).getByRole("heading", { name: "Side effects reported with trastuzumab alone" }),
   ).toBeVisible();
-  await expect(page.getByText("Information for this drug is being prepared")).toHaveCount(1);
+  await expect(page.getByText("We are still preparing this drug's information")).toHaveCount(1);
 });
 
 test("TCH composes independent single-drug pages without implying regimen frequencies", async ({
@@ -162,7 +162,7 @@ test("TCH composes independent single-drug pages without implying regimen freque
   await expect(page.locator(".regimen-single-drug-boundary")).toHaveCount(3);
   await expect(
     page.getByText(
-      "This section shows FDA information for this drug when studied alone. Its frequency groups do not describe how often side effects occur with the full TCH regimen.",
+      "This section shows FDA information for this drug when it was studied alone. The groups do not show how often side effects happen with the full TCH treatment plan.",
     ),
   ).toHaveCount(3);
 
@@ -196,7 +196,7 @@ test("a catalogue drug without FDA single-agent breast frequencies stays in prep
 
   await expect(page.getByRole("heading", { name: "Alpelisib (Piqray)" })).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Information for this drug is being prepared" }),
+    page.getByRole("heading", { name: "We are still preparing this drug's information" }),
   ).toBeVisible();
   await expect(page.locator(".toxicity-presentation")).toHaveCount(0);
 });
@@ -250,7 +250,7 @@ test("cyclophosphamide uses FDA common and serious groups without numerical freq
   ).toBeVisible();
   await expect(
     cyclophosphamide.getByText(
-      "This section shows FDA information for this individual drug. The label does not say how often these effects occur with the full TC regimen.",
+      "This section shows FDA information for this drug. It does not say how often these effects happen with the full TC treatment plan.",
     ),
   ).toBeVisible();
 });
@@ -270,7 +270,7 @@ test("representative single drugs open separate FDA-linked qualitative pages", a
     await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
     await expect(page.getByRole("heading", { name: heading })).toBeVisible();
     await expect(page.locator(".toxicity-presentation")).toBeVisible();
-    await expect(page.getByText("Ariad cannot determine the cause of a symptom.")).toBeVisible();
+    await expect(page.getByText("Ariad cannot tell what is causing a symptom.")).toBeVisible();
     const patientText = await page.locator(".toxicity-presentation").innerText();
     expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);
   }
@@ -310,7 +310,7 @@ test("docetaxel opens a patient-only side-effect presentation without numerical 
   await expect(
     page.getByRole("heading", { name: "When to contact your cancer team" }),
   ).toBeVisible();
-  await expect(page.getByText(/If you think you may be experiencing a medical emergency/).first()).toBeVisible();
+  await expect(page.getByText(/If you think this is a medical emergency/).first()).toBeVisible();
 
   await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
   await expect(effects).toHaveCount(17);

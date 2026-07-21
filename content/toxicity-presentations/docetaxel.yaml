@@ -14,15 +14,18 @@ evidence_ref:
   version: 1.0.0
 evidence_payload_hash: 9136e5306a447bb11e8cdac266a4bfe601ecdf607194c2416b84202c9585ccf5
 source_ids: [fda-label-docetaxel]
-route_label: Intravenous (IV) infusion
+route_label: Medicine given into a vein (IV)
 subtitle: Side effects reported with docetaxel alone
 frequency_context: >-
-  The groups compare how often effects were recorded in one FDA breast-cancer
-  study group. They are broad groups, not a prediction of what will happen to you.
-cause_statement: Ariad cannot determine the cause of a symptom.
+  These groups show how often side effects were reported in one breast cancer
+  study in the FDA drug information. The groups cannot predict what will happen
+  to you.
+cause_statement: Ariad cannot tell what is causing a symptom.
 source_context: >-
-  Frequency groups use the Breast Cancer column in FDA Table 3. Explanations
-  and action wording also use the FDA Patient Information and warnings.
+  These groups use breast cancer study results from official U.S. Food and Drug
+  Administration (FDA) drug information. The explanations and actions also use
+  its patient section and warnings. A health professional has not reviewed this
+  Ariad draft yet.
 frequency_method_id: ariad-all-grade-frequency-v1
 effects:
   - id: hair-loss
@@ -63,8 +66,8 @@ effects:
       - Swelling in the hands, face, legs, or feet
       - Weight gain or shortness of breath
     safe_actions:
-      - Take the corticosteroid prescribed by your cancer team exactly as directed.
-      - Tell your team before the infusion if you missed that medicine.
+      - Take the steroid medicine from your cancer team exactly as directed.
+      - Tell your team before docetaxel is given if you missed that medicine.
     contact_team:
       - Contact your cancer team right away for swelling in the legs or feet, weight gain, or shortness of breath.
     urgent_help: []
@@ -115,17 +118,17 @@ effects:
     reassuring_monitoring: []
 
   - id: diarrhoea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids: [diarrhea]
     frequency_source_event_id: diarrhea
     frequency_band: many_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice:
-      - New or worsening loose or watery bowel movements
+      - New or worsening loose or watery stools
       - Stomach pain or tenderness
     safe_actions: []
     contact_team:
-      - Contact your cancer team right away for new or worsening stomach pain, tenderness, or diarrhoea, with or without fever.
+      - Contact your cancer team right away for new or worsening stomach pain, soreness, or diarrhea, with or without fever.
     urgent_help: []
     reassuring_monitoring: []
 
@@ -204,17 +207,17 @@ effects:
     evidence_event_ids: [hypersensitivity-reactions]
     frequency_source_event_id: hypersensitivity-reactions
     frequency_band: some_people
-    meaning: An allergic reaction can happen during a docetaxel infusion.
+    meaning: An allergic reaction can happen while docetaxel is being given.
     what_you_may_notice:
       - Hives, rash, or redness over the body
       - Sudden swelling or trouble breathing or swallowing
     safe_actions: []
     contact_team:
-      - Tell the nurse immediately if any allergic-reaction signs start during the infusion.
+      - Tell the nurse right away if any signs of an allergic reaction start while the medicine is being given.
     urgent_help:
       - Trouble breathing or swallowing, sudden swelling of the face, lips, tongue, or throat, or widespread hives can be a medical emergency.
     reassuring_monitoring:
-      - The cancer team will watch closely for an allergic reaction during the infusion.
+      - The cancer team will watch closely for an allergic reaction while the medicine is being given.
 
   - id: muscle-aches
     display_name: Muscle aches
@@ -243,11 +246,11 @@ effects:
     reassuring_monitoring: []
 
   - id: iv-site-changes
-    display_name: Changes around the IV site
+    display_name: Changes where the IV enters your skin
     evidence_event_ids: [infusion-site-reactions]
     frequency_source_event_id: infusion-site-reactions
     frequency_band: fewer_people
-    meaning: The skin around the infusion site can change.
+    meaning: The skin near the place where the IV enters your body can change.
     what_you_may_notice:
       - Redness, tenderness, swelling, warmth, dryness, or darker skin near the IV site
     safe_actions: []
@@ -257,11 +260,11 @@ effects:
     reassuring_monitoring: []
 
   - id: blood-count-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids: [neutropenia, leukopenia, thrombocytopenia, anemia]
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Docetaxel can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Docetaxel can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice:
       - These changes may not cause a symptom you can feel.
     safe_actions:
@@ -290,10 +293,10 @@ escalation_summary:
   introduction: Follow the instructions given by your own cancer team.
   contact_team:
     - Contact your cancer team right away for fever.
-    - Contact them right away for new or worsening stomach pain, tenderness, or diarrhoea, with or without fever.
+    - Contact them right away for new or worsening stomach pain, soreness, or diarrhea, with or without fever.
     - Contact them right away for swelling in the legs or feet, weight gain, or shortness of breath.
     - Contact them right away for numbness, tingling, burning, weakness in an arm or leg, or any vision change.
     - Contact them right away for blistering, peeling, bleeding, or widespread severe skin changes.
   urgent_help:
     - Get urgent help for trouble breathing or swallowing, sudden swelling of the face, lips, tongue, or throat, or widespread hives or redness.
-    - During an infusion, tell the nurse immediately about a fast or irregular heartbeat, severe shortness of breath, dizziness, or fainting. If this happens after an infusion, get medical help right away.
+    - While the medicine is being given, tell the nurse right away about a fast or uneven heartbeat, severe shortness of breath, dizziness, or fainting. If this happens after the medicine was given, get medical help right away.

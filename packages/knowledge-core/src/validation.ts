@@ -593,7 +593,7 @@ function collectToxicityPresentationIssues(objects: KnowledgeObject[]): Validati
       }
     }
 
-    if (!/\b(?:cannot determine|cannot tell)\b.*\bcause\b/iu.test(presentation.cause_statement)) {
+    if (!/\b(?:cannot determine|cannot tell)\b.*\bcaus(?:e|ed|ing)\b/iu.test(presentation.cause_statement)) {
       issues.push({
         severity: "error",
         code: "toxicity-presentation-cause-boundary-missing",

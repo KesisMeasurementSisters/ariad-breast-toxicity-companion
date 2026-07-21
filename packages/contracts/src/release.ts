@@ -3,7 +3,8 @@ import { ClinicConfigRefSchema, KnowledgeObjectSchema } from "./objects";
 import { IsoDateTimeSchema, SemVerSchema, StableIdSchema, VersionedRefSchema } from "./primitives";
 
 export const PREVIEW_ACKNOWLEDGEMENT = "ARIAD_EXPLICIT_UNREVIEWED_PREVIEW" as const;
-export const PREVIEW_NOTICE = "Unreviewed prototype content — not for clinical use" as const;
+export const PREVIEW_NOTICE =
+  "Draft demo. A health professional has not reviewed this information. Do not use it for patient care" as const;
 
 export const ContentReleaseManifestSchema = z
   .object({

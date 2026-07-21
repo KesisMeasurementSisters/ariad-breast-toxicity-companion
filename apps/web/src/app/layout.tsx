@@ -4,9 +4,8 @@ import { activeRelease } from "@/lib/release";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ariad: Breast | A trusted thread through treatment",
-  description:
-    "A breast cancer treatment side-effect companion built as an unreviewed OpenAI Build Week prototype.",
+  title: "Ariad: Breast | Treatment side-effect information",
+  description: "Draft information about breast cancer treatment side effects. This demo is not for patient care.",
   formatDetection: { address: false, email: false, telephone: false },
   robots:
     activeRelease.channel === "preview"

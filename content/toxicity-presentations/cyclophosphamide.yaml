@@ -15,15 +15,17 @@ evidence_ref:
   version: 1.0.0
 evidence_payload_hash: 507372063b6624035d10937c6b5e446112ede0c1f7e1fe98044515bd357bd75f
 source_ids: [fda-label-cyclophosphamide]
-route_label: Intravenous (IV) infusion
+route_label: Medicine given into a vein (IV)
 subtitle: Side effects linked to cyclophosphamide
 frequency_context: >-
-  This page groups FDA information into common effects and serious effects.
-  Side effects can be different for each person.
-cause_statement: Ariad cannot determine the cause of a symptom.
+  This page groups side effects from official U.S. drug information into common
+  and serious effects. Side effects can be different for each person.
+cause_statement: Ariad cannot tell what is causing a symptom.
 source_context: >-
-  This draft uses FDA information for cyclophosphamide. Follow the information
-  given by your own cancer team.
+  This draft uses official U.S. Food and Drug Administration (FDA) information
+  for cyclophosphamide. A health professional has not reviewed these
+  explanations and actions yet. Follow the information from your own cancer
+  team.
 frequency_method_id: null
 effects:
   - id: low-white-blood-cells
@@ -34,7 +36,7 @@ effects:
     presentation_group: common
     meaning: Cyclophosphamide can lower white blood cells that help fight infection.
     what_you_may_notice:
-      - You may not feel a low blood-cell count yourself.
+      - You may not notice this change yourself.
     safe_actions:
       - Keep the blood-test appointments arranged by your cancer team.
       - Follow your cancer team's instructions for checking your temperature.
@@ -81,9 +83,9 @@ effects:
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: common
-    meaning: Your bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice:
-      - Loose or watery bowel movements
+      - Loose or watery stools
     safe_actions:
       - Follow the diarrhea instructions given by your cancer team.
     contact_team:
@@ -100,29 +102,29 @@ effects:
     meaning: Low blood cells can allow an infection to become serious very quickly.
     what_you_may_notice:
       - Fever, chills, cough, or feeling suddenly unwell
-      - Pain or burning when you urinate
+      - Pain or burning when you pass urine
     safe_actions:
       - Follow your cancer team's instructions for checking your temperature.
     contact_team:
-      - Contact your cancer team immediately for a fever or another sign of infection.
+      - Contact your cancer team right away for a fever or another sign of infection.
     urgent_help: []
     reassuring_monitoring:
       - Your cancer team will check your blood cells during treatment.
 
   - id: bladder-or-urinary-tract-damage
-    display_name: Bladder or urinary tract damage
+    display_name: Bladder or urine problems
     evidence_event_ids: [urinary-tract-and-renal-toxicity]
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: serious
-    meaning: Cyclophosphamide can irritate or damage the bladder, urinary tract, or kidneys.
+    meaning: Cyclophosphamide can irritate or damage the bladder, the tubes that carry urine, or the kidneys.
     what_you_may_notice:
       - Pink or red urine
-      - Pain, burning, or another new problem when you urinate
+      - Pain, burning, or another new problem when you pass urine
     safe_actions:
       - Follow your cancer team's instructions about fluids and emptying your bladder around treatment.
     contact_team:
-      - Contact your cancer team right away for pink or red urine or another new urinary symptom.
+      - Contact your cancer team right away for pink or red urine or another change in your urine or how you pass it.
     urgent_help: []
     reassuring_monitoring:
       - Your cancer team may check your urine and kidney function during treatment.
@@ -139,11 +141,11 @@ effects:
       - Swelling in the ankles or legs, a racing or irregular heartbeat, sudden weight gain, dizziness, or fainting
     safe_actions: []
     contact_team:
-      - Contact a health professional immediately for any of these changes.
+      - Contact a health professional right away for any of these changes.
     urgent_help:
-      - Get emergency help for severe chest pain, severe trouble breathing, or loss of consciousness.
+      - Get emergency help for severe chest pain, severe trouble breathing, passing out, or being hard to wake.
     reassuring_monitoring:
-      - Your care team may monitor your heart if you have heart problems or other risk factors.
+      - Your care team may check your heart if you have heart problems or other things that raise your chance of heart problems.
 
   - id: lung-problems
     display_name: Lung problems
@@ -151,12 +153,12 @@ effects:
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: serious
-    meaning: Cyclophosphamide can sometimes inflame or scar the lungs.
+    meaning: Cyclophosphamide can sometimes cause swelling or scars in the lungs.
     what_you_may_notice:
       - A new or worsening cough or shortness of breath
     safe_actions: []
     contact_team:
-      - Contact your cancer team promptly for a new or worsening cough or shortness of breath.
+      - Contact your cancer team right away for a new or worsening cough or shortness of breath.
     urgent_help:
       - Get emergency help if you are struggling to breathe.
     reassuring_monitoring: []
@@ -205,7 +207,7 @@ effects:
     safe_actions:
       - Follow your cancer team's pregnancy-prevention and breastfeeding instructions.
     contact_team:
-      - Tell your cancer team immediately if you are pregnant or think you may be pregnant.
+      - Tell your cancer team right away if you are pregnant or think you may be pregnant.
       - Ask your cancer team about fertility before or during treatment if this matters to you.
     urgent_help: []
     reassuring_monitoring: []
@@ -220,10 +222,10 @@ escalation_summary:
   heading: When to contact your cancer team
   introduction: Follow the instructions given by your own cancer team.
   contact_team:
-    - Contact your cancer team immediately for a fever, chills, cough, burning when you urinate, or another sign of infection.
-    - Contact them right away for pink or red urine or another new urinary symptom.
-    - Contact a health professional immediately for new or worsening shortness of breath, cough, leg swelling, a racing or irregular heartbeat, sudden weight gain, dizziness, or fainting.
+    - Contact your cancer team right away for a fever, chills, cough, burning when you pass urine, or another sign of infection.
+    - Contact them right away for pink or red urine or another change in your urine or how you pass it.
+    - Contact a health professional right away for new or worsening shortness of breath, cough, leg swelling, or a racing or uneven heartbeat. Also contact them right away for sudden weight gain, dizziness, or fainting.
     - Contact your cancer team right away if vomiting or diarrhea does not stop or keeps you from drinking.
-    - Tell your cancer team immediately if you are pregnant or think you may be pregnant.
+    - Tell your cancer team right away if you are pregnant or think you may be pregnant.
   urgent_help:
-    - Get emergency medical help right away for severe chest pain, severe trouble breathing, swelling of the face, lips, tongue, or throat, severe dizziness, or loss of consciousness.
+    - Get emergency medical help right away for severe chest pain, severe trouble breathing, severe dizziness, passing out, or being hard to wake. Also get emergency help right away for swelling of the face, lips, tongue, or throat.

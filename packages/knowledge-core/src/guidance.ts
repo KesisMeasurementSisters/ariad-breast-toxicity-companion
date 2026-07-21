@@ -20,11 +20,11 @@ const SECTION_ORDER = [
 
 const SECTION_HEADINGS: Record<(typeof SECTION_ORDER)[number], string> = {
   about: "About this symptom",
-  treatment_context: "Why it matters with this treatment",
-  home_management: "What you can generally do at home",
-  contact_team: "Contact your cancer team if…",
-  urgent_attention: "Seek urgent medical attention if…",
-  reporting_checklist: "What information to have ready",
+  treatment_context: "Why this matters with your treatment",
+  home_management: "What you can do at home",
+  contact_team: "When to contact your cancer team",
+  urgent_attention: "When to get urgent medical help",
+  reporting_checklist: "What to tell your cancer team",
 };
 
 export interface AnswerValue {
@@ -101,7 +101,7 @@ export function resolveGuidanceRelationship(
     return {
       relationship: exact,
       basis: "exact",
-      basisLabel: exact.treatment_kind === "regimen" ? "Exact regimen guidance" : "Exact treatment guidance",
+      basisLabel: exact.treatment_kind === "regimen" ? "Information for this treatment plan" : "Information for this treatment",
       fallbackReason: null,
     };
   }
@@ -125,8 +125,8 @@ export function resolveGuidanceRelationship(
         return {
           relationship: component,
           basis: "component",
-          basisLabel: `Component guidance: ${drug?.generic_name ?? componentId}`,
-          fallbackReason: `No complete pathway exists for the exact regimen; this pathway is for one listed component, ${drug?.generic_name ?? componentId}.`,
+          basisLabel: `Information for one drug: ${drug?.generic_name ?? componentId}`,
+          fallbackReason: `Ariad does not have a full guide for this treatment plan. This information is for one drug in the plan: ${drug?.generic_name ?? componentId}.`,
         };
       }
     }
@@ -145,8 +145,8 @@ export function resolveGuidanceRelationship(
       return {
         relationship: classRelationship,
         basis: "class",
-        basisLabel: `Treatment-class guidance: ${treatmentClass?.display_name ?? classId}`,
-        fallbackReason: `No complete pathway exists for the exact selection; this is broader ${treatmentClass?.display_name ?? classId} information.`,
+        basisLabel: `General information for ${treatmentClass?.display_name ?? classId}`,
+        fallbackReason: `Ariad does not have a full guide for your exact choice. This information covers the broader group called ${treatmentClass?.display_name ?? classId}.`,
       };
     }
   }
@@ -157,7 +157,7 @@ export function resolveGuidanceRelationship(
       relationship: general,
       basis: "general",
       basisLabel: "General symptom information",
-      fallbackReason: "No complete treatment-specific, component, or treatment-class pathway exists.",
+      fallbackReason: "Ariad does not have a full guide for this treatment and symptom together.",
     };
   }
   return null;

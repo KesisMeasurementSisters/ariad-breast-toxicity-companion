@@ -31,7 +31,7 @@ export function deterministicSummary(request: SymptomSummaryRequest): SymptomSum
             sourceFieldIds: [fact.id],
           }))
         : omittedFacts.map((fact) => ({
-            text: `${fact.label}: A patient-entered response was omitted because it could not be restated safely.`,
+            text: `${fact.label}: This answer was left out because Ariad could not safely rewrite it.`,
             sourceFieldIds: [fact.id],
           })),
     patientQuestions: [],

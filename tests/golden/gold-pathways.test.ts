@@ -207,8 +207,8 @@ describe("transparent guidance fallback hierarchy", () => {
       "peripheral-neuropathy",
     );
     expect(guidance?.guidance_basis).toBe("component");
-    expect(guidance?.guidance_basis_label).toBe("Component guidance: paclitaxel");
-    expect(guidance?.fallback_reason).toContain("No complete pathway exists for the exact regimen");
+    expect(guidance?.guidance_basis_label).toBe("Information for one drug: paclitaxel");
+    expect(guidance?.fallback_reason).toContain("Ariad does not have a full guide for this treatment plan");
   });
 
   it("walks from a regimen to its nearest treatment class", () => {

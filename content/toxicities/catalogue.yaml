@@ -49,7 +49,7 @@
 
 - <<: *symptom_base
   id: fever-infection-concern
-  patient_label: Fever, chills, or infection concern
+  patient_label: Fever, chills, or feeling unwell
   clinical_label: Fever or possible infection
   synonyms: [fever, chills, shivering, shaking, infection, feeling feverish]
   navigation_terms: [high temperature, feel hot, sweats, sore throat on chemo]
@@ -200,7 +200,7 @@
 
 - <<: *symptom_base
   id: vaginal-genitourinary-symptoms
-  patient_label: Vaginal or urinary symptoms
+  patient_label: Vaginal symptoms or changes when passing urine
   clinical_label: Genitourinary symptoms
   synonyms: [vaginal dryness, pain with sex, urinary discomfort]
   navigation_terms: [burning urine, vaginal soreness]
@@ -211,7 +211,7 @@
 
 - <<: *symptom_base
   id: sleep-concerns
-  patient_label: Sleep concerns
+  patient_label: Trouble sleeping
   clinical_label: Sleep disturbance
   synonyms: [insomnia, cannot sleep, waking often]
   navigation_terms: [poor sleep]
@@ -222,7 +222,7 @@
 
 - <<: *symptom_base
   id: mood-cognitive-concerns
-  patient_label: Mood, memory, or concentration concerns
+  patient_label: Changes in mood, memory, or focus
   clinical_label: Mood or cognitive symptoms
   synonyms: [brain fog, low mood, anxious, forgetful]
   navigation_terms: [cannot concentrate]
@@ -332,7 +332,7 @@
 
 - <<: *symptom_base
   id: infusion-allergic-symptoms
-  patient_label: Infusion or allergic-type symptoms
+  patient_label: Reaction while medicine is given, or allergy symptoms
   clinical_label: Infusion or hypersensitivity symptoms
   synonyms: [facial swelling, hives, wheeze, reaction during infusion]
   navigation_terms: [allergic reaction]
@@ -340,4 +340,3 @@
   observable_feature_ids: []
   source_ids: [cco-symptom-management-directory]
   support_status: catalogued
-

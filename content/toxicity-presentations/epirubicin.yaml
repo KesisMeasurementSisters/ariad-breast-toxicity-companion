@@ -15,15 +15,16 @@ evidence_ref:
   version: 1.0.0
 evidence_payload_hash: 8b79c6289a4656bc9dcc59681e14f035bb506b6c21e03de527c8855188a333e5
 source_ids: [fda-label-epirubicin]
-route_label: Intravenous (IV) infusion
+route_label: Medicine given into a vein (IV)
 subtitle: Side effects linked to epirubicin
 frequency_context: >-
-  This page groups FDA information into common effects and serious effects.
-  Side effects can be different for each person.
-cause_statement: Ariad cannot determine the cause of a symptom.
+  This page groups side effects from official U.S. drug information into common
+  and serious effects. Side effects can be different for each person.
+cause_statement: Ariad cannot tell what is causing a symptom.
 source_context: >-
-  This draft uses FDA information for epirubicin. Follow the information given
-  by your own cancer team.
+  This draft uses official U.S. Food and Drug Administration (FDA) information
+  for epirubicin. A health professional has not reviewed these explanations and
+  actions yet. Follow the information from your own cancer team.
 frequency_method_id: null
 effects:
   - id: low-blood-cells
@@ -34,7 +35,7 @@ effects:
     presentation_group: common
     meaning: Epirubicin can lower blood cells that fight infection, carry oxygen, or help stop bleeding.
     what_you_may_notice:
-      - You may not feel a low blood-cell count yourself.
+      - You may not notice this change yourself.
     safe_actions:
       - Keep the blood-test appointments arranged by your cancer team.
       - Follow your cancer team's instructions for checking your temperature.
@@ -97,7 +98,7 @@ effects:
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: common
-    meaning: The lining of your mouth can become sore or inflamed.
+    meaning: The inside of your mouth can become red or sore.
     what_you_may_notice:
       - Mouth pain, redness, or sores
     safe_actions:
@@ -113,9 +114,9 @@ effects:
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: common
-    meaning: Your bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice:
-      - Loose or watery bowel movements
+      - Loose or watery stools
     safe_actions:
       - Follow the diarrhea instructions given by your cancer team.
     contact_team:
@@ -129,7 +130,7 @@ effects:
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: common
-    meaning: The surface of your eye can become irritated or inflamed.
+    meaning: Your eye can become red, sore, or irritated.
     what_you_may_notice:
       - Red, watery, sore, or irritated eyes
     safe_actions: []
@@ -155,14 +156,14 @@ effects:
       - Hair may grow back after treatment.
 
   - id: skin-irritation-near-iv
-    display_name: Skin irritation near the IV site
+    display_name: Skin changes where the IV enters your body
     evidence_event_ids: [local-skin-toxicity]
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: common
     meaning: Redness or irritation can happen near the place where epirubicin is given.
     what_you_may_notice:
-      - Redness, tenderness, or discomfort near the IV site
+      - Redness, soreness, or discomfort where the IV enters your skin
     safe_actions: []
     contact_team:
       - Tell your nurse about any pain, burning, or skin change near the IV during treatment.
@@ -197,9 +198,9 @@ effects:
       - Dizziness or feeling lightheaded
     safe_actions: []
     contact_team:
-      - Contact a health professional immediately for any of these changes.
+      - Contact a health professional right away for any of these changes.
     urgent_help:
-      - Get emergency medical help right away for severe chest pain, severe trouble breathing, or loss of consciousness.
+      - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.
     reassuring_monitoring:
       - Your care team will check your heart before and during treatment and may continue checks afterward.
 
@@ -209,11 +210,11 @@ effects:
     frequency_source_event_id: null
     frequency_band: null
     presentation_group: serious
-    meaning: Epirubicin can increase the long-term risk of developing another blood cancer.
+    meaning: Epirubicin can raise the chance of another blood cancer later.
     what_you_may_notice:
       - There may be no early symptom you can feel.
     safe_actions:
-      - Keep the long-term follow-up appointments recommended by your cancer team.
+      - Keep the follow-up appointments your cancer team recommends, even after treatment ends.
     contact_team:
       - Ask your cancer team if you have questions about this long-term risk.
     urgent_help: []
@@ -227,12 +228,12 @@ effects:
     presentation_group: serious
     meaning: Epirubicin can severely damage the skin and tissue if it leaks out of the vein.
     what_you_may_notice:
-      - Burning or stinging during the infusion
+      - Burning or stinging while the medicine is being given
       - Pain, a blister, or a skin sore near the IV site
     safe_actions: []
     contact_team:
-      - Tell your nurse immediately if you feel burning or stinging during the infusion.
-      - Contact your cancer team right away if you have injection-site pain after treatment.
+      - Tell your nurse right away if you feel burning or stinging while the medicine is being given.
+      - Contact your cancer team right away if you have pain where the IV entered your skin after treatment.
     urgent_help: []
     reassuring_monitoring:
       - Your care team will watch the IV site while the medicine is given.
@@ -246,11 +247,11 @@ effects:
     meaning: Epirubicin can lower blood cells and allow an infection to become serious.
     what_you_may_notice:
       - Fever or another new sign of infection
-      - You may not feel a low blood-cell count itself.
+      - You may not notice a low blood-cell count yourself.
     safe_actions:
       - Follow your cancer team's instructions for checking your temperature.
     contact_team:
-      - Contact your cancer team immediately for a fever or another sign of infection.
+      - Contact your cancer team right away for a fever or another sign of infection.
     urgent_help: []
     reassuring_monitoring:
       - Your cancer team will check your blood cells during treatment.
@@ -261,10 +262,10 @@ escalation_summary:
   heading: When to contact your cancer team
   introduction: Follow the instructions given by your own cancer team.
   contact_team:
-    - Contact your cancer team immediately for a fever or another sign of infection.
-    - Contact a health professional immediately for new chest pain, shortness of breath, dizziness, or lightheadedness.
-    - Tell your nurse immediately about burning or stinging during the infusion. Contact your cancer team right away for injection-site pain after treatment.
+    - Contact your cancer team right away for a fever or another sign of infection.
+    - Contact a health professional right away for new chest pain, shortness of breath, dizziness, or feeling lightheaded.
+    - Tell your nurse right away about burning or stinging while the medicine is being given. Contact your cancer team right away for pain where the IV entered your skin after treatment.
     - Contact your cancer team right away if nausea, vomiting, diarrhea, or mouth sores are severe or keep you from eating or drinking.
     - Contact your cancer team for eye pain, vision changes, or a severe or spreading rash.
   urgent_help:
-    - Get emergency medical help right away for severe chest pain, severe trouble breathing, or loss of consciousness.
+    - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.

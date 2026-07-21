@@ -46,7 +46,7 @@ test("live treatment results and regimen cards have no serious accessibility vio
   await page.goto("/");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
   await page.getByRole("button", { name: /I’m starting treatment/ }).click();
-  await page.getByLabel("Drug or regimen").fill("TCHP");
+  await page.getByLabel("Drug or treatment plan").fill("TCHP");
 
   const search = await new AxeBuilder({ page }).analyze();
   expect(
@@ -55,7 +55,7 @@ test("live treatment results and regimen cards have no serious accessibility vio
 
   await page
     .getByRole("button", {
-      name: /Regimen: TCHP: Docetaxel \+ Carboplatin \+ Trastuzumab \+ Pertuzumab/,
+      name: /Treatment plan: TCHP: Docetaxel \+ Carboplatin \+ Trastuzumab \+ Pertuzumab/,
     })
     .click();
   await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
@@ -71,7 +71,7 @@ test("three live treatment results fit at 320px without horizontal overflow", as
   await page.goto("/");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
   await page.getByRole("button", { name: /I’m starting treatment/ }).click();
-  await page.getByLabel("Drug or regimen").fill("docetaxel");
+  await page.getByLabel("Drug or treatment plan").fill("docetaxel");
   await expect(page.locator(".result-row")).toHaveCount(3);
 
   await expect

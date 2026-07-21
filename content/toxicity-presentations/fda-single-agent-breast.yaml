@@ -19,11 +19,11 @@
   evidence_payload_hash: d9f4c2a9909114b012501a3a1b75bb170a96a7a7c83da0840c2eba40372c4b33
   source_ids:
   - fda-label-abemaciclib
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with abemaciclib alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the abemaciclib column from MONARCH 1 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the abemaciclib results from MONARCH 1 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: infections
@@ -34,7 +34,7 @@
     frequency_band: many_people
     meaning: Treatment may affect the body's ability to fight an infection.
     what_you_may_notice: &id009
-    - Fever, chills, cough, burning when urinating, or feeling suddenly unwell
+    - Fever, chills, cough, burning when passing urine, or feeling suddenly unwell
     safe_actions: &id010
     - Follow your cancer team's instructions for checking your temperature.
     contact_team: &id011
@@ -54,7 +54,7 @@
     - Shortness of breath or difficulty breathing
     safe_actions: &id002 []
     contact_team: &id003
-    - Contact your cancer team promptly for a new or worsening cough or shortness of breath.
+    - Contact your cancer team right away for a new or worsening cough or shortness of breath.
     urgent_help: &id004
     - Get urgent help for severe or sudden trouble breathing.
     reassuring_monitoring: []
@@ -64,7 +64,7 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: some_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: &id005
     - A temperature above your usual range, chills, or feeling suddenly unwell
     safe_actions: &id006
@@ -74,18 +74,18 @@
     urgent_help: &id008 []
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: many_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: &id066
-    - New or worsening loose or watery bowel movements
+    - New or worsening loose or watery stools
     - Cramping or an urgent need to use the bathroom
     safe_actions: &id067 []
     contact_team: &id068
-    - Contact your cancer team promptly if diarrhoea starts, worsens, or makes it hard to drink.
+    - Contact your cancer team right away if diarrhea starts, worsens, or makes it hard to drink.
     urgent_help: &id069 []
     reassuring_monitoring: []
   - id: fatigue
@@ -112,13 +112,13 @@
     what_you_may_notice: &id017
     - A feeling that you may vomit
     safe_actions: &id018
-    - Use anti-nausea medicine exactly as your cancer team directed, if it was prescribed.
+    - Use medicine for nausea exactly as your cancer team directed, if they gave it to you.
     contact_team: &id019
     - Contact your cancer team if nausea keeps you from eating or drinking.
     urgent_help: &id020 []
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -128,7 +128,7 @@
     - Eating less than usual or feeling full quickly
     safe_actions: &id075 []
     contact_team: &id076
-    - Tell your cancer team if reduced appetite makes it hard to eat or your weight is falling.
+    - Tell your cancer team if less interest in food makes it hard to eat or you are losing weight.
     urgent_help: &id077 []
     reassuring_monitoring: []
   - id: abdominal-pain
@@ -170,7 +170,7 @@
     - A new or worsening headache
     safe_actions: &id026 []
     contact_team: &id027
-    - Contact your cancer team for a severe, sudden, or persistent headache.
+    - Contact your cancer team for a severe or sudden headache, or one that does not go away.
     urgent_help: &id028 []
     reassuring_monitoring: []
   - id: constipation
@@ -179,9 +179,9 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: some_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: &id029
-    - Hard stools, straining, or fewer bowel movements than usual
+    - Hard stools, pushing hard to pass stool, or passing stool less often than usual
     safe_actions: &id030 []
     contact_team: &id031
     - Ask your cancer team what is safe to use if constipation is new or worsening.
@@ -198,7 +198,7 @@
     - New aches, stiffness, or pain with movement
     safe_actions: &id022 []
     contact_team: &id023
-    - Tell your cancer team if pain is new, persistent, or limits movement.
+    - Tell your cancer team if pain is new, does not go away, or makes it hard to move.
     urgent_help: &id024 []
     reassuring_monitoring: []
   - id: dry-mouth
@@ -223,7 +223,7 @@
     frequency_band: some_people
     meaning: The lining of the mouth or lips may become sore or dry.
     what_you_may_notice: &id033
-    - Tender areas, ulcers, redness, or pain in the mouth or throat
+    - Sore spots, open sores, redness, or pain in the mouth or throat
     safe_actions: &id034
     - Use the mouth-care plan given by your cancer team.
     contact_team: &id035
@@ -245,8 +245,8 @@
     heading: When to contact your cancer team about abemaciclib
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team right away for diarrhoea, fever, signs of infection, or a new or worsening cough or shortness of breath.
-    - Contact them promptly for pain or swelling in an arm or leg, yellow skin or eyes, or dark urine.
+    - Contact your cancer team right away for diarrhea, fever, signs of infection, or a new or worsening cough or shortness of breath.
+    - Contact them right away for pain or swelling in an arm or leg, yellow skin or eyes, or dark urine.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -270,11 +270,11 @@
   evidence_payload_hash: 96b13b16d126ecf27e83001b38c508f5c654895bcc702511a0326762116224a5
   source_ids:
   - fda-label-ado-trastuzumab-emtansine
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with ado-trastuzumab emtansine alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the ado-trastuzumab emtansine column from KATHERINE in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the ado-trastuzumab emtansine results from KATHERINE in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: hemorrhage
@@ -288,7 +288,7 @@
     - Nosebleeds, unusual bruises, bleeding gums, or blood where you do not expect it
     safe_actions: &id127 []
     contact_team: &id128
-    - Contact your cancer team promptly for unusual bleeding or bruising.
+    - Contact your cancer team right away for unusual bleeding or bruising.
     urgent_help: &id129
     - Get urgent help for bleeding that is heavy or will not stop.
     reassuring_monitoring: []
@@ -303,7 +303,7 @@
     - Numbness, tingling, burning, pain, or weakness in the hands or feet
     safe_actions: &id046 []
     contact_team: &id047
-    - Contact your cancer team promptly for new or worsening nerve symptoms.
+    - Contact your cancer team right away for new or worsening numbness, tingling, burning, pain, or weakness.
     urgent_help: &id048 []
     reassuring_monitoring: []
   - id: cough
@@ -324,7 +324,7 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: some_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: *id005
     safe_actions: *id006
     contact_team: *id007
@@ -396,7 +396,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: some_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -449,19 +449,19 @@
     - New or worsening trouble sleeping
     safe_actions: &id050 []
     contact_team: &id051
-    - Tell your cancer team if sleep problems are persistent or affecting daytime activities.
+    - Tell your cancer team if sleep problems do not go away or make daytime activities hard.
     urgent_help: &id052 []
     reassuring_monitoring: []
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - thrombocytopenia
     - anemia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: &id057
-    - These changes may not cause a symptom you can feel.
+    - You may not notice these changes yourself.
     safe_actions: &id058
     - Keep the blood-test appointments arranged by your cancer team.
     contact_team: &id059 []
@@ -469,7 +469,7 @@
     reassuring_monitoring: &id061
     - Your cancer team may check your blood cells during treatment.
   - id: liver-changes
-    display_name: Liver blood-test changes
+    display_name: Changes in liver blood tests
     evidence_event_ids:
     - transaminases-increased
     frequency_source_event_id: null
@@ -502,7 +502,7 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for unusual bleeding or bruising, yellow skin or eyes, dark urine, or severe tiredness.
-    - Contact them promptly for new shortness of breath, swelling, a fast heartbeat, or faintness.
+    - Contact them right away for new shortness of breath, swelling, a fast heartbeat, or feeling faint.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -526,11 +526,11 @@
   evidence_payload_hash: 3e370de96dc14f9d42bb3174e815f753cd71a91a9fc8a9249207d5602c36dfcd
   source_ids:
   - fda-label-anastrozole
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with anastrozole alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the anastrozole column from ATAC in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the anastrozole results from ATAC in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: pharyngitis
@@ -580,7 +580,7 @@
     - Eye pain, redness, dryness, extra tears, blurred vision, or another vision change
     safe_actions: &id063 []
     contact_team: &id064
-    - Contact your cancer team promptly for eye pain or any new vision change.
+    - Contact your cancer team right away for eye pain or any new change in your sight.
     urgent_help: &id065
     - Get urgent help for sudden loss of vision.
     reassuring_monitoring: []
@@ -633,7 +633,7 @@
     - Feeling unusually low, worried, irritable, or unlike yourself
     safe_actions: &id092 []
     contact_team: &id093
-    - Tell your cancer team promptly about new or worsening depression or anxiety.
+    - Tell your cancer team right away if you feel more depressed or anxious.
     urgent_help: &id094
     - Get urgent help if you may harm yourself or cannot stay safe.
     reassuring_monitoring: []
@@ -660,7 +660,7 @@
     - Redness, itching, dryness, cracking, or a new rash
     safe_actions: &id071 []
     contact_team: &id072
-    - Contact your cancer team promptly for a spreading, painful, blistering, or peeling rash.
+    - Contact your cancer team right away for a rash that spreads, hurts, blisters, or peels.
     urgent_help: &id073 []
     reassuring_monitoring: []
   - id: headache
@@ -687,7 +687,7 @@
     - Unexpected weight gain or shortness of breath
     safe_actions: &id101 []
     contact_team: &id102
-    - Contact your cancer team promptly for new swelling, rapid weight gain, or shortness of breath.
+    - Contact your cancer team right away for new swelling, fast weight gain, or shortness of breath.
     urgent_help: &id103 []
     reassuring_monitoring: []
   - id: insomnia
@@ -715,43 +715,43 @@
     urgent_help: *id056
     reassuring_monitoring: []
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - chest-pain
     - hypertension
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: &id095
-    - Chest discomfort, unusual shortness of breath, swelling, dizziness, fainting, or a fast or irregular heartbeat
+    - Chest discomfort, unusual shortness of breath, swelling, dizziness, fainting, or a fast or uneven heartbeat
     safe_actions: &id096 []
     contact_team: &id097
-    - Contact your cancer team promptly for new swelling, palpitations, or shortness of breath.
+    - Contact your cancer team right away for new swelling, a pounding or racing heartbeat, or shortness of breath.
     urgent_help: &id098
     - Get urgent help for chest pain, fainting, sudden weakness on one side, or severe trouble breathing.
     reassuring_monitoring: &id099
-    - Your cancer team may monitor heart function or blood pressure.
+    - Your cancer team may check how your heart is working or check your blood pressure.
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - anemia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
     urgent_help: *id060
     reassuring_monitoring: *id061
   - id: lipid-changes
-    display_name: Cholesterol or fat changes in the blood
+    display_name: Changes in cholesterol and other blood fats
     evidence_event_ids:
     - hypercholesterolemia
     frequency_source_event_id: null
     frequency_band: null
     meaning: Blood fats can change during treatment.
     what_you_may_notice: &id116
-    - These changes usually do not cause a symptom you can feel.
+    - You may not notice these changes yourself.
     safe_actions: &id117
     - Keep the blood-test appointments arranged by your cancer team.
     contact_team: &id118 []
@@ -759,7 +759,7 @@
     reassuring_monitoring: &id120
     - Your cancer team may check cholesterol and other blood fats.
   - id: bone-changes
-    display_name: Bone thinning or fractures
+    display_name: Bone thinning or broken bones
     evidence_event_ids:
     - osteoporosis
     - fracture
@@ -767,15 +767,15 @@
     frequency_band: null
     meaning: Some treatments can weaken bones over time.
     what_you_may_notice: &id121
-    - Bone thinning may not cause symptoms until a fracture happens.
+    - You may not notice bone thinning until a bone breaks.
     safe_actions: &id122
     - Ask your cancer team about the bone-health plan that is right for you.
     contact_team: &id123
-    - Tell your cancer team about new, persistent bone pain.
+    - Tell your cancer team about new bone pain or pain that does not go away.
     urgent_help: &id124
     - Get urgent help after a fall if you cannot stand, walk, or use an injured limb.
     reassuring_monitoring: &id125
-    - Your cancer team may monitor bone health.
+    - Your cancer team may check your bones.
   omitted_evidence_events:
   - evidence_event_id: pain
     rationale: Retained in the FDA evidence record but not converted into a separate patient row in this first patient-facing draft.
@@ -843,8 +843,8 @@
     heading: When to contact your cancer team about anastrozole
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team promptly for new chest pain, sudden weakness, or a new severe headache.
-    - Tell them about persistent joint or bone pain or a fracture.
+    - Contact your cancer team right away for new chest pain, sudden weakness, or a new severe headache.
+    - Tell them about joint or bone pain that does not go away, or a broken bone.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -868,11 +868,11 @@
   evidence_payload_hash: 3fd059e89f55dc7d9e64955f5fc630bfea56836c1f9ae25d900384f3819ba5db
   source_ids:
   - fda-label-capecitabine
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with capecitabine alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the capecitabine column from Study SO14697 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the capecitabine results from Study SO14697 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: hand-and-foot-syndrome
@@ -886,7 +886,7 @@
     - Redness, swelling, tenderness, tingling, cracking, or peeling on the hands or feet
     safe_actions: &id105 []
     contact_team: &id106
-    - Contact your cancer team promptly when hand or foot changes start or worsen.
+    - Contact your cancer team right away when hand or foot changes start or get worse.
     urgent_help: &id107 []
     reassuring_monitoring: []
   - id: paresthesia
@@ -919,19 +919,19 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: some_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: *id005
     safe_actions: *id006
     contact_team: *id007
     urgent_help: *id008
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: many_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -998,7 +998,7 @@
     urgent_help: *id036
     reassuring_monitoring: []
   - id: anorexia
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - anorexia
     frequency_source_event_id: anorexia
@@ -1027,14 +1027,14 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: some_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
     urgent_help: *id032
     reassuring_monitoring: []
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - lymphopenia
     - anemia
@@ -1042,14 +1042,14 @@
     - thrombocytopenia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
     urgent_help: *id060
     reassuring_monitoring: *id061
   - id: liver-changes
-    display_name: Liver blood-test changes
+    display_name: Changes in liver blood tests
     evidence_event_ids:
     - hyperbilirubinemia
     frequency_source_event_id: null
@@ -1065,8 +1065,8 @@
     heading: When to contact your cancer team about capecitabine
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team right away for diarrhoea, repeated vomiting, painful mouth sores, or painful redness and peeling of the hands or feet.
-    - Contact them promptly for chest pain, severe weakness, confusion, or trouble keeping fluids down.
+    - Contact your cancer team right away for diarrhea, repeated vomiting, painful mouth sores, or painful redness and peeling of the hands or feet.
+    - Contact them right away for chest pain, severe weakness, confusion, or trouble keeping fluids down.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -1090,11 +1090,11 @@
   evidence_payload_hash: e7d159d167b9fca18768e784130575c03e2ed4528775eb969ae16495bc53b247
   source_ids:
   - fda-label-datopotamab-deruxtecan
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with datopotamab deruxtecan-dlnk alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the datopotamab deruxtecan-dlnk column from TROPION-Breast01 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the datopotamab deruxtecan-dlnk results from TROPION-Breast01 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: dry-eye
@@ -1188,7 +1188,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: many_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -1219,7 +1219,7 @@
     urgent_help: *id073
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -1231,12 +1231,12 @@
     urgent_help: *id077
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -1259,7 +1259,7 @@
     heading: When to contact your cancer team about datopotamab deruxtecan-dlnk
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team promptly for mouth sores, eye pain or vision changes, or a new cough or shortness of breath.
+    - Contact your cancer team right away for mouth sores, eye pain or changes in sight, or a new cough or shortness of breath.
     - Tell them right away if you cannot eat or drink because of mouth pain or nausea.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
@@ -1284,11 +1284,11 @@
   evidence_payload_hash: 9b47bdc982b8e02c9436d90035938f40a1d6be3a8edbba0c6c447c9185121988
   source_ids:
   - fda-label-elacestrant
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with elacestrant alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the elacestrant column from EMERALD in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the elacestrant results from EMERALD in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: musculoskeletal-pain
@@ -1340,7 +1340,7 @@
     urgent_help: *id040
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -1352,12 +1352,12 @@
     urgent_help: *id077
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -1369,7 +1369,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: some_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -1422,7 +1422,7 @@
     - Heartburn, bloating, burping, or discomfort after eating
     safe_actions: &id131 []
     contact_team: &id132
-    - Tell your cancer team if symptoms are persistent, painful, or make eating difficult.
+    - Tell your cancer team if symptoms do not go away, hurt, or make it hard to eat.
     urgent_help: &id133 []
     reassuring_monitoring: []
   omitted_evidence_events: []
@@ -1430,7 +1430,7 @@
     heading: When to contact your cancer team about elacestrant
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team for persistent nausea, vomiting, stomach pain, or muscle and joint pain that limits activity.
+    - Contact your cancer team if nausea, vomiting, or stomach pain does not stop, or if muscle and joint pain makes activity hard.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -1454,11 +1454,11 @@
   evidence_payload_hash: 0ff16ec7d0ab644351949509208a26d445c70006a54fd35b1a86f44515df1c5a
   source_ids:
   - fda-label-eribulin
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with eribulin alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the eribulin column from Study 1 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the eribulin results from Study 1 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: peripheral-neuropathy
@@ -1479,7 +1479,7 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: some_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: *id005
     safe_actions: *id006
     contact_team: *id007
@@ -1551,7 +1551,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: some_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -1584,7 +1584,7 @@
     urgent_help: &id111 []
     reassuring_monitoring: []
   - id: anorexia
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - anorexia
     frequency_source_event_id: anorexia
@@ -1620,25 +1620,25 @@
     urgent_help: *id040
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
     urgent_help: *id069
     reassuring_monitoring: []
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - neutropenia
     - anemia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
@@ -1660,7 +1660,7 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for fever, signs of infection, or new numbness, tingling, or weakness.
-    - Contact them promptly for fainting, a fast or irregular heartbeat, or severe dizziness.
+    - Contact them right away for fainting, a fast or uneven heartbeat, or severe dizziness.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -1684,11 +1684,11 @@
   evidence_payload_hash: 97a41f3b31d09b9fe5fb006bb07d7cdd4bdcb51e9b27aead50764fb538bc997e
   source_ids:
   - fda-label-exemestane
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with exemestane alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the exemestane column from Study IES in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the exemestane results from Study IES in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: visual-disturbances
@@ -1803,12 +1803,12 @@
     urgent_help: *id094
     reassuring_monitoring: []
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - hypertension
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: *id095
     safe_actions: *id096
     contact_team: *id097
@@ -1827,7 +1827,7 @@
     heading: When to contact your cancer team about exemestane
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Tell your cancer team about persistent joint or bone pain, a fracture, chest pain, or new shortness of breath.
+    - Tell your cancer team about joint or bone pain that does not go away, a broken bone, chest pain, or new shortness of breath.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -1851,11 +1851,11 @@
   evidence_payload_hash: 9db7afddd4db596ba2213ef56dec81260ef3c01a2118aacad976514e72581a24
   source_ids:
   - fda-label-fulvestrant
-  route_label: Intramuscular injection
+  route_label: Injection into a muscle
   subtitle: Side effects reported with fulvestrant alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the fulvestrant column from CONFIRM in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the fulvestrant results from CONFIRM in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: cough
@@ -1871,17 +1871,17 @@
     urgent_help: *id004
     reassuring_monitoring: []
   - id: injection-site-pain-1
-    display_name: Injection or infusion-site changes
+    display_name: Changes where the medicine was given
     evidence_event_ids:
     - injection-site-pain-1
     frequency_source_event_id: injection-site-pain-1
     frequency_band: some_people
     meaning: The area where medicine is given may become sore or irritated.
     what_you_may_notice:
-    - Pain, redness, swelling, warmth, or tenderness near the injection or infusion site
+    - Pain, redness, swelling, warmth, or soreness where the medicine was given
     safe_actions: []
     contact_team:
-    - Tell the nurse or cancer team about a new change at the injection or infusion site.
+    - Tell the nurse or cancer team about a new change where the medicine was given.
     urgent_help: []
     reassuring_monitoring: []
   - id: nausea
@@ -1957,7 +1957,7 @@
     urgent_help: *id040
     reassuring_monitoring: []
   - id: anorexia
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - anorexia
     frequency_source_event_id: anorexia
@@ -1974,7 +1974,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: fewer_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -1997,7 +1997,7 @@
     heading: When to contact your cancer team about fulvestrant
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team promptly for unusual bleeding, yellow skin or eyes, or pain, numbness, or weakness after an injection.
+    - Contact your cancer team right away for unusual bleeding, yellow skin or eyes, or pain, numbness, or weakness after an injection.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -2021,22 +2021,22 @@
   evidence_payload_hash: 7cfdd294bb95332e3eae1947f8348eae61638a431ca0b9932cafe9cc985284fa
   source_ids:
   - fda-label-goserelin
-  route_label: Subcutaneous injection or implant
+  route_label: Injection or implant under the skin
   subtitle: Side effects reported with goserelin alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the goserelin column from SWOG-8692 in the FDA label. The source describes these as adverse events. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the goserelin results from SWOG-8692 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: tumor-flare
-    display_name: Temporary worsening of cancer symptoms
+    display_name: Cancer symptoms that get worse for a short time
     evidence_event_ids:
     - tumor-flare
     frequency_source_event_id: tumor-flare
     frequency_band: some_people
-    meaning: Symptoms related to the cancer may temporarily become worse after starting treatment.
+    meaning: Cancer symptoms may get worse for a short time after treatment starts.
     what_you_may_notice:
-    - New or worsening bone pain, weakness, numbness, or difficulty urinating
+    - New or worsening bone pain, weakness, numbness, or trouble passing urine
     safe_actions: []
     contact_team:
     - Contact your cancer team right away for new or worsening cancer symptoms.
@@ -2108,8 +2108,8 @@
     heading: When to contact your cancer team about goserelin
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team right away for new or worsening back or bone pain, leg weakness, numbness, difficulty urinating, or a severe skin reaction.
-    - Tell them promptly about new or worsening depression.
+    - Contact your cancer team right away for new or worsening back or bone pain, leg weakness, numbness, or trouble passing urine. Also contact them right away for a severe skin reaction.
+    - Tell them right away if you feel more depressed.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -2133,11 +2133,11 @@
   evidence_payload_hash: 01f4b58920057591773bd191bd382ed7291ac73f5e35cd217b8df4316b143924
   source_ids:
   - fda-label-imlunestrant
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with imlunestrant alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the imlunestrant column from EMBER-3 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the imlunestrant results from EMBER-3 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: musculoskeletal-pain
@@ -2165,12 +2165,12 @@
     urgent_help: *id016
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -2194,7 +2194,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: some_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -2217,7 +2217,7 @@
     heading: When to contact your cancer team about imlunestrant
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team for persistent diarrhoea, stomach pain, severe tiredness, yellow skin or eyes, or a new cough or shortness of breath.
+    - Contact your cancer team if diarrhea does not stop, or for stomach pain or severe tiredness. Also contact them for yellow skin or eyes, or a new cough or shortness of breath.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -2241,11 +2241,11 @@
   evidence_payload_hash: 265beb16f12887a67bafe0e9dc4a2db3be7730623358959afc0142edcaaa11d4
   source_ids:
   - fda-label-ixabepilone
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with ixabepilone alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the ixabepilone column from Study 081 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the ixabepilone results from Study 081 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: sensory-neuropathy
@@ -2290,7 +2290,7 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: fewer_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: *id005
     safe_actions: *id006
     contact_team: *id007
@@ -2319,7 +2319,7 @@
     - Hives, widespread redness, sudden swelling, dizziness, or trouble breathing or swallowing
     safe_actions: &id139 []
     contact_team: &id140
-    - Tell the nurse immediately if allergic-reaction signs start during an infusion.
+    - Tell the nurse right away if signs of an allergic reaction start while the medicine is being given.
     urgent_help: &id141
     - Get urgent help for trouble breathing or swallowing or sudden swelling of the face, lips, tongue, or throat.
     reassuring_monitoring: []
@@ -2408,36 +2408,36 @@
     urgent_help: *id036
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
     urgent_help: *id069
     reassuring_monitoring: []
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - febrile-neutropenia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
     urgent_help: *id060
     reassuring_monitoring: *id061
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - chest-pain
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: *id095
     safe_actions: *id096
     contact_team: *id097
@@ -2491,7 +2491,7 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for fever, signs of infection, numbness, tingling, weakness, or an allergic reaction.
-    - Contact them promptly for chest pain, fainting, or a fast or irregular heartbeat.
+    - Contact them right away for chest pain, fainting, or a fast or uneven heartbeat.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -2515,11 +2515,11 @@
   evidence_payload_hash: 490bf1ef92e56edab16e14f60f95de265f4e840aa065135ed60dca315c231b82
   source_ids:
   - fda-label-letrozole
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with letrozole alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the letrozole column from BIG 1-98 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the letrozole results from BIG 1-98 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: cataract
@@ -2686,14 +2686,14 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: fewer_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
     urgent_help: *id032
     reassuring_monitoring: []
   - id: lipid-changes
-    display_name: Cholesterol or fat changes in the blood
+    display_name: Changes in cholesterol and other blood fats
     evidence_event_ids:
     - hypercholesterolemia
     frequency_source_event_id: null
@@ -2705,7 +2705,7 @@
     urgent_help: *id119
     reassuring_monitoring: *id120
   - id: bone-changes
-    display_name: Bone thinning or fractures
+    display_name: Bone thinning or broken bones
     evidence_event_ids:
     - bone-fractures
     - bone-fractures-2
@@ -2720,7 +2720,7 @@
     urgent_help: *id124
     reassuring_monitoring: *id125
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - myocardial-infarction
     - myocardial-infarction-2
@@ -2737,7 +2737,7 @@
     - hypertension-2
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: *id095
     safe_actions: *id096
     contact_team: *id097
@@ -2784,7 +2784,7 @@
     heading: When to contact your cancer team about letrozole
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Tell your cancer team about persistent joint or bone pain, a fracture, chest pain, sudden weakness, or a severe headache.
+    - Tell your cancer team about joint or bone pain that does not go away, or a broken bone. Also tell them about chest pain, sudden weakness, or a severe headache.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -2808,11 +2808,11 @@
   evidence_payload_hash: 13b3656e6ee2d8deefadf964fabe851365638295453662b5143a3b7ae4605eb8
   source_ids:
   - fda-label-neratinib
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with neratinib alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the neratinib column from ExteNET in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the neratinib results from ExteNET in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: urinary-tract-infection
@@ -2840,12 +2840,12 @@
     urgent_help: *id129
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: many_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -2924,7 +2924,7 @@
     urgent_help: *id036
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -2974,21 +2974,21 @@
     urgent_help: *id111
     reassuring_monitoring: []
   - id: dehydration
-    display_name: Dehydration
+    display_name: Not enough body fluid (dehydration)
     evidence_event_ids:
     - dehydration
     frequency_source_event_id: dehydration
     frequency_band: fewer_people
     meaning: The body may not have enough fluid.
     what_you_may_notice:
-    - Dry mouth, dizziness, reduced urination, or feeling very thirsty
+    - Dry mouth, dizziness, passing less urine, or feeling very thirsty
     safe_actions: []
     contact_team:
-    - Contact your cancer team promptly if you cannot drink enough or think you may be dehydrated.
+    - Contact your cancer team right away if you cannot drink enough or think your body may not have enough fluid.
     urgent_help: []
     reassuring_monitoring: []
   - id: liver-changes
-    display_name: Liver blood-test changes
+    display_name: Changes in liver blood tests
     evidence_event_ids:
     - alanine-aminotransferase-increased
     - aspartate-aminotransferase-increased
@@ -3015,8 +3015,8 @@
     heading: When to contact your cancer team about neratinib
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team right away when diarrhoea starts or if you have repeated vomiting, dizziness, reduced urination, or trouble drinking.
-    - Contact them promptly for yellow skin or eyes or dark urine.
+    - Contact your cancer team right away when diarrhea starts or if you have repeated vomiting, dizziness, passing less urine, or trouble drinking.
+    - Contact them right away for yellow skin or eyes or dark urine.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -3040,11 +3040,11 @@
   evidence_payload_hash: 03acd3c2c184533eb66fe8555efca2205ba8e8c4c94774dc9cd455e7c58c8741
   source_ids:
   - fda-label-olaparib
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with olaparib alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the olaparib column from OlympiA in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the olaparib results from OlympiA in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: nausea
@@ -3096,19 +3096,19 @@
     urgent_help: *id028
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
     urgent_help: *id069
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -3158,12 +3158,12 @@
     urgent_help: *id036
     reassuring_monitoring: []
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - leukopenia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
@@ -3175,7 +3175,7 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for fever, signs of infection, unusual bruising or bleeding, or severe tiredness.
-    - Contact them promptly for a new cough, shortness of breath, or pain and swelling in an arm or leg.
+    - Contact them right away for a new cough, shortness of breath, or pain and swelling in an arm or leg.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -3199,11 +3199,11 @@
   evidence_payload_hash: 737d60539f3f27da937196524e9423f639cb339bbc759fb7cdc4ab5f4f3c6250
   source_ids:
   - fda-label-sacituzumab-govitecan
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with sacituzumab govitecan-hziy alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the sacituzumab govitecan-hziy column from ASCENT-03 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the sacituzumab govitecan-hziy results from ASCENT-03 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: cough
@@ -3248,7 +3248,7 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: some_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: *id005
     safe_actions: *id006
     contact_team: *id007
@@ -3267,12 +3267,12 @@
     urgent_help: *id020
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: many_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -3308,7 +3308,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: many_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -3363,7 +3363,7 @@
     urgent_help: *id036
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -3391,8 +3391,8 @@
     heading: When to contact your cancer team about sacituzumab govitecan-hziy
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team right away for diarrhoea, fever, signs of infection, or repeated vomiting.
-    - Tell the nurse immediately if swelling, rash, dizziness, or trouble breathing starts during an infusion.
+    - Contact your cancer team right away for diarrhea, fever, signs of infection, or repeated vomiting.
+    - Tell the nurse right away if swelling, rash, dizziness, or trouble breathing starts while the medicine is being given.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -3416,11 +3416,11 @@
   evidence_payload_hash: f86eb43664b57a4e81d2e48f3dff1355ce746b26ec1451454edc3592aa59f77a
   source_ids:
   - fda-label-talazoparib
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with talazoparib alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the talazoparib column from EMBRACA in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the talazoparib results from EMBRACA in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: fatigue
@@ -3484,19 +3484,19 @@
     urgent_help: *id090
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
     urgent_help: *id069
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -3513,7 +3513,7 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for fever, signs of infection, unusual bruising or bleeding, or severe tiredness.
-    - Contact them promptly for a new cough or shortness of breath.
+    - Contact them right away for a new cough or shortness of breath.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -3537,11 +3537,11 @@
   evidence_payload_hash: eea7295b868f987307ff354d159a37cd7613c24e20c071332bd9b9849802d736
   source_ids:
   - fda-label-tamoxifen
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with tamoxifen alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the tamoxifen column from ATAC in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the tamoxifen results from ATAC in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: pharyngitis
@@ -3713,32 +3713,32 @@
     urgent_help: *id052
     reassuring_monitoring: []
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - chest-pain
     - hypertension
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: *id095
     safe_actions: *id096
     contact_team: *id097
     urgent_help: *id098
     reassuring_monitoring: *id099
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - anemia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
     urgent_help: *id060
     reassuring_monitoring: *id061
   - id: lipid-changes
-    display_name: Cholesterol or fat changes in the blood
+    display_name: Changes in cholesterol and other blood fats
     evidence_event_ids:
     - hypercholesterolemia
     frequency_source_event_id: null
@@ -3750,7 +3750,7 @@
     urgent_help: *id119
     reassuring_monitoring: *id120
   - id: bone-changes
-    display_name: Bone thinning or fractures
+    display_name: Bone thinning or broken bones
     evidence_event_ids:
     - osteoporosis
     - fracture
@@ -3829,7 +3829,7 @@
     heading: When to contact your cancer team about tamoxifen
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team promptly for unexpected vaginal bleeding, vision changes, yellow skin or eyes, or pain and swelling in a leg.
+    - Contact your cancer team right away for unexpected vaginal bleeding, changes in sight, yellow skin or eyes, or pain and swelling in a leg.
     - Get urgent help for chest pain, sudden trouble breathing, sudden weakness on one side, or difficulty speaking.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
@@ -3854,11 +3854,11 @@
   evidence_payload_hash: f33a87845c410a31b857b78480bbff9e80923b8fa75a18c5a090034027456677
   source_ids:
   - fda-label-toremifene
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with toremifene alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the toremifene column from the North American Study in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the toremifene results from the North American Study in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: hot-flashes
@@ -3942,7 +3942,7 @@
     heading: When to contact your cancer team about toremifene
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team promptly for fainting, a fast or irregular heartbeat, unexpected vaginal bleeding, yellow skin or eyes, or pain and swelling in a leg.
+    - Contact your cancer team right away for fainting, a fast or uneven heartbeat, or unexpected vaginal bleeding. Also contact them right away for yellow skin or eyes, or pain and swelling in a leg.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -3966,11 +3966,11 @@
   evidence_payload_hash: 4888719ae6a7b78ac5e68cebf0b373e5a70030d82400de70e501f620c95d8e55
   source_ids:
   - fda-label-trastuzumab-deruxtecan
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with trastuzumab deruxtecan alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the trastuzumab deruxtecan column from DESTINY-Breast05 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the trastuzumab deruxtecan results from DESTINY-Breast05 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: covid-19
@@ -4003,7 +4003,7 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: some_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: *id005
     safe_actions: *id006
     contact_team: *id007
@@ -4039,7 +4039,7 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: many_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
@@ -4058,19 +4058,19 @@
     urgent_help: *id040
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
     urgent_help: *id069
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -4149,7 +4149,7 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for a new cough, shortness of breath, fever, unusual tiredness, or reduced ability to exercise.
-    - Contact them promptly for swelling, a fast heartbeat, faintness, or signs of infection.
+    - Contact them right away for swelling, a fast heartbeat, feeling faint, or signs of infection.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -4173,11 +4173,11 @@
   evidence_payload_hash: 826ee52b194f1b283093e0901b5253bca32f8d883c5eafe172ca75bf3c9156c3
   source_ids:
   - fda-label-trastuzumab
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with trastuzumab alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the trastuzumab column from HERA in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the trastuzumab results from HERA in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: nasopharyngitis
@@ -4198,7 +4198,7 @@
     - pyrexia
     frequency_source_event_id: pyrexia
     frequency_band: fewer_people
-    meaning: A fever may be a sign that your body needs prompt assessment.
+    meaning: A fever may mean that you need medical care right away.
     what_you_may_notice: *id005
     safe_actions: *id006
     contact_team: *id007
@@ -4265,12 +4265,12 @@
     urgent_help: *id024
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: fewer_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -4349,7 +4349,7 @@
     urgent_help: *id040
     reassuring_monitoring: []
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - hypertension
     - ejection-fraction-decreased
@@ -4358,7 +4358,7 @@
     - cardiac-failure-congestive
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: *id095
     safe_actions: *id096
     contact_team: *id097
@@ -4405,8 +4405,8 @@
     heading: When to contact your cancer team about trastuzumab
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team promptly for new shortness of breath, swelling, rapid weight gain, a fast heartbeat, dizziness, fever, or chills.
-    - Tell the nurse immediately if breathing, swelling, rash, dizziness, or chest symptoms start during an infusion.
+    - Contact your cancer team right away for new shortness of breath, swelling, fast weight gain, a fast heartbeat, dizziness, fever, or chills.
+    - Tell the nurse right away if breathing, swelling, rash, dizziness, or chest symptoms start while the medicine is being given.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -4430,11 +4430,11 @@
   evidence_payload_hash: 470672a0073ec3f9fff1df3b58c5a881259e812de47be71f2691a121f66f5ace
   source_ids:
   - fda-label-vepdegestrant
-  route_label: Oral medicine
+  route_label: Medicine taken by mouth
   subtitle: Side effects reported with vepdegestrant alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the vepdegestrant column from VERITAC-2 in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the vepdegestrant results from VERITAC-2 in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: musculoskeletal-pain
@@ -4474,7 +4474,7 @@
     urgent_help: *id020
     reassuring_monitoring: []
   - id: decreased-appetite
-    display_name: Decreased appetite
+    display_name: Less interest in food
     evidence_event_ids:
     - decreased-appetite
     frequency_source_event_id: decreased-appetite
@@ -4491,19 +4491,19 @@
     - constipation
     frequency_source_event_id: constipation
     frequency_band: some_people
-    meaning: Bowel movements may become less frequent or harder to pass.
+    meaning: Stools may become hard or less frequent.
     what_you_may_notice: *id029
     safe_actions: *id030
     contact_team: *id031
     urgent_help: *id032
     reassuring_monitoring: []
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - electrocardiogram-qt-prolonged
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: *id095
     safe_actions: *id096
     contact_team: *id097
@@ -4514,7 +4514,7 @@
     heading: When to contact your cancer team about vepdegestrant
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
-    - Contact your cancer team promptly for fainting, a fast or irregular heartbeat, severe dizziness, yellow skin or eyes, or dark urine.
+    - Contact your cancer team right away for fainting, a fast or uneven heartbeat, severe dizziness, yellow skin or eyes, or dark urine.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -4538,11 +4538,11 @@
   evidence_payload_hash: d865890f42152f776c91d94f5c40252e7ebe674e41aaa7bfee576f66bfd5eb0b
   source_ids:
   - fda-label-paclitaxel-protein-bound
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with paclitaxel protein-bound alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the paclitaxel protein-bound column from the randomized metastatic breast cancer study in the FDA label. The source describes these as adverse reactions. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the paclitaxel protein-bound results from a breast cancer study in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: sensory-neuropathy
@@ -4654,12 +4654,12 @@
     urgent_help: *id020
     reassuring_monitoring: []
   - id: diarrhea
-    display_name: Diarrhoea
+    display_name: Diarrhea
     evidence_event_ids:
     - diarrhea
     frequency_source_event_id: diarrhea
     frequency_band: some_people
-    meaning: Bowel movements may become loose or watery.
+    meaning: You may have loose or watery stools.
     what_you_may_notice: *id066
     safe_actions: *id067
     contact_team: *id068
@@ -4702,7 +4702,7 @@
     urgent_help: *id036
     reassuring_monitoring: []
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - neutropenia
     - thrombocytopenia
@@ -4711,20 +4711,20 @@
     - neutropenic-sepsis
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
     urgent_help: *id060
     reassuring_monitoring: *id061
   - id: heart-changes
-    display_name: Heart, blood-pressure, or circulation changes
+    display_name: Heart, blood pressure, or blood flow changes
     evidence_event_ids:
     - bradycardia
     - hypotension
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can affect the heart, blood pressure, or circulation.
+    meaning: Treatment can affect the heart, blood pressure, or blood flow.
     what_you_may_notice: *id095
     safe_actions: *id096
     contact_team: *id097
@@ -4742,7 +4742,7 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for fever, signs of infection, unusual bleeding, or new numbness, tingling, or weakness.
-    - Tell the nurse immediately if breathing, swelling, dizziness, or chest symptoms start during an infusion.
+    - Tell the nurse right away if breathing, swelling, dizziness, or chest symptoms start while the medicine is being given.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
 - kind: drug_toxicity_presentation
@@ -4766,11 +4766,11 @@
   evidence_payload_hash: d291fab44914a8f0a81a22da8b73bfb0839aba769a3d600f84799aefa5ce9427
   source_ids:
   - fda-label-paclitaxel
-  route_label: Intravenous (IV) treatment
+  route_label: Medicine given into a vein (IV)
   subtitle: Side effects reported with paclitaxel alone
-  frequency_context: The groups compare how often effects were recorded in one FDA breast-cancer study group. They are broad groups, not a prediction of what will happen to you.
-  cause_statement: Ariad cannot determine the cause of a symptom.
-  source_context: Frequency groups use the paclitaxel column from the Phase 3 breast cancer study in the FDA label. The source describes these as adverse events. Patient explanations and action wording are unreviewed Ariad drafts based on the same FDA label.
+  frequency_context: These groups show how often side effects were reported in one breast cancer study in the FDA drug information. The groups cannot predict what will happen to you.
+  cause_statement: Ariad cannot tell what is causing a symptom.
+  source_context: These groups use the paclitaxel results from a breast cancer study in official U.S. Food and Drug Administration (FDA) drug information. The FDA lists them as side effects. The explanations and actions are Ariad drafts based on the same information. A health professional has not reviewed them yet.
   frequency_method_id: ariad-all-grade-frequency-v1
   effects:
   - id: peripheral-neuropathy
@@ -4822,7 +4822,7 @@
     urgent_help: *id036
     reassuring_monitoring: []
   - id: blood-changes
-    display_name: Blood-count changes
+    display_name: Blood cell changes
     evidence_event_ids:
     - neutropenia
     - thrombocytopenia
@@ -4830,7 +4830,7 @@
     - febrile-neutropenia
     frequency_source_event_id: null
     frequency_band: null
-    meaning: Treatment can lower infection-fighting cells, red blood cells, or platelets.
+    meaning: Treatment can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
     what_you_may_notice: *id057
     safe_actions: *id058
     contact_team: *id059
@@ -4842,6 +4842,6 @@
     introduction: Follow the instructions given by your own cancer team.
     contact_team:
     - Contact your cancer team right away for fever, signs of infection, or new numbness, tingling, or weakness.
-    - Tell the nurse immediately if breathing, swelling, dizziness, or chest symptoms start during an infusion.
+    - Tell the nurse right away if breathing, swelling, dizziness, or chest symptoms start while the medicine is being given.
     urgent_help:
     - Get urgent help for severe trouble breathing, swelling of the face or throat, fainting, chest pain, or another medical emergency.
