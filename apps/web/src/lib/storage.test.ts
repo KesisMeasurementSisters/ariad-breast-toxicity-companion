@@ -7,14 +7,25 @@ import {
 } from "./storage";
 
 const values = new Map<string, string>();
+let storageAvailable = true;
 
 beforeEach(() => {
   values.clear();
+  storageAvailable = true;
   vi.stubGlobal("window", {
     localStorage: {
-      getItem: (key: string) => values.get(key) ?? null,
-      setItem: (key: string, value: string) => values.set(key, value),
-      removeItem: (key: string) => values.delete(key),
+      getItem: (key: string) => {
+        if (!storageAvailable) throw new Error("storage unavailable");
+        return values.get(key) ?? null;
+      },
+      setItem: (key: string, value: string) => {
+        if (!storageAvailable) throw new Error("storage unavailable");
+        values.set(key, value);
+      },
+      removeItem: (key: string) => {
+        if (!storageAvailable) throw new Error("storage unavailable");
+        values.delete(key);
+      },
     },
   });
 });
@@ -56,5 +67,13 @@ describe("versioned local treatment preferences", () => {
     saveTreatment(EMPTY_PREFERENCES, "ac");
     expect(clearAriadData()).toEqual(EMPTY_PREFERENCES);
     expect(readPreferences()).toEqual(EMPTY_PREFERENCES);
+  });
+
+  it("keeps the patient flow usable when browser storage is unavailable", () => {
+    storageAvailable = false;
+
+    expect(readPreferences()).toEqual(EMPTY_PREFERENCES);
+    expect(saveTreatment(EMPTY_PREFERENCES, "ac").savedTreatmentIds).toEqual(["ac"]);
+    expect(clearAriadData()).toEqual(EMPTY_PREFERENCES);
   });
 });

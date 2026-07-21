@@ -44,9 +44,9 @@ export function migratePreferences(value: unknown): Preferences | null {
 
 export function readPreferences(): Preferences {
   if (typeof window === "undefined") return EMPTY_PREFERENCES;
-  const raw = window.localStorage.getItem(STORAGE_KEY);
-  if (!raw) return EMPTY_PREFERENCES;
   try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return EMPTY_PREFERENCES;
     const parsed = JSON.parse(raw) as unknown;
     const migrated = migratePreferences(parsed);
     if (!migrated) return EMPTY_PREFERENCES;
@@ -61,7 +61,12 @@ export function readPreferences(): Preferences {
 
 export function writePreferences(preferences: Preferences): Preferences {
   const valid = PreferencesSchema.parse(preferences);
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(valid));
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(valid));
+  } catch {
+    // Storage can be unavailable in restricted browser contexts. Keep the
+    // validated in-memory preference without interrupting the patient flow.
+  }
   return valid;
 }
 
@@ -76,6 +81,12 @@ export function saveTreatment(preferences: Preferences, treatmentId: string): Pr
 }
 
 export function clearAriadData(): Preferences {
-  if (typeof window !== "undefined") window.localStorage.removeItem(STORAGE_KEY);
+  if (typeof window !== "undefined") {
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // The in-memory state is still cleared by the returned empty preference.
+    }
+  }
   return EMPTY_PREFERENCES;
 }
