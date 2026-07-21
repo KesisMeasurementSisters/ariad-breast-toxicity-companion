@@ -65,6 +65,7 @@ import {
   drugToxicityPresentationForDrug,
   moduleById,
   questionById,
+  releaseRequestHeaders,
   sourceById,
   symptomById,
   treatmentById,
@@ -848,7 +849,7 @@ function SymptomEntryScreen({
     try {
       const response = await fetch("/api/ai/classify-symptom", {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: releaseRequestHeaders(),
         body: JSON.stringify({ text }),
       });
       const body = (await response.json()) as {
@@ -1574,7 +1575,7 @@ export function AriadApp() {
     try {
       const response = await fetch("/api/ai/create-symptom-summary", {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: releaseRequestHeaders(),
         body: JSON.stringify(request),
       });
       const body = (await response.json()) as { result?: unknown; generationMode?: GenerationMode };

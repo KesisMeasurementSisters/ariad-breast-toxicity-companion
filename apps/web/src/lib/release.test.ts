@@ -3,9 +3,20 @@ import {
   activeRelease,
   clinicContactHref,
   drugToxicityPresentationForDrug,
+  releaseRequestHeaders,
   resolveClinicConfig,
   sourceById,
 } from "./release";
+
+describe("release-bound requests", () => {
+  it("sends the exact client release identity with JSON API requests", () => {
+    expect(releaseRequestHeaders()).toEqual({
+      "content-type": "application/json",
+      "x-ariad-release-id": activeRelease.release_id,
+      "x-ariad-content-hash": activeRelease.content_hash,
+    });
+  });
+});
 
 describe("patient-safe drug toxicity release", () => {
   it("ships every supported single-drug presentation without private numerical evidence", () => {

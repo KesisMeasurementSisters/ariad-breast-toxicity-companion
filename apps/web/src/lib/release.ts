@@ -20,6 +20,16 @@ import rawRelease from "../generated/release.json";
 
 export const activeRelease: CompiledRelease = CompiledReleaseSchema.parse(rawRelease);
 
+export function releaseRequestHeaders(
+  release: Pick<CompiledRelease, "release_id" | "content_hash"> = activeRelease,
+): Record<string, string> {
+  return {
+    "content-type": "application/json",
+    "x-ariad-release-id": release.release_id,
+    "x-ariad-content-hash": release.content_hash,
+  };
+}
+
 const objects = new Map(activeRelease.objects.map((object) => [object.id, object]));
 
 export function objectById<T extends KnowledgeObject = KnowledgeObject>(id: string): T | undefined {

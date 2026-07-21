@@ -11,6 +11,7 @@ const JSON_HEADERS = {
 
 const RATE_WINDOW_MS = 60_000;
 const RATE_LIMIT = 30;
+const MAX_RATE_BUCKETS = 1_000;
 const DEFAULT_AI_MAX_INPUT_CHARS = 500;
 const MIN_AI_MAX_INPUT_CHARS = 50;
 const rateBuckets = new Map<string, { startedAt: number; count: number }>();
@@ -69,17 +70,19 @@ function rateKey(request: Request): string {
 export function withinRateLimit(request: Request, now = Date.now()): boolean {
   const key = rateKey(request);
   const bucket = rateBuckets.get(key);
-  if (!bucket || now - bucket.startedAt >= RATE_WINDOW_MS) {
+  if (!bucket) {
+    if (rateBuckets.size >= MAX_RATE_BUCKETS) {
+      for (const [candidateKey, candidate] of rateBuckets) {
+        if (now - candidate.startedAt >= RATE_WINDOW_MS) rateBuckets.delete(candidateKey);
+      }
+      if (rateBuckets.size >= MAX_RATE_BUCKETS) return false;
+    }
+    rateBuckets.set(key, { startedAt: now, count: 1 });
+  } else if (now - bucket.startedAt >= RATE_WINDOW_MS) {
     rateBuckets.set(key, { startedAt: now, count: 1 });
   } else {
     bucket.count += 1;
     if (bucket.count > RATE_LIMIT) return false;
-  }
-
-  if (rateBuckets.size > 1_000) {
-    for (const [candidateKey, candidate] of rateBuckets) {
-      if (now - candidate.startedAt >= RATE_WINDOW_MS) rateBuckets.delete(candidateKey);
-    }
   }
   return true;
 }

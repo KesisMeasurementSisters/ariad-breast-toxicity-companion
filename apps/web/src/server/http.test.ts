@@ -58,4 +58,29 @@ describe("AI request guards", () => {
     process.env.AI_MAX_INPUT_CHARS = "5";
     expect(http.configuredAiMaxInputChars()).toBe(50);
   });
+
+  it("bounds rate-limit state while retaining existing buckets", () => {
+    const now = Date.now();
+    for (let index = 0; index < 999; index += 1) {
+      expect(
+        http.withinRateLimit(
+          request({ "x-forwarded-for": `203.0.113.${index}` }),
+          now,
+        ),
+      ).toBe(true);
+    }
+
+    expect(
+      http.withinRateLimit(request({ "x-forwarded-for": "198.51.100.1" }), now),
+    ).toBe(false);
+    expect(
+      http.withinRateLimit(request({ "x-forwarded-for": "203.0.113.0" }), now),
+    ).toBe(true);
+    expect(
+      http.withinRateLimit(
+        request({ "x-forwarded-for": "198.51.100.1" }),
+        now + 60_000,
+      ),
+    ).toBe(true);
+  });
 });
