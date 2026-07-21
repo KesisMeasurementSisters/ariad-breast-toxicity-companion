@@ -58,7 +58,8 @@ test("live treatment results and regimen cards have no serious accessibility vio
       name: /Treatment plan: TCHP: Docetaxel \+ Carboplatin \+ Trastuzumab \+ Pertuzumab/,
     })
     .click();
-  await expect(page.getByRole("heading", { name: "Get ready for treatment" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
+  await expect(page.locator(".preparation-step")).toHaveCount(3);
   await expect(page.locator(".preparation-guide, .side-effect-education").first()).toHaveClass(
     /preparation-guide/u,
   );

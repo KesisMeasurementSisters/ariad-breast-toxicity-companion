@@ -132,7 +132,10 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
 test("a drug result opens its single-drug information", async ({ page }) => {
   await choose(page, /I’m starting treatment/);
   await page.getByLabel("Drug or treatment plan").fill("doxorubicin");
-  await choose(page, /Drug: Doxorubicin \(Adriamycin\).*View this drug’s information/);
+  await choose(
+    page,
+    /Drug: Doxorubicin \(Adriamycin\).*General preparation guide available.*View general preparation and available side-effect information/,
+  );
 
   await expect(
     page.getByRole("heading", { name: "Doxorubicin (Adriamycin)" }),
@@ -149,8 +152,11 @@ test("a clinic code still opens the complete weekly paclitaxel preparation guide
   await choose(page, "Use code");
 
   await expect(page.getByRole("heading", { name: "Weekly paclitaxel" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Your treatment at a glance" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "A simple preparation checklist" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What is this treatment?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What should I do before treatment?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What should I have ready?" })).toBeVisible();
+  await expect(page.locator(".preparation-step")).toHaveCount(3);
   await expect(page.getByText(/cannot tell what is causing your symptom or how serious it is/i).first()).toBeVisible();
 });
 

@@ -48,9 +48,13 @@ test("a weekly schedule search opens preparation before paclitaxel side effects"
   await weekly.click();
 
   await expect(page.getByRole("heading", { name: "Weekly paclitaxel" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Get ready for treatment" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
   await expect(page.getByText("Preparation guide", { exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Your treatment at a glance" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What is this treatment?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What should I do before treatment?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What should I have ready?" })).toBeVisible();
+  await expect(page.locator(".preparation-step")).toHaveCount(3);
+  await expect(page.locator(".preparation-safety-note")).toHaveCount(1);
   await expect(page.getByRole("heading", { name: "Side-effect information" })).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Side effects reported with paclitaxel alone" }),
@@ -61,7 +65,7 @@ test("the capecitabine code renders exact preparation and its one-drug card", as
   await page.getByLabel("Treatment code").fill("THREAD-CAPE-02");
   await page.getByRole("button", { name: "Use code" }).click();
 
-  await expect(page.getByRole("heading", { name: "Get ready for treatment" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
   await expect(page.getByText("Preparation guide", { exact: true })).toBeVisible();
   await expect(page.getByText("Capecitabine is a cancer medicine taken as tablets.")).toBeVisible();
   await expect(page.locator(".regimen-medication-card")).toHaveCount(1);
@@ -107,7 +111,7 @@ test("preparation can be printed and a saved treatment can be reopened from home
   await expect(page.getByRole("heading", { name: "Your saved treatments" })).toBeVisible();
   await page.getByRole("button", { name: "Open saved treatment: Weekly paclitaxel" }).click();
   await expect(page.getByRole("heading", { name: "Weekly paclitaxel" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Get ready for treatment" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
 });
 
 test("an exact drug is followed by multi-drug regimens containing it", async ({ page }) => {
@@ -188,7 +192,8 @@ test("a drug opens one drug page and a regimen opens ordered component cards", a
     }),
   ).toBeVisible();
   await expect(page.getByText("General preparation guide", { exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Start with your cancer team's plan" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What is this treatment?" })).toBeVisible();
   await expect(page.locator(".preparation-guide, .side-effect-education")).toHaveCount(2);
   await expect(page.locator(".preparation-guide, .side-effect-education").nth(0)).toHaveClass(
     /preparation-guide/u,
@@ -281,7 +286,7 @@ test("a catalogue drug gets general preparation while detailed side effects stay
 
   await expect(page.getByRole("heading", { name: "Alpelisib (Piqray)" })).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Get ready for treatment" }),
+    page.getByRole("heading", { name: "Get ready in three steps" }),
   ).toBeVisible();
   await expect(page.getByText("General preparation guide", { exact: true })).toBeVisible();
   await expect(

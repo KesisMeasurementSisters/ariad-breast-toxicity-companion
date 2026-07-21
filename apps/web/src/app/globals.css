@@ -1051,8 +1051,107 @@ textarea::placeholder {
   background: var(--kesis-color-navy-50);
 }
 
-.preparation-guide .preparation-stack {
+.preparation-steps {
+  display: grid;
+  gap: 0.85rem;
   margin-block: 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.preparation-step {
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--kesis-radius-md);
+  background: var(--surface);
+}
+
+.preparation-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.preparation-step-number {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--kesis-color-navy-700);
+  background: var(--kesis-color-navy-100);
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.preparation-step-label {
+  display: block;
+  margin-block-end: 0.12rem;
+  color: var(--kesis-color-navy-700);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.preparation-step-header h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 4vw, 1.22rem);
+}
+
+.preparation-step-body {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.preparation-step-item + .preparation-step-item {
+  margin-block-start: 0.9rem;
+  padding-block-start: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.preparation-step-item h4 {
+  margin-block-end: 0.35rem;
+  color: var(--ink-strong);
+  font-size: 1rem;
+}
+
+.preparation-step-item p,
+.preparation-step-item li,
+.preparation-safety-note p,
+.preparation-safety-note li {
+  color: var(--kesis-color-text-secondary);
+}
+
+.preparation-step-item ul,
+.preparation-safety-note ul {
+  padding-inline-start: 1.25rem;
+}
+
+.preparation-safety-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-block: 1rem 1.25rem;
+  padding: 1rem;
+  border-left: 4px solid var(--kesis-color-navy-500);
+  border-radius: var(--kesis-radius-md);
+  background: var(--kesis-color-navy-50);
+}
+
+.preparation-safety-note > svg {
+  flex: 0 0 auto;
+  margin-block-start: 0.1rem;
+  color: var(--kesis-color-navy-700);
+}
+
+.preparation-safety-note h3 {
+  margin-block-end: 0.35rem;
+  font-size: 1rem;
 }
 
 .preparation-guide .sources-panel {
@@ -1154,42 +1253,6 @@ textarea::placeholder {
   margin-block: 2rem;
 }
 
-.preparation-module {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.9rem;
-  padding-block: 1.35rem;
-  border-top: 1px solid var(--line);
-}
-
-.preparation-module:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.module-index {
-  display: grid;
-  width: 2.1rem;
-  height: 2.1rem;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--thread-dark);
-  background: var(--thread-soft);
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.preparation-module h2,
-.preparation-module h3 {
-  font-size: 1.25rem;
-}
-
-.preparation-module p,
-.preparation-module li {
-  color: var(--muted);
-}
-
-.preparation-module ul,
 .guidance-body ul {
   padding-inline-start: 1.25rem;
 }
@@ -2560,7 +2623,8 @@ details[open] > summary .summary-chevron {
   .treatment-print-surface .toxicity-effect,
   .treatment-print-surface .toxicity-escalation,
   .treatment-print-surface .regimen-single-drug-boundary,
-  .treatment-print-surface .preparation-module,
+  .treatment-print-surface .preparation-step,
+  .treatment-print-surface .preparation-safety-note,
   .treatment-print-surface .sources-panel {
     break-inside: avoid;
     box-shadow: none;

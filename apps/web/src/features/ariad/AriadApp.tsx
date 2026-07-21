@@ -22,9 +22,11 @@ import {
   assembleGuidance,
   classifySymptomDeterministically,
   deterministicSummary,
+  groupPreparationModulesForDisplay,
   normalizeSearchText,
   PATIENT_FREQUENCY_BAND_LABELS,
   PATIENT_FREQUENCY_BAND_ORDER,
+  PREPARATION_DISPLAY_COPY,
   regimenDrugToxicityItems,
   resolvePreparation,
   resolveGuidanceRelationship,
@@ -503,29 +505,62 @@ function TreatmentSearchScreen({
   );
 }
 
-function PreparationModuleList({
-  modules,
-  nested = false,
-}: {
-  modules: EducationalModule[];
-  nested?: boolean;
-}) {
-  const Heading = nested ? "h3" : "h2";
+function PreparationModuleContent({ modules }: { modules: EducationalModule[] }) {
+  const showModuleTitles = modules.length > 1;
   return (
-    <div className="module-stack preparation-stack">
-      {modules.map((item, index) => (
-        <section className="preparation-module" key={item.id}>
-          <span className="module-index">{String(index + 1).padStart(2, "0")}</span>
-          <div>
-            <Heading>{item.title}</Heading>
-            {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            {item.bullets.length ? (
-              <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
-            ) : null}
-          </div>
-        </section>
+    <>
+      {modules.map((item) => (
+        <div className="preparation-step-item" key={item.id}>
+          {showModuleTitles ? <h4>{item.title}</h4> : null}
+          {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {item.bullets.length ? (
+            <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+          ) : null}
+        </div>
       ))}
-    </div>
+    </>
+  );
+}
+
+function PreparationStepList({ modules }: { modules: EducationalModule[] }) {
+  const groups = groupPreparationModulesForDisplay(modules);
+
+  return (
+    <>
+      <ol className="preparation-steps">
+        {PREPARATION_DISPLAY_COPY.steps.map((step, index) => (
+          <li className="preparation-step" data-preparation-step={step.id} key={step.id}>
+            <header className="preparation-step-header">
+              <span className="preparation-step-number" aria-hidden="true">{index + 1}</span>
+              <div>
+                <span className="preparation-step-label">{step.label}</span>
+                <h3>{step.title}</h3>
+              </div>
+            </header>
+            <div className="preparation-step-body">
+              <PreparationModuleContent modules={groups[step.id]} />
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      {groups.safetyBoundary.length > 0 ? (
+        <aside className="preparation-safety-note" aria-label="Important safety information">
+          <Info aria-hidden="true" size={22} />
+          <div>
+            {groups.safetyBoundary.map((item) => (
+              <div key={item.id}>
+                <h3>{item.title}</h3>
+                {item.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                {item.bullets.length ? (
+                  <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </aside>
+      ) : null}
+    </>
   );
 }
 
@@ -535,24 +570,24 @@ function PreparationSection({
   preparation: ReturnType<typeof resolvePreparation>;
 }) {
   const introduction = preparation.basis === "exact"
-    ? "This preparation guide was written for the treatment you selected."
-    : preparation.basis === "general"
-      ? "This is general preparation information. It was not written for the exact treatment you selected."
-      : "Ariad does not have a preparation guide for this treatment yet.";
+    ? PREPARATION_DISPLAY_COPY.exactIntroduction
+    : preparation.basis === "unavailable"
+      ? PREPARATION_DISPLAY_COPY.unavailableIntroduction
+      : null;
 
   return (
     <section className="preparation-guide" aria-labelledby="preparation-guide-heading">
       <header className="preparation-guide-header">
         <p className="eyebrow">Treatment preparation</p>
-        <h2 id="preparation-guide-heading">Get ready for treatment</h2>
+        <h2 id="preparation-guide-heading">{PREPARATION_DISPLAY_COPY.heading}</h2>
         <PreparationCoveragePill basis={preparation.basis} />
-        <p>{introduction}</p>
+        {introduction ? <p>{introduction}</p> : null}
         {preparation.fallbackReason ? (
           <p className="preparation-fallback">{preparation.fallbackReason}</p>
         ) : null}
       </header>
       {preparation.modules.length > 0 ? (
-        <PreparationModuleList modules={preparation.modules} nested />
+        <PreparationStepList modules={preparation.modules} />
       ) : (
         <div className="information-pending preparation-pending">
           <Info aria-hidden="true" size={22} />
