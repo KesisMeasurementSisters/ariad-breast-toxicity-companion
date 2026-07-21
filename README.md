@@ -63,8 +63,9 @@ Life** track.
   or FDA label-category groups, plain-language disclosures, FDA-linked actions,
   and a final escalation summary for each drug.
 - Multi-drug regimen pages compose those existing single-drug presentations in
-  separate component cards, preserve their monotherapy evidence boundaries, and
-  retain a clear preparation notice for components without eligible evidence.
+  closed whole-drug accordions, preserve their monotherapy evidence
+  boundaries, and retain a clear preparation notice for components without
+  eligible evidence.
 - Observable questions that may change section emphasis, but never calculate a
   grade, diagnosis, cause, or personal urgency.
 - Deterministic controlled-vocabulary symptom matching and neutral fact

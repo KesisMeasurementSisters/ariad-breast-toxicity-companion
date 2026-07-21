@@ -102,7 +102,7 @@ label and summary, then show copy/print/download.
 > If the model is unavailable or validation fails, Ariad uses a deterministic
 > template. The summary is not stored server-side.
 
-### 2:22–2:38 — Coverage and local-only state
+### 2:22–2:38 — Coverage and competition privacy
 
 **Action:** Return home, briefly show treatment search and the code
 `THREAD-PAC-01`, or select a catalogued-only treatment to show the coverage
@@ -110,8 +110,8 @@ boundary.
 
 **Narration:**
 
-> Treatment codes contain no personal information. Saved treatment IDs stay in
-> versioned browser storage; Ariad has no accounts, database, analytics, or
+> Treatment codes contain no personal information. This competition build does
+> not save treatment choices. Ariad has no accounts, database, analytics, or
 > symptom history.
 
 ### 2:38–2:55 — Architecture and Codex contribution

@@ -44,7 +44,9 @@ It does not infer preparation from a drug class or regimen component. The
 treatment page keeps every resolved module unchanged, then groups the authored
 order into three patient questions: what the treatment is, what to do before
 treatment, and what to have ready. The cause and emergency boundary remains a
-separate safety note. Available side-effect education follows below it.
+separate safety note. Available side-effect education follows below it. A
+multi-drug regimen presents one closed whole-drug accordion per governed
+component; opening one reveals that drug's complete, independent presentation.
 
 ## 3. Natural-language symptom navigation
 

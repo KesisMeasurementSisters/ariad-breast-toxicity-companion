@@ -601,3 +601,60 @@
 - Production web build — passed with all application and API routes compiled.
 - `pnpm test:e2e` — all 58 mobile and desktop browser/accessibility tests
   passed in 18.8 seconds.
+
+## 2026-07-21 — competition safety and treatment-page usability
+
+### Patient experience
+
+- The universal emergency statement is now a sticky, normal-body-size notice.
+  Symptom pages state once, in plain language, that Ariad cannot determine the
+  cause. Contact and urgent-help sections are always open and do not imply that
+  Ariad calculated personal urgency.
+- The competition build no longer shows saved-treatment controls. It removes
+  the old Ariad treatment preference from the browser while keeping treatment
+  codes, direct links, and printing available.
+- Multi-drug regimens now use one closed whole-drug accordion per component in
+  governed order. Opening an accordion shows that drug's complete presentation,
+  evidence boundary, sources, and action information. A component without an
+  eligible guide has its own clear not-ready state.
+- Meaningful patient copy has a 16 px minimum in the web interface. Metadata may
+  remain smaller. A patient-visible language guard rejects selected US spellings
+  across the released patient content and interface source.
+- The doxorubicin browser path now targets the stable drug-result control and
+  checks the exact doxorubicin presentation instead of relying on stale copy.
+
+### Safety and implementation boundary
+
+- Regimen accordions compose only the already released single-drug pages. They
+  do not combine frequencies, infer missing evidence, or create regimen-level
+  guidance. Printing temporarily expands nested disclosures and restores the
+  patient's open and closed state afterward.
+- Treatment saving remains dormant behind an exact, default-off build flag.
+  Preview, Docker, continuous-integration, and browser-test competition builds
+  force it off.
+- The safety hierarchy and interface changes do not alter governed clinical
+  content, sources, reviewer records, approvals, release membership, or the
+  clinical-use boundary. All governed patient content remains `draft`.
+
+### Release evidence
+
+- Active preview remains `build-week-preview-2026-07-18@0.12.0` with content
+  hash
+  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
+- The active release remains 492 exact object versions with 139 educational
+  modules; this work changes only application presentation, configuration,
+  automated checks, and documentation.
+
+### Verification
+
+- `pnpm content:validate` — 555 repository objects; 0 errors and 0 warnings.
+- `pnpm test` — all 174 unit and golden tests passed.
+- `pnpm lint` — passed.
+- `pnpm typecheck` — all three workspace packages passed.
+- `pnpm safety:scan` — 0 findings across source content, compiled content, and
+  summary fixtures.
+- `pnpm build:preview` — passed with saving forced off and all application and
+  API routes compiled; the release hash remained unchanged.
+- `pnpm test:e2e` — all 62 mobile and desktop browser/accessibility tests
+  passed, including safety hierarchy, saving removal, whole-drug accordion,
+  print-state, 320 px, 16 px patient-copy, and doxorubicin checks.

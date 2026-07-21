@@ -9,8 +9,8 @@ should I have ready when I call?
 
 Ariad provides two equal ways into one governed knowledge source:
 
-1. **I’m starting treatment** — search or enter a treatment code, review a
-   preparation path, and optionally save the treatment ID on the device.
+1. **I’m starting treatment** — search or enter a treatment code, then review
+   preparation and available side-effect information.
 2. **I’m having a symptom** — use a controlled catalogue or free-text
    navigation, confirm a symptom category, add treatment context, answer
    observable questions, view fixed education, and prepare a neutral summary.
@@ -57,11 +57,12 @@ the drug pages are education-only and do not calculate urgency or provide a
 treatment recommendation. See the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).
 
 For a multi-drug regimen, Ariad composes the existing single-drug presentations
-in the regimen's governed component order. Each drug remains an independent
-section with its own source context and escalation summary. A visible boundary
-states the evidence boundary for that individual drug and does not present its
-groups as frequencies for the full regimen. Missing component evidence remains
-an information-in-preparation card; Ariad does not borrow or infer a rate.
+in the regimen's governed component order. Each whole-drug accordion starts
+closed and contains one complete matching presentation with its own source
+context and escalation summary. A visible boundary states the evidence boundary
+for that individual drug and does not present its groups as frequencies for the
+full regimen. Missing component evidence remains a clearly labelled accordion;
+Ariad does not borrow or infer a rate.
 
 ## Coverage hierarchy
 
