@@ -12,7 +12,7 @@
     "build:preview": "ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW NEXT_PUBLIC_DEMO_MODE=true NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false pnpm content:build && pnpm typecheck && pnpm --filter @ariad/web build",
     "build:cloudflare": "pnpm content:build:preview && node scripts/run-cloudflare.mjs build",
     "preview:cloudflare": "pnpm content:build:preview && node scripts/run-cloudflare.mjs preview",
-    "deploy:cloudflare": "pnpm content:build:preview && node scripts/run-cloudflare.mjs deploy",
+    "deploy:cloudflare": "pnpm build:cloudflare && node scripts/run-cloudflare.mjs deploy",
     "lint": "eslint .",
     "typecheck": "pnpm -r typecheck",
     "test": "vitest run",
