@@ -225,7 +225,7 @@ The checked-in example and current local configuration set
 | `OPENAI_MODEL` | Runtime language model | `gpt-5.6` |
 | `ENABLE_GPT56` | Exact opt-in for optional model calls; keep disabled during the current phase | `false` |
 | `AI_MAX_INPUT_CHARS` | Server request input limit, clamped to 50–500 characters | `500` |
-| `AI_REQUEST_TIMEOUT_MS` | Provider timeout | `12000` |
+| `AI_REQUEST_TIMEOUT_MS` | Provider timeout | `15000` |
 | `CONTENT_RELEASE_ID` | Exact release manifest to compile | `build-week-preview-2026-07-18` |
 | `ALLOW_DRAFT_CONTENT` | Exact preview acknowledgement; never a production convenience flag | `false` |
 | `NEXT_PUBLIC_DEMO_MODE` | Preview-build marker; the mandatory UI notice comes from the compiled release | `true` for preview |

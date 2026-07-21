@@ -5,7 +5,7 @@ import { zodTextFormat } from "openai/helpers/zod";
 import type { z } from "zod";
 
 const DEFAULT_MODEL = "gpt-5.6";
-const DEFAULT_TIMEOUT_MS = 12_000;
+const DEFAULT_TIMEOUT_MS = 15_000;
 const MIN_TIMEOUT_MS = 2_000;
 const MAX_TIMEOUT_MS = 20_000;
 
@@ -84,4 +84,3 @@ export const executeStructuredOutput: StructuredOutputExecutor = async <T>(
   if (!parsed.success) throw new Error("GPT-5.6 returned an invalid structured result");
   return parsed.data;
 };
-
