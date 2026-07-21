@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { ARIAD_INTENDED_USE } from "@ariad/contracts";
 import { describe, expect, it } from "vitest";
 import {
   activeRelease,
@@ -98,6 +100,79 @@ describe("patient-safe drug toxicity release", () => {
     expect(sourceById(proteinBound?.source_ids[0] ?? "")?.canonical_url).toContain(
       "setid=24d10449-2936-4cd3-b7db-a7683db721e4",
     );
+  });
+});
+
+describe("Canadian patient language", () => {
+  it("keeps authored patient copy in Canadian spelling", () => {
+    const patientCopy: string[] = [ARIAD_INTENDED_USE];
+
+    for (const object of activeRelease.objects) {
+      if (object.kind === "educational_module" && object.audience === "patient") {
+        patientCopy.push(object.title, ...object.paragraphs, ...object.bullets);
+      }
+      if (object.kind === "drug_toxicity_presentation") {
+        patientCopy.push(
+          object.route_label,
+          object.subtitle,
+          object.frequency_context,
+          object.cause_statement,
+          object.source_context,
+          object.escalation_summary.heading,
+          object.escalation_summary.introduction,
+          ...object.escalation_summary.contact_team,
+          ...object.escalation_summary.urgent_help,
+        );
+        for (const effect of object.effects) {
+          patientCopy.push(
+            effect.display_name,
+            effect.meaning,
+            ...effect.what_you_may_notice,
+            ...effect.safe_actions,
+            ...effect.contact_team,
+            ...effect.urgent_help,
+            ...effect.reassuring_monitoring,
+          );
+        }
+      }
+      if (object.kind === "question") {
+        patientCopy.push(
+          object.prompt,
+          object.help_text ?? "",
+          object.summary_label,
+          ...object.options.flatMap((option) => [option.label, option.summary_text]),
+        );
+      }
+      if (object.kind === "symptom") {
+        patientCopy.push(object.patient_label);
+      }
+      if (object.kind === "drug") {
+        patientCopy.push(object.generic_name, ...object.brand_names);
+      }
+      if (object.kind === "regimen") {
+        patientCopy.push(object.display_name);
+      }
+      if (object.kind === "clinic_config" && "mode" in object) {
+        patientCopy.push(
+          object.identity.display_name,
+          ...object.contact_routes.flatMap((route) => [
+            route.label,
+            route.availability.state === "display_only" ? route.availability.label : "",
+          ]),
+        );
+      }
+    }
+
+    const combinedPatientCopy = patientCopy.filter(Boolean).join("\n");
+    const interfaceSource = readFileSync(
+      new URL("../features/ariad/AriadApp.tsx", import.meta.url),
+      "utf8",
+    );
+    const usSpellings =
+      /\b(?:behavior|behaviors|center|centers|color|colors|counseling|labeled|labeling|tumor|tumors)\b/iu;
+
+    expect(combinedPatientCopy).not.toMatch(usSpellings);
+    expect(interfaceSource).not.toMatch(usSpellings);
   });
 });
 

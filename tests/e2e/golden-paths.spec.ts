@@ -142,18 +142,24 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
 test("a drug result opens its single-drug information", async ({ page }) => {
   await choose(page, /I’m starting treatment/);
   await page.getByLabel("Drug or treatment plan").fill("doxorubicin");
-  await choose(
-    page,
-    /Drug: Doxorubicin \(Adriamycin\).*General preparation guide available.*View general preparation and available side-effect information/,
-  );
+  await page
+    .getByRole("button", { name: /^Drug: Doxorubicin \(Adriamycin\)\./ })
+    .click();
 
   await expect(
     page.getByRole("heading", { name: "Doxorubicin (Adriamycin)" }),
   ).toBeVisible();
+  const doxorubicinPresentation = page.locator(
+    '[data-presentation-id="doxorubicin-patient-side-effects"]',
+  );
   await expect(
-    page.getByRole("heading", { name: "Side effects linked to doxorubicin" }),
+    doxorubicinPresentation.getByRole("heading", { name: "Side effects linked to doxorubicin" }),
   ).toBeVisible();
-  await expect(page.getByText("Ariad cannot tell what is causing your symptom").first()).toBeVisible();
+  await expect(
+    doxorubicinPresentation.getByText("Ariad cannot tell what is causing a symptom.", {
+      exact: true,
+    }),
+  ).toBeVisible();
 });
 
 test("a clinic code still opens the complete weekly paclitaxel preparation guide", async ({ page }) => {
@@ -167,7 +173,13 @@ test("a clinic code still opens the complete weekly paclitaxel preparation guide
   await expect(page.getByRole("heading", { name: "What should I do before treatment?" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "What should I have ready?" })).toBeVisible();
   await expect(page.locator(".preparation-step")).toHaveCount(3);
-  await expect(page.getByText(/cannot tell what is causing your symptom or how serious it is/i).first()).toBeVisible();
+  await expect(
+    page
+      .locator(".boundary-card")
+      .getByText("Ariad cannot tell what is causing a symptom or how serious it is.", {
+        exact: true,
+      }),
+  ).toBeVisible();
 });
 
 test("capecitabine demo reaches the fixed diarrhea guidance sections", async ({ page }) => {

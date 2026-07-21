@@ -613,7 +613,7 @@ function PreparationSection({
 }
 
 function InformationPending({ nested = false }: { nested?: boolean }) {
-  const Heading = nested ? "h3" : "h2";
+  const Heading = nested ? "h4" : "h2";
   return (
     <div className="information-pending">
       <Info aria-hidden="true" size={22} />
@@ -640,7 +640,7 @@ const PATIENT_EFFECT_BLOCKS = [
   ["what_you_may_notice", "What you may notice"],
   ["safe_actions", "Steps that may help"],
   ["contact_team", "Contact your cancer team"],
-  ["urgent_help", "Get urgent help"],
+  ["urgent_help", "Get urgent medical help"],
   ["reassuring_monitoring", "Checks your team may do"],
 ] as const satisfies readonly [
   keyof Pick<
@@ -654,7 +654,14 @@ const PATIENT_EFFECT_BLOCKS = [
   string,
 ][];
 
-function PatientEffectDisclosure({ effect }: { effect: PatientToxicityEffect }) {
+function PatientEffectDisclosure({
+  effect,
+  nested = false,
+}: {
+  effect: PatientToxicityEffect;
+  nested?: boolean;
+}) {
+  const BlockHeading = nested ? "h5" : "h3";
   return (
     <details className="toxicity-effect">
       <summary>
@@ -670,7 +677,7 @@ function PatientEffectDisclosure({ effect }: { effect: PatientToxicityEffect }) 
           if (items.length === 0) return null;
           return (
             <section className={`patient-effect-block patient-effect-${field}`} key={field}>
-              <h3>{heading}</h3>
+              <BlockHeading>{heading}</BlockHeading>
               <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
             </section>
           );
@@ -683,13 +690,17 @@ function PatientEffectDisclosure({ effect }: { effect: PatientToxicityEffect }) 
 function DrugToxicityPatientView({
   presentation,
   regimenContextLabel,
+  idPrefix = presentation.id,
 }: {
   presentation: DrugToxicityPresentation;
   regimenContextLabel?: string;
+  idPrefix?: string;
 }) {
-  const printSurfaceRef = useRef<HTMLElement>(null);
-  const sideEffectsHeadingId = `side-effects-heading-${presentation.id}`;
-  const escalationHeadingId = `toxicity-escalation-heading-${presentation.id}`;
+  const nested = Boolean(regimenContextLabel);
+  const SectionHeading = nested ? "h4" : "h2";
+  const SubsectionHeading = nested ? "h5" : "h3";
+  const sideEffectsHeadingId = `side-effects-heading-${idPrefix}`;
+  const escalationHeadingId = `toxicity-escalation-heading-${idPrefix}`;
   const groupedEffects = PATIENT_FREQUENCY_BAND_ORDER.map((band) => ({
     band,
     effects: presentation.effects.filter((effect) => effect.frequency_band === band),
@@ -713,36 +724,11 @@ function DrugToxicityPatientView({
     (effect) => effect.frequency_band === null && effect.presentation_group === undefined,
   );
 
-  useEffect(() => {
-    let previouslyClosed: HTMLDetailsElement[] = [];
-    const expandForPrint = () => {
-      previouslyClosed = Array.from(
-        printSurfaceRef.current?.querySelectorAll<HTMLDetailsElement>("details:not([open])") ?? [],
-      );
-      previouslyClosed.forEach((details) => {
-        details.open = true;
-      });
-    };
-    const restoreAfterPrint = () => {
-      previouslyClosed.forEach((details) => {
-        details.open = false;
-      });
-      previouslyClosed = [];
-    };
-    window.addEventListener("beforeprint", expandForPrint);
-    window.addEventListener("afterprint", restoreAfterPrint);
-    return () => {
-      window.removeEventListener("beforeprint", expandForPrint);
-      window.removeEventListener("afterprint", restoreAfterPrint);
-    };
-  }, []);
-
   return (
     <section
       className="toxicity-presentation"
       aria-labelledby={sideEffectsHeadingId}
       data-presentation-id={presentation.id}
-      ref={printSurfaceRef}
     >
       {regimenContextLabel ? (
         <aside className="regimen-single-drug-boundary">
@@ -759,7 +745,7 @@ function DrugToxicityPatientView({
       ) : null}
       <header className="toxicity-presentation-header">
         <p className="eyebrow">Side effects for one drug</p>
-        <h2 id={sideEffectsHeadingId}>{presentation.subtitle}</h2>
+        <SectionHeading id={sideEffectsHeadingId}>{presentation.subtitle}</SectionHeading>
         <p className="route-label"><Pill aria-hidden="true" size={17} /> {presentation.route_label}</p>
         <p>{presentation.frequency_context}</p>
         <p className="cause-statement"><ShieldCheck aria-hidden="true" size={18} /> {presentation.cause_statement}</p>
@@ -769,11 +755,13 @@ function DrugToxicityPatientView({
         {groupedEffects.map(({ band, effects }) => (
           <section className={`toxicity-frequency-group frequency-${band}`} key={band}>
             <header>
-              <h2>{PATIENT_FREQUENCY_BAND_LABELS[band]}</h2>
+              <SectionHeading>{PATIENT_FREQUENCY_BAND_LABELS[band]}</SectionHeading>
               <p>{PATIENT_FREQUENCY_GROUP_DESCRIPTIONS[band]}</p>
             </header>
             <div className="toxicity-effect-list">
-              {effects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
+              {effects.map((effect) => (
+                <PatientEffectDisclosure effect={effect} key={effect.id} nested={nested} />
+              ))}
             </div>
           </section>
         ))}
@@ -781,11 +769,13 @@ function DrugToxicityPatientView({
         {labelGroups.map(({ id, heading, description, effects }) => (
           <section className={`toxicity-frequency-group frequency-${id}`} key={id}>
             <header>
-              <h2>{heading}</h2>
+              <SectionHeading>{heading}</SectionHeading>
               <p>{description}</p>
             </header>
             <div className="toxicity-effect-list">
-              {effects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
+              {effects.map((effect) => (
+                <PatientEffectDisclosure effect={effect} key={effect.id} nested={nested} />
+              ))}
             </div>
           </section>
         ))}
@@ -793,11 +783,13 @@ function DrugToxicityPatientView({
         {monitoringEffects.length > 0 ? (
           <section className="toxicity-frequency-group frequency-monitoring">
             <header>
-              <h2>Changes your team checks for</h2>
+              <SectionHeading>Changes your team checks for</SectionHeading>
               <p>These are changes your team may find during check-ups or tests. You may not feel them.</p>
             </header>
             <div className="toxicity-effect-list">
-              {monitoringEffects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
+              {monitoringEffects.map((effect) => (
+                <PatientEffectDisclosure effect={effect} key={effect.id} nested={nested} />
+              ))}
             </div>
           </section>
         ) : null}
@@ -811,17 +803,19 @@ function DrugToxicityPatientView({
           <CircleAlert aria-hidden="true" size={24} />
           <div>
             <p className="eyebrow">Keep this easy to find</p>
-            <h2 id={escalationHeadingId}>{presentation.escalation_summary.heading}</h2>
+            <SectionHeading id={escalationHeadingId}>
+              {presentation.escalation_summary.heading}
+            </SectionHeading>
             <p>{presentation.escalation_summary.introduction}</p>
           </div>
         </header>
         <div className="toxicity-escalation-grid">
           <section>
-            <h3>Contact your cancer team</h3>
+            <SubsectionHeading>Contact your cancer team</SubsectionHeading>
             <ul>{presentation.escalation_summary.contact_team.map((item) => <li key={item}>{item}</li>)}</ul>
           </section>
           <section className="toxicity-urgent-list">
-            <h3>Get urgent medical help</h3>
+            <SubsectionHeading>Get urgent medical help</SubsectionHeading>
             <ul>{presentation.escalation_summary.urgent_help.map((item) => <li key={item}>{item}</li>)}</ul>
           </section>
         </div>
@@ -831,38 +825,57 @@ function DrugToxicityPatientView({
   );
 }
 
-function RegimenMedicationCard({
+function RegimenMedicationAccordion({
   drug,
   index,
+  total,
   presentation,
+  regimenId,
   regimenLabel,
 }: {
   drug: Drug;
   index: number;
+  total: number;
   presentation: DrugToxicityPresentation | null;
+  regimenId: string;
   regimenLabel: string;
 }) {
-  const headingId = `regimen-drug-${drug.id}`;
+  const headingId = `regimen-drug-${regimenId}-${index}-${drug.id}`;
+  const idPrefix = `${regimenId}-${index}-${drug.id}`;
 
   return (
-    <article
-      className="regimen-medication-card"
+    <details
+      className="regimen-medication-card regimen-drug-accordion"
       aria-labelledby={headingId}
       data-drug-id={drug.id}
+      data-guide-status={presentation ? "available" : "pending"}
     >
-      <header className="regimen-medication-header">
-        <span>Drug {String(index + 1).padStart(2, "0")}</span>
-        <h2 id={headingId}>{treatmentSearchDisplayName(activeRelease, drug.id)}</h2>
-      </header>
-      {presentation ? (
-        <DrugToxicityPatientView
-          presentation={presentation}
-          regimenContextLabel={regimenLabel}
-        />
-      ) : (
-        <InformationPending nested />
-      )}
-    </article>
+      <summary className="regimen-medication-summary">
+        <span className="regimen-medication-summary-copy">
+          <span className="regimen-drug-position">Drug {index + 1} of {total}</span>
+          <span className="regimen-drug-name" id={headingId} role="heading" aria-level={3}>
+            {treatmentSearchDisplayName(activeRelease, drug.id)}
+          </span>
+          <span className="regimen-drug-status">
+            {presentation
+              ? "Open side effects and when to get help"
+              : "Detailed side-effect guide not ready"}
+          </span>
+        </span>
+        <ChevronRight className="summary-chevron" aria-hidden="true" size={22} />
+      </summary>
+      <div className="regimen-medication-body">
+        {presentation ? (
+          <DrugToxicityPatientView
+            idPrefix={idPrefix}
+            presentation={presentation}
+            regimenContextLabel={regimenLabel}
+          />
+        ) : (
+          <InformationPending nested />
+        )}
+      </div>
+    </details>
   );
 }
 
@@ -881,6 +894,7 @@ function TreatmentOverviewScreen({
   onSymptom: () => void;
   onSymptomLabel: string;
 }) {
+  const printSurfaceRef = useRef<HTMLDivElement>(null);
   const treatment = treatmentById(treatmentId);
   const preparation = resolvePreparation(activeRelease, treatmentId);
   const toxicityPresentation = treatment?.kind === "drug"
@@ -902,8 +916,39 @@ function TreatmentOverviewScreen({
       ? "Drug"
       : "Treatment";
 
+  useEffect(() => {
+    let previouslyClosed: HTMLDetailsElement[] = [];
+    let printExpansionActive = false;
+    const expandForPrint = () => {
+      if (printExpansionActive) return;
+      printExpansionActive = true;
+      previouslyClosed = Array.from(
+        printSurfaceRef.current?.querySelectorAll<HTMLDetailsElement>("details:not([open])") ?? [],
+      );
+      previouslyClosed.forEach((details) => {
+        details.open = true;
+      });
+    };
+    const restoreAfterPrint = () => {
+      if (!printExpansionActive) return;
+      previouslyClosed.forEach((details) => {
+        details.open = false;
+      });
+      previouslyClosed = [];
+      printExpansionActive = false;
+    };
+
+    window.addEventListener("beforeprint", expandForPrint);
+    window.addEventListener("afterprint", restoreAfterPrint);
+    return () => {
+      restoreAfterPrint();
+      window.removeEventListener("beforeprint", expandForPrint);
+      window.removeEventListener("afterprint", restoreAfterPrint);
+    };
+  }, []);
+
   return (
-    <div className={canPrint ? "treatment-print-surface" : undefined}>
+    <div className={canPrint ? "treatment-print-surface" : undefined} ref={printSurfaceRef}>
       <PageIntro
         eyebrow={treatment?.kind === "regimen" ? "Treatment plan information" : "Drug information"}
         title={overviewTitle}
@@ -951,15 +996,17 @@ function TreatmentOverviewScreen({
         </header>
         {isRegimen && regimenItems.length > 0 ? (
           <div className="regimen-medication-stack" aria-label="Drugs in this treatment plan">
-          {regimenItems.map(({ drug, presentation }, index) => (
-            <RegimenMedicationCard
-              drug={drug}
-              index={index}
-              key={drug.id}
-              presentation={presentation}
-              regimenLabel={treatment.abbreviation ?? treatment.display_name}
-            />
-          ))}
+            {regimenItems.map(({ drug, presentation }, index) => (
+              <RegimenMedicationAccordion
+                drug={drug}
+                index={index}
+                key={drug.id}
+                presentation={presentation}
+                regimenId={treatment.id}
+                regimenLabel={treatment.abbreviation ?? treatment.display_name}
+                total={regimenItems.length}
+              />
+            ))}
           </div>
         ) : toxicityPresentation ? (
           <DrugToxicityPatientView presentation={toxicityPresentation} />
@@ -1062,7 +1109,10 @@ function SymptomEntryScreen({
           onChange={(event) => setText(event.target.value)}
           placeholder="For example: My fingertips feel buzzy and small things keep slipping."
         />
-        <div className="input-meta"><span>{text.length}/500</span><span>Do not include your name or other personal details.</span></div>
+        <div className="input-meta">
+          <span className="input-count">{text.length}/500</span>
+          <span>Do not include your name or other personal details.</span>
+        </div>
         <button className="primary-button" type="button" onClick={findCategory} disabled={loading}>
           {loading ? <LoaderCircle className="spin" aria-hidden="true" size={18} /> : <Sparkles aria-hidden="true" size={18} />}
           {loading ? "Finding a symptom…" : "Find a symptom"}

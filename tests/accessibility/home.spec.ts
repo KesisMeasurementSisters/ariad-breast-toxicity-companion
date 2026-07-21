@@ -1,5 +1,13 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, test, type Locator } from "@playwright/test";
+
+async function expectNormalPatientCopy(locator: Locator) {
+  const sizes = await locator.evaluateAll((elements) =>
+    elements.map((element) => Number.parseFloat(window.getComputedStyle(element).fontSize)),
+  );
+  expect(sizes.length).toBeGreaterThan(0);
+  expect(Math.min(...sizes)).toBeGreaterThanOrEqual(16);
+}
 
 test("home and symptom-entry screens have no automatically detectable serious violations", async ({
   page,
@@ -58,7 +66,7 @@ test("the emergency boundary stays visible without covering the page flow", asyn
     .toBe(true);
 });
 
-test("live treatment results and regimen cards have no serious accessibility violations", async ({
+test("live treatment results and regimen accordions have no serious accessibility violations", async ({
   page,
 }) => {
   await page.goto("/");
@@ -83,9 +91,27 @@ test("live treatment results and regimen cards have no serious accessibility vio
   );
   await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
   await expect(page.locator(".regimen-single-drug-boundary")).toHaveCount(3);
-  const regimen = await new AxeBuilder({ page }).analyze();
+  const cards = page.locator(".regimen-drug-accordion");
+  await expect(cards).toHaveCount(4);
+  for (let index = 0; index < 4; index += 1) {
+    await expect(cards.nth(index)).not.toHaveAttribute("open", "");
+  }
+  const collapsedRegimen = await new AxeBuilder({ page }).analyze();
   expect(
-    regimen.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
+    collapsedRegimen.violations.filter(
+      ({ impact }) => impact === "critical" || impact === "serious",
+    ),
+  ).toEqual([]);
+
+  await cards.nth(0).locator(":scope > summary").click();
+  await cards.nth(3).locator(":scope > summary").click();
+  await expect(cards.nth(0).locator(".toxicity-presentation")).toBeVisible();
+  await expect(cards.nth(3).locator(".information-pending")).toBeVisible();
+  const expandedRegimen = await new AxeBuilder({ page }).analyze();
+  expect(
+    expandedRegimen.violations.filter(
+      ({ impact }) => impact === "critical" || impact === "serious",
+    ),
   ).toEqual([]);
 });
 
@@ -167,6 +193,9 @@ test("the composed TCH patient presentation is accessible and fits at 320px", as
   await page.goto("/?treatment=tch");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
   await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
+  const firstDrug = page.locator(".regimen-drug-accordion").first();
+  await firstDrug.locator(":scope > summary").click();
+  await expect(firstDrug.locator(".toxicity-presentation")).toBeVisible();
 
   const result = await new AxeBuilder({ page }).analyze();
   expect(
@@ -176,4 +205,35 @@ test("the composed TCH patient presentation is accessible and fits at 320px", as
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
     .toBe(true);
+});
+
+test("meaningful patient copy is at least the normal body size", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await expectNormalPatientCopy(
+    page.locator(
+      ".prototype-banner, .emergency-boundary, .entry-card small, .boundary-card p, .demo-card small",
+    ),
+  );
+
+  await page.getByRole("button", { name: /I’m starting treatment/ }).click();
+  await page.getByLabel("Drug or treatment plan").fill("docetaxel");
+  await expectNormalPatientCopy(page.locator(".search-help, .result-row small, .code-panel small"));
+
+  await page.goto("/?treatment=docetaxel");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await page.locator(".toxicity-effect").first().locator("summary").click();
+  await expectNormalPatientCopy(
+    page.locator(
+      ".route-label, .cause-statement, .toxicity-frequency-group > header p, .toxicity-effect summary small, .patient-effect-block li, .toxicity-source-context",
+    ),
+  );
+
+  await page.goto("/?treatment=tch");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  const regimenDrug = page.locator(".regimen-drug-accordion").first();
+  await regimenDrug.locator(":scope > summary").click();
+  await expectNormalPatientCopy(
+    page.locator(".regimen-drug-status, .regimen-single-drug-boundary p"),
+  );
 });

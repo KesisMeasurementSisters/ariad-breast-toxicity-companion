@@ -80,6 +80,8 @@ p,
 h1,
 h2,
 h3,
+h4,
+h5,
 ul {
   margin-block-start: 0;
 }
@@ -91,7 +93,9 @@ ul:last-child {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
   color: var(--ink-strong);
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.13;
@@ -111,6 +115,11 @@ h2 {
 
 h3 {
   font-size: 1.12rem;
+}
+
+h4,
+h5 {
+  font-size: 1rem;
 }
 
 button,
@@ -247,7 +256,7 @@ button:disabled {
   flex: 0 0 auto;
   padding: 0.5rem 0.35rem;
   color: var(--thread-dark);
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-color: var(--kesis-color-navy-200);
@@ -433,7 +442,7 @@ button:disabled {
 
 .entry-card small {
   color: var(--muted);
-  font-size: 0.89rem;
+  font-size: 1rem;
   line-height: 1.45;
 }
 
@@ -603,6 +612,7 @@ button:disabled {
 
 .demo-card small {
   color: var(--muted);
+  font-size: 1rem;
 }
 
 .ai-chip,
@@ -721,7 +731,7 @@ button:disabled {
 .search-help {
   margin: 0.45rem 0 0;
   color: var(--kesis-color-text-secondary);
-  font-size: 0.78rem;
+  font-size: 1rem;
 }
 
 input::placeholder,
@@ -744,7 +754,7 @@ textarea::placeholder {
   margin: 0;
   padding: 0.65rem 0.9rem 0.45rem;
   color: var(--kesis-color-navy-700);
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -803,7 +813,7 @@ textarea::placeholder {
 .result-row small {
   margin-block-start: 0.16rem;
   color: var(--muted);
-  font-size: 0.79rem;
+  font-size: 1rem;
   line-height: 1.35;
 }
 
@@ -912,6 +922,7 @@ textarea::placeholder {
 
 .code-panel small {
   color: var(--muted);
+  font-size: 1rem;
 }
 
 .code-entry {
@@ -998,7 +1009,7 @@ textarea::placeholder {
   margin: 0.7rem 0 0;
   padding: 0.65rem 0.75rem;
   border-radius: 0.5rem;
-  font-size: 0.87rem;
+  font-size: 1rem;
 }
 
 .form-error {
@@ -1192,12 +1203,31 @@ textarea::placeholder {
   box-shadow: var(--shadow-sm);
 }
 
-.regimen-medication-header {
-  padding: 1.1rem 1.15rem 1rem;
-  border-bottom: 1px solid var(--line);
+.regimen-medication-summary {
+  display: grid;
+  min-height: 6.5rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  list-style: none;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.15rem;
+  background: var(--surface);
 }
 
-.regimen-medication-header > span {
+.regimen-medication-summary::-webkit-details-marker {
+  display: none;
+}
+
+.regimen-medication-summary:hover {
+  background: var(--kesis-color-rose-50);
+}
+
+.regimen-medication-summary-copy {
+  display: grid;
+  min-width: 0;
+}
+
+.regimen-drug-position {
   display: block;
   margin-block-end: 0.35rem;
   color: var(--kesis-color-rose-700);
@@ -1207,9 +1237,24 @@ textarea::placeholder {
   text-transform: uppercase;
 }
 
-.regimen-medication-header h2 {
-  margin: 0;
+.regimen-drug-name {
+  color: var(--ink-strong);
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1.25rem, 4.5vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.regimen-drug-status {
+  margin-block-start: 0.45rem;
+  color: var(--kesis-color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.regimen-medication-body {
+  border-top: 1px solid var(--line);
 }
 
 .regimen-medication-card .module-stack,
@@ -1239,14 +1284,15 @@ textarea::placeholder {
 }
 
 .information-pending h2,
-.information-pending h3 {
+.information-pending h3,
+.information-pending h4 {
   margin-block-end: 0.35rem;
   font-size: 1.05rem;
 }
 
 .information-pending p {
   color: var(--kesis-color-text-secondary);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .module-stack {
@@ -1294,11 +1340,16 @@ textarea::placeholder {
   gap: 0.75rem;
   margin-block-start: 0.42rem;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 1rem;
 }
 
 .input-meta span:last-child {
   text-align: right;
+}
+
+.input-count {
+  flex: 0 0 auto;
+  font-size: 0.76rem;
 }
 
 .or-divider {
@@ -1308,7 +1359,7 @@ textarea::placeholder {
   gap: 0.8rem;
   margin-block: 1.5rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
@@ -1412,7 +1463,7 @@ textarea::placeholder {
   align-items: center;
   gap: 0.15rem;
   color: var(--thread-dark);
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -1489,6 +1540,7 @@ textarea::placeholder {
   display: block;
   margin-block-start: 0.4rem;
   color: var(--muted);
+  font-size: 1rem;
 }
 
 .question-actions {
@@ -1515,7 +1567,7 @@ textarea::placeholder {
   border-left: 3px solid var(--amber);
   color: var(--kesis-color-gold-600);
   background: var(--amber-soft);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .guidance-sections {
@@ -1557,6 +1609,7 @@ textarea::placeholder {
   margin-block-start: 0.12rem;
   color: var(--muted);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -1666,7 +1719,7 @@ details[open] > summary .summary-chevron {
 
 .clinic-contact h3 {
   margin: 0 0 0.15rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .clinic-contact a,
@@ -1688,6 +1741,7 @@ details[open] > summary .summary-chevron {
   display: block;
   margin-block-start: 0.3rem;
   color: var(--muted);
+  font-size: 1rem;
 }
 
 .clinic-verification-note {
@@ -1697,7 +1751,7 @@ details[open] > summary .summary-chevron {
 
 .clinic-availability-note {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 1rem;
 }
 
 .clinic-policy-notice {
@@ -1747,7 +1801,7 @@ details[open] > summary .summary-chevron {
 .sources-content {
   padding: 0 1rem 1rem;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 1rem;
 }
 
 .sources-content ul {
@@ -1815,7 +1869,7 @@ details[open] > summary .summary-chevron {
 
 .regimen-single-drug-boundary p {
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 1rem;
 }
 
 .toxicity-presentation-header {
@@ -1827,7 +1881,8 @@ details[open] > summary .summary-chevron {
   box-shadow: var(--shadow-sm);
 }
 
-.toxicity-presentation-header h2 {
+.toxicity-presentation-header h2,
+.toxicity-presentation-header h4 {
   margin-block-end: 0.45rem;
 }
 
@@ -1849,7 +1904,7 @@ details[open] > summary .summary-chevron {
   border-radius: var(--kesis-radius-full);
   color: var(--thread-dark);
   background: var(--thread-soft);
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 750;
 }
 
@@ -1878,14 +1933,15 @@ details[open] > summary .summary-chevron {
   margin-block-end: 0.8rem;
 }
 
-.toxicity-frequency-group > header h2 {
+.toxicity-frequency-group > header h2,
+.toxicity-frequency-group > header h4 {
   margin-block-end: 0.25rem;
   font-size: 1.35rem;
 }
 
 .toxicity-frequency-group > header p {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .toxicity-effect-list {
@@ -1928,7 +1984,7 @@ details[open] > summary .summary-chevron {
 
 .toxicity-effect summary small {
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 1rem;
   line-height: 1.4;
 }
 
@@ -1947,9 +2003,10 @@ details[open] > summary .summary-chevron {
   border-top: 1px solid var(--line);
 }
 
-.patient-effect-block h3 {
+.patient-effect-block h3,
+.patient-effect-block h5 {
   margin-block-end: 0.35rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .patient-effect-block ul,
@@ -1996,7 +2053,7 @@ details[open] > summary .summary-chevron {
 .toxicity-source-context {
   margin-block: 0 0.75rem;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 1rem;
 }
 
 .toxicity-presentation .sources-panel {
@@ -2025,7 +2082,8 @@ details[open] > summary .summary-chevron {
   color: var(--coral-dark);
 }
 
-.toxicity-escalation > header h2 {
+.toxicity-escalation > header h2,
+.toxicity-escalation > header h4 {
   margin-block-end: 0.3rem;
 }
 
@@ -2045,7 +2103,8 @@ details[open] > summary .summary-chevron {
   background: var(--thread-pale);
 }
 
-.toxicity-escalation-grid h3 {
+.toxicity-escalation-grid h3,
+.toxicity-escalation-grid h5 {
   margin-block-end: 0.55rem;
   font-size: 1rem;
 }
@@ -2135,7 +2194,7 @@ details[open] > summary .summary-chevron {
   border-radius: 0.55rem;
   color: var(--kesis-color-gold-600);
   background: var(--amber-soft);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .summary-omissions p {
@@ -2418,7 +2477,7 @@ details[open] > summary .summary-chevron {
   }
 
   .quiet-button {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .app-shell {

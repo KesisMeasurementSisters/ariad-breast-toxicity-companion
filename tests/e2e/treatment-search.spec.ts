@@ -56,12 +56,15 @@ test("a weekly schedule search opens preparation before paclitaxel side effects"
   await expect(page.locator(".preparation-step")).toHaveCount(3);
   await expect(page.locator(".preparation-safety-note")).toHaveCount(1);
   await expect(page.getByRole("heading", { name: "Side-effect information" })).toBeVisible();
+  const paclitaxelDrug = page.locator('[data-drug-id="paclitaxel"]');
+  await expect(paclitaxelDrug).not.toHaveAttribute("open", "");
+  await paclitaxelDrug.locator(":scope > summary").click();
   await expect(
-    page.getByRole("heading", { name: "Side effects reported with paclitaxel alone" }),
+    paclitaxelDrug.getByRole("heading", { name: "Side effects reported with paclitaxel alone" }),
   ).toBeVisible();
 });
 
-test("the capecitabine code renders exact preparation and its one-drug card", async ({ page }) => {
+test("the capecitabine code renders exact preparation and its one-drug accordion", async ({ page }) => {
   await page.getByLabel("Treatment code").fill("THREAD-CAPE-02");
   await page.getByRole("button", { name: "Use code" }).click();
 
@@ -72,8 +75,11 @@ test("the capecitabine code renders exact preparation and its one-drug card", as
   await expect(
     page.getByRole("heading", { name: "Capecitabine (Xeloda)" }),
   ).toBeVisible();
+  const capecitabineDrug = page.locator('[data-drug-id="capecitabine"]');
+  await expect(capecitabineDrug).not.toHaveAttribute("open", "");
+  await capecitabineDrug.locator(":scope > summary").click();
   await expect(
-    page.getByRole("heading", { name: "Side effects reported with capecitabine alone" }),
+    capecitabineDrug.getByRole("heading", { name: "Side effects reported with capecitabine alone" }),
   ).toBeVisible();
 });
 
@@ -181,7 +187,7 @@ test("a spelling-close result is clearly introduced as a suggestion", async ({ p
   await expect(page.locator(".result-row").first()).toContainText("Capecitabine (Xeloda)");
 });
 
-test("a drug opens one drug page and a regimen opens ordered component cards", async ({ page }) => {
+test("a drug opens one page and a regimen opens ordered whole-drug accordions", async ({ page }) => {
   const search = page.getByLabel("Drug or treatment plan");
   await search.fill("capecitabine");
   await page
@@ -218,30 +224,32 @@ test("a drug opens one drug page and a regimen opens ordered component cards", a
   );
   const cards = page.locator(".regimen-medication-card");
   await expect(cards).toHaveCount(4);
-  await expect(cards.nth(0).locator(".regimen-medication-header h2")).toHaveText(
-    "Docetaxel (Taxotere)",
-  );
-  await expect(cards.nth(1).locator(".regimen-medication-header h2")).toHaveText(
-    "Carboplatin",
-  );
-  await expect(cards.nth(2).locator(".regimen-medication-header h2")).toHaveText(
-    "Trastuzumab (Herceptin)",
-  );
-  await expect(cards.nth(3).locator(".regimen-medication-header h2")).toHaveText(
-    "Pertuzumab (Perjeta)",
-  );
+  await expect(cards.nth(0).getByRole("heading", { name: "Docetaxel (Taxotere)" })).toBeVisible();
+  await expect(cards.nth(1).getByRole("heading", { name: "Carboplatin" })).toBeVisible();
+  await expect(cards.nth(2).getByRole("heading", { name: "Trastuzumab (Herceptin)" })).toBeVisible();
+  await expect(cards.nth(3).getByRole("heading", { name: "Pertuzumab (Perjeta)" })).toBeVisible();
+  for (let index = 0; index < 4; index += 1) {
+    await expect(cards.nth(index)).not.toHaveAttribute("open", "");
+  }
+
+  await cards.nth(0).locator(":scope > summary").click();
   await expect(
     cards.nth(0).getByRole("heading", { name: "Side effects reported with docetaxel alone" }),
   ).toBeVisible();
+  await cards.nth(1).locator(":scope > summary").click();
   await expect(
     cards.nth(1).getByRole("heading", { name: "Side effects reported with carboplatin alone" }),
   ).toBeVisible();
+  await cards.nth(2).locator(":scope > summary").click();
   await expect(
     cards.nth(2).getByRole("heading", { name: "Side effects reported with trastuzumab alone" }),
   ).toBeVisible();
+  await cards.nth(3).locator(":scope > summary").click();
   await expect(
-    page.getByText("Detailed side-effect information is still being prepared"),
-  ).toHaveCount(1);
+    cards.nth(3).getByRole("heading", {
+      name: "Detailed side-effect information is still being prepared",
+    }),
+  ).toBeVisible();
 });
 
 test("TCH composes independent single-drug pages without implying regimen frequencies", async ({
@@ -257,15 +265,19 @@ test("TCH composes independent single-drug pages without implying regimen freque
   const carboplatin = page.locator('[data-drug-id="carboplatin"]');
   const trastuzumab = page.locator('[data-drug-id="trastuzumab"]');
 
+  await expect(docetaxel).not.toHaveAttribute("open", "");
+  await expect(carboplatin).not.toHaveAttribute("open", "");
+  await expect(trastuzumab).not.toHaveAttribute("open", "");
+  await docetaxel.locator(":scope > summary").click();
   await expect(
     docetaxel.getByRole("heading", { name: "Side effects reported with docetaxel alone" }),
   ).toBeVisible();
   await expect(
     trastuzumab.getByRole("heading", { name: "Side effects reported with trastuzumab alone" }),
-  ).toBeVisible();
+  ).not.toBeVisible();
   await expect(
     carboplatin.getByRole("heading", { name: "Side effects reported with carboplatin alone" }),
-  ).toBeVisible();
+  ).not.toBeVisible();
   await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
   await expect(page.locator(".regimen-single-drug-boundary")).toHaveCount(3);
   await expect(
@@ -274,7 +286,7 @@ test("TCH composes independent single-drug pages without implying regimen freque
     ),
   ).toHaveCount(3);
 
-  const patientText = await page.locator("main").innerText();
+  const patientText = await page.locator("main").textContent() ?? "";
   expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);
   expect(patientText).not.toMatch(/\bgrade\s*\d+\b/iu);
 
@@ -290,8 +302,12 @@ test("TCH composes independent single-drug pages without implying regimen freque
   await expect(trastuzumabEffects.first()).not.toHaveAttribute("open", "");
 
   await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
-  await expect(page.locator(".toxicity-presentation details:not([open])")).toHaveCount(0);
+  await expect(page.locator(".treatment-print-surface details:not([open])")).toHaveCount(0);
+  await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
   await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+  await expect(docetaxel).toHaveAttribute("open", "");
+  await expect(carboplatin).not.toHaveAttribute("open", "");
+  await expect(trastuzumab).not.toHaveAttribute("open", "");
   await expect(docetaxelEffects.first()).toHaveAttribute("open", "");
   await expect(trastuzumabEffects.first()).not.toHaveAttribute("open", "");
 });
@@ -369,6 +385,7 @@ test("cyclophosphamide uses FDA common and serious groups without numerical freq
 
   await page.goto("/?treatment=tc");
   const cyclophosphamide = page.locator('[data-drug-id="cyclophosphamide"]');
+  await cyclophosphamide.locator(":scope > summary").click();
   await expect(
     cyclophosphamide.getByRole("heading", { name: "Side effects linked to cyclophosphamide" }),
   ).toBeVisible();
