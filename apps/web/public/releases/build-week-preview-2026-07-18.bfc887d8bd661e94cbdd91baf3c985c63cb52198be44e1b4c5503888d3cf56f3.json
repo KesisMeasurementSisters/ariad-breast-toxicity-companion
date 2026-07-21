@@ -1,7 +1,7 @@
 {
   "approval_summary": {
     "approved": 0,
-    "draft": 193,
+    "draft": 192,
     "in_review": 0,
     "retired": 0
   },
@@ -14,8 +14,8 @@
   "clinical_use": false,
   "compiler_version": "0.2.0",
   "contains_unapproved_content": true,
-  "content_hash": "b5f5267187fc38f39e5dd4b688197ba614fd55b8e5267f7b58c183e69bde174f",
-  "generated_at": "2026-07-21T10:03:14-04:00",
+  "content_hash": "bfc887d8bd661e94cbdd91baf3c985c63cb52198be44e1b4c5503888d3cf56f3",
+  "generated_at": "2026-07-21T09:51:00-04:00",
   "indexes": {
     "relationships_by_symptom": {
       "diarrhea": [
@@ -1324,7 +1324,7 @@
           "keytruda"
         ],
         "normalized_name": "pembrolizumab",
-        "support_status": "education_only"
+        "support_status": "catalogued"
       },
       {
         "aliases": [
@@ -1708,8 +1708,7 @@
     "Cyclophosphamide has a draft FDA label-category page without percentages, a usable denominator, or a claimed single-agent evidence population.",
     "Doxorubicin has a draft FDA label-category page; the numerical AC table is retained only as excluded combination context and is not attributed to doxorubicin alone.",
     "Epirubicin has a draft FDA label-category page; the numerical FEC and CEF tables are retained only as excluded combination context and are not attributed to epirubicin alone.",
-    "Pembrolizumab has a draft FDA single-agent label-category page across cancer types; KEYNOTE-522 combination values are excluded from individual-drug frequency mapping.",
-    "Twenty-three catalogue entries intentionally have no patient side-effect page.",
+    "Twenty-four catalogue entries intentionally have no patient side-effect page.",
     "Carboplatin uses the FDA 553-patient single-agent ovarian safety population; this does not claim an FDA breast-cancer indication or a TCH/TCHP regimen frequency.",
     "Two broad catalogue sources are link-only and cannot enter a published release."
   ],
@@ -8851,521 +8850,6 @@
     {
       "audience": "patient",
       "cause_statement": "Ariad cannot determine the cause of a symptom.",
-      "drug_id": "pembrolizumab",
-      "effects": [
-        {
-          "contact_team": [
-            "Contact your cancer team if tiredness is new, severe, or getting worse."
-          ],
-          "display_name": "Tiredness",
-          "evidence_event_ids": [
-            "fatigue"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "tiredness",
-          "meaning": "You may feel more tired or have less energy than usual.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Balance activity with rest and ask for help when you need it."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Needing more rest or finding usual activities harder"
-          ]
-        },
-        {
-          "contact_team": [
-            "Tell your cancer team about new, severe, or worsening pain."
-          ],
-          "display_name": "Muscle, joint, or other pain",
-          "evidence_event_ids": [
-            "musculoskeletal-pain",
-            "pain"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "muscle-joint-or-other-pain",
-          "meaning": "You may notice aching or pain in muscles, joints, or another part of your body.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "New aches, stiffness, or pain"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team promptly about a new or worsening rash."
-          ],
-          "display_name": "Rash or itching",
-          "evidence_event_ids": [
-            "rash",
-            "pruritus"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "rash-or-itching",
-          "meaning": "Your skin may become itchy or develop a rash.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "New itching, redness, or a rash"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for new or worsening diarrhea."
-          ],
-          "display_name": "Diarrhea",
-          "evidence_event_ids": [
-            "diarrhea"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "diarrhea",
-          "meaning": "Your bowel movements may become loose or happen more often.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow the diarrhea instructions given by your cancer team."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Loose or watery bowel movements",
-            "More bowel movements than usual"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team immediately for a fever."
-          ],
-          "display_name": "Fever",
-          "evidence_event_ids": [
-            "pyrexia"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "fever",
-          "meaning": "Your temperature may rise during treatment.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow your cancer team's instructions for checking your temperature."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Feeling hot, chilled, or unwell"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for a new or worsening cough or shortness of breath."
-          ],
-          "display_name": "Cough or shortness of breath",
-          "evidence_event_ids": [
-            "cough",
-            "dyspnea"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "cough-or-shortness-of-breath",
-          "meaning": "You may develop a cough or feel short of breath.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency medical help right away if you are struggling to breathe."
-          ],
-          "what_you_may_notice": [
-            "A new cough or a change in your usual cough",
-            "Feeling short of breath during usual activities"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team if you are unable to eat or drink enough."
-          ],
-          "display_name": "Decreased appetite",
-          "evidence_event_ids": [
-            "decreased-appetite"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "decreased-appetite",
-          "meaning": "You may feel less interested in eating than usual.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow the eating and drinking advice given by your cancer team."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Eating less or feeling full sooner"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team if constipation is severe or does not improve."
-          ],
-          "display_name": "Constipation",
-          "evidence_event_ids": [
-            "constipation"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "constipation",
-          "meaning": "Bowel movements may become harder or less frequent.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow the constipation plan provided by your cancer team."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Hard stools or difficulty having a bowel movement"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for severe nausea, vomiting, or stomach pain."
-          ],
-          "display_name": "Nausea or stomach pain",
-          "evidence_event_ids": [
-            "nausea",
-            "abdominal-pain"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "nausea-or-stomach-pain",
-          "meaning": "You may feel sick to your stomach or have pain in your stomach area.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow the nausea plan provided by your cancer team."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "A feeling that you may vomit",
-            "New pain or tenderness in your stomach area"
-          ]
-        },
-        {
-          "contact_team": [
-            "Tell your cancer team about these changes, especially if they are new or getting worse."
-          ],
-          "display_name": "Low thyroid activity",
-          "evidence_event_ids": [
-            "hypothyroidism"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "low-thyroid-activity",
-          "meaning": "Pembrolizumab can make the thyroid gland less active.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [
-            "Your cancer team will check your thyroid with blood tests."
-          ],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Feeling unusually tired or cold",
-            "Constipation, weight change, or hair changes"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for any of these symptoms, even after treatment has ended."
-          ],
-          "display_name": "Lung inflammation",
-          "evidence_event_ids": [
-            "immune-mediated-pneumonitis"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "lung-inflammation",
-          "meaning": "Pembrolizumab can cause the immune system to inflame the lungs.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency medical help right away for severe chest pain or severe trouble breathing."
-          ],
-          "what_you_may_notice": [
-            "A new or worsening cough",
-            "Shortness of breath or chest pain"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for any of these symptoms."
-          ],
-          "display_name": "Bowel inflammation",
-          "evidence_event_ids": [
-            "immune-mediated-colitis"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "bowel-inflammation",
-          "meaning": "Pembrolizumab can cause the immune system to inflame the bowel.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "New or worsening diarrhea",
-            "Black, sticky, or bloody stools",
-            "Severe pain or tenderness in the stomach area"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for any of these symptoms."
-          ],
-          "display_name": "Liver inflammation",
-          "evidence_event_ids": [
-            "immune-mediated-hepatitis"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "liver-inflammation",
-          "meaning": "Pembrolizumab can cause the immune system to inflame the liver.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your cancer team will use blood tests to check your liver."
-          ],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Yellow skin or eyes, or dark urine",
-            "Severe nausea or vomiting",
-            "Pain on the right side of the stomach area",
-            "Bruising or bleeding more easily than usual"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for new or worsening symptoms like these."
-          ],
-          "display_name": "Hormone gland problems",
-          "evidence_event_ids": [
-            "immune-mediated-endocrinopathies"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "hormone-gland-problems",
-          "meaning": "Pembrolizumab can cause the immune system to affect glands that control hormones.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your cancer team will use blood tests to check for hormone changes."
-          ],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency medical help right away for loss of consciousness."
-          ],
-          "what_you_may_notice": [
-            "An unusual headache, extreme tiredness, dizziness, or fainting",
-            "A rapid heartbeat, increased sweating, or feeling very cold",
-            "Unexplained weight change, increased thirst, or urinating more often",
-            "Changes in mood, memory, or behaviour"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for any of these symptoms."
-          ],
-          "display_name": "Kidney inflammation",
-          "evidence_event_ids": [
-            "immune-mediated-nephritis"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "kidney-inflammation",
-          "meaning": "Pembrolizumab can cause the immune system to inflame the kidneys.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your cancer team will use blood tests to check your kidneys."
-          ],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Less urine than usual or blood in the urine",
-            "Swelling around the ankles",
-            "Loss of appetite"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team immediately for any of these symptoms."
-          ],
-          "display_name": "Severe skin reactions",
-          "evidence_event_ids": [
-            "immune-mediated-dermatologic-reactions"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "severe-skin-reactions",
-          "meaning": "Pembrolizumab can cause a severe immune reaction in the skin.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Skin blistering or peeling",
-            "Painful sores in the mouth, nose, throat, or genital area",
-            "A rash with fever, flu-like symptoms, or swollen glands"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for any new or worsening symptom like these, even after treatment has ended."
-          ],
-          "display_name": "Other immune-system problems",
-          "evidence_event_ids": [
-            "other-immune-mediated-adverse-reactions"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "other-immune-system-problems",
-          "meaning": "The immune system can inflame other organs or tissues during or after treatment.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency medical help right away for severe chest pain, severe trouble breathing, or loss of consciousness."
-          ],
-          "what_you_may_notice": [
-            "New chest pain, an irregular heartbeat, or ankle swelling",
-            "Confusion, severe weakness, balance problems, tingling, or numbness",
-            "Eye pain, blurred or double vision, or another change in eyesight",
-            "Severe or lasting muscle pain or weakness"
-          ]
-        },
-        {
-          "contact_team": [
-            "Tell your nurse immediately if you notice any of these symptoms during the infusion."
-          ],
-          "display_name": "Infusion reaction",
-          "evidence_event_ids": [
-            "infusion-related-reactions"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "infusion-reaction",
-          "meaning": "A serious reaction can happen while pembrolizumab is being given.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your care team will watch for a reaction while the medicine is given."
-          ],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency medical help right away for severe trouble breathing or fainting after you leave the clinic."
-          ],
-          "what_you_may_notice": [
-            "Chills, shaking, fever, itching, rash, or flushing",
-            "Shortness of breath, wheezing, dizziness, or feeling like you may faint",
-            "Back pain"
-          ]
-        },
-        {
-          "contact_team": [
-            "Follow the transplant team's instructions and contact them immediately for the symptoms they told you to watch for."
-          ],
-          "display_name": "Transplant complications",
-          "evidence_event_ids": [
-            "solid-organ-or-tissue-transplant-rejection",
-            "allogeneic-hsct-complications"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "transplant-complications",
-          "meaning": "Pembrolizumab can cause rejection or serious complications in people who have had an organ, tissue, or donor stem-cell transplant.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your care team will monitor you based on the type of transplant."
-          ],
-          "safe_actions": [
-            "Make sure your cancer team knows about any transplant you have had or may receive."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Symptoms depend on the type of transplant."
-          ]
-        },
-        {
-          "contact_team": [
-            "Tell your cancer team immediately if you are pregnant or think you may be pregnant."
-          ],
-          "display_name": "Pregnancy harm",
-          "evidence_event_ids": [
-            "embryo-fetal-toxicity"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "pregnancy-harm",
-          "meaning": "Pembrolizumab can harm a pregnancy.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow your cancer team's pregnancy-prevention and breastfeeding instructions."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Pregnancy may not cause early symptoms."
-          ]
-        }
-      ],
-      "escalation_summary": {
-        "contact_team": [
-          "Contact your cancer team right away for a new or worsening cough, shortness of breath, chest pain, diarrhea, severe stomach pain, black or bloody stools, yellow skin or eyes, dark urine, or a severe skin reaction.",
-          "Contact them right away for unusual headaches, extreme tiredness, dizziness, major thirst or urine changes, ankle swelling, confusion, vision changes, severe weakness, or another new or worsening symptom.",
-          "Contact your cancer team immediately for a fever.",
-          "Tell your nurse immediately about chills, shaking, rash, breathing problems, dizziness, or faintness during the infusion.",
-          "Tell your cancer team immediately if you are pregnant or think you may be pregnant."
-        ],
-        "heading": "When to contact your cancer team",
-        "introduction": "Immune-system problems can happen during treatment or after it has ended. Follow the instructions given by your own cancer team.",
-        "urgent_help": [
-          "Get emergency medical help right away for severe chest pain, severe trouble breathing, fainting, or loss of consciousness."
-        ]
-      },
-      "evidence_payload_hash": "2219dad9c397d04a2494bb98693f943fb26e624f10053b5caddc012746678418",
-      "evidence_ref": {
-        "id": "pembrolizumab-fda-single-agent-label-safety",
-        "kind": "drug_toxicity_evidence",
-        "version": "1.0.0"
-      },
-      "evidence_scope": "drug_label",
-      "frequency_context": "This page groups FDA single-agent information from people treated for several cancer types into common effects and serious effects. It is not a breast-cancer frequency table. Side effects can be different for each person.",
-      "frequency_method_id": null,
-      "id": "pembrolizumab-patient-side-effects",
-      "kind": "drug_toxicity_presentation",
-      "monotherapy": true,
-      "omitted_evidence_events": [],
-      "review": {
-        "approval_id": null,
-        "review_due": null,
-        "reviewed_at": null,
-        "reviewer": null
-      },
-      "route_label": "Intravenous (IV) infusion",
-      "source_context": "This draft uses FDA single-agent information for pembrolizumab from several cancer types. Follow the information given by your own cancer team.",
-      "source_ids": [
-        "fda-label-pembrolizumab"
-      ],
-      "status": "draft",
-      "subtitle": "Side effects linked to pembrolizumab",
-      "superseded_by": null,
-      "supersedes": null,
-      "version": "1.0.0"
-    },
-    {
-      "audience": "patient",
-      "cause_statement": "Ariad cannot determine the cause of a symptom.",
       "drug_id": "sacituzumab-govitecan",
       "effects": [
         {
@@ -13782,7 +13266,7 @@
           "dosage_forms": [
             "SOLUTION"
           ],
-          "evidence_mapping_status": "event_mapped",
+          "evidence_mapping_status": "source_indexed",
           "fda_routes": [
             "INTRAVENOUS"
           ],
@@ -13819,7 +13303,7 @@
       "status": "draft",
       "superseded_by": null,
       "supersedes": null,
-      "support_status": "education_only",
+      "support_status": "catalogued",
       "version": "2.0.0"
     },
     {
@@ -19074,21 +18558,19 @@
     },
     {
       "accessed_date": "2026-07-20",
-      "canonical_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9333c79b-d487-4538-a9f0-71b91a02b287",
+      "canonical_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=125514",
       "id": "fda-label-pembrolizumab",
       "jurisdiction": "United States",
       "kind": "source",
       "notes": [
-        "The current label includes breast-cancer indications that begin with combination therapy; KEYNOTE-522 rates are not attributed to pembrolizumab alone.",
-        "The FDA separately identifies fourteen most-common reactions for KEYTRUDA as a single agent across cancer types.",
-        "Principal immune-mediated, infusion, transplant, and pregnancy warnings are mapped to a categorical draft evidence record.",
-        "Patient wording and the common and serious groups are a separate unreviewed Ariad draft."
+        "The current label contains a breast-cancer treatment indication in Indications and Usage.",
+        "Event-level mapping status is recorded on the matching drug object; any patient presentation remains an unreviewed draft until explicitly approved."
       ],
       "organization": "U.S. Food and Drug Administration",
       "permitted_excerpt": null,
       "publication_or_revision_date": "2026-06-24",
       "source_type": "regulatory_label",
-      "source_version": "BLA125514; SPL set 9333c79b-d487-4538-a9f0-71b91a02b287; revised 06/2026",
+      "source_version": "BLA125514; SPL set 9333c79b-d487-4538-a9f0-71b91a02b287",
       "title": "KEYTRUDA prescribing information",
       "verification_status": "verified",
       "version": "1.0.0"
@@ -20858,8 +20340,6 @@
   ],
   "release_id": "build-week-preview-2026-07-18",
   "release_notes": [
-    "Release 0.10.0 adds an unreviewed pembrolizumab page with the fourteen FDA single-agent common categories and principal serious immune-mediated warnings.",
-    "Release 0.10.0 excludes KEYNOTE-522 combination percentages and clearly identifies the common list as cross-cancer rather than breast-specific evidence.",
     "Release 0.9.0 adds an unreviewed epirubicin page with fourteen FDA-supported common categories and four serious boxed-warning effects.",
     "Release 0.9.0 excludes the FEC and CEF combination percentages from epirubicin's individual-drug frequency mapping and stores the denominator as unavailable.",
     "Release 0.8.0 adds an unreviewed doxorubicin page with three FDA-supported common effects and four serious boxed-warning effects.",
@@ -20882,7 +20362,7 @@
     "Contains three complete draft gold pathways and one draft weekly-paclitaxel preparation flow.",
     "GPT-5.6 is not a source of clinical guidance."
   ],
-  "release_version": "0.10.0",
+  "release_version": "0.9.0",
   "safety_ruleset_version": "0.2.0",
   "schema_version": "0.2.0",
   "source_inventory": [

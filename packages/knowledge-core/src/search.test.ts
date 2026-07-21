@@ -202,12 +202,12 @@ describe("treatment search", () => {
       (drug) => !eventMappedDrugs.includes(drug),
     );
 
-    expect(eventMappedDrugs).toHaveLength(26);
+    expect(eventMappedDrugs).toHaveLength(29);
     expect(new Set(eventMappedDrugs.map(({ id }) => id))).toEqual(
       new Set(breastPresentationDrugIds),
     );
     expect(presentationDrugIds).toContain("carboplatin");
-    expect(sourceIndexedDrugs).toHaveLength(26);
+    expect(sourceIndexedDrugs).toHaveLength(23);
     expect(
       sourceIndexedDrugs.every((drug) =>
         drug.regulatory_labels.every(

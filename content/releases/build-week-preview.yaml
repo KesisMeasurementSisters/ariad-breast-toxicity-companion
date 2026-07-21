@@ -1,9 +1,9 @@
 release_id: build-week-preview-2026-07-18
-version: 0.7.0
+version: 0.10.0
 channel: preview
 publication_status: draft
 clinical_use: false
-generated_at: 2026-07-20T22:28:43-04:00
+generated_at: 2026-07-21T10:03:14-04:00
 clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
 included_objects:
   - { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
@@ -68,7 +68,9 @@ included_objects:
   - { kind: drug_toxicity_presentation, id: carboplatin-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: cyclophosphamide-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: datopotamab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: doxorubicin-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: elacestrant-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: epirubicin-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: eribulin-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: exemestane-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: fulvestrant-patient-side-effects, version: 1.0.0 }
@@ -80,6 +82,7 @@ included_objects:
   - { kind: drug_toxicity_presentation, id: olaparib-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: paclitaxel-protein-bound-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: paclitaxel-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: pembrolizumab-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: sacituzumab-govitecan-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: talazoparib-patient-side-effects, version: 1.0.0 }
   - { kind: drug_toxicity_presentation, id: tamoxifen-patient-side-effects, version: 1.0.0 }
@@ -350,10 +353,19 @@ known_gaps:
   - Catalogue-level treatment and symptom entries do not imply full guidance.
   - Twenty-six drugs have draft FDA single-agent frequency maps and patient presentations; all require clinician review.
   - Cyclophosphamide has a draft FDA label-category page without percentages, a usable denominator, or a claimed single-agent evidence population.
-  - Twenty-six catalogue entries intentionally have no patient side-effect page.
+  - Doxorubicin has a draft FDA label-category page; the numerical AC table is retained only as excluded combination context and is not attributed to doxorubicin alone.
+  - Epirubicin has a draft FDA label-category page; the numerical FEC and CEF tables are retained only as excluded combination context and are not attributed to epirubicin alone.
+  - Pembrolizumab has a draft FDA single-agent label-category page across cancer types; KEYNOTE-522 combination values are excluded from individual-drug frequency mapping.
+  - Twenty-three catalogue entries intentionally have no patient side-effect page.
   - Carboplatin uses the FDA 553-patient single-agent ovarian safety population; this does not claim an FDA breast-cancer indication or a TCH/TCHP regimen frequency.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.10.0 adds an unreviewed pembrolizumab page with the fourteen FDA single-agent common categories and principal serious immune-mediated warnings.
+  - Release 0.10.0 excludes KEYNOTE-522 combination percentages and clearly identifies the common list as cross-cancer rather than breast-specific evidence.
+  - Release 0.9.0 adds an unreviewed epirubicin page with fourteen FDA-supported common categories and four serious boxed-warning effects.
+  - Release 0.9.0 excludes the FEC and CEF combination percentages from epirubicin's individual-drug frequency mapping and stores the denominator as unavailable.
+  - Release 0.8.0 adds an unreviewed doxorubicin page with three FDA-supported common effects and four serious boxed-warning effects.
+  - Release 0.8.0 excludes the AC combination percentages from doxorubicin's individual-drug frequency mapping and stores the denominator as unavailable.
   - Release 0.7.0 adds an unreviewed cyclophosphamide page with separate FDA-supported common and serious groups and no numerical frequency claims.
   - Release 0.7.0 stores cyclophosphamide denominator and event frequencies as unavailable and does not claim that its label-level safety evidence came from monotherapy.
   - Release 0.6.0 adds an unreviewed carboplatin patient page backed by the FDA 553-patient second-line single-agent ovarian safety population in Tables 7 and 8.

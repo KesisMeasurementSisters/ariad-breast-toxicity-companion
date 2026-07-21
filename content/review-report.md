@@ -4,11 +4,11 @@
 
 ## Review summary
 
-- Draft governed objects: 218
+- Draft governed objects: 224
 - Patient-facing modules: 22
 - Approved patient-facing modules: 0
-- Private drug toxicity evidence records: 27
-- Patient drug toxicity presentations: 27
+- Private drug toxicity evidence records: 30
+- Patient drug toxicity presentations: 30
 - Approved patient drug toxicity presentations: 0
 - Modules missing sources: 0
 - Modules with unresolved placeholders: 2
@@ -63,7 +63,9 @@
 | cyclophosphamide-fda-label-categorical-safety | cyclophosphamide | 1.0.0 | draft | no | People exposed to cyclophosphamide in clinical studies or postmarketing reports. The source population is of uncertain size and is not limited to single-agent treatment. | null | Not tied to one dose; the FDA label combines clinical-study and postmarketing reports | Highlights; Sections 5.1 through 5.11; Section 6.1; and Section 17, Patient Counseling Information | — |
 | datopotamab-deruxtecan-fda-largest-single-agent-breast | datopotamab-deruxtecan | 1.0.0 | draft | yes | Patients in TROPION-Breast01 who received datopotamab deruxtecan after prior endocrine therapy and chemotherapy for unresectable or metastatic disease. | 360 | 6 mg/kg by intravenous infusion | Section 6.1, Table 8, TROPION-Breast01 DATROWAY column (N=360) | — |
 | docetaxel-100mg-breast-table-3 | docetaxel | 1.0.0 | draft | yes | Patients with locally advanced or metastatic breast cancer, both previously treated and untreated with chemotherapy, with normal baseline liver function tests. | 965 | 100 mg/m² | Section 6.1, Table 3, Breast Cancer Normal LFTs column (n=965) | — |
+| doxorubicin-fda-label-categorical-safety | doxorubicin | 1.0.0 | draft | no | People described across the doxorubicin FDA label. The label identifies three most-common reactions without event-specific doxorubicin-alone rates. Its numerical breast-cancer safety table reports the AC combination and is excluded from individual-drug frequency mapping. | null | Not tied to one dose; the FDA label's numerical breast-cancer safety table reports doxorubicin with cyclophosphamide and cannot be attributed to doxorubicin alone | Highlights, Adverse Reactions; Boxed Warning; Sections 5.1 through 5.4; Section 6.1, Table 2; Section 17; and FDA-approved Patient Information | — |
 | elacestrant-fda-largest-single-agent-breast | elacestrant | 1.0.0 | draft | yes | Patients in EMERALD who received elacestrant after prior endocrine therapy including a CDK4/6 inhibitor. | 237 | 345 mg orally once daily with food | Section 6.1, Table 3, EMERALD ORSERDU column (n=237) | — |
+| epirubicin-fda-label-categorical-safety | epirubicin | 1.0.0 | draft | no | People described across the epirubicin FDA label. The label identifies fourteen most-common reaction categories without event-specific epirubicin-alone rates. Its numerical breast-cancer safety table reports FEC and CEF combination regimens and is excluded from individual-drug frequency mapping. | null | Not tied to one dose; the FDA label's numerical breast-cancer safety table reports FEC and CEF combination regimens and cannot be attributed to epirubicin alone | Highlights, Adverse Reactions; Boxed Warning; Sections 5.1 through 5.4; Section 6.1, Table 1; Section 14.1; and Section 17 | — |
 | eribulin-fda-largest-single-agent-breast | eribulin | 1.0.0 | draft | yes | Patients in Study 1 who received eribulin for metastatic breast cancer after at least two prior chemotherapy regimens. | 503 | 1.4 mg/m² by intravenous injection | Section 6.1, Table 2, Study 1 HALAVEN column (n=503) | — |
 | exemestane-fda-largest-single-agent-breast | exemestane | 1.0.0 | draft | yes | Postmenopausal women in Study IES who switched to exemestane after 2 to 3 years of tamoxifen. | 2252 | 25 mg orally once daily after a meal | Section 6.1, Table 2, Study IES AROMASIN column (N=2252) | — |
 | fulvestrant-fda-largest-single-agent-breast | fulvestrant | 1.0.0 | draft | yes | Patients in CONFIRM who received the current 500 mg fulvestrant regimen as monotherapy. | 361 | 500 mg by intramuscular injection | Section 6.1, Table 1, CONFIRM fulvestrant 500 mg column (N=361) | — |
@@ -75,6 +77,7 @@
 | olaparib-fda-largest-single-agent-breast | olaparib | 1.0.0 | draft | yes | Patients in OlympiA who received olaparib alone after local treatment and chemotherapy for high-risk early breast cancer. | 911 | 300 mg orally twice daily | Section 6.1, Table 8, OlympiA Lynparza tablets column (n=911) | — |
 | paclitaxel-fda-largest-single-agent-breast | paclitaxel | 1.0.0 | draft | yes | Patients in the Phase 3 breast carcinoma study who received single-agent conventional paclitaxel at 175 mg/m². | 229 | 175 mg/m² by intravenous infusion | Adverse Reactions, Table 14, 175 mg/m² over 3 hours column (n=229) | — |
 | paclitaxel-protein-bound-fda-largest-single-agent-breast | paclitaxel-protein-bound | 1.0.0 | draft | yes | Patients in the randomized metastatic breast cancer study who received single-agent albumin-bound paclitaxel. | 229 | 260 mg/m² by intravenous infusion | Section 6.1, Table 6, ABRAXANE 260 mg/m² column (n=229) | — |
+| pembrolizumab-fda-single-agent-label-safety | pembrolizumab | 1.0.0 | draft | yes | People described across the FDA label's pembrolizumab single-agent safety information. The fourteen most-common reaction categories are explicitly labelled for KEYTRUDA as a single agent but are not bound to one breast-cancer population or event-specific denominator. The Warning and Precautions data primarily reflect 2,799 single-agent patients with melanoma or non-small cell lung cancer. | null | Not tied to one dose; the FDA single-agent safety information spans multiple labelled doses and cancer types | Highlights, Adverse Reactions; Sections 5.1 through 5.5; Section 6.1; TNBC safety in Section 6.1 and Table 59; Section 17; and FDA-approved Medication Guide | — |
 | sacituzumab-govitecan-fda-largest-single-agent-breast | sacituzumab-govitecan | 1.0.0 | draft | yes | Patients in ASCENT-03 who received sacituzumab govitecan as a single agent. | 275 | 10 mg/kg by intravenous infusion | Section 6.1, Table 3, ASCENT-03 TRODELVY column (n=275) | — |
 | talazoparib-fda-largest-single-agent-breast | talazoparib | 1.0.0 | draft | yes | Patients in EMBRACA who received talazoparib as a single agent after no more than three prior chemotherapy regimens for advanced disease. | 286 | 1 mg orally once daily | Section 6.1, Table 5, EMBRACA TALZENNA column (N=286) | — |
 | tamoxifen-fda-largest-single-agent-breast | tamoxifen | 1.0.0 | draft | yes | Women in the ATAC trial who received tamoxifen alone for adjuvant treatment of early breast cancer. | 3094 | 20 mg orally once daily | Section 6.1, Table 3, ATAC tamoxifen column (N=3094) | — |
@@ -95,7 +98,9 @@
 | cyclophosphamide-patient-side-effects | cyclophosphamide | 1.0.0 | draft | cyclophosphamide-fda-label-categorical-safety@1.0.0 | 11 | 1 | — |
 | datopotamab-deruxtecan-patient-side-effects | datopotamab-deruxtecan | 1.0.0 | draft | datopotamab-deruxtecan-fda-largest-single-agent-breast@1.0.0 | 13 | 1 | — |
 | docetaxel-patient-side-effects | docetaxel | 1.0.0 | draft | docetaxel-100mg-breast-table-3@1.0.0 | 17 | 1 | — |
+| doxorubicin-patient-side-effects | doxorubicin | 1.0.0 | draft | doxorubicin-fda-label-categorical-safety@1.0.0 | 7 | 1 | — |
 | elacestrant-patient-side-effects | elacestrant | 1.0.0 | draft | elacestrant-fda-largest-single-agent-breast@1.0.0 | 11 | 1 | — |
+| epirubicin-patient-side-effects | epirubicin | 1.0.0 | draft | epirubicin-fda-label-categorical-safety@1.0.0 | 14 | 1 | — |
 | eribulin-patient-side-effects | eribulin | 1.0.0 | draft | eribulin-fda-largest-single-agent-breast@1.0.0 | 15 | 1 | — |
 | exemestane-patient-side-effects | exemestane | 1.0.0 | draft | exemestane-fda-largest-single-agent-breast@1.0.0 | 10 | 1 | — |
 | fulvestrant-patient-side-effects | fulvestrant | 1.0.0 | draft | fulvestrant-fda-largest-single-agent-breast@1.0.0 | 10 | 1 | — |
@@ -107,6 +112,7 @@
 | olaparib-patient-side-effects | olaparib | 1.0.0 | draft | olaparib-fda-largest-single-agent-breast@1.0.0 | 10 | 1 | — |
 | paclitaxel-patient-side-effects | paclitaxel | 1.0.0 | draft | paclitaxel-fda-largest-single-agent-breast@1.0.0 | 5 | 1 | — |
 | paclitaxel-protein-bound-patient-side-effects | paclitaxel-protein-bound | 1.0.0 | draft | paclitaxel-protein-bound-fda-largest-single-agent-breast@1.0.0 | 15 | 1 | — |
+| pembrolizumab-patient-side-effects | pembrolizumab | 1.0.0 | draft | pembrolizumab-fda-single-agent-label-safety@1.0.0 | 20 | 1 | — |
 | sacituzumab-govitecan-patient-side-effects | sacituzumab-govitecan | 1.0.0 | draft | sacituzumab-govitecan-fda-largest-single-agent-breast@1.0.0 | 14 | 1 | — |
 | talazoparib-patient-side-effects | talazoparib | 1.0.0 | draft | talazoparib-fda-largest-single-agent-breast@1.0.0 | 7 | 1 | — |
 | tamoxifen-patient-side-effects | tamoxifen | 1.0.0 | draft | tamoxifen-fda-largest-single-agent-breast@1.0.0 | 18 | 1 | — |
@@ -146,9 +152,9 @@
 | fda-label-cyclophosphamide | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212501) |
 | fda-label-datopotamab-deruxtecan | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0) |
 | fda-label-docetaxel | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6b9999bb-869e-4d25-838c-23c3ab280044) |
-| fda-label-doxorubicin | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=050629) |
+| fda-label-doxorubicin | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1fd148fb-0fbc-4b6f-b790-23546fb46a71&version=28) |
 | fda-label-elacestrant | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa66ae5c-2bd2-4444-8178-b55651e054ef) |
-| fda-label-epirubicin | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=050778) |
+| fda-label-epirubicin | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?audience=consumer&setid=0a03c798-a652-4895-b29c-3b521a89ba42) |
 | fda-label-eribulin | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=31ce4750-ded5-4a0b-95e9-f229fa6bc822) |
 | fda-label-estradiol | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=040275) |
 | fda-label-everolimus | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=022334) |
@@ -171,7 +177,7 @@
 | fda-label-paclitaxel | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ea28753a-8631-460a-bfdc-b101eb8ac84a) |
 | fda-label-paclitaxel-protein-bound | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24d10449-2936-4cd3-b7db-a7683db721e4) |
 | fda-label-palbociclib | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212436) |
-| fda-label-pembrolizumab | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=125514) |
+| fda-label-pembrolizumab | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9333c79b-d487-4538-a9f0-71b91a02b287) |
 | fda-label-pembrolizumab-berahyaluronidase | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761467) |
 | fda-label-pertuzumab | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=125409) |
 | fda-label-pertuzumab-trastuzumab-hyaluronidase | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761170) |

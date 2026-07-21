@@ -29,7 +29,9 @@ describe("patient-safe drug toxicity release", () => {
       "cyclophosphamide",
       "datopotamab-deruxtecan",
       "docetaxel",
+      "doxorubicin",
       "elacestrant",
+      "epirubicin",
       "eribulin",
       "exemestane",
       "fulvestrant",
@@ -41,6 +43,7 @@ describe("patient-safe drug toxicity release", () => {
       "olaparib",
       "paclitaxel",
       "paclitaxel-protein-bound",
+      "pembrolizumab",
       "sacituzumab-govitecan",
       "talazoparib",
       "tamoxifen",
@@ -53,7 +56,7 @@ describe("patient-safe drug toxicity release", () => {
       (object) => object.kind === "drug_toxicity_presentation",
     );
 
-    expect(presentations).toHaveLength(27);
+    expect(presentations).toHaveLength(30);
     expect(presentations.map(({ drug_id }) => drug_id).sort()).toEqual(supportedDrugIds);
     for (const drugId of supportedDrugIds) {
       expect(drugToxicityPresentationForDrug(drugId)).toBeDefined();
