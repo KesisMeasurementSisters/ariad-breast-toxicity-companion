@@ -22,6 +22,7 @@ import {
   assembleGuidance,
   classifySymptomDeterministically,
   deterministicSummary,
+  drugSymptomListings,
   groupPreparationModulesForDisplay,
   normalizeSearchText,
   PATIENT_FREQUENCY_BAND_LABELS,
@@ -352,19 +353,19 @@ function HomeScreen({
             <span className="demo-number">01</span>
             <span className="ai-chip"><Search aria-hidden="true" size={14} /> Symptom match</span>
             <strong>“My fingertips feel buzzy and small things keep slipping.”</strong>
-            <small>Weekly paclitaxel · tingling, numbness, or burning</small>
+            <small>Sample treatment: Weekly paclitaxel. Ariad will also show other linked drug pages.</small>
             <span className="text-link">Try this demo <ChevronRight aria-hidden="true" size={16} /></span>
           </button>
           <button className="demo-card" type="button" onClick={() => runDemo("diarrhea")}>
             <span className="demo-number">02</span>
             <strong>Loose, watery bowel movements</strong>
-            <small>Capecitabine · diarrhea</small>
+            <small>Sample treatment: Capecitabine. Ariad will also show other linked drug pages.</small>
             <span className="text-link">Try this demo <ChevronRight aria-hidden="true" size={16} /></span>
           </button>
           <button className="demo-card" type="button" onClick={() => runDemo("infection")}>
             <span className="demo-number">03</span>
             <strong>Fever, chills, or feeling unwell</strong>
-            <small>AC chemotherapy · infection concern</small>
+            <small>Sample treatment: AC chemotherapy. Ariad will also show other linked drug pages.</small>
             <span className="text-link">Try this demo <ChevronRight aria-hidden="true" size={16} /></span>
           </button>
         </div>
@@ -376,6 +377,8 @@ function HomeScreen({
 function TreatmentSearchScreen({
   mode,
   query,
+  symptomId,
+  suggestedTreatmentId,
   onQueryChange,
   onSelect,
   onUnknown,
@@ -383,6 +386,8 @@ function TreatmentSearchScreen({
 }: {
   mode: EntryMode;
   query: string;
+  symptomId: string | null;
+  suggestedTreatmentId: string | null;
   onQueryChange: (query: string) => void;
   onSelect: (id: string) => void;
   onUnknown: () => void;
@@ -393,6 +398,11 @@ function TreatmentSearchScreen({
   const normalizedQuery = normalizeSearchText(query).replace(/\s+/gu, "");
   const readyToSearch = normalizedQuery.length >= 2;
   const results = readyToSearch ? searchTreatments(activeRelease, query) : [];
+  const symptom = symptomId ? symptomById(symptomId) : undefined;
+  const symptomListings = symptom ? drugSymptomListings(activeRelease, symptom.id) : [];
+  const suggestedTreatment = suggestedTreatmentId
+    ? treatmentById(suggestedTreatmentId)
+    : undefined;
   const spellingSuggestions =
     results.length > 0 && results.every(({ matchType }) => matchType === "fuzzy");
 
@@ -416,6 +426,75 @@ function TreatmentSearchScreen({
         Search using a name from your treatment sheet, visit details, medicine
         container, or cancer team. You can enter one drug or a treatment plan.
       </PageIntro>
+
+      {mode === "symptom" && symptom ? (
+        <section className="symptom-drug-listings" aria-labelledby="symptom-drug-listings-heading">
+          <header className="symptom-drug-listings-header">
+            <p className="eyebrow">Source-linked drug pages</p>
+            <h2 id="symptom-drug-listings-heading">
+              Drugs in Ariad that list {symptom.patient_label.toLocaleLowerCase("en-CA")}
+            </h2>
+            <p>
+              These Ariad drug pages list this symptom in their side-effect information.
+              Each drug keeps its own source. A listing does not mean the drug caused
+              what you feel.
+            </p>
+            <p>
+              This list covers drug pages in this demo. It does not show your dose,
+              schedule, or full treatment plan. Choose the treatment you actually receive.
+            </p>
+          </header>
+
+          {suggestedTreatment ? (
+            <button
+              className="suggested-treatment-card"
+              type="button"
+              onClick={() => onSelect(suggestedTreatment.id)}
+            >
+              <span>
+                <small>Treatment for this path</small>
+                <strong>{treatmentSearchDisplayName(activeRelease, suggestedTreatment.id)}</strong>
+                <span>Continue with this treatment</span>
+              </span>
+              <ChevronRight aria-hidden="true" size={20} />
+            </button>
+          ) : null}
+
+          {symptomListings.length > 0 ? (
+            <details className="symptom-drug-list" open>
+              <summary>
+                <span>
+                  <strong>View linked drug pages</strong>
+                  <small>{symptomListings.length} drugs, shown in alphabetical order</small>
+                </span>
+                <ChevronRight className="summary-chevron" aria-hidden="true" size={20} />
+              </summary>
+              <div className="symptom-drug-list-body">
+                {symptomListings.map(({ drug, effects }) => (
+                  <button
+                    className="symptom-drug-row"
+                    type="button"
+                    key={drug.id}
+                    onClick={() => onSelect(drug.id)}
+                    aria-label={`Drug: ${treatmentSearchDisplayName(activeRelease, drug.id)}. Listed effect: ${effects.map((effect) => effect.display_name).join(", ")}. View this drug page.`}
+                  >
+                    <span>
+                      <strong>{treatmentSearchDisplayName(activeRelease, drug.id)}</strong>
+                      <small>{effects.map((effect) => effect.display_name).join(" · ")}</small>
+                      <span>View this drug page</span>
+                    </span>
+                    <ChevronRight aria-hidden="true" size={18} />
+                  </button>
+                ))}
+              </div>
+            </details>
+          ) : (
+            <p className="symptom-drug-list-empty">
+              Ariad does not have a source-linked drug page for this symptom yet.
+            </p>
+          )}
+        </section>
+      ) : null}
 
       <div className="search-panel">
         <label htmlFor="treatment-search">Drug or treatment plan</label>
@@ -1695,6 +1774,7 @@ export function AriadApp() {
   const [treatmentQuery, setTreatmentQuery] = useState("");
   const [selectedTreatmentId, setSelectedTreatmentId] = useState<string | null>(null);
   const [selectedSymptomId, setSelectedSymptomId] = useState<string | null>(null);
+  const [sampleTreatmentId, setSampleTreatmentId] = useState<string | null>(null);
   const [initialSymptomText, setInitialSymptomText] = useState("");
   const [candidateResult, setCandidateResult] = useState<SymptomClassifierResult | null>(null);
   const [candidateMode, setCandidateMode] = useState<GenerationMode>("deterministic_match");
@@ -1762,6 +1842,7 @@ export function AriadApp() {
   const resetEphemeral = () => {
     setSelectedTreatmentId(null);
     setSelectedSymptomId(null);
+    setSampleTreatmentId(null);
     setInitialSymptomText("");
     setCandidateResult(null);
     setAnswers({});
@@ -1819,33 +1900,28 @@ export function AriadApp() {
 
   const chooseSymptom = (id: string) => {
     setSelectedSymptomId(id);
-    if (selectedTreatmentId && resolveGuidanceRelationship(activeRelease, selectedTreatmentId, id)) {
-      setAnswers({});
-      setQuestionIndex(0);
-      setScreen("questions");
-    } else {
-      setTreatmentQuery("");
-      setScreen("treatment-context");
-    }
+    setTreatmentQuery("");
+    setScreen("treatment-context");
   };
 
   const beginDemo = (scenario: "neuropathy" | "diarrhea" | "infection") => {
     setMode("symptom");
+    setSelectedTreatmentId(null);
     setAnswers({});
     setQuestionIndex(0);
     if (scenario === "neuropathy") {
       const text = "My fingertips feel buzzy and small things keep slipping from my hand.";
-      setSelectedTreatmentId("weekly-paclitaxel");
+      setSampleTreatmentId("weekly-paclitaxel");
       setInitialSymptomText(text);
       setScreen("symptom-entry");
     } else if (scenario === "diarrhea") {
-      setSelectedTreatmentId("capecitabine-monotherapy");
+      setSampleTreatmentId("capecitabine-monotherapy");
       setSelectedSymptomId("diarrhea");
-      setScreen("questions");
+      setScreen("treatment-context");
     } else {
-      setSelectedTreatmentId("ac");
+      setSampleTreatmentId("ac");
       setSelectedSymptomId("fever-infection-concern");
-      setScreen("questions");
+      setScreen("treatment-context");
     }
   };
 
@@ -1925,6 +2001,8 @@ export function AriadApp() {
           <TreatmentSearchScreen
             mode={screen === "treatment-context" ? "symptom" : mode}
             query={treatmentQuery}
+            symptomId={screen === "treatment-context" ? selectedSymptomId : null}
+            suggestedTreatmentId={screen === "treatment-context" ? selectedTreatmentId ?? sampleTreatmentId : null}
             onQueryChange={setTreatmentQuery}
             onSelect={chooseTreatment}
             onUnknown={() => setScreen("unknown-treatment")}
