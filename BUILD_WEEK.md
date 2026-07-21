@@ -366,3 +366,131 @@
   trastuzumab deruxtecan, both paclitaxel formulations, and goserelin; no page
   displayed a numerical frequency, and alpelisib retained the preparation
   fallback.
+
+## 2026-07-20 — regimen composition from single-drug presentations
+
+- Multi-drug regimen pages now resolve component drugs in their governed order
+  and attach only the matching existing single-drug presentation.
+- Each populated component remains an independent patient section with its own
+  source context, cause limitation, disclosures, escalation summary, and
+  emergency statement.
+- Every populated component displays a boundary stating that its qualitative
+  groups come from single-drug FDA information and do not describe frequencies
+  for the full regimen.
+- Missing components remain explicit information-in-preparation cards. TCH
+  therefore shows docetaxel and trastuzumab presentations while carboplatin
+  remains pending; no evidence is borrowed or inferred.
+- Regimen printing expands disclosures in every populated drug section and
+  restores the prior interactive state afterward. Presentation and escalation
+  heading IDs are unique across the combined page.
+- This is a presentation-composition change only. Preview release `0.5.0`, its
+  258-object inventory, content hash, evidence records, and approval state are
+  unchanged.
+
+### Verification
+
+- `pnpm content:validate` — 284 repository objects; 0 errors and 0 warnings.
+- `pnpm typecheck` — all three workspace packages passed.
+- `pnpm test` — 145 unit and golden tests passed.
+- `pnpm lint` — passed.
+- `pnpm safety:scan` — 0 findings.
+- `pnpm build:preview` — production-style preview build passed with unchanged
+  content hash
+  `e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
+- `pnpm test:e2e` — all 42 mobile and desktop browser tests passed, including
+  TCH evidence boundaries, the carboplatin gap, unique IDs, print-state
+  restoration, 320 px layout, and serious/critical axe scans.
+- In-app browser inspection confirmed two populated TCH presentations, one
+  pending component, no visible numerical frequencies, no horizontal overflow,
+  and no console errors or warnings.
+
+## 2026-07-20 — carboplatin FDA single-agent page
+
+### Scope and evidence boundary
+
+- Added one private carboplatin evidence record from the current FDA KYXATA
+  label, revised August 2025: Section 6.1, Tables 7 and 8, second-line
+  single-agent therapy (`n=553`).
+- Exact percentages, laboratory thresholds, denominator, ovarian-cancer
+  population, dose context, and table locators remain private citation and
+  provenance data. They are absent from the visible patient experience.
+- Added a separately hash-bound, unreviewed patient presentation with broad
+  qualitative groups, plain-language effects, FDA-supported warning signs, its
+  own escalation summary, the cause limitation, and the universal emergency
+  statement.
+- Carboplatin remains catalogued as a breast-regimen component. The evidence
+  record does not claim an FDA breast-cancer indication and does not claim that
+  its frequencies describe TCH or TCHP.
+- TCH now composes independent docetaxel, carboplatin, and trastuzumab sections.
+  TCHP composes those same three independent sections and keeps pertuzumab as an
+  explicit information-in-preparation component.
+- All 26 evidence records and all 26 patient presentations remain `draft` with
+  no recorded reviewer, review date, or approval.
+
+### Release evidence
+
+- Active preview: `build-week-preview-2026-07-18@0.6.0`.
+- Content hash:
+  `03e0d0b181ef357754faa9ea5b5aaf5327323a33ba99d11b5d508664e0035c3e`.
+- Compiled JSON file SHA-256:
+  `eefe178ffac743cf7deff10596f7e2240f2f50564e98a2abffbb0fd59000d020`.
+- The release pins 260 exact object versions: 189 governed draft objects and
+  71 source records. All 26 private numerical evidence objects remain outside
+  the browser release and are hash-bound to their patient presentations.
+
+### Verification
+
+- `pnpm content:validate` — 287 repository objects; 0 errors and 0 warnings.
+- `pnpm typecheck` — all three workspace packages passed.
+- `pnpm test` — 146 unit and golden tests passed.
+- `pnpm lint` — passed.
+- `pnpm safety:scan` — 0 findings.
+- `pnpm build:preview` — production-style preview build passed.
+- `pnpm test:e2e` — all 44 mobile and desktop browser tests passed, including
+  the direct carboplatin page, three populated TCH components, 320 px layout,
+  print-state behaviour, and serious/critical axe scans.
+- The carboplatin browser assertion confirms that ovarian-cancer wording,
+  denominator, table numbers, percentages, grades, and dose context are absent
+  from the visible patient experience.
+
+## 2026-07-20 — cyclophosphamide FDA categorical page
+
+### Scope and evidence boundary
+
+- Added one private cyclophosphamide record from FDA label Reference ID
+  `5546956`, revised March 2025. Section 6.1 identifies seven reactions as most
+  common; Sections 4 and 5 provide the serious safety warnings.
+- The FDA label supplies no percentages, usable denominator, or isolated
+  single-agent safety population. The evidence record therefore stores the
+  denominator as unavailable, preserves most-common as a source category, and
+  keeps warning status separate from frequency.
+- The patient page retains the existing disclosure, plain-language action,
+  source, escalation, print, and emergency structure, but uses only “Common
+  effects” and “Serious effects.” It displays no numerical frequency groups.
+- TC and other regimen pages use the same independent cyclophosphamide card with
+  a label-level evidence boundary; they do not describe its groups as regimen
+  frequencies.
+- All 27 evidence records and all 27 patient presentations remain `draft`, with
+  no recorded reviewer, review date, or approval.
+
+### Release evidence
+
+- Active preview: `build-week-preview-2026-07-18@0.7.0`.
+- Content hash:
+  `1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c`.
+- Compiled JSON file SHA-256:
+  `7b9d27f046f260ecfcbda4ca626946a252adbac7cf27d8177a8a1bb874778b76`.
+- The release pins 261 exact object versions: 190 governed draft objects and 71
+  source records. All 27 private evidence objects remain outside the browser
+  release and are hash-bound to their patient presentations.
+
+### Verification
+
+- `pnpm content:validate` — 289 repository objects; 0 errors and 0 warnings.
+- `pnpm test` — 147 unit and golden tests passed.
+- `pnpm lint` — passed.
+- `pnpm typecheck` — all three workspace packages passed.
+- `pnpm safety:scan` — 0 findings.
+- `pnpm build:preview` — production-style preview build passed.
+- `pnpm test:e2e` — all 46 mobile and desktop browser tests passed, including
+  the standalone cyclophosphamide page and its independent TC regimen card.

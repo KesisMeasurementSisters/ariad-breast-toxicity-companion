@@ -115,7 +115,7 @@ Generated files are compiler outputs and must never be hand-edited.
 
 ## Current preview inventory
 
-Release `build-week-preview-2026-07-18@0.5.0` pins 258 objects:
+Release `build-week-preview-2026-07-18@0.7.0` pins 261 objects:
 
 | Kind | Count |
 |---|---:|
@@ -127,23 +127,23 @@ Release `build-week-preview-2026-07-18@0.5.0` pins 258 objects:
 | Questions | 19 |
 | Educational modules | 22 |
 | Treatment–symptom relationships | 3 |
-| Drug toxicity presentations | 25 |
-| Sources | 70 |
+| Drug toxicity presentations | 27 |
+| Sources | 71 |
 | Clinic configurations | 1 |
 
 Its content hash is
-`e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
-All 188 governed objects are draft. Of the 70 source records, 68 are marked
+`1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c`.
+All 190 governed objects are draft. Of the 71 source records, 69 are marked
 `verified` and two broad catalogue sources are `link_only`. The active release
 resolves exactly one structured v2
 synthetic clinic configuration. Its contact values are explicitly fictional and
 non-actionable, and its fever and supportive-care policy bindings are
 unresolved.
 
-Repository-level review contains 214 governed object versions: both clinic
-configuration versions and 25 private draft toxicity-evidence records in
-addition to the 188 active-release objects. The manifest pins the v2 clinic
-configuration and 25 patient-safe presentations, but not the numerical evidence
+Repository-level review contains 218 governed object versions: both clinic
+configuration versions and 27 private draft toxicity-evidence records in
+addition to the 190 active-release objects. The manifest pins the v2 clinic
+configuration and 27 patient-safe presentations, but not the private evidence
 payloads. Neither versioning nor validation creates clinical approval evidence.
 
 ## Current single-drug toxicity implementation
@@ -154,14 +154,18 @@ component. A separate source-controlled toxicity evidence store contains 25
 draft records, one for each FDA label with a defensible breast-specific
 single-agent frequency population. Each stores exact source event names,
 percentage measures, population, dose, denominator, comparator, and provenance.
-None is included in the active release.
+Carboplatin adds a twenty-sixth private record from the FDA's coherent
+single-agent ovarian safety population. Cyclophosphamide adds a twenty-seventh
+record that preserves the FDA label's most-common and serious-warning categories
+without percentages or a claimed monotherapy population. None is included in
+the active release.
 
-Twenty-five separate `drug_toxicity_presentation` objects are included in the
+Twenty-seven separate `drug_toxicity_presentation` objects are included in the
 active release. Each references the exact evidence version and clinical-payload
 hash, maps every source event to a patient row or an explicit omission rationale,
-and stores only patient-safe copy and qualitative groups. Build validation
-derives each group from the matching all-grade adverse-reaction or adverse-event
-value. Laboratory abnormalities are shown as monitoring information, and
+and stores only patient-safe copy and qualitative or categorical groups. Build
+validation derives numerical groups from the matching all-grade value and keeps
+the cyclophosphamide label categories separate. Laboratory abnormalities are shown as monitoring information, and
 fatal-outcome rows are not converted into patient frequency groups.
 
 The current release contains 28 symptom concepts, of which 25 are catalogue-only
@@ -176,7 +180,7 @@ final escalation summary. No presentation displays numerical frequencies,
 grades, laboratory cut-offs, dose context, or treatment-change rules. All are
 education-only, remain `draft`, and require clinical-owner review before Ariad
 can claim approved single-drug coverage. The [coverage ledger](./fda-single-drug-toxicity-coverage.md)
-records the 25 included drugs and 28 intentional evidence gaps.
+records the 27 included drugs and 26 intentional evidence gaps.
 
 ## Query behavior
 

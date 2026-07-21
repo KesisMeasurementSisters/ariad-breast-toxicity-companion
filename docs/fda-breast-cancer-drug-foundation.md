@@ -61,16 +61,20 @@ Every FDA-based drug pins:
 - a governed source record linked to an exact official label or Drugs@FDA
   application record.
 
-Twenty-seven FDA-based entries remain `source_indexed`; 25 are `event_mapped`.
-Each private draft evidence object preserves the exact breast-cancer population,
+Twenty-six FDA-based entries remain `source_indexed`; 26 are `event_mapped`.
+The 25 breast-specific private evidence objects preserve the exact population,
 single-drug context, denominator, dose, comparator, source table, event names,
 and numerical measures. Combination-arm observations must not be attributed to
-one component drug. The eligibility decisions and 28 intentional gaps are in
+one component drug. Carboplatin is a cross-indication single-agent exception;
+cyclophosphamide is a non-numerical label-category exception with unavailable
+frequency and denominator values. The eligibility decisions and 26
+intentional gaps are in
 the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).
 
 Each patient presentation is bound to its exact evidence payload by version and
-hash. Build validation checks each qualitative group against the matching
-all-grade source value. The browser release excludes the raw numerical evidence,
+hash. Build validation checks numerical qualitative groups against the matching
+all-grade source value and keeps cyclophosphamide's categorical groups separate.
+The browser release excludes the raw numerical evidence,
 severity values, laboratory cut-offs, and dose context. All evidence and patient
 wording remain unreviewed drafts.
 
@@ -81,9 +85,16 @@ wording remain unreviewed drafts.
 - Source-verified multi-drug regimens containing that exact drug may follow it.
 - Single-drug regimen aliases are excluded because they duplicate the drug result.
 - Regimen abbreviations and full component names are searchable.
-- A selected regimen opens ordered, separate cards for every component drug.
+- A selected multi-drug regimen opens ordered, separate cards for every
+  component drug. An available single-drug presentation is rendered inside its
+  matching card with an explicit notice that its evidence groups do not
+  describe the full regimen.
 - A source-indexed drug without approved presentation content opens a clear
   information-in-preparation fallback.
-- Selecting any of the 25 event-mapped drugs alone opens its draft patient-only
-  side-effect presentation. Selecting a regimen does not reuse a single-drug
-  presentation as combination evidence.
+- Selecting any of the 25 breast-label event-mapped drugs, carboplatin, or
+  cyclophosphamide alone
+  opens its draft patient-only
+  side-effect presentation. A regimen may compose the same presentations as
+  clearly separated single-drug information, but it does not relabel, merge, or
+  reuse them as combination evidence. Missing components retain the
+  information-in-preparation fallback.

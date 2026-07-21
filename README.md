@@ -44,7 +44,9 @@ Life** track.
   treatment classes, and 28 patient-observable symptom concepts.
 - Fifty-two drug records pin exact FDA label identities and safety-section
   locations. Twenty-five now have separately governed single-agent FDA evidence
-  and patient-only side-effect presentations; 27 remain source indexes.
+  from breast-cancer populations; carboplatin adds one cross-indication FDA
+  single-agent map, and cyclophosphamide adds one non-numerical FDA label-category
+  map. Twenty-six breast-label entries remain source indexes.
 - Explicit coverage states: full demo guidance, education only, catalogued, or
   unsupported.
 - Three complete draft symptom pathways:
@@ -52,14 +54,17 @@ Life** track.
   - capecitabine + diarrhea;
   - AC chemotherapy + fever, chills, or infection concern.
 - One complete draft weekly-paclitaxel treatment-preparation path.
-- Twenty-five draft single-drug side-effect pages with qualitative frequency
-  groups, plain-language disclosures, FDA-linked actions, and a final escalation
-  summary for each drug.
+- Twenty-seven draft single-drug side-effect pages with qualitative frequency
+  or FDA label-category groups, plain-language disclosures, FDA-linked actions,
+  and a final escalation summary for each drug.
+- Multi-drug regimen pages compose those existing single-drug presentations in
+  separate component cards, preserve their monotherapy evidence boundaries, and
+  retain a clear preparation notice for components without eligible evidence.
 - Observable questions that may change section emphasis, but never calculate a
   grade, diagnosis, cause, or personal urgency.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
   summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
-- A content-addressed preview release containing 258 exact object versions.
+- A content-addressed preview release containing 261 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
   treatment-code demos, local saved treatments, and copy/print/download symptom
   summaries. The clinic's fever and supportive-care policy bindings remain
@@ -243,17 +248,17 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.5.0`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.7.0`,
 with content hash
-`e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
+`1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c`.
 
 ## Content and source governance
 
-The current release pins 258 object versions: 188 governed draft objects and
-70 source records. Its 22 patient-facing modules have zero recorded clinical
-approvals; all 25 drug presentations are also unreviewed drafts. The repository
-review queue contains 214 governed object versions: the 188 release objects, the
-retained v1 clinic configuration, and 25 private draft toxicity-evidence records.
+The current release pins 261 object versions: 190 governed draft objects and
+71 source records. Its 22 patient-facing modules have zero recorded clinical
+approvals; all 27 drug presentations are also unreviewed drafts. The repository
+review queue contains 218 governed object versions: the 190 release objects, the
+retained v1 clinic configuration, and 27 private draft toxicity-evidence records.
 The release pins the v2 clinic configuration and patient-safe presentations,
 but deliberately excludes the numerical evidence payloads. That structured
 synthetic configuration contains identity
@@ -264,10 +269,12 @@ pathway. No schema, validation, or preview compilation result records or implies
 a clinical approval.
 
 The drug catalogue remains an identity-and-provenance foundation. A separate,
-source-controlled toxicity evidence store now contains 25 draft FDA
-single-agent breast-cancer records. Each stores its exact population, dose,
-denominator, comparator, source event names, and percentages outside the browser
-release. A content hash binds each evidence record to its patient-safe
+source-controlled toxicity evidence store now contains 27 draft FDA evidence
+records: 25 breast-cancer single-agent populations, one cross-indication
+carboplatin single-agent population, and one cyclophosphamide FDA label-category record
+without a usable denominator. Each stores its exact evidence boundary, source
+event names, frequency status, and available values outside the browser release.
+A content hash binds each evidence record to its patient-safe
 presentation. The three complete draft treatment-toxicity relationships remain
 regimen-level; the drug pages are education-only and do not create personalized
 symptom pathways or treatment recommendations. The full eligibility and gap
@@ -281,7 +288,7 @@ Existing symptom pathways retain their governed Ontario Health/Cancer Care
 Ontario, Health Canada, BC Cancer, and eviQ sources. Ariad stores short metadata
 and clinician-reviewable paraphrases, not copied source documents.
 
-Before any clinical release, the owner must review every module, all 25
+Before any clinical release, the owner must review every module, all 27
 evidence-to-presentation mappings, and each claim-to-source mapping; resolve the
 fever and diarrhea discrepancies; confirm the AC regimen variant; create real
 approval evidence; and compile a separate exact-version published release. See [content

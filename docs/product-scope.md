@@ -26,13 +26,13 @@ The Build Week preview contains:
 - three exact regimen–symptom relationships with complete six-section draft
   guidance;
 - one weekly-paclitaxel preparation pathway;
-- 25 draft single-drug patient side-effect presentations, each backed by a
+- 27 draft single-drug patient side-effect presentations, each backed by a
   private exact FDA evidence record;
-- 70 source records and one exact-version structured synthetic clinic
+- 71 source records and one exact-version structured synthetic clinic
   configuration;
-- one immutable 258-object preview release,
-  `build-week-preview-2026-07-18@0.5.0`, with content hash
-  `e0de8058c3e9dd932c394bf56f252e7717506fdefd257ba61961862208b666d1`.
+- one immutable 261-object preview release,
+  `build-week-preview-2026-07-18@0.7.0`, with content hash
+  `1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c`.
 
 The polished pathways are weekly paclitaxel/peripheral neuropathy,
 capecitabine/diarrhea, and AC/fever or infection concern. Catalogue breadth is a
@@ -41,12 +41,21 @@ supported.
 
 The expanded drug catalogue is a search and source-provenance foundation. Of
 the 53 canonical records, 52 point to exact FDA labels and identify their safety
-sections. Twenty-five have a draft event-level evidence record and separate
-patient-only presentation with broad qualitative frequency groups; 28 remain
-intentional no-page gaps. The private numerical evidence is not shipped in the
-browser release. The three complete symptom relationships remain regimen-level;
+sections. Twenty-five have a breast-specific draft event-level evidence record;
+carboplatin has a separately governed cross-indication FDA single-agent record,
+and cyclophosphamide has a non-numerical FDA label-category record. Together
+they support 27 patient-only presentations with broad qualitative or categorical
+groups, while 26 drugs remain intentional no-page gaps. The private
+numerical evidence is not shipped in the browser release. The three complete symptom relationships remain regimen-level;
 the drug pages are education-only and do not calculate urgency or provide a
 treatment recommendation. See the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).
+
+For a multi-drug regimen, Ariad composes the existing single-drug presentations
+in the regimen's governed component order. Each drug remains an independent
+section with its own source context and escalation summary. A visible boundary
+states the evidence boundary for that individual drug and does not present its
+groups as frequencies for the full regimen. Missing component evidence remains
+an information-in-preparation card; Ariad does not borrow or infer a rate.
 
 ## Coverage hierarchy
 
