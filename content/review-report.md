@@ -4,14 +4,14 @@
 
 ## Review summary
 
-- Draft governed objects: 451
-- Patient-facing modules: 143
+- Draft governed objects: 520
+- Patient-facing modules: 159
 - Approved patient-facing modules: 0
 - Private drug toxicity evidence records: 30
 - Patient drug toxicity presentations: 30
 - Approved patient drug toxicity presentations: 0
 - Modules missing sources: 0
-- Modules with unresolved placeholders: 2
+- Modules with unresolved placeholders: 4
 - Source records: 104
 - Clinic configuration versions: 2
 - Structured clinic configuration v2 objects: 1
@@ -82,6 +82,22 @@
 | fatigue-home-management | 1.0.0 | home_management | draft | — | 1 | — |
 | fatigue-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
 | fever-infection-about | 1.0.0 | about | draft | — | 2 | — |
+| general-demo-symptom-treatment-context | 1.0.0 | treatment_context | draft | — | 1 | — |
+| general-diarrhea-about | 1.0.0 | about | draft | — | 1 | — |
+| general-diarrhea-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| general-diarrhea-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| general-diarrhea-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 1 | — |
+| general-diarrhea-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | clinic-specific fever threshold pending clinician review |
+| general-fever-infection-about | 1.0.0 | about | draft | — | 2 | — |
+| general-infection-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| general-infection-home-preparation | 1.0.0 | home_management | draft | — | 2 | — |
+| general-infection-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 2 | — |
+| general-infection-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | clinic-specific fever threshold and destination pending clinician review |
+| general-neuropathy-about | 1.0.0 | about | draft | — | 1 | — |
+| general-neuropathy-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| general-neuropathy-home-safety | 1.0.0 | home_management | draft | — | 1 | — |
+| general-neuropathy-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 1 | — |
+| general-neuropathy-urgent-neurological-signs | 1.0.0 | urgent_attention | draft | — | 1 | — |
 | general-symptom-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 1 | — |
 | general-systemic-prep-boundary | 1.0.0 | preparation | draft | — | 1 | — |
 | general-systemic-prep-medicine-list | 1.0.0 | preparation | draft | — | 1 | — |

@@ -2779,6 +2779,16 @@
                   }
                 ]
               },
+              "presentation_effect_ids": {
+                "default": [],
+                "items": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "type": "array"
+              },
               "question_ids": {
                 "default": [],
                 "items": {
@@ -3049,6 +3059,52 @@
                   }
                 ]
               },
+              "toxicity_presentation_ref": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "maxLength": 120,
+                        "minLength": 2,
+                        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                        "type": "string"
+                      },
+                      "kind": {
+                        "enum": [
+                          "treatment_class",
+                          "drug",
+                          "regimen",
+                          "symptom",
+                          "observable_feature",
+                          "question",
+                          "educational_module",
+                          "treatment_toxicity_relationship",
+                          "drug_toxicity_evidence",
+                          "drug_toxicity_presentation",
+                          "source",
+                          "clinic_config"
+                        ],
+                        "type": "string"
+                      },
+                      "version": {
+                        "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "id",
+                      "version"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
               "treatment_id": {
                 "maxLength": 120,
                 "minLength": 2,
@@ -3086,6 +3142,8 @@
               "timing",
               "modules",
               "question_ids",
+              "toxicity_presentation_ref",
+              "presentation_effect_ids",
               "source_ids"
             ],
             "type": "object"

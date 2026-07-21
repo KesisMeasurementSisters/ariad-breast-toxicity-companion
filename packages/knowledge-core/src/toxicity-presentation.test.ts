@@ -2,6 +2,7 @@ import path from "node:path";
 import type {
   DrugToxicityEvidence,
   DrugToxicityPresentation,
+  TreatmentToxicityRelationship,
 } from "@ariad/contracts";
 import { beforeAll, describe, expect, it } from "vitest";
 import { loadKnowledgeRepository, type KnowledgeRepository } from "./repository";
@@ -260,6 +261,27 @@ describe("single-drug toxicity presentation validation", () => {
         expect.objectContaining({
           code: "toxicity-presentation-frequency-band-invalid",
           objectId: "docetaxel-patient-side-effects",
+        }),
+      ]),
+    );
+  });
+
+  it("rejects a symptom listing that points to a missing presentation effect", () => {
+    const copy = mutableCopy();
+    const relationship = copy.objects.find(
+      (object): object is TreatmentToxicityRelationship =>
+        object.kind === "treatment_toxicity_relationship" &&
+        object.id === "drug-listing-docetaxel-peripheral-neuropathy",
+    );
+    expect(relationship).toBeDefined();
+    if (relationship) relationship.presentation_effect_ids = ["not-on-the-drug-page"];
+
+    const report = validateRepository(copy);
+    expect(report.issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: "relationship-toxicity-effect-missing",
+          objectId: "drug-listing-docetaxel-peripheral-neuropathy",
         }),
       ]),
     );

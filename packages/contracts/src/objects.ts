@@ -274,6 +274,8 @@ export const TreatmentToxicityRelationshipSchema = z
     timing: z.string().min(1).nullable(),
     modules: RelationshipModuleSlotsSchema.nullable(),
     question_ids: z.array(StableIdSchema).default([]),
+    toxicity_presentation_ref: VersionedRefSchema.nullable().default(null),
+    presentation_effect_ids: z.array(StableIdSchema).default([]),
     source_ids: SourceIdsSchema,
   })
   .strict()
@@ -289,6 +291,28 @@ export const TreatmentToxicityRelationshipSchema = z
       context.addIssue({
         code: "custom",
         message: "Only full-guidance relationships may define complete guidance slots",
+      });
+    }
+
+    const hasPresentationReference = relationship.toxicity_presentation_ref !== null;
+    const hasPresentationEffects = relationship.presentation_effect_ids.length > 0;
+    if (hasPresentationReference !== hasPresentationEffects) {
+      context.addIssue({
+        code: "custom",
+        path: ["presentation_effect_ids"],
+        message: "A toxicity presentation reference and one or more effect IDs are required together",
+      });
+    }
+    if (
+      hasPresentationReference &&
+      (relationship.treatment_kind !== "drug" ||
+        relationship.relationship_type !== "associated_with" ||
+        relationship.support_status !== "education_only")
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["toxicity_presentation_ref"],
+        message: "Presentation-linked symptom listings must be education-only drug associations",
       });
     }
   });

@@ -1,9 +1,9 @@
 release_id: build-week-preview-2026-07-18
-version: 0.12.0
+version: 0.13.0
 channel: preview
 publication_status: draft
 clinical_use: false
-generated_at: 2026-07-21T12:20:00-04:00
+generated_at: 2026-07-21T15:30:00-04:00
 clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
 included_objects:
   - { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
@@ -108,6 +108,22 @@ included_objects:
   - { kind: educational_module, id: neuropathy-reporting-checklist, version: 1.0.0 }
   - { kind: educational_module, id: neuropathy-urgent-neurological-signs, version: 1.0.0 }
   - { kind: educational_module, id: paclitaxel-neuropathy-context, version: 1.0.0 }
+  - { kind: educational_module, id: general-demo-symptom-treatment-context, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-about, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-home-safety, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-urgent-neurological-signs, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-about, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: general-fever-infection-about, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-home-preparation, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-reporting-checklist, version: 1.0.0 }
   - { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.1.0 }
   - { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.1.0 }
   - { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.1.0 }
@@ -473,6 +489,59 @@ included_objects:
   - { kind: treatment_toxicity_relationship, id: ac-fever-infection-concern, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: capecitabine-diarrhea, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: weekly-paclitaxel-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-carboplatin-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-docetaxel-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ado-trastuzumab-emtansine-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-anastrozole-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-capecitabine-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-eribulin-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ixabepilone-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-protein-bound-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-sacituzumab-govitecan-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-tamoxifen-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-cyclophosphamide-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-docetaxel-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-epirubicin-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-abemaciclib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-capecitabine-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-datopotamab-deruxtecan-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-elacestrant-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-eribulin-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-imlunestrant-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ixabepilone-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-neratinib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-olaparib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-protein-bound-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-pembrolizumab-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-sacituzumab-govitecan-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-talazoparib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-deruxtecan-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-carboplatin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-cyclophosphamide-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-docetaxel-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-doxorubicin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-epirubicin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-abemaciclib-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ado-trastuzumab-emtansine-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-anastrozole-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-capecitabine-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-datopotamab-deruxtecan-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-eribulin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ixabepilone-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-neratinib-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-protein-bound-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-pembrolizumab-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-sacituzumab-govitecan-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-tamoxifen-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-deruxtecan-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-fever-infection-concern, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: systemic-therapy-fatigue, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: systemic-therapy-nausea, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: systemic-therapy-vomiting, version: 1.0.0 }
@@ -608,7 +677,8 @@ known_gaps:
   - All patient-facing clinical modules are draft and require clinician review.
   - All 53 drug choices and eight regimen choices now resolve a preparation guide, but only weekly paclitaxel, capecitabine monotherapy, and AC have exact treatment-specific preparation overlays.
   - The other five regimens and all standalone drugs use the clearly labelled general systemic-treatment preparation guide; Ariad does not infer exact preparation from drug classes or regimen components.
-  - The 25 new symptom journeys are general systemic-treatment fallbacks. They do not establish that any exact drug or regimen caused or is associated with the selected symptom.
+  - All 28 symptom journeys have a general systemic-treatment fallback. The three sample symptoms also keep their exact regimen pathways.
+  - The three sample symptoms have draft, source-bound links to matching effect rows on available FDA drug pages. These links do not establish cause and do not describe a schedule or full treatment plan.
   - The three existing regimen-specific pathways remain the only exact treatment-and-symptom guidance relationships.
   - The eviQ hypersensitivity source is overdue for review and supports only infusion context and immediate reporting to the nurse; emergency signs are cross-checked against a current Canadian source.
   - The fictional demo clinic has unresolved fever and supportive-care policy bindings.
@@ -623,6 +693,10 @@ known_gaps:
   - Carboplatin uses the FDA 553-patient single-agent ovarian safety population; this does not claim an FDA breast-cancer indication or a TCH/TCHP regimen frequency.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.13.0 links each of the three sample symptoms to every matching effect row in Ariad's current FDA drug pages, independent of schedule or regimen.
+  - Release 0.13.0 shows the exact source-linked effect name for each listed drug and keeps every drug's evidence separate.
+  - Release 0.13.0 adds clearly labelled general fallbacks for tingling or numbness, diarrhea, and fever or infection when the selected treatment does not have an exact pathway.
+  - Release 0.13.0 keeps the new links and guidance modules in draft, does not claim cause, and does not advise a treatment change.
   - Release 0.12.0 adds a source-linked general treatment-preparation guide, so all 61 treatment choices now resolve useful preparation information without implying exact treatment instructions.
   - Release 0.12.0 adds exact preparation overlays for weekly paclitaxel, capecitabine monotherapy, and AC, while keeping side-effect education available below preparation.
   - Release 0.12.0 adds explicit preparation ordering and exact-versus-general fallback labels; it does not add dose, schedule, food, medicine-change, fever-threshold, or local-policy instructions.

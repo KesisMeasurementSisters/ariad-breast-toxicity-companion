@@ -1,0 +1,402 @@
+- &drug_symptom_listing
+  kind: treatment_toxicity_relationship
+  id: drug-listing-carboplatin-peripheral-neuropathy
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  treatment_kind: drug
+  treatment_id: carboplatin
+  symptom_id: peripheral-neuropathy
+  relationship_type: associated_with
+  support_status: education_only
+  frequency_band: null
+  seriousness_flags: []
+  timing: null
+  modules: null
+  question_ids: []
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: carboplatin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [numbness-tingling-or-burning]
+  source_ids: [fda-label-carboplatin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-docetaxel-peripheral-neuropathy
+  treatment_id: docetaxel
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: docetaxel-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [numbness-tingling-or-burning]
+  source_ids: [fda-label-docetaxel]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-ado-trastuzumab-emtansine-peripheral-neuropathy
+  treatment_id: ado-trastuzumab-emtansine
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: ado-trastuzumab-emtansine-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [peripheral-neuropathy]
+  source_ids: [fda-label-ado-trastuzumab-emtansine]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-anastrozole-peripheral-neuropathy
+  treatment_id: anastrozole
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: anastrozole-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [paresthesia]
+  source_ids: [fda-label-anastrozole]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-capecitabine-peripheral-neuropathy
+  treatment_id: capecitabine
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: capecitabine-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [paresthesia]
+  source_ids: [fda-label-capecitabine]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-eribulin-peripheral-neuropathy
+  treatment_id: eribulin
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: eribulin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [peripheral-neuropathy]
+  source_ids: [fda-label-eribulin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-ixabepilone-peripheral-neuropathy
+  treatment_id: ixabepilone
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: ixabepilone-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [sensory-neuropathy]
+  source_ids: [fda-label-ixabepilone]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-paclitaxel-peripheral-neuropathy
+  treatment_id: paclitaxel
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: paclitaxel-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [peripheral-neuropathy]
+  source_ids: [fda-label-paclitaxel]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-paclitaxel-protein-bound-peripheral-neuropathy
+  treatment_id: paclitaxel-protein-bound
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: paclitaxel-protein-bound-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [sensory-neuropathy]
+  source_ids: [fda-label-paclitaxel-protein-bound]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-sacituzumab-govitecan-peripheral-neuropathy
+  treatment_id: sacituzumab-govitecan
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: sacituzumab-govitecan-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [peripheral-neuropathy]
+  source_ids: [fda-label-sacituzumab-govitecan]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-tamoxifen-peripheral-neuropathy
+  treatment_id: tamoxifen
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: tamoxifen-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [paresthesia]
+  source_ids: [fda-label-tamoxifen]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-trastuzumab-peripheral-neuropathy
+  treatment_id: trastuzumab
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: trastuzumab-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [paresthesia]
+  source_ids: [fda-label-trastuzumab]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-cyclophosphamide-diarrhea
+  treatment_id: cyclophosphamide
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: cyclophosphamide-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-cyclophosphamide]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-docetaxel-diarrhea
+  treatment_id: docetaxel
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: docetaxel-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhoea]
+  source_ids: [fda-label-docetaxel]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-epirubicin-diarrhea
+  treatment_id: epirubicin
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: epirubicin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-epirubicin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-abemaciclib-diarrhea
+  treatment_id: abemaciclib
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: abemaciclib-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-abemaciclib]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-capecitabine-diarrhea
+  treatment_id: capecitabine
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: capecitabine-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-capecitabine]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-datopotamab-deruxtecan-diarrhea
+  treatment_id: datopotamab-deruxtecan
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: datopotamab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-datopotamab-deruxtecan]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-elacestrant-diarrhea
+  treatment_id: elacestrant
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: elacestrant-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-elacestrant]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-eribulin-diarrhea
+  treatment_id: eribulin
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: eribulin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-eribulin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-imlunestrant-diarrhea
+  treatment_id: imlunestrant
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: imlunestrant-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-imlunestrant]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-ixabepilone-diarrhea
+  treatment_id: ixabepilone
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: ixabepilone-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-ixabepilone]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-neratinib-diarrhea
+  treatment_id: neratinib
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: neratinib-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-neratinib]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-olaparib-diarrhea
+  treatment_id: olaparib
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: olaparib-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-olaparib]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-paclitaxel-protein-bound-diarrhea
+  treatment_id: paclitaxel-protein-bound
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: paclitaxel-protein-bound-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-paclitaxel-protein-bound]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-pembrolizumab-diarrhea
+  treatment_id: pembrolizumab
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: pembrolizumab-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-pembrolizumab]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-sacituzumab-govitecan-diarrhea
+  treatment_id: sacituzumab-govitecan
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: sacituzumab-govitecan-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-sacituzumab-govitecan]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-talazoparib-diarrhea
+  treatment_id: talazoparib
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: talazoparib-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-talazoparib]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-trastuzumab-deruxtecan-diarrhea
+  treatment_id: trastuzumab-deruxtecan
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: trastuzumab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-trastuzumab-deruxtecan]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-trastuzumab-diarrhea
+  treatment_id: trastuzumab
+  symptom_id: diarrhea
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: trastuzumab-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [diarrhea]
+  source_ids: [fda-label-trastuzumab]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-carboplatin-fever-infection-concern
+  treatment_id: carboplatin
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: carboplatin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [infection]
+  source_ids: [fda-label-carboplatin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-cyclophosphamide-fever-infection-concern
+  treatment_id: cyclophosphamide
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: cyclophosphamide-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [fever-or-serious-infection]
+  source_ids: [fda-label-cyclophosphamide]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-docetaxel-fever-infection-concern
+  treatment_id: docetaxel
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: docetaxel-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [fever, infection]
+  source_ids: [fda-label-docetaxel]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-doxorubicin-fever-infection-concern
+  treatment_id: doxorubicin
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: doxorubicin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [low-blood-cells-or-serious-infection]
+  source_ids: [fda-label-doxorubicin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-epirubicin-fever-infection-concern
+  treatment_id: epirubicin
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: epirubicin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [serious-infection-or-low-blood-cells]
+  source_ids: [fda-label-epirubicin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-abemaciclib-fever-infection-concern
+  treatment_id: abemaciclib
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: abemaciclib-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [infections, pyrexia]
+  source_ids: [fda-label-abemaciclib]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-ado-trastuzumab-emtansine-fever-infection-concern
+  treatment_id: ado-trastuzumab-emtansine
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: ado-trastuzumab-emtansine-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [pyrexia, urinary-tract-infection]
+  source_ids: [fda-label-ado-trastuzumab-emtansine]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-anastrozole-fever-infection-concern
+  treatment_id: anastrozole
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: anastrozole-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [pharyngitis]
+  source_ids: [fda-label-anastrozole]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-capecitabine-fever-infection-concern
+  treatment_id: capecitabine
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: capecitabine-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [pyrexia]
+  source_ids: [fda-label-capecitabine]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-datopotamab-deruxtecan-fever-infection-concern
+  treatment_id: datopotamab-deruxtecan
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: datopotamab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [covid-19]
+  source_ids: [fda-label-datopotamab-deruxtecan]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-eribulin-fever-infection-concern
+  treatment_id: eribulin
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: eribulin-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [pyrexia, urinary-tract-infection]
+  source_ids: [fda-label-eribulin]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-ixabepilone-fever-infection-concern
+  treatment_id: ixabepilone
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: ixabepilone-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [pyrexia, upper-respiratory-tract-infection]
+  source_ids: [fda-label-ixabepilone]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-neratinib-fever-infection-concern
+  treatment_id: neratinib
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: neratinib-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [urinary-tract-infection]
+  source_ids: [fda-label-neratinib]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-paclitaxel-fever-infection-concern
+  treatment_id: paclitaxel
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: paclitaxel-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [infections]
+  source_ids: [fda-label-paclitaxel]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-paclitaxel-protein-bound-fever-infection-concern
+  treatment_id: paclitaxel-protein-bound
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: paclitaxel-protein-bound-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [infections]
+  source_ids: [fda-label-paclitaxel-protein-bound]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-pembrolizumab-fever-infection-concern
+  treatment_id: pembrolizumab
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: pembrolizumab-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [fever]
+  source_ids: [fda-label-pembrolizumab]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-sacituzumab-govitecan-fever-infection-concern
+  treatment_id: sacituzumab-govitecan
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: sacituzumab-govitecan-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [upper-respiratory-tract-infection, pyrexia]
+  source_ids: [fda-label-sacituzumab-govitecan]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-tamoxifen-fever-infection-concern
+  treatment_id: tamoxifen
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: tamoxifen-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [pharyngitis]
+  source_ids: [fda-label-tamoxifen]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-trastuzumab-deruxtecan-fever-infection-concern
+  treatment_id: trastuzumab-deruxtecan
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: trastuzumab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [covid-19, pyrexia]
+  source_ids: [fda-label-trastuzumab-deruxtecan]
+
+- <<: *drug_symptom_listing
+  id: drug-listing-trastuzumab-fever-infection-concern
+  treatment_id: trastuzumab
+  symptom_id: fever-infection-concern
+  toxicity_presentation_ref: { kind: drug_toxicity_presentation, id: trastuzumab-patient-side-effects, version: 1.0.0 }
+  presentation_effect_ids: [nasopharyngitis, pyrexia]
+  source_ids: [fda-label-trastuzumab]

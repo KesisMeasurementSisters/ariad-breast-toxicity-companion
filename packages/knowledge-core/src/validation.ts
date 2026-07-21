@@ -107,6 +107,9 @@ function dependenciesForObject(object: KnowledgeObject): ObjectDependency[] {
     case "treatment_toxicity_relationship":
       add([object.treatment_kind], [object.treatment_id], "treatment_id");
       add(["symptom"], [object.symptom_id], "symptom_id");
+      if (object.toxicity_presentation_ref) {
+        exact(object.toxicity_presentation_ref, "toxicity_presentation_ref");
+      }
       if (object.modules) {
         add(["educational_module"], Object.values(object.modules).flat(), "modules");
       }
@@ -322,6 +325,7 @@ function collectClassCycleIssues(objects: KnowledgeObject[]): ValidationIssue[] 
 
 function collectRelationshipSemanticIssues(objects: KnowledgeObject[]): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
+  const objectsByKey = new Map(objects.map((object) => [objectKey(object), object]));
   const modules = new Map(
     objects
       .filter((object): object is EducationalModule => object.kind === "educational_module")
@@ -377,6 +381,50 @@ function collectRelationshipSemanticIssues(objects: KnowledgeObject[]): Validati
           code: "relationship-question-symptom-mismatch",
           objectId: relationship.id,
           message: `Question '${questionId}' does not apply to symptom '${relationship.symptom_id}'`,
+        });
+      }
+    }
+
+    if (relationship.toxicity_presentation_ref) {
+      const presentationKey = refKey(relationship.toxicity_presentation_ref);
+      const presentation = objectsByKey.get(presentationKey);
+      if (!presentation || presentation.kind !== "drug_toxicity_presentation") {
+        issues.push({
+          severity: "error",
+          code: "relationship-toxicity-presentation-missing",
+          objectId: relationship.id,
+          message: `Symptom listing references missing drug presentation '${presentationKey}'`,
+        });
+        continue;
+      }
+      if (presentation.drug_id !== relationship.treatment_id) {
+        issues.push({
+          severity: "error",
+          code: "relationship-toxicity-presentation-drug-mismatch",
+          objectId: relationship.id,
+          message: `Presentation '${presentation.id}' is for '${presentation.drug_id}', not '${relationship.treatment_id}'`,
+        });
+      }
+      const effectIds = new Set(presentation.effects.map((effect) => effect.id));
+      for (const effectId of relationship.presentation_effect_ids) {
+        if (!effectIds.has(effectId)) {
+          issues.push({
+            severity: "error",
+            code: "relationship-toxicity-effect-missing",
+            objectId: relationship.id,
+            message: `Presentation '${presentation.id}' does not contain effect '${effectId}'`,
+          });
+        }
+      }
+      const missingSources = presentation.source_ids.filter(
+        (sourceId) => !relationship.source_ids.includes(sourceId),
+      );
+      if (missingSources.length > 0) {
+        issues.push({
+          severity: "error",
+          code: "relationship-toxicity-source-mismatch",
+          objectId: relationship.id,
+          message: `Symptom listing is missing presentation source IDs: ${missingSources.join(", ")}`,
         });
       }
     }

@@ -12,6 +12,9 @@ import {
 import { loadKnowledgeRepository } from "./repository";
 
 const GENERAL_SYMPTOM_IDS = [
+  "peripheral-neuropathy",
+  "diarrhea",
+  "fever-infection-concern",
   "fatigue",
   "nausea",
   "vomiting",
@@ -71,12 +74,13 @@ describe("general symptom journeys", () => {
     }
   });
 
-  it("assembles all 25 new journeys with four questions and six fixed sections", () => {
+  it("assembles general fallbacks for all 28 journeys with six fixed sections", () => {
     for (const symptomId of GENERAL_SYMPTOM_IDS) {
       const guidance = assembleGuidance(release, "docetaxel", symptomId);
 
       expect(guidance?.guidance_basis, symptomId).toBe("general");
-      expect(guidance?.question_ids, symptomId).toHaveLength(4);
+      expect(guidance?.question_ids.length, symptomId).toBeGreaterThanOrEqual(4);
+      expect(guidance?.question_ids.length, symptomId).toBeLessThanOrEqual(7);
       expect(guidance?.sections, symptomId).toHaveLength(6);
       expect(
         guidance?.sections.every((section) => section.module_ids.length > 0),

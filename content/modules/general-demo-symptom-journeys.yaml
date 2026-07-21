@@ -1,0 +1,226 @@
+- &general_demo_module
+  kind: educational_module
+  id: general-demo-symptom-treatment-context
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  audience: patient
+  jurisdiction: Canada
+  section: treatment_context
+  title: How this information fits your treatment
+  paragraphs:
+    - This is general symptom information. It does not mean that your treatment caused this symptom.
+    - Your cancer team knows your treatment plan and other health needs. Follow their instructions first.
+  bullets: []
+  applicability:
+    treatment_ids: [systemic-therapy]
+    symptom_ids: [peripheral-neuropathy, diarrhea, fever-infection-concern]
+  priority_tags: []
+  source_ids: [cco-symptom-assessment-tool]
+  claim_ids: [claim-general-symptom-information-boundary]
+  placeholders: []
+  review_due: null
+
+- &general_neuropathy
+  <<: *general_demo_module
+  id: general-neuropathy-about
+  section: about
+  title: About this symptom
+  paragraphs:
+    - A nerve problem called peripheral neuropathy can feel like tingling, pins and needles, numbness, burning, or pain. It often affects the fingers or toes. It can also affect your grip, balance, or movement.
+    - Other health problems can cause the same symptoms. Ariad cannot tell what is causing them.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [peripheral-neuropathy] }
+  source_ids: [bc-cancer-peripheral-neuropathy-handout]
+  claim_ids: [claim-neuropathy-description, claim-neuropathy-function]
+
+- <<: *general_neuropathy
+  id: general-neuropathy-home-safety
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - These are general safety steps. Follow the instructions from your cancer team.
+  bullets:
+    - Protect areas where you have less feeling. Check your hands and feet for cuts.
+    - Wear shoes that support your feet. Wear protective gloves for tasks at home or outdoors.
+    - Test bath water with your elbow before putting numb hands or feet into it.
+    - Keep floors and walkways well lit and clear of clutter.
+    - Ask your team about driving if feeling or movement in your feet is affected.
+  priority_tags: [hand-safety, foot-safety, fall-prevention]
+  claim_ids: [claim-neuropathy-injury-prevention, claim-neuropathy-fall-prevention]
+
+- <<: *general_neuropathy
+  id: general-neuropathy-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You notice new tingling, numbness, burning, pain, or weakness.
+    - Symptoms get worse or spread.
+    - Symptoms make it hard to fasten buttons, write, hold objects, walk, or balance.
+  priority_tags: [change-noted, daily-activities]
+  claim_ids: [claim-neuropathy-contact-observations]
+
+- <<: *general_neuropathy
+  id: general-neuropathy-urgent-neurological-signs
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs:
+    - These are general signs of a brain or nerve emergency. They do not tell you if you have peripheral neuropathy or how serious it is.
+  bullets:
+    - You develop sudden confusion or trouble speaking.
+    - You have sudden difficulty moving an arm or leg.
+    - You have a seizure or pass out.
+  priority_tags: []
+  source_ids: [canada-stroke-warning-signs]
+  claim_ids: [claim-urgent-neurological-signs]
+
+- <<: *general_neuropathy
+  id: general-neuropathy-reporting-checklist
+  section: reporting_checklist
+  title: What information to have ready
+  paragraphs: []
+  bullets:
+    - Where you feel tingling, numbness, burning, or pain.
+    - When it began and whether it is changing.
+    - Effects on buttons, writing, small objects, walking, or balance.
+    - Any weakness, falls, near-falls, burns, cuts, or other injuries.
+    - Your treatment name and when you last had treatment.
+  priority_tags: [tracking]
+  claim_ids: [claim-neuropathy-reporting-information]
+
+- &general_diarrhea
+  <<: *general_demo_module
+  id: general-diarrhea-about
+  section: about
+  title: About this symptom
+  paragraphs:
+    - Diarrhea means loose, watery, or not fully formed bowel movements. It can also mean going more often than is usual for you. You may have a sudden need to go, bloating, or cramps.
+    - Other health problems can cause the same symptoms. Ariad cannot tell what is causing them.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [diarrhea] }
+  source_ids: [cco-manage-diarrhea]
+  claim_ids: [claim-diarrhea-description]
+
+- <<: *general_diarrhea
+  id: general-diarrhea-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - These are general steps. Follow any instructions from your cancer team about fluids, food, or medicine.
+  bullets:
+    - Keep a record of bowel movements.
+    - Sip fluids often unless your team told you to limit them.
+    - Choose small meals and limit caffeine, alcohol, spicy foods, and high-fat foods.
+    - Use medicine for diarrhea only as your cancer team instructed.
+    - Keep the skin around your bottom clean and dry. Clean it gently after bowel movements.
+  priority_tags: [tracking, hydration, team-instructions]
+  claim_ids: [claim-diarrhea-tracking, claim-diarrhea-hydration, claim-diarrhea-foods, claim-diarrhea-team-directed-medicine]
+
+- <<: *general_diarrhea
+  id: general-diarrhea-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have more than 7 loose or watery bowel movements in 24 hours.
+    - Diarrhea continues for more than 24 hours, even after you use medicine as your team instructed.
+    - You cannot drink enough, there is blood, or you have belly pain other than your usual cramping.
+    - You are thirsty, have a dry mouth, or pass less urine or dark urine. You feel dizzy, vomit, or have a fast heartbeat.
+  priority_tags: [contact-information, hydration]
+  claim_ids: [claim-diarrhea-contact-observations]
+
+- <<: *general_diarrhea
+  id: general-diarrhea-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs:
+    - Ariad does not show a fever number because cancer centres may give different instructions. Follow the fever instructions from your cancer team.
+  bullets:
+    - You cannot reach your cancer team and have the warning signs listed above.
+    - You think you need emergency medical help.
+  priority_tags: []
+  source_ids: [cco-manage-diarrhea, cco-fever-patient-guide]
+  claim_ids: [claim-diarrhea-urgent-fallback, claim-fever-threshold-owner-pending]
+  placeholders: [clinic-specific fever threshold pending clinician review]
+
+- <<: *general_diarrhea
+  id: general-diarrhea-reporting-checklist
+  section: reporting_checklist
+  title: What information to have ready
+  paragraphs: []
+  bullets:
+    - When the diarrhea began and the number of loose or watery bowel movements in 24 hours.
+    - How that compares with your usual bowel movements, including whether it happened at night.
+    - Any blood, mucus, vomiting, dizziness, belly pain, or temperature reading.
+    - How much you have been able to drink and any change in how often you pass urine.
+    - Any medicine for diarrhea used as your team instructed, your treatment name, and when you last had treatment.
+  priority_tags: [tracking]
+  claim_ids: [claim-diarrhea-reporting-information]
+
+- &general_infection
+  <<: *general_demo_module
+  id: general-fever-infection-about
+  section: about
+  title: About this symptom
+  paragraphs:
+    - Fever, chills, or feeling unwell can be signs of infection. Infection can sometimes occur without a fever.
+    - Ariad cannot tell if you have an infection or if your white blood cell count is low.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [fever-infection-concern] }
+  source_ids: [cco-fever-patient-guide, eviq-infection-during-cancer-treatment]
+  claim_ids: [claim-infection-observable-signs, claim-infection-without-fever]
+
+- <<: *general_infection
+  id: general-infection-home-preparation
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Follow the infection and fever instructions from your cancer team.
+  bullets:
+    - Keep a working digital thermometer available.
+    - If you feel hot, chilled, or unwell, take your temperature before using medicine that lowers fever. This medicine can hide a fever.
+    - Avoid hot or cold food and drink just before taking your temperature by mouth.
+    - Wash your hands often. Keep cuts and the skin around any treatment line (a tube used to give medicine) clean.
+  priority_tags: [infection-observations]
+  claim_ids: [claim-thermometer-readiness, claim-fever-medicine-masking, claim-infection-precautions]
+
+- <<: *general_infection
+  id: general-infection-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have chills, shaking, sweats, a sore throat, or a cough.
+    - You have burning or blood when passing urine, mouth sores, or red or sore skin around a wound or treatment line.
+    - You have vomiting or diarrhea that does not stop.
+    - You feel unwell even without a measured fever.
+  priority_tags: [infection-observations, contact-information]
+  claim_ids: [claim-infection-contact-observations]
+
+- <<: *general_infection
+  id: general-infection-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs:
+    - Ariad does not show a fever number because cancer centres may give different instructions. Follow the fever instructions from your cancer team.
+  bullets:
+    - You cannot reach your cancer team and suddenly feel very unwell.
+    - You are short of breath, feel faint or very dizzy, or have a fast heartbeat.
+    - You think you need emergency medical help.
+  priority_tags: []
+  source_ids: [cco-fever-patient-guide, cco-fever-assessment-guideline, eviq-infection-during-cancer-treatment]
+  claim_ids: [claim-infection-urgent-observations, claim-fever-threshold-owner-pending]
+  placeholders: [clinic-specific fever threshold and destination pending clinician review]
+
+- <<: *general_infection
+  id: general-infection-reporting-checklist
+  section: reporting_checklist
+  title: What information to have ready
+  paragraphs: []
+  bullets:
+    - Your highest temperature, how you took it, and the times you took it.
+    - Any chills, shaking, sweats, cough, sore throat, or breathing problems. Also note changes when you pass urine or have a bowel movement. Include mouth or skin changes and changes around a wound or treatment line.
+    - Your treatment name and when you last had treatment.
+    - Whether you took medicine to lower a fever, and when.
+  priority_tags: [tracking]
+  claim_ids: [claim-infection-reporting-information]
