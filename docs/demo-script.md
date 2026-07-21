@@ -18,7 +18,7 @@ narration. Keep the preview banner and emergency boundary visible.
 - Run the sample neuropathy wording once. The confirmation screen should say
   GPT-5.6 performed the controlled-catalogue match; if it shows a deterministic
   fallback, fix configuration before recording.
-- Reset the demo and clear saved treatments.
+- Reset the demo. Confirm that no saved-treatment controls appear.
 - Close notifications and unrelated tabs; use no real patient information.
 - Record at 1080p or higher with clear audio. Do not add unlicensed music,
   trademarks, logos, or third-party creative assets.

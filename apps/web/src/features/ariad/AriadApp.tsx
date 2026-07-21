@@ -60,6 +60,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { TREATMENT_SAVING_ENABLED } from "@/lib/features";
 import {
   activeRelease,
   clinicContactHref,
@@ -311,7 +312,7 @@ function HomeScreen({
         </button>
       </section>
 
-      {savedTreatments.length > 0 ? (
+      {TREATMENT_SAVING_ENABLED && savedTreatments.length > 0 ? (
         <section className="saved-treatments" aria-labelledby="saved-treatments-heading">
           <div className="section-heading">
             <p className="eyebrow">Saved on this device</p>
@@ -920,16 +921,18 @@ function TreatmentOverviewScreen({
         <span className={`selection-kind selection-kind-${treatment?.kind ?? "drug"}`}>
           {selectionType}
         </span>
-        <button
-          className="secondary-button"
-          type="button"
-          onClick={onSave}
-          aria-pressed={saved}
-          disabled={saved}
-        >
-          {saved ? <Check aria-hidden="true" size={17} /> : null}
-          {saved ? "Saved on this device" : "Save this treatment"}
-        </button>
+        {TREATMENT_SAVING_ENABLED ? (
+          <button
+            className="secondary-button"
+            type="button"
+            onClick={onSave}
+            aria-pressed={saved}
+            disabled={saved}
+          >
+            {saved ? <Check aria-hidden="true" size={17} /> : null}
+            {saved ? "Saved on this device" : "Save this treatment"}
+          </button>
+        ) : null}
       </div>
 
       <BoundaryCard />
@@ -1616,11 +1619,22 @@ function AboutScreen({ onBack, onReset }: { onBack: () => void; onReset: () => v
       <div className="about-grid">
         <article><ShieldCheck aria-hidden="true" /><h2>Fixed safety information</h2><p>Ariad shows information from the sources listed in this demo. The information is still a draft and has not been approved for patient care.</p></article>
         <article><Sparkles aria-hidden="true" /><h2>How Ariad uses AI</h2><p>AI may match your words to a symptom and rewrite the facts you enter. It cannot write safety advice, decide what is wrong, or tell you what care you need.</p></article>
-        <article><Clipboard aria-hidden="true" /><h2>Your privacy</h2><p>You do not need an account. Treatments you save stay on this device. Ariad does not keep your symptom answers after you leave or refresh the page.</p></article>
+        <article>
+          <Clipboard aria-hidden="true" />
+          <h2>Your privacy</h2>
+          <p>
+            {TREATMENT_SAVING_ENABLED
+              ? "You do not need an account. Treatments you save stay on this device. Ariad does not keep your symptom answers after you leave or refresh the page."
+              : "You do not need an account. The competition demo does not add treatment choices to a saved list. Ariad does not keep your symptom answers after you leave or refresh the page."}
+          </p>
+        </article>
       </div>
       <section className="intended-use"><h2>What Ariad is for</h2><p>{ARIAD_INTENDED_USE}</p></section>
       <section className="release-card"><p className="eyebrow">Version used for this demo</p><span>Demo version {activeRelease.release_version}</span></section>
-      <button className="danger-text-button" type="button" onClick={onReset}><RotateCcw aria-hidden="true" size={17} /> Reset demo and clear saved treatments</button>
+      <button className="danger-text-button" type="button" onClick={onReset}>
+        <RotateCcw aria-hidden="true" size={17} />
+        {TREATMENT_SAVING_ENABLED ? "Reset demo and clear saved treatments" : "Reset demo"}
+      </button>
     </>
   );
 }
@@ -1648,7 +1662,9 @@ export function AriadApp() {
   useEffect(() => {
     document.body.dataset.ariadReady = "true";
     const timer = window.setTimeout(() => {
-      setPreferences(readPreferences());
+      setPreferences(
+        TREATMENT_SAVING_ENABLED ? readPreferences() : clearAriadData(),
+      );
       const parameters = new URLSearchParams(window.location.search);
       const code = parameters.get("code")?.toUpperCase();
       const treatmentId = code ? DEMO_CODES[code] : undefined;
@@ -1860,7 +1876,11 @@ export function AriadApp() {
           <TreatmentOverviewScreen
             treatmentId={selectedTreatmentId}
             saved={preferences.savedTreatmentIds.includes(selectedTreatmentId)}
-            onSave={() => setPreferences(saveTreatment(preferences, selectedTreatmentId))}
+            onSave={() => {
+              if (TREATMENT_SAVING_ENABLED) {
+                setPreferences(saveTreatment(preferences, selectedTreatmentId));
+              }
+            }}
             onBack={() => setScreen(selectedSymptomId ? "treatment-context" : "treatment-search")}
             onSymptom={continueFromTreatment}
             onSymptomLabel={selectedSymptomId ? "Continue with this treatment" : "I’m having a symptom"}

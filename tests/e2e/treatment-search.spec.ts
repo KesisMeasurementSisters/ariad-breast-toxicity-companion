@@ -92,9 +92,28 @@ test("unknown-treatment help gives useful next steps and keeps the search", asyn
   await expect(page.getByLabel("Drug or treatment plan")).toHaveValue("docetaxel");
 });
 
-test("preparation can be printed and a saved treatment can be reopened from home", async ({ page }) => {
+test("the competition build prints and does not save treatment choices", async ({ page }) => {
+  await page.evaluate(() => {
+    window.localStorage.setItem(
+      "ariad:preferences",
+      JSON.stringify({
+        schemaVersion: 1,
+        savedTreatmentIds: ["weekly-paclitaxel"],
+        noticeAcknowledged: false,
+      }),
+    );
+  });
+  await page.reload();
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await expect
+    .poll(() => page.evaluate(() => window.localStorage.getItem("ariad:preferences")))
+    .toBeNull();
+  await expect(page.getByRole("heading", { name: "Your saved treatments" })).toHaveCount(0);
+
+  await page.getByRole("button", { name: /I’m starting treatment/ }).click();
   await page.getByLabel("Drug or treatment plan").fill("weekly paclitaxel");
   await page.getByRole("button", { name: /Treatment plan: Weekly paclitaxel/ }).click();
+  await expect(page.getByRole("button", { name: "Save this treatment" })).toHaveCount(0);
 
   await page.evaluate(() => {
     window.print = () => {
@@ -104,12 +123,11 @@ test("preparation can be printed and a saved treatment can be reopened from home
   await page.getByRole("button", { name: "Print this page" }).click();
   await expect(page.locator("body")).toHaveAttribute("data-print-requested", "true");
 
-  await page.getByRole("button", { name: "Save this treatment" }).click();
-  await expect(page.getByRole("button", { name: "Saved on this device" })).toBeDisabled();
   await page.getByRole("button", { name: "Ariad home" }).click();
+  await expect(page.getByRole("heading", { name: "Your saved treatments" })).toHaveCount(0);
 
-  await expect(page.getByRole("heading", { name: "Your saved treatments" })).toBeVisible();
-  await page.getByRole("button", { name: "Open saved treatment: Weekly paclitaxel" }).click();
+  await page.goto("/?treatment=weekly-paclitaxel");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
   await expect(page.getByRole("heading", { name: "Weekly paclitaxel" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
 });

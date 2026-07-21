@@ -15,6 +15,7 @@ FROM deps AS builder
 COPY . .
 ARG ALLOW_DRAFT_CONTENT=false
 ARG NEXT_PUBLIC_DEMO_MODE=false
+ARG NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false
 RUN pnpm build
 
 FROM node:24-alpine AS runner
@@ -28,4 +29,3 @@ USER nextjs
 EXPOSE 3000
 ENV PORT=3000
 CMD ["node", "apps/web/server.js"]
-

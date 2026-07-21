@@ -113,7 +113,8 @@ a post-prototype governance gate.
 
 - [x] Confirm no accounts, database, server symptom history, medical uploads,
   analytics, ads, or tracking pixels were added.
-- [x] Confirm only saved treatment IDs/notice state persist locally.
+- [x] Confirm the competition build shows no saved-treatment controls, writes no
+  treatment choices, and clears the legacy Ariad preference key.
 - [x] Confirm raw symptom text and summaries are absent from application logs.
 - [x] Confirm OpenAI requests use server-side credentials, structured output,
   input limits, timeout, no retries, `store: false`, same-origin protection, and

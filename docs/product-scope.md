@@ -99,15 +99,15 @@ Support labels mean:
 - Treatment codes `THREAD-PAC-01`, `THREAD-CAPE-02`, and `THREAD-AC-03`.
 - Query-string code resolution through `?code=THREAD-PAC-01`.
 - Direct treatment-preview resolution through `?treatment=<canonical-drug-id>`.
-- Help for people who do not know the treatment name, plus a local saved-list
-  control that can reopen a selected treatment.
+- Help for people who do not know the treatment name. The competition build
+  does not show or write a saved-treatment list.
 - Preparation-first treatment pages that group the governed modules under three
   plain-language questions, followed by a separate safety note and side-effect
   education. The print action includes all of these sections.
 - Structured fictional daytime/after-hours clinic contacts, rendered as
   non-actionable display data, plus explicit unresolved fever and
   supportive-care policy states.
-- Reset and clear-saved-treatment action.
+- Reset action for the active demonstration.
 - Summary copy, print, and plain-text download.
 
 Treatment codes and the demo clinic contain no personal information and do not

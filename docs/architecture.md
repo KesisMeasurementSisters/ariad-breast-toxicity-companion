@@ -49,7 +49,8 @@ flowchart TB
 - Imports the generated release and validates it on startup.
 - Server-only OpenAI adapter and routes; API credentials never enter browser
   code.
-- Versioned local-storage adapter for saved treatment IDs and notice state.
+- Default-off, versioned local-storage adapter. Competition builds disable
+  treatment saving and clear its legacy preference key.
 - Static security headers and a health endpoint.
 
 ### `packages/contracts`
@@ -137,9 +138,10 @@ standalone Next.js output as a non-root user. No public deployment is currently
 claimed.
 
 Draft preview builds require the exact explicit acknowledgement and preserve
-the visible prototype notice. A future clinical deployment must use a separate
-published, approved release; it must not enable draft content through a generic
-boolean flag.
+the visible prototype notice. The competition target also forces
+`NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false`. A future clinical deployment must
+use a separate published, approved release; it must not enable draft content
+through a generic boolean flag.
 
 ## Extractability
 

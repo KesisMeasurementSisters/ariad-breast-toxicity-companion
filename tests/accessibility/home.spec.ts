@@ -113,21 +113,22 @@ test("weekly preparation and unknown-treatment help have no serious accessibilit
   ).toEqual([]);
 });
 
-test("saved treatment retrieval fits at 320px without horizontal overflow", async ({ page }) => {
+test("a direct treatment link fits at 320px without saved-treatment controls", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("/?treatment=weekly-paclitaxel");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
-  await page.getByRole("button", { name: "Save this treatment" }).click();
-  await page.getByRole("button", { name: "Ariad home" }).click();
-  await expect(page.getByRole("heading", { name: "Your saved treatments" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Weekly paclitaxel" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Save this treatment" })).toHaveCount(0);
 
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
     .toBe(true);
 
-  const saved = await new AxeBuilder({ page }).analyze();
+  const directTreatment = await new AxeBuilder({ page }).analyze();
   expect(
-    saved.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
+    directTreatment.violations.filter(
+      ({ impact }) => impact === "critical" || impact === "serious",
+    ),
   ).toEqual([]);
 });
 

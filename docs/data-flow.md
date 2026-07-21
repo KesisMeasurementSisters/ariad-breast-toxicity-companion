@@ -124,23 +124,18 @@ sequenceDiagram
 The summary is not written to a database or server history. The application
 does not create a longitudinal record.
 
-## 6. Persistence and reset
+## 6. Competition persistence and reset
 
-Only a versioned local-storage object persists:
+`NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false` is forced by the competition build
+and browser-test commands. The application does not render saved-treatment
+controls, does not write treatment choices, and removes a legacy
+`ariad:preferences` record when it starts. The versioned local-storage adapter
+remains dormant and requires the exact value `true` in a different build.
 
-```json
-{
-  "schemaVersion": 1,
-  "savedTreatmentIds": ["weekly-paclitaxel"],
-  "noticeAcknowledged": false
-}
-```
-
-It is capped at 12 treatment IDs. Saved IDs appear on the home screen and can
-reopen a treatment page. Free text, answers, candidate matches, and summary
-content remain in active React state and are cleared by reset or normal session
-termination. “Reset demo and clear saved treatments” removes the local storage
-key and ephemeral state.
+Free text, answers, candidate matches, and summary content remain in active
+React state and are cleared by reset or normal session termination. Direct
+`?treatment=` links remain supported; as normal web addresses, they may appear
+in browser history even though Ariad does not add them to a saved list.
 
 The current owner-directed mode sets `ENABLE_GPT56=false`, so no request data
 crosses the OpenAI provider boundary. If GPT-5.6 is explicitly re-enabled in a

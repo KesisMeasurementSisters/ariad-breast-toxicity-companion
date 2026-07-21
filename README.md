@@ -71,9 +71,9 @@ Life** track.
   summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
 - A content-addressed preview release containing 492 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
-  treatment-code demos, local saved treatments, and copy/print/download symptom
-  summaries. The clinic's fever and supportive-care policy bindings remain
-  explicitly unresolved.
+  treatment-code demos, direct treatment links, and copy/print/download symptom
+  summaries. Treatment saving is disabled in the competition build. The clinic's
+  fever and supportive-care policy bindings remain explicitly unresolved.
 
 ## Product evidence
 
@@ -149,7 +149,7 @@ flowchart LR
     R --> Q
     UI -. "bounded, optional" .-> AI["Server-side GPT-5.6 adapter"]
     AI -. "controlled IDs or supplied facts only" .-> UI
-    LS["Versioned local storage: saved treatment IDs only"] <--> UI
+    LS["Dormant, explicit-opt-in treatment-saving adapter"] -.-> UI
   end
 
   DB["No database, accounts, RAG, analytics, or symptom history"]
@@ -228,6 +228,7 @@ The checked-in example and current local configuration set
 | `CONTENT_RELEASE_ID` | Exact release manifest to compile | `build-week-preview-2026-07-18` |
 | `ALLOW_DRAFT_CONTENT` | Exact preview acknowledgement; never a production convenience flag | `false` |
 | `NEXT_PUBLIC_DEMO_MODE` | Preview-build marker; the mandatory UI notice comes from the compiled release | `true` for preview |
+| `NEXT_PUBLIC_ENABLE_TREATMENT_SAVING` | Exact opt-in for device-local saved treatments; forced off in the competition build | `false` |
 
 ## Validation and builds
 
@@ -311,8 +312,8 @@ report](./content/review-report.md).
 - No names, birth dates, identifiers, contact capture, medical uploads, or
   electronic medical-record integration.
 - No database, server-side symptom history, longitudinal diary, or analytics.
-- Only saved treatment IDs and a notice flag persist in versioned browser local
-  storage.
+- The competition build does not save treatment choices. It removes any legacy
+  Ariad preference record when the application starts.
 - Symptom free text and answers remain ephemeral in the interface. When
   GPT-5.6 is enabled, the minimum required text/facts are sent to the bounded
   server endpoint and model provider; users are told not to enter identifying
@@ -351,6 +352,7 @@ Docker image. No public deployment is claimed in this README.
   docker build \
     --build-arg ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW \
     --build-arg NEXT_PUBLIC_DEMO_MODE=true \
+    --build-arg NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false \
     -t ariad-breast-preview -f apps/web/Dockerfile .
   docker run --rm -p 3000:3000 --env-file .env.local ariad-breast-preview
   ```
