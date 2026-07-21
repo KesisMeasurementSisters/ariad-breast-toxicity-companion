@@ -1,0 +1,475 @@
+- kind: source
+  id: cco-symptom-assessment-tool
+  version: 1.0.0
+  title: "Symptom Assessment Tools: Your Symptoms Matter"
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/guidelines-advice/symptom-side-effect-management/symptom-assessment-tool
+  source_type: clinical_guidance
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Current web page accessed 21 July 2026; no revision date displayed
+  permitted_excerpt: null
+  notes:
+    - Supports asking people to report symptoms and their effect on daily activities over time.
+    - Ariad uses only neutral, observable questions. It does not copy scores, assign a symptom grade, or make a clinical assessment.
+  verification_status: verified
+
+- kind: source
+  id: cco-fatigue-patient-guide
+  version: 1.0.0
+  title: "Managing Your Fatigue: For People With Cancer"
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/guidelines-advice/symptom-management/fatigue/managing-your-fatigue
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Updated June 2025; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports fatigue recognition, pacing, safe activity, eating and drinking, sleep, and signs that should be reported right away.
+    - Causes are presented as possibilities only. Ariad must not decide what is causing fatigue.
+    - Any medicine, treatment, exercise, or fluid advice is limited to following the person's cancer team instructions.
+  verification_status: verified
+
+- kind: source
+  id: cco-nausea-vomiting-patient-guide
+  version: 1.0.0
+  title: How to Manage Your Nausea and Vomiting
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/system/files_force/symptoms/CCONauseaDesktop.pdf?download=1
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Version 2, 2016
+  permitted_excerpt: null
+  notes:
+    - Supports observable nausea, vomiting, dehydration and bleeding warning signs, plus simple food and fluid measures.
+    - This is an older patient guide that remains linked from the current Ontario Health symptom page. Clinician review must assess its currency before approval.
+    - Exact medicine timing, dose instructions, severity scores, treatment changes, and diagnostic language are excluded.
+  verification_status: verified
+
+- kind: source
+  id: cco-constipation-patient-guide
+  version: 1.0.0
+  title: "How to Manage Constipation: For People With Cancer"
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/guidelines-advice/symptom-management/constipation/how-to-manage-constipation
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Updated June 2025; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports constipation recognition, safe food, fluid, movement and bathroom measures, and contact signs such as bleeding, vomiting, pain or inability to pass gas.
+    - Fibre and fluid advice must preserve the source cautions for bowel surgery, possible blockage, and limits set by the cancer team.
+    - Ariad does not choose or dose a laxative and does not diagnose a bowel blockage.
+  verification_status: verified
+
+- kind: source
+  id: cco-loss-appetite-patient-guide
+  version: 1.0.0
+  title: How to Manage Loss of Appetite
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/system/files_force/symptoms/ManageLossOfAppetite.pdf
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Version 1, 2016
+  permitted_excerpt: null
+  notes:
+    - Supports small frequent meals, energy and protein choices, food preparation support, and reporting inability to eat, pain, low urine output or ongoing vomiting.
+    - This is an older patient guide that remains linked from the current Ontario Health symptom page. Clinician review must assess its currency before approval.
+    - Brand examples, appetite medicines, fixed fluid targets, and treatment-continuation claims are excluded.
+  verification_status: verified
+
+- kind: source
+  id: cco-oral-care-patient-guide
+  version: 1.0.0
+  title: Mouth Care During Cancer Treatment
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/symptom-management/oral-care/how-to-manage-oral-care
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Updated November 2025; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports gentle mouth care, dry-mouth and taste-change measures, and reporting trouble swallowing or inability to eat or drink.
+    - Numeric fever thresholds are intentionally excluded because Ariad's local fever policy is unresolved. People must follow their cancer team's fever instructions.
+    - Product names, fixed rinse recipes, and treatment changes are outside the general journey.
+  verification_status: verified
+
+- kind: source
+  id: cco-hand-foot-syndrome-patient-guide
+  version: 1.0.0
+  title: Hand-foot Syndrome During Treatment
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/system/files_force/symptoms/Hand-Foot%20Syndrome%20During%20Treatment.pdf
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Undated patient PDF linked from the current Ontario Health hand-foot syndrome page
+  permitted_excerpt: null
+  notes:
+    - Supports observable tingling, redness, tenderness, swelling, peeling, blisters or sores, plus reducing heat, rubbing and pressure.
+    - The PDF does not display a revision date. Clinician review must assess its currency before approval.
+    - Drug-specific cold precautions, named products, medicine advice, and treatment hold or dose-change instructions are excluded.
+  verification_status: verified
+
+- kind: source
+  id: cco-pain-patient-guide
+  version: 1.0.0
+  title: How to Manage Pain
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/system/files_force/symptoms/ManagePain.pdf
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: CPQ4149 Version 2, 2020
+  permitted_excerpt: null
+  notes:
+    - Supports reporting where pain is, what it feels like, when it began, what changes it, and how it affects daily life.
+    - Supports gentle movement and relaxation only when safe and consistent with the cancer team's advice.
+    - Medicine names, dose changes, treatment changes, pain scores used as clinical grades, and causal conclusions are excluded.
+  verification_status: verified
+
+- kind: source
+  id: cco-dyspnea-patient-guide
+  version: 1.0.0
+  title: Managing Shortness of Breath For People With Cancer
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/symptom-management/dyspnea-shortness-breath/managing-shortness-of-breath-for-people-with-cancer
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Updated December 2025; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports reporting any new shortness of breath, calling 911 for sudden worsening or inability to breathe, and simple positions and pacing after team review.
+    - Ariad must not decide the cause or suggest that breathing trouble is safe to manage at home without the cancer team's direction.
+  verification_status: verified
+
+- kind: source
+  id: cco-anxiety-patient-guide
+  version: 1.0.0
+  title: How to Manage Your Anxiety
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/symptom-management/anxiety/how-to-manage-your-anxiety
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Current web guide accessed 21 July 2026; no revision date displayed
+  permitted_excerpt: null
+  notes:
+    - Supports observable worry, restlessness, sleep and daily-life effects, simple coping measures, and emergency action for self-harm thoughts or sudden physical warning signs.
+    - Ariad must not label a mental-health condition or attribute chest, breathing, dizziness or heartbeat symptoms to anxiety.
+    - Medicine and treatment recommendations are excluded.
+  verification_status: verified
+
+- kind: source
+  id: cco-depression-patient-guide
+  version: 1.0.0
+  title: How to Manage Depression during Cancer
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/system/files_force/symptoms/ManageDepression.pdf?download=1
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Updated February 2021; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports asking about persistent mood changes, loss of interest, sleep, eating, focus and daily-life effects, and immediate emergency action for self-harm or suicide thoughts.
+    - Ariad must not diagnose depression, score symptoms, or recommend a medicine or treatment change.
+  verification_status: verified
+
+- kind: source
+  id: bc-cancer-sleeping-problems
+  version: 1.0.0
+  title: Sleeping Problems
+  organization: BC Cancer
+  canonical_url: https://www.bccancer.bc.ca/health-info/coping-with-cancer/managing-symptoms-side-effects/sleeping-problems
+  source_type: patient_information
+  jurisdiction: British Columbia, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Current web page accessed 21 July 2026; no revision date displayed
+  permitted_excerpt: null
+  notes:
+    - Supports describing trouble falling asleep, staying asleep, waking too early, not feeling rested, and effects on daytime function.
+    - Supports a sleep routine and discussing new or ongoing sleep problems with the cancer team.
+    - Medicine, supplement, and treatment-adjustment advice is excluded.
+  verification_status: verified
+
+- kind: source
+  id: bc-cancer-sexual-health-vagina
+  version: 1.0.0
+  title: "Sexual Health and Cancer: For people with a vulva/vagina"
+  organization: BC Cancer
+  canonical_url: https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Sexual-Health-Vagina-Web.pdf
+  source_type: patient_information
+  jurisdiction: British Columbia, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: June 2024; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports plain-language discussion of hot flushes, vaginal dryness, pain, bleeding after sex, bladder concerns and the effect of cancer care on sexual health.
+    - Product examples, hormone products, inserts, and personalized treatment advice are excluded from Ariad's general journey.
+  verification_status: verified
+
+- kind: source
+  id: bc-cancer-memory-thinking-attention
+  version: 1.0.0
+  title: Memory, Thinking & Attention
+  organization: BC Cancer
+  canonical_url: https://www.bccancer.bc.ca/health-info/coping-with-cancer/managing-symptoms-side-effects/memory-thinking-attention-problems
+  source_type: patient_information
+  jurisdiction: British Columbia, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Revised February 2014; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports neutral questions about memory, focus, task completion and the effect on daily life.
+    - This active page has an old revision date. It is used only for observable symptom language and requires clinician currency review before approval.
+    - Ariad must not call the symptom chemo brain, decide its cause, or make a prognosis.
+  verification_status: verified
+
+- kind: source
+  id: bc-cancer-hair-loss-appearance
+  version: 1.0.0
+  title: Managing Hair Loss
+  organization: BC Cancer
+  canonical_url: https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Managing%20Hair%20Loss%20-%20FINAL%2C%20OCTOBER%202025.pdf
+  source_type: patient_information
+  jurisdiction: British Columbia, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: October 2025; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports gentle hair and scalp care, sun and cold protection, emotional support, and reporting questions or scalp concerns.
+    - Timing predictions, named products, coverage details, and treatment-specific cooling advice are excluded from the general journey.
+  verification_status: verified
+
+- kind: source
+  id: bc-cancer-lymphedema
+  version: 1.0.0
+  title: Managing Lymphedema (swelling) in Your Arm or Leg
+  organization: BC Cancer
+  canonical_url: https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Lymphedema-Arm-Leg.pdf
+  source_type: patient_information
+  jurisdiction: British Columbia, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: February 2020; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports observable swelling, heaviness, tight skin, movement changes, skin care, and prompt contact for redness, warmth or pain.
+    - This source covers lymphedema after lymph-node damage. Ariad must not assume that general swelling is lymphedema or determine its cause.
+    - Compression, massage, device, exercise, and local coverage instructions are excluded unless supplied by the person's care team.
+  verification_status: verified
+
+- kind: source
+  id: ccs-chemotherapy-side-effects
+  version: 1.0.0
+  title: Side effects of chemotherapy
+  organization: Canadian Cancer Society
+  canonical_url: https://cancer.ca/en/treatments/treatment-types/chemotherapy/side-effects-of-chemotherapy
+  source_type: patient_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Last medical review May 2024; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports observable bruising and bleeding concerns, low-blood-count context, and blood-clot warning signs in an arm, leg, chest or lungs.
+    - The page is chemotherapy-specific. It does not prove that a symptom is caused by every systemic treatment.
+    - Blood-count interpretation, drug-specific risk, prevention medicines, treatment delays, doses, and causal conclusions are excluded.
+  verification_status: verified
+
+- kind: source
+  id: ccs-eye-vision-problems
+  version: 1.0.0
+  title: Eye and vision problems
+  organization: Canadian Cancer Society
+  canonical_url: https://cancer.ca/en/treatments/side-effects/eye-and-vision-problems
+  source_type: patient_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Last medical review June 2024; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports asking about new vision changes, eye pain, redness, dryness, swelling, tearing and effects on daily activities, and reporting them to the healthcare team.
+    - Ariad must not identify an eye condition, decide whether it needs treatment, or suggest a cancer-treatment change.
+  verification_status: verified
+
+- kind: source
+  id: ccs-skin-problems
+  version: 1.0.0
+  title: Skin problems
+  organization: Canadian Cancer Society
+  canonical_url: https://cancer.ca/en/treatments/side-effects/skin-problems
+  source_type: patient_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Last medical review April 2021; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports observable rash, itching, burning, tenderness, blisters, peeling and nail or skin changes, plus gentle skin protection.
+    - The medical review date is old. Clinician review must assess currency before approval, especially for serious rash warning signs.
+    - Ariad excludes named syndromes, diagnosis, drug-specific risk, topical medicine instructions, and treatment changes.
+  verification_status: verified
+
+- kind: source
+  id: ccs-heart-problems
+  version: 1.0.0
+  title: Heart problems
+  organization: Canadian Cancer Society
+  canonical_url: https://cancer.ca/en/treatments/side-effects/heart-problems
+  source_type: patient_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Last medical review March 2025; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports observable fast, pounding, skipping or uneven heartbeat, chest symptoms, shortness of breath, dizziness, fainting, fatigue and swelling.
+    - Ariad must not diagnose a heart problem, interpret a heart test, attribute symptoms to treatment, or recommend a treatment change.
+  verification_status: verified
+
+- kind: source
+  id: ccs-hormone-therapy-breast
+  version: 1.0.0
+  title: Hormone therapy for breast cancer
+  organization: Canadian Cancer Society
+  canonical_url: https://cancer.ca/en/cancer-information/cancer-types/breast/treatment/hormone-therapy
+  source_type: patient_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Last medical review March 2024; exact day not displayed
+  permitted_excerpt: null
+  notes:
+    - Supports the breast-cancer context for hot flashes, sleep changes, joint or body aches, headache, vaginal changes, hair thinning and blood-clot risk.
+    - This source applies only when hormone therapy is part of the person's treatment. It must not be used to imply that all systemic therapies cause these symptoms.
+    - Drug choice, duration, risk comparison, treatment change, and treatment-effectiveness claims are excluded.
+  verification_status: verified
+
+- kind: source
+  id: heart-stroke-emergency-signs
+  version: 1.0.0
+  title: Signs of a heart attack
+  organization: Heart and Stroke Foundation of Canada
+  canonical_url: https://www.heartandstroke.ca/heart-disease/emergency-signs
+  source_type: safety_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Current web page accessed 21 July 2026; no revision date displayed
+  permitted_excerpt: null
+  notes:
+    - Supports calling 911 for chest pressure, squeezing, fullness, pain, burning or heaviness, with possible sweating, upper-body discomfort, nausea, shortness of breath or light-headedness.
+    - Ariad uses only recognition and emergency-contact information. Aspirin, nitroglycerin, CPR, device, and diagnosis instructions are excluded.
+  verification_status: verified
+
+- kind: source
+  id: heart-stroke-stroke-signs
+  version: 1.0.0
+  title: Signs of stroke
+  organization: Heart and Stroke Foundation of Canada
+  canonical_url: https://www.heartandstroke.ca/stroke/signs-of-stroke
+  source_type: safety_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Current web page accessed 21 July 2026; no revision date displayed
+  permitted_excerpt: null
+  notes:
+    - Supports calling 911 and not driving when FAST stroke signs appear.
+    - Ariad uses this only for fixed emergency recognition. It does not diagnose stroke or decide whether a symptom has another cause.
+  verification_status: verified
+
+- kind: source
+  id: canada-stroke-warning-signs
+  version: 1.0.0
+  title: Stroke
+  organization: Public Health Agency of Canada
+  canonical_url: https://www.canada.ca/en/public-health/services/diseases/heart-health/stroke.html
+  source_type: safety_information
+  jurisdiction: Canada
+  publication_or_revision_date: 2026-02-12
+  accessed_date: 2026-07-21
+  source_version: Page details dated 12 February 2026
+  permitted_excerpt: null
+  notes:
+    - Supports emergency action for sudden one-sided weakness or numbness, speech trouble, vision change, or dizziness and loss of balance, including signs that come and go.
+    - Ariad uses only observable warning signs and the instruction to call 911 and take an ambulance. It does not diagnose stroke.
+  verification_status: verified
+
+- kind: source
+  id: eviq-general-chemotherapy-side-effects
+  version: 1.0.0
+  title: Managing the side effects of anti-cancer medicines
+  organization: eviQ Cancer Treatments Online, Cancer Institute NSW
+  canonical_url: https://www.eviq.org.au/patients-and-carers/patient-information-sheets/managing-side-effects/3088-managing-the-side-effects-of-anti-cancer-medi
+  source_type: patient_information
+  jurisdiction: Australia
+  publication_or_revision_date: 2022-11-21
+  accessed_date: 2026-07-21
+  source_version: ID 3088 v3; last reviewed 21 November 2022; review due 31 December 2026
+  permitted_excerpt: null
+  notes:
+    - Cross-checks patient-facing recognition and reporting language for fatigue, infection concerns, nausea, vomiting, mouth problems, diarrhea, nerve symptoms, bleeding, chest symptoms and breathing trouble.
+    - Australian emergency and local-service instructions are not copied. Canadian emergency wording and the person's cancer-team instructions take priority.
+    - Numeric fever thresholds, medicine doses, treatment changes, and treatment-specific causal claims are excluded.
+  verification_status: verified
+
+- kind: source
+  id: eviq-hypersensitivity-reaction
+  version: 1.0.0
+  title: Hypersensitivity reaction
+  organization: eviQ Cancer Treatments Online, Cancer Institute NSW
+  canonical_url: https://www.eviq.org.au/clinical-resources/side-effect-and-toxicity-management/immunological/1831-hypersensitivity-reaction
+  source_type: clinical_guidance
+  jurisdiction: Australia
+  publication_or_revision_date: 2019-05-01
+  accessed_date: 2026-07-21
+  source_version: ID 1831 v5; last reviewed 1 May 2019; review due 30 June 2021; page currently under review
+  permitted_excerpt: null
+  notes:
+    - Used only for oncology infusion context and the instruction to report new reaction symptoms to the nurse or doctor immediately.
+    - This document is past its review date and marked under review by eviQ. It must not be represented as current guidance or used alone for emergency signs.
+    - Clinician grading, diagnosis, treatment, re-challenge, infusion-rate, medicine, and protocol instructions are excluded.
+  verification_status: verified
+
+- kind: source
+  id: canada-anaphylaxis-signs
+  version: 1.0.0
+  title: "Anaphylaxis and COVID-19: Summary information for health care professionals"
+  organization: Public Health Agency of Canada
+  canonical_url: https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/health-professionals/vaccines/anaphylaxis.html
+  source_type: safety_information
+  jurisdiction: Canada
+  publication_or_revision_date: 2021-05-07
+  accessed_date: 2026-07-21
+  source_version: Page details dated 7 May 2021
+  permitted_excerpt: null
+  notes:
+    - Cross-checks Canadian emergency recognition for hives or swelling with throat, breathing, chest, vomiting, diarrhea, fast-heartbeat, dizziness, fainting or collapse signs, and calling 911.
+    - The page is written for vaccine settings and health professionals. Ariad uses only general observable anaphylaxis signs and emergency action, not the vaccine context.
+    - Epinephrine doses, positioning, monitoring, diagnostic criteria, and clinician management steps are excluded.
+  verification_status: verified

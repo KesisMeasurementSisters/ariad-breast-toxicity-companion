@@ -1,0 +1,341 @@
+- &relationship_base
+  kind: treatment_toxicity_relationship
+  id: systemic-therapy-fatigue
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  treatment_kind: treatment_class
+  treatment_id: systemic-therapy
+  symptom_id: fatigue
+  relationship_type: general_safety
+  support_status: full_guidance
+  frequency_band: null
+  seriousness_flags: []
+  timing: null
+  modules:
+    about: [fatigue-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [fatigue-home-management]
+    contact_team: [fatigue-contact-team]
+    urgent_attention: [fatigue-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids:
+    - q-general-symptom-onset
+    - q-general-symptom-change
+    - q-general-symptom-impact
+    - q-fatigue-details
+  source_ids: [cco-symptom-assessment-tool, cco-fatigue-patient-guide, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-nausea
+  symptom_id: nausea
+  modules:
+    about: [nausea-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [nausea-home-management]
+    contact_team: [nausea-contact-team]
+    urgent_attention: [nausea-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-nausea-details]
+  source_ids: [cco-symptom-assessment-tool, cco-nausea-vomiting-patient-guide, eviq-general-chemotherapy-side-effects, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-vomiting
+  symptom_id: vomiting
+  modules:
+    about: [vomiting-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [vomiting-home-management]
+    contact_team: [vomiting-contact-team]
+    urgent_attention: [vomiting-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-vomiting-details]
+  source_ids: [cco-symptom-assessment-tool, cco-nausea-vomiting-patient-guide, eviq-general-chemotherapy-side-effects, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-constipation
+  symptom_id: constipation
+  modules:
+    about: [constipation-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [constipation-home-management]
+    contact_team: [constipation-contact-team]
+    urgent_attention: [constipation-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-constipation-details]
+  source_ids: [cco-symptom-assessment-tool, cco-constipation-patient-guide]
+
+- <<: *relationship_base
+  id: systemic-therapy-appetite-taste-changes
+  symptom_id: appetite-taste-changes
+  modules:
+    about: [appetite-taste-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [appetite-taste-home-management]
+    contact_team: [appetite-taste-contact-team]
+    urgent_attention: [appetite-taste-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-appetite-taste-changes-details]
+  source_ids: [cco-symptom-assessment-tool, cco-loss-appetite-patient-guide, canada-anaphylaxis-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-mouth-soreness
+  symptom_id: mouth-soreness
+  modules:
+    about: [mouth-soreness-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [mouth-soreness-home-management]
+    contact_team: [mouth-soreness-contact-team]
+    urgent_attention: [mouth-soreness-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-mouth-soreness-details]
+  source_ids: [cco-symptom-assessment-tool, cco-oral-care-patient-guide, canada-anaphylaxis-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-rash-itching
+  symptom_id: rash-itching
+  modules:
+    about: [rash-itching-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [rash-itching-home-management]
+    contact_team: [rash-itching-contact-team]
+    urgent_attention: [rash-itching-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-rash-itching-details]
+  source_ids: [cco-symptom-assessment-tool, ccs-skin-problems, canada-anaphylaxis-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-hand-foot-symptoms
+  symptom_id: hand-foot-symptoms
+  modules:
+    about: [hand-foot-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [hand-foot-home-management]
+    contact_team: [hand-foot-contact-team]
+    urgent_attention: [hand-foot-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-hand-foot-symptoms-details]
+  source_ids: [cco-symptom-assessment-tool, cco-hand-foot-syndrome-patient-guide, heart-stroke-emergency-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-joint-muscle-symptoms
+  symptom_id: joint-muscle-symptoms
+  modules:
+    about: [joint-muscle-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [joint-muscle-home-management]
+    contact_team: [joint-muscle-contact-team]
+    urgent_attention: [joint-muscle-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-joint-muscle-symptoms-details]
+  source_ids: [cco-symptom-assessment-tool, cco-pain-patient-guide, canada-stroke-warning-signs, ccs-chemotherapy-side-effects]
+
+- <<: *relationship_base
+  id: systemic-therapy-headache
+  symptom_id: headache
+  modules:
+    about: [headache-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [headache-home-management]
+    contact_team: [headache-contact-team]
+    urgent_attention: [headache-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-headache-details]
+  source_ids: [cco-symptom-assessment-tool, cco-pain-patient-guide, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-dizziness
+  symptom_id: dizziness
+  modules:
+    about: [dizziness-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [dizziness-home-management]
+    contact_team: [dizziness-contact-team]
+    urgent_attention: [dizziness-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-dizziness-details]
+  source_ids: [cco-symptom-assessment-tool, cco-fatigue-patient-guide, ccs-heart-problems, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-hot-flashes
+  symptom_id: hot-flashes
+  modules:
+    about: [hot-flashes-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [hot-flashes-home-management]
+    contact_team: [hot-flashes-contact-team]
+    urgent_attention: [hot-flashes-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-hot-flashes-details]
+  source_ids: [cco-symptom-assessment-tool, bc-cancer-sexual-health-vagina, ccs-hormone-therapy-breast, heart-stroke-emergency-signs, canada-anaphylaxis-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-vaginal-genitourinary-symptoms
+  symptom_id: vaginal-genitourinary-symptoms
+  modules:
+    about: [vaginal-genitourinary-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [vaginal-genitourinary-home-management]
+    contact_team: [vaginal-genitourinary-contact-team]
+    urgent_attention: [vaginal-genitourinary-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-vaginal-genitourinary-symptoms-details]
+  source_ids: [cco-symptom-assessment-tool, bc-cancer-sexual-health-vagina, ccs-hormone-therapy-breast, ccs-chemotherapy-side-effects]
+
+- <<: *relationship_base
+  id: systemic-therapy-sleep-concerns
+  symptom_id: sleep-concerns
+  modules:
+    about: [sleep-concerns-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [sleep-concerns-home-management]
+    contact_team: [sleep-concerns-contact-team]
+    urgent_attention: [sleep-concerns-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-sleep-concerns-details]
+  source_ids: [cco-symptom-assessment-tool, bc-cancer-sleeping-problems, cco-depression-patient-guide, cco-dyspnea-patient-guide]
+
+- <<: *relationship_base
+  id: systemic-therapy-mood-cognitive-concerns
+  symptom_id: mood-cognitive-concerns
+  modules:
+    about: [mood-cognitive-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [mood-cognitive-home-management]
+    contact_team: [mood-cognitive-contact-team]
+    urgent_attention: [mood-cognitive-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-mood-cognitive-concerns-details]
+  source_ids: [cco-symptom-assessment-tool, cco-anxiety-patient-guide, cco-depression-patient-guide, bc-cancer-memory-thinking-attention, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-pain
+  symptom_id: pain
+  modules:
+    about: [pain-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [pain-home-management]
+    contact_team: [pain-contact-team]
+    urgent_attention: [pain-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-pain-details]
+  source_ids: [cco-symptom-assessment-tool, cco-pain-patient-guide, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-shortness-of-breath-cough
+  symptom_id: shortness-of-breath-cough
+  modules:
+    about: [shortness-of-breath-cough-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [shortness-of-breath-cough-home-management]
+    contact_team: [shortness-of-breath-cough-contact-team]
+    urgent_attention: [shortness-of-breath-cough-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-shortness-of-breath-cough-details]
+  source_ids: [cco-symptom-assessment-tool, cco-dyspnea-patient-guide, ccs-chemotherapy-side-effects, canada-anaphylaxis-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-chest-symptoms
+  symptom_id: chest-symptoms
+  modules:
+    about: [chest-symptoms-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [chest-symptoms-home-management]
+    contact_team: [chest-symptoms-contact-team]
+    urgent_attention: [chest-symptoms-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-chest-symptoms-details]
+  source_ids: [cco-symptom-assessment-tool, heart-stroke-emergency-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-edema-swelling
+  symptom_id: edema-swelling
+  modules:
+    about: [edema-swelling-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [edema-swelling-home-management]
+    contact_team: [edema-swelling-contact-team]
+    urgent_attention: [edema-swelling-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-edema-swelling-details]
+  source_ids: [cco-symptom-assessment-tool, bc-cancer-lymphedema, ccs-chemotherapy-side-effects, canada-anaphylaxis-signs, heart-stroke-emergency-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-palpitations
+  symptom_id: palpitations
+  modules:
+    about: [palpitations-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [palpitations-home-management]
+    contact_team: [palpitations-contact-team]
+    urgent_attention: [palpitations-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-palpitations-details]
+  source_ids: [cco-symptom-assessment-tool, ccs-heart-problems, heart-stroke-emergency-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-bleeding-bruising
+  symptom_id: bleeding-bruising
+  modules:
+    about: [bleeding-bruising-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [bleeding-bruising-home-management]
+    contact_team: [bleeding-bruising-contact-team]
+    urgent_attention: [bleeding-bruising-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-bleeding-bruising-details]
+  source_ids: [cco-symptom-assessment-tool, ccs-chemotherapy-side-effects, eviq-general-chemotherapy-side-effects, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-blood-clot-warning-symptoms
+  symptom_id: blood-clot-warning-symptoms
+  modules:
+    about: [blood-clot-warning-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [blood-clot-warning-home-management]
+    contact_team: [blood-clot-warning-contact-team]
+    urgent_attention: [blood-clot-warning-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-blood-clot-warning-symptoms-details]
+  source_ids: [cco-symptom-assessment-tool, ccs-chemotherapy-side-effects]
+
+- <<: *relationship_base
+  id: systemic-therapy-eye-vision-symptoms
+  symptom_id: eye-vision-symptoms
+  modules:
+    about: [eye-vision-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [eye-vision-home-management]
+    contact_team: [eye-vision-contact-team]
+    urgent_attention: [eye-vision-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-eye-vision-symptoms-details]
+  source_ids: [cco-symptom-assessment-tool, ccs-eye-vision-problems, canada-stroke-warning-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-nail-hair-changes
+  symptom_id: nail-hair-changes
+  modules:
+    about: [nail-hair-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [nail-hair-home-management]
+    contact_team: [nail-hair-contact-team]
+    urgent_attention: [nail-hair-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-nail-hair-changes-details]
+  source_ids: [cco-symptom-assessment-tool, ccs-skin-problems, bc-cancer-hair-loss-appearance, canada-anaphylaxis-signs]
+
+- <<: *relationship_base
+  id: systemic-therapy-infusion-allergic-symptoms
+  symptom_id: infusion-allergic-symptoms
+  modules:
+    about: [infusion-allergic-about]
+    treatment_context: [general-systemic-symptom-context]
+    home_management: [infusion-allergic-home-management]
+    contact_team: [infusion-allergic-contact-team]
+    urgent_attention: [infusion-allergic-urgent-attention]
+    reporting_checklist: [general-symptom-reporting-checklist]
+  question_ids: [q-general-symptom-onset, q-general-symptom-change, q-general-symptom-impact, q-infusion-allergic-symptoms-details]
+  source_ids: [cco-symptom-assessment-tool, eviq-hypersensitivity-reaction, canada-anaphylaxis-signs]
