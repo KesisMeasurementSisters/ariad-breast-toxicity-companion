@@ -45,6 +45,14 @@ export interface GuidanceResolution {
   fallbackReason: string | null;
 }
 
+export interface PreparationResolution {
+  basis: "exact" | "general" | "unavailable";
+  basisLabel: string;
+  fallbackReason: string | null;
+  modules: EducationalModule[];
+  sourceIds: string[];
+}
+
 function eligibleRelationships(
   release: CompiledRelease,
   symptomId: string,
@@ -238,14 +246,116 @@ export function assembleGuidance(
   };
 }
 
+const GENERAL_PREPARATION_TREATMENT_ID = "systemic-therapy";
+
+function orderedPreparationModules(
+  modules: EducationalModule[],
+  basis: "exact" | "general",
+): EducationalModule[] {
+  const byOrder = new Map<number, string>();
+  for (const preparationModule of modules) {
+    const order = preparationModule.preparation_order;
+    if (order === undefined || !Number.isInteger(order) || order <= 0) {
+      throw new Error(
+        `Preparation module '${preparationModule.id}' is missing a valid preparation_order`,
+      );
+    }
+    const previousId = byOrder.get(order);
+    if (previousId) {
+      throw new Error(
+        `Duplicate ${basis} preparation_order ${order}: '${previousId}' and '${preparationModule.id}'`,
+      );
+    }
+    byOrder.set(order, preparationModule.id);
+  }
+  return [...modules].sort(
+    (left, right) =>
+      left.preparation_order! - right.preparation_order! ||
+      left.id.localeCompare(right.id),
+  );
+}
+
+function preparationResolution(
+  basis: "exact" | "general",
+  basisLabel: string,
+  fallbackReason: string | null,
+  modules: EducationalModule[],
+): PreparationResolution {
+  const orderedModules = orderedPreparationModules(modules, basis);
+  return {
+    basis,
+    basisLabel,
+    fallbackReason,
+    modules: orderedModules,
+    sourceIds: [...new Set(orderedModules.flatMap((module) => module.source_ids))].sort(),
+  };
+}
+
+export function resolvePreparation(
+  release: CompiledRelease,
+  treatmentId: string,
+): PreparationResolution {
+  const treatment = release.objects.find(
+    (object): object is Drug | Regimen =>
+      object.id === treatmentId && (object.kind === "drug" || object.kind === "regimen"),
+  );
+  if (!treatment) {
+    return {
+      basis: "unavailable",
+      basisLabel: "Preparation information unavailable",
+      fallbackReason: "Ariad could not find this treatment.",
+      modules: [],
+      sourceIds: [],
+    };
+  }
+
+  const preparation = release.objects.filter(
+    (object): object is EducationalModule =>
+      object.kind === "educational_module" &&
+      object.section === "preparation",
+  );
+
+  const exactModules = preparation.filter((module) =>
+    module.applicability.treatment_ids.includes(treatmentId),
+  );
+  if (exactModules.length > 0) {
+    return preparationResolution(
+      "exact",
+      treatment.kind === "regimen"
+        ? "Information for this treatment plan"
+        : "Information for this drug",
+      null,
+      exactModules,
+    );
+  }
+
+  const generalModules = preparation.filter((module) =>
+    module.applicability.treatment_ids.includes(GENERAL_PREPARATION_TREATMENT_ID),
+  );
+  if (generalModules.length > 0) {
+    return preparationResolution(
+      "general",
+      "General treatment preparation",
+      "Ariad does not have preparation information for this exact treatment. The information below is general and is not specific to your drug or treatment plan.",
+      generalModules,
+    );
+  }
+
+  return {
+    basis: "unavailable",
+    basisLabel: "Preparation information unavailable",
+    fallbackReason: "Ariad does not have preparation information for this treatment.",
+    modules: [],
+    sourceIds: [],
+  };
+}
+
+/**
+ * Compatibility helper for callers that only need the resolved module list.
+ */
 export function preparationModules(
   release: CompiledRelease,
   treatmentId: string,
 ): EducationalModule[] {
-  return release.objects.filter(
-    (object): object is EducationalModule =>
-      object.kind === "educational_module" &&
-      object.section === "preparation" &&
-      object.applicability.treatment_ids.includes(treatmentId),
-  );
+  return resolvePreparation(release, treatmentId).modules;
 }

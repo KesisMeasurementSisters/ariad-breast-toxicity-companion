@@ -2386,6 +2386,11 @@
                 },
                 "type": "array"
               },
+              "preparation_order": {
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991,
+                "type": "integer"
+              },
               "priority_tags": {
                 "default": [],
                 "items": {

@@ -1,9 +1,9 @@
 release_id: build-week-preview-2026-07-18
-version: 0.11.0
+version: 0.12.0
 channel: preview
 publication_status: draft
 clinical_use: false
-generated_at: 2026-07-21T11:29:00-04:00
+generated_at: 2026-07-21T12:20:00-04:00
 clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
 included_objects:
   - { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
@@ -108,10 +108,25 @@ included_objects:
   - { kind: educational_module, id: neuropathy-reporting-checklist, version: 1.0.0 }
   - { kind: educational_module, id: neuropathy-urgent-neurological-signs, version: 1.0.0 }
   - { kind: educational_module, id: paclitaxel-neuropathy-context, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.1.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.1.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.1.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.1.0 }
+  - { kind: educational_module, id: general-systemic-prep-overview, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-tests-and-appointments, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-medicine-list, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-questions, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-overview, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-tests, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-medicine-list, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-questions, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-overview, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-tests, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-medicine-list, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-questions, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-boundary, version: 1.0.0 }
   - { kind: educational_module, id: general-systemic-symptom-context, version: 1.0.0 }
   - { kind: educational_module, id: general-symptom-reporting-checklist, version: 1.0.0 }
   - { kind: educational_module, id: fatigue-about, version: 1.0.0 }
@@ -317,14 +332,17 @@ included_objects:
   - { kind: regimen, id: tchp, version: 1.1.0 }
   - { kind: regimen, id: weekly-paclitaxel, version: 1.0.0 }
   - { kind: source, id: bc-cancer-peripheral-neuropathy-handout, version: 1.0.0 }
-  - { kind: source, id: cco-ac-breast-patient-information, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-systemic-therapy-preparation, version: 1.0.0 }
+  - { kind: source, id: ccs-having-chemotherapy-preparation, version: 1.0.0 }
+  - { kind: source, id: ccs-chemotherapy-questions-preparation, version: 1.0.0 }
+  - { kind: source, id: cco-ac-breast-patient-information, version: 1.1.0 }
   - { kind: source, id: cco-capedoce-breast-regimen, version: 1.0.0 }
-  - { kind: source, id: cco-capecitabine-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-capecitabine-patient-information, version: 1.1.0 }
   - { kind: source, id: cco-capetuca-tras-breast-regimen, version: 1.0.0 }
   - { kind: source, id: cco-fever-assessment-guideline, version: 1.0.0 }
   - { kind: source, id: cco-fever-patient-guide, version: 1.0.0 }
   - { kind: source, id: cco-manage-diarrhea, version: 1.0.0 }
-  - { kind: source, id: cco-paclitaxel-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-paclitaxel-patient-information, version: 1.1.0 }
   - { kind: source, id: cco-symptom-management-directory, version: 1.0.0 }
   - { kind: source, id: cco-systemic-treatment-information, version: 1.0.0 }
   - { kind: source, id: cco-tch-breast-regimen, version: 1.0.0 }
@@ -482,6 +500,9 @@ included_objects:
   - { kind: treatment_toxicity_relationship, id: systemic-therapy-infusion-allergic-symptoms, version: 1.0.0 }
 source_inventory:
   - bc-cancer-peripheral-neuropathy-handout
+  - bc-cancer-systemic-therapy-preparation
+  - ccs-having-chemotherapy-preparation
+  - ccs-chemotherapy-questions-preparation
   - cco-ac-breast-patient-information
   - cco-capedoce-breast-regimen
   - cco-capecitabine-patient-information
@@ -585,6 +606,8 @@ reviewer_metadata:
   release_approval_id: null
 known_gaps:
   - All patient-facing clinical modules are draft and require clinician review.
+  - All 53 drug choices and eight regimen choices now resolve a preparation guide, but only weekly paclitaxel, capecitabine monotherapy, and AC have exact treatment-specific preparation overlays.
+  - The other five regimens and all standalone drugs use the clearly labelled general systemic-treatment preparation guide; Ariad does not infer exact preparation from drug classes or regimen components.
   - The 25 new symptom journeys are general systemic-treatment fallbacks. They do not establish that any exact drug or regimen caused or is associated with the selected symptom.
   - The three existing regimen-specific pathways remain the only exact treatment-and-symptom guidance relationships.
   - The eviQ hypersensitivity source is overdue for review and supports only infusion context and immediate reporting to the nurse; emergency signs are cross-checked against a current Canadian source.
@@ -600,6 +623,10 @@ known_gaps:
   - Carboplatin uses the FDA 553-patient single-agent ovarian safety population; this does not claim an FDA breast-cancer indication or a TCH/TCHP regimen frequency.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.12.0 adds a source-linked general treatment-preparation guide, so all 61 treatment choices now resolve useful preparation information without implying exact treatment instructions.
+  - Release 0.12.0 adds exact preparation overlays for weekly paclitaxel, capecitabine monotherapy, and AC, while keeping side-effect education available below preparation.
+  - Release 0.12.0 adds explicit preparation ordering and exact-versus-general fallback labels; it does not add dose, schedule, food, medicine-change, fever-threshold, or local-policy instructions.
+  - Release 0.12.0 keeps every new or revised patient module in draft with no recorded clinical approval.
   - Release 0.11.0 adds 25 unreviewed general symptom journeys, so all 28 symptom choices now have a complete six-section pathway in the preview.
   - Release 0.11.0 adds four patient-observable questions per new journey and keeps answers limited to a neutral fact summary and fixed-module ordering.
   - Release 0.11.0 adds 27 directly inspected source records from Ontario Health, BC Cancer, Canadian Cancer Society, Heart & Stroke, the Government of Canada, and eviQ.

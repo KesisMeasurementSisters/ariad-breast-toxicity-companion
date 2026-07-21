@@ -212,6 +212,7 @@ export const EducationalModuleSchema = z
     audience: z.literal("patient"),
     jurisdiction: z.string().min(2),
     section: ModuleSectionSchema,
+    preparation_order: z.number().int().positive().optional(),
     title: z.string().min(2),
     paragraphs: z.array(z.string().min(2)).default([]),
     bullets: z.array(z.string().min(2)).default([]),
@@ -230,6 +231,22 @@ export const EducationalModuleSchema = z
   .strict()
   .refine((module) => module.paragraphs.length + module.bullets.length > 0, {
     message: "A patient-facing module must contain at least one paragraph or bullet",
+  })
+  .superRefine((module, context) => {
+    if (module.section === "preparation" && module.preparation_order === undefined) {
+      context.addIssue({
+        code: "custom",
+        path: ["preparation_order"],
+        message: "A preparation module requires a positive preparation_order",
+      });
+    }
+    if (module.section !== "preparation" && module.preparation_order !== undefined) {
+      context.addIssue({
+        code: "custom",
+        path: ["preparation_order"],
+        message: "Only preparation modules may define preparation_order",
+      });
+    }
   });
 
 export const RelationshipModuleSlotsSchema = z
