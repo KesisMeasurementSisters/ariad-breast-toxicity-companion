@@ -58,11 +58,57 @@ test("live treatment results and regimen cards have no serious accessibility vio
       name: /Treatment plan: TCHP: Docetaxel \+ Carboplatin \+ Trastuzumab \+ Pertuzumab/,
     })
     .click();
+  await expect(page.getByRole("heading", { name: "Get ready for treatment" })).toBeVisible();
+  await expect(page.locator(".preparation-guide, .side-effect-education").first()).toHaveClass(
+    /preparation-guide/u,
+  );
   await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
   await expect(page.locator(".regimen-single-drug-boundary")).toHaveCount(3);
   const regimen = await new AxeBuilder({ page }).analyze();
   expect(
     regimen.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
+  ).toEqual([]);
+});
+
+test("weekly preparation and unknown-treatment help have no serious accessibility violations", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await page.getByRole("button", { name: /I’m starting treatment/ }).click();
+  await page.getByLabel("Drug or treatment plan").fill("weekly paclitaxel");
+  await page.getByRole("button", { name: /Treatment plan: Weekly paclitaxel/ }).click();
+
+  const preparation = await new AxeBuilder({ page }).analyze();
+  expect(
+    preparation.violations.filter(
+      ({ impact }) => impact === "critical" || impact === "serious",
+    ),
+  ).toEqual([]);
+
+  await page.getByRole("button", { name: "Back" }).click();
+  await page.getByRole("button", { name: "I don’t know my treatment" }).click();
+  const unknown = await new AxeBuilder({ page }).analyze();
+  expect(
+    unknown.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
+  ).toEqual([]);
+});
+
+test("saved treatment retrieval fits at 320px without horizontal overflow", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("/?treatment=weekly-paclitaxel");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await page.getByRole("button", { name: "Save this treatment" }).click();
+  await page.getByRole("button", { name: "Ariad home" }).click();
+  await expect(page.getByRole("heading", { name: "Your saved treatments" })).toBeVisible();
+
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
+    .toBe(true);
+
+  const saved = await new AxeBuilder({ page }).analyze();
+  expect(
+    saved.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
   ).toEqual([]);
 });
 

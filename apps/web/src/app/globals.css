@@ -437,6 +437,64 @@ button:disabled {
   line-height: 1.45;
 }
 
+.saved-treatments {
+  margin-block: 1.75rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.saved-treatments .section-heading p:last-child {
+  color: var(--muted);
+}
+
+.saved-treatment-list {
+  display: grid;
+  gap: 0.65rem;
+  margin-block-start: 1rem;
+}
+
+.saved-treatment-row {
+  display: flex;
+  width: 100%;
+  min-height: 4.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink-strong);
+  background: var(--cream);
+  text-align: left;
+}
+
+.saved-treatment-row:hover {
+  border-color: var(--thread);
+  background: var(--thread-pale);
+}
+
+.saved-treatment-row span,
+.saved-treatment-row small,
+.saved-treatment-row strong {
+  display: block;
+}
+
+.saved-treatment-row small {
+  margin-block-end: 0.2rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.saved-treatment-row > svg {
+  flex: 0 0 auto;
+  color: var(--thread);
+}
+
 .entry-icon,
 .section-icon {
   display: grid;
@@ -576,6 +634,7 @@ button:disabled {
 
 .search-panel,
 .code-panel,
+.saved-treatments,
 .language-panel,
 .catalogue-panel,
 .question-short-text,
@@ -583,6 +642,8 @@ button:disabled {
 .answer-list,
 .question-actions,
 .overview-meta,
+.preparation-guide,
+.side-effect-education,
 .module-stack,
 .regimen-medication-stack,
 .information-pending,
@@ -593,6 +654,7 @@ button:disabled {
 .summary-sheet,
 .summary-actions,
 .unsupported-card,
+.unknown-treatment-card,
 .about-grid,
 .intended-use,
 .release-card {
@@ -734,6 +796,10 @@ textarea::placeholder {
   display: block;
 }
 
+.result-copy .support-pill {
+  margin-block-start: 0.35rem;
+}
+
 .result-row small {
   margin-block-start: 0.16rem;
   color: var(--muted);
@@ -790,6 +856,21 @@ textarea::placeholder {
 .support-unsupported {
   color: var(--coral-dark);
   background: var(--coral-soft);
+}
+
+.preparation-exact {
+  color: var(--kesis-color-sage-700);
+  background: var(--kesis-color-sage-100);
+}
+
+.preparation-general {
+  color: var(--kesis-color-navy-700);
+  background: var(--kesis-color-navy-100);
+}
+
+.preparation-unavailable {
+  color: var(--kesis-color-text-secondary);
+  background: var(--kesis-color-warm-gray-100);
 }
 
 .empty-result {
@@ -942,6 +1023,59 @@ textarea::placeholder {
 
 .overview-meta .secondary-button {
   flex-basis: 100%;
+}
+
+.preparation-guide {
+  margin-block: 2rem 3rem;
+  padding: 1.15rem;
+  border: 1px solid var(--line-strong);
+  border-top: 4px solid var(--kesis-color-sage-500);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.preparation-guide-header h2 {
+  margin-block-end: 0.6rem;
+}
+
+.preparation-guide-header > p:not(.eyebrow) {
+  max-width: 48rem;
+  margin-block-start: 0.7rem;
+  color: var(--kesis-color-text-secondary);
+}
+
+.preparation-fallback {
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--kesis-color-navy-50);
+}
+
+.preparation-guide .preparation-stack {
+  margin-block: 1.25rem;
+}
+
+.preparation-guide .sources-panel {
+  margin-block-end: 0;
+}
+
+.preparation-pending {
+  margin-inline: 0;
+}
+
+.side-effect-education {
+  margin-block: 2rem;
+}
+
+.side-effect-intro {
+  margin-block-end: 1.25rem;
+  padding-block-end: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.side-effect-intro p:last-child {
+  max-width: 48rem;
+  color: var(--kesis-color-text-secondary);
 }
 
 .regimen-medication-stack {
@@ -1994,6 +2128,41 @@ details[open] > summary .summary-chevron {
   color: var(--kesis-color-text-secondary);
 }
 
+.unknown-treatment-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-block: 1rem 1.5rem;
+  padding: 1.15rem;
+  border: 1px solid var(--kesis-color-navy-200);
+  border-left: 4px solid var(--kesis-color-navy-500);
+  border-radius: var(--radius-md);
+  background: var(--kesis-color-navy-50);
+}
+
+.unknown-treatment-card > svg {
+  flex: 0 0 auto;
+  color: var(--kesis-color-navy-700);
+}
+
+.unknown-treatment-card h2 {
+  font-size: 1.18rem;
+}
+
+.unknown-treatment-card ul {
+  padding-inline-start: 1.25rem;
+}
+
+.unknown-treatment-card li,
+.unknown-treatment-card p {
+  color: var(--kesis-color-text-secondary);
+}
+
+.unknown-treatment-card p {
+  margin-block-start: 0.75rem;
+  font-weight: 700;
+}
+
 .about-grid {
   display: grid;
   gap: 0.75rem;
@@ -2338,7 +2507,7 @@ details[open] > summary .summary-chevron {
   .emergency-boundary,
   .site-footer,
   .skip-link,
-  .app-shell > :not(.summary-sheet):not(.toxicity-print-surface) {
+  .app-shell > :not(.summary-sheet):not(.treatment-print-surface) {
     display: none !important;
   }
 
@@ -2360,63 +2529,71 @@ details[open] > summary .summary-chevron {
     background: #eee;
   }
 
-  .toxicity-print-surface {
+  .treatment-print-surface {
     display: block !important;
   }
 
-  .toxicity-print-surface .back-button,
-  .toxicity-print-surface .overview-meta,
-  .toxicity-print-surface .action-row,
-  .toxicity-print-surface .summary-chevron {
+  .treatment-print-surface .back-button,
+  .treatment-print-surface .overview-meta,
+  .treatment-print-surface .action-row,
+  .treatment-print-surface .summary-chevron {
     display: none !important;
   }
 
-  .toxicity-print-surface .boundary-card {
+  .treatment-print-surface .boundary-card {
     margin-block: 1rem;
   }
 
-  .toxicity-print-surface .toxicity-presentation,
-  .toxicity-print-surface .page-intro {
+  .treatment-print-surface .toxicity-presentation,
+  .treatment-print-surface .page-intro,
+  .treatment-print-surface .preparation-guide,
+  .treatment-print-surface .side-effect-education {
     max-width: none;
   }
 
-  .toxicity-print-surface .toxicity-presentation-header,
-  .toxicity-print-surface .toxicity-effect,
-  .toxicity-print-surface .toxicity-escalation,
-  .toxicity-print-surface .regimen-single-drug-boundary,
-  .toxicity-print-surface .sources-panel {
+  .treatment-print-surface .preparation-guide {
+    border-color: #777;
+    box-shadow: none;
+  }
+
+  .treatment-print-surface .toxicity-presentation-header,
+  .treatment-print-surface .toxicity-effect,
+  .treatment-print-surface .toxicity-escalation,
+  .treatment-print-surface .regimen-single-drug-boundary,
+  .treatment-print-surface .preparation-module,
+  .treatment-print-surface .sources-panel {
     break-inside: avoid;
     box-shadow: none;
   }
 
-  .toxicity-print-surface .regimen-medication-card {
+  .treatment-print-surface .regimen-medication-card {
     overflow: visible;
     border-color: #777;
     box-shadow: none;
   }
 
-  .toxicity-print-surface .regimen-medication-card + .regimen-medication-card {
+  .treatment-print-surface .regimen-medication-card + .regimen-medication-card {
     break-before: page;
   }
 
-  .toxicity-print-surface .regimen-medication-card .toxicity-presentation {
+  .treatment-print-surface .regimen-medication-card .toxicity-presentation {
     padding: 1rem;
   }
 
-  .toxicity-print-surface details:not([open]) > :not(summary) {
+  .treatment-print-surface details:not([open]) > :not(summary) {
     display: block !important;
   }
 
-  .toxicity-print-surface .toxicity-effect summary {
+  .treatment-print-surface .toxicity-effect summary {
     border-bottom: 1px solid #aaa;
   }
 
-  .toxicity-print-surface .toxicity-frequency-groups {
+  .treatment-print-surface .toxicity-frequency-groups {
     gap: 1.2rem;
     margin-block: 1.5rem;
   }
 
-  .toxicity-print-surface .toxicity-emergency {
+  .treatment-print-surface .toxicity-emergency {
     border: 1px solid #333;
     color: #000;
     background: #fff;

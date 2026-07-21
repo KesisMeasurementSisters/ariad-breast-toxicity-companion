@@ -154,6 +154,12 @@ export function treatmentSearchDisplayName(release: CompiledRelease, treatmentId
   );
   const expandedName = componentNames.join(" + ");
   const primaryName = treatment.abbreviation ?? treatment.display_name;
+  if (
+    componentNames.length === 1 &&
+    normalizeSearchText(primaryName).includes(normalizeSearchText(componentNames[0] ?? ""))
+  ) {
+    return primaryName;
+  }
   return expandedName ? `${primaryName}: ${expandedName}` : treatment.display_name;
 }
 
@@ -161,7 +167,20 @@ function searchableTreatmentRecords(release: CompiledRelease): SearchRecord[] {
   return release.indexes.treatments.flatMap((record) => {
     const treatment = treatmentById(release, record.id);
     if (!treatment || treatment.kind !== record.kind) return [];
-    if (treatment.kind === "regimen" && treatment.component_drug_ids.length < 2) return [];
+    if (treatment.kind === "regimen" && treatment.component_drug_ids.length === 1) {
+      const [componentDrug] = regimenComponentDrugs(release, treatment.id);
+      const regimenName = normalizeSearchText(treatment.display_name);
+      const drugName = componentDrug ? normalizeSearchText(componentDrug.generic_name) : "";
+      const regimenAbbreviation = normalizeSearchText(treatment.abbreviation ?? "");
+
+      // Keep a one-drug plan searchable when its authored name adds meaningful
+      // context, such as "Weekly paclitaxel", or has its own plan abbreviation,
+      // such as CAPE. A plan with neither stays deduplicated from the drug result.
+      if (
+        !componentDrug ||
+        (regimenName === drugName && (!regimenAbbreviation || regimenAbbreviation === drugName))
+      ) return [];
+    }
 
     if (treatment.kind === "drug") return [record];
 
@@ -200,6 +219,13 @@ const TREATMENT_MATCH_RANK: Record<SearchMatchType, number> = {
 
 function fuzzyDrugPriority(result: SearchResult): number {
   return result.matchType === "fuzzy" && result.record.kind === "drug" ? 1 : 0;
+}
+
+function exactDrugPriority(result: SearchResult): number {
+  return result.record.kind === "drug" &&
+    (result.matchType === "exact_name" || result.matchType === "exact_alias")
+    ? 1
+    : 0;
 }
 
 export function searchTreatments(release: CompiledRelease, query: string, limit = 3): SearchResult[] {
@@ -247,6 +273,7 @@ export function searchTreatments(release: CompiledRelease, query: string, limit 
     .sort(
       (left, right) =>
         TREATMENT_MATCH_RANK[right.matchType] - TREATMENT_MATCH_RANK[left.matchType] ||
+        exactDrugPriority(right) - exactDrugPriority(left) ||
         fuzzyDrugPriority(right) - fuzzyDrugPriority(left) ||
         right.score - left.score ||
         treatmentSearchDisplayName(release, left.record.id).localeCompare(

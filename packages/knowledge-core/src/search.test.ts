@@ -35,13 +35,13 @@ describe("treatment search", () => {
 
     expect(generic.map(({ record }) => record.id)).toEqual([
       "capecitabine",
+      "capecitabine-monotherapy",
       "capedocetaxel",
-      "capetuca-tras",
     ]);
     expect(brand.map(({ record }) => record.id)).toEqual([
       "capecitabine",
+      "capecitabine-monotherapy",
       "capedocetaxel",
-      "capetuca-tras",
     ]);
     expect(generic.filter(({ record }) => record.kind === "drug")).toHaveLength(1);
     expect(treatmentSearchDisplayName(release, generic[0]?.record.id ?? "")).toBe(
@@ -62,16 +62,26 @@ describe("treatment search", () => {
     );
   });
 
-  it("excludes treatment classes and every single-drug regimen", () => {
+  it("excludes treatment classes and keeps meaningful one-drug treatment plans", () => {
     const results = [
       ...searchTreatments(release, "CAPE"),
-      ...searchTreatments(release, "weekly Taxol"),
       ...searchTreatments(release, "chemo"),
     ];
 
     expect(results.some(({ record }) => record.kind === "treatment_class")).toBe(false);
-    expect(results.some(({ record }) => record.id === "capecitabine-monotherapy")).toBe(false);
-    expect(results.some(({ record }) => record.id === "weekly-paclitaxel")).toBe(false);
+    expect(searchTreatments(release, "CAPE").map(({ record }) => record.id)).toContain(
+      "capecitabine-monotherapy",
+    );
+    expect(treatmentSearchDisplayName(release, "capecitabine-monotherapy")).toBe(
+      "CAPE: Capecitabine",
+    );
+    expect(searchTreatments(release, "weekly Taxol")[0]?.record.id).toBe("weekly-paclitaxel");
+    expect(searchTreatments(release, "weekly paclitaxel")[0]?.record.id).toBe(
+      "weekly-paclitaxel",
+    );
+    expect(treatmentSearchDisplayName(release, "weekly-paclitaxel")).toBe(
+      "Weekly paclitaxel",
+    );
   });
 
   it("does not turn a broad treatment-class word into regimen options", () => {

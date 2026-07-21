@@ -25,8 +25,8 @@ import {
   normalizeSearchText,
   PATIENT_FREQUENCY_BAND_LABELS,
   PATIENT_FREQUENCY_BAND_ORDER,
-  preparationModules,
   regimenDrugToxicityItems,
+  resolvePreparation,
   resolveGuidanceRelationship,
   searchSymptoms,
   searchTreatments,
@@ -90,6 +90,7 @@ type Screen =
   | "guidance"
   | "summary"
   | "education-only"
+  | "unknown-treatment"
   | "unsupported"
   | "about";
 
@@ -232,15 +233,37 @@ function SupportPill({ status }: { status: SearchRecord["support_status"] }) {
   return <span className={`support-pill support-${status}`}>{SUPPORT_LABELS[status]}</span>;
 }
 
+function PreparationCoveragePill({ basis }: { basis: "exact" | "general" | "unavailable" }) {
+  const label = basis === "exact"
+    ? "Preparation guide"
+    : basis === "general"
+      ? "General preparation guide"
+      : "Preparation guide not ready";
+  return <span className={`support-pill preparation-${basis}`}>{label}</span>;
+}
+
 function HomeScreen({
   startPrepare,
   startSymptom,
   runDemo,
+  savedTreatmentIds,
+  openSavedTreatment,
 }: {
   startPrepare: () => void;
   startSymptom: () => void;
   runDemo: (scenario: "neuropathy" | "diarrhea" | "infection") => void;
+  savedTreatmentIds: string[];
+  openSavedTreatment: (id: string) => void;
 }) {
+  const savedTreatments = savedTreatmentIds.flatMap((id) => {
+    const treatment = treatmentById(id);
+    if (!treatment) return [];
+    const displayName = treatment.kind === "treatment_class"
+      ? treatment.display_name
+      : treatmentSearchDisplayName(activeRelease, treatment.id);
+    return [{ id, displayName, kind: treatment.kind }];
+  });
+
   return (
     <>
       <section className="hero">
@@ -268,7 +291,7 @@ function HomeScreen({
           <span className="entry-icon"><BookOpenText aria-hidden="true" /></span>
           <span>
             <strong>I’m starting treatment</strong>
-            <small>Learn what you may notice during treatment.</small>
+            <small>Learn how to get ready and what you may notice.</small>
           </span>
           <ArrowRight aria-hidden="true" />
         </button>
@@ -281,6 +304,33 @@ function HomeScreen({
           <ArrowRight aria-hidden="true" />
         </button>
       </section>
+
+      {savedTreatments.length > 0 ? (
+        <section className="saved-treatments" aria-labelledby="saved-treatments-heading">
+          <div className="section-heading">
+            <p className="eyebrow">Saved on this device</p>
+            <h2 id="saved-treatments-heading">Your saved treatments</h2>
+            <p>Open a treatment without searching for it again.</p>
+          </div>
+          <div className="saved-treatment-list">
+            {savedTreatments.map((treatment) => (
+              <button
+                className="saved-treatment-row"
+                type="button"
+                key={treatment.id}
+                onClick={() => openSavedTreatment(treatment.id)}
+                aria-label={`Open saved treatment: ${treatment.displayName}`}
+              >
+                <span>
+                  <small>{treatment.kind === "regimen" ? "Treatment plan" : "Drug"}</small>
+                  <strong>{treatment.displayName}</strong>
+                </span>
+                <ChevronRight aria-hidden="true" size={18} />
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <BoundaryCard />
 
@@ -318,16 +368,19 @@ function HomeScreen({
 
 function TreatmentSearchScreen({
   mode,
+  query,
+  onQueryChange,
   onSelect,
   onUnknown,
   onBack,
 }: {
   mode: EntryMode;
+  query: string;
+  onQueryChange: (query: string) => void;
   onSelect: (id: string) => void;
   onUnknown: () => void;
   onBack: () => void;
 }) {
-  const [query, setQuery] = useState("");
   const [code, setCode] = useState("");
   const [codeError, setCodeError] = useState<string | null>(null);
   const normalizedQuery = normalizeSearchText(query).replace(/\s+/gu, "");
@@ -353,8 +406,8 @@ function TreatmentSearchScreen({
         title={mode === "prepare" ? "Which treatment are you starting?" : "Which treatment are you receiving?"}
         onBack={onBack}
       >
-        Search for one drug by the name on its label. You can also search for a
-        treatment plan by its short or full name.
+        Search using a name from your treatment sheet, visit details, medicine
+        container, or cancer team. You can enter one drug or a treatment plan.
       </PageIntro>
 
       <div className="search-panel">
@@ -364,7 +417,7 @@ function TreatmentSearchScreen({
           <input
             id="treatment-search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => onQueryChange(event.target.value)}
             placeholder="Try capecitabine, Xeloda, TC, or TCHP"
             autoComplete="off"
             aria-describedby="treatment-search-help"
@@ -380,9 +433,23 @@ function TreatmentSearchScreen({
               results.map(({ record }) => {
                 const isDrug = record.kind === "drug";
                 const typeLabel = isDrug ? "Drug" : "Treatment plan";
-                const destination = isDrug
-                  ? "View this drug’s information"
-                  : "View information for each drug in this treatment plan";
+                const preparation = resolvePreparation(activeRelease, record.id);
+                const destination = mode === "prepare"
+                  ? preparation.basis === "exact"
+                    ? "View preparation and side-effect information"
+                    : preparation.basis === "general"
+                      ? "View general preparation and available side-effect information"
+                      : "See what information is available"
+                  : isDrug
+                    ? "View this drug’s information"
+                    : "View information for each drug in this treatment plan";
+                const coverageLabel = mode === "prepare"
+                  ? preparation.basis === "exact"
+                    ? "Preparation guide available"
+                    : preparation.basis === "general"
+                      ? "General preparation guide available"
+                      : "Preparation guide not ready"
+                  : SUPPORT_LABELS[record.support_status];
                 const displayName = treatmentSearchDisplayName(activeRelease, record.id);
                 return (
                   <button
@@ -390,12 +457,17 @@ function TreatmentSearchScreen({
                     type="button"
                     key={`${record.kind}:${record.id}`}
                     onClick={() => onSelect(record.id)}
-                    aria-label={`${typeLabel}: ${displayName}. ${destination}`}
+                    aria-label={`${typeLabel}: ${displayName}. ${coverageLabel}. ${destination}`}
                   >
                     <span className="result-main">
                       <span className={`result-kind result-kind-${record.kind}`}>{typeLabel}</span>
                       <span className="result-copy">
                         <strong>{displayName}</strong>
+                        {mode === "prepare" ? (
+                          <PreparationCoveragePill basis={preparation.basis} />
+                        ) : (
+                          <SupportPill status={record.support_status} />
+                        )}
                         <small>{destination}</small>
                       </span>
                     </span>
@@ -457,16 +529,59 @@ function PreparationModuleList({
   );
 }
 
+function PreparationSection({
+  preparation,
+}: {
+  preparation: ReturnType<typeof resolvePreparation>;
+}) {
+  const introduction = preparation.basis === "exact"
+    ? "This preparation guide was written for the treatment you selected."
+    : preparation.basis === "general"
+      ? "This is general preparation information. It was not written for the exact treatment you selected."
+      : "Ariad does not have a preparation guide for this treatment yet.";
+
+  return (
+    <section className="preparation-guide" aria-labelledby="preparation-guide-heading">
+      <header className="preparation-guide-header">
+        <p className="eyebrow">Treatment preparation</p>
+        <h2 id="preparation-guide-heading">Get ready for treatment</h2>
+        <PreparationCoveragePill basis={preparation.basis} />
+        <p>{introduction}</p>
+        {preparation.fallbackReason ? (
+          <p className="preparation-fallback">{preparation.fallbackReason}</p>
+        ) : null}
+      </header>
+      {preparation.modules.length > 0 ? (
+        <PreparationModuleList modules={preparation.modules} nested />
+      ) : (
+        <div className="information-pending preparation-pending">
+          <Info aria-hidden="true" size={22} />
+          <div>
+            <h3>Follow your cancer team&apos;s preparation instructions</h3>
+            <p>
+              Ask your cancer team what to do before treatment and what to bring. Ariad
+              will not guess instructions for your treatment.
+            </p>
+          </div>
+        </div>
+      )}
+      {preparation.sourceIds.length > 0 ? (
+        <SourcesPanel sourceIds={preparation.sourceIds} />
+      ) : null}
+    </section>
+  );
+}
+
 function InformationPending({ nested = false }: { nested?: boolean }) {
   const Heading = nested ? "h3" : "h2";
   return (
     <div className="information-pending">
       <Info aria-hidden="true" size={22} />
       <div>
-        <Heading>We are still preparing this drug&apos;s information</Heading>
+        <Heading>Detailed side-effect information is still being prepared</Heading>
         <p>
-          Ariad does not have information for this drug yet. Follow the information from
-          your cancer team.
+          Ariad does not have a detailed side-effect guide for this drug yet. This notice
+          applies only to the side-effect section. Follow the information from your cancer team.
         </p>
       </div>
     </div>
@@ -727,40 +842,52 @@ function TreatmentOverviewScreen({
   onSymptomLabel: string;
 }) {
   const treatment = treatmentById(treatmentId);
-  const modules = preparationModules(activeRelease, treatmentId);
+  const preparation = resolvePreparation(activeRelease, treatmentId);
   const toxicityPresentation = treatment?.kind === "drug"
     ? drugToxicityPresentationForDrug(treatment.id)
     : undefined;
-  const sourceIds = [...new Set(modules.flatMap((item) => item.source_ids))].sort();
   const regimenItems = treatment?.kind === "regimen"
     ? regimenDrugToxicityItems(activeRelease, treatment.id)
     : [];
-  const isMultiDrugRegimen = treatment?.kind === "regimen" && regimenItems.length > 1;
-  const hasPrintableToxicity = Boolean(toxicityPresentation) ||
+  const isRegimen = treatment?.kind === "regimen";
+  const hasSideEffectEducation = Boolean(toxicityPresentation) ||
     regimenItems.some(({ presentation }) => presentation !== null);
-  const overviewTitle = treatment?.kind === "drug" || isMultiDrugRegimen
+  const canPrint = preparation.modules.length > 0 || hasSideEffectEducation;
+  const overviewTitle = treatment?.kind === "drug" || treatment?.kind === "regimen"
     ? treatmentSearchDisplayName(activeRelease, treatmentId)
     : treatmentName(treatmentId);
-  const selectionType = treatment?.kind === "regimen" ? "Treatment plan" : "Drug";
+  const selectionType = treatment?.kind === "regimen"
+    ? "Treatment plan"
+    : treatment?.kind === "drug"
+      ? "Drug"
+      : "Treatment";
 
   return (
-    <div className={hasPrintableToxicity ? "toxicity-print-surface" : undefined}>
+    <div className={canPrint ? "treatment-print-surface" : undefined}>
       <PageIntro
         eyebrow={treatment?.kind === "regimen" ? "Treatment plan information" : "Drug information"}
         title={overviewTitle}
         onBack={onBack}
       >
-        {isMultiDrugRegimen
-          ? "Each cancer drug in this treatment plan has its own section."
+        {isRegimen && regimenItems.length > 1
+          ? "Preparation for the treatment plan comes first. Side-effect information for each cancer drug follows."
+          : isRegimen
+            ? "Preparation for this treatment plan comes first. Side-effect information for its drug follows."
           : treatment?.kind === "drug"
-            ? "This page is for this drug only. Information for other drugs is kept separate."
+            ? "Preparation comes first. Side-effect information on this page is for this drug only."
             : "This page shows information about this treatment plan."}
       </PageIntro>
       <div className="overview-meta">
         <span className={`selection-kind selection-kind-${treatment?.kind ?? "drug"}`}>
           {selectionType}
         </span>
-        <button className="secondary-button" type="button" onClick={onSave}>
+        <button
+          className="secondary-button"
+          type="button"
+          onClick={onSave}
+          aria-pressed={saved}
+          disabled={saved}
+        >
           {saved ? <Check aria-hidden="true" size={17} /> : null}
           {saved ? "Saved on this device" : "Save this treatment"}
         </button>
@@ -768,8 +895,20 @@ function TreatmentOverviewScreen({
 
       <BoundaryCard />
 
-      {isMultiDrugRegimen ? (
-        <section className="regimen-medication-stack" aria-label="Drugs in this treatment plan">
+      <PreparationSection preparation={preparation} />
+
+      <section className="side-effect-education" aria-labelledby="side-effect-education-heading">
+        <header className="side-effect-intro">
+          <p className="eyebrow">What you may notice</p>
+          <h2 id="side-effect-education-heading">Side-effect information</h2>
+          <p>
+            {isRegimen
+              ? "Each drug stays in its own section. Ariad does not treat information for one drug as information for the full treatment plan."
+              : "This section is for the selected drug. It cannot predict which effects you will have."}
+          </p>
+        </header>
+        {isRegimen && regimenItems.length > 0 ? (
+          <div className="regimen-medication-stack" aria-label="Drugs in this treatment plan">
           {regimenItems.map(({ drug, presentation }, index) => (
             <RegimenMedicationCard
               drug={drug}
@@ -779,19 +918,15 @@ function TreatmentOverviewScreen({
               regimenLabel={treatment.abbreviation ?? treatment.display_name}
             />
           ))}
-        </section>
-      ) : toxicityPresentation ? (
-        <DrugToxicityPatientView presentation={toxicityPresentation} />
-      ) : modules.length ? (
-        <>
-          <PreparationModuleList modules={modules} />
-          <SourcesPanel sourceIds={sourceIds} />
-        </>
-      ) : (
-        <InformationPending />
-      )}
+          </div>
+        ) : toxicityPresentation ? (
+          <DrugToxicityPatientView presentation={toxicityPresentation} />
+        ) : (
+          <InformationPending />
+        )}
+      </section>
       <div className="action-row">
-        {hasPrintableToxicity ? (
+        {canPrint ? (
           <button className="secondary-button print-button" type="button" onClick={() => window.print()}>
             <Printer aria-hidden="true" size={17} /> Print this page
           </button>
@@ -1363,6 +1498,51 @@ function EducationOnlyScreen({
   );
 }
 
+function UnknownTreatmentScreen({
+  onBack,
+  onSymptom,
+  onHome,
+}: {
+  onBack: () => void;
+  onSymptom: () => void;
+  onHome: () => void;
+}) {
+  return (
+    <>
+      <PageIntro
+        eyebrow="Finding your treatment"
+        title="You can check a few places for the name"
+        onBack={onBack}
+      >
+        Ariad needs a treatment name before it can show treatment-specific information.
+      </PageIntro>
+      <section className="unknown-treatment-card" aria-labelledby="unknown-treatment-steps">
+        <Clipboard aria-hidden="true" size={28} />
+        <div>
+          <h2 id="unknown-treatment-steps">Where to look</h2>
+          <ul>
+            <li>Check your treatment sheet, visit details, or medicine list.</li>
+            <li>For pills, look at the medicine container.</li>
+            <li>Look for a full drug name, a brand name, or a short plan name such as AC or TCHP.</li>
+            <li>If you are not sure, ask your cancer team to confirm the exact name.</li>
+          </ul>
+          <p>Do not guess which treatment you are receiving.</p>
+        </div>
+      </section>
+      <BoundaryCard />
+      <div className="action-row wrap">
+        <button className="primary-button" type="button" onClick={onBack}>
+          Try the treatment search <ArrowRight aria-hidden="true" size={18} />
+        </button>
+        <button className="secondary-button" type="button" onClick={onSymptom}>
+          View symptom list
+        </button>
+        <button className="text-button" type="button" onClick={onHome}>Return home</button>
+      </div>
+    </>
+  );
+}
+
 function UnsupportedScreen({ reason, onTreatment, onSymptom, onHome }: { reason: string; onTreatment: () => void; onSymptom: () => void; onHome: () => void }) {
   return (
     <>
@@ -1411,6 +1591,7 @@ export function AriadApp() {
   const [screen, setScreen] = useState<Screen>("home");
   const [previousScreen, setPreviousScreen] = useState<Screen>("home");
   const [mode, setMode] = useState<EntryMode>("symptom");
+  const [treatmentQuery, setTreatmentQuery] = useState("");
   const [selectedTreatmentId, setSelectedTreatmentId] = useState<string | null>(null);
   const [selectedSymptomId, setSelectedSymptomId] = useState<string | null>(null);
   const [initialSymptomText, setInitialSymptomText] = useState("");
@@ -1476,6 +1657,7 @@ export function AriadApp() {
 
   const goHome = () => {
     resetEphemeral();
+    setTreatmentQuery("");
     setScreen("home");
   };
 
@@ -1485,6 +1667,13 @@ export function AriadApp() {
   };
 
   const chooseTreatment = (id: string) => {
+    setSelectedTreatmentId(id);
+    setScreen("treatment-overview");
+  };
+
+  const openSavedTreatment = (id: string) => {
+    resetEphemeral();
+    setMode("prepare");
     setSelectedTreatmentId(id);
     setScreen("treatment-overview");
   };
@@ -1520,6 +1709,7 @@ export function AriadApp() {
       setQuestionIndex(0);
       setScreen("questions");
     } else {
+      setTreatmentQuery("");
       setScreen("treatment-context");
     }
   };
@@ -1607,17 +1797,21 @@ export function AriadApp() {
       <main id="main-content" className="app-shell" ref={mainRef} tabIndex={-1}>
         {screen === "home" ? (
           <HomeScreen
-            startPrepare={() => { resetEphemeral(); setMode("prepare"); setScreen("treatment-search"); }}
+            startPrepare={() => { resetEphemeral(); setTreatmentQuery(""); setMode("prepare"); setScreen("treatment-search"); }}
             startSymptom={() => { resetEphemeral(); setMode("symptom"); setScreen("symptom-entry"); }}
             runDemo={beginDemo}
+            savedTreatmentIds={preferences.savedTreatmentIds}
+            openSavedTreatment={openSavedTreatment}
           />
         ) : null}
 
         {screen === "treatment-search" || screen === "treatment-context" ? (
           <TreatmentSearchScreen
             mode={screen === "treatment-context" ? "symptom" : mode}
+            query={treatmentQuery}
+            onQueryChange={setTreatmentQuery}
             onSelect={chooseTreatment}
-            onUnknown={() => { setUnsupportedReason("Ariad needs your treatment name to show treatment-specific information."); setScreen("unsupported"); }}
+            onUnknown={() => setScreen("unknown-treatment")}
             onBack={() => setScreen(screen === "treatment-context" ? "symptom-entry" : "home")}
           />
         ) : null}
@@ -1684,6 +1878,14 @@ export function AriadApp() {
             treatmentId={selectedTreatmentId}
             onTreatment={() => setScreen("treatment-search")}
             onSymptom={() => setScreen("symptom-entry")}
+            onHome={goHome}
+          />
+        ) : null}
+
+        {screen === "unknown-treatment" ? (
+          <UnknownTreatmentScreen
+            onBack={() => setScreen(selectedSymptomId ? "treatment-context" : "treatment-search")}
+            onSymptom={() => { resetEphemeral(); setMode("symptom"); setScreen("symptom-entry"); }}
             onHome={goHome}
           />
         ) : null}
