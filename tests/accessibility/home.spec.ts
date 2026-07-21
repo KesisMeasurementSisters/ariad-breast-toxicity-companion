@@ -21,12 +21,31 @@ test("home and symptom-entry screens have no automatically detectable serious vi
   ).toEqual([]);
 
   await page.getByRole("button", { name: "I’m having a symptom" }).click();
+  await expect(page.locator(".compact-symptom-boundary")).toHaveCount(1);
+  await expect(page.locator(".boundary-card")).toHaveCount(0);
   const symptomEntry = await new AxeBuilder({ page }).analyze();
   expect(
     symptomEntry.violations.filter(
       ({ impact }) => impact === "critical" || impact === "serious",
     ),
   ).toEqual([]);
+});
+
+test("routine symptom questions use one compact safety boundary", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await page.getByRole("button", { name: /Loose, watery bowel movements/ }).click();
+
+  await expect(page.locator(".compact-symptom-boundary")).toHaveCount(1);
+  await expect(page.locator(".boundary-card")).toHaveCount(0);
+  await expect(page.locator(".answer-list")).toBeInViewport();
+
+  await page.getByRole("radio", { name: "Today" }).click();
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await page.getByRole("button", { name: "Next question" }).click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThanOrEqual(1);
+  await expect(page.getByRole("heading", { name: "How many loose or watery bowel movements have you had in the past 24 hours?" })).toBeInViewport();
 });
 
 test("320px layout has no horizontal overflow and exposes a keyboard skip link", async ({ page }) => {
@@ -45,6 +64,44 @@ test("320px layout has no horizontal overflow and exposes a keyboard skip link",
   await expect(skipLink).toBeFocused();
   await expect(skipLink).toBeVisible();
   await page.keyboard.press("Enter");
+  await expect(page.locator("#main-content")).toBeFocused();
+});
+
+test("the main choices fit in common mobile and desktop viewports", async ({ page }) => {
+  for (const viewport of [
+    { width: 390, height: 844 },
+    { width: 1440, height: 900 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
+    await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+    const choiceCards = page.locator(".entry-card");
+    await expect(choiceCards).toHaveCount(2);
+    await expect
+      .poll(() =>
+        choiceCards.evaluateAll((cards) =>
+          cards.every((card) => {
+            const bounds = card.getBoundingClientRect();
+            return bounds.top >= 0 && bounds.bottom <= window.innerHeight;
+          }),
+        ),
+      )
+      .toBe(true);
+  }
+});
+
+test("moving to a new screen resets the page to its beginning", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await page.getByRole("button", { name: /I’m starting treatment/ }).click();
+
+  await expect(page.getByRole("button", { name: "Back" })).toBeInViewport();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
   await expect(page.locator("#main-content")).toBeFocused();
 });
 

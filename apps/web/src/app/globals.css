@@ -2413,6 +2413,97 @@ details[open] > summary .summary-chevron {
   }
 }
 
+@media (max-width: 39.9375rem) {
+  .prototype-banner {
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    line-height: 1.25;
+  }
+
+  .prototype-banner svg {
+    display: none;
+  }
+
+  .site-header {
+    min-height: 4rem;
+  }
+
+  .brand {
+    gap: 0.6rem;
+    padding-block: 0.35rem;
+  }
+
+  .brand-mark {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .brand strong {
+    font-size: 1rem;
+  }
+
+  .brand small {
+    font-size: 0.63rem;
+  }
+
+  .app-shell {
+    padding-block: 1rem 3rem;
+  }
+
+  .page-intro {
+    margin-block-end: 1.5rem;
+  }
+
+  .page-intro .back-button {
+    margin-block-end: 1rem;
+  }
+
+  .page-intro h1 {
+    font-size: clamp(1.85rem, 8.5vw, 2.35rem);
+  }
+
+  .hero {
+    min-height: 0;
+    gap: 0;
+    padding-block: 0.4rem 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.05rem, 9vw, 2.5rem);
+    line-height: 1.04;
+  }
+
+  .hero-lede {
+    line-height: 1.48;
+  }
+
+  .hero-thread {
+    inset: 0 -4rem auto auto;
+    width: 9rem;
+    height: 9rem;
+    opacity: 0.35;
+  }
+
+  .entry-grid {
+    gap: 0.75rem;
+  }
+
+  .entry-grid .section-heading {
+    margin-block-end: 0.05rem;
+  }
+
+  .entry-card {
+    min-height: 0;
+    gap: 0.75rem;
+    padding: 0.9rem;
+  }
+
+  .entry-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
 @media (max-width: 359px) {
   .brand small {
     display: none;
@@ -2481,12 +2572,16 @@ details[open] > summary .summary-chevron {
   }
 
   .app-shell {
-    padding-block-start: 3.5rem;
+    padding-block-start: 1.5rem;
   }
 
   .hero {
-    min-height: 31rem;
-    padding-block: 4rem;
+    min-height: 24rem;
+    padding-block: 1.75rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 4rem);
   }
 
   .hero-thread {

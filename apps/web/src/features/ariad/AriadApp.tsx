@@ -1097,7 +1097,6 @@ function SymptomEntryScreen({
         Use your own words or choose a symptom from the list. Your words are used only to
         find a match. They do not create medical advice.
       </PageIntro>
-      <BoundaryCard />
 
       <div className="language-panel">
         <label htmlFor="symptom-description">Describe the symptom in your own words</label>
@@ -1237,7 +1236,6 @@ function QuestionScreen({
       <PageIntro eyebrow={`Question ${index + 1} of ${total}`} title={question.prompt} onBack={onBack}>
         {question.help_text ?? "Answer only what you can see or feel."}
       </PageIntro>
-      <BoundaryCard />
 
       {question.answer_type === "short_text" ? (
         <div className="question-short-text">
@@ -1708,6 +1706,7 @@ export function AriadApp() {
   const [summaryResult, setSummaryResult] = useState<SymptomSummaryResult | null>(null);
   const [summaryMode, setSummaryMode] = useState<GenerationMode>("deterministic_fallback");
   const [summaryLoading, setSummaryLoading] = useState(false);
+  const navigationStep = screen === "questions" ? `${screen}:${questionIndex}` : screen;
 
   useEffect(() => {
     document.body.dataset.ariadReady = "true";
@@ -1735,8 +1734,19 @@ export function AriadApp() {
   }, []);
 
   useEffect(() => {
-    if (screen !== "home") mainRef.current?.focus();
-  }, [screen]);
+    const root = document.documentElement;
+    const previousScrollStyle = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    if (screen !== "home") mainRef.current?.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+    const restoreFrame = window.requestAnimationFrame(() => {
+      root.style.scrollBehavior = previousScrollStyle;
+    });
+    return () => {
+      window.cancelAnimationFrame(restoreFrame);
+      root.style.scrollBehavior = previousScrollStyle;
+    };
+  }, [navigationStep, screen]);
 
   const relationshipResolution = useMemo(
     () => selectedTreatmentId && selectedSymptomId
