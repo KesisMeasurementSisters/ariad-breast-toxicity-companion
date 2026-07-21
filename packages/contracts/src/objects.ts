@@ -290,11 +290,14 @@ export const DrugToxicityEventSchema = z
   .object({
     id: StableIdSchema,
     source_event_name: z.string().min(1),
+    frequency_status: z.enum(["reported", "not_reported", "not_applicable"]).optional(),
+    source_frequency_category: z.enum(["most_common"]).nullable().optional(),
     frequency_basis: z.enum([
       "adverse_reaction",
       "adverse_event",
       "laboratory_abnormality",
       "fatal_outcome",
+      "warning",
     ]),
     all_grade_pct: PercentageSchema.nullable(),
     all_grade_pct_qualifier: z
@@ -309,8 +312,22 @@ export const DrugToxicityEventSchema = z
   })
   .strict()
   .superRefine((event, refinement) => {
-    if ([event.all_grade_pct, event.severe_pct, event.fatal_pct].every((value) => value === null)) {
-      refinement.addIssue({ code: "custom", message: "Each event requires an FDA-reported percentage" });
+    const frequencyStatus = event.frequency_status ?? "reported";
+    const hasReportedPercentage = [event.all_grade_pct, event.severe_pct, event.fatal_pct]
+      .some((value) => value !== null);
+    const hasReportedCategory = event.source_frequency_category !== null &&
+      event.source_frequency_category !== undefined;
+    if (frequencyStatus === "reported" && !hasReportedPercentage && !hasReportedCategory) {
+      refinement.addIssue({
+        code: "custom",
+        message: "Reported frequency requires an FDA percentage or source frequency category",
+      });
+    }
+    if (frequencyStatus !== "reported" && (hasReportedPercentage || hasReportedCategory)) {
+      refinement.addIssue({
+        code: "custom",
+        message: "Unreported or inapplicable frequency cannot include a percentage or category",
+      });
     }
     if ((event.severe_pct === null) !== (event.severe_source_label === null)) {
       refinement.addIssue({
@@ -337,15 +354,16 @@ export const DrugToxicityEvidenceSchema = z
     kind: z.literal("drug_toxicity_evidence"),
     ...governedFields,
     drug_id: StableIdSchema,
-    monotherapy: z.literal(true),
+    monotherapy: z.boolean(),
+    evidence_scope: z.enum(["single_agent", "drug_label"]).optional(),
     route: z.enum(["oral", "intravenous", "subcutaneous", "intramuscular"]),
     dose_mg_per_m2: z.number().positive().nullable(),
     dose_description: z.string().min(2),
     schedule: z.string().min(2),
     indication: z.string().min(2),
     population: z.string().min(2),
-    n_treatment: z.number().int().positive(),
-    denominator_status: z.literal("reported"),
+    n_treatment: z.number().int().positive().nullable(),
+    denominator_status: z.enum(["reported", "unavailable", "not_applicable"]),
     comparator_description: z.string().min(2).nullable(),
     n_comparator: z.number().int().positive().nullable(),
     source_id: StableIdSchema,
@@ -378,6 +396,20 @@ export const DrugToxicityEvidenceSchema = z
         message: "Comparator description and denominator must be stored together",
       });
     }
+    if ((record.denominator_status === "reported") !== (record.n_treatment !== null)) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["n_treatment"],
+        message: "A reported denominator requires an exact treatment population, and vice versa",
+      });
+    }
+    if ((record.evidence_scope ?? "single_agent") === "single_agent" && !record.monotherapy) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["monotherapy"],
+        message: "Single-agent evidence must be identified as monotherapy",
+      });
+    }
   });
 
 export const PatientToxicityFrequencyBandSchema = z.enum([
@@ -395,6 +427,7 @@ export const PatientToxicityEffectSchema = z
     evidence_event_ids: z.array(StableIdSchema).min(1),
     frequency_source_event_id: StableIdSchema.nullable(),
     frequency_band: PatientToxicityFrequencyBandSchema.nullable(),
+    presentation_group: z.enum(["common", "serious"]).optional(),
     meaning: z.string().min(2),
     what_you_may_notice: PatientToxicityTextListSchema,
     safe_actions: PatientToxicityTextListSchema,
@@ -419,6 +452,13 @@ export const PatientToxicityEffectSchema = z
         code: "custom",
         path: ["frequency_source_event_id"],
         message: "The frequency source event must be one of the effect's mapped evidence events",
+      });
+    }
+    if (effect.presentation_group !== undefined && effect.frequency_band !== null) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["presentation_group"],
+        message: "Label categories and percentage-derived frequency groups must remain separate",
       });
     }
     const detailCount =
@@ -449,6 +489,7 @@ export const DrugToxicityPresentationSchema = z
     audience: z.literal("patient"),
     drug_id: StableIdSchema,
     monotherapy: z.literal(true),
+    evidence_scope: z.enum(["single_agent", "drug_label"]).optional(),
     evidence_ref: z
       .object({
         kind: z.literal("drug_toxicity_evidence"),
@@ -463,7 +504,7 @@ export const DrugToxicityPresentationSchema = z
     frequency_context: z.string().min(2),
     cause_statement: z.string().min(2),
     source_context: z.string().min(2),
-    frequency_method_id: z.literal("ariad-all-grade-frequency-v1"),
+    frequency_method_id: z.literal("ariad-all-grade-frequency-v1").nullable(),
     effects: z.array(PatientToxicityEffectSchema).min(1),
     omitted_evidence_events: z.array(OmittedToxicityEventSchema).default([]),
     escalation_summary: z
@@ -488,6 +529,17 @@ export const DrugToxicityPresentationSchema = z
       }
       effectIds.add(effect.id);
     });
+
+    const hasDerivedFrequency = presentation.effects.some(
+      (effect) => effect.frequency_band !== null,
+    );
+    if ((presentation.frequency_method_id !== null) !== hasDerivedFrequency) {
+      refinement.addIssue({
+        code: "custom",
+        path: ["frequency_method_id"],
+        message: "The all-grade frequency method is required exactly when frequency bands are shown",
+      });
+    }
 
     const omittedIds = new Set<string>();
     presentation.omitted_evidence_events.forEach((omission, index) => {

@@ -457,6 +457,32 @@ function collectToxicityPresentationIssues(objects: KnowledgeObject[]): Validati
         message: `Presentation must include evidence source '${evidence.source_id}'`,
       });
     }
+    if ((presentation.evidence_scope ?? "single_agent") !== (evidence.evidence_scope ?? "single_agent")) {
+      issues.push({
+        severity: "error",
+        code: "toxicity-presentation-evidence-scope-mismatch",
+        objectId: presentation.id,
+        message: `Presentation evidence scope does not match '${refKey(presentation.evidence_ref)}'`,
+      });
+    }
+    if ((evidence.evidence_scope ?? "single_agent") === "drug_label") {
+      if (presentation.frequency_method_id !== null) {
+        issues.push({
+          severity: "error",
+          code: "toxicity-presentation-label-frequency-method",
+          objectId: presentation.id,
+          message: "Drug-label categorical presentations cannot use the percentage-derived frequency method",
+        });
+      }
+      if (presentation.effects.some((effect) => effect.frequency_band !== null)) {
+        issues.push({
+          severity: "error",
+          code: "toxicity-presentation-label-frequency-band",
+          objectId: presentation.id,
+          message: "Drug-label categorical presentations cannot show percentage-derived frequency bands",
+        });
+      }
+    }
 
     for (const effect of presentation.effects) {
       for (const eventId of effect.evidence_event_ids) {
@@ -506,6 +532,33 @@ function collectToxicityPresentationIssues(objects: KnowledgeObject[]): Validati
               message: `Effect '${effect.id}' declares '${effect.frequency_band}' but evidence maps to '${expectedBand}'`,
             });
           }
+        }
+      }
+
+      if (effect.presentation_group === "common") {
+        const hasCommonSourceEvent = effect.evidence_event_ids.some(
+          (eventId) => evidenceEvents.get(eventId)?.source_frequency_category === "most_common",
+        );
+        if (!hasCommonSourceEvent) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-common-source-invalid",
+            objectId: presentation.id,
+            message: `Effect '${effect.id}' is called common without an FDA most-common source category`,
+          });
+        }
+      }
+      if (effect.presentation_group === "serious") {
+        const hasWarningSourceEvent = effect.evidence_event_ids.some(
+          (eventId) => evidenceEvents.get(eventId)?.frequency_basis === "warning",
+        );
+        if (!hasWarningSourceEvent) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-serious-source-invalid",
+            objectId: presentation.id,
+            message: `Effect '${effect.id}' is called serious without an FDA warning source event`,
+          });
         }
       }
     }

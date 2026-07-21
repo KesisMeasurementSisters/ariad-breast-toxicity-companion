@@ -5,3 +5,4 @@ export * from "./frequency";
 export * from "./safety";
 export * from "./search";
 export * from "./summary";
+export * from "./toxicity";

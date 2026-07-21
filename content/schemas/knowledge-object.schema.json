@@ -2832,7 +2832,11 @@
           ]
         },
         "denominator_status": {
-          "const": "reported",
+          "enum": [
+            "reported",
+            "unavailable",
+            "not_applicable"
+          ],
           "type": "string"
         },
         "dose_description": {
@@ -2904,7 +2908,8 @@
                   "adverse_reaction",
                   "adverse_event",
                   "laboratory_abnormality",
-                  "fatal_outcome"
+                  "fatal_outcome",
+                  "warning"
                 ],
                 "type": "string"
               },
@@ -2918,6 +2923,14 @@
                     "type": "null"
                   }
                 ]
+              },
+              "frequency_status": {
+                "enum": [
+                  "reported",
+                  "not_reported",
+                  "not_applicable"
+                ],
+                "type": "string"
               },
               "id": {
                 "maxLength": 120,
@@ -2984,6 +2997,19 @@
               "source_event_name": {
                 "minLength": 1,
                 "type": "string"
+              },
+              "source_frequency_category": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "most_common"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               }
             },
             "required": [
@@ -3001,6 +3027,13 @@
           },
           "minItems": 1,
           "type": "array"
+        },
+        "evidence_scope": {
+          "enum": [
+            "single_agent",
+            "drug_label"
+          ],
+          "type": "string"
         },
         "grading_system": {
           "anyOf": [
@@ -3028,7 +3061,6 @@
           "type": "string"
         },
         "monotherapy": {
-          "const": true,
           "type": "boolean"
         },
         "n_comparator": {
@@ -3044,9 +3076,16 @@
           ]
         },
         "n_treatment": {
-          "exclusiveMinimum": 0,
-          "maximum": 9007199254740991,
-          "type": "integer"
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "notes": {
           "default": [],
@@ -3415,6 +3454,13 @@
                 "minLength": 2,
                 "type": "string"
               },
+              "presentation_group": {
+                "enum": [
+                  "common",
+                  "serious"
+                ],
+                "type": "string"
+              },
               "reassuring_monitoring": {
                 "default": [],
                 "items": {
@@ -3531,13 +3577,27 @@
           ],
           "type": "object"
         },
+        "evidence_scope": {
+          "enum": [
+            "single_agent",
+            "drug_label"
+          ],
+          "type": "string"
+        },
         "frequency_context": {
           "minLength": 2,
           "type": "string"
         },
         "frequency_method_id": {
-          "const": "ariad-all-grade-frequency-v1",
-          "type": "string"
+          "anyOf": [
+            {
+              "const": "ariad-all-grade-frequency-v1",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "id": {
           "maxLength": 120,

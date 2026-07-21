@@ -26,7 +26,7 @@ import {
   PATIENT_FREQUENCY_BAND_LABELS,
   PATIENT_FREQUENCY_BAND_ORDER,
   preparationModules,
-  regimenComponentDrugs,
+  regimenDrugToxicityItems,
   resolveGuidanceRelationship,
   searchSymptoms,
   searchTreatments,
@@ -526,16 +526,35 @@ function PatientEffectDisclosure({ effect }: { effect: PatientToxicityEffect }) 
 
 function DrugToxicityPatientView({
   presentation,
+  regimenContextLabel,
 }: {
   presentation: DrugToxicityPresentation;
+  regimenContextLabel?: string;
 }) {
   const printSurfaceRef = useRef<HTMLElement>(null);
+  const sideEffectsHeadingId = `side-effects-heading-${presentation.id}`;
+  const escalationHeadingId = `toxicity-escalation-heading-${presentation.id}`;
   const groupedEffects = PATIENT_FREQUENCY_BAND_ORDER.map((band) => ({
     band,
     effects: presentation.effects.filter((effect) => effect.frequency_band === band),
   })).filter((group) => group.effects.length > 0);
+  const labelGroups = [
+    {
+      id: "common" as const,
+      heading: "Common effects",
+      description: "The FDA lists these among the most common effects.",
+    },
+    {
+      id: "serious" as const,
+      heading: "Serious effects",
+      description: "These effects can be serious even if they are not common.",
+    },
+  ].map((group) => ({
+    ...group,
+    effects: presentation.effects.filter((effect) => effect.presentation_group === group.id),
+  })).filter((group) => group.effects.length > 0);
   const monitoringEffects = presentation.effects.filter(
-    (effect) => effect.frequency_band === null,
+    (effect) => effect.frequency_band === null && effect.presentation_group === undefined,
   );
 
   useEffect(() => {
@@ -565,12 +584,26 @@ function DrugToxicityPatientView({
   return (
     <section
       className="toxicity-presentation"
-      aria-labelledby="side-effects-heading"
+      aria-labelledby={sideEffectsHeadingId}
+      data-presentation-id={presentation.id}
       ref={printSurfaceRef}
     >
+      {regimenContextLabel ? (
+        <aside className="regimen-single-drug-boundary">
+          <ShieldCheck aria-hidden="true" size={20} />
+          <div>
+            <strong>Single-drug information</strong>
+            {presentation.evidence_scope === "drug_label" ? (
+              <p>{`This section shows FDA information for this individual drug. The label does not say how often these effects occur with the full ${regimenContextLabel} regimen.`}</p>
+            ) : (
+              <p>{`This section shows FDA information for this drug when studied alone. Its frequency groups do not describe how often side effects occur with the full ${regimenContextLabel} regimen.`}</p>
+            )}
+          </div>
+        </aside>
+      ) : null}
       <header className="toxicity-presentation-header">
         <p className="eyebrow">Single-drug side effects</p>
-        <h2 id="side-effects-heading">{presentation.subtitle}</h2>
+        <h2 id={sideEffectsHeadingId}>{presentation.subtitle}</h2>
         <p className="route-label"><Pill aria-hidden="true" size={17} /> {presentation.route_label}</p>
         <p>{presentation.frequency_context}</p>
         <p className="cause-statement"><ShieldCheck aria-hidden="true" size={18} /> {presentation.cause_statement}</p>
@@ -582,6 +615,18 @@ function DrugToxicityPatientView({
             <header>
               <h2>{PATIENT_FREQUENCY_BAND_LABELS[band]}</h2>
               <p>{PATIENT_FREQUENCY_GROUP_DESCRIPTIONS[band]}</p>
+            </header>
+            <div className="toxicity-effect-list">
+              {effects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
+            </div>
+          </section>
+        ))}
+
+        {labelGroups.map(({ id, heading, description, effects }) => (
+          <section className={`toxicity-frequency-group frequency-${id}`} key={id}>
+            <header>
+              <h2>{heading}</h2>
+              <p>{description}</p>
             </header>
             <div className="toxicity-effect-list">
               {effects.map((effect) => <PatientEffectDisclosure effect={effect} key={effect.id} />)}
@@ -605,12 +650,12 @@ function DrugToxicityPatientView({
       <p className="toxicity-source-context">{presentation.source_context}</p>
       <SourcesPanel sourceIds={presentation.source_ids} />
 
-      <section className="toxicity-escalation" aria-labelledby="toxicity-escalation-heading">
+      <section className="toxicity-escalation" aria-labelledby={escalationHeadingId}>
         <header>
           <CircleAlert aria-hidden="true" size={24} />
           <div>
             <p className="eyebrow">Keep this easy to find</p>
-            <h2 id="toxicity-escalation-heading">{presentation.escalation_summary.heading}</h2>
+            <h2 id={escalationHeadingId}>{presentation.escalation_summary.heading}</h2>
             <p>{presentation.escalation_summary.introduction}</p>
           </div>
         </header>
@@ -630,22 +675,34 @@ function DrugToxicityPatientView({
   );
 }
 
-function RegimenMedicationCard({ drug, index }: { drug: Drug; index: number }) {
-  const modules = preparationModules(activeRelease, drug.id);
-  const sourceIds = [...new Set(modules.flatMap((item) => item.source_ids))].sort();
+function RegimenMedicationCard({
+  drug,
+  index,
+  presentation,
+  regimenLabel,
+}: {
+  drug: Drug;
+  index: number;
+  presentation: DrugToxicityPresentation | null;
+  regimenLabel: string;
+}) {
   const headingId = `regimen-drug-${drug.id}`;
 
   return (
-    <article className="regimen-medication-card" aria-labelledby={headingId}>
+    <article
+      className="regimen-medication-card"
+      aria-labelledby={headingId}
+      data-drug-id={drug.id}
+    >
       <header className="regimen-medication-header">
         <span>Drug {String(index + 1).padStart(2, "0")}</span>
         <h2 id={headingId}>{treatmentSearchDisplayName(activeRelease, drug.id)}</h2>
       </header>
-      {modules.length ? (
-        <>
-          <PreparationModuleList modules={modules} nested />
-          <SourcesPanel sourceIds={sourceIds} />
-        </>
+      {presentation ? (
+        <DrugToxicityPatientView
+          presentation={presentation}
+          regimenContextLabel={regimenLabel}
+        />
       ) : (
         <InformationPending nested />
       )}
@@ -674,17 +731,19 @@ function TreatmentOverviewScreen({
     ? drugToxicityPresentationForDrug(treatment.id)
     : undefined;
   const sourceIds = [...new Set(modules.flatMap((item) => item.source_ids))].sort();
-  const regimenDrugs = treatment?.kind === "regimen"
-    ? regimenComponentDrugs(activeRelease, treatment.id)
+  const regimenItems = treatment?.kind === "regimen"
+    ? regimenDrugToxicityItems(activeRelease, treatment.id)
     : [];
-  const isMultiDrugRegimen = treatment?.kind === "regimen" && regimenDrugs.length > 1;
+  const isMultiDrugRegimen = treatment?.kind === "regimen" && regimenItems.length > 1;
+  const hasPrintableToxicity = Boolean(toxicityPresentation) ||
+    regimenItems.some(({ presentation }) => presentation !== null);
   const overviewTitle = treatment?.kind === "drug" || isMultiDrugRegimen
     ? treatmentSearchDisplayName(activeRelease, treatmentId)
     : treatmentName(treatmentId);
   const selectionType = treatment?.kind === "regimen" ? "Regimen" : "Drug";
 
   return (
-    <div className={toxicityPresentation ? "toxicity-print-surface" : undefined}>
+    <div className={hasPrintableToxicity ? "toxicity-print-surface" : undefined}>
       <PageIntro
         eyebrow={treatment?.kind === "regimen" ? "Regimen information" : "Drug information"}
         title={overviewTitle}
@@ -710,8 +769,14 @@ function TreatmentOverviewScreen({
 
       {isMultiDrugRegimen ? (
         <section className="regimen-medication-stack" aria-label="Drugs in this regimen">
-          {regimenDrugs.map((drug, index) => (
-            <RegimenMedicationCard drug={drug} index={index} key={drug.id} />
+          {regimenItems.map(({ drug, presentation }, index) => (
+            <RegimenMedicationCard
+              drug={drug}
+              index={index}
+              key={drug.id}
+              presentation={presentation}
+              regimenLabel={treatment.abbreviation ?? treatment.display_name}
+            />
           ))}
         </section>
       ) : toxicityPresentation ? (
@@ -725,7 +790,7 @@ function TreatmentOverviewScreen({
         <InformationPending />
       )}
       <div className="action-row">
-        {toxicityPresentation ? (
+        {hasPrintableToxicity ? (
           <button className="secondary-button print-button" type="button" onClick={() => window.print()}>
             <Printer aria-hidden="true" size={17} /> Print this page
           </button>
