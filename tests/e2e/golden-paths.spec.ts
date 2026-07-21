@@ -103,7 +103,8 @@ test("mocked GPT navigation completes the neuropathy path and neutral summary", 
     page.getByRole("button", { name: /Drug: Paclitaxel.*Numbness, tingling, or weakness/ }).first(),
   ).toBeVisible();
   await expect(page.locator(".symptom-drug-list")).not.toContainText("Weekly paclitaxel");
-  await page.locator(".suggested-treatment-card").click();
+  await page.getByLabel("Treatment code").fill("THREAD-PAC-01");
+  await choose(page, "Use code");
   await choose(page, "Continue with this treatment");
 
   await choose(page, "Fingers");
