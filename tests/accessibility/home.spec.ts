@@ -67,7 +67,7 @@ test("320px layout has no horizontal overflow and exposes a keyboard skip link",
   await expect(page.locator("#main-content")).toBeFocused();
 });
 
-test("the main choices fit in common mobile and desktop viewports", async ({ page }) => {
+test("the main choices stay readable and horizontally contained", async ({ page }) => {
   for (const viewport of [
     { width: 390, height: 844 },
     { width: 1440, height: 900 },
@@ -78,16 +78,25 @@ test("the main choices fit in common mobile and desktop viewports", async ({ pag
 
     const choiceCards = page.locator(".entry-card");
     await expect(choiceCards).toHaveCount(2);
+    await expect(choiceCards.first()).toBeInViewport();
     await expect
       .poll(() =>
         choiceCards.evaluateAll((cards) =>
           cards.every((card) => {
             const bounds = card.getBoundingClientRect();
-            return bounds.top >= 0 && bounds.bottom <= window.innerHeight;
-          }),
+            return (
+              bounds.width > 0 &&
+              bounds.height > 0 &&
+              bounds.left >= 0 &&
+              bounds.right <= window.innerWidth
+            );
+          }) && document.documentElement.scrollWidth <= window.innerWidth,
         ),
       )
       .toBe(true);
+
+    await choiceCards.last().scrollIntoViewIfNeeded();
+    await expect(choiceCards.last()).toBeInViewport();
   }
 });
 
