@@ -194,15 +194,19 @@ describe("treatment search", () => {
     const presentationDrugIds = release.objects
       .filter((object) => object.kind === "drug_toxicity_presentation")
       .map(({ drug_id }) => drug_id);
+    const breastPresentationDrugIds = presentationDrugIds.filter(
+      (drugId) => drugId !== "carboplatin",
+    );
     const sourceIndexedDrugs = fdaDrugs.filter(
       (drug) => !eventMappedDrugs.includes(drug),
     );
 
-    expect(eventMappedDrugs).toHaveLength(25);
+    expect(eventMappedDrugs).toHaveLength(26);
     expect(new Set(eventMappedDrugs.map(({ id }) => id))).toEqual(
-      new Set(presentationDrugIds),
+      new Set(breastPresentationDrugIds),
     );
-    expect(sourceIndexedDrugs).toHaveLength(27);
+    expect(presentationDrugIds).toContain("carboplatin");
+    expect(sourceIndexedDrugs).toHaveLength(26);
     expect(
       sourceIndexedDrugs.every((drug) =>
         drug.regulatory_labels.every(

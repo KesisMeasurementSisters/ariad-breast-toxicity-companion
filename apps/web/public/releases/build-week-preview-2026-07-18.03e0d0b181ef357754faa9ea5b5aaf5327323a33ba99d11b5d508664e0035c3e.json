@@ -1,7 +1,7 @@
 {
   "approval_summary": {
     "approved": 0,
-    "draft": 190,
+    "draft": 189,
     "in_review": 0,
     "retired": 0
   },
@@ -14,8 +14,8 @@
   "clinical_use": false,
   "compiler_version": "0.2.0",
   "contains_unapproved_content": true,
-  "content_hash": "1b112e16129cffb14528ecd727a57a8aa19e79fa8c9bc8fe1745703e9144c43c",
-  "generated_at": "2026-07-20T22:28:43-04:00",
+  "content_hash": "03e0d0b181ef357754faa9ea5b5aaf5327323a33ba99d11b5d508664e0035c3e",
+  "generated_at": "2026-07-20T18:00:00-04:00",
   "indexes": {
     "relationships_by_symptom": {
       "diarrhea": [
@@ -1704,9 +1704,8 @@
     "The fictional demo clinic has unresolved fever and supportive-care policy bindings.",
     "The exact AC schedule variant is unresolved; no nadir timing is included.",
     "Catalogue-level treatment and symptom entries do not imply full guidance.",
-    "Twenty-six drugs have draft FDA single-agent frequency maps and patient presentations; all require clinician review.",
-    "Cyclophosphamide has a draft FDA label-category page without percentages, a usable denominator, or a claimed single-agent evidence population.",
-    "Twenty-six catalogue entries intentionally have no patient side-effect page.",
+    "Twenty-six drugs have draft FDA single-agent evidence maps and patient presentations; all require clinician review.",
+    "Twenty-seven catalogue entries do not have a qualifying FDA single-agent frequency population and intentionally have no patient frequency page.",
     "Carboplatin uses the FDA 553-patient single-agent ovarian safety population; this does not claim an FDA breast-cancer indication or a TCH/TCHP regimen frequency.",
     "Two broad catalogue sources are link-only and cannot enter a published release."
   ],
@@ -3699,320 +3698,6 @@
       ],
       "status": "draft",
       "subtitle": "Side effects reported with carboplatin alone",
-      "superseded_by": null,
-      "supersedes": null,
-      "version": "1.0.0"
-    },
-    {
-      "audience": "patient",
-      "cause_statement": "Ariad cannot determine the cause of a symptom.",
-      "drug_id": "cyclophosphamide",
-      "effects": [
-        {
-          "contact_team": [],
-          "display_name": "Low infection-fighting white blood cells",
-          "evidence_event_ids": [
-            "neutropenia"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "low-white-blood-cells",
-          "meaning": "Cyclophosphamide can lower white blood cells that help fight infection.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [
-            "Your cancer team will check your blood cells during treatment."
-          ],
-          "safe_actions": [
-            "Keep the blood-test appointments arranged by your cancer team.",
-            "Follow your cancer team's instructions for checking your temperature."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "You may not feel a low blood-cell count yourself."
-          ]
-        },
-        {
-          "contact_team": [
-            "Ask your cancer team if you would like support with hair changes."
-          ],
-          "display_name": "Hair loss",
-          "evidence_event_ids": [
-            "alopecia"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "hair-loss",
-          "meaning": "Your hair may become thinner or fall out during treatment.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Hair thinning or hair loss"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away if vomiting does not stop or keeps you from drinking."
-          ],
-          "display_name": "Nausea or vomiting",
-          "evidence_event_ids": [
-            "nausea",
-            "vomiting"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "nausea-or-vomiting",
-          "meaning": "You may feel sick to your stomach or throw up.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow the nausea plan provided by your cancer team."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "A feeling that you may vomit",
-            "Throwing up during the treatment period"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away if diarrhea is severe, does not stop, or makes it hard to drink."
-          ],
-          "display_name": "Diarrhea",
-          "evidence_event_ids": [
-            "diarrhea"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "diarrhea",
-          "meaning": "Your bowel movements may become loose or watery.",
-          "presentation_group": "common",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow the diarrhea instructions given by your cancer team."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Loose or watery bowel movements"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team immediately for a fever or another sign of infection."
-          ],
-          "display_name": "Fever or serious infection",
-          "evidence_event_ids": [
-            "febrile-neutropenia",
-            "fever",
-            "myelosuppression-and-infections"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "fever-or-serious-infection",
-          "meaning": "Low blood cells can allow an infection to become serious very quickly.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your cancer team will check your blood cells during treatment."
-          ],
-          "safe_actions": [
-            "Follow your cancer team's instructions for checking your temperature."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Fever, chills, cough, or feeling suddenly unwell",
-            "Pain or burning when you urinate"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team right away for pink or red urine or another new urinary symptom."
-          ],
-          "display_name": "Bladder or urinary tract damage",
-          "evidence_event_ids": [
-            "urinary-tract-and-renal-toxicity"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "bladder-or-urinary-tract-damage",
-          "meaning": "Cyclophosphamide can irritate or damage the bladder, urinary tract, or kidneys.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your cancer team may check your urine and kidney function during treatment."
-          ],
-          "safe_actions": [
-            "Follow your cancer team's instructions about fluids and emptying your bladder around treatment."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Pink or red urine",
-            "Pain, burning, or another new problem when you urinate"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact a health professional immediately for any of these changes."
-          ],
-          "display_name": "Heart problems",
-          "evidence_event_ids": [
-            "cardiotoxicity"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "heart-problems",
-          "meaning": "Cyclophosphamide can sometimes damage the heart.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [
-            "Your care team may monitor your heart if you have heart problems or other risk factors."
-          ],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency help for severe chest pain, severe trouble breathing, or loss of consciousness."
-          ],
-          "what_you_may_notice": [
-            "New or worsening shortness of breath or cough",
-            "Swelling in the ankles or legs, a racing or irregular heartbeat, sudden weight gain, dizziness, or fainting"
-          ]
-        },
-        {
-          "contact_team": [
-            "Contact your cancer team promptly for a new or worsening cough or shortness of breath."
-          ],
-          "display_name": "Lung problems",
-          "evidence_event_ids": [
-            "pulmonary-toxicity"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "lung-problems",
-          "meaning": "Cyclophosphamide can sometimes inflame or scar the lungs.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency help if you are struggling to breathe."
-          ],
-          "what_you_may_notice": [
-            "A new or worsening cough or shortness of breath"
-          ]
-        },
-        {
-          "contact_team": [],
-          "display_name": "Severe allergic reaction",
-          "evidence_event_ids": [
-            "hypersensitivity"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "severe-allergic-reaction",
-          "meaning": "A severe allergic reaction can happen during or after treatment.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [],
-          "urgent_help": [
-            "Get emergency medical help right away for trouble breathing, throat swelling, severe dizziness, or fainting."
-          ],
-          "what_you_may_notice": [
-            "Swelling of the face, lips, tongue, or throat",
-            "Hives, trouble breathing, severe dizziness, or fainting"
-          ]
-        },
-        {
-          "contact_team": [
-            "Ask your cancer team if you have questions about this long-term risk."
-          ],
-          "display_name": "Another cancer later",
-          "evidence_event_ids": [
-            "secondary-malignancies"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "another-cancer-later",
-          "meaning": "Cyclophosphamide can increase the long-term risk of developing another cancer.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Keep the long-term follow-up appointments recommended by your cancer team."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "There may be no early symptom you can feel."
-          ]
-        },
-        {
-          "contact_team": [
-            "Tell your cancer team immediately if you are pregnant or think you may be pregnant.",
-            "Ask your cancer team about fertility before or during treatment if this matters to you."
-          ],
-          "display_name": "Pregnancy or fertility harm",
-          "evidence_event_ids": [
-            "embryo-fetal-toxicity",
-            "infertility"
-          ],
-          "frequency_band": null,
-          "frequency_source_event_id": null,
-          "id": "pregnancy-or-fertility-harm",
-          "meaning": "Cyclophosphamide can harm a pregnancy and may affect the ability to have children.",
-          "presentation_group": "serious",
-          "reassuring_monitoring": [],
-          "safe_actions": [
-            "Follow your cancer team's pregnancy-prevention and breastfeeding instructions."
-          ],
-          "urgent_help": [],
-          "what_you_may_notice": [
-            "Fertility changes may not cause a symptom you can feel."
-          ]
-        }
-      ],
-      "escalation_summary": {
-        "contact_team": [
-          "Contact your cancer team immediately for a fever, chills, cough, burning when you urinate, or another sign of infection.",
-          "Contact them right away for pink or red urine or another new urinary symptom.",
-          "Contact a health professional immediately for new or worsening shortness of breath, cough, leg swelling, a racing or irregular heartbeat, sudden weight gain, dizziness, or fainting.",
-          "Contact your cancer team right away if vomiting or diarrhea does not stop or keeps you from drinking.",
-          "Tell your cancer team immediately if you are pregnant or think you may be pregnant."
-        ],
-        "heading": "When to contact your cancer team",
-        "introduction": "Follow the instructions given by your own cancer team.",
-        "urgent_help": [
-          "Get emergency medical help right away for severe chest pain, severe trouble breathing, swelling of the face, lips, tongue, or throat, severe dizziness, or loss of consciousness."
-        ]
-      },
-      "evidence_payload_hash": "507372063b6624035d10937c6b5e446112ede0c1f7e1fe98044515bd357bd75f",
-      "evidence_ref": {
-        "id": "cyclophosphamide-fda-label-categorical-safety",
-        "kind": "drug_toxicity_evidence",
-        "version": "1.0.0"
-      },
-      "evidence_scope": "drug_label",
-      "frequency_context": "This page groups FDA information into common effects and serious effects. Side effects can be different for each person.",
-      "frequency_method_id": null,
-      "id": "cyclophosphamide-patient-side-effects",
-      "kind": "drug_toxicity_presentation",
-      "monotherapy": true,
-      "omitted_evidence_events": [
-        {
-          "evidence_event_id": "veno-occlusive-liver-disease",
-          "rationale": "The FDA label does not provide patient-recognition or reporting instructions for this risk."
-        },
-        {
-          "evidence_event_id": "hyponatremia",
-          "rationale": "The FDA label does not provide patient-recognition or reporting instructions for this risk."
-        }
-      ],
-      "review": {
-        "approval_id": null,
-        "review_due": null,
-        "reviewed_at": null,
-        "reviewer": null
-      },
-      "route_label": "Intravenous (IV) infusion",
-      "source_context": "This draft uses FDA information for cyclophosphamide. Follow the information given by your own cancer team.",
-      "source_ids": [
-        "fda-label-cyclophosphamide"
-      ],
-      "status": "draft",
-      "subtitle": "Side effects linked to cyclophosphamide",
       "superseded_by": null,
       "supersedes": null,
       "version": "1.0.0"
@@ -10912,7 +10597,7 @@
           "dosage_forms": [
             "SOLUTION"
           ],
-          "evidence_mapping_status": "event_mapped",
+          "evidence_mapping_status": "source_indexed",
           "fda_routes": [
             "INTRAVENOUS"
           ],
@@ -19756,8 +19441,6 @@
   ],
   "release_id": "build-week-preview-2026-07-18",
   "release_notes": [
-    "Release 0.7.0 adds an unreviewed cyclophosphamide page with separate FDA-supported common and serious groups and no numerical frequency claims.",
-    "Release 0.7.0 stores cyclophosphamide denominator and event frequencies as unavailable and does not claim that its label-level safety evidence came from monotherapy.",
     "Release 0.6.0 adds an unreviewed carboplatin patient page backed by the FDA 553-patient second-line single-agent ovarian safety population in Tables 7 and 8.",
     "Release 0.6.0 keeps carboplatin's cross-indication population, denominator, exact percentages, dose context, and table mapping in private provenance rather than patient-display copy.",
     "Release 0.5.0 adds unreviewed patient-only side-effect previews for the other 24 drugs with qualifying FDA breast-cancer single-agent frequency populations.",
@@ -19774,7 +19457,7 @@
     "Contains three complete draft gold pathways and one draft weekly-paclitaxel preparation flow.",
     "GPT-5.6 is not a source of clinical guidance."
   ],
-  "release_version": "0.7.0",
+  "release_version": "0.6.0",
   "safety_ruleset_version": "0.2.0",
   "schema_version": "0.2.0",
   "source_inventory": [

@@ -1,0 +1,242 @@
+kind: drug_toxicity_evidence
+id: carboplatin-single-agent-ovarian-tables-7-8
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+drug_id: carboplatin
+monotherapy: true
+route: intravenous
+dose_mg_per_m2: null
+dose_description: Study-specific single-agent dosing; exact dose is not stated in Tables 7 and 8
+schedule: Second-line single-agent therapy; exact study schedule is not stated in Tables 7 and 8
+indication: Secondary treatment of advanced ovarian cancer
+population: >-
+  Patients with previously treated ovarian carcinoma who received carboplatin
+  alone in two prospective, randomized controlled studies.
+n_treatment: 553
+denominator_status: reported
+comparator_description: null
+n_comparator: null
+source_id: fda-label-carboplatin
+source_document_version: >-
+  NDA219921; FDA Reference ID 5639867; SPL set
+  f91c48da-68d1-4aa7-89b8-d84a3e8b629b; label revised 08/2025
+source_locator: >-
+  Section 6.1, Tables 7 and 8, Carboplatin as a Second Line Single-Agent
+  Therapy columns (n=553)
+source_url: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/219921s000lbl.pdf
+grading_system: null
+events:
+  - id: nausea-and-vomiting
+    source_event_name: Nausea and vomiting
+    frequency_basis: adverse_reaction
+    all_grade_pct: 92
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Table 7 reports the combined source event.
+
+  - id: vomiting
+    source_event_name: Vomiting
+    frequency_basis: adverse_reaction
+    all_grade_pct: 81
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: other-gi-side-effects
+    source_event_name: Other GI side effects
+    frequency_basis: adverse_reaction
+    all_grade_pct: 21
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The source category does not identify individual gastrointestinal effects.
+
+  - id: pain
+    source_event_name: Pain
+    frequency_basis: adverse_reaction
+    all_grade_pct: 23
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The source does not specify a pain location.
+
+  - id: asthenia
+    source_event_name: Asthenia
+    frequency_basis: adverse_reaction
+    all_grade_pct: 11
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: peripheral-neuropathies
+    source_event_name: Peripheral neuropathies
+    frequency_basis: adverse_reaction
+    all_grade_pct: 6
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: central-neurotoxicity
+    source_event_name: Central neurotoxicity
+    frequency_basis: adverse_reaction
+    all_grade_pct: 5
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The source category does not identify patient-observable effects.
+
+  - id: cardiovascular
+    source_event_name: Cardiovascular
+    frequency_basis: adverse_reaction
+    all_grade_pct: 6
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The source category does not identify individual cardiovascular effects.
+
+  - id: respiratory
+    source_event_name: Respiratory
+    frequency_basis: adverse_reaction
+    all_grade_pct: 6
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The source category does not identify individual respiratory effects.
+
+  - id: infections
+    source_event_name: Infections
+    frequency_basis: adverse_reaction
+    all_grade_pct: 5
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: bleeding
+    source_event_name: Bleeding
+    frequency_basis: adverse_reaction
+    all_grade_pct: 5
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: decreased-hemoglobin
+    source_event_name: Decreased hemoglobin
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 90
+    severe_pct: 21
+    fatal_pct: null
+    severe_source_label: <8 g/dL
+    frequency_note: All-grade source threshold is <11 g/dL.
+
+  - id: decreased-neutrophils
+    source_event_name: Decreased neutrophils
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 67
+    severe_pct: 21
+    fatal_pct: null
+    severe_source_label: <1000 cells/mm3
+    frequency_note: All-grade source threshold is <2000 cells/mm3.
+
+  - id: decreased-platelets
+    source_event_name: Decreased platelets
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 62
+    severe_pct: 35
+    fatal_pct: null
+    severe_source_label: <50,000/mm3
+    frequency_note: All-grade source threshold is <100,000/mm3.
+
+  - id: decreased-sodium
+    source_event_name: Decreased sodium
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 47
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: decreased-magnesium
+    source_event_name: Decreased magnesium
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 43
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: increased-alkaline-phosphatase
+    source_event_name: Increased alkaline phosphatase
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 37
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: decreased-calcium
+    source_event_name: Decreased calcium
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 31
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: decreased-potassium
+    source_event_name: Decreased potassium
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 28
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: increased-blood-urea
+    source_event_name: Increased blood urea
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 22
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: increased-ast
+    source_event_name: Increased AST
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 19
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: increased-serum-creatinine
+    source_event_name: Increased serum creatinine
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 10
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+
+  - id: increased-bilirubin
+    source_event_name: Increased bilirubin
+    frequency_basis: laboratory_abnormality
+    all_grade_pct: 5
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: null
+notes:
+  - This is the largest coherent single-agent FDA table with one explicit denominator in the selected current label.
+  - The population is ovarian cancer, not breast cancer, and this provenance limitation is not patient-display copy.
+  - The record does not use combination-arm frequencies or claim that these values describe TCH or TCHP.
+  - Exact percentages and laboratory thresholds are evidence data and are not patient-display copy.

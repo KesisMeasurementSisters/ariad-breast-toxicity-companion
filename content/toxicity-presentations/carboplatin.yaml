@@ -1,0 +1,189 @@
+kind: drug_toxicity_presentation
+id: carboplatin-patient-side-effects
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+audience: patient
+drug_id: carboplatin
+monotherapy: true
+evidence_ref:
+  kind: drug_toxicity_evidence
+  id: carboplatin-single-agent-ovarian-tables-7-8
+  version: 1.0.0
+evidence_payload_hash: b4d72d6cc242cc45601a93fdc3144056cf40436f8ea30d4d853eab7b103e4ca0
+source_ids: [fda-label-carboplatin]
+route_label: Intravenous (IV) infusion
+subtitle: Side effects reported with carboplatin alone
+frequency_context: >-
+  Side effects can be different for each person. These broad groups are not a
+  prediction of what will happen to you.
+cause_statement: Ariad cannot determine the cause of a symptom.
+source_context: >-
+  This draft uses FDA information for carboplatin. Follow the information given
+  by your own cancer team.
+frequency_method_id: ariad-all-grade-frequency-v1
+effects:
+  - id: nausea-or-vomiting
+    display_name: Nausea or vomiting
+    evidence_event_ids: [nausea-and-vomiting, vomiting]
+    frequency_source_event_id: nausea-and-vomiting
+    frequency_band: many_people
+    meaning: You may feel sick to your stomach or throw up.
+    what_you_may_notice:
+      - A feeling that you may vomit
+      - Throwing up during the treatment period
+    safe_actions:
+      - Take the anti-sickness medicines provided by your cancer team exactly as directed.
+    contact_team:
+      - Contact your cancer team right away if nausea or vomiting is severe, does not stop, or keeps you from drinking.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: pain
+    display_name: Pain
+    evidence_event_ids: [pain]
+    frequency_source_event_id: pain
+    frequency_band: some_people
+    meaning: You may notice new pain during treatment.
+    what_you_may_notice:
+      - New or worsening pain anywhere in the body
+    safe_actions: []
+    contact_team:
+      - Tell your cancer team about new or worsening pain.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: tiredness-or-weakness
+    display_name: Tiredness or weakness
+    evidence_event_ids: [asthenia]
+    frequency_source_event_id: asthenia
+    frequency_band: some_people
+    meaning: You may feel more tired or weak than usual.
+    what_you_may_notice:
+      - Everyday activities may take more effort.
+    safe_actions: []
+    contact_team:
+      - Tell your cancer team right away about new or worsening tiredness, weakness, or shortness of breath.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: numbness-tingling-or-burning
+    display_name: Numbness, tingling, or burning
+    evidence_event_ids: [peripheral-neuropathies]
+    frequency_source_event_id: peripheral-neuropathies
+    frequency_band: fewer_people
+    meaning: Carboplatin can affect nerves in the hands or feet.
+    what_you_may_notice:
+      - Tingling, numbness, burning, or a pins-and-needles feeling in the hands or feet
+    safe_actions: []
+    contact_team:
+      - Tell your cancer team if you notice a new change in feeling in your hands or feet.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: infection
+    display_name: Infection
+    evidence_event_ids: [infections]
+    frequency_source_event_id: infections
+    frequency_band: fewer_people
+    meaning: Carboplatin can lower the body's ability to fight infection.
+    what_you_may_notice:
+      - Fever, chills, cough, or feeling unwell
+      - Pain or burning when you urinate
+    safe_actions:
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team:
+      - Contact your cancer team right away if you have a fever or another sign of infection.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells during treatment.
+
+  - id: bruising-or-bleeding
+    display_name: Bruising or bleeding
+    evidence_event_ids: [bleeding]
+    frequency_source_event_id: bleeding
+    frequency_band: fewer_people
+    meaning: Carboplatin can lower platelets, which help blood clot.
+    what_you_may_notice:
+      - Unusual bruising or bleeding
+      - Black, tarry stools or blood in your urine
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for unusual bruising or bleeding, black stools, or blood in your urine.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells during treatment.
+
+  - id: blood-count-changes
+    display_name: Blood-count changes
+    evidence_event_ids: [decreased-hemoglobin, decreased-neutrophils, decreased-platelets]
+    frequency_source_event_id: null
+    frequency_band: null
+    meaning: Carboplatin can lower red blood cells, infection-fighting cells, or platelets.
+    what_you_may_notice:
+      - These changes may not cause a symptom you can feel.
+    safe_actions:
+      - Keep the blood-test appointments arranged by your cancer team.
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells before and during treatment.
+
+  - id: salt-and-mineral-changes
+    display_name: Salt and mineral changes
+    evidence_event_ids: [decreased-sodium, decreased-magnesium, decreased-calcium, decreased-potassium]
+    frequency_source_event_id: null
+    frequency_band: null
+    meaning: Carboplatin can change salts and minerals in the blood.
+    what_you_may_notice:
+      - These changes may not cause a symptom you can feel.
+    safe_actions:
+      - Keep the blood-test appointments arranged by your cancer team.
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team may check these levels during treatment.
+
+  - id: kidney-and-liver-test-changes
+    display_name: Kidney and liver test changes
+    evidence_event_ids:
+      - increased-alkaline-phosphatase
+      - increased-blood-urea
+      - increased-ast
+      - increased-serum-creatinine
+      - increased-bilirubin
+    frequency_source_event_id: null
+    frequency_band: null
+    meaning: Carboplatin can change blood tests used to check the kidneys or liver.
+    what_you_may_notice:
+      - These changes may not cause a symptom you can feel.
+    safe_actions:
+      - Keep the blood-test appointments arranged by your cancer team.
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team may check kidney and liver tests during treatment.
+
+omitted_evidence_events:
+  - evidence_event_id: other-gi-side-effects
+    rationale: The broad FDA table category does not identify a patient-recognizable effect.
+  - evidence_event_id: central-neurotoxicity
+    rationale: The broad FDA table category does not identify a patient-recognizable effect.
+  - evidence_event_id: cardiovascular
+    rationale: The broad FDA table category does not identify a patient-recognizable effect.
+  - evidence_event_id: respiratory
+    rationale: The broad FDA table category does not identify a patient-recognizable effect.
+
+escalation_summary:
+  heading: When to contact your cancer team
+  introduction: Follow the instructions given by your own cancer team.
+  contact_team:
+    - Contact your cancer team right away for fever, chills, cough, pain or burning when you urinate, or another sign of infection.
+    - Contact them right away for unusual bruising or bleeding, black stools, or blood in your urine.
+    - Contact them right away if nausea or vomiting is severe, does not stop, or keeps you from drinking.
+    - Tell them about new tingling, numbness, burning, or a pins-and-needles feeling in your hands or feet.
+    - Contact them right away for rash, hives, itching, swelling of the lips or tongue, a sudden cough, dizziness, faintness, sweating, or chest pain.
+  urgent_help:
+    - Get emergency medical help right away for trouble breathing or a feeling that your throat is closing.

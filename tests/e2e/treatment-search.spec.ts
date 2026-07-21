@@ -112,11 +112,80 @@ test("a drug opens one drug page and a regimen opens ordered component cards", a
   ).toBeVisible();
   const cards = page.locator(".regimen-medication-card");
   await expect(cards).toHaveCount(4);
-  await expect(cards.nth(0).locator("h2")).toHaveText("Docetaxel (Taxotere)");
-  await expect(cards.nth(1).locator("h2")).toHaveText("Carboplatin");
-  await expect(cards.nth(2).locator("h2")).toHaveText("Trastuzumab (Herceptin)");
-  await expect(cards.nth(3).locator("h2")).toHaveText("Pertuzumab (Perjeta)");
-  await expect(page.getByText("Information for this drug is being prepared")).toHaveCount(4);
+  await expect(cards.nth(0).locator(".regimen-medication-header h2")).toHaveText(
+    "Docetaxel (Taxotere)",
+  );
+  await expect(cards.nth(1).locator(".regimen-medication-header h2")).toHaveText(
+    "Carboplatin",
+  );
+  await expect(cards.nth(2).locator(".regimen-medication-header h2")).toHaveText(
+    "Trastuzumab (Herceptin)",
+  );
+  await expect(cards.nth(3).locator(".regimen-medication-header h2")).toHaveText(
+    "Pertuzumab (Perjeta)",
+  );
+  await expect(
+    cards.nth(0).getByRole("heading", { name: "Side effects reported with docetaxel alone" }),
+  ).toBeVisible();
+  await expect(
+    cards.nth(1).getByRole("heading", { name: "Side effects reported with carboplatin alone" }),
+  ).toBeVisible();
+  await expect(
+    cards.nth(2).getByRole("heading", { name: "Side effects reported with trastuzumab alone" }),
+  ).toBeVisible();
+  await expect(page.getByText("Information for this drug is being prepared")).toHaveCount(1);
+});
+
+test("TCH composes independent single-drug pages without implying regimen frequencies", async ({
+  page,
+}) => {
+  await page.goto("/?treatment=tch");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  const cards = page.locator(".regimen-medication-card");
+  await expect(cards).toHaveCount(3);
+
+  const docetaxel = page.locator('[data-drug-id="docetaxel"]');
+  const carboplatin = page.locator('[data-drug-id="carboplatin"]');
+  const trastuzumab = page.locator('[data-drug-id="trastuzumab"]');
+
+  await expect(
+    docetaxel.getByRole("heading", { name: "Side effects reported with docetaxel alone" }),
+  ).toBeVisible();
+  await expect(
+    trastuzumab.getByRole("heading", { name: "Side effects reported with trastuzumab alone" }),
+  ).toBeVisible();
+  await expect(
+    carboplatin.getByRole("heading", { name: "Side effects reported with carboplatin alone" }),
+  ).toBeVisible();
+  await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
+  await expect(page.locator(".regimen-single-drug-boundary")).toHaveCount(3);
+  await expect(
+    page.getByText(
+      "This section shows FDA information for this drug when studied alone. Its frequency groups do not describe how often side effects occur with the full TCH regimen.",
+    ),
+  ).toHaveCount(3);
+
+  const patientText = await page.locator("main").innerText();
+  expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);
+  expect(patientText).not.toMatch(/\bgrade\s*\d+\b/iu);
+
+  const ids = await page.locator("[id]").evaluateAll((elements) =>
+    elements.map((element) => element.id),
+  );
+  expect(new Set(ids).size).toBe(ids.length);
+
+  const docetaxelEffects = docetaxel.locator(".toxicity-effect");
+  const trastuzumabEffects = trastuzumab.locator(".toxicity-effect");
+  await docetaxelEffects.first().locator("summary").click();
+  await expect(docetaxelEffects.first()).toHaveAttribute("open", "");
+  await expect(trastuzumabEffects.first()).not.toHaveAttribute("open", "");
+
+  await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
+  await expect(page.locator(".toxicity-presentation details:not([open])")).toHaveCount(0);
+  await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+  await expect(docetaxelEffects.first()).toHaveAttribute("open", "");
+  await expect(trastuzumabEffects.first()).not.toHaveAttribute("open", "");
 });
 
 test("a catalogue drug without FDA single-agent breast frequencies stays in preparation", async ({
@@ -130,6 +199,60 @@ test("a catalogue drug without FDA single-agent breast frequencies stays in prep
     page.getByRole("heading", { name: "Information for this drug is being prepared" }),
   ).toBeVisible();
   await expect(page.locator(".toxicity-presentation")).toHaveCount(0);
+});
+
+test("carboplatin shows patient copy while keeping study methodology out of view", async ({
+  page,
+}) => {
+  await page.goto("/?treatment=carboplatin");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  await expect(page.getByRole("heading", { name: "Carboplatin", exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Side effects reported with carboplatin alone" }),
+  ).toBeVisible();
+  await expect(page.getByText("Nausea or vomiting", { exact: true })).toBeVisible();
+  await expect(page.getByText("Bruising or bleeding", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Changes your team checks for" })).toBeVisible();
+
+  const patientText = await page.locator("main").innerText();
+  expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);
+  expect(patientText).not.toMatch(/\bgrade\s*\d+\b/iu);
+  expect(patientText).not.toMatch(/ovarian|553|table\s*[78]|denominator|mg\/m/iu);
+});
+
+test("cyclophosphamide uses FDA common and serious groups without numerical frequencies", async ({
+  page,
+}) => {
+  await page.goto("/?treatment=cyclophosphamide");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  await expect(
+    page.getByRole("heading", { name: "Cyclophosphamide (Procytox)" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Side effects linked to cyclophosphamide" }),
+  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Common effects" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Serious effects" })).toBeVisible();
+  await expect(page.getByText("Hair loss", { exact: true })).toBeVisible();
+  await expect(page.getByText("Fever or serious infection", { exact: true })).toBeVisible();
+
+  const patientText = await page.locator(".toxicity-presentation").innerText();
+  expect(patientText).not.toMatch(/\d+(?:\.\d+)?\s*%/u);
+  expect(patientText).not.toMatch(/\bgrade\s*\d+\b/iu);
+  expect(patientText).not.toMatch(/denominator|postmarketing|population|mg\/m/iu);
+
+  await page.goto("/?treatment=tc");
+  const cyclophosphamide = page.locator('[data-drug-id="cyclophosphamide"]');
+  await expect(
+    cyclophosphamide.getByRole("heading", { name: "Side effects linked to cyclophosphamide" }),
+  ).toBeVisible();
+  await expect(
+    cyclophosphamide.getByText(
+      "This section shows FDA information for this individual drug. The label does not say how often these effects occur with the full TC regimen.",
+    ),
+  ).toBeVisible();
 });
 
 test("representative single drugs open separate FDA-linked qualitative pages", async ({ page }) => {

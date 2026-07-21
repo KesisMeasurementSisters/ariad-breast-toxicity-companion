@@ -4,15 +4,15 @@
 
 ## Review summary
 
-- Draft governed objects: 214
+- Draft governed objects: 218
 - Patient-facing modules: 22
 - Approved patient-facing modules: 0
-- Private drug toxicity evidence records: 25
-- Patient drug toxicity presentations: 25
+- Private drug toxicity evidence records: 27
+- Patient drug toxicity presentations: 27
 - Approved patient drug toxicity presentations: 0
 - Modules missing sources: 0
 - Modules with unresolved placeholders: 2
-- Source records: 70
+- Source records: 71
 - Clinic configuration versions: 2
 - Structured clinic configuration v2 objects: 1
 - Unresolved clinic policy bindings: 2
@@ -59,6 +59,8 @@
 | ado-trastuzumab-emtansine-fda-largest-single-agent-breast | ado-trastuzumab-emtansine | 1.0.0 | draft | yes | Patients in KATHERINE who received ado-trastuzumab emtansine after surgery for residual invasive HER2-positive early breast cancer. | 740 | 3.6 mg/kg by intravenous infusion | Section 6.1, Table 5, KATHERINE KADCYLA column (n=740) | — |
 | anastrozole-fda-largest-single-agent-breast | anastrozole | 1.0.0 | draft | yes | Postmenopausal women in the ATAC trial who received anastrozole alone for adjuvant treatment of early breast cancer. | 3092 | 1 mg orally once daily | Section 6.1, Table 1, ATAC ARIMIDEX 1 mg column (N=3092) | — |
 | capecitabine-fda-largest-single-agent-breast | capecitabine | 1.0.0 | draft | yes | Patients in Study SO14697 who received capecitabine as a single agent for metastatic breast cancer. | 162 | 1,250 mg/m² orally twice daily on days 1 through 14 | Section 6.1, Table 7, Study SO14697 capecitabine column (n=162) | — |
+| carboplatin-single-agent-ovarian-tables-7-8 | carboplatin | 1.0.0 | draft | yes | Patients with previously treated ovarian carcinoma who received carboplatin alone in two prospective, randomized controlled studies. | 553 | Study-specific single-agent dosing; exact dose is not stated in Tables 7 and 8 | Section 6.1, Tables 7 and 8, Carboplatin as a Second Line Single-Agent Therapy columns (n=553) | — |
+| cyclophosphamide-fda-label-categorical-safety | cyclophosphamide | 1.0.0 | draft | no | People exposed to cyclophosphamide in clinical studies or postmarketing reports. The source population is of uncertain size and is not limited to single-agent treatment. | null | Not tied to one dose; the FDA label combines clinical-study and postmarketing reports | Highlights; Sections 5.1 through 5.11; Section 6.1; and Section 17, Patient Counseling Information | — |
 | datopotamab-deruxtecan-fda-largest-single-agent-breast | datopotamab-deruxtecan | 1.0.0 | draft | yes | Patients in TROPION-Breast01 who received datopotamab deruxtecan after prior endocrine therapy and chemotherapy for unresectable or metastatic disease. | 360 | 6 mg/kg by intravenous infusion | Section 6.1, Table 8, TROPION-Breast01 DATROWAY column (N=360) | — |
 | docetaxel-100mg-breast-table-3 | docetaxel | 1.0.0 | draft | yes | Patients with locally advanced or metastatic breast cancer, both previously treated and untreated with chemotherapy, with normal baseline liver function tests. | 965 | 100 mg/m² | Section 6.1, Table 3, Breast Cancer Normal LFTs column (n=965) | — |
 | elacestrant-fda-largest-single-agent-breast | elacestrant | 1.0.0 | draft | yes | Patients in EMERALD who received elacestrant after prior endocrine therapy including a CDK4/6 inhibitor. | 237 | 345 mg orally once daily with food | Section 6.1, Table 3, EMERALD ORSERDU column (n=237) | — |
@@ -89,6 +91,8 @@
 | ado-trastuzumab-emtansine-patient-side-effects | ado-trastuzumab-emtansine | 1.0.0 | draft | ado-trastuzumab-emtansine-fda-largest-single-agent-breast@1.0.0 | 16 | 1 | — |
 | anastrozole-patient-side-effects | anastrozole | 1.0.0 | draft | anastrozole-fda-largest-single-agent-breast@1.0.0 | 18 | 1 | — |
 | capecitabine-patient-side-effects | capecitabine | 1.0.0 | draft | capecitabine-fda-largest-single-agent-breast@1.0.0 | 15 | 1 | — |
+| carboplatin-patient-side-effects | carboplatin | 1.0.0 | draft | carboplatin-single-agent-ovarian-tables-7-8@1.0.0 | 9 | 1 | — |
+| cyclophosphamide-patient-side-effects | cyclophosphamide | 1.0.0 | draft | cyclophosphamide-fda-label-categorical-safety@1.0.0 | 11 | 1 | — |
 | datopotamab-deruxtecan-patient-side-effects | datopotamab-deruxtecan | 1.0.0 | draft | datopotamab-deruxtecan-fda-largest-single-agent-breast@1.0.0 | 13 | 1 | — |
 | docetaxel-patient-side-effects | docetaxel | 1.0.0 | draft | docetaxel-100mg-breast-table-3@1.0.0 | 17 | 1 | — |
 | elacestrant-patient-side-effects | elacestrant | 1.0.0 | draft | elacestrant-fda-largest-single-agent-breast@1.0.0 | 11 | 1 | — |
@@ -137,6 +141,7 @@
 | fda-label-anastrozole | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=acbfaaa9-503c-4691-9828-76a7146ed6de) |
 | fda-label-capecitabine | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=06a88b03-6c06-4dae-b3bc-1e8dd81c9067) |
 | fda-label-capivasertib | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218197) |
+| fda-label-carboplatin | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f91c48da-68d1-4aa7-89b8-d84a3e8b629b) |
 | fda-label-conjugated-estrogens | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=004782) |
 | fda-label-cyclophosphamide | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212501) |
 | fda-label-datopotamab-deruxtecan | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0) |

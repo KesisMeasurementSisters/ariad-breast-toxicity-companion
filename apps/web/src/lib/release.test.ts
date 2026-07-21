@@ -14,6 +14,8 @@ describe("patient-safe drug toxicity release", () => {
       "ado-trastuzumab-emtansine",
       "anastrozole",
       "capecitabine",
+      "carboplatin",
+      "cyclophosphamide",
       "datopotamab-deruxtecan",
       "docetaxel",
       "elacestrant",
@@ -40,7 +42,7 @@ describe("patient-safe drug toxicity release", () => {
       (object) => object.kind === "drug_toxicity_presentation",
     );
 
-    expect(presentations).toHaveLength(25);
+    expect(presentations).toHaveLength(27);
     expect(presentations.map(({ drug_id }) => drug_id).sort()).toEqual(supportedDrugIds);
     for (const drugId of supportedDrugIds) {
       expect(drugToxicityPresentationForDrug(drugId)).toBeDefined();
@@ -63,6 +65,8 @@ describe("patient-safe drug toxicity release", () => {
       "severity_values",
       "n_treatment",
       "n_comparator",
+      "frequency_status",
+      "source_frequency_category",
     ]) {
       expect(patientPayload).not.toContain(`"${privateField}":`);
     }

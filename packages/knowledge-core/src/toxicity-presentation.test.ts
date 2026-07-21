@@ -31,14 +31,83 @@ describe("single-drug toxicity presentation validation", () => {
         object.kind === "drug_toxicity_presentation",
     );
 
-    expect(evidence).toHaveLength(25);
-    expect(presentations).toHaveLength(25);
+    expect(evidence).toHaveLength(27);
+    expect(presentations).toHaveLength(27);
     expect(new Set(evidence.map(({ drug_id }) => drug_id))).toEqual(
       new Set(presentations.map(({ drug_id }) => drug_id)),
     );
-    expect(evidence.every(({ monotherapy }) => monotherapy)).toBe(true);
+    expect(evidence.filter(({ evidence_scope }) => evidence_scope !== "drug_label")
+      .every(({ monotherapy }) => monotherapy)).toBe(true);
     expect(presentations.every(({ status }) => status === "draft")).toBe(true);
     expect(validateRepository(repository).issues).toEqual([]);
+  });
+
+  it("keeps carboplatin's cross-indication methodology in private provenance", () => {
+    const evidence = repository.objects.find(
+      (object): object is DrugToxicityEvidence =>
+        object.kind === "drug_toxicity_evidence" &&
+        object.id === "carboplatin-single-agent-ovarian-tables-7-8",
+    );
+    const presentation = repository.objects.find(
+      (object): object is DrugToxicityPresentation =>
+        object.kind === "drug_toxicity_presentation" &&
+        object.id === "carboplatin-patient-side-effects",
+    );
+
+    expect(evidence).toMatchObject({
+      drug_id: "carboplatin",
+      monotherapy: true,
+      n_treatment: 553,
+      source_id: "fda-label-carboplatin",
+    });
+    expect(evidence?.events.find(({ id }) => id === "nausea-and-vomiting")?.all_grade_pct)
+      .toBe(92);
+    expect(evidence?.events.find(({ id }) => id === "decreased-neutrophils")?.all_grade_pct)
+      .toBe(67);
+
+    const visibleContext = [
+      presentation?.subtitle,
+      presentation?.frequency_context,
+      presentation?.cause_statement,
+      presentation?.source_context,
+    ].join(" ");
+    expect(visibleContext).not.toMatch(/ovarian|553|table\s*[78]|denominator/iu);
+  });
+
+  it("keeps cyclophosphamide's FDA common and serious categories separate from numerical frequency", () => {
+    const evidence = repository.objects.find(
+      (object): object is DrugToxicityEvidence =>
+        object.kind === "drug_toxicity_evidence" &&
+        object.id === "cyclophosphamide-fda-label-categorical-safety",
+    );
+    const presentation = repository.objects.find(
+      (object): object is DrugToxicityPresentation =>
+        object.kind === "drug_toxicity_presentation" &&
+        object.id === "cyclophosphamide-patient-side-effects",
+    );
+
+    expect(evidence).toMatchObject({
+      drug_id: "cyclophosphamide",
+      monotherapy: false,
+      evidence_scope: "drug_label",
+      n_treatment: null,
+      denominator_status: "unavailable",
+      source_id: "fda-label-cyclophosphamide",
+    });
+    expect(evidence?.events.find(({ id }) => id === "neutropenia")).toMatchObject({
+      frequency_status: "reported",
+      source_frequency_category: "most_common",
+      all_grade_pct: null,
+    });
+    expect(evidence?.events.find(({ id }) => id === "cardiotoxicity")).toMatchObject({
+      frequency_status: "not_reported",
+      frequency_basis: "warning",
+      all_grade_pct: null,
+    });
+    expect(presentation?.frequency_method_id).toBeNull();
+    expect(new Set(presentation?.effects.map(({ presentation_group }) => presentation_group)))
+      .toEqual(new Set(["common", "serious"]));
+    expect(presentation?.effects.every(({ frequency_band }) => frequency_band === null)).toBe(true);
   });
 
   it("detects a private evidence change even when the qualitative band would stay the same", () => {

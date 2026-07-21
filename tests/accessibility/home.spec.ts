@@ -58,6 +58,8 @@ test("live treatment results and regimen cards have no serious accessibility vio
       name: /Regimen: TCHP: Docetaxel \+ Carboplatin \+ Trastuzumab \+ Pertuzumab/,
     })
     .click();
+  await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
+  await expect(page.locator(".regimen-single-drug-boundary")).toHaveCount(3);
   const regimen = await new AxeBuilder({ page }).analyze();
   expect(
     regimen.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
@@ -83,6 +85,22 @@ test("a new single-drug patient presentation is accessible and fits at 320px", a
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("/?treatment=capecitabine");
   await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+
+  const result = await new AxeBuilder({ page }).analyze();
+  expect(
+    result.violations.filter(({ impact }) => impact === "critical" || impact === "serious"),
+  ).toEqual([]);
+
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
+    .toBe(true);
+});
+
+test("the composed TCH patient presentation is accessible and fits at 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("/?treatment=tch");
+  await expect(page.locator("body")).toHaveAttribute("data-ariad-ready", "true");
+  await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
 
   const result = await new AxeBuilder({ page }).analyze();
   expect(

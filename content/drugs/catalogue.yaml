@@ -139,8 +139,8 @@
   aliases: []
   class_ids: [cytotoxic-chemotherapy]
   routes: [intravenous]
-  source_ids: [cco-tch-breast-regimen, cco-tchp-breast-regimen]
-  support_status: catalogued
+  source_ids: [cco-tch-breast-regimen, cco-tchp-breast-regimen, fda-label-carboplatin]
+  support_status: education_only
   catalogue_basis: breast_regimen_component
   regulatory_labels: []
 
@@ -183,7 +183,7 @@
       dosage_forms: [SOLUTION]
       fda_routes: [INTRAVENOUS]
       safety_sections: *common_safety
-      evidence_mapping_status: source_indexed
+      evidence_mapping_status: event_mapped
       source_id: fda-label-cyclophosphamide
 
 - <<: *drug_base
