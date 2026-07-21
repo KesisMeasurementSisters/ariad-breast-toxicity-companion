@@ -1034,11 +1034,11 @@ function TreatmentOverviewScreen({
         onBack={onBack}
       >
         {isRegimen && regimenItems.length > 1
-          ? "Preparation for the treatment plan comes first. Side-effect information for each cancer drug follows."
+          ? "Side-effect information for each cancer drug comes first. Preparation for the treatment plan follows."
           : isRegimen
-            ? "Preparation for this treatment plan comes first. Side-effect information for its drug follows."
+            ? "Side-effect information for this treatment plan's drug comes first. Preparation follows."
           : treatment?.kind === "drug"
-            ? "Preparation comes first. Side-effect information on this page is for this drug only."
+            ? "Side-effect information for this drug comes first. Treatment preparation follows."
             : "This page shows information about this treatment plan."}
       </PageIntro>
       <div className="overview-meta">
@@ -1058,8 +1058,6 @@ function TreatmentOverviewScreen({
           </button>
         ) : null}
       </div>
-
-      <PreparationSection preparation={preparation} />
 
       <section className="side-effect-education" aria-labelledby="side-effect-education-heading">
         <header className="side-effect-intro">
@@ -1091,6 +1089,9 @@ function TreatmentOverviewScreen({
           <InformationPending />
         )}
       </section>
+
+      <PreparationSection preparation={preparation} />
+
       <div className="action-row">
         {canPrint ? (
           <button className="secondary-button print-button" type="button" onClick={() => window.print()}>

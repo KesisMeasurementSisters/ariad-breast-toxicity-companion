@@ -38,7 +38,7 @@ test("search stays minimal and canonicalizes generic and brand names", async ({ 
   await expect(results.first()).toContainText("Vepdegestrant (Veppanu)");
 });
 
-test("a weekly schedule search opens preparation before paclitaxel side effects", async ({ page }) => {
+test("a weekly schedule search opens paclitaxel side effects before preparation", async ({ page }) => {
   await page.getByLabel("Drug or treatment plan").fill("weekly Taxol");
 
   const weekly = page.getByRole("button", {
@@ -56,6 +56,9 @@ test("a weekly schedule search opens preparation before paclitaxel side effects"
   await expect(page.locator(".preparation-step")).toHaveCount(3);
   await expect(page.locator(".preparation-safety-note")).toHaveCount(1);
   await expect(page.getByRole("heading", { name: "Side-effect information" })).toBeVisible();
+  await expect(page.locator(".side-effect-education, .preparation-guide").first()).toHaveClass(
+    /side-effect-education/u,
+  );
   const paclitaxelDrug = page.locator('[data-drug-id="paclitaxel"]');
   await expect(paclitaxelDrug).not.toHaveAttribute("open", "");
   await paclitaxelDrug.locator(":scope > summary").click();
@@ -220,7 +223,7 @@ test("a drug opens one page and a regimen opens ordered whole-drug accordions", 
   await expect(page.getByRole("heading", { name: "What is this treatment?" })).toBeVisible();
   await expect(page.locator(".preparation-guide, .side-effect-education")).toHaveCount(2);
   await expect(page.locator(".preparation-guide, .side-effect-education").nth(0)).toHaveClass(
-    /preparation-guide/u,
+    /side-effect-education/u,
   );
   const cards = page.locator(".regimen-medication-card");
   await expect(cards).toHaveCount(4);

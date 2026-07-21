@@ -178,7 +178,7 @@ test("live treatment results and regimen accordions have no serious accessibilit
   await expect(page.getByRole("heading", { name: "Get ready in three steps" })).toBeVisible();
   await expect(page.locator(".preparation-step")).toHaveCount(3);
   await expect(page.locator(".preparation-guide, .side-effect-education").first()).toHaveClass(
-    /preparation-guide/u,
+    /side-effect-education/u,
   );
   await expect(page.locator(".toxicity-presentation")).toHaveCount(3);
   await expect(page.locator(".regimen-single-drug-boundary")).toHaveCount(3);
