@@ -77,7 +77,10 @@ Preparation modules use a separate `preparation_order` field. At runtime,
 `resolvePreparation` first looks for modules authored for the exact drug or
 regimen. If none exist, it may use only modules explicitly authored for
 `systemic-therapy`. It does not infer preparation from regimen components or
-treatment classes, and duplicate authored order values fail closed.
+treatment classes, and duplicate authored order values fail closed. A pure
+display grouper preserves that ordered module set while placing it under three
+plain-language questions. Modules carrying the Ariad boundary claim remain
+outside the numbered steps as a separate safety note.
 
 ## Source representation
 

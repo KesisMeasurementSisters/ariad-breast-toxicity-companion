@@ -57,7 +57,8 @@ Life** track.
   - AC chemotherapy + fever, chills, or infection concern.
 - A preparation guide for every one of the 53 drug choices and eight regimen
   choices. Weekly paclitaxel, capecitabine monotherapy, and AC have exact draft
-  overlays; every other choice uses a clearly labelled general guide.
+  overlays; every other choice uses a clearly labelled general guide. The same
+  governed modules are presented as three plain-language preparation questions.
 - Thirty draft single-drug side-effect pages with qualitative frequency
   or FDA label-category groups, plain-language disclosures, FDA-linked actions,
   and a final escalation summary for each drug.

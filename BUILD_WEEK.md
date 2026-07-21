@@ -551,7 +551,53 @@
 - Safety scan — 0 findings across source content, compiled content, and summary
   fixtures.
 - Production web build — passed with all application and API routes compiled.
-- Playwright discovered all 58 mobile and desktop browser/accessibility tests,
-  including the new preparation flows. This environment could not execute them
-  because permission to start the localhost test server was rejected after the
-  tool-approval quota was exhausted; this remains a final pre-submission run.
+- `pnpm test:e2e` — all 58 mobile and desktop browser/accessibility tests
+  passed, including the preparation, treatment search, print, saved-treatment,
+  320 px layout, and serious/critical axe checks.
+
+## 2026-07-21 — three-question treatment preparation layout
+
+### Patient experience
+
+- Preparation is now organized around three questions: “What is this
+  treatment?”, “What should I do before treatment?”, and “What should I have
+  ready?”
+- The questions form one numbered three-step list. The source-linked cause and
+  emergency boundary remains visible as a separate safety note instead of
+  appearing to be another preparation task.
+- Exact-treatment and general-guide labels remain visible. Source links,
+  printing, saved-treatment reopening, and the side-effect information below
+  preparation are unchanged.
+- The page uses semantic headings, an ordered list, restrained Kesis colours,
+  and print-safe cards that fit at 320 px without horizontal scrolling.
+
+### Content and safety boundary
+
+- A pure display grouper reorganizes the already authored modules without
+  changing, adding, or removing their patient guidance. It preserves their
+  authored order and does not change the clinical resolver.
+- Automated checks confirm that every module appears once, the source-linked
+  boundary remains separate, and the three patient questions are populated for
+  representative exact and general guides.
+- All active preparation copy and the new interface copy have an automated
+  Flesch-Kincaid estimate at or below grade 8. Technical navigation terms are
+  rejected by a focused language guardrail.
+- This is a presentation-only change. No clinical content, source record,
+  reviewer, approval, release version, or content hash changed. All governed
+  preparation modules remain `draft`.
+
+### Release and verification evidence
+
+- Active preview remains `build-week-preview-2026-07-18@0.12.0` with content
+  hash
+  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
+- Content validation — 0 errors and 0 warnings; the 492-object active release
+  and its 139 educational modules are unchanged.
+- `pnpm test` — 172 unit and golden tests passed, including display grouping,
+  ordering, boundary, completeness, and grade-level contracts.
+- `pnpm lint` — passed.
+- `pnpm typecheck` — all three workspace packages passed.
+- Safety scan — 0 findings.
+- Production web build — passed with all application and API routes compiled.
+- `pnpm test:e2e` — all 58 mobile and desktop browser/accessibility tests
+  passed in 18.8 seconds.

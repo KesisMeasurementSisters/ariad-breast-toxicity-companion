@@ -41,8 +41,10 @@ Selecting a catalogue item does not synthesize a relationship. Preparation
 first resolves modules written for the exact treatment ID. If there are none,
 it may use only the clearly labelled modules written for `systemic-therapy`.
 It does not infer preparation from a drug class or regimen component. The
-treatment page then renders preparation first and available side-effect
-education below it.
+treatment page keeps every resolved module unchanged, then groups the authored
+order into three patient questions: what the treatment is, what to do before
+treatment, and what to have ready. The cause and emergency boundary remains a
+separate safety note. Available side-effect education follows below it.
 
 ## 3. Natural-language symptom navigation
 

@@ -101,8 +101,9 @@ Support labels mean:
 - Direct treatment-preview resolution through `?treatment=<canonical-drug-id>`.
 - Help for people who do not know the treatment name, plus a local saved-list
   control that can reopen a selected treatment.
-- Preparation-first treatment pages with side-effect education below, and a
-  print action that includes both sections.
+- Preparation-first treatment pages that group the governed modules under three
+  plain-language questions, followed by a separate safety note and side-effect
+  education. The print action includes all of these sections.
 - Structured fictional daytime/after-hours clinic contacts, rendered as
   non-actionable display data, plus explicit unresolved fever and
   supportive-care policy states.
