@@ -4,15 +4,15 @@
 
 ## Review summary
 
-- Draft governed objects: 224
-- Patient-facing modules: 22
+- Draft governed objects: 432
+- Patient-facing modules: 124
 - Approved patient-facing modules: 0
 - Private drug toxicity evidence records: 30
 - Patient drug toxicity presentations: 30
 - Approved patient drug toxicity presentations: 0
 - Modules missing sources: 0
 - Modules with unresolved placeholders: 2
-- Source records: 71
+- Source records: 98
 - Clinic configuration versions: 2
 - Structured clinic configuration v2 objects: 1
 - Unresolved clinic policy bindings: 2
@@ -29,23 +29,125 @@
 | Module | Version | Section | Status | Reviewer | Sources | Placeholders |
 |---|---:|---|---|---|---:|---|
 | ac-fever-infection-context | 1.0.0 | treatment_context | draft | — | 2 | — |
+| appetite-taste-about | 1.0.0 | about | draft | — | 1 | — |
+| appetite-taste-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| appetite-taste-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| appetite-taste-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| bleeding-bruising-about | 1.0.0 | about | draft | — | 2 | — |
+| bleeding-bruising-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| bleeding-bruising-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| bleeding-bruising-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| blood-clot-warning-about | 1.0.0 | about | draft | — | 1 | — |
+| blood-clot-warning-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| blood-clot-warning-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| blood-clot-warning-urgent-attention | 1.0.0 | urgent_attention | draft | — | 1 | — |
 | capecitabine-diarrhea-context | 1.0.0 | treatment_context | draft | — | 3 | — |
+| chest-symptoms-about | 1.0.0 | about | draft | — | 1 | — |
+| chest-symptoms-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| chest-symptoms-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| chest-symptoms-urgent-attention | 1.0.0 | urgent_attention | draft | — | 1 | — |
+| constipation-about | 1.0.0 | about | draft | — | 1 | — |
+| constipation-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| constipation-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| constipation-urgent-attention | 1.0.0 | urgent_attention | draft | — | 1 | — |
 | diarrhea-about | 1.0.0 | about | draft | — | 2 | — |
 | diarrhea-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
 | diarrhea-home-management | 1.0.0 | home_management | draft | — | 2 | — |
 | diarrhea-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 2 | — |
 | diarrhea-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | clinic-specific fever threshold pending clinician review |
+| dizziness-about | 1.0.0 | about | draft | — | 2 | — |
+| dizziness-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| dizziness-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| dizziness-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| edema-swelling-about | 1.0.0 | about | draft | — | 2 | — |
+| edema-swelling-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| edema-swelling-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| edema-swelling-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| eye-vision-about | 1.0.0 | about | draft | — | 1 | — |
+| eye-vision-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| eye-vision-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| eye-vision-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| fatigue-about | 1.0.0 | about | draft | — | 1 | — |
+| fatigue-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| fatigue-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| fatigue-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
 | fever-infection-about | 1.0.0 | about | draft | — | 2 | — |
+| general-symptom-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 1 | — |
+| general-systemic-symptom-context | 1.0.0 | treatment_context | draft | — | 1 | — |
+| hand-foot-about | 1.0.0 | about | draft | — | 1 | — |
+| hand-foot-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| hand-foot-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| hand-foot-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| headache-about | 1.0.0 | about | draft | — | 1 | — |
+| headache-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| headache-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| headache-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| hot-flashes-about | 1.0.0 | about | draft | — | 2 | — |
+| hot-flashes-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| hot-flashes-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| hot-flashes-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
 | infection-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
 | infection-home-preparation | 1.0.0 | home_management | draft | — | 2 | — |
 | infection-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 3 | — |
 | infection-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | clinic-specific fever threshold and destination pending clinician review |
+| infusion-allergic-about | 1.0.0 | about | draft | — | 2 | — |
+| infusion-allergic-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| infusion-allergic-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| infusion-allergic-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| joint-muscle-about | 1.0.0 | about | draft | — | 1 | — |
+| joint-muscle-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| joint-muscle-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| joint-muscle-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| mood-cognitive-about | 1.0.0 | about | draft | — | 3 | — |
+| mood-cognitive-contact-team | 1.0.0 | contact_team | draft | — | 3 | — |
+| mood-cognitive-home-management | 1.0.0 | home_management | draft | — | 3 | — |
+| mood-cognitive-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| mouth-soreness-about | 1.0.0 | about | draft | — | 1 | — |
+| mouth-soreness-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| mouth-soreness-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| mouth-soreness-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| nail-hair-about | 1.0.0 | about | draft | — | 2 | — |
+| nail-hair-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| nail-hair-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| nail-hair-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| nausea-about | 1.0.0 | about | draft | — | 2 | — |
+| nausea-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| nausea-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| nausea-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
 | neuropathy-about | 1.0.0 | about | draft | — | 3 | — |
 | neuropathy-contact-team | 1.0.0 | contact_team | draft | — | 3 | — |
 | neuropathy-home-safety | 1.0.0 | home_management | draft | — | 2 | — |
 | neuropathy-reporting-checklist | 1.0.0 | reporting_checklist | draft | — | 2 | — |
 | neuropathy-urgent-neurological-signs | 1.0.0 | urgent_attention | draft | — | 1 | — |
 | paclitaxel-neuropathy-context | 1.0.0 | treatment_context | draft | — | 2 | — |
+| pain-about | 1.0.0 | about | draft | — | 1 | — |
+| pain-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| pain-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| pain-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| palpitations-about | 1.0.0 | about | draft | — | 1 | — |
+| palpitations-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| palpitations-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| palpitations-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| rash-itching-about | 1.0.0 | about | draft | — | 1 | — |
+| rash-itching-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| rash-itching-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| rash-itching-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| shortness-of-breath-cough-about | 1.0.0 | about | draft | — | 1 | — |
+| shortness-of-breath-cough-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| shortness-of-breath-cough-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| shortness-of-breath-cough-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| sleep-concerns-about | 1.0.0 | about | draft | — | 1 | — |
+| sleep-concerns-contact-team | 1.0.0 | contact_team | draft | — | 1 | — |
+| sleep-concerns-home-management | 1.0.0 | home_management | draft | — | 1 | — |
+| sleep-concerns-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
+| vaginal-genitourinary-about | 1.0.0 | about | draft | — | 2 | — |
+| vaginal-genitourinary-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| vaginal-genitourinary-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| vaginal-genitourinary-urgent-attention | 1.0.0 | urgent_attention | draft | — | 2 | — |
+| vomiting-about | 1.0.0 | about | draft | — | 2 | — |
+| vomiting-contact-team | 1.0.0 | contact_team | draft | — | 2 | — |
+| vomiting-home-management | 1.0.0 | home_management | draft | — | 2 | — |
+| vomiting-urgent-attention | 1.0.0 | urgent_attention | draft | — | 3 | — |
 | weekly-paclitaxel-prep-overview | 1.0.0 | preparation | draft | — | 2 | — |
 | weekly-paclitaxel-prep-possible-effects | 1.0.0 | preparation | draft | — | 2 | — |
 | weekly-paclitaxel-prep-practical | 1.0.0 | preparation | draft | — | 2 | — |
@@ -125,20 +227,45 @@
 
 | Source | Organization | Jurisdiction | Verification | Link |
 |---|---|---|---|---|
+| bc-cancer-hair-loss-appearance | BC Cancer | British Columbia, Canada | verified | [Open](https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Managing%20Hair%20Loss%20-%20FINAL%2C%20OCTOBER%202025.pdf) |
+| bc-cancer-lymphedema | BC Cancer | British Columbia, Canada | verified | [Open](https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Lymphedema-Arm-Leg.pdf) |
+| bc-cancer-memory-thinking-attention | BC Cancer | British Columbia, Canada | verified | [Open](https://www.bccancer.bc.ca/health-info/coping-with-cancer/managing-symptoms-side-effects/memory-thinking-attention-problems) |
 | bc-cancer-peripheral-neuropathy-handout | BC Cancer | British Columbia, Canada | verified | [Open](https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Peripheral-Neuropathy.pdf) |
+| bc-cancer-sexual-health-vagina | BC Cancer | British Columbia, Canada | verified | [Open](https://www.bccancer.bc.ca/managing-symptoms-site/Documents/Sexual-Health-Vagina-Web.pdf) |
+| bc-cancer-sleeping-problems | BC Cancer | British Columbia, Canada | verified | [Open](https://www.bccancer.bc.ca/health-info/coping-with-cancer/managing-symptoms-side-effects/sleeping-problems) |
+| canada-anaphylaxis-signs | Public Health Agency of Canada | Canada | verified | [Open](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/health-professionals/vaccines/anaphylaxis.html) |
+| canada-stroke-warning-signs | Public Health Agency of Canada | Canada | verified | [Open](https://www.canada.ca/en/public-health/services/diseases/heart-health/stroke.html) |
 | cco-ac-breast-patient-information | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/46111) |
+| cco-anxiety-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/symptom-management/anxiety/how-to-manage-your-anxiety) |
 | cco-capecitabine-patient-information | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/45016) |
 | cco-capedoce-breast-regimen | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/45926) |
 | cco-capetuca-tras-breast-regimen | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/67556) |
+| cco-constipation-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/guidelines-advice/symptom-management/constipation/how-to-manage-constipation) |
+| cco-depression-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/system/files_force/symptoms/ManageDepression.pdf?download=1) |
+| cco-dyspnea-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/symptom-management/dyspnea-shortness-breath/managing-shortness-of-breath-for-people-with-cancer) |
+| cco-fatigue-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/guidelines-advice/symptom-management/fatigue/managing-your-fatigue) |
 | cco-fever-assessment-guideline | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/guidelines-advice/types-of-cancer/1376) |
 | cco-fever-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/system/files_force/symptoms/CCOFeverPostcard.pdf?download=1) |
+| cco-hand-foot-syndrome-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/system/files_force/symptoms/Hand-Foot%20Syndrome%20During%20Treatment.pdf) |
+| cco-loss-appetite-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/system/files_force/symptoms/ManageLossOfAppetite.pdf) |
 | cco-manage-diarrhea | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/guidelines-advice/symptom-management/diarrhea/how-to-manage-diarrhea) |
+| cco-nausea-vomiting-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/system/files_force/symptoms/CCONauseaDesktop.pdf?download=1) |
+| cco-oral-care-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/symptom-management/oral-care/how-to-manage-oral-care) |
 | cco-paclitaxel-patient-information | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/drugformulary/drugs/infosheet/44151) |
+| cco-pain-patient-guide | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/system/files_force/symptoms/ManagePain.pdf) |
+| cco-symptom-assessment-tool | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/guidelines-advice/symptom-side-effect-management/symptom-assessment-tool) |
 | cco-symptom-management-directory | Ontario Health (Cancer Care Ontario) | Ontario, Canada | link_only | [Open](https://www.cancercareontario.ca/en/symptom-management) |
 | cco-systemic-treatment-information | Ontario Health (Cancer Care Ontario) | Ontario, Canada | link_only | [Open](https://www.cancercareontario.ca/en/drugformulary) |
 | cco-tch-breast-regimen | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/45506) |
 | cco-tchp-breast-regimen | Ontario Health (Cancer Care Ontario) | Ontario, Canada | verified | [Open](https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/62161) |
+| ccs-chemotherapy-side-effects | Canadian Cancer Society | Canada | verified | [Open](https://cancer.ca/en/treatments/treatment-types/chemotherapy/side-effects-of-chemotherapy) |
+| ccs-eye-vision-problems | Canadian Cancer Society | Canada | verified | [Open](https://cancer.ca/en/treatments/side-effects/eye-and-vision-problems) |
+| ccs-heart-problems | Canadian Cancer Society | Canada | verified | [Open](https://cancer.ca/en/treatments/side-effects/heart-problems) |
+| ccs-hormone-therapy-breast | Canadian Cancer Society | Canada | verified | [Open](https://cancer.ca/en/cancer-information/cancer-types/breast/treatment/hormone-therapy) |
+| ccs-skin-problems | Canadian Cancer Society | Canada | verified | [Open](https://cancer.ca/en/treatments/side-effects/skin-problems) |
 | eviq-dose-dense-ac-breast-patient-information | eviQ Cancer Treatments Online | Australia | verified | [Open](https://www.eviq.org.au/medical-oncology/breast/neoadjuvant-adjuvant/4102-breast-neoadjuvant-adjuvant-ac-doxorubicin-a/patient-information) |
+| eviq-general-chemotherapy-side-effects | eviQ Cancer Treatments Online, Cancer Institute NSW | Australia | verified | [Open](https://www.eviq.org.au/patients-and-carers/patient-information-sheets/managing-side-effects/3088-managing-the-side-effects-of-anti-cancer-medi) |
+| eviq-hypersensitivity-reaction | eviQ Cancer Treatments Online, Cancer Institute NSW | Australia | verified | [Open](https://www.eviq.org.au/clinical-resources/side-effect-and-toxicity-management/immunological/1831-hypersensitivity-reaction) |
 | eviq-infection-during-cancer-treatment | eviQ Cancer Treatments Online | Australia | verified | [Open](https://www.eviq.org.au/getmedia/474a3ca7-e4da-4e2b-95ee-e026cd10028a/eviQ-PI-3098-Infection-during-cancer-treatment-V5-02.pdf.aspx?ext=.pdf) |
 | eviq-weekly-paclitaxel-breast-patient-information | eviQ Cancer Treatments Online | Australia | verified | [Open](https://www.eviq.org.au/medical-oncology/breast/neoadjuvant-adjuvant/4103-breast-neoadjuvant-adjuvant-paclitaxel-weekly/patient-information) |
 | fda-label-abemaciclib | U.S. Food and Drug Administration | United States | verified | [Open](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=be4bc0de-0fdc-4d46-8d25-be43c79e6a06) |
@@ -196,6 +323,8 @@
 | fda-label-vinblastine | U.S. Food and Drug Administration | United States | verified | [Open](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=089515) |
 | health-canada-capecitabine-product-record | Health Canada | Canada | verified | [Open](https://health-products.canada.ca/dpd-bdpp/info?code=100911&lang=eng) |
 | health-canada-fluoropyrimidine-infowatch | Health Canada | Canada | verified | [Open](https://www.canada.ca/en/health-canada/services/drugs-health-products/medeffect-canada/health-product-infowatch/march-2025.html) |
+| heart-stroke-emergency-signs | Heart and Stroke Foundation of Canada | Canada | verified | [Open](https://www.heartandstroke.ca/heart-disease/emergency-signs) |
+| heart-stroke-stroke-signs | Heart and Stroke Foundation of Canada | Canada | verified | [Open](https://www.heartandstroke.ca/stroke/signs-of-stroke) |
 
 ## Required clinical-owner decisions
 

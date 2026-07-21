@@ -1,9 +1,9 @@
 release_id: build-week-preview-2026-07-18
-version: 0.10.0
+version: 0.11.0
 channel: preview
 publication_status: draft
 clinical_use: false
-generated_at: 2026-07-21T10:03:14-04:00
+generated_at: 2026-07-21T11:29:00-04:00
 clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
 included_objects:
   - { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
@@ -112,6 +112,108 @@ included_objects:
   - { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.0.0 }
   - { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.0.0 }
   - { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-symptom-context, version: 1.0.0 }
+  - { kind: educational_module, id: general-symptom-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-about, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-about, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-about, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-about, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-about, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-about, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-about, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-about, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-about, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: headache-about, version: 1.0.0 }
+  - { kind: educational_module, id: headache-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: headache-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: headache-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-about, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-about, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-about, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-about, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-about, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: pain-about, version: 1.0.0 }
+  - { kind: educational_module, id: pain-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: pain-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: pain-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-about, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-about, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-about, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-about, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-about, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-about, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-about, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-about, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-about, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-urgent-attention, version: 1.0.0 }
   - { kind: observable_feature, id: diarrhea-baseline-change, version: 1.0.0 }
   - { kind: observable_feature, id: diarrhea-blood, version: 1.0.0 }
   - { kind: observable_feature, id: diarrhea-count, version: 1.0.0 }
@@ -131,6 +233,34 @@ included_objects:
   - { kind: observable_feature, id: neuropathy-trend, version: 1.0.0 }
   - { kind: observable_feature, id: neuropathy-walking-balance, version: 1.0.0 }
   - { kind: observable_feature, id: neuropathy-weakness, version: 1.0.0 }
+  - { kind: observable_feature, id: symptom-journey-onset, version: 1.0.0 }
+  - { kind: observable_feature, id: symptom-journey-change, version: 1.0.0 }
+  - { kind: observable_feature, id: symptom-journey-daily-impact, version: 1.0.0 }
+  - { kind: observable_feature, id: fatigue-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: nausea-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: vomiting-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: constipation-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: appetite-taste-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: mouth-soreness-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: rash-itching-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: hand-foot-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: joint-muscle-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: headache-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: dizziness-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: hot-flashes-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: vaginal-genitourinary-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: sleep-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: mood-cognitive-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: pain-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: breathing-cough-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: chest-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: swelling-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: palpitations-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: bleeding-bruising-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: blood-clot-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: eye-vision-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: nail-hair-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: infusion-allergic-journey-details, version: 1.0.0 }
   - { kind: question, id: q-diarrhea-baseline-change, version: 1.0.0 }
   - { kind: question, id: q-diarrhea-blood, version: 1.0.0 }
   - { kind: question, id: q-diarrhea-count, version: 1.0.0 }
@@ -150,6 +280,34 @@ included_objects:
   - { kind: question, id: q-neuropathy-trend, version: 1.0.0 }
   - { kind: question, id: q-neuropathy-walking-balance, version: 1.0.0 }
   - { kind: question, id: q-neuropathy-weakness, version: 1.0.0 }
+  - { kind: question, id: q-general-symptom-onset, version: 1.0.0 }
+  - { kind: question, id: q-general-symptom-change, version: 1.0.0 }
+  - { kind: question, id: q-general-symptom-impact, version: 1.0.0 }
+  - { kind: question, id: q-fatigue-details, version: 1.0.0 }
+  - { kind: question, id: q-nausea-details, version: 1.0.0 }
+  - { kind: question, id: q-vomiting-details, version: 1.0.0 }
+  - { kind: question, id: q-constipation-details, version: 1.0.0 }
+  - { kind: question, id: q-appetite-taste-changes-details, version: 1.0.0 }
+  - { kind: question, id: q-mouth-soreness-details, version: 1.0.0 }
+  - { kind: question, id: q-rash-itching-details, version: 1.0.0 }
+  - { kind: question, id: q-hand-foot-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-joint-muscle-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-headache-details, version: 1.0.0 }
+  - { kind: question, id: q-dizziness-details, version: 1.0.0 }
+  - { kind: question, id: q-hot-flashes-details, version: 1.0.0 }
+  - { kind: question, id: q-vaginal-genitourinary-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-sleep-concerns-details, version: 1.0.0 }
+  - { kind: question, id: q-mood-cognitive-concerns-details, version: 1.0.0 }
+  - { kind: question, id: q-pain-details, version: 1.0.0 }
+  - { kind: question, id: q-shortness-of-breath-cough-details, version: 1.0.0 }
+  - { kind: question, id: q-chest-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-edema-swelling-details, version: 1.0.0 }
+  - { kind: question, id: q-palpitations-details, version: 1.0.0 }
+  - { kind: question, id: q-bleeding-bruising-details, version: 1.0.0 }
+  - { kind: question, id: q-blood-clot-warning-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-eye-vision-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-nail-hair-changes-details, version: 1.0.0 }
+  - { kind: question, id: q-infusion-allergic-symptoms-details, version: 1.0.0 }
   - { kind: regimen, id: ac, version: 1.0.0 }
   - { kind: regimen, id: capedocetaxel, version: 1.0.0 }
   - { kind: regimen, id: capecitabine-monotherapy, version: 1.0.0 }
@@ -229,34 +387,61 @@ included_objects:
   - { kind: source, id: fda-label-vinblastine, version: 1.0.0 }
   - { kind: source, id: health-canada-capecitabine-product-record, version: 1.0.0 }
   - { kind: source, id: health-canada-fluoropyrimidine-infowatch, version: 1.0.0 }
-  - { kind: symptom, id: appetite-taste-changes, version: 1.0.0 }
-  - { kind: symptom, id: bleeding-bruising, version: 1.0.0 }
-  - { kind: symptom, id: blood-clot-warning-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: chest-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: constipation, version: 1.0.0 }
+  - { kind: source, id: cco-symptom-assessment-tool, version: 1.0.0 }
+  - { kind: source, id: cco-fatigue-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-nausea-vomiting-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-constipation-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-loss-appetite-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-oral-care-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-hand-foot-syndrome-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-pain-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-dyspnea-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-anxiety-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-depression-patient-guide, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-sleeping-problems, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-sexual-health-vagina, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-memory-thinking-attention, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-hair-loss-appearance, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-lymphedema, version: 1.0.0 }
+  - { kind: source, id: ccs-chemotherapy-side-effects, version: 1.0.0 }
+  - { kind: source, id: ccs-eye-vision-problems, version: 1.0.0 }
+  - { kind: source, id: ccs-skin-problems, version: 1.0.0 }
+  - { kind: source, id: ccs-heart-problems, version: 1.0.0 }
+  - { kind: source, id: ccs-hormone-therapy-breast, version: 1.0.0 }
+  - { kind: source, id: heart-stroke-emergency-signs, version: 1.0.0 }
+  - { kind: source, id: heart-stroke-stroke-signs, version: 1.0.0 }
+  - { kind: source, id: canada-stroke-warning-signs, version: 1.0.0 }
+  - { kind: source, id: eviq-general-chemotherapy-side-effects, version: 1.0.0 }
+  - { kind: source, id: eviq-hypersensitivity-reaction, version: 1.0.0 }
+  - { kind: source, id: canada-anaphylaxis-signs, version: 1.0.0 }
+  - { kind: symptom, id: appetite-taste-changes, version: 1.1.0 }
+  - { kind: symptom, id: bleeding-bruising, version: 1.1.0 }
+  - { kind: symptom, id: blood-clot-warning-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: chest-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: constipation, version: 1.1.0 }
   - { kind: symptom, id: diarrhea, version: 1.0.0 }
-  - { kind: symptom, id: dizziness, version: 1.0.0 }
-  - { kind: symptom, id: edema-swelling, version: 1.0.0 }
-  - { kind: symptom, id: eye-vision-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: fatigue, version: 1.0.0 }
+  - { kind: symptom, id: dizziness, version: 1.1.0 }
+  - { kind: symptom, id: edema-swelling, version: 1.1.0 }
+  - { kind: symptom, id: eye-vision-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: fatigue, version: 1.1.0 }
   - { kind: symptom, id: fever-infection-concern, version: 1.0.0 }
-  - { kind: symptom, id: hand-foot-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: headache, version: 1.0.0 }
-  - { kind: symptom, id: hot-flashes, version: 1.0.0 }
-  - { kind: symptom, id: infusion-allergic-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: joint-muscle-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: mood-cognitive-concerns, version: 1.0.0 }
-  - { kind: symptom, id: mouth-soreness, version: 1.0.0 }
-  - { kind: symptom, id: nail-hair-changes, version: 1.0.0 }
-  - { kind: symptom, id: nausea, version: 1.0.0 }
-  - { kind: symptom, id: pain, version: 1.0.0 }
-  - { kind: symptom, id: palpitations, version: 1.0.0 }
+  - { kind: symptom, id: hand-foot-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: headache, version: 1.1.0 }
+  - { kind: symptom, id: hot-flashes, version: 1.1.0 }
+  - { kind: symptom, id: infusion-allergic-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: joint-muscle-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: mood-cognitive-concerns, version: 1.1.0 }
+  - { kind: symptom, id: mouth-soreness, version: 1.1.0 }
+  - { kind: symptom, id: nail-hair-changes, version: 1.1.0 }
+  - { kind: symptom, id: nausea, version: 1.1.0 }
+  - { kind: symptom, id: pain, version: 1.1.0 }
+  - { kind: symptom, id: palpitations, version: 1.1.0 }
   - { kind: symptom, id: peripheral-neuropathy, version: 1.0.0 }
-  - { kind: symptom, id: rash-itching, version: 1.0.0 }
-  - { kind: symptom, id: shortness-of-breath-cough, version: 1.0.0 }
-  - { kind: symptom, id: sleep-concerns, version: 1.0.0 }
-  - { kind: symptom, id: vaginal-genitourinary-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: vomiting, version: 1.0.0 }
+  - { kind: symptom, id: rash-itching, version: 1.1.0 }
+  - { kind: symptom, id: shortness-of-breath-cough, version: 1.1.0 }
+  - { kind: symptom, id: sleep-concerns, version: 1.1.0 }
+  - { kind: symptom, id: vaginal-genitourinary-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: vomiting, version: 1.1.0 }
   - { kind: treatment_class, id: antibody-drug-conjugate, version: 1.0.0 }
   - { kind: treatment_class, id: cdk46-inhibitor, version: 1.0.0 }
   - { kind: treatment_class, id: cytotoxic-chemotherapy, version: 1.0.0 }
@@ -270,6 +455,31 @@ included_objects:
   - { kind: treatment_toxicity_relationship, id: ac-fever-infection-concern, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: capecitabine-diarrhea, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: weekly-paclitaxel-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-fatigue, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-nausea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-vomiting, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-constipation, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-appetite-taste-changes, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-mouth-soreness, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-rash-itching, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-hand-foot-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-joint-muscle-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-headache, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-dizziness, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-hot-flashes, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-vaginal-genitourinary-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-sleep-concerns, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-mood-cognitive-concerns, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-pain, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-shortness-of-breath-cough, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-chest-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-edema-swelling, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-palpitations, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-bleeding-bruising, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-blood-clot-warning-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-eye-vision-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-nail-hair-changes, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-infusion-allergic-symptoms, version: 1.0.0 }
 source_inventory:
   - bc-cancer-peripheral-neuropathy-handout
   - cco-ac-breast-patient-information
@@ -342,16 +552,46 @@ source_inventory:
   - fda-label-vinblastine
   - health-canada-capecitabine-product-record
   - health-canada-fluoropyrimidine-infowatch
+  - cco-symptom-assessment-tool
+  - cco-fatigue-patient-guide
+  - cco-nausea-vomiting-patient-guide
+  - cco-constipation-patient-guide
+  - cco-loss-appetite-patient-guide
+  - cco-oral-care-patient-guide
+  - cco-hand-foot-syndrome-patient-guide
+  - cco-pain-patient-guide
+  - cco-dyspnea-patient-guide
+  - cco-anxiety-patient-guide
+  - cco-depression-patient-guide
+  - bc-cancer-sleeping-problems
+  - bc-cancer-sexual-health-vagina
+  - bc-cancer-memory-thinking-attention
+  - bc-cancer-hair-loss-appearance
+  - bc-cancer-lymphedema
+  - ccs-chemotherapy-side-effects
+  - ccs-eye-vision-problems
+  - ccs-skin-problems
+  - ccs-heart-problems
+  - ccs-hormone-therapy-breast
+  - heart-stroke-emergency-signs
+  - heart-stroke-stroke-signs
+  - canada-stroke-warning-signs
+  - eviq-general-chemotherapy-side-effects
+  - eviq-hypersensitivity-reaction
+  - canada-anaphylaxis-signs
 reviewer_metadata:
   reviewer: null
   reviewed_at: null
   release_approval_id: null
 known_gaps:
   - All patient-facing clinical modules are draft and require clinician review.
+  - The 25 new symptom journeys are general systemic-treatment fallbacks. They do not establish that any exact drug or regimen caused or is associated with the selected symptom.
+  - The three existing regimen-specific pathways remain the only exact treatment-and-symptom guidance relationships.
+  - The eviQ hypersensitivity source is overdue for review and supports only infusion context and immediate reporting to the nurse; emergency signs are cross-checked against a current Canadian source.
   - The fictional demo clinic has unresolved fever and supportive-care policy bindings.
   - The exact AC schedule variant is unresolved; no nadir timing is included.
-  - Catalogue-level treatment and symptom entries do not imply full guidance.
-  - Twenty-six drugs have draft FDA single-agent frequency maps and patient presentations; all require clinician review.
+  - Catalogue-level treatment entries do not imply exact treatment guidance.
+  - Thirty drugs have draft FDA evidence maps and patient presentations; all require clinician review.
   - Cyclophosphamide has a draft FDA label-category page without percentages, a usable denominator, or a claimed single-agent evidence population.
   - Doxorubicin has a draft FDA label-category page; the numerical AC table is retained only as excluded combination context and is not attributed to doxorubicin alone.
   - Epirubicin has a draft FDA label-category page; the numerical FEC and CEF tables are retained only as excluded combination context and are not attributed to epirubicin alone.
@@ -360,6 +600,10 @@ known_gaps:
   - Carboplatin uses the FDA 553-patient single-agent ovarian safety population; this does not claim an FDA breast-cancer indication or a TCH/TCHP regimen frequency.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.11.0 adds 25 unreviewed general symptom journeys, so all 28 symptom choices now have a complete six-section pathway in the preview.
+  - Release 0.11.0 adds four patient-observable questions per new journey and keeps answers limited to a neutral fact summary and fixed-module ordering.
+  - Release 0.11.0 adds 27 directly inspected source records from Ontario Health, BC Cancer, Canadian Cancer Society, Heart & Stroke, the Government of Canada, and eviQ.
+  - Release 0.11.0 keeps all new objects in draft, labels the information as general, and does not add drug-specific symptom associations, diagnosis, grading, cause inference, or treatment-change advice.
   - Release 0.10.0 adds an unreviewed pembrolizumab page with the fourteen FDA single-agent common categories and principal serious immune-mediated warnings.
   - Release 0.10.0 excludes KEYNOTE-522 combination percentages and clearly identifies the common list as cross-cancer rather than breast-specific evidence.
   - Release 0.9.0 adds an unreviewed epirubicin page with fourteen FDA-supported common categories and four serious boxed-warning effects.

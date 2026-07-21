@@ -96,7 +96,10 @@ export function resolveGuidanceRelationship(
   symptomId: string,
 ): GuidanceResolution | null {
   const relationships = eligibleRelationships(release, symptomId);
-  const exact = relationships.find((item) => item.treatment_id === treatmentId);
+  const specificRelationships = relationships.filter(
+    (item) => item.relationship_type !== "general_safety",
+  );
+  const exact = specificRelationships.find((item) => item.treatment_id === treatmentId);
   if (exact) {
     return {
       relationship: exact,
@@ -115,7 +118,7 @@ export function resolveGuidanceRelationship(
 
   if (treatment.kind === "regimen") {
     for (const componentId of treatment.component_drug_ids) {
-      const component = relationships.find(
+      const component = specificRelationships.find(
         (item) => item.treatment_kind === "drug" && item.treatment_id === componentId,
       );
       if (component) {
@@ -134,7 +137,7 @@ export function resolveGuidanceRelationship(
 
   const startingClassIds = treatment.kind === "treatment_class" ? [treatment.id] : treatment.class_ids;
   for (const classId of classDistanceOrder(release, startingClassIds)) {
-    const classRelationship = relationships.find(
+    const classRelationship = specificRelationships.find(
       (item) => item.treatment_kind === "treatment_class" && item.treatment_id === classId,
     );
     if (classRelationship) {
