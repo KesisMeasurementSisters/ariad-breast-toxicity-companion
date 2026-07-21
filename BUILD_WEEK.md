@@ -749,10 +749,9 @@
   private branch, so the fresh remote CI result remains an explicit item to
   confirm in GitHub rather than an inferred pass.
 
-### Remaining credential action
+### Credential closure
 
 - The new project-scoped key is active and powers the verified public path.
-  The OpenAI Platform revoke flow for the older `Codex` key redirected through
-  sign-in but continued to list that key as active. Its revocation remains a
-  manual owner action and must not be recorded as complete until the Platform
-  shows only the intended competition key.
+- The owner revoked the older `Codex` key after the public path was proven.
+  The OpenAI Platform then showed one active key: `Ariad OpenAI Buildweek`.
+  No secret value was recorded in this evidence.
