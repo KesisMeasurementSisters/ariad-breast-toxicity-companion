@@ -413,3 +413,12 @@ guide—the Next.js interface is one renderer, not the knowledge system itself.
 Submission items are tracked as unchecked gates—not as claims of completion—in
 [docs/submission-checklist.md](./docs/submission-checklist.md). The official
 Devpost rules and FAQ remain the source of truth.
+
+## Licence and permitted use
+
+This is source-available proprietary software, not open-source software.
+Copyright © 2026 Kesis & Sisters. All rights reserved. Public visibility
+supports evaluation and transparency; it does not grant permission to reuse
+the software, governed clinical or educational content, designs, or brand
+assets. Third-party dependencies and source materials remain subject to their
+respective rights and licences. See the [proprietary notice](./LICENSE).
