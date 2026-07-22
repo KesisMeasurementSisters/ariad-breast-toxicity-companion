@@ -1,0 +1,511 @@
+- &general_journey_question
+  kind: question
+  id: q-general-symptom-onset
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  symptom_ids: &general_journey_symptom_ids
+    - fatigue
+    - nausea
+    - vomiting
+    - constipation
+    - appetite-taste-changes
+    - mouth-soreness
+    - rash-itching
+    - hand-foot-symptoms
+    - joint-muscle-symptoms
+    - headache
+    - dizziness
+    - hot-flashes
+    - vaginal-genitourinary-symptoms
+    - sleep-concerns
+    - mood-cognitive-concerns
+    - pain
+    - shortness-of-breath-cough
+    - chest-symptoms
+    - edema-swelling
+    - palpitations
+    - bleeding-bruising
+    - blood-clot-warning-symptoms
+    - eye-vision-symptoms
+    - nail-hair-changes
+    - infusion-allergic-symptoms
+  feature_id: symptom-journey-onset
+  prompt: When did you first notice this change?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: today, label: Today, summary_text: First noticed today, priority_tags: [] }
+    - { value: past-week, label: In the past week, summary_text: First noticed in the past week, priority_tags: [] }
+    - { value: over-week, label: More than a week ago, summary_text: First noticed more than a week ago, priority_tags: [] }
+    - { value: unsure, label: I am not sure, summary_text: Not sure when it started, priority_tags: [] }
+  optional: false
+  summary_label: When it started
+  priority_tags: [general-symptom-journey]
+  prohibited_interpretation_notes:
+    - Do not infer a cause, diagnosis, treatment side effect, severity grade, or urgency from any answer.
+    - Answers may only create a neutral fact summary and reorder fixed information.
+  source_ids: [cco-symptom-assessment-tool]
+
+- <<: *general_journey_question
+  id: q-general-symptom-change
+  symptom_ids: *general_journey_symptom_ids
+  feature_id: symptom-journey-change
+  prompt: How has it changed since you first noticed it?
+  options:
+    - { value: worsening, label: Getting worse, summary_text: Getting worse, priority_tags: [change-noted] }
+    - { value: same, label: About the same, summary_text: About the same, priority_tags: [] }
+    - { value: improving, label: Getting better, summary_text: Getting better, priority_tags: [] }
+    - { value: comes-goes, label: It comes and goes, summary_text: Comes and goes, priority_tags: [] }
+    - { value: unsure, label: I am not sure, summary_text: Not sure how it has changed, priority_tags: [] }
+  summary_label: Change over time
+
+- <<: *general_journey_question
+  id: q-general-symptom-impact
+  symptom_ids: *general_journey_symptom_ids
+  feature_id: symptom-journey-daily-impact
+  prompt: How much is this affecting your usual day?
+  options:
+    - { value: none, label: Not at all, summary_text: Does not affect the usual day, priority_tags: [] }
+    - { value: little, label: A little, summary_text: Affects the usual day a little, priority_tags: [] }
+    - { value: lot, label: A lot, summary_text: Affects the usual day a lot, priority_tags: [daily-activities] }
+    - { value: cannot-do-some, label: I cannot do some usual activities, summary_text: Cannot do some usual activities, priority_tags: [daily-activities] }
+    - { value: unsure, label: I am not sure, summary_text: Not sure how much the usual day is affected, priority_tags: [] }
+  summary_label: Effect on the usual day
+
+- <<: *general_journey_question
+  id: q-fatigue-details
+  symptom_ids: [fatigue]
+  feature_id: fatigue-journey-details
+  prompt: Have you noticed any of these changes with the tiredness?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: dizzy-balance, label: Dizziness or trouble with balance, summary_text: Dizziness or trouble with balance, priority_tags: [balance] }
+    - { value: breath-heart, label: Shortness of breath or a fast heartbeat, summary_text: Shortness of breath or a fast heartbeat, priority_tags: [breathing-heart] }
+    - { value: confused, label: New confusion, summary_text: New confusion, priority_tags: [thinking-change] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Other changes
+  priority_tags: [fatigue]
+  source_ids: [cco-fatigue-patient-guide]
+
+- <<: *general_journey_question
+  id: q-nausea-details
+  symptom_ids: [nausea]
+  feature_id: nausea-journey-details
+  prompt: Are you able to eat and drink?
+  help_text: null
+  answer_type: single_choice
+  options:
+    - { value: usual, label: Eating and drinking about the usual amount, summary_text: Eating and drinking about the usual amount, priority_tags: [] }
+    - { value: less, label: Eating or drinking less than usual, summary_text: Eating or drinking less than usual, priority_tags: [food-fluids] }
+    - { value: no-food, label: Unable to eat, summary_text: Unable to eat, priority_tags: [food-fluids] }
+    - { value: no-fluids, label: Unable to keep drinks down, summary_text: Unable to keep drinks down, priority_tags: [food-fluids] }
+    - { value: unsure, label: I am not sure, summary_text: Not sure about eating and drinking, priority_tags: [] }
+  summary_label: Eating and drinking
+  priority_tags: [nausea]
+  source_ids: [cco-nausea-vomiting-patient-guide, eviq-general-chemotherapy-side-effects]
+
+- <<: *general_journey_question
+  id: q-vomiting-details
+  symptom_ids: [vomiting]
+  feature_id: vomiting-journey-details
+  prompt: Have any of these happened with the vomiting?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: after-food, label: Vomiting after trying to eat, summary_text: Vomiting after trying to eat, priority_tags: [food-fluids] }
+    - { value: after-drink, label: Vomiting after trying to drink, summary_text: Vomiting after trying to drink, priority_tags: [food-fluids] }
+    - { value: blood-dark, label: Blood or dark material in the vomit, summary_text: Blood or dark material in the vomit, priority_tags: [bleeding] }
+    - { value: belly-pain, label: Strong belly pain, summary_text: Strong belly pain, priority_tags: [pain] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Other changes
+  priority_tags: [vomiting]
+  source_ids: [cco-nausea-vomiting-patient-guide, eviq-general-chemotherapy-side-effects]
+
+- <<: *general_journey_question
+  id: q-constipation-details
+  symptom_ids: [constipation]
+  feature_id: constipation-journey-details
+  prompt: Have you noticed any of these changes with the constipation?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: over-three-days, label: No bowel movement for more than 3 days, summary_text: No bowel movement for more than 3 days, priority_tags: [bowel-change] }
+    - { value: no-gas, label: Unable to pass gas, summary_text: Unable to pass gas, priority_tags: [bowel-change] }
+    - { value: belly, label: "Belly pain, cramps, or swelling", summary_text: "Belly pain, cramps, or swelling", priority_tags: [pain] }
+    - { value: nausea-vomiting, label: Nausea or vomiting, summary_text: Nausea or vomiting, priority_tags: [food-fluids] }
+    - { value: red-black, label: Red or black bowel movement, summary_text: Red or black bowel movement, priority_tags: [bleeding] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Other changes
+  priority_tags: [constipation]
+  source_ids: [cco-constipation-patient-guide]
+
+- <<: *general_journey_question
+  id: q-appetite-taste-changes-details
+  symptom_ids: [appetite-taste-changes]
+  feature_id: appetite-taste-journey-details
+  prompt: Which appetite or taste changes have you noticed?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: less-hungry, label: Less hungry than usual, summary_text: Less hungry than usual, priority_tags: [food-fluids] }
+    - { value: taste, label: Food tastes different, summary_text: Food tastes different, priority_tags: [food-fluids] }
+    - { value: smells, label: Food smells are hard to tolerate, summary_text: Food smells are hard to tolerate, priority_tags: [food-fluids] }
+    - { value: mouth, label: A sore or dry mouth makes eating hard, summary_text: A sore or dry mouth makes eating hard, priority_tags: [mouth-care] }
+    - { value: weight-clothes, label: Weight has dropped or clothes feel looser, summary_text: Weight has dropped or clothes feel looser, priority_tags: [nutrition-change] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Appetite or taste changes
+  priority_tags: [appetite, taste]
+  source_ids: [cco-loss-appetite-patient-guide]
+
+- <<: *general_journey_question
+  id: q-mouth-soreness-details
+  symptom_ids: [mouth-soreness]
+  feature_id: mouth-soreness-journey-details
+  prompt: Which changes have you noticed in your mouth or throat?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: sores, label: "Sores, ulcers, or white patches", summary_text: "Sores, ulcers, or white patches", priority_tags: [mouth-care] }
+    - { value: dry, label: A very dry mouth, summary_text: A very dry mouth, priority_tags: [mouth-care] }
+    - { value: eat-drink, label: Pain when eating or drinking, summary_text: Pain when eating or drinking, priority_tags: [food-fluids] }
+    - { value: swallow, label: Trouble swallowing, summary_text: Trouble swallowing, priority_tags: [swallowing] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Mouth or throat changes
+  priority_tags: [mouth]
+  source_ids: [cco-oral-care-patient-guide]
+
+- <<: *general_journey_question
+  id: q-rash-itching-details
+  symptom_ids: [rash-itching]
+  feature_id: rash-itching-journey-details
+  prompt: Which changes have you noticed with the rash or itching?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: hives, label: "Raised, itchy bumps or hives", summary_text: "Raised, itchy bumps or hives", priority_tags: [skin-change] }
+    - { value: blisters, label: "Blisters, peeling, or painful skin", summary_text: "Blisters, peeling, or painful skin", priority_tags: [skin-change] }
+    - { value: face-mouth, label: "Swelling of the face, lips, tongue, or throat", summary_text: "Swelling of the face, lips, tongue, or throat", priority_tags: [allergy-signs] }
+    - { value: breathing, label: Trouble breathing, summary_text: Trouble breathing, priority_tags: [breathing-change] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Rash or itching changes
+  priority_tags: [skin, allergy-signs]
+  source_ids: [ccs-skin-problems, canada-anaphylaxis-signs]
+
+- <<: *general_journey_question
+  id: q-hand-foot-symptoms-details
+  symptom_ids: [hand-foot-symptoms]
+  feature_id: hand-foot-journey-details
+  prompt: Which changes have you noticed on your hands or feet?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: red-swollen-burning, label: "Redness, swelling, or burning", summary_text: "Redness, swelling, or burning", priority_tags: [skin-change] }
+    - { value: pain, label: Pain or tenderness, summary_text: Pain or tenderness, priority_tags: [pain] }
+    - { value: blisters-peeling, label: "Blisters, cracks, or peeling", summary_text: "Blisters, cracks, or peeling", priority_tags: [skin-change] }
+    - { value: tasks-walking, label: Trouble using the hands or walking, summary_text: Trouble using the hands or walking, priority_tags: [daily-activities] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Hand or foot changes
+  priority_tags: [skin, hands, feet]
+  source_ids: [cco-hand-foot-syndrome-patient-guide]
+
+- <<: *general_journey_question
+  id: q-joint-muscle-symptoms-details
+  symptom_ids: [joint-muscle-symptoms]
+  feature_id: joint-muscle-journey-details
+  prompt: Have you noticed any of these changes with the aches?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: stiff, label: Stiffness or trouble moving, summary_text: Stiffness or trouble moving, priority_tags: [movement] }
+    - { value: swollen-area, label: "One red, warm, or swollen area", summary_text: "One red, warm, or swollen area", priority_tags: [swelling] }
+    - { value: weakness, label: New weakness, summary_text: New weakness, priority_tags: [movement] }
+    - { value: fall, label: A fall or injury, summary_text: A fall or injury, priority_tags: [fall] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Other changes
+  priority_tags: [joints, muscles, pain]
+  source_ids: [cco-pain-patient-guide, heart-stroke-stroke-signs, canada-stroke-warning-signs]
+
+- <<: *general_journey_question
+  id: q-headache-details
+  symptom_ids: [headache]
+  feature_id: headache-journey-details
+  prompt: Have you noticed any of these changes with the headache?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: sudden-strong, label: "A sudden, very strong headache", summary_text: "A sudden, very strong headache", priority_tags: [headache-change] }
+    - { value: speech-vision, label: Trouble speaking or a sudden vision change, summary_text: Trouble speaking or a sudden vision change, priority_tags: [thinking-change] }
+    - { value: weakness-numbness, label: New weakness or numbness on one side, summary_text: New weakness or numbness on one side, priority_tags: [movement] }
+    - { value: confused-faint-seizure, label: "Confusion, fainting, or a seizure", summary_text: "Confusion, fainting, or a seizure", priority_tags: [thinking-change] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Other changes
+  priority_tags: [headache, nervous-system]
+  source_ids: [cco-pain-patient-guide, heart-stroke-stroke-signs]
+
+- <<: *general_journey_question
+  id: q-dizziness-details
+  symptom_ids: [dizziness]
+  feature_id: dizziness-journey-details
+  prompt: Have you noticed any of these changes with the dizziness?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: fainted, label: Fainted, summary_text: Fainted, priority_tags: [fall] }
+    - { value: fall, label: Fell or nearly fell, summary_text: Fell or nearly fell, priority_tags: [fall] }
+    - { value: chest-breath-heart, label: "Chest pain, trouble breathing, or a fast heartbeat", summary_text: "Chest pain, trouble breathing, or a fast heartbeat", priority_tags: [breathing-heart] }
+    - { value: neuro, label: "Sudden weakness, trouble speaking, or a vision change", summary_text: "Sudden weakness, trouble speaking, or a vision change", priority_tags: [thinking-change] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Other changes
+  priority_tags: [dizziness, nervous-system]
+  source_ids: [cco-pain-patient-guide, heart-stroke-stroke-signs, canada-stroke-warning-signs]
+
+- <<: *general_journey_question
+  id: q-hot-flashes-details
+  symptom_ids: [hot-flashes]
+  feature_id: hot-flashes-journey-details
+  prompt: Which changes have you noticed with the hot flashes?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: daytime, label: Sudden heat or sweating during the day, summary_text: Sudden heat or sweating during the day, priority_tags: [hot-flashes] }
+    - { value: night, label: Night sweats or waking because of heat, summary_text: Night sweats or waking because of heat, priority_tags: [sleep] }
+    - { value: chest-breath, label: Chest pain or trouble breathing, summary_text: Chest pain or trouble breathing, priority_tags: [breathing-heart] }
+    - { value: faint, label: Fainting or nearly fainting, summary_text: Fainting or nearly fainting, priority_tags: [fall] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Hot flash changes
+  priority_tags: [hot-flashes]
+  source_ids: [bc-cancer-sexual-health-vagina, ccs-hormone-therapy-breast, heart-stroke-emergency-signs]
+
+- <<: *general_journey_question
+  id: q-vaginal-genitourinary-symptoms-details
+  symptom_ids: [vaginal-genitourinary-symptoms]
+  feature_id: vaginal-genitourinary-journey-details
+  prompt: Which vaginal or urine changes have you noticed?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: dry-sore-pain, label: "Vaginal dryness, soreness, or pain", summary_text: "Vaginal dryness, soreness, or pain", priority_tags: [vaginal-change] }
+    - { value: urine-burning, label: Burning or pain when passing urine, summary_text: Burning or pain when passing urine, priority_tags: [urine-change] }
+    - { value: blood-urine, label: Blood in the urine, summary_text: Blood in the urine, priority_tags: [bleeding] }
+    - { value: bleeding-discharge, label: Vaginal bleeding or a new discharge, summary_text: Vaginal bleeding or a new discharge, priority_tags: [vaginal-change] }
+    - { value: cannot-urinate, label: Unable to pass urine, summary_text: Unable to pass urine, priority_tags: [urine-change] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Vaginal or urine changes
+  priority_tags: [vaginal, urine]
+  source_ids: [bc-cancer-sexual-health-vagina, ccs-hormone-therapy-breast]
+
+- <<: *general_journey_question
+  id: q-sleep-concerns-details
+  symptom_ids: [sleep-concerns]
+  feature_id: sleep-journey-details
+  prompt: What is happening with your sleep?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: fall-asleep, label: Trouble falling asleep, summary_text: Trouble falling asleep, priority_tags: [sleep] }
+    - { value: waking, label: Waking often or too early, summary_text: Waking often or too early, priority_tags: [sleep] }
+    - { value: pain-breathing, label: "Pain, coughing, or breathing trouble wakes me", summary_text: "Pain, coughing, or breathing trouble interrupts sleep", priority_tags: [sleep-interruption] }
+    - { value: hot-flashes, label: Hot flashes or night sweats wake me, summary_text: Hot flashes or night sweats interrupt sleep, priority_tags: [sleep-interruption] }
+    - { value: worry-mood, label: Worry or low mood keeps me awake, summary_text: Worry or low mood interrupts sleep, priority_tags: [mood] }
+    - { value: none, label: None of these, summary_text: None of these sleep changes, priority_tags: [] }
+  summary_label: Sleep changes
+  priority_tags: [sleep]
+  source_ids: [bc-cancer-sleeping-problems]
+
+- <<: *general_journey_question
+  id: q-mood-cognitive-concerns-details
+  symptom_ids: [mood-cognitive-concerns]
+  feature_id: mood-cognitive-journey-details
+  prompt: Which changes have you noticed in your mood, memory, or focus?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: low, label: Feeling low or losing interest in things, summary_text: Feeling low or losing interest in things, priority_tags: [mood] }
+    - { value: worry, label: "Strong worry, fear, or panic", summary_text: "Strong worry, fear, or panic", priority_tags: [mood] }
+    - { value: memory-focus, label: Trouble remembering or focusing, summary_text: Trouble remembering or focusing, priority_tags: [thinking-change] }
+    - { value: confused, label: New or sudden confusion, summary_text: New or sudden confusion, priority_tags: [thinking-change] }
+    - { value: self-harm, label: Thoughts of hurting myself or ending my life, summary_text: Thoughts of self-harm or ending life, priority_tags: [mental-health-safety] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Mood, memory, or focus changes
+  priority_tags: [mood, memory, focus]
+  source_ids: [cco-anxiety-patient-guide, cco-depression-patient-guide, bc-cancer-memory-thinking-attention]
+
+- <<: *general_journey_question
+  id: q-pain-details
+  symptom_ids: [pain]
+  feature_id: pain-journey-details
+  prompt: Have you noticed any of these details with the pain?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: sudden-strong, label: The pain started suddenly or is very strong, summary_text: Pain started suddenly or is very strong, priority_tags: [pain-change] }
+    - { value: chest-head-belly, label: "The pain is in the chest, head, or belly", summary_text: "Pain is in the chest, head, or belly", priority_tags: [pain-location] }
+    - { value: breathing-faint, label: "Trouble breathing, dizziness, or fainting", summary_text: "Trouble breathing, dizziness, or fainting with pain", priority_tags: [breathing-heart] }
+    - { value: fall-injury, label: The pain began after a fall or injury, summary_text: Pain began after a fall or injury, priority_tags: [fall] }
+    - { value: cannot-move, label: The pain makes it hard to move, summary_text: Pain makes it hard to move, priority_tags: [daily-activities] }
+    - { value: none, label: None of these, summary_text: None of these other details, priority_tags: [] }
+  summary_label: Pain details
+  priority_tags: [pain]
+  source_ids: [cco-pain-patient-guide, heart-stroke-stroke-signs]
+
+- <<: *general_journey_question
+  id: q-shortness-of-breath-cough-details
+  symptom_ids: [shortness-of-breath-cough]
+  feature_id: breathing-cough-journey-details
+  prompt: Which changes have you noticed with breathing or coughing?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: sudden-rest, label: Breathing trouble started suddenly or happens at rest, summary_text: Breathing trouble started suddenly or happens at rest, priority_tags: [breathing-change] }
+    - { value: cannot-speak, label: Hard to speak a full sentence, summary_text: Hard to speak a full sentence, priority_tags: [breathing-change] }
+    - { value: chest-pain, label: Chest pain or pressure, summary_text: Chest pain or pressure, priority_tags: [breathing-heart] }
+    - { value: blood, label: Coughing up blood, summary_text: Coughing up blood, priority_tags: [bleeding] }
+    - { value: blue-grey, label: Blue or grey lips or face, summary_text: Blue or grey lips or face, priority_tags: [breathing-change] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Breathing or cough changes
+  priority_tags: [breathing, cough]
+  source_ids: [cco-dyspnea-patient-guide]
+
+- <<: *general_journey_question
+  id: q-chest-symptoms-details
+  symptom_ids: [chest-symptoms]
+  feature_id: chest-journey-details
+  prompt: Which changes have you noticed with the chest pain or pressure?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: pressure, label: "Pressure, squeezing, heaviness, or burning", summary_text: "Pressure, squeezing, heaviness, or burning in the chest", priority_tags: [chest-change] }
+    - { value: upper-body, label: "Pain or discomfort in the arm, neck, jaw, shoulder, or back", summary_text: Upper-body pain or discomfort, priority_tags: [chest-change] }
+    - { value: breathing, label: Shortness of breath, summary_text: Shortness of breath, priority_tags: [breathing-change] }
+    - { value: sweat-sick-dizzy, label: "Sweating, nausea, or lightheadedness", summary_text: "Sweating, nausea, or lightheadedness", priority_tags: [chest-change] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Chest changes
+  priority_tags: [chest, heart]
+  source_ids: [heart-stroke-emergency-signs]
+
+- <<: *general_journey_question
+  id: q-edema-swelling-details
+  symptom_ids: [edema-swelling]
+  feature_id: swelling-journey-details
+  prompt: Which changes have you noticed with the swelling?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: one-limb, label: Swelling in one arm or one leg, summary_text: Swelling in one arm or one leg, priority_tags: [swelling] }
+    - { value: red-warm-pain, label: "Redness, warmth, or pain in the swollen area", summary_text: "Redness, warmth, or pain in the swollen area", priority_tags: [swelling] }
+    - { value: face-mouth, label: "Swelling of the face, lips, tongue, or throat", summary_text: "Swelling of the face, lips, tongue, or throat", priority_tags: [allergy-signs] }
+    - { value: chest-breathing, label: Chest pain or trouble breathing, summary_text: Chest pain or trouble breathing, priority_tags: [breathing-heart] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Swelling details
+  priority_tags: [swelling]
+  source_ids: [bc-cancer-lymphedema, ccs-chemotherapy-side-effects, canada-anaphylaxis-signs]
+
+- <<: *general_journey_question
+  id: q-palpitations-details
+  symptom_ids: [palpitations]
+  feature_id: palpitations-journey-details
+  prompt: Have you noticed any of these changes with your heartbeat?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: at-rest, label: It happens while resting, summary_text: Fast or irregular heartbeat happens while resting, priority_tags: [heart-change] }
+    - { value: keeps-returning, label: It keeps returning or does not settle, summary_text: Fast or irregular heartbeat keeps returning or does not settle, priority_tags: [heart-change] }
+    - { value: chest, label: Chest pain or pressure, summary_text: Chest pain or pressure, priority_tags: [breathing-heart] }
+    - { value: breathing, label: Trouble breathing, summary_text: Trouble breathing, priority_tags: [breathing-change] }
+    - { value: dizzy-faint, label: "Dizziness, fainting, or nearly fainting", summary_text: "Dizziness, fainting, or nearly fainting", priority_tags: [fall] }
+    - { value: none, label: None of these, summary_text: None of these other changes, priority_tags: [] }
+  summary_label: Heartbeat changes
+  priority_tags: [heart]
+  source_ids: [ccs-heart-problems]
+
+- <<: *general_journey_question
+  id: q-bleeding-bruising-details
+  symptom_ids: [bleeding-bruising]
+  feature_id: bleeding-bruising-journey-details
+  prompt: Which bleeding or bruising changes have you noticed?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: will-not-stop, label: Bleeding that will not stop, summary_text: Bleeding that will not stop, priority_tags: [bleeding] }
+    - { value: nose-gums, label: A nosebleed or bleeding gums, summary_text: A nosebleed or bleeding gums, priority_tags: [bleeding] }
+    - { value: urine-vomit, label: Blood in urine or vomit, summary_text: Blood in urine or vomit, priority_tags: [bleeding] }
+    - { value: bowel, label: A red or black bowel movement, summary_text: A red or black bowel movement, priority_tags: [bleeding] }
+    - { value: bruises, label: Many new bruises or tiny red or purple spots, summary_text: Many new bruises or tiny red or purple spots, priority_tags: [bruising] }
+    - { value: head, label: A head injury with a strong headache or confusion, summary_text: Head injury with a strong headache or confusion, priority_tags: [head-injury] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Bleeding or bruising changes
+  priority_tags: [bleeding, bruising]
+  source_ids: [ccs-chemotherapy-side-effects]
+
+- <<: *general_journey_question
+  id: q-blood-clot-warning-symptoms-details
+  symptom_ids: [blood-clot-warning-symptoms]
+  feature_id: blood-clot-journey-details
+  prompt: Which of these changes have you noticed?
+  help_text: Select all that apply. Ariad cannot tell if a blood clot is present.
+  answer_type: multi_choice
+  options:
+    - { value: limb, label: "Pain, redness, warmth, or swelling in one arm or leg", summary_text: "Pain, redness, warmth, or swelling in one arm or leg", priority_tags: [clot-signs] }
+    - { value: breath, label: Sudden shortness of breath, summary_text: Sudden shortness of breath, priority_tags: [breathing-change] }
+    - { value: chest-back, label: Chest or upper-back pain, summary_text: Chest or upper-back pain, priority_tags: [chest-change] }
+    - { value: cough-blood, label: Coughing up blood, summary_text: Coughing up blood, priority_tags: [bleeding] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Changes noticed
+  priority_tags: [blood-clot-signs]
+  source_ids: [ccs-chemotherapy-side-effects]
+
+- <<: *general_journey_question
+  id: q-eye-vision-symptoms-details
+  symptom_ids: [eye-vision-symptoms]
+  feature_id: eye-vision-journey-details
+  prompt: Which eye or vision changes have you noticed?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: loss, label: Sudden loss of part or all of the vision, summary_text: Sudden loss of part or all of the vision, priority_tags: [vision-change] }
+    - { value: blur-double, label: Blurred or double vision, summary_text: Blurred or double vision, priority_tags: [vision-change] }
+    - { value: flashes-floaters, label: "New flashes, spots, or shapes in the vision", summary_text: "New flashes, spots, or shapes in the vision", priority_tags: [vision-change] }
+    - { value: pain-red, label: "Eye pain, redness, swelling, or discharge", summary_text: "Eye pain, redness, swelling, or discharge", priority_tags: [eye-change] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Eye or vision changes
+  priority_tags: [eyes, vision]
+  source_ids: [ccs-eye-vision-problems, canada-stroke-warning-signs]
+
+- <<: *general_journey_question
+  id: q-nail-hair-changes-details
+  symptom_ids: [nail-hair-changes]
+  feature_id: nail-hair-journey-details
+  prompt: Which nail, hair, or scalp changes have you noticed?
+  help_text: Select all that apply.
+  answer_type: multi_choice
+  options:
+    - { value: hair, label: Hair loss or thinning, summary_text: Hair loss or thinning, priority_tags: [hair-change] }
+    - { value: nail, label: "Nails changing colour, cracking, or lifting", summary_text: "Nails changing colour, cracking, or lifting", priority_tags: [nail-change] }
+    - { value: nail-sore, label: "Redness, swelling, pain, or fluid around a nail", summary_text: "Redness, swelling, pain, or fluid around a nail", priority_tags: [nail-change] }
+    - { value: scalp, label: Sores or broken skin on the scalp, summary_text: Sores or broken skin on the scalp, priority_tags: [skin-change] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Nail, hair, or scalp changes
+  priority_tags: [nails, hair, scalp]
+  source_ids: [ccs-skin-problems, bc-cancer-hair-loss-appearance]
+
+- <<: *general_journey_question
+  id: q-infusion-allergic-symptoms-details
+  symptom_ids: [infusion-allergic-symptoms]
+  feature_id: infusion-allergic-journey-details
+  prompt: Which changes did you notice while or after the medicine was given?
+  help_text: Select all that apply. Ariad cannot tell if this is an allergic reaction.
+  answer_type: multi_choice
+  options:
+    - { value: skin, label: "Hives, itching, flushing, or a rash", summary_text: "Hives, itching, flushing, or a rash", priority_tags: [allergy-signs] }
+    - { value: swelling, label: "Swelling of the face, lips, tongue, or throat", summary_text: "Swelling of the face, lips, tongue, or throat", priority_tags: [allergy-signs] }
+    - { value: breathing, label: "Cough, wheeze, trouble breathing, or chest tightness", summary_text: "Cough, wheeze, trouble breathing, or chest tightness", priority_tags: [breathing-change] }
+    - { value: dizzy-faint, label: "Dizziness, fainting, or nearly fainting", summary_text: "Dizziness, fainting, or nearly fainting", priority_tags: [fall] }
+    - { value: stomach, label: Vomiting or diarrhea, summary_text: Vomiting or diarrhea, priority_tags: [stomach-change] }
+    - { value: none, label: None of these, summary_text: None of these changes, priority_tags: [] }
+  summary_label: Changes during or after medicine
+  priority_tags: [infusion, allergy-signs]
+  source_ids: [eviq-hypersensitivity-reaction, canada-anaphylaxis-signs]

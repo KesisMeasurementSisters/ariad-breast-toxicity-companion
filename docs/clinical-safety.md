@@ -8,9 +8,11 @@ deterministic knowledge layer chooses every clinical module and fixed warning
 section. Neither path is permitted to diagnose, grade, infer causation, perform
 personalized triage, prescribe, or recommend a cancer-treatment change.
 
-The current owner-directed mode disables all LLM calls. Deterministic matching,
-release assembly, clinic-data display, and neutral summary fallback remain
-available without sending patient input to a model provider.
+The repository default disables all LLM calls. The competition deployment may
+explicitly enable bounded GPT-5.6 Luna symptom matching and neutral
+restatement. Deterministic matching, release assembly, clinic-data display, and
+neutral summary fallback remain available without sending input to a model
+provider.
 
 This is an architectural safety claim, not evidence that the draft clinical
 wording is approved. **All patient-facing modules remain unreviewed drafts.**
@@ -100,7 +102,8 @@ Ontario Health/Cancer Care Ontario and eviQ sources use differing fever wording;
 the structured fictional clinic configuration records the fever and
 supportive-care policy bindings as unresolved. It contains no patient-facing
 clinical instruction prose and no module reference for either unresolved
-binding. Two urgent modules visibly retain the fever owner-decision placeholder.
+binding. Four urgent module versions visibly retain the fever owner-decision
+placeholder.
 
 ## Clinic configuration safety boundary
 
@@ -144,8 +147,8 @@ grade the symptom, or make a personal treatment/triage decision. This statement
 is persistent, never triggered by model inference, and cannot be replaced,
 suppressed, or edited by clinic configuration:
 
-> If you think you may be experiencing a medical emergency, call 911 or your
-> local emergency service.
+> If you think this is a medical emergency, call 911 or your local emergency
+> service now.
 
 ## Before any real-world use
 

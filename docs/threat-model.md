@@ -19,7 +19,6 @@ Assets:
 - server-only OpenAI API key;
 - integrity and review state of the compiled clinical-content artifact;
 - user-entered symptom wording and observable answers during an active session;
-- locally saved treatment IDs;
 - availability and predictable behavior of the public demo.
 
 Trust boundaries:
@@ -28,7 +27,8 @@ Trust boundaries:
 2. compiled release → patient browser;
 3. browser → same-origin Next.js API route;
 4. Next.js route → OpenAI API;
-5. browser → local storage, clipboard, print system, and downloaded file.
+5. browser → clipboard, print system, downloaded file, and legacy local-storage
+   cleanup. Direct treatment URLs may remain in ordinary browser history.
 
 ## Threats, controls, and residual risk
 

@@ -1,0 +1,18 @@
+- kind: source
+  id: fda-label-carboplatin
+  version: 1.0.0
+  title: KYXATA (carboplatin) prescribing information
+  organization: U.S. Food and Drug Administration
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f91c48da-68d1-4aa7-89b8-d84a3e8b629b"
+  source_type: regulatory_label
+  jurisdiction: United States
+  publication_or_revision_date: 2025-09-02
+  accessed_date: 2026-07-20
+  source_version: "NDA219921; FDA Reference ID 5639867; SPL set f91c48da-68d1-4aa7-89b8-d84a3e8b629b; label revised 08/2025; DailyMed updated 2025-09-02"
+  permitted_excerpt: null
+  notes:
+    - The FDA label indication is ovarian carcinoma; it does not establish a breast-cancer indication for carboplatin.
+    - Tables 7 and 8 report a coherent 553-patient second-line single-agent safety population suitable for event-level mapping.
+    - The cross-indication population and exact numerical data remain in private provenance and are not patient-display copy.
+    - Patient wording and qualitative frequency groups are a separate unreviewed Ariad draft.
+  verification_status: verified

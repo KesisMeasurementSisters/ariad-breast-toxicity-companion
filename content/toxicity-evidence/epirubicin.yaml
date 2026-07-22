@@ -1,0 +1,274 @@
+kind: drug_toxicity_evidence
+id: epirubicin-fda-label-categorical-safety
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+drug_id: epirubicin
+monotherapy: false
+evidence_scope: drug_label
+route: intravenous
+dose_mg_per_m2: null
+dose_description: >-
+  Not tied to one dose; the FDA label's numerical breast-cancer safety table
+  reports FEC and CEF combination regimens and cannot be attributed to
+  epirubicin alone
+schedule: Not tied to one treatment schedule
+indication: Adjuvant treatment of node-positive breast cancer as part of combination therapy
+population: >-
+  People described across the epirubicin FDA label. The label identifies
+  fourteen most-common reaction categories without event-specific
+  epirubicin-alone rates. Its numerical breast-cancer safety table reports FEC
+  and CEF combination regimens and is excluded from individual-drug frequency
+  mapping.
+n_treatment: null
+denominator_status: unavailable
+comparator_description: null
+n_comparator: null
+source_id: fda-label-epirubicin
+source_document_version: >-
+  NDA050778; SPL set 0a03c798-a652-4895-b29c-3b521a89ba42;
+  DailyMed label updated 2026-05-13; prescribing information revised 11/2024
+source_locator: >-
+  Highlights, Adverse Reactions; Boxed Warning; Sections 5.1 through 5.4;
+  Section 6.1, Table 1; Section 14.1; and Section 17
+source_url: >-
+  https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?audience=consumer&setid=0a03c798-a652-4895-b29c-3b521a89ba42
+grading_system: null
+events:
+  - id: leukopenia
+    source_event_name: Leukopenia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: neutropenia
+    source_event_name: Neutropenia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: anemia
+    source_event_name: Anemia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: thrombocytopenia
+    source_event_name: Thrombocytopenia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: amenorrhea
+    source_event_name: Amenorrhea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: lethargy
+    source_event_name: Lethargy
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: nausea-vomiting
+    source_event_name: Nausea/vomiting
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: mucositis
+    source_event_name: Mucositis
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: diarrhea
+    source_event_name: Diarrhea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: infection
+    source_event_name: Infection
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: conjunctivitis-keratitis
+    source_event_name: Conjunctivitis/keratitis
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: alopecia
+    source_event_name: Alopecia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: local-skin-toxicity
+    source_event_name: Local skin toxicity
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: rash-itch
+    source_event_name: Rash/itch
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in its most-common list, but the numerical table is
+      from combination regimens and does not provide an epirubicin-alone rate.
+
+  - id: cardiac-toxicity
+    source_event_name: Cardiac Toxicity
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The boxed warning provides cumulative-dose cardiomyopathy estimates, not
+      one epirubicin-alone rate or denominator for the broader patient row.
+
+  - id: secondary-malignancies
+    source_event_name: Secondary Malignancies
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.2 reports long-term cumulative incidence from combination
+      studies, not one epirubicin-alone rate or denominator.
+
+  - id: extravasation-and-tissue-necrosis
+    source_event_name: Extravasation and Tissue Necrosis
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The boxed warning and Section 5.3 describe severe local tissue injury
+      without an event rate.
+
+  - id: severe-myelosuppression
+    source_event_name: Severe Myelosuppression
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The boxed warning and Section 5.4 describe serious infection, transfusion,
+      hospitalization, and death without an event rate.
+notes:
+  - Table 1 rates come from FEC and CEF combination regimens and are not attributed to epirubicin alone.
+  - Most-common is preserved as an FDA categorical claim and is not converted into Ariad's numerical frequency bands.
+  - Warning status is stored separately from frequency; serious does not mean common.
+  - This record maps the fourteen FDA-defined most-common categories and four boxed warnings; it is not an exhaustive transcription of the label.
+  - The label safety evidence is not asserted to come from a single-agent treatment population.

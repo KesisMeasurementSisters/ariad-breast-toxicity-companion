@@ -9,7 +9,10 @@
   "scripts": {
     "dev": "pnpm content:build:preview && pnpm --filter @ariad/web dev",
     "build": "pnpm content:build && pnpm typecheck && pnpm --filter @ariad/web build",
-    "build:preview": "ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW NEXT_PUBLIC_DEMO_MODE=true pnpm content:build && pnpm typecheck && pnpm --filter @ariad/web build",
+    "build:preview": "ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW NEXT_PUBLIC_DEMO_MODE=true NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false pnpm content:build && pnpm typecheck && pnpm --filter @ariad/web build",
+    "build:cloudflare": "pnpm content:build:preview && node scripts/run-cloudflare.mjs build",
+    "preview:cloudflare": "pnpm content:build:preview && node scripts/run-cloudflare.mjs preview",
+    "deploy:cloudflare": "pnpm build:cloudflare && node scripts/run-cloudflare.mjs deploy",
     "lint": "eslint .",
     "typecheck": "pnpm -r typecheck",
     "test": "vitest run",
@@ -21,6 +24,7 @@
     "content:build": "tsx scripts/content-cli.ts build",
     "content:build:preview": "ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW tsx scripts/content-cli.ts build",
     "content:report": "tsx scripts/content-cli.ts report",
+    "docs:audit": "node scripts/docs-audit.mjs",
     "safety:scan": "tsx scripts/safety-scan.ts"
   },
   "devDependencies": {
@@ -34,6 +38,7 @@
     "jsdom": "29.1.1",
     "tsx": "4.23.1",
     "typescript": "6.0.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.10",
+    "wrangler": "4.113.0"
   }
 }

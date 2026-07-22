@@ -193,6 +193,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -237,6 +239,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -300,6 +304,13 @@
           },
           "type": "array"
         },
+        "catalogue_basis": {
+          "enum": [
+            "fda_breast_cancer_treatment",
+            "breast_regimen_component"
+          ],
+          "type": "string"
+        },
         "class_ids": {
           "items": {
             "maxLength": 120,
@@ -323,6 +334,114 @@
         "kind": {
           "const": "drug",
           "type": "string"
+        },
+        "regulatory_labels": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "application_number": {
+                "pattern": "^(?:ANDA|BLA|NDA)\\d{6}$",
+                "type": "string"
+              },
+              "authority": {
+                "const": "U.S. Food and Drug Administration",
+                "type": "string"
+              },
+              "dosage_forms": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "evidence_mapping_status": {
+                "enum": [
+                  "source_indexed",
+                  "event_mapped"
+                ],
+                "type": "string"
+              },
+              "fda_routes": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "indication_section": {
+                "const": "indications_and_usage",
+                "type": "string"
+              },
+              "label_effective_date": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "type": "string"
+              },
+              "marketing_status": {
+                "const": "Prescription",
+                "type": "string"
+              },
+              "product_names": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "safety_sections": {
+                "items": {
+                  "enum": [
+                    "boxed_warning",
+                    "contraindications",
+                    "warnings_and_cautions",
+                    "warnings",
+                    "precautions",
+                    "adverse_reactions",
+                    "clinical_trials_experience",
+                    "postmarketing_experience",
+                    "information_for_patients",
+                    "patient_counseling_information"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "source_id": {
+                "maxLength": 120,
+                "minLength": 2,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "spl_set_id": {
+                "pattern": "^[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$",
+                "type": "string"
+              },
+              "verified_at": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "authority",
+              "application_number",
+              "spl_set_id",
+              "label_effective_date",
+              "marketing_status",
+              "product_names",
+              "dosage_forms",
+              "fda_routes",
+              "indication_section",
+              "safety_sections",
+              "evidence_mapping_status",
+              "source_id",
+              "verified_at"
+            ],
+            "type": "object"
+          },
+          "type": "array"
         },
         "review": {
           "additionalProperties": false,
@@ -396,6 +515,9 @@
           },
           "minItems": 1,
           "type": "array"
+        },
+        "searchable": {
+          "type": "boolean"
         },
         "source_ids": {
           "items": {
@@ -484,6 +606,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -528,6 +652,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -579,7 +705,10 @@
         "class_ids",
         "routes",
         "source_ids",
-        "support_status"
+        "support_status",
+        "catalogue_basis",
+        "searchable",
+        "regulatory_labels"
       ],
       "type": "object"
     },
@@ -794,6 +923,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -838,6 +969,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -1106,6 +1239,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -1150,6 +1285,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -1441,6 +1578,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -1485,6 +1624,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -1784,6 +1925,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -1828,6 +1971,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -1972,6 +2117,11 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "preparation_order": {
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991,
+          "type": "integer"
         },
         "priority_tags": {
           "default": [],
@@ -2153,6 +2303,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -2197,6 +2349,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -2356,6 +2510,16 @@
               "type": "null"
             }
           ]
+        },
+        "presentation_effect_ids": {
+          "default": [],
+          "items": {
+            "maxLength": 120,
+            "minLength": 2,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "type": "array"
         },
         "question_ids": {
           "default": [],
@@ -2530,6 +2694,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -2574,6 +2740,8 @@
                     "question",
                     "educational_module",
                     "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
                     "source",
                     "clinic_config"
                   ],
@@ -2623,6 +2791,52 @@
             }
           ]
         },
+        "toxicity_presentation_ref": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "treatment_class",
+                    "drug",
+                    "regimen",
+                    "symptom",
+                    "observable_feature",
+                    "question",
+                    "educational_module",
+                    "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
+                    "source",
+                    "clinic_config"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "version"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "treatment_id": {
           "maxLength": 120,
           "minLength": 2,
@@ -2660,7 +2874,1090 @@
         "timing",
         "modules",
         "question_ids",
+        "toxicity_presentation_ref",
+        "presentation_effect_ids",
         "source_ids"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_description": {
+          "anyOf": [
+            {
+              "minLength": 2,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "denominator_status": {
+          "enum": [
+            "reported",
+            "unavailable",
+            "not_applicable"
+          ],
+          "type": "string"
+        },
+        "dose_description": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "dose_mg_per_m2": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "drug_id": {
+          "maxLength": 120,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "all_grade_pct": {
+                "anyOf": [
+                  {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "all_grade_pct_qualifier": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "exact",
+                      "less_than",
+                      "greater_than"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "fatal_pct": {
+                "anyOf": [
+                  {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "frequency_basis": {
+                "enum": [
+                  "adverse_reaction",
+                  "adverse_event",
+                  "laboratory_abnormality",
+                  "fatal_outcome",
+                  "warning"
+                ],
+                "type": "string"
+              },
+              "frequency_note": {
+                "anyOf": [
+                  {
+                    "minLength": 2,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "frequency_status": {
+                "enum": [
+                  "reported",
+                  "not_reported",
+                  "not_applicable"
+                ],
+                "type": "string"
+              },
+              "id": {
+                "maxLength": 120,
+                "minLength": 2,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "severe_pct": {
+                "anyOf": [
+                  {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "severe_source_label": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "severity_values": {
+                "default": [],
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "pct": {
+                      "maximum": 100,
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "qualifier": {
+                      "default": "exact",
+                      "enum": [
+                        "exact",
+                        "less_than",
+                        "greater_than"
+                      ],
+                      "type": "string"
+                    },
+                    "source_label": {
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "source_label",
+                    "pct",
+                    "qualifier"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "source_event_name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "source_frequency_category": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "most_common"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "source_event_name",
+              "frequency_basis",
+              "all_grade_pct",
+              "severe_pct",
+              "fatal_pct",
+              "severe_source_label",
+              "severity_values",
+              "frequency_note"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "evidence_scope": {
+          "enum": [
+            "single_agent",
+            "drug_label"
+          ],
+          "type": "string"
+        },
+        "grading_system": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "maxLength": 120,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "indication": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "kind": {
+          "const": "drug_toxicity_evidence",
+          "type": "string"
+        },
+        "monotherapy": {
+          "type": "boolean"
+        },
+        "n_comparator": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "n_treatment": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "notes": {
+          "default": [],
+          "items": {
+            "minLength": 2,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "population": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "review": {
+          "additionalProperties": false,
+          "properties": {
+            "approval_id": {
+              "anyOf": [
+                {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "review_due": {
+              "anyOf": [
+                {
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reviewed_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reviewer": {
+              "anyOf": [
+                {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "reviewer",
+            "reviewed_at",
+            "review_due",
+            "approval_id"
+          ],
+          "type": "object"
+        },
+        "route": {
+          "enum": [
+            "oral",
+            "intravenous",
+            "subcutaneous",
+            "intramuscular"
+          ],
+          "type": "string"
+        },
+        "schedule": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "source_document_version": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 120,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "source_locator": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "source_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "in_review",
+            "approved",
+            "retired"
+          ],
+          "type": "string"
+        },
+        "status_history": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "from_status": {
+                "enum": [
+                  "draft",
+                  "in_review",
+                  "approved",
+                  "retired"
+                ],
+                "type": "string"
+              },
+              "reason": {
+                "minLength": 2,
+                "type": "string"
+              },
+              "to_status": {
+                "enum": [
+                  "draft",
+                  "in_review",
+                  "approved",
+                  "retired"
+                ],
+                "type": "string"
+              },
+              "transitioned_at": {
+                "format": "date-time",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                "type": "string"
+              },
+              "transitioned_by": {
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "from_status",
+              "to_status",
+              "transitioned_at",
+              "transitioned_by",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "superseded_by": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "treatment_class",
+                    "drug",
+                    "regimen",
+                    "symptom",
+                    "observable_feature",
+                    "question",
+                    "educational_module",
+                    "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
+                    "source",
+                    "clinic_config"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "version"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "treatment_class",
+                    "drug",
+                    "regimen",
+                    "symptom",
+                    "observable_feature",
+                    "question",
+                    "educational_module",
+                    "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
+                    "source",
+                    "clinic_config"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "version"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "version",
+        "status",
+        "review",
+        "supersedes",
+        "superseded_by",
+        "drug_id",
+        "monotherapy",
+        "route",
+        "dose_mg_per_m2",
+        "dose_description",
+        "schedule",
+        "indication",
+        "population",
+        "n_treatment",
+        "denominator_status",
+        "comparator_description",
+        "n_comparator",
+        "source_id",
+        "source_document_version",
+        "source_locator",
+        "source_url",
+        "grading_system",
+        "events",
+        "notes"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "audience": {
+          "const": "patient",
+          "type": "string"
+        },
+        "cause_statement": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "drug_id": {
+          "maxLength": 120,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "effects": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "contact_team": {
+                "default": [],
+                "items": {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "display_name": {
+                "minLength": 2,
+                "type": "string"
+              },
+              "evidence_event_ids": {
+                "items": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "frequency_band": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "many_people",
+                      "some_people",
+                      "fewer_people"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "frequency_source_event_id": {
+                "anyOf": [
+                  {
+                    "maxLength": 120,
+                    "minLength": 2,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "id": {
+                "maxLength": 120,
+                "minLength": 2,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "meaning": {
+                "minLength": 2,
+                "type": "string"
+              },
+              "presentation_group": {
+                "enum": [
+                  "common",
+                  "serious"
+                ],
+                "type": "string"
+              },
+              "reassuring_monitoring": {
+                "default": [],
+                "items": {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "safe_actions": {
+                "default": [],
+                "items": {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "urgent_help": {
+                "default": [],
+                "items": {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "what_you_may_notice": {
+                "default": [],
+                "items": {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "id",
+              "display_name",
+              "evidence_event_ids",
+              "frequency_source_event_id",
+              "frequency_band",
+              "meaning",
+              "what_you_may_notice",
+              "safe_actions",
+              "contact_team",
+              "urgent_help",
+              "reassuring_monitoring"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "escalation_summary": {
+          "additionalProperties": false,
+          "properties": {
+            "contact_team": {
+              "items": {
+                "minLength": 2,
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "heading": {
+              "minLength": 2,
+              "type": "string"
+            },
+            "introduction": {
+              "minLength": 2,
+              "type": "string"
+            },
+            "urgent_help": {
+              "items": {
+                "minLength": 2,
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "heading",
+            "introduction",
+            "contact_team",
+            "urgent_help"
+          ],
+          "type": "object"
+        },
+        "evidence_payload_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "evidence_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 120,
+              "minLength": 2,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            "kind": {
+              "const": "drug_toxicity_evidence",
+              "type": "string"
+            },
+            "version": {
+              "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "version"
+          ],
+          "type": "object"
+        },
+        "evidence_scope": {
+          "enum": [
+            "single_agent",
+            "drug_label"
+          ],
+          "type": "string"
+        },
+        "frequency_context": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "frequency_method_id": {
+          "anyOf": [
+            {
+              "const": "ariad-all-grade-frequency-v1",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "maxLength": 120,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "type": "string"
+        },
+        "kind": {
+          "const": "drug_toxicity_presentation",
+          "type": "string"
+        },
+        "monotherapy": {
+          "const": true,
+          "type": "boolean"
+        },
+        "omitted_evidence_events": {
+          "default": [],
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_event_id": {
+                "maxLength": 120,
+                "minLength": 2,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              "rationale": {
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_event_id",
+              "rationale"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "review": {
+          "additionalProperties": false,
+          "properties": {
+            "approval_id": {
+              "anyOf": [
+                {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "review_due": {
+              "anyOf": [
+                {
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reviewed_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reviewer": {
+              "anyOf": [
+                {
+                  "minLength": 2,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "reviewer",
+            "reviewed_at",
+            "review_due",
+            "approval_id"
+          ],
+          "type": "object"
+        },
+        "route_label": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "source_context": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "source_ids": {
+          "items": {
+            "maxLength": 120,
+            "minLength": 2,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "in_review",
+            "approved",
+            "retired"
+          ],
+          "type": "string"
+        },
+        "status_history": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "from_status": {
+                "enum": [
+                  "draft",
+                  "in_review",
+                  "approved",
+                  "retired"
+                ],
+                "type": "string"
+              },
+              "reason": {
+                "minLength": 2,
+                "type": "string"
+              },
+              "to_status": {
+                "enum": [
+                  "draft",
+                  "in_review",
+                  "approved",
+                  "retired"
+                ],
+                "type": "string"
+              },
+              "transitioned_at": {
+                "format": "date-time",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
+                "type": "string"
+              },
+              "transitioned_by": {
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "from_status",
+              "to_status",
+              "transitioned_at",
+              "transitioned_by",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "subtitle": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "superseded_by": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "treatment_class",
+                    "drug",
+                    "regimen",
+                    "symptom",
+                    "observable_feature",
+                    "question",
+                    "educational_module",
+                    "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
+                    "source",
+                    "clinic_config"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "version"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "treatment_class",
+                    "drug",
+                    "regimen",
+                    "symptom",
+                    "observable_feature",
+                    "question",
+                    "educational_module",
+                    "treatment_toxicity_relationship",
+                    "drug_toxicity_evidence",
+                    "drug_toxicity_presentation",
+                    "source",
+                    "clinic_config"
+                  ],
+                  "type": "string"
+                },
+                "version": {
+                  "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "version"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "version",
+        "status",
+        "review",
+        "supersedes",
+        "superseded_by",
+        "audience",
+        "drug_id",
+        "monotherapy",
+        "evidence_ref",
+        "evidence_payload_hash",
+        "source_ids",
+        "route_label",
+        "subtitle",
+        "frequency_context",
+        "cause_statement",
+        "source_context",
+        "frequency_method_id",
+        "effects",
+        "omitted_evidence_events",
+        "escalation_summary"
       ],
       "type": "object"
     },
@@ -2729,7 +4026,8 @@
             "product_monograph",
             "clinical_guidance",
             "regimen_information",
-            "safety_information"
+            "safety_information",
+            "regulatory_label"
           ],
           "type": "string"
         },
@@ -3358,6 +4656,8 @@
                         "question",
                         "educational_module",
                         "treatment_toxicity_relationship",
+                        "drug_toxicity_evidence",
+                        "drug_toxicity_presentation",
                         "source",
                         "clinic_config"
                       ],
@@ -3402,6 +4702,8 @@
                         "question",
                         "educational_module",
                         "treatment_toxicity_relationship",
+                        "drug_toxicity_evidence",
+                        "drug_toxicity_presentation",
                         "source",
                         "clinic_config"
                       ],
@@ -3626,6 +4928,8 @@
                         "question",
                         "educational_module",
                         "treatment_toxicity_relationship",
+                        "drug_toxicity_evidence",
+                        "drug_toxicity_presentation",
                         "source",
                         "clinic_config"
                       ],
@@ -3670,6 +4974,8 @@
                         "question",
                         "educational_module",
                         "treatment_toxicity_relationship",
+                        "drug_toxicity_evidence",
+                        "drug_toxicity_presentation",
                         "source",
                         "clinic_config"
                       ],

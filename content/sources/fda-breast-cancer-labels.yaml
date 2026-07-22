@@ -1,0 +1,440 @@
+- &fda_source_base
+  kind: source
+  id: fda-label-abemaciclib
+  version: 1.0.0
+  title: VERZENIO prescribing information
+  organization: U.S. Food and Drug Administration
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=be4bc0de-0fdc-4d46-8d25-be43c79e6a06"
+  source_type: regulatory_label
+  jurisdiction: United States
+  publication_or_revision_date: 2025-08-25
+  accessed_date: 2026-07-20
+  source_version: "NDA208716; SPL set be4bc0de-0fdc-4d46-8d25-be43c79e6a06"
+  permitted_excerpt: null
+  notes: &fda_source_notes
+    - The current label contains a breast-cancer treatment indication in Indications and Usage.
+    - Event-level mapping status is recorded on the matching drug object; any patient presentation remains an unreviewed draft until explicitly approved.
+  verification_status: verified
+
+- <<: *fda_source_base
+  id: fda-label-ado-trastuzumab-emtansine
+  title: KADCYLA prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=23f3c1f4-0fc8-4804-a9e3-04cf25dd302e"
+  publication_or_revision_date: 2026-04-01
+  source_version: "BLA125427; SPL set 23f3c1f4-0fc8-4804-a9e3-04cf25dd302e"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-alpelisib
+  title: PIQRAY prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212526"
+  publication_or_revision_date: 2025-12-15
+  source_version: "NDA212526; SPL set b20b4e18-7a4b-4500-a08f-06c6dab0ee5b"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-anastrozole
+  title: ARIMIDEX prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=acbfaaa9-503c-4691-9828-76a7146ed6de"
+  publication_or_revision_date: 2026-03-02
+  source_version: "NDA020541; SPL set acbfaaa9-503c-4691-9828-76a7146ed6de"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-capecitabine
+  title: Capecitabine prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=06a88b03-6c06-4dae-b3bc-1e8dd81c9067"
+  publication_or_revision_date: 2026-06-17
+  source_version: "ANDA207652; SPL set 06a88b03-6c06-4dae-b3bc-1e8dd81c9067"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-capivasertib
+  title: TRUQAP prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218197"
+  publication_or_revision_date: 2026-06-12
+  source_version: "NDA218197; SPL set d698c106-2322-401e-b738-cbd83c843ecf"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-conjugated-estrogens
+  title: PREMARIN prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=004782"
+  publication_or_revision_date: 2026-06-04
+  source_version: "NDA004782; SPL set 258e1602-a3cf-4ccc-ca80-73dbbfb812ff"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-cyclophosphamide
+  title: Cyclophosphamide prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212501"
+  publication_or_revision_date: 2025-08-07
+  source_version: "NDA212501; SPL set 0afd2cc7-09e6-481a-afea-9d2e3742da46"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-datopotamab-deruxtecan
+  title: DATROWAY prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0"
+  publication_or_revision_date: 2026-05-27
+  source_version: "BLA761394; SPL set 2950227c-6230-4ca4-a135-46e44d9424a0"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-docetaxel
+  title: Docetaxel prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6b9999bb-869e-4d25-838c-23c3ab280044"
+  publication_or_revision_date: 2025-01-31
+  source_version: "NDA022234; SPL set 6b9999bb-869e-4d25-838c-23c3ab280044"
+  notes:
+    - The current label contains a breast-cancer treatment indication in Indications and Usage.
+    - Table 3 event data are mapped to an exact draft evidence record for docetaxel monotherapy.
+    - Patient wording and qualitative frequency groups are a separate unreviewed Ariad draft.
+
+- <<: *fda_source_base
+  id: fda-label-doxorubicin
+  title: Doxorubicin hydrochloride prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1fd148fb-0fbc-4b6f-b790-23546fb46a71&version=28"
+  publication_or_revision_date: 2026-05-05
+  source_version: "NDA050629; SPL set 1fd148fb-0fbc-4b6f-b790-23546fb46a71; version 28"
+  notes:
+    - The current label contains breast-cancer treatment indications in Indications and Usage.
+    - The three most-common reactions and four boxed warnings are mapped to a categorical draft evidence record.
+    - Table 2 reports doxorubicin with cyclophosphamide; its numerical values are not attributed to doxorubicin alone.
+    - Patient wording and the common and serious groups are a separate unreviewed Ariad draft.
+
+- <<: *fda_source_base
+  id: fda-label-elacestrant
+  title: ORSERDU prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa66ae5c-2bd2-4444-8178-b55651e054ef"
+  publication_or_revision_date: 2026-06-24
+  source_version: "NDA217639; SPL set aa66ae5c-2bd2-4444-8178-b55651e054ef"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-epirubicin
+  title: ELLENCE prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?audience=consumer&setid=0a03c798-a652-4895-b29c-3b521a89ba42"
+  publication_or_revision_date: 2026-05-13
+  source_version: "NDA050778; SPL set 0a03c798-a652-4895-b29c-3b521a89ba42"
+  notes:
+    - The current label covers adjuvant treatment of node-positive breast cancer as a component of combination therapy.
+    - The fourteen most-common reaction categories and four boxed warnings are mapped to a categorical draft evidence record.
+    - Table 1 reports FEC and CEF combinations; its numerical values are not attributed to epirubicin alone.
+    - Patient wording and the common and serious groups are a separate unreviewed Ariad draft.
+
+- <<: *fda_source_base
+  id: fda-label-eribulin
+  title: HALAVEN prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=31ce4750-ded5-4a0b-95e9-f229fa6bc822"
+  publication_or_revision_date: 2025-11-07
+  source_version: "NDA201532; SPL set 31ce4750-ded5-4a0b-95e9-f229fa6bc822"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-estradiol
+  title: Estradiol prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=040275"
+  publication_or_revision_date: 2026-07-01
+  source_version: "ANDA040275; SPL set 5c9a2e0f-704b-4d16-8ea3-d94f7f36ce6b"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-everolimus
+  title: AFINITOR prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=022334"
+  publication_or_revision_date: 2026-06-01
+  source_version: "NDA022334; SPL set 2150f73a-179b-4afc-b8ce-67c85cc72f04"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-exemestane
+  title: AROMASIN prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cf066b7a-032a-416c-8d40-15ba581423e3"
+  publication_or_revision_date: 2025-12-24
+  source_version: "NDA020753; SPL set cf066b7a-032a-416c-8d40-15ba581423e3"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-fluorouracil
+  title: Fluorouracil prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=040278"
+  publication_or_revision_date: 2026-06-10
+  source_version: "ANDA040278; SPL set b4328ae3-f48f-40b1-9719-1c1aced7c734"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-fulvestrant
+  title: CLIGAVYX prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e20d8ca3-8837-4003-8b01-1ebec342062a"
+  publication_or_revision_date: 2026-06-24
+  source_version: "NDA210063; SPL set e20d8ca3-8837-4003-8b01-1ebec342062a"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-gemcitabine
+  title: Gemcitabine hydrochloride prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=200795"
+  publication_or_revision_date: 2026-04-27
+  source_version: "NDA200795; SPL set e18ed1cb-7dd0-4001-bfda-17d1f4587fb8"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-goserelin
+  title: ZOLADEX prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=294b168b-6e5f-4db9-bf70-d599271458b3"
+  publication_or_revision_date: 2026-03-24
+  source_version: "NDA019726; SPL set 294b168b-6e5f-4db9-bf70-d599271458b3"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-imlunestrant
+  title: INLURIYO prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5bc172e4-e8a2-441a-be52-279a7f890196"
+  publication_or_revision_date: 2026-06-04
+  source_version: "NDA218881; SPL set 5bc172e4-e8a2-441a-be52-279a7f890196"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-inavolisib
+  title: ITOVEBI prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219249"
+  publication_or_revision_date: 2026-04-21
+  source_version: "NDA219249; SPL set 5de59f5b-e5db-410f-b692-658686ef4107"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-ixabepilone
+  title: IXEMPRA prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=241f0b1e-8b95-470d-876f-bf1804daaf18"
+  publication_or_revision_date: 2025-12-04
+  source_version: "NDA022065; SPL set 241f0b1e-8b95-470d-876f-bf1804daaf18"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-lapatinib
+  title: TYKERB prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=022059"
+  publication_or_revision_date: 2026-01-27
+  source_version: "NDA022059; SPL set eee37f88-ec6a-4c30-b8aa-e2c71f93088c"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-letrozole
+  title: FEMARA prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=82b77d74-085f-45ac-a7dd-1f5c038bf406"
+  publication_or_revision_date: 2026-06-11
+  source_version: "NDA020726; SPL set 82b77d74-085f-45ac-a7dd-1f5c038bf406"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-margetuximab
+  title: MARGENZA prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761150"
+  publication_or_revision_date: 2025-02-11
+  source_version: "BLA761150; SPL set 6a6d50c7-06ea-479c-83cc-f197a9e428c9"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-megestrol-acetate
+  title: Megestrol acetate prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=072423"
+  publication_or_revision_date: 2025-09-15
+  source_version: "ANDA072423; SPL set 2c755c6b-32e9-4029-8b70-855007f7375b"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-methotrexate
+  title: Methotrexate sodium prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=011719"
+  publication_or_revision_date: 2025-08-22
+  source_version: "NDA011719; SPL set 0e30eaef-5a09-4104-8a11-c32933eadeab"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-methyltestosterone
+  title: Methyltestosterone prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=204851"
+  publication_or_revision_date: 2025-05-31
+  source_version: "ANDA204851; SPL set 9bed4886-fcd0-4056-be8d-5bb4d15081ce"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-neratinib
+  title: NERLYNX prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d1e41dcf-e82a-47c2-a0ad-6c6eef621834"
+  publication_or_revision_date: 2026-07-02
+  source_version: "NDA208051; SPL set d1e41dcf-e82a-47c2-a0ad-6c6eef621834"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-olaparib
+  title: LYNPARZA prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=741ff3e3-dc1a-45a6-84e5-2481b27131aa"
+  publication_or_revision_date: 2025-07-10
+  source_version: "NDA208558; SPL set 741ff3e3-dc1a-45a6-84e5-2481b27131aa"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-paclitaxel
+  title: Paclitaxel prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ea28753a-8631-460a-bfdc-b101eb8ac84a"
+  publication_or_revision_date: 2026-07-03
+  source_version: "ANDA076131; SPL set ea28753a-8631-460a-bfdc-b101eb8ac84a"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-paclitaxel-protein-bound
+  title: ABRAXANE prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24d10449-2936-4cd3-b7db-a7683db721e4"
+  publication_or_revision_date: 2022-10-31
+  source_version: "NDA021660; SPL set 24d10449-2936-4cd3-b7db-a7683db721e4"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-palbociclib
+  title: IBRANCE prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212436"
+  publication_or_revision_date: 2026-07-06
+  source_version: "NDA212436; SPL set 89a142d5-7e61-48bf-9e77-e2cd124c4792"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-pembrolizumab
+  title: KEYTRUDA prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9333c79b-d487-4538-a9f0-71b91a02b287"
+  publication_or_revision_date: 2026-06-24
+  source_version: "BLA125514; SPL set 9333c79b-d487-4538-a9f0-71b91a02b287; revised 06/2026"
+  notes:
+    - The current label includes breast-cancer indications that begin with combination therapy; KEYNOTE-522 rates are not attributed to pembrolizumab alone.
+    - The FDA separately identifies fourteen most-common reactions for KEYTRUDA as a single agent across cancer types.
+    - Principal immune-mediated, infusion, transplant, and pregnancy warnings are mapped to a categorical draft evidence record.
+    - Patient wording and the common and serious groups are a separate unreviewed Ariad draft.
+
+- <<: *fda_source_base
+  id: fda-label-pembrolizumab-berahyaluronidase
+  title: KEYTRUDA QLEX prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761467"
+  publication_or_revision_date: 2026-06-24
+  source_version: "BLA761467; SPL set 097d166f-b73b-41d3-9b37-7653cd2a0c41"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-pertuzumab
+  title: PERJETA prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=125409"
+  publication_or_revision_date: 2026-04-30
+  source_version: "BLA125409; SPL set 17f85d17-ab71-4f5b-9fe3-0b8c822f69ff"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-pertuzumab-trastuzumab-hyaluronidase
+  title: PHESGO prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761170"
+  publication_or_revision_date: 2026-05-21
+  source_version: "BLA761170; SPL set 27dd5e6b-72cd-458d-a015-cf4dab5800da"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-ribociclib
+  title: KISQALI prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=209092"
+  publication_or_revision_date: 2026-07-01
+  source_version: "NDA209092; SPL set aaeaef94-f3f5-4367-8ea2-b181d7be2da8"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-sacituzumab-govitecan
+  title: TRODELVY prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=57a597d2-03f0-472e-b148-016d7169169d"
+  publication_or_revision_date: 2026-06-24
+  source_version: "BLA761115; SPL set 57a597d2-03f0-472e-b148-016d7169169d"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-talazoparib
+  title: TALZENNA prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c6fd147f-a77e-4a0b-9280-e82ecc41b4be"
+  publication_or_revision_date: 2026-04-10
+  source_version: "NDA217439; SPL set c6fd147f-a77e-4a0b-9280-e82ecc41b4be"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-tamoxifen
+  title: SOLTAMOX prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6ff055-590c-41e6-9530-1fdf04cdbd02"
+  publication_or_revision_date: 2021-11-29
+  source_version: "NDA021807; SPL set 1e6ff055-590c-41e6-9530-1fdf04cdbd02"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-testosterone-enanthate
+  title: Testosterone enanthate prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212659"
+  publication_or_revision_date: 2026-06-12
+  source_version: "ANDA212659; SPL set 82a98132-9d5f-40a5-8c4f-f52f2a5de60e"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-thiotepa
+  title: TEPADINA prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208264"
+  publication_or_revision_date: 2026-01-30
+  source_version: "NDA208264; SPL set 559e353c-2dc0-16ba-e054-00144ff8d46c"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-toremifene
+  title: Toremifene citrate prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e897546b-4136-4cb5-a262-d94cf3fa3298"
+  publication_or_revision_date: 2025-09-19
+  source_version: "ANDA212818; SPL set e897546b-4136-4cb5-a262-d94cf3fa3298"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-trastuzumab
+  title: HERCEPTIN prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=492dbdb2-077e-4064-bff3-372d6af0a7a2"
+  publication_or_revision_date: 2026-05-29
+  source_version: "BLA103792; SPL set 492dbdb2-077e-4064-bff3-372d6af0a7a2"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-trastuzumab-deruxtecan
+  title: ENHERTU prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7e67e73e-ddf4-4e4d-8b50-09d7514910b6"
+  publication_or_revision_date: 2026-05-15
+  source_version: "BLA761139; SPL set 7e67e73e-ddf4-4e4d-8b50-09d7514910b6"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-trastuzumab-hyaluronidase
+  title: HERCEPTIN HYLECTA prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761106"
+  publication_or_revision_date: 2026-05-29
+  source_version: "BLA761106; SPL set ebf30894-41cf-480c-8bc3-56f592a13813"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-tucatinib
+  title: TUKYSA prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=213411"
+  publication_or_revision_date: 2024-11-04
+  source_version: "NDA213411; SPL set f27eb1b9-b7fc-424e-988f-84dd7bb195a3"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-vepdegestrant
+  title: VEPPANU prescribing information
+  canonical_url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=484e21ba-8fe1-4c6d-b923-8ba4cf5b2f20"
+  publication_or_revision_date: 2026-06-12
+  source_version: "NDA219835; SPL set 484e21ba-8fe1-4c6d-b923-8ba4cf5b2f20"
+  notes: *fda_source_notes
+
+- <<: *fda_source_base
+  id: fda-label-vinblastine
+  title: Vinblastine sulfate prescribing information
+  canonical_url: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=089515"
+  publication_or_revision_date: 2025-04-15
+  source_version: "ANDA089515; SPL set f073b58e-56d6-4c8d-a2ce-b37719402d77"
+  notes: *fda_source_notes

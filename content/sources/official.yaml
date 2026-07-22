@@ -209,6 +209,74 @@
   verification_status: link_only
 
 - kind: source
+  id: cco-tch-breast-regimen
+  version: 1.0.0
+  title: CARBOplatin-DOCEtaxel-Trastuzumab breast regimen
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/45506
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-20
+  source_version: CRBPDOCETRAS (DCH)
+  permitted_excerpt: null
+  notes:
+    - Used to verify the three component drugs represented by the patient-facing TCH search alias.
+    - Dose, schedule, indication detail, and patient guidance are outside this search rebuild.
+  verification_status: verified
+
+- kind: source
+  id: cco-capedoce-breast-regimen
+  version: 1.0.0
+  title: Capecitabine-DOCEtaxel breast regimen
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/45926
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-20
+  source_version: CAPEDOCE
+  permitted_excerpt: null
+  notes:
+    - Used to verify the capecitabine and docetaxel component inventory for treatment search.
+    - Dose, schedule, indication detail, and patient guidance are outside this search rebuild.
+  verification_status: verified
+
+- kind: source
+  id: cco-capetuca-tras-breast-regimen
+  version: 1.0.0
+  title: Capecitabine-Tucatinib-Trastuzumab breast regimen
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/67556
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-20
+  source_version: CAPETUCA+TRAS
+  permitted_excerpt: null
+  notes:
+    - Used to verify the capecitabine, tucatinib, and trastuzumab component inventory for treatment search.
+    - Dose, schedule, indication detail, and patient guidance are outside this search rebuild.
+  verification_status: verified
+
+- kind: source
+  id: cco-tchp-breast-regimen
+  version: 1.0.0
+  title: CARBOplatin-DOCEtaxel-Pertuzumab-Trastuzumab breast regimen
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/monograph/62161
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-20
+  source_version: CRBPDOCETRAS+PERT
+  permitted_excerpt: null
+  notes:
+    - Used to verify the four component drugs represented by the patient-facing TCHP search alias.
+    - Dose, schedule, indication detail, and patient guidance are outside this search rebuild.
+  verification_status: verified
+
+- kind: source
   id: cco-symptom-management-directory
   version: 1.0.0
   title: Symptom management guides
@@ -223,4 +291,3 @@
   notes:
     - Catalogue-level provenance only; no unsourced management content is generated from this directory.
   verification_status: link_only
-

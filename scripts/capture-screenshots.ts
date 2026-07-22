@@ -111,8 +111,9 @@ async function main() {
     await capture(page, "02-controlled-symptom-match-mobile.png");
 
     await choose(page, /Tingling, numbness, or burning.*This is closest/);
-    await page.getByLabel("Treatment or regimen").fill("weekly paclitaxel");
-    await choose(page, /Weekly paclitaxel.*Full demo guidance/);
+    await page.getByLabel("Treatment code").fill("THREAD-PAC-01");
+    await choose(page, "Use code");
+    await choose(page, "Continue with this treatment");
     await choose(page, "Fingers");
     await nextQuestion(page);
     await choose(page, "Today");

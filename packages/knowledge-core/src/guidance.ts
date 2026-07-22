@@ -20,11 +20,11 @@ const SECTION_ORDER = [
 
 const SECTION_HEADINGS: Record<(typeof SECTION_ORDER)[number], string> = {
   about: "About this symptom",
-  treatment_context: "Why it matters with this treatment",
-  home_management: "What you can generally do at home",
-  contact_team: "Contact your cancer team if…",
-  urgent_attention: "Seek urgent medical attention if…",
-  reporting_checklist: "What information to have ready",
+  treatment_context: "Why this matters with your treatment",
+  home_management: "What you can do at home",
+  contact_team: "When to contact your cancer team",
+  urgent_attention: "When to get urgent medical help",
+  reporting_checklist: "What to tell your cancer team",
 };
 
 export interface AnswerValue {
@@ -44,6 +44,32 @@ export interface GuidanceResolution {
   basisLabel: string;
   fallbackReason: string | null;
 }
+
+export interface PreparationResolution {
+  basis: "exact" | "general" | "unavailable";
+  basisLabel: string;
+  fallbackReason: string | null;
+  modules: EducationalModule[];
+  sourceIds: string[];
+}
+
+export interface PreparationDisplayGroups {
+  treatment: EducationalModule[];
+  beforeTreatment: EducationalModule[];
+  haveReady: EducationalModule[];
+  safetyBoundary: EducationalModule[];
+}
+
+export const PREPARATION_DISPLAY_COPY = {
+  heading: "Get ready in three steps",
+  exactIntroduction: "This guide is for the treatment you chose.",
+  unavailableIntroduction: "Ariad does not have a guide for this treatment yet.",
+  steps: [
+    { id: "treatment", label: "Step 1", title: "What is this treatment?" },
+    { id: "beforeTreatment", label: "Step 2", title: "What should I do before treatment?" },
+    { id: "haveReady", label: "Step 3", title: "What should I have ready?" },
+  ],
+} as const;
 
 function eligibleRelationships(
   release: CompiledRelease,
@@ -96,12 +122,15 @@ export function resolveGuidanceRelationship(
   symptomId: string,
 ): GuidanceResolution | null {
   const relationships = eligibleRelationships(release, symptomId);
-  const exact = relationships.find((item) => item.treatment_id === treatmentId);
+  const specificRelationships = relationships.filter(
+    (item) => item.relationship_type !== "general_safety",
+  );
+  const exact = specificRelationships.find((item) => item.treatment_id === treatmentId);
   if (exact) {
     return {
       relationship: exact,
       basis: "exact",
-      basisLabel: exact.treatment_kind === "regimen" ? "Exact regimen guidance" : "Exact treatment guidance",
+      basisLabel: exact.treatment_kind === "regimen" ? "Information for this treatment plan" : "Information for this treatment",
       fallbackReason: null,
     };
   }
@@ -115,7 +144,7 @@ export function resolveGuidanceRelationship(
 
   if (treatment.kind === "regimen") {
     for (const componentId of treatment.component_drug_ids) {
-      const component = relationships.find(
+      const component = specificRelationships.find(
         (item) => item.treatment_kind === "drug" && item.treatment_id === componentId,
       );
       if (component) {
@@ -125,8 +154,8 @@ export function resolveGuidanceRelationship(
         return {
           relationship: component,
           basis: "component",
-          basisLabel: `Component guidance: ${drug?.generic_name ?? componentId}`,
-          fallbackReason: `No complete pathway exists for the exact regimen; this pathway is for one listed component, ${drug?.generic_name ?? componentId}.`,
+          basisLabel: `Information for one drug: ${drug?.generic_name ?? componentId}`,
+          fallbackReason: `Ariad does not have a full guide for this treatment plan. This information is for one drug in the plan: ${drug?.generic_name ?? componentId}.`,
         };
       }
     }
@@ -134,7 +163,7 @@ export function resolveGuidanceRelationship(
 
   const startingClassIds = treatment.kind === "treatment_class" ? [treatment.id] : treatment.class_ids;
   for (const classId of classDistanceOrder(release, startingClassIds)) {
-    const classRelationship = relationships.find(
+    const classRelationship = specificRelationships.find(
       (item) => item.treatment_kind === "treatment_class" && item.treatment_id === classId,
     );
     if (classRelationship) {
@@ -145,8 +174,8 @@ export function resolveGuidanceRelationship(
       return {
         relationship: classRelationship,
         basis: "class",
-        basisLabel: `Treatment-class guidance: ${treatmentClass?.display_name ?? classId}`,
-        fallbackReason: `No complete pathway exists for the exact selection; this is broader ${treatmentClass?.display_name ?? classId} information.`,
+        basisLabel: `General information for ${treatmentClass?.display_name ?? classId}`,
+        fallbackReason: `Ariad does not have a full guide for your exact choice. This information covers the broader group called ${treatmentClass?.display_name ?? classId}.`,
       };
     }
   }
@@ -157,7 +186,7 @@ export function resolveGuidanceRelationship(
       relationship: general,
       basis: "general",
       basisLabel: "General symptom information",
-      fallbackReason: "No complete treatment-specific, component, or treatment-class pathway exists.",
+      fallbackReason: "Ariad does not have a full guide for this treatment and symptom together.",
     };
   }
   return null;
@@ -235,14 +264,145 @@ export function assembleGuidance(
   };
 }
 
+const GENERAL_PREPARATION_TREATMENT_ID = "systemic-therapy";
+
+function orderedPreparationModules(
+  modules: EducationalModule[],
+  context: "exact" | "general" | "display",
+): EducationalModule[] {
+  const byOrder = new Map<number, string>();
+  for (const preparationModule of modules) {
+    const order = preparationModule.preparation_order;
+    if (order === undefined || !Number.isInteger(order) || order <= 0) {
+      throw new Error(
+        `Preparation module '${preparationModule.id}' is missing a valid preparation_order`,
+      );
+    }
+    const previousId = byOrder.get(order);
+    if (previousId) {
+      throw new Error(
+        `Duplicate ${context} preparation_order ${order}: '${previousId}' and '${preparationModule.id}'`,
+      );
+    }
+    byOrder.set(order, preparationModule.id);
+  }
+  return [...modules].sort(
+    (left, right) =>
+      left.preparation_order! - right.preparation_order! ||
+      left.id.localeCompare(right.id),
+  );
+}
+
+export function groupPreparationModulesForDisplay(
+  modules: EducationalModule[],
+): PreparationDisplayGroups {
+  const groups: PreparationDisplayGroups = {
+    treatment: [],
+    beforeTreatment: [],
+    haveReady: [],
+    safetyBoundary: [],
+  };
+
+  for (const preparationModule of orderedPreparationModules(modules, "display")) {
+    if (preparationModule.claim_ids.includes("claim-ariad-boundary")) {
+      groups.safetyBoundary.push(preparationModule);
+      continue;
+    }
+
+    const order = preparationModule.preparation_order!;
+    if (order < 20) {
+      groups.treatment.push(preparationModule);
+    } else if (order < 30) {
+      groups.beforeTreatment.push(preparationModule);
+    } else {
+      groups.haveReady.push(preparationModule);
+    }
+  }
+
+  return groups;
+}
+
+function preparationResolution(
+  basis: "exact" | "general",
+  basisLabel: string,
+  fallbackReason: string | null,
+  modules: EducationalModule[],
+): PreparationResolution {
+  const orderedModules = orderedPreparationModules(modules, basis);
+  return {
+    basis,
+    basisLabel,
+    fallbackReason,
+    modules: orderedModules,
+    sourceIds: [...new Set(orderedModules.flatMap((module) => module.source_ids))].sort(),
+  };
+}
+
+export function resolvePreparation(
+  release: CompiledRelease,
+  treatmentId: string,
+): PreparationResolution {
+  const treatment = release.objects.find(
+    (object): object is Drug | Regimen =>
+      object.id === treatmentId && (object.kind === "drug" || object.kind === "regimen"),
+  );
+  if (!treatment) {
+    return {
+      basis: "unavailable",
+      basisLabel: "Preparation information unavailable",
+      fallbackReason: "Ariad could not find this treatment.",
+      modules: [],
+      sourceIds: [],
+    };
+  }
+
+  const preparation = release.objects.filter(
+    (object): object is EducationalModule =>
+      object.kind === "educational_module" &&
+      object.section === "preparation",
+  );
+
+  const exactModules = preparation.filter((module) =>
+    module.applicability.treatment_ids.includes(treatmentId),
+  );
+  if (exactModules.length > 0) {
+    return preparationResolution(
+      "exact",
+      treatment.kind === "regimen"
+        ? "For this treatment plan"
+        : "For this drug",
+      null,
+      exactModules,
+    );
+  }
+
+  const generalModules = preparation.filter((module) =>
+    module.applicability.treatment_ids.includes(GENERAL_PREPARATION_TREATMENT_ID),
+  );
+  if (generalModules.length > 0) {
+    return preparationResolution(
+      "general",
+      "General treatment preparation",
+      "Ariad does not have a guide for this exact treatment. The steps below are general.",
+      generalModules,
+    );
+  }
+
+  return {
+    basis: "unavailable",
+    basisLabel: "Preparation information unavailable",
+    fallbackReason: "Ariad does not have preparation information for this treatment.",
+    modules: [],
+    sourceIds: [],
+  };
+}
+
+/**
+ * Compatibility helper for callers that only need the resolved module list.
+ */
 export function preparationModules(
   release: CompiledRelease,
   treatmentId: string,
 ): EducationalModule[] {
-  return release.objects.filter(
-    (object): object is EducationalModule =>
-      object.kind === "educational_module" &&
-      object.section === "preparation" &&
-      object.applicability.treatment_ids.includes(treatmentId),
-  );
+  return resolvePreparation(release, treatmentId).modules;
 }

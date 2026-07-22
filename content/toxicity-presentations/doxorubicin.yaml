@@ -1,0 +1,160 @@
+kind: drug_toxicity_presentation
+id: doxorubicin-patient-side-effects
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+audience: patient
+drug_id: doxorubicin
+monotherapy: true
+evidence_scope: drug_label
+evidence_ref:
+  kind: drug_toxicity_evidence
+  id: doxorubicin-fda-label-categorical-safety
+  version: 1.0.0
+evidence_payload_hash: 7de7b33fd3b8e0c05a5e6cd75cfad820a41caee01b7ab5d06bfc87f781660458
+source_ids: [fda-label-doxorubicin]
+route_label: Medicine given into a vein (IV)
+subtitle: Side effects linked to doxorubicin
+frequency_context: >-
+  This page groups side effects from official U.S. drug information into common
+  and serious effects. Side effects can be different for each person.
+cause_statement: Ariad cannot tell what is causing a symptom.
+source_context: >-
+  This draft uses official U.S. Food and Drug Administration (FDA) information
+  for doxorubicin. A health professional has not reviewed these explanations
+  and actions yet. Follow the information from your own cancer team.
+frequency_method_id: null
+effects:
+  - id: hair-loss
+    display_name: Hair loss
+    evidence_event_ids: [alopecia]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your hair may become thinner or fall out during treatment.
+    what_you_may_notice:
+      - Partial or complete hair loss
+    safe_actions: []
+    contact_team:
+      - Ask your cancer team if you would like support with hair changes.
+    urgent_help: []
+    reassuring_monitoring:
+      - Hair may grow back after treatment.
+
+  - id: nausea
+    display_name: Nausea
+    evidence_event_ids: [nausea]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may feel sick to your stomach.
+    what_you_may_notice:
+      - A feeling that you may vomit
+    safe_actions:
+      - Follow the nausea plan provided by your cancer team.
+    contact_team:
+      - Contact your cancer team right away if nausea is severe or keeps you from eating or drinking.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: vomiting
+    display_name: Vomiting
+    evidence_event_ids: [vomiting]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may throw up during the treatment period.
+    what_you_may_notice:
+      - Throwing up
+    safe_actions:
+      - Follow the nausea and vomiting plan provided by your cancer team.
+    contact_team:
+      - Contact your cancer team right away if vomiting does not stop or keeps you from eating or drinking.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: heart-problems
+    display_name: Heart problems
+    evidence_event_ids: [cardiomyopathy-and-arrhythmias]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Doxorubicin can damage the heart or cause a serious change in heart rhythm.
+    what_you_may_notice:
+      - New or worsening shortness of breath, extreme tiredness, or weakness
+      - A fast, slow, or irregular heartbeat
+      - Swelling in the feet or ankles, chest discomfort, dizziness, or fainting
+    safe_actions: []
+    contact_team:
+      - Contact a health professional right away for any of these changes during or after treatment.
+    urgent_help:
+      - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.
+    reassuring_monitoring:
+      - Your care team will check your heart before, during, and after treatment.
+
+  - id: another-blood-cancer-later
+    display_name: Another blood cancer later
+    evidence_event_ids: [secondary-malignancies]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Doxorubicin can raise the chance of another blood cancer later.
+    what_you_may_notice:
+      - There may be no early symptom you can feel.
+    safe_actions:
+      - Keep the follow-up appointments your cancer team recommends, even after treatment ends.
+    contact_team:
+      - Ask your cancer team if you have questions about this long-term risk.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: severe-iv-site-injury
+    display_name: Severe injury near the IV site
+    evidence_event_ids: [extravasation-and-tissue-necrosis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Doxorubicin can severely damage the skin and tissue if it leaks out of the vein.
+    what_you_may_notice:
+      - Burning or stinging while the medicine is being given
+      - A blister, skin sore, or worsening pain near the IV site
+    safe_actions: []
+    contact_team:
+      - Tell your nurse right away if you feel burning or stinging while the medicine is being given.
+      - Contact your cancer team right away for a blister, skin sore, or worsening pain near the IV site.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your care team will watch the IV site while the medicine is given.
+
+  - id: low-blood-cells-or-serious-infection
+    display_name: Low blood cells or serious infection
+    evidence_event_ids: [severe-myelosuppression]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Doxorubicin can lower blood cells that fight infection or help stop bleeding.
+    what_you_may_notice:
+      - You may not notice this change yourself.
+      - Fever or chills with shivering can be a sign of infection.
+    safe_actions:
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team:
+      - Contact your cancer team right away for a fever, chills with shivering, or another sign of infection.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your care team will check your blood cells during treatment.
+
+omitted_evidence_events: []
+
+escalation_summary:
+  heading: When to contact your cancer team
+  introduction: Follow the instructions given by your own cancer team.
+  contact_team:
+    - Contact your cancer team right away for a fever, chills with shivering, or another sign of infection.
+    - Contact a health professional right away for new shortness of breath, extreme tiredness or weakness, or heartbeat changes. Also contact them right away for swelling in the feet or ankles, chest discomfort, dizziness, or fainting.
+    - Tell your nurse right away about burning or stinging while the medicine is being given. Contact your cancer team right away for a blister, skin sore, or worsening pain near the IV site.
+    - Contact your cancer team right away if nausea or vomiting is severe or keeps you from eating or drinking.
+  urgent_help:
+    - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.

@@ -4,29 +4,45 @@
 
 The repository contains no clinician-approved or published clinical content.
 
-- The active release contains 130 governed objects, all `draft`.
-- The repository review queue contains 131 governed object versions because the
-  v1 and v2 clinic configurations coexist prospectively; only v2 is pinned by
-  the active release.
-- 22 patient-facing modules are `draft`.
+- The active release contains 460 governed objects, all `draft`.
+- The repository review queue contains 520 governed draft object versions,
+  including the 460 active objects, superseded versions, the retained v1 clinic
+  configuration, and 30 private toxicity-evidence records. The active release
+  pins none of the superseded objects, the v1 clinic object, or the private
+  evidence payloads.
+- 159 patient-facing module versions are `draft`; 155 are active in the preview.
 - Approved patient-facing modules: **0**.
 - Reviewer identities: **none recorded**.
 - Clinical review dates: **none recorded**.
 - Content/release approval records: **none**.
-- Two modules retain unresolved fever placeholders, and the v2 clinic's fever
-  and supportive-care policy bindings remain `unresolved`.
+- Four module versions retain unresolved fever placeholders, and the v2
+  clinic's fever and supportive-care policy bindings remain `unresolved`.
 - The active release is `preview`, `publication_status: draft`, and
   `clinical_use: false`.
+- The active release is `build-week-preview-2026-07-18@0.13.0`, with content hash
+  `bee4e69e21b0c434f4d444477300501b9d9acea8eafae18028fbeaa510a5e0ad`.
+- Twenty-nine FDA-based drug records are `event_mapped`; 23 remain
+  `source_indexed`. Carboplatin has a separate cross-indication FDA single-agent
+  evidence map; cyclophosphamide, doxorubicin, and epirubicin have non-numerical
+  FDA label-category maps; pembrolizumab has a cross-cancer single-agent FDA
+  label-category map.
+- The release contains 30 patient-safe drug presentations whose exact evidence
+  references and payload hashes are validated at build time. None has been
+  clinically reviewed or approved. Numerical frequencies, severity values,
+  laboratory cut-offs, and dose context are excluded from the browser release.
 
 The generated [review report](../content/review-report.md) is the current review
 queue. Generating the report, validating content, or compiling a preview does
 not approve anything. The structured clinic schema and its operational
 verification fields likewise do not establish clinical review or approval.
 
-Use the version-bound [clinician review brief](./clinical-review-brief.md) and
-its [review record template](./templates/clinician-review-record-template.md)
-to conduct, document, and sign the human review without conflating it with
-release or testing authorization.
+The existing [clinician review brief](./clinical-review-brief.md) and
+[review record](./reviews/ARIAD-CRR-2026-001.md) remain immutably bound to the
+older `0.2.0` release and do not review or approve `0.13.0`. Freeze a new commit,
+tree, release hash, compiled-file hash, and exact inventory before beginning any
+review of the current release. Use the snapshot-neutral [review record
+template](./templates/clinician-review-record-template.md) without conflating
+clinical review with release or testing authorization.
 
 ## Lifecycle
 
@@ -116,13 +132,17 @@ preview path.
 
 ## Source strategy
 
-Competition sources are prioritized as:
+Source roles are prioritized as:
 
-1. Ontario Health / Cancer Care Ontario;
-2. Health Canada product monographs and safety information;
-3. BC Cancer drug, regimen, and symptom resources;
-4. eviQ for gaps and cross-checking;
-5. professional guidance or primary literature only when needed.
+1. exact current regulatory labels for drug identity, regulatory scope, and
+   event-level safety extraction;
+2. Ontario Health / Cancer Care Ontario for Canadian patient-facing drug,
+   regimen, and symptom information;
+3. Health Canada product monographs and safety information;
+4. BC Cancer drug, regimen, and symptom resources;
+5. eviQ for gaps and cross-checking;
+6. professional guidance or primary literature when required for a specific
+   claim or management recommendation.
 
 The repository stores source metadata and reviewable paraphrases, not
 wholesale copies. Every patient module has at least one source ID. A broad
@@ -134,7 +154,10 @@ wording/rationale, and unresolved discrepancy. Do not silently harmonize them.
 
 ## Required owner decisions
 
-- Review and edit all 22 patient-facing modules and all claim-to-source
+- Review all 30 evidence records, qualitative or categorical transformations,
+  evidence-to-presentation mapping, patient wording, and FDA-supported action
+  boundaries. The implemented draft contract is not clinical approval.
+- Review and edit all 159 patient-facing module versions and all claim-to-source
   mappings.
 - Resolve the clinic's fever and supportive-care policy bindings. Any
   patient-facing wording must be source-linked in an educational module, not

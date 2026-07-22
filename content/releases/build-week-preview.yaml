@@ -1,35 +1,95 @@
 release_id: build-week-preview-2026-07-18
-version: 0.2.0
+version: 0.13.0
 channel: preview
 publication_status: draft
 clinical_use: false
-generated_at: 2026-07-19T00:00:00-04:00
+generated_at: 2026-07-21T15:30:00-04:00
 clinic_config: { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
 included_objects:
   - { kind: clinic_config, id: build-week-demo-clinic, version: 2.0.0 }
-  - { kind: drug, id: abemaciclib, version: 1.0.0 }
-  - { kind: drug, id: alpelisib, version: 1.0.0 }
-  - { kind: drug, id: anastrozole, version: 1.0.0 }
-  - { kind: drug, id: capecitabine, version: 1.0.1 }
-  - { kind: drug, id: capivasertib, version: 1.0.0 }
-  - { kind: drug, id: carboplatin, version: 1.0.0 }
-  - { kind: drug, id: cyclophosphamide, version: 1.0.0 }
-  - { kind: drug, id: docetaxel, version: 1.0.0 }
-  - { kind: drug, id: doxorubicin, version: 1.0.0 }
-  - { kind: drug, id: everolimus, version: 1.0.0 }
-  - { kind: drug, id: exemestane, version: 1.0.0 }
-  - { kind: drug, id: letrozole, version: 1.0.0 }
-  - { kind: drug, id: olaparib, version: 1.0.0 }
-  - { kind: drug, id: paclitaxel, version: 1.0.1 }
-  - { kind: drug, id: palbociclib, version: 1.0.0 }
-  - { kind: drug, id: pembrolizumab, version: 1.0.0 }
-  - { kind: drug, id: pertuzumab, version: 1.0.0 }
-  - { kind: drug, id: ribociclib, version: 1.0.0 }
-  - { kind: drug, id: sacituzumab-govitecan, version: 1.0.0 }
-  - { kind: drug, id: talazoparib, version: 1.0.0 }
-  - { kind: drug, id: tamoxifen, version: 1.0.0 }
-  - { kind: drug, id: trastuzumab, version: 1.0.0 }
-  - { kind: drug, id: trastuzumab-deruxtecan, version: 1.0.0 }
+  - { kind: drug, id: abemaciclib, version: 2.0.0 }
+  - { kind: drug, id: ado-trastuzumab-emtansine, version: 2.0.0 }
+  - { kind: drug, id: alpelisib, version: 2.0.0 }
+  - { kind: drug, id: anastrozole, version: 2.0.0 }
+  - { kind: drug, id: capecitabine, version: 2.0.0 }
+  - { kind: drug, id: capivasertib, version: 2.0.0 }
+  - { kind: drug, id: carboplatin, version: 2.0.0 }
+  - { kind: drug, id: conjugated-estrogens, version: 2.0.0 }
+  - { kind: drug, id: cyclophosphamide, version: 2.0.0 }
+  - { kind: drug, id: datopotamab-deruxtecan, version: 2.0.0 }
+  - { kind: drug, id: docetaxel, version: 2.0.0 }
+  - { kind: drug, id: doxorubicin, version: 2.0.0 }
+  - { kind: drug, id: elacestrant, version: 2.0.0 }
+  - { kind: drug, id: epirubicin, version: 2.0.0 }
+  - { kind: drug, id: eribulin, version: 2.0.0 }
+  - { kind: drug, id: estradiol, version: 2.0.0 }
+  - { kind: drug, id: everolimus, version: 2.0.0 }
+  - { kind: drug, id: exemestane, version: 2.0.0 }
+  - { kind: drug, id: fluorouracil, version: 2.0.0 }
+  - { kind: drug, id: fulvestrant, version: 2.0.0 }
+  - { kind: drug, id: gemcitabine, version: 2.0.0 }
+  - { kind: drug, id: goserelin, version: 2.0.0 }
+  - { kind: drug, id: imlunestrant, version: 2.0.0 }
+  - { kind: drug, id: inavolisib, version: 2.0.0 }
+  - { kind: drug, id: ixabepilone, version: 2.0.0 }
+  - { kind: drug, id: lapatinib, version: 2.0.0 }
+  - { kind: drug, id: letrozole, version: 2.0.0 }
+  - { kind: drug, id: margetuximab, version: 2.0.0 }
+  - { kind: drug, id: megestrol-acetate, version: 2.0.0 }
+  - { kind: drug, id: methotrexate, version: 2.0.0 }
+  - { kind: drug, id: methyltestosterone, version: 2.0.0 }
+  - { kind: drug, id: neratinib, version: 2.0.0 }
+  - { kind: drug, id: olaparib, version: 2.0.0 }
+  - { kind: drug, id: paclitaxel, version: 2.0.0 }
+  - { kind: drug, id: paclitaxel-protein-bound, version: 2.0.0 }
+  - { kind: drug, id: palbociclib, version: 2.0.0 }
+  - { kind: drug, id: pembrolizumab, version: 2.0.0 }
+  - { kind: drug, id: pembrolizumab-berahyaluronidase, version: 2.0.0 }
+  - { kind: drug, id: pertuzumab, version: 2.0.0 }
+  - { kind: drug, id: pertuzumab-trastuzumab-hyaluronidase, version: 2.0.0 }
+  - { kind: drug, id: ribociclib, version: 2.0.0 }
+  - { kind: drug, id: sacituzumab-govitecan, version: 2.0.0 }
+  - { kind: drug, id: talazoparib, version: 2.0.0 }
+  - { kind: drug, id: tamoxifen, version: 2.0.0 }
+  - { kind: drug, id: testosterone-enanthate, version: 2.0.0 }
+  - { kind: drug, id: thiotepa, version: 2.0.0 }
+  - { kind: drug, id: toremifene, version: 2.0.0 }
+  - { kind: drug, id: trastuzumab, version: 2.0.0 }
+  - { kind: drug, id: trastuzumab-deruxtecan, version: 2.0.0 }
+  - { kind: drug, id: trastuzumab-hyaluronidase, version: 2.0.0 }
+  - { kind: drug, id: tucatinib, version: 2.0.0 }
+  - { kind: drug, id: vepdegestrant, version: 2.0.0 }
+  - { kind: drug, id: vinblastine, version: 2.0.0 }
+  - { kind: drug_toxicity_presentation, id: docetaxel-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: abemaciclib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: ado-trastuzumab-emtansine-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: anastrozole-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: capecitabine-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: carboplatin-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: cyclophosphamide-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: datopotamab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: doxorubicin-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: elacestrant-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: epirubicin-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: eribulin-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: exemestane-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: fulvestrant-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: goserelin-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: imlunestrant-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: ixabepilone-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: letrozole-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: neratinib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: olaparib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: paclitaxel-protein-bound-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: paclitaxel-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: pembrolizumab-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: sacituzumab-govitecan-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: talazoparib-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: tamoxifen-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: toremifene-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: trastuzumab-deruxtecan-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: trastuzumab-patient-side-effects, version: 1.0.0 }
+  - { kind: drug_toxicity_presentation, id: vepdegestrant-patient-side-effects, version: 1.0.0 }
   - { kind: educational_module, id: ac-fever-infection-context, version: 1.0.0 }
   - { kind: educational_module, id: capecitabine-diarrhea-context, version: 1.0.0 }
   - { kind: educational_module, id: diarrhea-about, version: 1.0.0 }
@@ -48,10 +108,143 @@ included_objects:
   - { kind: educational_module, id: neuropathy-reporting-checklist, version: 1.0.0 }
   - { kind: educational_module, id: neuropathy-urgent-neurological-signs, version: 1.0.0 }
   - { kind: educational_module, id: paclitaxel-neuropathy-context, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.0.0 }
-  - { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: general-demo-symptom-treatment-context, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-about, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-home-safety, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-urgent-neurological-signs, version: 1.0.0 }
+  - { kind: educational_module, id: general-neuropathy-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-about, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: general-diarrhea-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: general-fever-infection-about, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-home-preparation, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: general-infection-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.1.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.1.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.1.0 }
+  - { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.1.0 }
+  - { kind: educational_module, id: general-systemic-prep-overview, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-tests-and-appointments, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-medicine-list, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-questions, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-prep-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-overview, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-tests, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-medicine-list, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-questions, version: 1.0.0 }
+  - { kind: educational_module, id: capecitabine-prep-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-overview, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-tests, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-medicine-list, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-questions, version: 1.0.0 }
+  - { kind: educational_module, id: ac-prep-boundary, version: 1.0.0 }
+  - { kind: educational_module, id: general-systemic-symptom-context, version: 1.0.0 }
+  - { kind: educational_module, id: general-symptom-reporting-checklist, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-about, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: fatigue-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-about, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: nausea-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-about, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: vomiting-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-about, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: constipation-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-about, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: appetite-taste-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-about, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: mouth-soreness-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-about, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: rash-itching-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-about, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: hand-foot-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-about, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: joint-muscle-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: headache-about, version: 1.0.0 }
+  - { kind: educational_module, id: headache-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: headache-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: headache-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-about, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: dizziness-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-about, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: hot-flashes-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-about, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: vaginal-genitourinary-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-about, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: sleep-concerns-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-about, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: mood-cognitive-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: pain-about, version: 1.0.0 }
+  - { kind: educational_module, id: pain-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: pain-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: pain-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-about, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: shortness-of-breath-cough-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-about, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: chest-symptoms-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-about, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: edema-swelling-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-about, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: palpitations-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-about, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: bleeding-bruising-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-about, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: blood-clot-warning-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-about, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: eye-vision-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-about, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: nail-hair-urgent-attention, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-about, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-home-management, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-contact-team, version: 1.0.0 }
+  - { kind: educational_module, id: infusion-allergic-urgent-attention, version: 1.0.0 }
   - { kind: observable_feature, id: diarrhea-baseline-change, version: 1.0.0 }
   - { kind: observable_feature, id: diarrhea-blood, version: 1.0.0 }
   - { kind: observable_feature, id: diarrhea-count, version: 1.0.0 }
@@ -71,6 +264,34 @@ included_objects:
   - { kind: observable_feature, id: neuropathy-trend, version: 1.0.0 }
   - { kind: observable_feature, id: neuropathy-walking-balance, version: 1.0.0 }
   - { kind: observable_feature, id: neuropathy-weakness, version: 1.0.0 }
+  - { kind: observable_feature, id: symptom-journey-onset, version: 1.0.0 }
+  - { kind: observable_feature, id: symptom-journey-change, version: 1.0.0 }
+  - { kind: observable_feature, id: symptom-journey-daily-impact, version: 1.0.0 }
+  - { kind: observable_feature, id: fatigue-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: nausea-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: vomiting-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: constipation-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: appetite-taste-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: mouth-soreness-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: rash-itching-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: hand-foot-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: joint-muscle-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: headache-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: dizziness-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: hot-flashes-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: vaginal-genitourinary-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: sleep-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: mood-cognitive-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: pain-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: breathing-cough-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: chest-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: swelling-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: palpitations-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: bleeding-bruising-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: blood-clot-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: eye-vision-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: nail-hair-journey-details, version: 1.0.0 }
+  - { kind: observable_feature, id: infusion-allergic-journey-details, version: 1.0.0 }
   - { kind: question, id: q-diarrhea-baseline-change, version: 1.0.0 }
   - { kind: question, id: q-diarrhea-blood, version: 1.0.0 }
   - { kind: question, id: q-diarrhea-count, version: 1.0.0 }
@@ -90,53 +311,171 @@ included_objects:
   - { kind: question, id: q-neuropathy-trend, version: 1.0.0 }
   - { kind: question, id: q-neuropathy-walking-balance, version: 1.0.0 }
   - { kind: question, id: q-neuropathy-weakness, version: 1.0.0 }
+  - { kind: question, id: q-general-symptom-onset, version: 1.0.0 }
+  - { kind: question, id: q-general-symptom-change, version: 1.0.0 }
+  - { kind: question, id: q-general-symptom-impact, version: 1.0.0 }
+  - { kind: question, id: q-fatigue-details, version: 1.0.0 }
+  - { kind: question, id: q-nausea-details, version: 1.0.0 }
+  - { kind: question, id: q-vomiting-details, version: 1.0.0 }
+  - { kind: question, id: q-constipation-details, version: 1.0.0 }
+  - { kind: question, id: q-appetite-taste-changes-details, version: 1.0.0 }
+  - { kind: question, id: q-mouth-soreness-details, version: 1.0.0 }
+  - { kind: question, id: q-rash-itching-details, version: 1.0.0 }
+  - { kind: question, id: q-hand-foot-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-joint-muscle-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-headache-details, version: 1.0.0 }
+  - { kind: question, id: q-dizziness-details, version: 1.0.0 }
+  - { kind: question, id: q-hot-flashes-details, version: 1.0.0 }
+  - { kind: question, id: q-vaginal-genitourinary-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-sleep-concerns-details, version: 1.0.0 }
+  - { kind: question, id: q-mood-cognitive-concerns-details, version: 1.0.0 }
+  - { kind: question, id: q-pain-details, version: 1.0.0 }
+  - { kind: question, id: q-shortness-of-breath-cough-details, version: 1.0.0 }
+  - { kind: question, id: q-chest-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-edema-swelling-details, version: 1.0.0 }
+  - { kind: question, id: q-palpitations-details, version: 1.0.0 }
+  - { kind: question, id: q-bleeding-bruising-details, version: 1.0.0 }
+  - { kind: question, id: q-blood-clot-warning-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-eye-vision-symptoms-details, version: 1.0.0 }
+  - { kind: question, id: q-nail-hair-changes-details, version: 1.0.0 }
+  - { kind: question, id: q-infusion-allergic-symptoms-details, version: 1.0.0 }
   - { kind: regimen, id: ac, version: 1.0.0 }
+  - { kind: regimen, id: capedocetaxel, version: 1.0.0 }
   - { kind: regimen, id: capecitabine-monotherapy, version: 1.0.0 }
+  - { kind: regimen, id: capetuca-tras, version: 1.0.0 }
   - { kind: regimen, id: tc, version: 1.0.0 }
-  - { kind: regimen, id: tchp, version: 1.0.0 }
+  - { kind: regimen, id: tch, version: 1.0.0 }
+  - { kind: regimen, id: tchp, version: 1.1.0 }
   - { kind: regimen, id: weekly-paclitaxel, version: 1.0.0 }
   - { kind: source, id: bc-cancer-peripheral-neuropathy-handout, version: 1.0.0 }
-  - { kind: source, id: cco-ac-breast-patient-information, version: 1.0.0 }
-  - { kind: source, id: cco-capecitabine-patient-information, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-systemic-therapy-preparation, version: 1.0.0 }
+  - { kind: source, id: ccs-having-chemotherapy-preparation, version: 1.0.0 }
+  - { kind: source, id: ccs-chemotherapy-questions-preparation, version: 1.0.0 }
+  - { kind: source, id: cco-ac-breast-patient-information, version: 1.1.0 }
+  - { kind: source, id: cco-capedoce-breast-regimen, version: 1.0.0 }
+  - { kind: source, id: cco-capecitabine-patient-information, version: 1.1.0 }
+  - { kind: source, id: cco-capetuca-tras-breast-regimen, version: 1.0.0 }
   - { kind: source, id: cco-fever-assessment-guideline, version: 1.0.0 }
   - { kind: source, id: cco-fever-patient-guide, version: 1.0.0 }
   - { kind: source, id: cco-manage-diarrhea, version: 1.0.0 }
-  - { kind: source, id: cco-paclitaxel-patient-information, version: 1.0.0 }
+  - { kind: source, id: cco-paclitaxel-patient-information, version: 1.1.0 }
   - { kind: source, id: cco-symptom-management-directory, version: 1.0.0 }
   - { kind: source, id: cco-systemic-treatment-information, version: 1.0.0 }
+  - { kind: source, id: cco-tch-breast-regimen, version: 1.0.0 }
+  - { kind: source, id: cco-tchp-breast-regimen, version: 1.0.0 }
   - { kind: source, id: eviq-dose-dense-ac-breast-patient-information, version: 1.0.0 }
   - { kind: source, id: eviq-infection-during-cancer-treatment, version: 1.0.0 }
   - { kind: source, id: eviq-weekly-paclitaxel-breast-patient-information, version: 1.0.0 }
+  - { kind: source, id: fda-label-abemaciclib, version: 1.0.0 }
+  - { kind: source, id: fda-label-ado-trastuzumab-emtansine, version: 1.0.0 }
+  - { kind: source, id: fda-label-alpelisib, version: 1.0.0 }
+  - { kind: source, id: fda-label-anastrozole, version: 1.0.0 }
+  - { kind: source, id: fda-label-capecitabine, version: 1.0.0 }
+  - { kind: source, id: fda-label-capivasertib, version: 1.0.0 }
+  - { kind: source, id: fda-label-carboplatin, version: 1.0.0 }
+  - { kind: source, id: fda-label-conjugated-estrogens, version: 1.0.0 }
+  - { kind: source, id: fda-label-cyclophosphamide, version: 1.0.0 }
+  - { kind: source, id: fda-label-datopotamab-deruxtecan, version: 1.0.0 }
+  - { kind: source, id: fda-label-docetaxel, version: 1.0.0 }
+  - { kind: source, id: fda-label-doxorubicin, version: 1.0.0 }
+  - { kind: source, id: fda-label-elacestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-epirubicin, version: 1.0.0 }
+  - { kind: source, id: fda-label-eribulin, version: 1.0.0 }
+  - { kind: source, id: fda-label-estradiol, version: 1.0.0 }
+  - { kind: source, id: fda-label-everolimus, version: 1.0.0 }
+  - { kind: source, id: fda-label-exemestane, version: 1.0.0 }
+  - { kind: source, id: fda-label-fluorouracil, version: 1.0.0 }
+  - { kind: source, id: fda-label-fulvestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-gemcitabine, version: 1.0.0 }
+  - { kind: source, id: fda-label-goserelin, version: 1.0.0 }
+  - { kind: source, id: fda-label-imlunestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-inavolisib, version: 1.0.0 }
+  - { kind: source, id: fda-label-ixabepilone, version: 1.0.0 }
+  - { kind: source, id: fda-label-lapatinib, version: 1.0.0 }
+  - { kind: source, id: fda-label-letrozole, version: 1.0.0 }
+  - { kind: source, id: fda-label-margetuximab, version: 1.0.0 }
+  - { kind: source, id: fda-label-megestrol-acetate, version: 1.0.0 }
+  - { kind: source, id: fda-label-methotrexate, version: 1.0.0 }
+  - { kind: source, id: fda-label-methyltestosterone, version: 1.0.0 }
+  - { kind: source, id: fda-label-neratinib, version: 1.0.0 }
+  - { kind: source, id: fda-label-olaparib, version: 1.0.0 }
+  - { kind: source, id: fda-label-paclitaxel, version: 1.0.0 }
+  - { kind: source, id: fda-label-paclitaxel-protein-bound, version: 1.0.0 }
+  - { kind: source, id: fda-label-palbociclib, version: 1.0.0 }
+  - { kind: source, id: fda-label-pembrolizumab, version: 1.0.0 }
+  - { kind: source, id: fda-label-pembrolizumab-berahyaluronidase, version: 1.0.0 }
+  - { kind: source, id: fda-label-pertuzumab, version: 1.0.0 }
+  - { kind: source, id: fda-label-pertuzumab-trastuzumab-hyaluronidase, version: 1.0.0 }
+  - { kind: source, id: fda-label-ribociclib, version: 1.0.0 }
+  - { kind: source, id: fda-label-sacituzumab-govitecan, version: 1.0.0 }
+  - { kind: source, id: fda-label-talazoparib, version: 1.0.0 }
+  - { kind: source, id: fda-label-tamoxifen, version: 1.0.0 }
+  - { kind: source, id: fda-label-testosterone-enanthate, version: 1.0.0 }
+  - { kind: source, id: fda-label-thiotepa, version: 1.0.0 }
+  - { kind: source, id: fda-label-toremifene, version: 1.0.0 }
+  - { kind: source, id: fda-label-trastuzumab, version: 1.0.0 }
+  - { kind: source, id: fda-label-trastuzumab-deruxtecan, version: 1.0.0 }
+  - { kind: source, id: fda-label-trastuzumab-hyaluronidase, version: 1.0.0 }
+  - { kind: source, id: fda-label-tucatinib, version: 1.0.0 }
+  - { kind: source, id: fda-label-vepdegestrant, version: 1.0.0 }
+  - { kind: source, id: fda-label-vinblastine, version: 1.0.0 }
   - { kind: source, id: health-canada-capecitabine-product-record, version: 1.0.0 }
   - { kind: source, id: health-canada-fluoropyrimidine-infowatch, version: 1.0.0 }
-  - { kind: symptom, id: appetite-taste-changes, version: 1.0.0 }
-  - { kind: symptom, id: bleeding-bruising, version: 1.0.0 }
-  - { kind: symptom, id: blood-clot-warning-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: chest-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: constipation, version: 1.0.0 }
+  - { kind: source, id: cco-symptom-assessment-tool, version: 1.0.0 }
+  - { kind: source, id: cco-fatigue-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-nausea-vomiting-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-constipation-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-loss-appetite-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-oral-care-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-hand-foot-syndrome-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-pain-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-dyspnea-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-anxiety-patient-guide, version: 1.0.0 }
+  - { kind: source, id: cco-depression-patient-guide, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-sleeping-problems, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-sexual-health-vagina, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-memory-thinking-attention, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-hair-loss-appearance, version: 1.0.0 }
+  - { kind: source, id: bc-cancer-lymphedema, version: 1.0.0 }
+  - { kind: source, id: ccs-chemotherapy-side-effects, version: 1.0.0 }
+  - { kind: source, id: ccs-eye-vision-problems, version: 1.0.0 }
+  - { kind: source, id: ccs-skin-problems, version: 1.0.0 }
+  - { kind: source, id: ccs-heart-problems, version: 1.0.0 }
+  - { kind: source, id: ccs-hormone-therapy-breast, version: 1.0.0 }
+  - { kind: source, id: heart-stroke-emergency-signs, version: 1.0.0 }
+  - { kind: source, id: heart-stroke-stroke-signs, version: 1.0.0 }
+  - { kind: source, id: canada-stroke-warning-signs, version: 1.0.0 }
+  - { kind: source, id: eviq-general-chemotherapy-side-effects, version: 1.0.0 }
+  - { kind: source, id: eviq-hypersensitivity-reaction, version: 1.0.0 }
+  - { kind: source, id: canada-anaphylaxis-signs, version: 1.0.0 }
+  - { kind: symptom, id: appetite-taste-changes, version: 1.1.0 }
+  - { kind: symptom, id: bleeding-bruising, version: 1.1.0 }
+  - { kind: symptom, id: blood-clot-warning-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: chest-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: constipation, version: 1.1.0 }
   - { kind: symptom, id: diarrhea, version: 1.0.0 }
-  - { kind: symptom, id: dizziness, version: 1.0.0 }
-  - { kind: symptom, id: edema-swelling, version: 1.0.0 }
-  - { kind: symptom, id: eye-vision-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: fatigue, version: 1.0.0 }
+  - { kind: symptom, id: dizziness, version: 1.1.0 }
+  - { kind: symptom, id: edema-swelling, version: 1.1.0 }
+  - { kind: symptom, id: eye-vision-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: fatigue, version: 1.1.0 }
   - { kind: symptom, id: fever-infection-concern, version: 1.0.0 }
-  - { kind: symptom, id: hand-foot-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: headache, version: 1.0.0 }
-  - { kind: symptom, id: hot-flashes, version: 1.0.0 }
-  - { kind: symptom, id: infusion-allergic-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: joint-muscle-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: mood-cognitive-concerns, version: 1.0.0 }
-  - { kind: symptom, id: mouth-soreness, version: 1.0.0 }
-  - { kind: symptom, id: nail-hair-changes, version: 1.0.0 }
-  - { kind: symptom, id: nausea, version: 1.0.0 }
-  - { kind: symptom, id: pain, version: 1.0.0 }
-  - { kind: symptom, id: palpitations, version: 1.0.0 }
+  - { kind: symptom, id: hand-foot-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: headache, version: 1.1.0 }
+  - { kind: symptom, id: hot-flashes, version: 1.1.0 }
+  - { kind: symptom, id: infusion-allergic-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: joint-muscle-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: mood-cognitive-concerns, version: 1.1.0 }
+  - { kind: symptom, id: mouth-soreness, version: 1.1.0 }
+  - { kind: symptom, id: nail-hair-changes, version: 1.1.0 }
+  - { kind: symptom, id: nausea, version: 1.1.0 }
+  - { kind: symptom, id: pain, version: 1.1.0 }
+  - { kind: symptom, id: palpitations, version: 1.1.0 }
   - { kind: symptom, id: peripheral-neuropathy, version: 1.0.0 }
-  - { kind: symptom, id: rash-itching, version: 1.0.0 }
-  - { kind: symptom, id: shortness-of-breath-cough, version: 1.0.0 }
-  - { kind: symptom, id: sleep-concerns, version: 1.0.0 }
-  - { kind: symptom, id: vaginal-genitourinary-symptoms, version: 1.0.0 }
-  - { kind: symptom, id: vomiting, version: 1.0.0 }
+  - { kind: symptom, id: rash-itching, version: 1.1.0 }
+  - { kind: symptom, id: shortness-of-breath-cough, version: 1.1.0 }
+  - { kind: symptom, id: sleep-concerns, version: 1.1.0 }
+  - { kind: symptom, id: vaginal-genitourinary-symptoms, version: 1.1.0 }
+  - { kind: symptom, id: vomiting, version: 1.1.0 }
   - { kind: treatment_class, id: antibody-drug-conjugate, version: 1.0.0 }
   - { kind: treatment_class, id: cdk46-inhibitor, version: 1.0.0 }
   - { kind: treatment_class, id: cytotoxic-chemotherapy, version: 1.0.0 }
@@ -150,32 +489,240 @@ included_objects:
   - { kind: treatment_toxicity_relationship, id: ac-fever-infection-concern, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: capecitabine-diarrhea, version: 1.0.0 }
   - { kind: treatment_toxicity_relationship, id: weekly-paclitaxel-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-carboplatin-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-docetaxel-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ado-trastuzumab-emtansine-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-anastrozole-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-capecitabine-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-eribulin-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ixabepilone-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-protein-bound-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-sacituzumab-govitecan-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-tamoxifen-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-peripheral-neuropathy, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-cyclophosphamide-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-docetaxel-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-epirubicin-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-abemaciclib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-capecitabine-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-datopotamab-deruxtecan-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-elacestrant-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-eribulin-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-imlunestrant-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ixabepilone-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-neratinib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-olaparib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-protein-bound-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-pembrolizumab-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-sacituzumab-govitecan-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-talazoparib-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-deruxtecan-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-diarrhea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-carboplatin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-cyclophosphamide-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-docetaxel-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-doxorubicin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-epirubicin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-abemaciclib-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ado-trastuzumab-emtansine-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-anastrozole-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-capecitabine-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-datopotamab-deruxtecan-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-eribulin-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-ixabepilone-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-neratinib-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-paclitaxel-protein-bound-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-pembrolizumab-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-sacituzumab-govitecan-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-tamoxifen-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-deruxtecan-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: drug-listing-trastuzumab-fever-infection-concern, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-fatigue, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-nausea, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-vomiting, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-constipation, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-appetite-taste-changes, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-mouth-soreness, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-rash-itching, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-hand-foot-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-joint-muscle-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-headache, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-dizziness, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-hot-flashes, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-vaginal-genitourinary-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-sleep-concerns, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-mood-cognitive-concerns, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-pain, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-shortness-of-breath-cough, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-chest-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-edema-swelling, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-palpitations, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-bleeding-bruising, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-blood-clot-warning-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-eye-vision-symptoms, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-nail-hair-changes, version: 1.0.0 }
+  - { kind: treatment_toxicity_relationship, id: systemic-therapy-infusion-allergic-symptoms, version: 1.0.0 }
 source_inventory:
   - bc-cancer-peripheral-neuropathy-handout
+  - bc-cancer-systemic-therapy-preparation
+  - ccs-having-chemotherapy-preparation
+  - ccs-chemotherapy-questions-preparation
   - cco-ac-breast-patient-information
+  - cco-capedoce-breast-regimen
   - cco-capecitabine-patient-information
+  - cco-capetuca-tras-breast-regimen
   - cco-fever-assessment-guideline
   - cco-fever-patient-guide
   - cco-manage-diarrhea
   - cco-paclitaxel-patient-information
   - cco-symptom-management-directory
   - cco-systemic-treatment-information
+  - cco-tch-breast-regimen
+  - cco-tchp-breast-regimen
   - eviq-dose-dense-ac-breast-patient-information
   - eviq-infection-during-cancer-treatment
   - eviq-weekly-paclitaxel-breast-patient-information
+  - fda-label-abemaciclib
+  - fda-label-ado-trastuzumab-emtansine
+  - fda-label-alpelisib
+  - fda-label-anastrozole
+  - fda-label-capecitabine
+  - fda-label-capivasertib
+  - fda-label-carboplatin
+  - fda-label-conjugated-estrogens
+  - fda-label-cyclophosphamide
+  - fda-label-datopotamab-deruxtecan
+  - fda-label-docetaxel
+  - fda-label-doxorubicin
+  - fda-label-elacestrant
+  - fda-label-epirubicin
+  - fda-label-eribulin
+  - fda-label-estradiol
+  - fda-label-everolimus
+  - fda-label-exemestane
+  - fda-label-fluorouracil
+  - fda-label-fulvestrant
+  - fda-label-gemcitabine
+  - fda-label-goserelin
+  - fda-label-imlunestrant
+  - fda-label-inavolisib
+  - fda-label-ixabepilone
+  - fda-label-lapatinib
+  - fda-label-letrozole
+  - fda-label-margetuximab
+  - fda-label-megestrol-acetate
+  - fda-label-methotrexate
+  - fda-label-methyltestosterone
+  - fda-label-neratinib
+  - fda-label-olaparib
+  - fda-label-paclitaxel
+  - fda-label-paclitaxel-protein-bound
+  - fda-label-palbociclib
+  - fda-label-pembrolizumab
+  - fda-label-pembrolizumab-berahyaluronidase
+  - fda-label-pertuzumab
+  - fda-label-pertuzumab-trastuzumab-hyaluronidase
+  - fda-label-ribociclib
+  - fda-label-sacituzumab-govitecan
+  - fda-label-talazoparib
+  - fda-label-tamoxifen
+  - fda-label-testosterone-enanthate
+  - fda-label-thiotepa
+  - fda-label-toremifene
+  - fda-label-trastuzumab
+  - fda-label-trastuzumab-deruxtecan
+  - fda-label-trastuzumab-hyaluronidase
+  - fda-label-tucatinib
+  - fda-label-vepdegestrant
+  - fda-label-vinblastine
   - health-canada-capecitabine-product-record
   - health-canada-fluoropyrimidine-infowatch
+  - cco-symptom-assessment-tool
+  - cco-fatigue-patient-guide
+  - cco-nausea-vomiting-patient-guide
+  - cco-constipation-patient-guide
+  - cco-loss-appetite-patient-guide
+  - cco-oral-care-patient-guide
+  - cco-hand-foot-syndrome-patient-guide
+  - cco-pain-patient-guide
+  - cco-dyspnea-patient-guide
+  - cco-anxiety-patient-guide
+  - cco-depression-patient-guide
+  - bc-cancer-sleeping-problems
+  - bc-cancer-sexual-health-vagina
+  - bc-cancer-memory-thinking-attention
+  - bc-cancer-hair-loss-appearance
+  - bc-cancer-lymphedema
+  - ccs-chemotherapy-side-effects
+  - ccs-eye-vision-problems
+  - ccs-skin-problems
+  - ccs-heart-problems
+  - ccs-hormone-therapy-breast
+  - heart-stroke-emergency-signs
+  - heart-stroke-stroke-signs
+  - canada-stroke-warning-signs
+  - eviq-general-chemotherapy-side-effects
+  - eviq-hypersensitivity-reaction
+  - canada-anaphylaxis-signs
 reviewer_metadata:
   reviewer: null
   reviewed_at: null
   release_approval_id: null
 known_gaps:
   - All patient-facing clinical modules are draft and require clinician review.
+  - All 53 drug choices and eight regimen choices now resolve a preparation guide, but only weekly paclitaxel, capecitabine monotherapy, and AC have exact treatment-specific preparation overlays.
+  - The other five regimens and all standalone drugs use the clearly labelled general systemic-treatment preparation guide; Ariad does not infer exact preparation from drug classes or regimen components.
+  - All 28 symptom journeys have a general systemic-treatment fallback. The three sample symptoms also keep their exact regimen pathways.
+  - The three sample symptoms have draft, source-bound links to matching effect rows on available FDA drug pages. These links do not establish cause and do not describe a schedule or full treatment plan.
+  - The three existing regimen-specific pathways remain the only exact treatment-and-symptom guidance relationships.
+  - The eviQ hypersensitivity source is overdue for review and supports only infusion context and immediate reporting to the nurse; emergency signs are cross-checked against a current Canadian source.
   - The fictional demo clinic has unresolved fever and supportive-care policy bindings.
   - The exact AC schedule variant is unresolved; no nadir timing is included.
-  - Catalogue-level treatment and symptom entries do not imply full guidance.
+  - Catalogue-level treatment entries do not imply exact treatment guidance.
+  - Thirty drugs have draft FDA evidence maps and patient presentations; all require clinician review.
+  - Cyclophosphamide has a draft FDA label-category page without percentages, a usable denominator, or a claimed single-agent evidence population.
+  - Doxorubicin has a draft FDA label-category page; the numerical AC table is retained only as excluded combination context and is not attributed to doxorubicin alone.
+  - Epirubicin has a draft FDA label-category page; the numerical FEC and CEF tables are retained only as excluded combination context and are not attributed to epirubicin alone.
+  - Pembrolizumab has a draft FDA single-agent label-category page across cancer types; KEYNOTE-522 combination values are excluded from individual-drug frequency mapping.
+  - Twenty-three catalogue entries intentionally have no patient side-effect page.
+  - Carboplatin uses the FDA 553-patient single-agent ovarian safety population; this does not claim an FDA breast-cancer indication or a TCH/TCHP regimen frequency.
   - Two broad catalogue sources are link-only and cannot enter a published release.
 release_notes:
+  - Release 0.13.0 links each of the three sample symptoms to every matching effect row in Ariad's current FDA drug pages, independent of schedule or regimen.
+  - Release 0.13.0 shows the exact source-linked effect name for each listed drug and keeps every drug's evidence separate.
+  - Release 0.13.0 adds clearly labelled general fallbacks for tingling or numbness, diarrhea, and fever or infection when the selected treatment does not have an exact pathway.
+  - Release 0.13.0 keeps the new links and guidance modules in draft, does not claim cause, and does not advise a treatment change.
+  - Release 0.12.0 adds a source-linked general treatment-preparation guide, so all 61 treatment choices now resolve useful preparation information without implying exact treatment instructions.
+  - Release 0.12.0 adds exact preparation overlays for weekly paclitaxel, capecitabine monotherapy, and AC, while keeping side-effect education available below preparation.
+  - Release 0.12.0 adds explicit preparation ordering and exact-versus-general fallback labels; it does not add dose, schedule, food, medicine-change, fever-threshold, or local-policy instructions.
+  - Release 0.12.0 keeps every new or revised patient module in draft with no recorded clinical approval.
+  - Release 0.11.0 adds 25 unreviewed general symptom journeys, so all 28 symptom choices now have a complete six-section pathway in the preview.
+  - Release 0.11.0 adds four patient-observable questions per new journey and keeps answers limited to a neutral fact summary and fixed-module ordering.
+  - Release 0.11.0 adds 27 directly inspected source records from Ontario Health, BC Cancer, Canadian Cancer Society, Heart & Stroke, the Government of Canada, and eviQ.
+  - Release 0.11.0 keeps all new objects in draft, labels the information as general, and does not add drug-specific symptom associations, diagnosis, grading, cause inference, or treatment-change advice.
+  - Release 0.10.0 adds an unreviewed pembrolizumab page with the fourteen FDA single-agent common categories and principal serious immune-mediated warnings.
+  - Release 0.10.0 excludes KEYNOTE-522 combination percentages and clearly identifies the common list as cross-cancer rather than breast-specific evidence.
+  - Release 0.9.0 adds an unreviewed epirubicin page with fourteen FDA-supported common categories and four serious boxed-warning effects.
+  - Release 0.9.0 excludes the FEC and CEF combination percentages from epirubicin's individual-drug frequency mapping and stores the denominator as unavailable.
+  - Release 0.8.0 adds an unreviewed doxorubicin page with three FDA-supported common effects and four serious boxed-warning effects.
+  - Release 0.8.0 excludes the AC combination percentages from doxorubicin's individual-drug frequency mapping and stores the denominator as unavailable.
+  - Release 0.7.0 adds an unreviewed cyclophosphamide page with separate FDA-supported common and serious groups and no numerical frequency claims.
+  - Release 0.7.0 stores cyclophosphamide denominator and event frequencies as unavailable and does not claim that its label-level safety evidence came from monotherapy.
+  - Release 0.6.0 adds an unreviewed carboplatin patient page backed by the FDA 553-patient second-line single-agent ovarian safety population in Tables 7 and 8.
+  - Release 0.6.0 keeps carboplatin's cross-indication population, denominator, exact percentages, dose context, and table mapping in private provenance rather than patient-display copy.
+  - Release 0.5.0 adds unreviewed patient-only side-effect previews for the other 24 drugs with qualifying FDA breast-cancer single-agent frequency populations.
+  - Release 0.5.0 records exact private FDA evidence for 25 drugs total and does not attribute combination-study rates to individual drugs.
+  - Release 0.5.0 corrects the conventional paclitaxel record, which had pointed to a second albumin-bound paclitaxel label.
+  - Release 0.4.0 adds one unreviewed patient-only docetaxel side-effect preview backed by a separately stored exact FDA evidence record.
+  - Release 0.4.0 keeps FDA percentages, severity fields, laboratory thresholds, and dose context out of the patient-facing release payload.
+  - Release 0.3.0 rebuilds drug search on exact current FDA breast-cancer treatment labels and canonical drug identities.
+  - Release 0.3.0 keeps a canonical capecitabine drug result while offering two source-verified multi-drug regimens that contain it.
+  - Release 0.3.0 adds separate TCH and TCHP regimen results with ordered component-drug destinations.
   - Release 0.2.0 separates structured clinic operations data from governed clinical-policy modules.
   - Release 0.1.1 corrects drug-level support labels so only complete regimen pathways display full guidance.
   - Immutable, content-addressed Build Week preview for synthetic demonstration only.

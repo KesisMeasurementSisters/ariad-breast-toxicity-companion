@@ -1,0 +1,302 @@
+kind: drug_toxicity_presentation
+id: docetaxel-patient-side-effects
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+audience: patient
+drug_id: docetaxel
+monotherapy: true
+evidence_ref:
+  kind: drug_toxicity_evidence
+  id: docetaxel-100mg-breast-table-3
+  version: 1.0.0
+evidence_payload_hash: 9136e5306a447bb11e8cdac266a4bfe601ecdf607194c2416b84202c9585ccf5
+source_ids: [fda-label-docetaxel]
+route_label: Medicine given into a vein (IV)
+subtitle: Side effects reported with docetaxel alone
+frequency_context: >-
+  These groups show how often side effects were reported in one breast cancer
+  study in the FDA drug information. The groups cannot predict what will happen
+  to you.
+cause_statement: Ariad cannot tell what is causing a symptom.
+source_context: >-
+  These groups use breast cancer study results from official U.S. Food and Drug
+  Administration (FDA) drug information. The explanations and actions also use
+  its patient section and warnings. A health professional has not reviewed this
+  Ariad draft yet.
+frequency_method_id: ariad-all-grade-frequency-v1
+effects:
+  - id: hair-loss
+    display_name: Hair loss
+    evidence_event_ids: [alopecia]
+    frequency_source_event_id: alopecia
+    frequency_band: many_people
+    meaning: Hair may become thin or fall out.
+    what_you_may_notice:
+      - Hair loss can affect the scalp or other parts of the body.
+      - For some people, hair may not fully grow back.
+    safe_actions: []
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: tiredness-or-weakness
+    display_name: Tiredness or weakness
+    evidence_event_ids: [asthenia]
+    frequency_source_event_id: asthenia
+    frequency_band: many_people
+    meaning: You may feel more tired or weak than usual.
+    what_you_may_notice:
+      - Everyday activities may take more effort.
+    safe_actions: []
+    contact_team:
+      - Tell your cancer team about new or worsening weakness or tiredness.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: swelling-or-fluid-buildup
+    display_name: Swelling or fluid buildup
+    evidence_event_ids: [fluid-retention]
+    frequency_source_event_id: fluid-retention
+    frequency_band: many_people
+    meaning: The body may hold extra fluid during docetaxel treatment.
+    what_you_may_notice:
+      - Swelling in the hands, face, legs, or feet
+      - Weight gain or shortness of breath
+    safe_actions:
+      - Take the steroid medicine from your cancer team exactly as directed.
+      - Tell your team before docetaxel is given if you missed that medicine.
+    contact_team:
+      - Contact your cancer team right away for swelling in the legs or feet, weight gain, or shortness of breath.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: numbness-tingling-or-burning
+    display_name: Numbness, tingling, or burning
+    evidence_event_ids: [neurosensory]
+    frequency_source_event_id: neurosensory
+    frequency_band: many_people
+    meaning: Docetaxel can affect nerves in the hands, feet, arms, or legs.
+    what_you_may_notice:
+      - Numbness, tingling, or a burning feeling in the hands or feet
+      - Weakness in the hands, arms, feet, or legs
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away if you notice these changes.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: mouth-or-lip-sores
+    display_name: Mouth or lip sores
+    evidence_event_ids: [stomatitis]
+    frequency_source_event_id: stomatitis
+    frequency_band: many_people
+    meaning: The lining of the mouth or lips may become sore.
+    what_you_may_notice:
+      - Tender or sore areas in the mouth or on the lips
+    safe_actions: []
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: skin-changes
+    display_name: Skin changes
+    evidence_event_ids: [cutaneous]
+    frequency_source_event_id: cutaneous
+    frequency_band: many_people
+    meaning: Docetaxel can cause skin redness, swelling, rash, or peeling.
+    what_you_may_notice:
+      - Redness or swelling of the arms or legs
+      - A rash or other new skin changes
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for blistering, peeling, bleeding, or a widespread red or scaly rash.
+    urgent_help:
+      - Get urgent help for severe skin changes with fever, chills, or muscle aches.
+    reassuring_monitoring: []
+
+  - id: diarrhoea
+    display_name: Diarrhea
+    evidence_event_ids: [diarrhea]
+    frequency_source_event_id: diarrhea
+    frequency_band: many_people
+    meaning: You may have loose or watery stools.
+    what_you_may_notice:
+      - New or worsening loose or watery stools
+      - Stomach pain or tenderness
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for new or worsening stomach pain, soreness, or diarrhea, with or without fever.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: nausea
+    display_name: Nausea
+    evidence_event_ids: [nausea]
+    frequency_source_event_id: nausea
+    frequency_band: many_people
+    meaning: You may feel sick to your stomach.
+    what_you_may_notice:
+      - A feeling that you may vomit
+    safe_actions: []
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: nail-changes
+    display_name: Nail changes
+    evidence_event_ids: [nail-changes]
+    frequency_source_event_id: nail-changes
+    frequency_band: many_people
+    meaning: Fingernails or toenails may change during treatment.
+    what_you_may_notice:
+      - A change in how a fingernail or toenail looks or feels
+    safe_actions: []
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: fever
+    display_name: Fever
+    evidence_event_ids: [fever-without-infection]
+    frequency_source_event_id: fever-without-infection
+    frequency_band: many_people
+    meaning: A fever can happen with or without an infection.
+    what_you_may_notice:
+      - A temperature above your usual range
+    safe_actions:
+      - Follow your cancer team's instructions for when and how to check your temperature.
+    contact_team:
+      - Contact your cancer team right away if you have a fever.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: vomiting
+    display_name: Vomiting
+    evidence_event_ids: [vomiting]
+    frequency_source_event_id: vomiting
+    frequency_band: some_people
+    meaning: You may throw up.
+    what_you_may_notice:
+      - Vomiting during the treatment period
+    safe_actions: []
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: infection
+    display_name: Infection
+    evidence_event_ids: [infections]
+    frequency_source_event_id: infections
+    frequency_band: some_people
+    meaning: Docetaxel can lower the body's ability to fight infection.
+    what_you_may_notice:
+      - Fever may be the earliest sign of an infection.
+    safe_actions:
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team:
+      - Contact your cancer team right away if you have a fever or think you may have an infection.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells during treatment.
+
+  - id: allergic-reaction
+    display_name: Allergic reaction
+    evidence_event_ids: [hypersensitivity-reactions]
+    frequency_source_event_id: hypersensitivity-reactions
+    frequency_band: some_people
+    meaning: An allergic reaction can happen while docetaxel is being given.
+    what_you_may_notice:
+      - Hives, rash, or redness over the body
+      - Sudden swelling or trouble breathing or swallowing
+    safe_actions: []
+    contact_team:
+      - Tell the nurse right away if any signs of an allergic reaction start while the medicine is being given.
+    urgent_help:
+      - Trouble breathing or swallowing, sudden swelling of the face, lips, tongue, or throat, or widespread hives can be a medical emergency.
+    reassuring_monitoring:
+      - The cancer team will watch closely for an allergic reaction while the medicine is being given.
+
+  - id: muscle-aches
+    display_name: Muscle aches
+    evidence_event_ids: [myalgia]
+    frequency_source_event_id: myalgia
+    frequency_band: some_people
+    meaning: Muscles may feel sore or achy.
+    what_you_may_notice:
+      - New muscle aches during treatment
+    safe_actions: []
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: joint-aches
+    display_name: Joint aches
+    evidence_event_ids: [arthralgia]
+    frequency_source_event_id: arthralgia
+    frequency_band: fewer_people
+    meaning: Joints may feel sore or achy.
+    what_you_may_notice:
+      - New joint aches during treatment
+    safe_actions: []
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: iv-site-changes
+    display_name: Changes where the IV enters your skin
+    evidence_event_ids: [infusion-site-reactions]
+    frequency_source_event_id: infusion-site-reactions
+    frequency_band: fewer_people
+    meaning: The skin near the place where the IV enters your body can change.
+    what_you_may_notice:
+      - Redness, tenderness, swelling, warmth, dryness, or darker skin near the IV site
+    safe_actions: []
+    contact_team:
+      - Tell the nurse or cancer team about a new change around the IV site.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: blood-count-changes
+    display_name: Blood cell changes
+    evidence_event_ids: [neutropenia, leukopenia, thrombocytopenia, anemia]
+    frequency_source_event_id: null
+    frequency_band: null
+    meaning: Docetaxel can lower infection-fighting cells, red blood cells, or cells that help stop bleeding.
+    what_you_may_notice:
+      - These changes may not cause a symptom you can feel.
+    safe_actions:
+      - Keep the blood-test appointments arranged by your cancer team.
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells regularly during treatment.
+
+omitted_evidence_events:
+  - evidence_event_id: febrile-neutropenia
+    rationale: >-
+      Covered in patient language by the fever and infection rows; the technical
+      trial endpoint is not shown.
+  - evidence_event_id: septic-death
+    rationale: >-
+      A fatal-outcome row is not converted into a patient frequency band;
+      FDA-supported seriousness is handled in the escalation summary.
+  - evidence_event_id: non-septic-death
+    rationale: >-
+      A fatal-outcome row is not converted into a patient frequency band;
+      FDA-supported seriousness is handled in the escalation summary.
+
+escalation_summary:
+  heading: When to contact your cancer team
+  introduction: Follow the instructions given by your own cancer team.
+  contact_team:
+    - Contact your cancer team right away for fever.
+    - Contact them right away for new or worsening stomach pain, soreness, or diarrhea, with or without fever.
+    - Contact them right away for swelling in the legs or feet, weight gain, or shortness of breath.
+    - Contact them right away for numbness, tingling, burning, weakness in an arm or leg, or any vision change.
+    - Contact them right away for blistering, peeling, bleeding, or widespread severe skin changes.
+  urgent_help:
+    - Get urgent help for trouble breathing or swallowing, sudden swelling of the face, lips, tongue, or throat, or widespread hives or redness.
+    - While the medicine is being given, tell the nurse right away about a fast or uneven heartbeat, severe shortness of breath, dizziness, or fainting. If this happens after the medicine was given, get medical help right away.

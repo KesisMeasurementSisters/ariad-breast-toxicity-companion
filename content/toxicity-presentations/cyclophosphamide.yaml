@@ -1,0 +1,231 @@
+kind: drug_toxicity_presentation
+id: cyclophosphamide-patient-side-effects
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+audience: patient
+drug_id: cyclophosphamide
+monotherapy: true
+evidence_scope: drug_label
+evidence_ref:
+  kind: drug_toxicity_evidence
+  id: cyclophosphamide-fda-label-categorical-safety
+  version: 1.0.0
+evidence_payload_hash: 507372063b6624035d10937c6b5e446112ede0c1f7e1fe98044515bd357bd75f
+source_ids: [fda-label-cyclophosphamide]
+route_label: Medicine given into a vein (IV)
+subtitle: Side effects linked to cyclophosphamide
+frequency_context: >-
+  This page groups side effects from official U.S. drug information into common
+  and serious effects. Side effects can be different for each person.
+cause_statement: Ariad cannot tell what is causing a symptom.
+source_context: >-
+  This draft uses official U.S. Food and Drug Administration (FDA) information
+  for cyclophosphamide. A health professional has not reviewed these
+  explanations and actions yet. Follow the information from your own cancer
+  team.
+frequency_method_id: null
+effects:
+  - id: low-white-blood-cells
+    display_name: Low infection-fighting white blood cells
+    evidence_event_ids: [neutropenia]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Cyclophosphamide can lower white blood cells that help fight infection.
+    what_you_may_notice:
+      - You may not notice this change yourself.
+    safe_actions:
+      - Keep the blood-test appointments arranged by your cancer team.
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells during treatment.
+
+  - id: hair-loss
+    display_name: Hair loss
+    evidence_event_ids: [alopecia]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your hair may become thinner or fall out during treatment.
+    what_you_may_notice:
+      - Hair thinning or hair loss
+    safe_actions: []
+    contact_team:
+      - Ask your cancer team if you would like support with hair changes.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: nausea-or-vomiting
+    display_name: Nausea or vomiting
+    evidence_event_ids: [nausea, vomiting]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may feel sick to your stomach or throw up.
+    what_you_may_notice:
+      - A feeling that you may vomit
+      - Throwing up during the treatment period
+    safe_actions:
+      - Follow the nausea plan provided by your cancer team.
+    contact_team:
+      - Contact your cancer team right away if vomiting does not stop or keeps you from drinking.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: diarrhea
+    display_name: Diarrhea
+    evidence_event_ids: [diarrhea]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may have loose or watery stools.
+    what_you_may_notice:
+      - Loose or watery stools
+    safe_actions:
+      - Follow the diarrhea instructions given by your cancer team.
+    contact_team:
+      - Contact your cancer team right away if diarrhea is severe, does not stop, or makes it hard to drink.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: fever-or-serious-infection
+    display_name: Fever or serious infection
+    evidence_event_ids: [febrile-neutropenia, fever, myelosuppression-and-infections]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Low blood cells can allow an infection to become serious very quickly.
+    what_you_may_notice:
+      - Fever, chills, cough, or feeling suddenly unwell
+      - Pain or burning when you pass urine
+    safe_actions:
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team:
+      - Contact your cancer team right away for a fever or another sign of infection.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells during treatment.
+
+  - id: bladder-or-urinary-tract-damage
+    display_name: Bladder or urine problems
+    evidence_event_ids: [urinary-tract-and-renal-toxicity]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Cyclophosphamide can irritate or damage the bladder, the tubes that carry urine, or the kidneys.
+    what_you_may_notice:
+      - Pink or red urine
+      - Pain, burning, or another new problem when you pass urine
+    safe_actions:
+      - Follow your cancer team's instructions about fluids and emptying your bladder around treatment.
+    contact_team:
+      - Contact your cancer team right away for pink or red urine or another change in your urine or how you pass it.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team may check your urine and kidney function during treatment.
+
+  - id: heart-problems
+    display_name: Heart problems
+    evidence_event_ids: [cardiotoxicity]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Cyclophosphamide can sometimes damage the heart.
+    what_you_may_notice:
+      - New or worsening shortness of breath or cough
+      - Swelling in the ankles or legs, a racing or irregular heartbeat, sudden weight gain, dizziness, or fainting
+    safe_actions: []
+    contact_team:
+      - Contact a health professional right away for any of these changes.
+    urgent_help:
+      - Get emergency help for severe chest pain, severe trouble breathing, passing out, or being hard to wake.
+    reassuring_monitoring:
+      - Your care team may check your heart if you have heart problems or other things that raise your chance of heart problems.
+
+  - id: lung-problems
+    display_name: Lung problems
+    evidence_event_ids: [pulmonary-toxicity]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Cyclophosphamide can sometimes cause swelling or scars in the lungs.
+    what_you_may_notice:
+      - A new or worsening cough or shortness of breath
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team right away for a new or worsening cough or shortness of breath.
+    urgent_help:
+      - Get emergency help if you are struggling to breathe.
+    reassuring_monitoring: []
+
+  - id: severe-allergic-reaction
+    display_name: Severe allergic reaction
+    evidence_event_ids: [hypersensitivity]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: A severe allergic reaction can happen during or after treatment.
+    what_you_may_notice:
+      - Swelling of the face, lips, tongue, or throat
+      - Hives, trouble breathing, severe dizziness, or fainting
+    safe_actions: []
+    contact_team: []
+    urgent_help:
+      - Get emergency medical help right away for trouble breathing, throat swelling, severe dizziness, or fainting.
+    reassuring_monitoring: []
+
+  - id: another-cancer-later
+    display_name: Another cancer later
+    evidence_event_ids: [secondary-malignancies]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Cyclophosphamide can increase the long-term risk of developing another cancer.
+    what_you_may_notice:
+      - There may be no early symptom you can feel.
+    safe_actions:
+      - Keep the long-term follow-up appointments recommended by your cancer team.
+    contact_team:
+      - Ask your cancer team if you have questions about this long-term risk.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: pregnancy-or-fertility-harm
+    display_name: Pregnancy or fertility harm
+    evidence_event_ids: [embryo-fetal-toxicity, infertility]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Cyclophosphamide can harm a pregnancy and may affect the ability to have children.
+    what_you_may_notice:
+      - Fertility changes may not cause a symptom you can feel.
+    safe_actions:
+      - Follow your cancer team's pregnancy-prevention and breastfeeding instructions.
+    contact_team:
+      - Tell your cancer team right away if you are pregnant or think you may be pregnant.
+      - Ask your cancer team about fertility before or during treatment if this matters to you.
+    urgent_help: []
+    reassuring_monitoring: []
+
+omitted_evidence_events:
+  - evidence_event_id: veno-occlusive-liver-disease
+    rationale: The FDA label does not provide patient-recognition or reporting instructions for this risk.
+  - evidence_event_id: hyponatremia
+    rationale: The FDA label does not provide patient-recognition or reporting instructions for this risk.
+
+escalation_summary:
+  heading: When to contact your cancer team
+  introduction: Follow the instructions given by your own cancer team.
+  contact_team:
+    - Contact your cancer team right away for a fever, chills, cough, burning when you pass urine, or another sign of infection.
+    - Contact them right away for pink or red urine or another change in your urine or how you pass it.
+    - Contact a health professional right away for new or worsening shortness of breath, cough, leg swelling, or a racing or uneven heartbeat. Also contact them right away for sudden weight gain, dizziness, or fainting.
+    - Contact your cancer team right away if vomiting or diarrhea does not stop or keeps you from drinking.
+    - Tell your cancer team right away if you are pregnant or think you may be pregnant.
+  urgent_help:
+    - Get emergency medical help right away for severe chest pain, severe trouble breathing, severe dizziness, passing out, or being hard to wake. Also get emergency help right away for swelling of the face, lips, tongue, or throat.

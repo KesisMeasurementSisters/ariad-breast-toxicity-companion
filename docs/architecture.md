@@ -4,10 +4,11 @@
 
 Ariad is a small TypeScript monorepo with one deployable Next.js application and
 two extractable knowledge packages. Clinical content is compiled at build time;
-the runtime includes health reporting and two dormant, bounded OpenAI adapters.
-The current owner-directed mode sets `ENABLE_GPT56=false`, so no provider call
-is made. There is no database, graph database, vector store, CMS, or patient
-backend.
+the runtime includes health reporting and two bounded, optional OpenAI adapters.
+The repository default sets `ENABLE_GPT56=false`; the competition deployment
+explicitly enables GPT-5.6 Luna for controlled symptom matching and neutral
+restatement only. There is no database, graph database, vector store, CMS, or
+patient backend.
 
 ```mermaid
 flowchart TB
@@ -49,7 +50,8 @@ flowchart TB
 - Imports the generated release and validates it on startup.
 - Server-only OpenAI adapter and routes; API credentials never enter browser
   code.
-- Versioned local-storage adapter for saved treatment IDs and notice state.
+- Default-off, versioned local-storage adapter. Competition builds disable
+  treatment saving and clear its legacy preference key.
 - Static security headers and a health endpoint.
 
 ### `packages/contracts`
@@ -131,15 +133,17 @@ runtime consumption are implemented.
 
 ## Deployment shape
 
-The competition target is one Vercel application with server-side environment
-variables and no database. The included multi-stage Dockerfile builds the same
-standalone Next.js output as a non-root user. No public deployment is currently
-claimed.
+The competition preview is one Cloudflare Worker built with the OpenNext
+Cloudflare adapter, with a managed server-side OpenAI secret and no database.
+The custom domain is `ariad.kesis.ca`. The included multi-stage Dockerfile
+remains an alternative way to build the standalone Next.js output as a non-root
+user.
 
 Draft preview builds require the exact explicit acknowledgement and preserve
-the visible prototype notice. A future clinical deployment must use a separate
-published, approved release; it must not enable draft content through a generic
-boolean flag.
+the visible prototype notice. The competition target also forces
+`NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false`. A future clinical deployment must
+use a separate published, approved release; it must not enable draft content
+through a generic boolean flag.
 
 ## Extractability
 

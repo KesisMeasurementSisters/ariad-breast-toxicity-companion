@@ -49,7 +49,7 @@
 
 - <<: *symptom_base
   id: fever-infection-concern
-  patient_label: Fever, chills, or infection concern
+  patient_label: Fever, chills, or feeling unwell
   clinical_label: Fever or possible infection
   synonyms: [fever, chills, shivering, shaking, infection, feeling feverish]
   navigation_terms: [high temperature, feel hot, sweats, sore throat on chemo]
@@ -68,6 +68,7 @@
 
 - <<: *symptom_base
   id: fatigue
+  superseded_by: { kind: symptom, id: fatigue, version: 1.1.0 }
   patient_label: Tiredness or low energy
   clinical_label: Fatigue
   synonyms: [fatigue, tired, exhausted, low energy]
@@ -79,6 +80,7 @@
 
 - <<: *symptom_base
   id: nausea
+  superseded_by: { kind: symptom, id: nausea, version: 1.1.0 }
   patient_label: Nausea
   clinical_label: Nausea
   synonyms: [feeling sick, queasy, upset stomach]
@@ -90,6 +92,7 @@
 
 - <<: *symptom_base
   id: vomiting
+  superseded_by: { kind: symptom, id: vomiting, version: 1.1.0 }
   patient_label: Vomiting
   clinical_label: Vomiting
   synonyms: [throwing up, being sick]
@@ -101,6 +104,7 @@
 
 - <<: *symptom_base
   id: constipation
+  superseded_by: { kind: symptom, id: constipation, version: 1.1.0 }
   patient_label: Constipation
   clinical_label: Constipation
   synonyms: [hard stool, cannot poop, no bowel movement]
@@ -112,6 +116,7 @@
 
 - <<: *symptom_base
   id: appetite-taste-changes
+  superseded_by: { kind: symptom, id: appetite-taste-changes, version: 1.1.0 }
   patient_label: Appetite or taste changes
   clinical_label: Appetite and taste changes
   synonyms: [no appetite, food tastes different, metallic taste]
@@ -123,6 +128,7 @@
 
 - <<: *symptom_base
   id: mouth-soreness
+  superseded_by: { kind: symptom, id: mouth-soreness, version: 1.1.0 }
   patient_label: Mouth soreness
   clinical_label: Oral mucositis or stomatitis
   synonyms: [mouth sores, sore mouth, ulcers, painful mouth]
@@ -134,6 +140,7 @@
 
 - <<: *symptom_base
   id: rash-itching
+  superseded_by: { kind: symptom, id: rash-itching, version: 1.1.0 }
   patient_label: Rash or itching
   clinical_label: Rash or pruritus
   synonyms: [itchy skin, red spots, skin rash]
@@ -145,6 +152,7 @@
 
 - <<: *symptom_base
   id: hand-foot-symptoms
+  superseded_by: { kind: symptom, id: hand-foot-symptoms, version: 1.1.0 }
   patient_label: Hand or foot skin changes
   clinical_label: Hand-foot syndrome
   synonyms: [sore palms, sore soles, peeling hands, peeling feet, hand foot syndrome]
@@ -156,6 +164,7 @@
 
 - <<: *symptom_base
   id: joint-muscle-symptoms
+  superseded_by: { kind: symptom, id: joint-muscle-symptoms, version: 1.1.0 }
   patient_label: Joint or muscle aches
   clinical_label: Arthralgia or myalgia
   synonyms: [joint pain, muscle pain, body aches, stiffness]
@@ -167,6 +176,7 @@
 
 - <<: *symptom_base
   id: headache
+  superseded_by: { kind: symptom, id: headache, version: 1.1.0 }
   patient_label: Headache
   clinical_label: Headache
   synonyms: [head pain, migraine]
@@ -178,6 +188,7 @@
 
 - <<: *symptom_base
   id: dizziness
+  superseded_by: { kind: symptom, id: dizziness, version: 1.1.0 }
   patient_label: Dizziness or faintness
   clinical_label: Dizziness
   synonyms: [lightheaded, faint, woozy, unsteady]
@@ -189,6 +200,7 @@
 
 - <<: *symptom_base
   id: hot-flashes
+  superseded_by: { kind: symptom, id: hot-flashes, version: 1.1.0 }
   patient_label: Hot flashes
   clinical_label: Vasomotor symptoms
   synonyms: [hot flushes, night sweats]
@@ -200,7 +212,8 @@
 
 - <<: *symptom_base
   id: vaginal-genitourinary-symptoms
-  patient_label: Vaginal or urinary symptoms
+  superseded_by: { kind: symptom, id: vaginal-genitourinary-symptoms, version: 1.1.0 }
+  patient_label: Vaginal symptoms or changes when passing urine
   clinical_label: Genitourinary symptoms
   synonyms: [vaginal dryness, pain with sex, urinary discomfort]
   navigation_terms: [burning urine, vaginal soreness]
@@ -211,7 +224,8 @@
 
 - <<: *symptom_base
   id: sleep-concerns
-  patient_label: Sleep concerns
+  superseded_by: { kind: symptom, id: sleep-concerns, version: 1.1.0 }
+  patient_label: Trouble sleeping
   clinical_label: Sleep disturbance
   synonyms: [insomnia, cannot sleep, waking often]
   navigation_terms: [poor sleep]
@@ -222,7 +236,8 @@
 
 - <<: *symptom_base
   id: mood-cognitive-concerns
-  patient_label: Mood, memory, or concentration concerns
+  superseded_by: { kind: symptom, id: mood-cognitive-concerns, version: 1.1.0 }
+  patient_label: Changes in mood, memory, or focus
   clinical_label: Mood or cognitive symptoms
   synonyms: [brain fog, low mood, anxious, forgetful]
   navigation_terms: [cannot concentrate]
@@ -233,6 +248,7 @@
 
 - <<: *symptom_base
   id: pain
+  superseded_by: { kind: symptom, id: pain, version: 1.1.0 }
   patient_label: Pain
   clinical_label: Pain
   synonyms: [ache, hurts, soreness]
@@ -244,6 +260,7 @@
 
 - <<: *symptom_base
   id: shortness-of-breath-cough
+  superseded_by: { kind: symptom, id: shortness-of-breath-cough, version: 1.1.0 }
   patient_label: Shortness of breath or cough
   clinical_label: Respiratory symptoms
   synonyms: [breathless, trouble breathing, coughing, winded]
@@ -255,6 +272,7 @@
 
 - <<: *symptom_base
   id: chest-symptoms
+  superseded_by: { kind: symptom, id: chest-symptoms, version: 1.1.0 }
   patient_label: Chest pain or pressure
   clinical_label: Chest symptoms
   synonyms: [chest pain, chest pressure, chest tightness]
@@ -266,6 +284,7 @@
 
 - <<: *symptom_base
   id: edema-swelling
+  superseded_by: { kind: symptom, id: edema-swelling, version: 1.1.0 }
   patient_label: Swelling
   clinical_label: Edema
   synonyms: [puffy ankles, swollen legs, swollen arm]
@@ -277,6 +296,7 @@
 
 - <<: *symptom_base
   id: palpitations
+  superseded_by: { kind: symptom, id: palpitations, version: 1.1.0 }
   patient_label: Fast or irregular heartbeat
   clinical_label: Palpitations
   synonyms: [heart racing, skipped beats, pounding heart]
@@ -288,6 +308,7 @@
 
 - <<: *symptom_base
   id: bleeding-bruising
+  superseded_by: { kind: symptom, id: bleeding-bruising, version: 1.1.0 }
   patient_label: Bleeding or bruising
   clinical_label: Bleeding or bruising
   synonyms: [easy bruising, nosebleed, bleeding gums]
@@ -299,6 +320,7 @@
 
 - <<: *symptom_base
   id: blood-clot-warning-symptoms
+  superseded_by: { kind: symptom, id: blood-clot-warning-symptoms, version: 1.1.0 }
   patient_label: Possible blood-clot symptoms
   clinical_label: Thromboembolic warning symptoms
   synonyms: [one swollen leg, calf pain, sudden breathlessness]
@@ -310,6 +332,7 @@
 
 - <<: *symptom_base
   id: eye-vision-symptoms
+  superseded_by: { kind: symptom, id: eye-vision-symptoms, version: 1.1.0 }
   patient_label: Eye or vision changes
   clinical_label: Ocular symptoms
   synonyms: [blurred vision, sore eyes, dry eyes, vision change]
@@ -321,6 +344,7 @@
 
 - <<: *symptom_base
   id: nail-hair-changes
+  superseded_by: { kind: symptom, id: nail-hair-changes, version: 1.1.0 }
   patient_label: Nail or hair changes
   clinical_label: Nail or hair changes
   synonyms: [hair loss, brittle nails, nail pain]
@@ -332,7 +356,8 @@
 
 - <<: *symptom_base
   id: infusion-allergic-symptoms
-  patient_label: Infusion or allergic-type symptoms
+  superseded_by: { kind: symptom, id: infusion-allergic-symptoms, version: 1.1.0 }
+  patient_label: Reaction while medicine is given, or allergy symptoms
   clinical_label: Infusion or hypersensitivity symptoms
   synonyms: [facial swelling, hives, wheeze, reaction during infusion]
   navigation_terms: [allergic reaction]
@@ -340,4 +365,3 @@
   observable_feature_ids: []
   source_ids: [cco-symptom-management-directory]
   support_status: catalogued
-

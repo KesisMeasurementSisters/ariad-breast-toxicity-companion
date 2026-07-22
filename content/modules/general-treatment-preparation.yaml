@@ -1,0 +1,74 @@
+- &general_preparation_base
+  kind: educational_module
+  id: general-systemic-prep-overview
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  audience: patient
+  jurisdiction: Canada
+  section: preparation
+  preparation_order: 10
+  title: Start with your cancer team's plan
+  paragraphs:
+    - This is general information for cancer treatment with medicines. It is not a guide for one drug or treatment plan.
+    - Your cancer team will explain how you will get treatment and what you need to do before it starts.
+  bullets: []
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [] }
+  priority_tags: []
+  source_ids: [bc-cancer-systemic-therapy-preparation]
+  claim_ids: [claim-general-systemic-preparation-scope, claim-team-owned-treatment-plan]
+  placeholders: []
+  review_due: null
+
+- <<: *general_preparation_base
+  id: general-systemic-prep-tests-and-appointments
+  preparation_order: 20
+  title: Ask about tests and appointments
+  paragraphs:
+    - You may need tests before treatment. Your cancer team will tell you which tests you need.
+  bullets:
+    - Ask where you will get treatment.
+    - Ask what to expect at the first visit.
+    - Ask who to call if you have a question.
+  source_ids: [bc-cancer-systemic-therapy-preparation]
+  claim_ids: [claim-general-preparation-tests, claim-general-preparation-team-questions]
+
+- <<: *general_preparation_base
+  id: general-systemic-prep-medicine-list
+  preparation_order: 30
+  title: Make a medicine list
+  paragraphs:
+    - Keep one current list of everything you take.
+  bullets:
+    - List all prescription medicines and medicines you buy without a prescription.
+    - Add vitamins, herbs, and other supplements.
+    - Share the list with your cancer team. Tell them if the list changes.
+  source_ids: [bc-cancer-systemic-therapy-preparation]
+  claim_ids: [claim-general-preparation-medicine-list]
+
+- <<: *general_preparation_base
+  id: general-systemic-prep-questions
+  preparation_order: 40
+  title: Keep your questions together
+  paragraphs:
+    - Write down your questions before you speak with your team. Keep their answers with your treatment information.
+  bullets:
+    - How will I get this treatment?
+    - Do I need any tests or other preparation?
+    - Are there medicines or supplements I should discuss?
+    - Who should I call if I have a question?
+  source_ids: [bc-cancer-systemic-therapy-preparation]
+  claim_ids: [claim-general-preparation-question-list]
+
+- <<: *general_preparation_base
+  id: general-systemic-prep-boundary
+  preparation_order: 50
+  title: Know Ariad's limits
+  paragraphs:
+    - Ariad does not know your care plan. Follow the plan from your cancer team.
+    - Ariad cannot find the cause of a symptom or tell how serious it is. If you think this is a medical emergency, call 911 or your local emergency service now.
+  bullets: []
+  source_ids: [bc-cancer-systemic-therapy-preparation]
+  claim_ids: [claim-ariad-boundary, claim-universal-emergency-boundary]

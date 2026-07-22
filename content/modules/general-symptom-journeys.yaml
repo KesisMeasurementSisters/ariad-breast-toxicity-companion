@@ -1,0 +1,1351 @@
+- &module_base
+  kind: educational_module
+  id: general-systemic-symptom-context
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  audience: patient
+  jurisdiction: Canada
+  section: treatment_context
+  title: How this information fits your treatment
+  paragraphs:
+    - This is general symptom information. It does not mean that your treatment caused this symptom.
+    - Your cancer team knows your treatment plan and other health needs. Follow their instructions first.
+  bullets: []
+  applicability:
+    treatment_ids: [systemic-therapy]
+    symptom_ids:
+      - fatigue
+      - nausea
+      - vomiting
+      - constipation
+      - appetite-taste-changes
+      - mouth-soreness
+      - rash-itching
+      - hand-foot-symptoms
+      - joint-muscle-symptoms
+      - headache
+      - dizziness
+      - hot-flashes
+      - vaginal-genitourinary-symptoms
+      - sleep-concerns
+      - mood-cognitive-concerns
+      - pain
+      - shortness-of-breath-cough
+      - chest-symptoms
+      - edema-swelling
+      - palpitations
+      - bleeding-bruising
+      - blood-clot-warning-symptoms
+      - eye-vision-symptoms
+      - nail-hair-changes
+      - infusion-allergic-symptoms
+  priority_tags: []
+  source_ids: [cco-symptom-assessment-tool]
+  claim_ids: [claim-general-symptom-information-boundary]
+  placeholders: []
+  review_due: null
+
+- <<: *module_base
+  id: general-symptom-reporting-checklist
+  section: reporting_checklist
+  title: What information to have ready
+  paragraphs: []
+  bullets:
+    - When the symptom started and whether it is getting better, getting worse, staying the same, or coming and going.
+    - What you notice and how it affects eating, drinking, sleep, movement, or daily tasks.
+    - Any other new symptoms that started at the same time.
+    - Your treatment name, when you last received it, and what you have tried so far.
+  priority_tags: [tracking]
+  source_ids: [cco-symptom-assessment-tool]
+  claim_ids: [claim-general-symptom-reporting-information]
+
+- &fatigue
+  <<: *module_base
+  id: fatigue-about
+  section: about
+  title: About fatigue
+  paragraphs:
+    - Fatigue is tiredness or low energy that may not improve with rest.
+    - Cancer, treatment, sleep, pain, stress, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [fatigue] }
+  source_ids: [cco-fatigue-patient-guide]
+  claim_ids: [claim-fatigue-description-and-cause-boundary]
+
+- <<: *fatigue
+  id: fatigue-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Balance activity with rest. Stop before you feel worn out.
+  bullets:
+    - Plan the most important tasks for the time of day when you have more energy.
+    - Break large tasks into smaller steps. Ask for help when you need it.
+    - Try light movement, such as a short walk, if it is safe for you and your team has not told you to limit activity.
+    - Keep a regular sleep routine. Eat and drink regularly unless your team gave you other instructions.
+  priority_tags: [daily-activities]
+  claim_ids: [claim-fatigue-home-steps]
+
+- <<: *fatigue
+  id: fatigue-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - The fatigue is new, suddenly worse, or keeps you from washing, dressing, eating, or moving safely.
+    - You also feel dizzy, off balance, short of breath, confused, or notice a fast heartbeat.
+    - Rest does not help, or fatigue keeps getting worse.
+  priority_tags: [contact-information, balance, breathing-heart, thinking-change]
+  claim_ids: [claim-fatigue-contact-signs]
+
+- <<: *fatigue
+  id: fatigue-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You have new trouble breathing, chest pain or pressure, fainting, or sudden confusion.
+    - You have sudden face drooping, arm weakness, or speech that is slurred or hard to understand. Call 911.
+  priority_tags: [breathing-heart, thinking-change]
+  source_ids: [cco-fatigue-patient-guide, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+  claim_ids: [claim-fatigue-urgent-signs]
+
+- &nausea
+  <<: *module_base
+  id: nausea-about
+  section: about
+  title: About nausea
+  paragraphs:
+    - Nausea is a sick or uneasy feeling in your stomach. You may feel as if you could vomit.
+    - Treatment, medicines, food, pain, worry, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [nausea] }
+  source_ids: [cco-nausea-vomiting-patient-guide, eviq-general-chemotherapy-side-effects]
+  claim_ids: [claim-nausea-description-and-cause-boundary]
+
+- <<: *nausea
+  id: nausea-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Use anti-nausea medicine only as your cancer team told you.
+  bullets:
+    - Eat small amounts more often. Choose plain, cool, or room-temperature foods if smells bother you.
+    - Sip fluids often unless your team told you to limit them.
+    - Sit upright after eating. Get fresh air and avoid strong smells when you can.
+    - Keep a note of when nausea starts, what you ate, and what helped.
+  priority_tags: [hydration, tracking]
+  claim_ids: [claim-nausea-home-steps]
+
+- <<: *nausea
+  id: nausea-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You cannot eat or drink enough.
+    - You cannot take a medicine the way your team told you.
+    - Your medicine for nausea does not help, or the nausea is getting worse.
+    - You also vomit, have belly pain, cannot pass stool, have diarrhea, feel dizzy, or pass very little urine.
+  priority_tags: [contact-information, hydration, food-fluids]
+  claim_ids: [claim-nausea-contact-signs]
+
+- <<: *nausea
+  id: nausea-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You faint, become confused, or cannot keep fluids down and pass very little urine.
+    - You vomit blood or material that looks like coffee grounds, or have strong belly pain.
+    - Nausea happens with chest pain or pressure, trouble breathing, or sudden weakness. Call 911.
+  priority_tags: [food-fluids]
+  source_ids: [cco-nausea-vomiting-patient-guide, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+  claim_ids: [claim-nausea-urgent-signs]
+
+- &vomiting
+  <<: *module_base
+  id: vomiting-about
+  section: about
+  title: About vomiting
+  paragraphs:
+    - Vomiting means throwing up the contents of your stomach.
+    - Treatment, medicines, infection, food, pain, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [vomiting] }
+  source_ids: [cco-nausea-vomiting-patient-guide, eviq-general-chemotherapy-side-effects]
+  claim_ids: [claim-vomiting-description-and-cause-boundary]
+
+- <<: *vomiting
+  id: vomiting-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Use anti-nausea medicine only as your cancer team told you.
+  bullets:
+    - After vomiting, wait a short time, then try small sips of clear fluid if your team has not limited fluids.
+    - When fluids stay down, try small amounts of plain food.
+    - Sit upright and rinse your mouth gently after vomiting.
+    - Record how often you vomit and how much you can drink.
+  priority_tags: [hydration, tracking]
+  claim_ids: [claim-vomiting-home-steps]
+
+- <<: *vomiting
+  id: vomiting-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Vomiting does not stop or keeps coming back.
+    - You vomit even after using medicine the way your team told you.
+    - You cannot keep drinks, food, or needed medicine down.
+    - You have a dry mouth, dark or very little urine, dizziness, diarrhea, constipation, or belly pain.
+  priority_tags: [contact-information, hydration, food-fluids, bleeding, pain]
+  claim_ids: [claim-vomiting-contact-signs]
+
+- <<: *vomiting
+  id: vomiting-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You vomit blood or material that looks like coffee grounds.
+    - You faint, become confused, have strong belly pain, or cannot keep any fluid down and pass very little urine.
+    - Vomiting happens with chest pain, trouble breathing, or sudden face, arm, or speech changes. Call 911.
+  priority_tags: [food-fluids, bleeding, pain]
+  source_ids: [cco-nausea-vomiting-patient-guide, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+  claim_ids: [claim-vomiting-urgent-signs]
+
+- &constipation
+  <<: *module_base
+  id: constipation-about
+  section: about
+  title: About constipation
+  paragraphs:
+    - Constipation means it is hard to have a bowel movement. Your stool may be hard or dry. You may go less often than usual.
+    - Treatment, medicines, food, fluids, activity, or another health problem may play a part. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [constipation] }
+  source_ids: [cco-constipation-patient-guide]
+  claim_ids: [claim-constipation-description-and-cause-boundary]
+
+- <<: *constipation
+  id: constipation-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Follow the bowel plan from your cancer team. Use laxatives or other bowel medicine only as instructed.
+  bullets:
+    - Drink fluids regularly unless your team told you to limit them.
+    - Move gently each day if it is safe for you.
+    - Try to use the toilet at the same time each day. Do not ignore the need to go.
+    - Keep a record of bowel movements, pain, gas, food, and fluids.
+    - Ask your team before adding a lot of fibre, especially if you have pain, bloating, or vomiting.
+  priority_tags: [tracking, team-instructions]
+  claim_ids: [claim-constipation-home-steps]
+
+- <<: *constipation
+  id: constipation-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have not had a bowel movement for more than three days.
+    - You cannot pass gas, or have new bloating, cramps, belly pain, nausea, or vomiting.
+    - You see red blood or a black bowel movement.
+    - Your bowel plan is not helping.
+  priority_tags: [contact-information, bowel-change, pain, food-fluids, bleeding]
+  claim_ids: [claim-constipation-contact-signs]
+
+- <<: *constipation
+  id: constipation-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You have strong or quickly worsening belly pain with vomiting, swelling, or no gas.
+    - You have heavy bleeding, faint, or become confused.
+    - You cannot reach your cancer team and the warning signs above are getting worse.
+  priority_tags: [bowel-change, pain, food-fluids, bleeding]
+  source_ids: [cco-constipation-patient-guide]
+  claim_ids: [claim-constipation-urgent-signs]
+
+- &appetite_taste
+  <<: *module_base
+  id: appetite-taste-about
+  section: about
+  title: About appetite and taste changes
+  paragraphs:
+    - You may feel less hungry, get full quickly, or notice that food tastes or smells different.
+    - Treatment, nausea, mouth changes, mood, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [appetite-taste-changes] }
+  source_ids: [cco-loss-appetite-patient-guide]
+  claim_ids: [claim-appetite-taste-description-and-cause-boundary]
+
+- <<: *appetite_taste
+  id: appetite-taste-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Choose foods and drinks that are easiest for you to manage.
+  bullets:
+    - Try small meals or snacks more often instead of large meals.
+    - Add protein and energy with foods your team says are safe for you.
+    - Try cool foods if cooking smells bother you. Use plastic cutlery if food tastes metallic.
+    - Sip fluids between meals unless your team told you to limit them.
+    - Keep your mouth clean and note which foods taste better or worse.
+  priority_tags: [nutrition, hydration]
+  claim_ids: [claim-appetite-taste-home-steps]
+
+- <<: *appetite_taste
+  id: appetite-taste-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You cannot eat or drink enough, or you are losing weight without trying.
+    - You feel weak or dizzy, pass very little urine, or have trouble swallowing.
+    - Nausea, vomiting, pain, mouth sores, or taste changes keep you from eating.
+  priority_tags: [contact-information, hydration, nutrition, food-fluids, mouth-care, nutrition-change]
+  claim_ids: [claim-appetite-taste-contact-signs]
+
+- <<: *appetite_taste
+  id: appetite-taste-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You cannot swallow fluids, faint, become confused, or pass almost no urine.
+    - You have trouble breathing or swelling of your face, lips, tongue, or throat. Call 911.
+  priority_tags: [food-fluids]
+  source_ids: [cco-loss-appetite-patient-guide, canada-anaphylaxis-signs]
+  claim_ids: [claim-appetite-taste-urgent-signs]
+
+- &mouth
+  <<: *module_base
+  id: mouth-soreness-about
+  section: about
+  title: About mouth soreness
+  paragraphs:
+    - Your mouth or throat may feel dry, sore, tender, or different. You may notice sores, white patches, bleeding, or taste changes.
+    - Treatment, medicines, infection, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [mouth-soreness] }
+  source_ids: [cco-oral-care-patient-guide]
+  claim_ids: [claim-mouth-soreness-description-and-cause-boundary]
+
+- <<: *mouth
+  id: mouth-soreness-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Follow the mouth-care plan from your cancer team.
+  bullets:
+    - Brush gently with a soft toothbrush. Keep your mouth and dentures clean.
+    - Use only rinses your team says are safe. Avoid mouthwash with alcohol.
+    - Sip fluids often unless your team told you to limit them.
+    - Choose soft, moist foods. Avoid foods that are sharp, very hot, spicy, or acidic if they hurt.
+    - Keep your lips moist with a plain lip balm.
+  priority_tags: [oral-care, hydration]
+  claim_ids: [claim-mouth-soreness-home-steps]
+
+- <<: *mouth
+  id: mouth-soreness-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have new sores, white patches, bleeding, swelling, or pain in your mouth or throat.
+    - It is hard to eat, drink, swallow, speak, or wear dentures.
+    - Your mouth feels very dry, or mouth care is not helping.
+    - You feel unwell or have infection signs. Follow your team’s fever instructions.
+  priority_tags: [contact-information, oral-care, mouth-care, food-fluids, swallowing]
+  claim_ids: [claim-mouth-soreness-contact-signs]
+
+- <<: *mouth
+  id: mouth-soreness-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You cannot swallow liquids or your own saliva.
+    - You have heavy bleeding from your mouth, feel faint, or become confused.
+    - You have trouble breathing or swelling of your face, lips, tongue, or throat. Call 911.
+  priority_tags: [swallowing, food-fluids]
+  source_ids: [cco-oral-care-patient-guide, canada-anaphylaxis-signs]
+  claim_ids: [claim-mouth-soreness-urgent-signs]
+
+- &rash
+  <<: *module_base
+  id: rash-itching-about
+  section: about
+  title: About rash and itching
+  paragraphs:
+    - A rash can look or feel different across skin tones. You may notice colour change, bumps, dry skin, itching, pain, or warmth.
+    - Treatment, medicines, skin products, infection, allergy, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [rash-itching] }
+  source_ids: [ccs-skin-problems]
+  claim_ids: [claim-rash-itching-description-and-cause-boundary]
+
+- <<: *rash
+  id: rash-itching-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Treat your skin gently. Do not start a medicated cream unless your cancer team says it is safe.
+  bullets:
+    - Use lukewarm water and a mild, scent-free cleanser.
+    - Pat your skin dry. Apply a plain, scent-free moisturizer.
+    - Wear loose, soft clothing. Keep your nails short and try not to scratch.
+    - Protect your skin from the sun. Note any new soap, cream, medicine, or food.
+  priority_tags: [skin-care, tracking]
+  claim_ids: [claim-rash-itching-home-steps]
+
+- <<: *rash
+  id: rash-itching-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - A rash is new, spreading, painful, warm, blistering, peeling, or keeping you awake.
+    - You have open skin, drainage, swelling, or feel unwell.
+    - The rash started after a new medicine or during the days after an infusion.
+  priority_tags: [contact-information, skin-care, skin-change, allergy-signs, breathing-change]
+  claim_ids: [claim-rash-itching-contact-signs]
+
+- <<: *rash
+  id: rash-itching-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - A rash or hives happens with swelling of your face, lips, tongue, or throat.
+    - You have trouble breathing, chest tightness, fainting, or sudden severe dizziness. Call 911.
+    - Your skin is quickly blistering or peeling and you feel very unwell.
+  priority_tags: [skin-change, allergy-signs, breathing-change]
+  source_ids: [ccs-skin-problems, canada-anaphylaxis-signs]
+  claim_ids: [claim-rash-itching-urgent-signs]
+
+- &hand_foot
+  <<: *module_base
+  id: hand-foot-about
+  section: about
+  title: About hand and foot symptoms
+  paragraphs:
+    - Your palms or soles may become red or darker, swollen, tender, numb, dry, cracked, blistered, or peeling.
+    - Treatment, pressure, heat, skin problems, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [hand-foot-symptoms] }
+  source_ids: [cco-hand-foot-syndrome-patient-guide]
+  claim_ids: [claim-hand-foot-description-and-cause-boundary]
+
+- <<: *hand_foot
+  id: hand-foot-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Protect your hands and feet from heat, rubbing, and pressure.
+  bullets:
+    - Use cool or lukewarm water. Pat the skin dry.
+    - Apply a plain moisturizer your team says is safe. Do not rub it in hard.
+    - Wear loose shoes, soft socks, and gloves for house or yard work.
+    - Avoid long walks, running, hot tubs, and tight tools if they make symptoms worse.
+    - Check your hands and feet each day for cracks, blisters, or open skin.
+  priority_tags: [skin-care, hand-safety, foot-safety]
+  claim_ids: [claim-hand-foot-home-steps]
+
+- <<: *hand_foot
+  id: hand-foot-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have new or worsening pain, redness or darkening, swelling, cracks, blisters, or peeling.
+    - It is hard to walk, hold objects, get dressed, or do daily tasks.
+    - Skin is open, draining, warm, or very tender.
+  priority_tags: [contact-information, skin-care, skin-change, pain, daily-activities]
+  claim_ids: [claim-hand-foot-contact-signs]
+
+- <<: *hand_foot
+  id: hand-foot-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - Redness or swelling spreads quickly and you suddenly feel very unwell.
+    - Pain or weakness makes it unsafe to stand or walk and you cannot reach your cancer team.
+    - You also have trouble breathing, chest pain, fainting, or sudden confusion. Call 911.
+  priority_tags: [skin-change, pain, daily-activities]
+  source_ids: [cco-hand-foot-syndrome-patient-guide, heart-stroke-emergency-signs]
+  claim_ids: [claim-hand-foot-urgent-signs]
+
+- &joint_muscle
+  <<: *module_base
+  id: joint-muscle-about
+  section: about
+  title: About joint and muscle symptoms
+  paragraphs:
+    - You may notice aching, stiffness, cramps, weakness, or pain in a joint or muscle.
+    - Treatment, activity, injury, infection, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [joint-muscle-symptoms] }
+  source_ids: [cco-pain-patient-guide]
+  claim_ids: [claim-joint-muscle-description-and-cause-boundary]
+
+- <<: *joint_muscle
+  id: joint-muscle-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Use pain medicine only as your cancer team told you.
+  bullets:
+    - Balance rest with gentle movement. Stop if movement makes the pain worse.
+    - Support the sore area and change position often.
+    - Use heat or cold only if your team says it is safe. Wrap the pack and protect your skin.
+    - Record where the symptom is, when it starts, and what makes it better or worse.
+  priority_tags: [tracking, daily-activities]
+  claim_ids: [claim-joint-muscle-home-steps]
+
+- <<: *joint_muscle
+  id: joint-muscle-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Pain, stiffness, cramps, or weakness is new, getting worse, or not helped by your plan.
+    - A joint or limb is red, hot, swollen, or hard to move.
+    - Symptoms affect sleep, walking, balance, or daily tasks, or you have fallen.
+  priority_tags: [contact-information, daily-activities, movement, swelling, fall]
+  claim_ids: [claim-joint-muscle-contact-signs]
+
+- <<: *joint_muscle
+  id: joint-muscle-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You have sudden weakness on one side, face drooping, or trouble speaking. Call 911.
+    - One arm or leg becomes painful, red, or swollen and you also have chest pain, shortness of breath, or cough up blood.
+    - You cannot stand or walk safely after a fall or injury.
+  priority_tags: [swelling, fall]
+  source_ids: [cco-pain-patient-guide, canada-stroke-warning-signs, ccs-chemotherapy-side-effects]
+  claim_ids: [claim-joint-muscle-urgent-signs]
+
+- &headache
+  <<: *module_base
+  id: headache-about
+  section: about
+  title: About headaches
+  paragraphs:
+    - A headache is pain or pressure in your head. It may be steady, throbbing, or come and go.
+    - Treatment, medicines, poor sleep, not enough fluid, stress, infection, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [headache] }
+  source_ids: [cco-pain-patient-guide]
+  claim_ids: [claim-headache-description-and-cause-boundary]
+
+- <<: *headache
+  id: headache-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Use pain medicine only as your cancer team told you.
+  bullets:
+    - Rest in a quiet, dim room if that helps.
+    - Sip fluids unless your team told you to limit them. Try regular meals and sleep.
+    - Record when the headache starts, where it hurts, how long it lasts, and other symptoms.
+    - Do not drive if your vision, balance, or thinking is affected.
+  priority_tags: [tracking, fall-prevention]
+  claim_ids: [claim-headache-home-steps]
+
+- <<: *headache
+  id: headache-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - A headache is new, feels different, keeps returning, or is getting worse.
+    - It does not improve with the plan your team gave you.
+    - It happens with vomiting, vision changes, dizziness, weakness, confusion, or after a fall or hit to the head.
+  priority_tags: [contact-information, headache-change, thinking-change, movement]
+  claim_ids: [claim-headache-contact-signs]
+
+- <<: *headache
+  id: headache-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - A headache happens with face drooping, one-sided weakness or numbness, trouble speaking, or sudden vision loss. Call 911.
+    - You have a seizure, faint, cannot be woken, or become suddenly confused.
+    - The headache follows a serious fall or head injury.
+  priority_tags: [headache-change, thinking-change, movement]
+  source_ids: [cco-pain-patient-guide, canada-stroke-warning-signs]
+  claim_ids: [claim-headache-urgent-signs]
+
+- &dizziness
+  <<: *module_base
+  id: dizziness-about
+  section: about
+  title: About dizziness
+  paragraphs:
+    - Dizziness may make you feel light-headed or unsteady. The room may feel like it is spinning. You may feel as if you could faint.
+    - Treatment, medicines, not enough fluid, blood changes, or another health problem may play a part. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [dizziness] }
+  source_ids: [cco-fatigue-patient-guide, ccs-heart-problems]
+  claim_ids: [claim-dizziness-description-and-cause-boundary]
+
+- <<: *dizziness
+  id: dizziness-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Sit or lie down when you feel dizzy. Get up slowly when you feel steady.
+  bullets:
+    - Hold a railing or ask someone to stay near you when walking.
+    - Do not drive, use a ladder, or shower alone while you feel unsteady.
+    - Sip fluids unless your team told you to limit them.
+    - Record when it starts, how long it lasts, and what you were doing.
+  priority_tags: [fall-prevention, tracking]
+  claim_ids: [claim-dizziness-home-steps]
+
+- <<: *dizziness
+  id: dizziness-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Dizziness is new, keeps returning, is getting worse, or affects walking.
+    - You fall or nearly fall.
+    - You also have vomiting, diarrhea, very little urine, vision changes, a fast or uneven heartbeat, or new weakness.
+  priority_tags: [contact-information, fall-prevention, fall, breathing-heart, thinking-change]
+  claim_ids: [claim-dizziness-contact-signs]
+
+- <<: *dizziness
+  id: dizziness-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You faint, collapse, cannot be woken, or have chest pain or trouble breathing. Call 911.
+    - Dizziness starts with face drooping, one-sided weakness or numbness, trouble speaking, or sudden vision loss. Call 911.
+  priority_tags: [fall, breathing-heart, thinking-change]
+  source_ids: [ccs-heart-problems, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+  claim_ids: [claim-dizziness-urgent-signs]
+
+- &hot_flashes
+  <<: *module_base
+  id: hot-flashes-about
+  section: about
+  title: About hot flashes
+  paragraphs:
+    - A hot flash is a sudden feeling of heat. You may sweat, turn red or darker, or feel chilled afterward.
+    - Treatment, medicines, menopause, stress, infection, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [hot-flashes] }
+  source_ids: [bc-cancer-sexual-health-vagina, ccs-hormone-therapy-breast]
+  claim_ids: [claim-hot-flashes-description-and-cause-boundary]
+
+- <<: *hot_flashes
+  id: hot-flashes-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Keep your space cool and wear light layers you can remove.
+  bullets:
+    - Use a fan, cool cloth, or cool drink if that helps.
+    - Note possible triggers, such as hot drinks, spicy food, alcohol, or stress.
+    - Keep spare sleepwear nearby if night sweats wake you.
+    - Ask your team before using herbs, vitamins, or non-prescription products.
+  priority_tags: [tracking, sleep]
+  claim_ids: [claim-hot-flashes-home-steps]
+
+- <<: *hot_flashes
+  id: hot-flashes-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Hot flashes are new, getting worse, or affect sleep or daily life.
+    - You have soaking sweats, feel unwell, or have chills. Follow your team’s fever instructions.
+    - You also notice unusual bleeding, a fast heartbeat, dizziness, or new pain.
+  priority_tags: [contact-information, hot-flashes, sleep, breathing-heart, fall]
+  claim_ids: [claim-hot-flashes-contact-signs]
+
+- <<: *hot_flashes
+  id: hot-flashes-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs:
+    - Do not assume an emergency sign is only a hot flash.
+  bullets:
+    - You have chest pain or pressure, trouble breathing, fainting, or sudden confusion. Call 911.
+    - You have swelling of your face, lips, tongue, or throat. Call 911.
+  priority_tags: [breathing-heart, fall]
+  source_ids: [heart-stroke-emergency-signs, canada-anaphylaxis-signs]
+  claim_ids: [claim-hot-flashes-urgent-signs]
+
+- &vaginal_genitourinary
+  <<: *module_base
+  id: vaginal-genitourinary-about
+  section: about
+  title: About vaginal and urinary symptoms
+  paragraphs:
+    - You may notice vaginal dryness or itching. Sex may hurt. You may also have discharge or bleeding. Passing urine may burn, or you may go more often.
+    - Treatment, medicines, infection, menopause, or another health problem may play a part. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [vaginal-genitourinary-symptoms] }
+  source_ids: [bc-cancer-sexual-health-vagina, ccs-hormone-therapy-breast]
+  claim_ids: [claim-vaginal-genitourinary-description-and-cause-boundary]
+
+- <<: *vaginal_genitourinary
+  id: vaginal-genitourinary-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Wash the outside area gently with lukewarm water. Avoid scented products and douching.
+  bullets:
+    - Wear loose clothing and breathable underwear.
+    - Drink fluids unless your team told you to limit them.
+    - Ask your team which vaginal moisturizer or lubricant is safe for you before using one.
+    - Note pain, discharge, bleeding, urine changes, and when they happen.
+  priority_tags: [tracking, personal-care]
+  claim_ids: [claim-vaginal-genitourinary-home-steps]
+
+- <<: *vaginal_genitourinary
+  id: vaginal-genitourinary-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have new or worsening pain, itching, sores, discharge, odour, or bleeding.
+    - It burns when you pass urine, you see blood, or you need to go much more or less often.
+    - Symptoms affect sleep, daily life, or sexual activity.
+  priority_tags: [contact-information, vaginal-change, urine-change, bleeding]
+  claim_ids: [claim-vaginal-genitourinary-contact-signs]
+
+- <<: *vaginal_genitourinary
+  id: vaginal-genitourinary-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You cannot pass urine, have heavy bleeding, faint, or become confused.
+    - You have strong lower belly or back pain and suddenly feel very unwell.
+    - You cannot reach your cancer team and the warning signs above are getting worse.
+  priority_tags: [urine-change, bleeding]
+  source_ids: [bc-cancer-sexual-health-vagina, ccs-chemotherapy-side-effects]
+  claim_ids: [claim-vaginal-genitourinary-urgent-signs]
+
+- &sleep
+  <<: *module_base
+  id: sleep-concerns-about
+  section: about
+  title: About sleep concerns
+  paragraphs:
+    - Sleep concerns can mean trouble falling asleep, waking often, waking too early, or sleeping much more than usual.
+    - Treatment, medicines, pain, worry, hot flashes, habits, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [sleep-concerns] }
+  source_ids: [bc-cancer-sleeping-problems]
+  claim_ids: [claim-sleep-concerns-description-and-cause-boundary]
+
+- <<: *sleep
+  id: sleep-concerns-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Keep a regular time for going to bed and getting up.
+  bullets:
+    - Make your room quiet, dark, and comfortable.
+    - Get daylight and gentle activity during the day if it is safe for you.
+    - Limit caffeine, alcohol, large meals, and screens close to bedtime.
+    - Use your bed for sleep and rest. Write down worries or next-day tasks before bed.
+    - Keep a short sleep record to share with your team.
+  priority_tags: [sleep, tracking]
+  claim_ids: [claim-sleep-concerns-home-steps]
+
+- <<: *sleep
+  id: sleep-concerns-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Sleep trouble happens often, is getting worse, or makes daily tasks unsafe.
+    - Pain, worry, low mood, hot flashes, breathing trouble, or restless legs keep you awake.
+    - You snore loudly, wake gasping, or are so sleepy that you fall or cannot stay awake.
+    - You are thinking about using a sleep medicine or supplement.
+  priority_tags: [contact-information, sleep, sleep-interruption, mood]
+  claim_ids: [claim-sleep-concerns-contact-signs]
+
+- <<: *sleep
+  id: sleep-concerns-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You may hurt yourself or someone else, or you do not feel able to stay safe. Call 911 or go to the nearest emergency department.
+    - You become suddenly confused, cannot be woken, or have serious trouble breathing. Call 911.
+  source_ids: [bc-cancer-sleeping-problems, cco-depression-patient-guide, cco-dyspnea-patient-guide]
+  claim_ids: [claim-sleep-concerns-urgent-signs]
+
+- &mood_cognitive
+  <<: *module_base
+  id: mood-cognitive-about
+  section: about
+  title: About mood, memory, and focus
+  paragraphs:
+    - You may feel worried, sad, angry, or overwhelmed. You may have trouble with memory, focus, planning, or finding words.
+    - Cancer, treatment, poor sleep, stress, medicines, or another health problem may play a part. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [mood-cognitive-concerns] }
+  source_ids: [cco-anxiety-patient-guide, cco-depression-patient-guide, bc-cancer-memory-thinking-attention]
+  claim_ids: [claim-mood-cognitive-description-and-cause-boundary]
+
+- <<: *mood_cognitive
+  id: mood-cognitive-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Tell someone you trust what you are noticing. You do not have to manage it alone.
+  bullets:
+    - Keep a simple daily routine. Do one task at a time and take breaks.
+    - Use notes, alarms, and a calendar for important tasks and medicines.
+    - Try slow breathing or a short calming activity.
+    - Ask a trusted person to join important visits or check written instructions with you.
+    - Keep sleep, food, fluids, and gentle activity as regular as you can.
+  priority_tags: [daily-activities, support-person]
+  claim_ids: [claim-mood-cognitive-home-steps]
+
+- <<: *mood_cognitive
+  id: mood-cognitive-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Changes in mood, memory, or focus are new, getting worse, or hard to manage.
+    - The change affects sleep, eating, safe medicine use, visits, work, relationships, or daily tasks.
+    - You feel hopeless, withdraw from others, or no longer enjoy things you usually value.
+    - A support person notices a clear change in your thinking or behaviour.
+  priority_tags: [contact-information, support-person, mood, thinking-change, mental-health-safety]
+  claim_ids: [claim-mood-cognitive-contact-signs]
+
+- <<: *mood_cognitive
+  id: mood-cognitive-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You may hurt yourself or someone else, or you do not feel able to stay safe. Call 911 or go to the nearest emergency department.
+    - Confusion starts suddenly, you cannot be woken, or you have a seizure.
+    - You have face drooping, one-sided weakness, trouble speaking, or sudden vision loss. Call 911.
+  priority_tags: [mental-health-safety, thinking-change]
+  source_ids: [cco-anxiety-patient-guide, cco-depression-patient-guide, canada-stroke-warning-signs]
+  claim_ids: [claim-mood-cognitive-urgent-signs]
+
+- &pain
+  <<: *module_base
+  id: pain-about
+  section: about
+  title: About pain
+  paragraphs:
+    - Pain may feel sharp, dull, burning, aching, cramping, or like pressure. It can be in one place or more than one place.
+    - Cancer, treatment, injury, infection, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [pain] }
+  source_ids: [cco-pain-patient-guide]
+  claim_ids: [claim-pain-description-and-cause-boundary]
+
+- <<: *pain
+  id: pain-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Follow the pain plan from your cancer team. Use pain medicine only as instructed.
+  bullets:
+    - Support the painful area and change position when you need to.
+    - Balance gentle movement with rest if movement is safe for you.
+    - Use heat, cold, massage, or stretching only if your team says it is safe for that area.
+    - Record where the pain is, what it feels like, when it starts, and what helps.
+  priority_tags: [tracking, team-instructions]
+  claim_ids: [claim-pain-home-steps]
+
+- <<: *pain
+  id: pain-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Pain is new, changing, getting worse, or not helped by your pain plan.
+    - Pain wakes you, limits movement, or keeps you from eating, sleeping, or doing daily tasks.
+    - You have new swelling, redness, warmth, weakness, numbness, vomiting, or trouble passing urine or stool.
+  priority_tags: [contact-information, daily-activities, pain-change, pain-location, breathing-heart, fall]
+  claim_ids: [claim-pain-contact-signs]
+
+- <<: *pain
+  id: pain-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You have chest pain or pressure, especially with sweating, nausea, trouble breathing, or light-headedness. Call 911.
+    - Pain starts with face drooping, one-sided weakness, trouble speaking, or sudden vision loss. Call 911.
+    - Strong pain happens with fainting, serious trouble breathing, heavy bleeding, or a major fall or injury.
+  priority_tags: [pain-change, pain-location, breathing-heart, fall]
+  source_ids: [cco-pain-patient-guide, heart-stroke-emergency-signs, canada-stroke-warning-signs]
+  claim_ids: [claim-pain-urgent-signs]
+
+- &shortness_breath
+  <<: *module_base
+  id: shortness-of-breath-cough-about
+  section: about
+  title: About shortness of breath and cough
+  paragraphs:
+    - Shortness of breath can feel like you cannot get enough air. You may breathe faster, feel chest tightness, or need to stop during activity.
+    - Cancer, treatment, infection, a clot, heart or lung problems, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [shortness-of-breath-cough] }
+  source_ids: [cco-dyspnea-patient-guide]
+  claim_ids: [claim-shortness-of-breath-cough-description-and-cause-boundary]
+
+- <<: *shortness_breath
+  id: shortness-of-breath-cough-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Only manage shortness of breath at home if your cancer team has said it is safe for you to do so.
+  bullets:
+    - Stop and rest before you become very short of breath.
+    - Sit upright or lean forward with your arms supported.
+    - Relax your shoulders. Breathe in gently and breathe out slowly through pursed lips.
+    - Use a fan or cool cloth on your face if it helps. Avoid smoke and strong scents.
+    - Keep your phone nearby and ask for help with tasks.
+  priority_tags: [breathing, daily-activities]
+  claim_ids: [claim-shortness-of-breath-cough-home-steps]
+
+- <<: *shortness_breath
+  id: shortness-of-breath-cough-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You have any new shortness of breath, or your usual breathing becomes worse.
+    - You have a new or changing cough, wheeze, chest tightness, or trouble with normal activity.
+    - You also have swelling, a fast heartbeat, feel unwell, or cough up mucus or blood.
+  priority_tags: [contact-information, breathing, breathing-change, breathing-heart, bleeding]
+  claim_ids: [claim-shortness-of-breath-cough-contact-signs]
+
+- <<: *shortness_breath
+  id: shortness-of-breath-cough-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - Your breathing suddenly gets worse or you cannot breathe. Call 911.
+    - You have chest or upper-back pain, faint, become confused, or cough up blood. Call 911.
+    - Your face, lips, tongue, or throat swells, or your throat feels tight. Call 911.
+  priority_tags: [breathing-change, breathing-heart, bleeding]
+  source_ids: [cco-dyspnea-patient-guide, ccs-chemotherapy-side-effects, canada-anaphylaxis-signs]
+  claim_ids: [claim-shortness-of-breath-cough-urgent-signs]
+
+- &chest
+  <<: *module_base
+  id: chest-symptoms-about
+  section: about
+  title: About chest symptoms
+  paragraphs:
+    - Chest symptoms may feel like pain, pressure, squeezing, fullness, burning, heaviness, or tightness.
+    - Heart, lung, muscle, stomach, treatment, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [chest-symptoms] }
+  source_ids: [heart-stroke-emergency-signs]
+  claim_ids: [claim-chest-symptoms-description-and-cause-boundary]
+
+- <<: *chest
+  id: chest-symptoms-home-management
+  section: home_management
+  title: What to do while getting help
+  paragraphs:
+    - New chest pain or pressure can be an emergency. Do not try to decide the cause yourself.
+  bullets:
+    - Stop what you are doing. Sit or lie in the position that feels safest.
+    - Call 911 for the emergency signs below. Do not drive yourself.
+    - Use only emergency medicine already prescribed to you, and only as instructed.
+    - Keep your medicine list ready for emergency workers.
+  priority_tags: [emergency-preparation]
+  claim_ids: [claim-chest-symptoms-immediate-steps]
+
+- <<: *chest
+  id: chest-symptoms-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs:
+    - Tell your cancer team about any new chest symptom, even if it stops. Do not wait for a reply before calling 911 for the signs below.
+  bullets:
+    - Note when it started, what it felt like, how long it lasted, and what you were doing.
+    - Tell them about cough, feverish feelings, swelling, a fast heartbeat, or breathing changes.
+  priority_tags: [contact-information, tracking, chest-change, breathing-change]
+  claim_ids: [claim-chest-symptoms-contact-signs]
+
+- <<: *chest
+  id: chest-symptoms-urgent-attention
+  section: urgent_attention
+  title: Call 911 if…
+  paragraphs:
+    - Call 911 now. Do not drive yourself.
+  bullets:
+    - You have chest pressure, squeezing, fullness, pain, burning, or heaviness.
+    - Chest discomfort happens with sweating, nausea, shortness of breath, light-headedness, or discomfort in your neck, jaw, shoulder, arms, or back.
+    - You collapse, cannot be woken, or are not breathing normally.
+  priority_tags: [chest-change, breathing-change]
+  source_ids: [heart-stroke-emergency-signs]
+  claim_ids: [claim-chest-symptoms-emergency-signs]
+
+- &edema
+  <<: *module_base
+  id: edema-swelling-about
+  section: about
+  title: About swelling
+  paragraphs:
+    - Swelling can make part of your body look or feel larger, tighter, heavier, puffy, or uncomfortable.
+    - Treatment, surgery, fluid buildup, infection, a clot, heart problems, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [edema-swelling] }
+  source_ids: [bc-cancer-lymphedema, ccs-chemotherapy-side-effects]
+  claim_ids: [claim-edema-swelling-description-and-cause-boundary]
+
+- <<: *edema
+  id: edema-swelling-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Protect swollen skin. Do not massage a new painful or one-sided swelling until a health professional has checked it.
+  bullets:
+    - Remove tight jewellery or clothing from the swollen area.
+    - Raise the area and move gently only if your team says it is safe.
+    - Keep the skin clean and moisturized. Protect it from cuts, burns, and sun.
+    - Compare both sides and note when the swelling started and whether it is changing.
+  priority_tags: [skin-care, tracking]
+  claim_ids: [claim-edema-swelling-home-steps]
+
+- <<: *edema
+  id: edema-swelling-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - Swelling is new, getting worse, or only on one side.
+    - The area is painful, red or darker, warm, firm, or hard to move.
+    - Swelling affects your face, neck, belly, feet, or ankles, or clothing suddenly feels tight.
+    - You also have a cough, fast heartbeat, feverish feeling, or skin drainage.
+  priority_tags: [contact-information, swelling, allergy-signs, breathing-heart]
+  claim_ids: [claim-edema-swelling-contact-signs]
+
+- <<: *edema
+  id: edema-swelling-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - One arm or leg is painful, red, or swollen and you have shortness of breath, chest or back pain, or cough up blood. Call 911.
+    - Your face, lips, tongue, or throat swells, or you have trouble breathing. Call 911.
+    - Swelling starts with fainting, confusion, or severe chest symptoms.
+  priority_tags: [swelling, allergy-signs, breathing-heart]
+  source_ids: [ccs-chemotherapy-side-effects, canada-anaphylaxis-signs, heart-stroke-emergency-signs]
+  claim_ids: [claim-edema-swelling-urgent-signs]
+
+- &palpitations
+  <<: *module_base
+  id: palpitations-about
+  section: about
+  title: About heartbeat changes
+  paragraphs:
+    - You may feel your heart racing, pounding, fluttering, or skipping beats.
+    - Treatment, medicines, stress, not enough fluid, heart problems, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [palpitations] }
+  source_ids: [ccs-heart-problems]
+  claim_ids: [claim-palpitations-description-and-cause-boundary]
+
+- <<: *palpitations
+  id: palpitations-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Stop and rest when you notice a heartbeat change.
+  bullets:
+    - Note when it started, how long it lasted, and what you were doing.
+    - Avoid extra caffeine, alcohol, and nicotine while you wait to speak with your team.
+    - Sip fluids unless your team told you to limit them.
+    - Do not change any medicine because of the heartbeat change unless your team tells you to.
+  priority_tags: [tracking, team-instructions]
+  claim_ids: [claim-palpitations-home-steps]
+
+- <<: *palpitations
+  id: palpitations-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - A racing, pounding, fluttering, or uneven heartbeat is new, keeps returning, or does not settle with rest.
+    - You also feel weak, very tired, dizzy, or light-headed.
+    - You notice new swelling, a cough that does not go away, or trouble with normal activity.
+  priority_tags: [contact-information, heart-change, breathing-heart, breathing-change, fall]
+  claim_ids: [claim-palpitations-contact-signs]
+
+- <<: *palpitations
+  id: palpitations-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - A heartbeat change happens with chest pain or pressure, trouble breathing, sweating, or nausea. Call 911.
+    - You faint, collapse, cannot be woken, or are not breathing normally. Call 911.
+  priority_tags: [heart-change, breathing-heart, breathing-change, fall]
+  source_ids: [ccs-heart-problems, heart-stroke-emergency-signs]
+  claim_ids: [claim-palpitations-urgent-signs]
+
+- &bleeding
+  <<: *module_base
+  id: bleeding-bruising-about
+  section: about
+  title: About bleeding and bruising
+  paragraphs:
+    - You may bruise more easily. You may also see bleeding from your nose, gums, skin, urine, bowel movements, or vagina.
+    - Treatment, medicines, injury, blood changes, or another health problem may play a part. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [bleeding-bruising] }
+  source_ids: [ccs-chemotherapy-side-effects, eviq-general-chemotherapy-side-effects]
+  claim_ids: [claim-bleeding-bruising-description-and-cause-boundary]
+
+- <<: *bleeding
+  id: bleeding-bruising-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Try to prevent cuts and falls while you wait to speak with your team.
+  bullets:
+    - Use a soft toothbrush and an electric razor if you have one.
+    - Do not pick your nose, cut your cuticles, or use dental floss if your team told you not to.
+    - Press a clean cloth firmly on a small cut. Keep pressing without checking too often.
+    - Ask your team before using aspirin, ibuprofen, herbs, or supplements.
+    - Record new bruises and where bleeding happened.
+  priority_tags: [bleeding-safety, tracking]
+  claim_ids: [claim-bleeding-bruising-home-steps]
+
+- <<: *bleeding
+  id: bleeding-bruising-contact-team
+  section: contact_team
+  title: Contact your cancer team right away if…
+  paragraphs: []
+  bullets:
+    - You have new or unusual bruises, tiny red or purple spots, nosebleeds, or bleeding gums.
+    - You see blood in urine, vomit, or a bowel movement, or the bowel movement is black.
+    - You have vaginal bleeding that is not usual for you.
+    - Bleeding starts again or takes longer than usual to stop.
+  priority_tags: [contact-information, bleeding-safety, bleeding, bruising, head-injury]
+  claim_ids: [claim-bleeding-bruising-contact-signs]
+
+- <<: *bleeding
+  id: bleeding-bruising-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - Bleeding is heavy or does not stop with firm pressure.
+    - You vomit blood, have a large amount of blood in a bowel movement, or have black bowel movements with dizziness or fainting.
+    - You hit your head and then have a headache, vomiting, confusion, weakness, or unusual sleepiness.
+    - You faint, collapse, or become hard to wake. Call 911.
+  priority_tags: [bleeding, head-injury]
+  source_ids: [ccs-chemotherapy-side-effects, eviq-general-chemotherapy-side-effects, canada-stroke-warning-signs]
+  claim_ids: [claim-bleeding-bruising-urgent-signs]
+
+- &blood_clot
+  <<: *module_base
+  id: blood-clot-warning-about
+  section: about
+  title: About possible blood-clot signs
+  paragraphs:
+    - Possible signs include new pain, redness, warmth, or swelling in one arm or leg. A clot in the lung can cause shortness of breath, chest or back pain, or coughing up blood.
+    - Other health problems can cause the same signs. Ariad cannot tell if you have a blood clot or what is causing your symptoms.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [blood-clot-warning-symptoms] }
+  source_ids: [ccs-chemotherapy-side-effects]
+  claim_ids: [claim-blood-clot-warning-description-and-cause-boundary]
+
+- <<: *blood_clot
+  id: blood-clot-warning-home-management
+  section: home_management
+  title: What to do while getting help
+  paragraphs:
+    - Possible blood-clot signs need medical help. Do not wait to see if they go away.
+  bullets:
+    - Stop activity and keep your phone nearby.
+    - Do not massage a new painful or swollen arm or leg.
+    - Do not drive yourself if you have breathing, chest, back, fainting, or coughing-blood signs.
+    - Have your medicine list and treatment information ready.
+  priority_tags: [emergency-preparation]
+  claim_ids: [claim-blood-clot-warning-immediate-steps]
+
+- <<: *blood_clot
+  id: blood-clot-warning-contact-team
+  section: contact_team
+  title: Contact your cancer team right away if…
+  paragraphs:
+    - Tell your team about new one-sided arm or leg pain, redness, warmth, or swelling. Do not wait for a reply before getting emergency help for the signs below.
+  bullets:
+    - Note where the change is, when it started, and whether it is spreading.
+    - Tell them about any treatment line or recent time spent in bed, a chair, a car, or a plane.
+  priority_tags: [contact-information, tracking, clot-signs, breathing-change, chest-change, bleeding]
+  claim_ids: [claim-blood-clot-warning-contact-signs]
+
+- <<: *blood_clot
+  id: blood-clot-warning-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help now if…
+  paragraphs:
+    - The Canadian Cancer Society describes blood-clot symptoms as a medical emergency.
+  bullets:
+    - You have new pain, redness, or swelling in an arm or leg.
+    - You have shortness of breath, chest or back pain, cough up blood, or faint. Call 911.
+  priority_tags: [clot-signs, breathing-change, chest-change, bleeding]
+  source_ids: [ccs-chemotherapy-side-effects]
+  claim_ids: [claim-blood-clot-warning-emergency-signs]
+
+- &eye_vision
+  <<: *module_base
+  id: eye-vision-about
+  section: about
+  title: About eye and vision changes
+  paragraphs:
+    - You may notice dry, watery, itchy, red, painful, or swollen eyes. Vision may become blurred, cloudy, doubled, dim, or different.
+    - Treatment, medicines, infection, an eye problem, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [eye-vision-symptoms] }
+  source_ids: [ccs-eye-vision-problems]
+  claim_ids: [claim-eye-vision-description-and-cause-boundary]
+
+- <<: *eye_vision
+  id: eye-vision-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Protect your eyes while you wait to speak with your team.
+  bullets:
+    - Do not rub your eyes. Wash your hands before touching your eyelids.
+    - Rest your eyes and use comfortable lighting. Wear sunglasses if light bothers you.
+    - Do not drive if your vision is blurred, doubled, dim, or missing in any area.
+    - Use eye drops only if your cancer team or eye-care professional says they are safe.
+    - Record which eye is affected and when the change began.
+  priority_tags: [vision-safety, tracking]
+  claim_ids: [claim-eye-vision-home-steps]
+
+- <<: *eye_vision
+  id: eye-vision-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - You notice any new or changing eye or vision symptom during or after treatment.
+    - You have eye pain, redness, swelling, discharge, light sensitivity, floaters, halos, or double vision.
+    - Dry or watery eyes affect reading, walking, driving, sleep, or daily tasks.
+  priority_tags: [contact-information, vision-safety, vision-change, eye-change]
+  claim_ids: [claim-eye-vision-contact-signs]
+
+- <<: *eye_vision
+  id: eye-vision-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - You suddenly lose vision or cannot see from one eye. Call 911.
+    - A vision change happens with face drooping, one-sided weakness or numbness, trouble speaking, or sudden loss of balance. Call 911.
+    - You have a serious eye injury or strong eye pain that is getting worse.
+  priority_tags: [vision-change]
+  source_ids: [ccs-eye-vision-problems, canada-stroke-warning-signs]
+  claim_ids: [claim-eye-vision-urgent-signs]
+
+- &nail_hair
+  <<: *module_base
+  id: nail-hair-about
+  section: about
+  title: About nail and hair changes
+  paragraphs:
+    - Hair may thin, fall out, or change in texture. Nails may become dry, ridged, discoloured, tender, loose, or slow to grow.
+    - Treatment, medicines, skin problems, or another health problem may be involved. Ariad cannot tell what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [nail-hair-changes] }
+  source_ids: [ccs-skin-problems, bc-cancer-hair-loss-appearance]
+  claim_ids: [claim-nail-hair-description-and-cause-boundary]
+
+- <<: *nail_hair
+  id: nail-hair-home-management
+  section: home_management
+  title: General steps you can take at home
+  paragraphs:
+    - Handle your hair, scalp, nails, and skin gently.
+  bullets:
+    - Use a mild shampoo, a soft brush or wide-tooth comb, and low heat.
+    - Protect your scalp from sun and cold with sunscreen, a hat, or a scarf.
+    - Keep nails short and clean. Do not bite nails or cut cuticles.
+    - Use gloves for wet work. Apply a plain moisturizer around the nails.
+    - Avoid artificial nails, strong nail products, or hair chemicals if your skin or nails are sore.
+  priority_tags: [skin-care, personal-care]
+  claim_ids: [claim-nail-hair-home-steps]
+
+- <<: *nail_hair
+  id: nail-hair-contact-team
+  section: contact_team
+  title: Contact your cancer team if…
+  paragraphs: []
+  bullets:
+    - A nail is painful, loose, red or darker around the edge, swollen, warm, or draining.
+    - Your scalp has a new rash, sores, drainage, or strong pain.
+    - Hair or nail changes are upsetting or make daily care hard.
+  priority_tags: [contact-information, skin-care, hair-change, nail-change, skin-change]
+  claim_ids: [claim-nail-hair-contact-signs]
+
+- <<: *nail_hair
+  id: nail-hair-urgent-attention
+  section: urgent_attention
+  title: Get urgent medical help if…
+  paragraphs: []
+  bullets:
+    - Redness or swelling spreads quickly and you suddenly feel very unwell.
+    - You also have trouble breathing, swelling of your face, lips, tongue, or throat, or fainting. Call 911.
+  source_ids: [ccs-skin-problems, canada-anaphylaxis-signs]
+  claim_ids: [claim-nail-hair-urgent-signs]
+
+- &infusion_allergic
+  <<: *module_base
+  id: infusion-allergic-about
+  section: about
+  title: About infusion and allergic symptoms
+  paragraphs:
+    - A reaction may include flushing, itching, hives, rash, swelling, throat tightness, cough, wheeze, trouble breathing, chest tightness, nausea, diarrhea, dizziness, or fainting.
+    - A reaction can have more than one cause. Ariad cannot tell whether it is an allergy or what is causing it.
+  applicability: { treatment_ids: [systemic-therapy], symptom_ids: [infusion-allergic-symptoms] }
+  source_ids: [eviq-hypersensitivity-reaction, canada-anaphylaxis-signs]
+  claim_ids: [claim-infusion-allergic-description-and-cause-boundary]
+
+- <<: *infusion_allergic
+  id: infusion-allergic-home-management
+  section: home_management
+  title: What to do if symptoms start
+  paragraphs:
+    - If symptoms start during an infusion, tell the nurse immediately. Do not wait for the infusion to end.
+  bullets:
+    - If symptoms start after you leave, stop what you are doing and keep your phone nearby.
+    - Do not drive yourself if you have breathing trouble, throat or face swelling, chest tightness, fainting, or severe dizziness.
+    - Do not take a new allergy medicine unless a health professional tells you to.
+    - Note when symptoms started and when the infusion was given.
+  priority_tags: [emergency-preparation, tracking]
+  claim_ids: [claim-infusion-allergic-immediate-steps]
+
+- <<: *infusion_allergic
+  id: infusion-allergic-contact-team
+  section: contact_team
+  title: Contact your cancer team right away if…
+  paragraphs: []
+  bullets:
+    - You notice new flushing, itching, hives, rash, swelling, cough, wheeze, nausea, vomiting, or diarrhea during or soon after an infusion.
+    - Symptoms improve but then return.
+    - Do not wait for a reply before calling 911 for the emergency signs below.
+  priority_tags: [contact-information, allergy-signs, breathing-change, fall, stomach-change]
+  claim_ids: [claim-infusion-allergic-contact-signs]
+
+- <<: *infusion_allergic
+  id: infusion-allergic-urgent-attention
+  section: urgent_attention
+  title: Call 911 if…
+  paragraphs:
+    - A severe allergic reaction is an emergency. Call 911 now.
+  bullets:
+    - Your face, lips, tongue, or throat swells, or your throat feels tight.
+    - You have trouble breathing, wheeze, chest tightness, or cannot speak normally.
+    - You faint, collapse, become confused, or feel suddenly very dizzy.
+  priority_tags: [allergy-signs, breathing-change, fall]
+  source_ids: [eviq-hypersensitivity-reaction, canada-anaphylaxis-signs]
+  claim_ids: [claim-infusion-allergic-emergency-signs]

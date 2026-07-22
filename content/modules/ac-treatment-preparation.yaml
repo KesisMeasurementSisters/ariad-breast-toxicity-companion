@@ -1,0 +1,73 @@
+- &ac_preparation_base
+  kind: educational_module
+  id: ac-prep-overview
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  audience: patient
+  jurisdiction: Canada
+  section: preparation
+  preparation_order: 10
+  title: Your treatment at a glance
+  paragraphs:
+    - AC includes two cancer medicines called doxorubicin and cyclophosphamide. Both are given through a vein.
+    - Your cancer team will give you your own treatment plan.
+  bullets: []
+  applicability: { treatment_ids: [ac], symptom_ids: [] }
+  priority_tags: []
+  source_ids: [cco-ac-breast-patient-information]
+  claim_ids: [claim-ac-treatment-components, claim-ac-intravenous-route, claim-team-owned-treatment-plan]
+  placeholders: []
+  review_due: null
+
+- <<: *ac_preparation_base
+  id: ac-prep-tests
+  preparation_order: 20
+  title: Ask about tests before you start
+  paragraphs:
+    - Your cancer team may arrange blood tests before treatment. Ask which tests you need.
+  bullets:
+    - Keep any test appointments your team gives you.
+    - Ask your team if you are not sure that a test is complete.
+  source_ids: [cco-ac-breast-patient-information, ccs-having-chemotherapy-preparation]
+  claim_ids: [claim-ac-preparation-tests, claim-team-owned-test-plan]
+
+- <<: *ac_preparation_base
+  id: ac-prep-medicine-list
+  preparation_order: 30
+  title: Make a medicine list
+  paragraphs:
+    - Keep one current list of everything you take.
+  bullets:
+    - List all prescription medicines and medicines you buy without a prescription.
+    - Add vitamins, herbs, and other supplements.
+    - Share the list with your cancer team. Tell them if the list changes.
+  source_ids: [cco-ac-breast-patient-information, bc-cancer-systemic-therapy-preparation]
+  claim_ids: [claim-ac-preparation-medicine-list]
+
+- <<: *ac_preparation_base
+  id: ac-prep-questions
+  preparation_order: 40
+  title: Keep your questions together
+  paragraphs:
+    - Write down your questions before you speak with your team. Keep their answers with your treatment information.
+  bullets:
+    - How will I get AC treatment?
+    - What tests do I need?
+    - Are there medicines or supplements I should discuss?
+    - Who should I call if I have a question?
+  source_ids: [cco-ac-breast-patient-information, ccs-chemotherapy-questions-preparation]
+  claim_ids: [claim-ac-preparation-question-list]
+
+- <<: *ac_preparation_base
+  id: ac-prep-boundary
+  preparation_order: 50
+  title: Know Ariad's limits
+  paragraphs:
+    - Ariad does not know your care plan. Follow the plan from your cancer team.
+    - Ariad cannot find the cause of a symptom or tell how serious it is. If you think this is a medical emergency, call 911 or your local emergency service now.
+  bullets: []
+  source_ids: [cco-ac-breast-patient-information]
+  claim_ids: [claim-ariad-boundary, claim-universal-emergency-boundary]

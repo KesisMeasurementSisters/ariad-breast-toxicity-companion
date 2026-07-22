@@ -6,6 +6,7 @@ import {
   type ClinicConfigV2,
   type CompiledRelease,
   type Drug,
+  type DrugToxicityPresentation,
   type EducationalModule,
   type KnowledgeObject,
   type Question,
@@ -18,6 +19,16 @@ import {
 import rawRelease from "../generated/release.json";
 
 export const activeRelease: CompiledRelease = CompiledReleaseSchema.parse(rawRelease);
+
+export function releaseRequestHeaders(
+  release: Pick<CompiledRelease, "release_id" | "content_hash"> = activeRelease,
+): Record<string, string> {
+  return {
+    "content-type": "application/json",
+    "x-ariad-release-id": release.release_id,
+    "x-ariad-content-hash": release.content_hash,
+  };
+}
 
 const objects = new Map(activeRelease.objects.map((object) => [object.id, object]));
 
@@ -54,6 +65,15 @@ export function symptomById(id: string): Symptom | undefined {
 export function moduleById(id: string): EducationalModule | undefined {
   const object = objects.get(id);
   return object?.kind === "educational_module" ? object : undefined;
+}
+
+export function drugToxicityPresentationForDrug(
+  drugId: string,
+): DrugToxicityPresentation | undefined {
+  return activeRelease.objects.find(
+    (object): object is DrugToxicityPresentation =>
+      object.kind === "drug_toxicity_presentation" && object.drug_id === drugId,
+  );
 }
 
 export function questionById(id: string): Question | undefined {

@@ -67,12 +67,23 @@ A `full_guidance` relationship must define:
 At runtime, `assembleGuidance` resolves the most specific eligible complete
 relationship in exact → regimen component → nearest treatment class → general
 safety order. It labels the basis and reason whenever the result is not exact.
-The active preview contains only the three exact complete relationships, so it
-does not currently substitute broader guidance. The assembler returns authored
-module IDs in a fixed section order. Patient-answer options contribute only
-authored priority tags. Matching tags mark existing modules for emphasis; they
-cannot change module text, add a clinical conclusion, or calculate an urgency
-state.
+The active preview contains three exact complete relationships and 25 clearly
+labelled general symptom fallbacks. A further 53 education-only drug links point
+the three sample symptoms to exact matching rows in available drug
+presentations; those links do not enter guidance assembly. The assembler
+returns authored module IDs in a fixed section order. Patient-answer options
+contribute only authored priority tags. Matching tags mark existing modules for
+emphasis; they cannot change module text, add a clinical conclusion, or
+calculate an urgency state.
+
+Preparation modules use a separate `preparation_order` field. At runtime,
+`resolvePreparation` first looks for modules authored for the exact drug or
+regimen. If none exist, it may use only modules explicitly authored for
+`systemic-therapy`. It does not infer preparation from regimen components or
+treatment classes, and duplicate authored order values fail closed. A pure
+display grouper preserves that ordered module set while placing it under three
+plain-language questions. Modules carrying the Ariad boundary claim remain
+outside the numbered steps as a separate safety note.
 
 ## Source representation
 
@@ -115,33 +126,79 @@ Generated files are compiler outputs and must never be hand-edited.
 
 ## Current preview inventory
 
-Release `build-week-preview-2026-07-18@0.2.0` pins 144 objects:
+Release `build-week-preview-2026-07-18@0.13.0` pins 561 objects:
 
 | Kind | Count |
 |---|---:|
 | Treatment classes | 10 |
-| Drugs | 23 |
-| Regimens | 5 |
+| Drugs | 53 |
+| Regimens | 8 |
 | Symptoms | 28 |
-| Observable features | 19 |
-| Questions | 19 |
-| Educational modules | 22 |
-| Treatment–symptom relationships | 3 |
-| Sources | 14 |
+| Observable features | 47 |
+| Questions | 47 |
+| Educational modules | 155 |
+| Treatment–symptom relationships | 81 |
+| Drug toxicity presentations | 30 |
+| Sources | 101 |
 | Clinic configurations | 1 |
 
 Its content hash is
-`80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
-All 130 governed objects are draft; the 14 source records have independent
-verification states. The active release resolves exactly one structured v2
+`bee4e69e21b0c434f4d444477300501b9d9acea8eafae18028fbeaa510a5e0ad`.
+All 460 governed objects are draft. Of the 101 source records, 99 are marked
+`verified` and two broad catalogue sources are `link_only`. The active release
+resolves exactly one structured v2
 synthetic clinic configuration. Its contact values are explicitly fictional and
 non-actionable, and its fever and supportive-care policy bindings are
 unresolved.
 
-Repository-level review reports 131 governed object versions because it retains
-both the superseded v1 clinic configuration and prospective v2 successor. That
-history does not increase the release inventory: the manifest pins v2 only.
-Neither versioning nor compilation creates clinical approval evidence.
+Repository-level review contains 520 governed draft object versions, including
+the 460 active objects, superseded versions, the retained v1 clinic
+configuration, and 30 private draft toxicity-evidence records. The manifest
+pins the v2 clinic configuration and 30 patient-safe presentations, but not the
+private evidence payloads. Neither versioning nor validation creates clinical
+approval evidence.
+
+## Current single-drug toxicity implementation
+
+The drug catalogue contains 53 canonical drug identities. Fifty-two pin an exact
+current FDA label; carboplatin is retained as a source-verified breast-regimen
+component. A separate source-controlled toxicity evidence store contains 30
+draft records. Twenty-five use FDA labels with a defensible breast-specific
+single-agent frequency population and store exact source event names,
+percentage measures, population, dose, denominator, comparator, and provenance.
+Carboplatin adds a twenty-sixth private record from the FDA's coherent
+single-agent ovarian safety population. Cyclophosphamide, doxorubicin, and
+epirubicin add the twenty-seventh through twenty-ninth records, preserving the
+FDA label's most-common and serious-warning categories without individual-drug
+percentages or claimed monotherapy populations. Pembrolizumab adds a thirtieth
+cross-cancer FDA single-agent label-category record that excludes KEYNOTE-522
+combination rates. None is included in
+the active release.
+
+Thirty separate `drug_toxicity_presentation` objects are included in the
+active release. Each references the exact evidence version and clinical-payload
+hash, maps every source event to a patient row or an explicit omission rationale,
+and stores only patient-safe copy and qualitative or categorical groups. Build
+validation derives numerical groups from the matching all-grade value and keeps
+the cyclophosphamide, doxorubicin, and epirubicin label categories separate.
+Pembrolizumab's categories remain separate from its stored pooled warning rates.
+Laboratory abnormalities are shown as monitoring information, and
+fatal-outcome rows are not converted into patient frequency groups.
+
+The current release contains 28 symptom concepts, all with a complete general
+draft guidance fallback; three also have an exact regimen pathway. Its 81
+treatment-toxicity relationships comprise 28 module-backed guidance paths and
+53 education-only drug links for the three sample symptoms. The drug links
+point to matching rows in an exact toxicity presentation and do not establish
+cause, schedule-specific evidence, or a complete management pathway.
+
+Each presentation includes broad qualitative frequency groups, expandable
+patient rows, a cause boundary, exact FDA-linked source block, and drug-specific
+final escalation summary. No presentation displays numerical frequencies,
+grades, laboratory cut-offs, dose context, or treatment-change rules. All are
+education-only, remain `draft`, and require clinical-owner review before Ariad
+can claim approved single-drug coverage. The [coverage ledger](./fda-single-drug-toxicity-coverage.md)
+records the 30 included drugs and 23 intentional evidence gaps.
 
 ## Query behavior
 

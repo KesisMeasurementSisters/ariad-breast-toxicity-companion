@@ -10,3 +10,4 @@ prototype architecture and do not constitute clinical approval.
 5. [ADR-0005: Single Next.js application in a modular monorepo](./0005-single-nextjs-application.md)
 6. [ADR-0006: Pin the Next.js Webpack path for the preview](./0006-pin-webpack-for-preview.md)
 7. [ADR-0007: Separate clinic operations data from clinical policy](./0007-separate-clinic-data-and-clinical-policy.md)
+8. [ADR-0008: Disable treatment saving in the competition build](./0008-disable-competition-treatment-saving.md)

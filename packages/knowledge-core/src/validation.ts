@@ -4,6 +4,8 @@ import {
   type ContentStatus,
   type ContentReleaseManifest,
   type Drug,
+  type DrugToxicityEvidence,
+  type DrugToxicityPresentation,
   type EducationalModule,
   type KnowledgeObject,
   type ObservableFeature,
@@ -19,6 +21,7 @@ import {
 import { objectKey, type KnowledgeRepository } from "./repository";
 import { scanClinicConfigSafety, scanModuleSafety, type SafetyFinding } from "./safety";
 import { canonicalJson, sha256 } from "./canonical";
+import { patientFrequencyBandFromPercentage } from "./frequency";
 
 export interface ValidationIssue {
   severity: "error" | "warning";
@@ -104,10 +107,23 @@ function dependenciesForObject(object: KnowledgeObject): ObjectDependency[] {
     case "treatment_toxicity_relationship":
       add([object.treatment_kind], [object.treatment_id], "treatment_id");
       add(["symptom"], [object.symptom_id], "symptom_id");
+      if (object.toxicity_presentation_ref) {
+        exact(object.toxicity_presentation_ref, "toxicity_presentation_ref");
+      }
       if (object.modules) {
         add(["educational_module"], Object.values(object.modules).flat(), "modules");
       }
       add(["question"], object.question_ids, "question_ids");
+      sources(object.source_ids);
+      break;
+    case "drug_toxicity_evidence":
+      add(["drug"], [object.drug_id], "drug_id");
+      add(["source"], [object.source_id], "source_id");
+      break;
+    case "drug_toxicity_presentation":
+      add(["drug"], [object.drug_id], "drug_id");
+      // The exact private evidence payload is repository-validated and bound by
+      // evidence_payload_hash. It is deliberately excluded from the browser release.
       sources(object.source_ids);
       break;
     case "clinic_config":
@@ -159,6 +175,20 @@ function collectReferenceIssues(objects: KnowledgeObject[]): ValidationIssue[] {
         const item = object as Drug;
         item.class_ids.forEach((id) => exists(["treatment_class"], id, item.id, "class_ids"));
         source(item.id, item.source_ids);
+        item.regulatory_labels.forEach((label) => {
+          const labelSource = objects.find(
+            (candidate): candidate is Source =>
+              candidate.kind === "source" && candidate.id === label.source_id,
+          );
+          if (labelSource && labelSource.source_type !== "regulatory_label") {
+            issues.push({
+              severity: "error",
+              code: "invalid-regulatory-label-source",
+              objectId: item.id,
+              message: `regulatory_labels references non-regulatory source '${label.source_id}'`,
+            });
+          }
+        });
         break;
       }
       case "regimen": {
@@ -211,6 +241,27 @@ function collectReferenceIssues(objects: KnowledgeObject[]): ValidationIssue[] {
             .forEach((id) => exists(["educational_module"], id, item.id, "modules"));
         }
         item.question_ids.forEach((id) => exists(["question"], id, item.id, "question_ids"));
+        source(item.id, item.source_ids);
+        break;
+      }
+      case "drug_toxicity_evidence": {
+        const item = object as DrugToxicityEvidence;
+        exists(["drug"], item.drug_id, item.id, "drug_id");
+        exists(["source"], item.source_id, item.id, "source_id");
+        break;
+      }
+      case "drug_toxicity_presentation": {
+        const item = object as DrugToxicityPresentation;
+        exists(["drug"], item.drug_id, item.id, "drug_id");
+        const target = objectsByKey.get(refKey(item.evidence_ref));
+        if (!target) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-evidence-missing",
+            objectId: item.id,
+            message: `evidence_ref references missing evidence '${refKey(item.evidence_ref)}'`,
+          });
+        }
         source(item.id, item.source_ids);
         break;
       }
@@ -274,6 +325,7 @@ function collectClassCycleIssues(objects: KnowledgeObject[]): ValidationIssue[] 
 
 function collectRelationshipSemanticIssues(objects: KnowledgeObject[]): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
+  const objectsByKey = new Map(objects.map((object) => [objectKey(object), object]));
   const modules = new Map(
     objects
       .filter((object): object is EducationalModule => object.kind === "educational_module")
@@ -332,7 +384,286 @@ function collectRelationshipSemanticIssues(objects: KnowledgeObject[]): Validati
         });
       }
     }
+
+    if (relationship.toxicity_presentation_ref) {
+      const presentationKey = refKey(relationship.toxicity_presentation_ref);
+      const presentation = objectsByKey.get(presentationKey);
+      if (!presentation || presentation.kind !== "drug_toxicity_presentation") {
+        issues.push({
+          severity: "error",
+          code: "relationship-toxicity-presentation-missing",
+          objectId: relationship.id,
+          message: `Symptom listing references missing drug presentation '${presentationKey}'`,
+        });
+        continue;
+      }
+      if (presentation.drug_id !== relationship.treatment_id) {
+        issues.push({
+          severity: "error",
+          code: "relationship-toxicity-presentation-drug-mismatch",
+          objectId: relationship.id,
+          message: `Presentation '${presentation.id}' is for '${presentation.drug_id}', not '${relationship.treatment_id}'`,
+        });
+      }
+      const effectIds = new Set(presentation.effects.map((effect) => effect.id));
+      for (const effectId of relationship.presentation_effect_ids) {
+        if (!effectIds.has(effectId)) {
+          issues.push({
+            severity: "error",
+            code: "relationship-toxicity-effect-missing",
+            objectId: relationship.id,
+            message: `Presentation '${presentation.id}' does not contain effect '${effectId}'`,
+          });
+        }
+      }
+      const missingSources = presentation.source_ids.filter(
+        (sourceId) => !relationship.source_ids.includes(sourceId),
+      );
+      if (missingSources.length > 0) {
+        issues.push({
+          severity: "error",
+          code: "relationship-toxicity-source-mismatch",
+          objectId: relationship.id,
+          message: `Symptom listing is missing presentation source IDs: ${missingSources.join(", ")}`,
+        });
+      }
+    }
   }
+  return issues;
+}
+
+function patientPresentationText(presentation: DrugToxicityPresentation): string[] {
+  return [
+    presentation.route_label,
+    presentation.subtitle,
+    presentation.frequency_context,
+    presentation.cause_statement,
+    presentation.source_context,
+    ...presentation.effects.flatMap((effect) => [
+      effect.display_name,
+      effect.meaning,
+      ...effect.what_you_may_notice,
+      ...effect.safe_actions,
+      ...effect.contact_team,
+      ...effect.urgent_help,
+      ...effect.reassuring_monitoring,
+    ]),
+    presentation.escalation_summary.heading,
+    presentation.escalation_summary.introduction,
+    ...presentation.escalation_summary.contact_team,
+    ...presentation.escalation_summary.urgent_help,
+  ];
+}
+
+function collectToxicityPresentationIssues(objects: KnowledgeObject[]): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  const objectsByKey = new Map(objects.map((object) => [objectKey(object), object]));
+  const prohibitedPatientPatterns = [
+    { pattern: /\b\d+(?:\.\d+)?\s*%/u, label: "exact percentage" },
+    { pattern: /\bpercent(?:age)?s?\b/iu, label: "percentage terminology" },
+    { pattern: /\bgrade\s*(?:\d+|[ivx]+)\b/iu, label: "toxicity grade" },
+    { pattern: /\b(?:anc|lft|uln)\b/u, label: "clinical abbreviation" },
+    { pattern: /(?:cells\/mm|mg\/m|mg\/m²)/iu, label: "clinical threshold or dose" },
+    {
+      pattern: /\b(?:reduce|adjust|hold|resume|discontinue)\b.{0,24}\b(?:dose|treatment|therapy)\b/iu,
+      label: "treatment-change instruction",
+    },
+  ] as const;
+
+  for (const presentation of objects.filter(
+    (object): object is DrugToxicityPresentation =>
+      object.kind === "drug_toxicity_presentation",
+  )) {
+    const candidate = objectsByKey.get(refKey(presentation.evidence_ref));
+    if (!candidate || candidate.kind !== "drug_toxicity_evidence") continue;
+    const evidence = candidate;
+    const evidenceEvents = new Map(evidence.events.map((event) => [event.id, event]));
+    const accountedEvents = new Set<string>();
+
+    if (presentation.drug_id !== evidence.drug_id) {
+      issues.push({
+        severity: "error",
+        code: "toxicity-presentation-drug-mismatch",
+        objectId: presentation.id,
+        message: `Presentation drug '${presentation.drug_id}' does not match evidence drug '${evidence.drug_id}'`,
+      });
+    }
+    const actualEvidenceHash = clinicalPayloadHash(evidence);
+    if (presentation.evidence_payload_hash !== actualEvidenceHash) {
+      issues.push({
+        severity: "error",
+        code: "toxicity-presentation-evidence-hash-mismatch",
+        objectId: presentation.id,
+        message: `Presentation evidence hash does not match '${refKey(presentation.evidence_ref)}'`,
+      });
+    }
+    if (!presentation.source_ids.includes(evidence.source_id)) {
+      issues.push({
+        severity: "error",
+        code: "toxicity-presentation-source-mismatch",
+        objectId: presentation.id,
+        message: `Presentation must include evidence source '${evidence.source_id}'`,
+      });
+    }
+    if ((presentation.evidence_scope ?? "single_agent") !== (evidence.evidence_scope ?? "single_agent")) {
+      issues.push({
+        severity: "error",
+        code: "toxicity-presentation-evidence-scope-mismatch",
+        objectId: presentation.id,
+        message: `Presentation evidence scope does not match '${refKey(presentation.evidence_ref)}'`,
+      });
+    }
+    if ((evidence.evidence_scope ?? "single_agent") === "drug_label") {
+      if (presentation.frequency_method_id !== null) {
+        issues.push({
+          severity: "error",
+          code: "toxicity-presentation-label-frequency-method",
+          objectId: presentation.id,
+          message: "Drug-label categorical presentations cannot use the percentage-derived frequency method",
+        });
+      }
+      if (presentation.effects.some((effect) => effect.frequency_band !== null)) {
+        issues.push({
+          severity: "error",
+          code: "toxicity-presentation-label-frequency-band",
+          objectId: presentation.id,
+          message: "Drug-label categorical presentations cannot show percentage-derived frequency bands",
+        });
+      }
+    }
+
+    for (const effect of presentation.effects) {
+      for (const eventId of effect.evidence_event_ids) {
+        if (!evidenceEvents.has(eventId)) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-event-missing",
+            objectId: presentation.id,
+            message: `Effect '${effect.id}' references unknown evidence event '${eventId}'`,
+          });
+          continue;
+        }
+        if (accountedEvents.has(eventId)) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-event-duplicated",
+            objectId: presentation.id,
+            message: `Evidence event '${eventId}' is mapped or omitted more than once`,
+          });
+        }
+        accountedEvents.add(eventId);
+      }
+
+      if (effect.frequency_source_event_id !== null && effect.frequency_band !== null) {
+        const frequencyEvent = evidenceEvents.get(effect.frequency_source_event_id);
+        if (
+          !frequencyEvent ||
+          !["adverse_reaction", "adverse_event"].includes(frequencyEvent.frequency_basis) ||
+          frequencyEvent.all_grade_pct === null ||
+          (frequencyEvent.all_grade_pct_qualifier ?? "exact") !== "exact"
+        ) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-frequency-source-invalid",
+            objectId: presentation.id,
+            message: `Effect '${effect.id}' must derive frequency from an exact all-grade adverse-reaction or adverse-event value`,
+          });
+        } else {
+          const expectedBand = patientFrequencyBandFromPercentage(
+            frequencyEvent.all_grade_pct,
+          );
+          if (effect.frequency_band !== expectedBand) {
+            issues.push({
+              severity: "error",
+              code: "toxicity-presentation-frequency-band-invalid",
+              objectId: presentation.id,
+              message: `Effect '${effect.id}' declares '${effect.frequency_band}' but evidence maps to '${expectedBand}'`,
+            });
+          }
+        }
+      }
+
+      if (effect.presentation_group === "common") {
+        const hasCommonSourceEvent = effect.evidence_event_ids.some(
+          (eventId) => evidenceEvents.get(eventId)?.source_frequency_category === "most_common",
+        );
+        if (!hasCommonSourceEvent) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-common-source-invalid",
+            objectId: presentation.id,
+            message: `Effect '${effect.id}' is called common without an FDA most-common source category`,
+          });
+        }
+      }
+      if (effect.presentation_group === "serious") {
+        const hasWarningSourceEvent = effect.evidence_event_ids.some(
+          (eventId) => evidenceEvents.get(eventId)?.frequency_basis === "warning",
+        );
+        if (!hasWarningSourceEvent) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-serious-source-invalid",
+            objectId: presentation.id,
+            message: `Effect '${effect.id}' is called serious without an FDA warning source event`,
+          });
+        }
+      }
+    }
+
+    for (const omission of presentation.omitted_evidence_events) {
+      if (!evidenceEvents.has(omission.evidence_event_id)) {
+        issues.push({
+          severity: "error",
+          code: "toxicity-presentation-omission-missing",
+          objectId: presentation.id,
+          message: `Omission references unknown evidence event '${omission.evidence_event_id}'`,
+        });
+      } else if (accountedEvents.has(omission.evidence_event_id)) {
+        issues.push({
+          severity: "error",
+          code: "toxicity-presentation-event-duplicated",
+          objectId: presentation.id,
+          message: `Evidence event '${omission.evidence_event_id}' is mapped or omitted more than once`,
+        });
+      }
+      accountedEvents.add(omission.evidence_event_id);
+    }
+
+    for (const event of evidence.events) {
+      if (!accountedEvents.has(event.id)) {
+        issues.push({
+          severity: "error",
+          code: "toxicity-presentation-event-unaccounted",
+          objectId: presentation.id,
+          message: `Evidence event '${event.id}' must be mapped or explicitly omitted`,
+        });
+      }
+    }
+
+    if (!/\b(?:cannot determine|cannot tell)\b.*\bcaus(?:e|ed|ing)\b/iu.test(presentation.cause_statement)) {
+      issues.push({
+        severity: "error",
+        code: "toxicity-presentation-cause-boundary-missing",
+        objectId: presentation.id,
+        message: "Patient presentation must state that Ariad cannot determine the cause",
+      });
+    }
+
+    for (const text of patientPresentationText(presentation)) {
+      for (const { pattern, label } of prohibitedPatientPatterns) {
+        if (pattern.test(text)) {
+          issues.push({
+            severity: "error",
+            code: "toxicity-presentation-patient-complexity",
+            objectId: presentation.id,
+            message: `Patient copy contains prohibited ${label}: '${text}'`,
+          });
+        }
+      }
+    }
+  }
+
   return issues;
 }
 
@@ -571,6 +902,7 @@ export function validateRepository(repository: KnowledgeRepository): ValidationR
   issues.push(...collectReferenceIssues(repository.objects));
   issues.push(...collectClassCycleIssues(repository.objects));
   issues.push(...collectRelationshipSemanticIssues(repository.objects));
+  issues.push(...collectToxicityPresentationIssues(repository.objects));
   issues.push(...collectSupersessionIssues(repository.objects));
   issues.push(...collectGovernanceIssues(repository));
 
@@ -609,14 +941,39 @@ export function validateReleaseInclusion(
   const clinicKey = refKey(release.clinic_config);
   const clinicCandidate = objectsByKey.get(clinicKey);
   const clinicConfig = clinicCandidate?.kind === "clinic_config" ? clinicCandidate : undefined;
+  const seenIncludedKeys = new Set<string>();
+  const includedVersionsByIdentity = new Map<string, string>();
 
   release.included_objects.forEach((reference, index) => {
+    const key = refKey(reference);
+    const identity = `${reference.kind}:${reference.id}`;
+    if (seenIncludedKeys.has(key)) {
+      issues.push({
+        severity: "error",
+        code: "duplicate-release-object-reference",
+        objectId: release.release_id,
+        message: `Release includes duplicate object reference '${key}'`,
+      });
+    }
+    seenIncludedKeys.add(key);
+
+    const includedVersion = includedVersionsByIdentity.get(identity);
+    if (includedVersion && includedVersion !== reference.version) {
+      issues.push({
+        severity: "error",
+        code: "multiple-object-versions-in-release",
+        objectId: release.release_id,
+        message: `Release includes both '${identity}@${includedVersion}' and '${key}'`,
+      });
+    }
+    includedVersionsByIdentity.set(identity, reference.version);
+
     if (!included[index]) {
       issues.push({
         severity: "error",
         code: "release-object-missing",
         objectId: release.release_id,
-        message: `Release includes missing object '${refKey(reference)}'`,
+        message: `Release includes missing object '${key}'`,
       });
     }
   });
@@ -701,6 +1058,17 @@ export function validateReleaseInclusion(
           objectId: object.id,
           message: `Published module has unresolved placeholders: ${object.placeholders.join(", ")}`,
         });
+      }
+      if (object.kind === "drug_toxicity_presentation") {
+        const evidence = objectsByKey.get(refKey(object.evidence_ref));
+        if (!evidence || evidence.kind !== "drug_toxicity_evidence" || evidence.status !== "approved") {
+          issues.push({
+            severity: "error",
+            code: "unapproved-private-evidence-for-published-presentation",
+            objectId: object.id,
+            message: "A published toxicity presentation requires its exact private evidence record to be approved",
+          });
+        }
       }
     }
 

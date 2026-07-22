@@ -1,9 +1,9 @@
 # Demo video script — 2:58 target
 
-> **Deferred while LLM use is disabled.** Do not record the live-model version
-> of this script until the owner explicitly re-enables GPT-5.6. Demonstrate the
-> deterministic experience in the meantime without representing it as a model
-> result.
+> **Live-model recording authorized on 2026-07-21.** Record only after the
+> deployed health check reports GPT-5.6 Luna ready and the synthetic neuropathy
+> path visibly identifies an OpenAI result. Never present a fallback as a model
+> response.
 
 This plan stays below the three-minute limit and uses only generic treatment
 names and synthetic answers. Record in a mobile-width browser with audible
@@ -12,13 +12,13 @@ narration. Keep the preview banner and emergency boundary visible.
 ## Preflight
 
 - Deploy or run the exact submission commit and preview release.
-- Confirm `ENABLE_GPT56=true`, a valid server-side key, and `gpt-5.6`.
+- Confirm `ENABLE_GPT56=true`, a valid server-side key, and `gpt-5.6-luna`.
 - Confirm `/api/health` reports the expected release and configured AI state.
   This checks configuration, not provider quota or successful inference.
 - Run the sample neuropathy wording once. The confirmation screen should say
   GPT-5.6 performed the controlled-catalogue match; if it shows a deterministic
   fallback, fix configuration before recording.
-- Reset the demo and clear saved treatments.
+- Reset the demo. Confirm that no saved-treatment controls appear.
 - Close notifications and unrelated tabs; use no real patient information.
 - Record at 1080p or higher with clear audio. Do not add unlicensed music,
   trademarks, logos, or third-party creative assets.
@@ -102,7 +102,7 @@ label and summary, then show copy/print/download.
 > If the model is unavailable or validation fails, Ariad uses a deterministic
 > template. The summary is not stored server-side.
 
-### 2:22–2:38 — Coverage and local-only state
+### 2:22–2:38 — Coverage and competition privacy
 
 **Action:** Return home, briefly show treatment search and the code
 `THREAD-PAC-01`, or select a catalogued-only treatment to show the coverage
@@ -110,8 +110,8 @@ boundary.
 
 **Narration:**
 
-> Treatment codes contain no personal information. Saved treatment IDs stay in
-> versioned browser storage; Ariad has no accounts, database, analytics, or
+> Treatment codes contain no personal information. This competition build does
+> not save treatment choices. Ariad has no accounts, database, analytics, or
 > symptom history.
 
 ### 2:38–2:55 — Architecture and Codex contribution

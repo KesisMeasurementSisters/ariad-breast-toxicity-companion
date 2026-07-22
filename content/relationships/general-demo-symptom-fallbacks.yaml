@@ -1,0 +1,69 @@
+- &general_demo_relationship
+  kind: treatment_toxicity_relationship
+  id: systemic-therapy-peripheral-neuropathy
+  version: 1.0.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: null
+  superseded_by: null
+  treatment_kind: treatment_class
+  treatment_id: systemic-therapy
+  symptom_id: peripheral-neuropathy
+  relationship_type: general_safety
+  support_status: full_guidance
+  frequency_band: null
+  seriousness_flags: []
+  timing: null
+  modules:
+    about: [general-neuropathy-about]
+    treatment_context: [general-demo-symptom-treatment-context]
+    home_management: [general-neuropathy-home-safety]
+    contact_team: [general-neuropathy-contact-team]
+    urgent_attention: [general-neuropathy-urgent-neurological-signs]
+    reporting_checklist: [general-neuropathy-reporting-checklist]
+  question_ids:
+    - q-neuropathy-location
+    - q-neuropathy-onset
+    - q-neuropathy-trend
+    - q-neuropathy-hand-tasks
+    - q-neuropathy-walking-balance
+    - q-neuropathy-weakness
+  source_ids: [bc-cancer-peripheral-neuropathy-handout, canada-stroke-warning-signs]
+
+- <<: *general_demo_relationship
+  id: systemic-therapy-diarrhea
+  symptom_id: diarrhea
+  modules:
+    about: [general-diarrhea-about]
+    treatment_context: [general-demo-symptom-treatment-context]
+    home_management: [general-diarrhea-home-management]
+    contact_team: [general-diarrhea-contact-team]
+    urgent_attention: [general-diarrhea-urgent-attention]
+    reporting_checklist: [general-diarrhea-reporting-checklist]
+  question_ids:
+    - q-diarrhea-onset
+    - q-diarrhea-count
+    - q-diarrhea-drinking
+    - q-diarrhea-vomiting
+    - q-diarrhea-dizziness
+    - q-diarrhea-temperature
+    - q-diarrhea-blood
+  source_ids: [cco-manage-diarrhea, cco-fever-patient-guide]
+
+- <<: *general_demo_relationship
+  id: systemic-therapy-fever-infection-concern
+  symptom_id: fever-infection-concern
+  modules:
+    about: [general-fever-infection-about]
+    treatment_context: [general-demo-symptom-treatment-context]
+    home_management: [general-infection-home-preparation]
+    contact_team: [general-infection-contact-team]
+    urgent_attention: [general-infection-urgent-attention]
+    reporting_checklist: [general-infection-reporting-checklist]
+  question_ids:
+    - q-infection-temperature
+    - q-infection-chills
+    - q-infection-feeling-unwell
+    - q-infection-signs
+    - q-infection-fever-medicine
+  source_ids: [cco-fever-patient-guide, cco-fever-assessment-guideline, eviq-infection-during-cancer-treatment]

@@ -1,0 +1,108 @@
+- kind: source
+  id: bc-cancer-systemic-therapy-preparation
+  version: 1.0.0
+  title: Systemic Therapy (Chemotherapy)
+  organization: BC Cancer
+  canonical_url: https://www.bccancer.bc.ca/patient-and-public-info-site/Pages/Chemotherapy.aspx
+  source_type: patient_information
+  jurisdiction: British Columbia, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Current patient webpage; no revision date shown
+  permitted_excerpt: null
+  notes:
+    - Supports general preparation wording for systemic therapy, including team-owned tests, treatment explanations, and medicine and supplement lists.
+    - Local appointment details and BC-specific contact instructions are not used.
+    - The page was directly checked on the access date.
+  verification_status: verified
+
+- kind: source
+  id: ccs-having-chemotherapy-preparation
+  version: 1.0.0
+  title: Having chemotherapy
+  organization: Canadian Cancer Society
+  canonical_url: https://cancer.ca/en/treatments/treatment-types/chemotherapy/having-chemotherapy
+  source_type: patient_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Last medical review May 2024
+  permitted_excerpt: null
+  notes:
+    - Supports chemotherapy preparation wording about possible pre-treatment tests, discussing medicines and supplements, asking questions, and following instructions from the cancer team.
+    - Treatment-specific procedures, food, transport, medicine, and local-clinic instructions are not used.
+    - The page was directly checked on the access date.
+  verification_status: verified
+
+- kind: source
+  id: ccs-chemotherapy-questions-preparation
+  version: 1.0.0
+  title: Questions to ask about chemotherapy
+  organization: Canadian Cancer Society
+  canonical_url: https://cancer.ca/en/living-with-cancer/coping-with-changes/working-with-your-healthcare-team/questions-to-ask/chemotherapy-questions
+  source_type: patient_information
+  jurisdiction: Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Current patient webpage; no revision date shown
+  permitted_excerpt: null
+  notes:
+    - Supports writing down questions about how treatment is given, possible tests, special preparation, medicine interactions, effects to report, and who to call.
+    - Ariad does not answer questions that depend on a person's treatment plan or local clinic policy.
+    - The page was directly checked on the access date.
+  verification_status: verified
+
+- kind: source
+  id: cco-capecitabine-patient-information
+  version: 1.1.0
+  title: CAPE patient information
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/45016
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Live patient webpage; December 2023 note applies only to the pregnancy section
+  permitted_excerpt: null
+  notes:
+    - Supports the treatment identity, tablet route, possible pre-treatment blood tests, medicine and supplement disclosure, and team-owned instructions.
+    - Dose, timing, food, missed-dose, vomiting, supportive-medicine, fever, and treatment-change instructions are intentionally excluded from preparation modules.
+    - The page was directly checked on the access date.
+  verification_status: verified
+
+- kind: source
+  id: cco-ac-breast-patient-information
+  version: 1.1.0
+  title: AC breast patient information
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/regimens/infosheet/46111
+  source_type: regimen_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Live patient webpage; patient information sheet dated May 2016
+  permitted_excerpt: null
+  notes:
+    - Supports the AC component names, intravenous route, possible pre-treatment blood tests, medicine disclosure, and team-owned instructions.
+    - The source is old and its exact schedule is not used. The active AC schedule remains unresolved.
+    - Hydration, thermometer, medicine, fertility, dose, schedule, and local-clinic instructions are intentionally excluded from preparation modules.
+    - The page was directly checked on the access date.
+  verification_status: verified
+
+- kind: source
+  id: cco-paclitaxel-patient-information
+  version: 1.1.0
+  title: PACLitaxel patient information
+  organization: Ontario Health (Cancer Care Ontario)
+  canonical_url: https://www.cancercareontario.ca/en/drugformulary/drugs/infosheet/44151
+  source_type: patient_information
+  jurisdiction: Ontario, Canada
+  publication_or_revision_date: null
+  accessed_date: 2026-07-21
+  source_version: Revised June 2024; exact revision day not shown
+  permitted_excerpt: null
+  notes:
+    - Supports the paclitaxel intravenous route, possible pre-treatment blood tests, medicine and supplement disclosure, and team-owned instructions.
+    - Schedule, pre-medication, driving, thermometer, dose, and local-clinic instructions are intentionally excluded from preparation modules.
+    - The page was directly checked on the access date.
+  verification_status: verified

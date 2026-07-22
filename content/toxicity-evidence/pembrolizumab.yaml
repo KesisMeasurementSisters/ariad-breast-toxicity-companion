@@ -1,0 +1,364 @@
+kind: drug_toxicity_evidence
+id: pembrolizumab-fda-single-agent-label-safety
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+drug_id: pembrolizumab
+monotherapy: true
+evidence_scope: drug_label
+route: intravenous
+dose_mg_per_m2: null
+dose_description: >-
+  Not tied to one dose; the FDA single-agent safety information spans multiple
+  labelled doses and cancer types
+schedule: Not tied to one treatment schedule
+indication: Multiple FDA-labelled cancers; not a breast-specific safety population
+population: >-
+  People described across the FDA label's pembrolizumab single-agent safety
+  information. The fourteen most-common reaction categories are explicitly
+  labelled for KEYTRUDA as a single agent but are not bound to one
+  breast-cancer population or event-specific denominator. The Warning and
+  Precautions data primarily reflect 2,799 single-agent patients with melanoma
+  or non-small cell lung cancer.
+n_treatment: null
+denominator_status: unavailable
+comparator_description: null
+n_comparator: null
+source_id: fda-label-pembrolizumab
+source_document_version: >-
+  BLA125514; SPL set 9333c79b-d487-4538-a9f0-71b91a02b287;
+  DailyMed label updated 2026-06-24; prescribing information revised 06/2026;
+  uspi-mk3475-iv-2606r097
+source_locator: >-
+  Highlights, Adverse Reactions; Sections 5.1 through 5.5; Section 6.1;
+  TNBC safety in Section 6.1 and Table 59; Section 17; and FDA-approved
+  Medication Guide
+source_url: >-
+  https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9333c79b-d487-4538-a9f0-71b91a02b287
+grading_system: null
+events:
+  - id: fatigue
+    source_event_name: Fatigue
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: musculoskeletal-pain
+    source_event_name: Musculoskeletal pain
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: rash
+    source_event_name: Rash
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: diarrhea
+    source_event_name: Diarrhea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: pyrexia
+    source_event_name: Pyrexia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: cough
+    source_event_name: Cough
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: decreased-appetite
+    source_event_name: Decreased appetite
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: pruritus
+    source_event_name: Pruritus
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: dyspnea
+    source_event_name: Dyspnea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: constipation
+    source_event_name: Constipation
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: pain
+    source_event_name: Pain
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: abdominal-pain
+    source_event_name: Abdominal pain
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: nausea
+    source_event_name: Nausea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: hypothyroidism
+    source_event_name: Hypothyroidism
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA includes this in the single-agent most-common list but does not
+      provide one event-specific rate and denominator for that label-level list.
+
+  - id: immune-mediated-pneumonitis
+    source_event_name: Immune-Mediated Pneumonitis
+    frequency_status: reported
+    frequency_basis: warning
+    all_grade_pct: 3.4
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 reports rates from a 2,799-patient pooled single-agent safety
+      population, but this categorical page does not transform warning rates
+      into patient frequency groups.
+
+  - id: immune-mediated-colitis
+    source_event_name: Immune-Mediated Colitis
+    frequency_status: reported
+    frequency_basis: warning
+    all_grade_pct: 1.7
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 reports rates from a 2,799-patient pooled single-agent safety
+      population, but this categorical page does not transform warning rates
+      into patient frequency groups.
+
+  - id: immune-mediated-hepatitis
+    source_event_name: Immune-Mediated Hepatitis
+    frequency_status: reported
+    frequency_basis: warning
+    all_grade_pct: 0.7
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 reports rates from a 2,799-patient pooled single-agent safety
+      population, but this categorical page does not transform warning rates
+      into patient frequency groups.
+
+  - id: immune-mediated-endocrinopathies
+    source_event_name: Immune-Mediated Endocrinopathies
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 separately reports adrenal, pituitary, thyroid, and type 1
+      diabetes findings; this broader row preserves the label warning category
+      without presenting one aggregate frequency.
+
+  - id: immune-mediated-nephritis
+    source_event_name: Immune-Mediated Nephritis with Renal Dysfunction
+    frequency_status: reported
+    frequency_basis: warning
+    all_grade_pct: 0.3
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 reports rates from a 2,799-patient pooled single-agent safety
+      population, but this categorical page does not transform warning rates
+      into patient frequency groups.
+
+  - id: immune-mediated-dermatologic-reactions
+    source_event_name: Immune-Mediated Dermatologic Adverse Reactions
+    frequency_status: reported
+    frequency_basis: warning
+    all_grade_pct: 1.4
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 reports rates from a 2,799-patient pooled single-agent safety
+      population, but this categorical page does not transform warning rates
+      into patient frequency groups.
+
+  - id: other-immune-mediated-adverse-reactions
+    source_event_name: Other Immune-Mediated Adverse Reactions
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 lists clinically significant reactions affecting other organ
+      systems without one aggregate event rate.
+
+  - id: solid-organ-or-tissue-transplant-rejection
+    source_event_name: Solid organ transplant rejection and other transplant rejection
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 and the Medication Guide describe transplant rejection
+      without one event rate.
+
+  - id: infusion-related-reactions
+    source_event_name: Infusion-Related Reactions
+    frequency_status: reported
+    frequency_basis: warning
+    all_grade_pct: 0.2
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.2 reports this from the pooled 2,799-patient single-agent
+      population, but it remains a warning rather than a patient frequency group.
+
+  - id: allogeneic-hsct-complications
+    source_event_name: Complications of Allogeneic HSCT
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.3 describes serious and fatal complications without one event rate.
+
+  - id: embryo-fetal-toxicity
+    source_event_name: Embryo-Fetal Toxicity
+    frequency_status: not_applicable
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.5 describes fetal harm; an adverse-event frequency is not applicable.
+notes:
+  - The fourteen most-common reactions are explicitly labelled for KEYTRUDA as a single agent, but they are not a breast-specific frequency table.
+  - KEYNOTE-522 rates combine neoadjuvant pembrolizumab plus chemotherapy with adjuvant pembrolizumab and are not attributed to pembrolizumab alone.
+  - The pooled 2,799-patient warning rates are retained as source context and are not transformed into patient frequency bands in this record.
+  - Warning status is stored separately from frequency; serious does not mean common.
+  - This record maps the FDA single-agent common list and principal patient-relevant warnings; it is not an exhaustive transcription of the label.

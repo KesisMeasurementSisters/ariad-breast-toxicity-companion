@@ -1,256 +1,1075 @@
 - &drug_base
   kind: drug
-  id: paclitaxel
-  version: 1.0.1
+  id: abemaciclib
+  version: 2.0.0
   status: draft
   review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
   supersedes: null
   superseded_by: null
-  generic_name: paclitaxel
-  brand_names: [Taxol]
-  aliases: [paclitaxel weekly, weekly Taxol]
-  class_ids: [taxane, cytotoxic-chemotherapy]
-  routes: [intravenous]
-  source_ids: [cco-paclitaxel-patient-information, cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: capecitabine
-  version: 1.0.1
-  generic_name: capecitabine
-  brand_names: [Xeloda]
-  aliases: [CAPE]
-  class_ids: [cytotoxic-chemotherapy]
-  routes: [oral]
-  source_ids: [cco-capecitabine-patient-information, health-canada-capecitabine-product-record]
-
-- <<: *drug_base
-  id: doxorubicin
-  version: 1.0.0
-  generic_name: doxorubicin
-  brand_names: [Adriamycin]
-  aliases: [doxorubicin hydrochloride]
-  class_ids: [cytotoxic-chemotherapy]
-  routes: [intravenous]
-  source_ids: [cco-ac-breast-patient-information, cco-systemic-treatment-information]
-  support_status: education_only
-
-- <<: *drug_base
-  id: cyclophosphamide
-  version: 1.0.0
-  generic_name: cyclophosphamide
-  brand_names: [Procytox, Cytoxan]
-  aliases: []
-  class_ids: [cytotoxic-chemotherapy]
-  routes: [intravenous, oral]
-  source_ids: [cco-ac-breast-patient-information, cco-systemic-treatment-information]
-  support_status: education_only
-
-- <<: *drug_base
-  id: docetaxel
-  version: 1.0.0
-  generic_name: docetaxel
-  brand_names: [Taxotere]
-  aliases: []
-  class_ids: [taxane, cytotoxic-chemotherapy]
-  routes: [intravenous]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: carboplatin
-  version: 1.0.0
-  generic_name: carboplatin
-  brand_names: []
-  aliases: []
-  class_ids: [cytotoxic-chemotherapy]
-  routes: [intravenous]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: trastuzumab
-  version: 1.0.0
-  generic_name: trastuzumab
-  brand_names: [Herceptin]
-  aliases: []
-  class_ids: [her2-directed-therapy]
-  routes: [intravenous, subcutaneous]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: pertuzumab
-  version: 1.0.0
-  generic_name: pertuzumab
-  brand_names: [Perjeta]
-  aliases: []
-  class_ids: [her2-directed-therapy]
-  routes: [intravenous]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: tamoxifen
-  version: 1.0.0
-  generic_name: tamoxifen
-  brand_names: [Nolvadex]
-  aliases: []
-  class_ids: [endocrine-therapy]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: letrozole
-  version: 1.0.0
-  generic_name: letrozole
-  brand_names: [Femara]
-  aliases: []
-  class_ids: [endocrine-therapy]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: anastrozole
-  version: 1.0.0
-  generic_name: anastrozole
-  brand_names: [Arimidex]
-  aliases: []
-  class_ids: [endocrine-therapy]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: exemestane
-  version: 1.0.0
-  generic_name: exemestane
-  brand_names: [Aromasin]
-  aliases: []
-  class_ids: [endocrine-therapy]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: abemaciclib
-  version: 1.0.0
   generic_name: abemaciclib
   brand_names: [Verzenio]
   aliases: []
   class_ids: [cdk46-inhibitor]
   routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
+  source_ids: [fda-label-abemaciclib]
+  support_status: education_only
+  catalogue_basis: fda_breast_cancer_treatment
+  searchable: true
+  regulatory_labels:
+    - &fda_label_base
+      authority: U.S. Food and Drug Administration
+      application_number: NDA208716
+      spl_set_id: be4bc0de-0fdc-4d46-8d25-be43c79e6a06
+      label_effective_date: 2025-08-25
+      marketing_status: Prescription
+      product_names: [VERZENIO]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      indication_section: indications_and_usage
+      safety_sections: &common_safety
+        [contraindications, warnings_and_cautions, adverse_reactions, information_for_patients]
+      evidence_mapping_status: event_mapped
+      source_id: fda-label-abemaciclib
+      verified_at: 2026-07-20
 
 - <<: *drug_base
-  id: ribociclib
-  version: 1.0.0
-  generic_name: ribociclib
-  brand_names: [Kisqali]
-  aliases: []
-  class_ids: [cdk46-inhibitor]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: palbociclib
-  version: 1.0.0
-  generic_name: palbociclib
-  brand_names: [Ibrance]
-  aliases: []
-  class_ids: [cdk46-inhibitor]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: olaparib
-  version: 1.0.0
-  generic_name: olaparib
-  brand_names: [Lynparza]
-  aliases: []
-  class_ids: [parp-inhibitor]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: talazoparib
-  version: 1.0.0
-  generic_name: talazoparib
-  brand_names: [Talzenna]
-  aliases: []
-  class_ids: [parp-inhibitor]
-  routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: pembrolizumab
-  version: 1.0.0
-  generic_name: pembrolizumab
-  brand_names: [Keytruda]
-  aliases: []
-  class_ids: [immune-checkpoint-inhibitor]
-  routes: [intravenous]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: trastuzumab-deruxtecan
-  version: 1.0.0
-  generic_name: trastuzumab deruxtecan
-  brand_names: [Enhertu]
-  aliases: [T-DXd, TDXd]
+  id: ado-trastuzumab-emtansine
+  generic_name: ado-trastuzumab emtansine
+  brand_names: [Kadcyla]
+  aliases: [trastuzumab emtansine, T-DM1, TDM1]
   class_ids: [antibody-drug-conjugate, her2-directed-therapy]
   routes: [intravenous]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
-
-- <<: *drug_base
-  id: sacituzumab-govitecan
-  version: 1.0.0
-  generic_name: sacituzumab govitecan
-  brand_names: [Trodelvy]
-  aliases: []
-  class_ids: [antibody-drug-conjugate]
-  routes: [intravenous]
-  source_ids: [cco-systemic-treatment-information]
-  support_status: catalogued
+  source_ids: [fda-label-ado-trastuzumab-emtansine]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA125427
+      spl_set_id: 23f3c1f4-0fc8-4804-a9e3-04cf25dd302e
+      label_effective_date: 2026-04-01
+      product_names: [KADCYLA]
+      dosage_forms: [VIAL]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: &boxed_safety
+        [boxed_warning, contraindications, warnings_and_cautions, adverse_reactions, information_for_patients]
+      source_id: fda-label-ado-trastuzumab-emtansine
 
 - <<: *drug_base
   id: alpelisib
-  version: 1.0.0
   generic_name: alpelisib
   brand_names: [Piqray]
   aliases: []
   class_ids: [pi3k-akt-mtor-pathway-therapy]
   routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
+  source_ids: [fda-label-alpelisib]
   support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA212526
+      spl_set_id: b20b4e18-7a4b-4500-a08f-06c6dab0ee5b
+      label_effective_date: 2025-12-15
+      product_names: [PIQRAY]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-alpelisib
+
+- <<: *drug_base
+  id: anastrozole
+  generic_name: anastrozole
+  brand_names: [Arimidex]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-anastrozole]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA020541
+      spl_set_id: acbfaaa9-503c-4691-9828-76a7146ed6de
+      label_effective_date: 2026-03-02
+      product_names: [ARIMIDEX]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-anastrozole
+
+- <<: *drug_base
+  id: capecitabine
+  generic_name: capecitabine
+  brand_names: [Xeloda]
+  aliases: [CAPE]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [oral]
+  source_ids: [fda-label-capecitabine]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA207652
+      spl_set_id: 06a88b03-6c06-4dae-b3bc-1e8dd81c9067
+      label_effective_date: 2026-06-17
+      product_names: [CAPECITABINE]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *boxed_safety
+      source_id: fda-label-capecitabine
 
 - <<: *drug_base
   id: capivasertib
-  version: 1.0.0
   generic_name: capivasertib
   brand_names: [Truqap]
   aliases: []
   class_ids: [pi3k-akt-mtor-pathway-therapy]
   routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
+  source_ids: [fda-label-capivasertib]
   support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA218197
+      spl_set_id: d698c106-2322-401e-b738-cbd83c843ecf
+      label_effective_date: 2026-06-12
+      product_names: [TRUQAP]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-capivasertib
+
+- <<: *drug_base
+  id: carboplatin
+  generic_name: carboplatin
+  brand_names: []
+  aliases: []
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [cco-tch-breast-regimen, cco-tchp-breast-regimen, fda-label-carboplatin]
+  support_status: education_only
+  catalogue_basis: breast_regimen_component
+  regulatory_labels: []
+
+- <<: *drug_base
+  id: conjugated-estrogens
+  generic_name: conjugated estrogens
+  brand_names: [Premarin]
+  aliases: [conjugated oestrogens]
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-conjugated-estrogens]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA004782
+      spl_set_id: 258e1602-a3cf-4ccc-ca80-73dbbfb812ff
+      label_effective_date: 2026-06-04
+      product_names: [PREMARIN]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-conjugated-estrogens
+
+- <<: *drug_base
+  id: cyclophosphamide
+  generic_name: cyclophosphamide
+  brand_names: [Procytox, Cytoxan]
+  aliases: []
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous, oral]
+  source_ids: [fda-label-cyclophosphamide]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA212501
+      spl_set_id: 0afd2cc7-09e6-481a-afea-9d2e3742da46
+      label_effective_date: 2025-08-07
+      product_names: [CYCLOPHOSPHAMIDE]
+      dosage_forms: [SOLUTION]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *common_safety
+      evidence_mapping_status: event_mapped
+      source_id: fda-label-cyclophosphamide
+
+- <<: *drug_base
+  id: datopotamab-deruxtecan
+  generic_name: datopotamab deruxtecan-dlnk
+  brand_names: [Datroway]
+  aliases: [datopotamab deruxtecan, Dato-DXd, DatoDXd]
+  class_ids: [antibody-drug-conjugate]
+  routes: [intravenous]
+  source_ids: [fda-label-datopotamab-deruxtecan]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA761394
+      spl_set_id: 2950227c-6230-4ca4-a135-46e44d9424a0
+      label_effective_date: 2026-05-27
+      product_names: [DATROWAY]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *common_safety
+      source_id: fda-label-datopotamab-deruxtecan
+
+- <<: *drug_base
+  id: docetaxel
+  generic_name: docetaxel
+  brand_names: [Taxotere]
+  aliases: []
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-docetaxel]
+  support_status: education_only
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA022234
+      spl_set_id: 6b9999bb-869e-4d25-838c-23c3ab280044
+      label_effective_date: 2025-01-31
+      product_names: [DOCETAXEL]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: event_mapped
+      source_id: fda-label-docetaxel
+
+- <<: *drug_base
+  id: doxorubicin
+  generic_name: doxorubicin
+  brand_names: [Adriamycin]
+  aliases: [doxorubicin hydrochloride]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-doxorubicin]
+  support_status: education_only
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA050629
+      spl_set_id: 1fd148fb-0fbc-4b6f-b790-23546fb46a71
+      label_effective_date: 2026-05-05
+      product_names: [DOXORUBICIN HYDROCHLORIDE]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: event_mapped
+      source_id: fda-label-doxorubicin
+
+- <<: *drug_base
+  id: elacestrant
+  generic_name: elacestrant
+  brand_names: [Orserdu]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-elacestrant]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA217639
+      spl_set_id: aa66ae5c-2bd2-4444-8178-b55651e054ef
+      label_effective_date: 2026-06-24
+      product_names: [ORSERDU]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-elacestrant
+
+- <<: *drug_base
+  id: epirubicin
+  generic_name: epirubicin
+  brand_names: [Ellence]
+  aliases: [epirubicin hydrochloride]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-epirubicin]
+  support_status: education_only
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA050778
+      spl_set_id: 0a03c798-a652-4895-b29c-3b521a89ba42
+      label_effective_date: 2026-05-13
+      product_names: [ELLENCE]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: event_mapped
+      source_id: fda-label-epirubicin
+
+- <<: *drug_base
+  id: eribulin
+  generic_name: eribulin
+  brand_names: [Halaven]
+  aliases: [eribulin mesylate]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-eribulin]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA201532
+      spl_set_id: 31ce4750-ded5-4a0b-95e9-f229fa6bc822
+      label_effective_date: 2025-11-07
+      product_names: [HALAVEN]
+      dosage_forms: [SOLUTION]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *common_safety
+      source_id: fda-label-eribulin
+
+- <<: *drug_base
+  id: estradiol
+  generic_name: estradiol
+  brand_names: [Estrace]
+  aliases: [oestradiol]
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-estradiol]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA040275
+      spl_set_id: 5c9a2e0f-704b-4d16-8ea3-d94f7f36ce6b
+      label_effective_date: 2026-07-01
+      product_names: [ESTRADIOL]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: &legacy_boxed_safety
+        [boxed_warning, contraindications, warnings, precautions, adverse_reactions, information_for_patients]
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-estradiol
 
 - <<: *drug_base
   id: everolimus
-  version: 1.0.0
   generic_name: everolimus
   brand_names: [Afinitor]
   aliases: []
   class_ids: [pi3k-akt-mtor-pathway-therapy]
   routes: [oral]
-  source_ids: [cco-systemic-treatment-information]
+  source_ids: [fda-label-everolimus]
   support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA022334
+      spl_set_id: 2150f73a-179b-4afc-b8ce-67c85cc72f04
+      label_effective_date: 2026-06-01
+      product_names: [AFINITOR]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-everolimus
+
+- <<: *drug_base
+  id: exemestane
+  generic_name: exemestane
+  brand_names: [Aromasin]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-exemestane]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA020753
+      spl_set_id: cf066b7a-032a-416c-8d40-15ba581423e3
+      label_effective_date: 2025-12-24
+      product_names: [AROMASIN]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-exemestane
+
+- <<: *drug_base
+  id: fluorouracil
+  generic_name: fluorouracil
+  brand_names: [Adrucil]
+  aliases: [5-FU, 5FU]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-fluorouracil]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA040278
+      spl_set_id: b4328ae3-f48f-40b1-9719-1c1aced7c734
+      label_effective_date: 2026-06-10
+      product_names: [FLUOROURACIL]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-fluorouracil
+
+- <<: *drug_base
+  id: fulvestrant
+  generic_name: fulvestrant
+  brand_names: [Faslodex, Cligavyx]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [intramuscular]
+  source_ids: [fda-label-fulvestrant]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA210063
+      spl_set_id: e20d8ca3-8837-4003-8b01-1ebec342062a
+      label_effective_date: 2026-06-24
+      product_names: [CLIGAVYX]
+      dosage_forms: [SOLUTION]
+      fda_routes: [INTRAMUSCULAR]
+      safety_sections: *common_safety
+      source_id: fda-label-fulvestrant
+
+- <<: *drug_base
+  id: gemcitabine
+  generic_name: gemcitabine
+  brand_names: [Gemzar]
+  aliases: [gemcitabine hydrochloride]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-gemcitabine]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA200795
+      spl_set_id: e18ed1cb-7dd0-4001-bfda-17d1f4587fb8
+      label_effective_date: 2026-04-27
+      product_names: [GEMCITABINE HYDROCHLORIDE]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-gemcitabine
+
+- <<: *drug_base
+  id: goserelin
+  generic_name: goserelin
+  brand_names: [Zoladex]
+  aliases: [goserelin acetate]
+  class_ids: [endocrine-therapy]
+  routes: [subcutaneous]
+  source_ids: [fda-label-goserelin]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA019726
+      spl_set_id: 294b168b-6e5f-4db9-bf70-d599271458b3
+      label_effective_date: 2026-03-24
+      product_names: [ZOLADEX]
+      dosage_forms: [IMPLANT]
+      fda_routes: [SUBCUTANEOUS]
+      safety_sections: *common_safety
+      source_id: fda-label-goserelin
+
+- <<: *drug_base
+  id: imlunestrant
+  generic_name: imlunestrant
+  brand_names: [Inluriyo]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-imlunestrant]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA218881
+      spl_set_id: 5bc172e4-e8a2-441a-be52-279a7f890196
+      label_effective_date: 2026-06-04
+      product_names: [INLURIYO]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-imlunestrant
+
+- <<: *drug_base
+  id: inavolisib
+  generic_name: inavolisib
+  brand_names: [Itovebi]
+  aliases: []
+  class_ids: [pi3k-akt-mtor-pathway-therapy]
+  routes: [oral]
+  source_ids: [fda-label-inavolisib]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA219249
+      spl_set_id: 5de59f5b-e5db-410f-b692-658686ef4107
+      label_effective_date: 2026-04-21
+      product_names: [ITOVEBI]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-inavolisib
+
+- <<: *drug_base
+  id: ixabepilone
+  generic_name: ixabepilone
+  brand_names: [Ixempra]
+  aliases: []
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-ixabepilone]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA022065
+      spl_set_id: 241f0b1e-8b95-470d-876f-bf1804daaf18
+      label_effective_date: 2025-12-04
+      product_names: [IXEMPRA KIT]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      source_id: fda-label-ixabepilone
+
+- <<: *drug_base
+  id: lapatinib
+  generic_name: lapatinib
+  brand_names: [Tykerb]
+  aliases: [lapatinib ditosylate]
+  class_ids: [her2-directed-therapy]
+  routes: [oral]
+  source_ids: [fda-label-lapatinib]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA022059
+      spl_set_id: eee37f88-ec6a-4c30-b8aa-e2c71f93088c
+      label_effective_date: 2026-01-27
+      product_names: [TYKERB]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-lapatinib
+
+- <<: *drug_base
+  id: letrozole
+  generic_name: letrozole
+  brand_names: [Femara]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-letrozole]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA020726
+      spl_set_id: 82b77d74-085f-45ac-a7dd-1f5c038bf406
+      label_effective_date: 2026-06-11
+      product_names: [FEMARA]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-letrozole
+
+- <<: *drug_base
+  id: margetuximab
+  generic_name: margetuximab-cmkb
+  brand_names: [Margenza]
+  aliases: [margetuximab]
+  class_ids: [her2-directed-therapy]
+  routes: [intravenous]
+  source_ids: [fda-label-margetuximab]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA761150
+      spl_set_id: 6a6d50c7-06ea-479c-83cc-f197a9e428c9
+      label_effective_date: 2025-02-11
+      product_names: [MARGENZA]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-margetuximab
+
+- <<: *drug_base
+  id: megestrol-acetate
+  generic_name: megestrol acetate
+  brand_names: [Megace]
+  aliases: [megestrol]
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-megestrol-acetate]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA072423
+      spl_set_id: 2c755c6b-32e9-4029-8b70-855007f7375b
+      label_effective_date: 2025-09-15
+      product_names: [MEGESTROL ACETATE]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: &legacy_safety
+        [contraindications, warnings, precautions, adverse_reactions, information_for_patients]
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-megestrol-acetate
+
+- <<: *drug_base
+  id: methotrexate
+  generic_name: methotrexate
+  brand_names: [Trexall]
+  aliases: [MTX, methotrexate sodium]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous, intramuscular]
+  source_ids: [fda-label-methotrexate]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA011719
+      spl_set_id: 0e30eaef-5a09-4104-8a11-c32933eadeab
+      label_effective_date: 2025-08-22
+      product_names: [METHOTREXATE SODIUM, METHOTREXATE SODIUM PRESERVATIVE FREE]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAMUSCULAR, INTRAVENOUS, SUBCUTANEOUS, INTRATHECAL]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-methotrexate
+
+- <<: *drug_base
+  id: methyltestosterone
+  generic_name: methyltestosterone
+  brand_names: [Android]
+  aliases: [methyl testosterone]
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-methyltestosterone]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA204851
+      spl_set_id: 9bed4886-fcd0-4056-be8d-5bb4d15081ce
+      label_effective_date: 2025-05-31
+      product_names: [METHYLTESTOSTERONE]
+      dosage_forms: [CAPSULE]
+      fda_routes: [ORAL]
+      safety_sections: *legacy_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-methyltestosterone
+
+- <<: *drug_base
+  id: neratinib
+  generic_name: neratinib
+  brand_names: [Nerlynx]
+  aliases: []
+  class_ids: [her2-directed-therapy]
+  routes: [oral]
+  source_ids: [fda-label-neratinib]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA208051
+      spl_set_id: d1e41dcf-e82a-47c2-a0ad-6c6eef621834
+      label_effective_date: 2026-07-02
+      product_names: [NERLYNX]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-neratinib
+
+- <<: *drug_base
+  id: olaparib
+  generic_name: olaparib
+  brand_names: [Lynparza]
+  aliases: []
+  class_ids: [parp-inhibitor]
+  routes: [oral]
+  source_ids: [fda-label-olaparib]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA208558
+      spl_set_id: 741ff3e3-dc1a-45a6-84e5-2481b27131aa
+      label_effective_date: 2025-07-10
+      product_names: [LYNPARZA]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-olaparib
+
+- <<: *drug_base
+  id: paclitaxel
+  generic_name: paclitaxel
+  brand_names: [Taxol]
+  aliases: [paclitaxel conventional]
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-paclitaxel]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA076131
+      spl_set_id: ea28753a-8631-460a-bfdc-b101eb8ac84a
+      label_effective_date: 2026-07-03
+      product_names: [PACLITAXEL]
+      dosage_forms: [SOLUTION]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      source_id: fda-label-paclitaxel
+
+- <<: *drug_base
+  id: paclitaxel-protein-bound
+  generic_name: paclitaxel protein-bound
+  brand_names: [Abraxane]
+  aliases:
+    [nab-paclitaxel, albumin-bound paclitaxel, paclitaxel protein-bound particles for injectable suspension]
+  class_ids: [taxane, cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-paclitaxel-protein-bound]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA021660
+      spl_set_id: 24d10449-2936-4cd3-b7db-a7683db721e4
+      label_effective_date: 2022-10-31
+      product_names: [ABRAXANE]
+      dosage_forms: [POWDER]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      source_id: fda-label-paclitaxel-protein-bound
+
+- <<: *drug_base
+  id: palbociclib
+  generic_name: palbociclib
+  brand_names: [Ibrance]
+  aliases: []
+  class_ids: [cdk46-inhibitor]
+  routes: [oral]
+  source_ids: [fda-label-palbociclib]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA212436
+      spl_set_id: 89a142d5-7e61-48bf-9e77-e2cd124c4792
+      label_effective_date: 2026-07-06
+      product_names: [IBRANCE]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-palbociclib
+
+- <<: *drug_base
+  id: pembrolizumab
+  generic_name: pembrolizumab
+  brand_names: [Keytruda]
+  aliases: []
+  class_ids: [immune-checkpoint-inhibitor]
+  routes: [intravenous]
+  source_ids: [fda-label-pembrolizumab]
+  support_status: education_only
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA125514
+      spl_set_id: 9333c79b-d487-4538-a9f0-71b91a02b287
+      label_effective_date: 2026-06-24
+      product_names: [KEYTRUDA]
+      dosage_forms: [SOLUTION]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *common_safety
+      evidence_mapping_status: event_mapped
+      source_id: fda-label-pembrolizumab
+
+- <<: *drug_base
+  id: pembrolizumab-berahyaluronidase
+  generic_name: pembrolizumab and berahyaluronidase alfa-pmph
+  brand_names: [Keytruda Qlex]
+  aliases: [subcutaneous pembrolizumab, pembrolizumab berahyaluronidase]
+  class_ids: [immune-checkpoint-inhibitor]
+  routes: [subcutaneous]
+  source_ids: [fda-label-pembrolizumab-berahyaluronidase]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA761467
+      spl_set_id: 097d166f-b73b-41d3-9b37-7653cd2a0c41
+      label_effective_date: 2026-06-24
+      product_names: [KEYTRUDA QLEX]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [SUBCUTANEOUS]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-pembrolizumab-berahyaluronidase
+
+- <<: *drug_base
+  id: pertuzumab
+  generic_name: pertuzumab
+  brand_names: [Perjeta]
+  aliases: []
+  class_ids: [her2-directed-therapy]
+  routes: [intravenous]
+  source_ids: [fda-label-pertuzumab]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA125409
+      spl_set_id: 17f85d17-ab71-4f5b-9fe3-0b8c822f69ff
+      label_effective_date: 2026-04-30
+      product_names: [PERJETA]
+      dosage_forms: [VIAL]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-pertuzumab
+
+- <<: *drug_base
+  id: pertuzumab-trastuzumab-hyaluronidase
+  generic_name: pertuzumab, trastuzumab, and hyaluronidase-zzxf
+  brand_names: [Phesgo]
+  aliases: [pertuzumab trastuzumab hyaluronidase]
+  class_ids: [her2-directed-therapy]
+  routes: [subcutaneous]
+  source_ids: [fda-label-pertuzumab-trastuzumab-hyaluronidase]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA761170
+      spl_set_id: 27dd5e6b-72cd-458d-a015-cf4dab5800da
+      label_effective_date: 2026-05-21
+      product_names: [PHESGO]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [SUBCUTANEOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-pertuzumab-trastuzumab-hyaluronidase
+
+- <<: *drug_base
+  id: ribociclib
+  generic_name: ribociclib
+  brand_names: [Kisqali]
+  aliases: []
+  class_ids: [cdk46-inhibitor]
+  routes: [oral]
+  source_ids: [fda-label-ribociclib]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA209092
+      spl_set_id: aaeaef94-f3f5-4367-8ea2-b181d7be2da8
+      label_effective_date: 2026-07-01
+      product_names: [KISQALI]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-ribociclib
+
+- <<: *drug_base
+  id: sacituzumab-govitecan
+  generic_name: sacituzumab govitecan-hziy
+  brand_names: [Trodelvy]
+  aliases: [sacituzumab govitecan]
+  class_ids: [antibody-drug-conjugate]
+  routes: [intravenous]
+  source_ids: [fda-label-sacituzumab-govitecan]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA761115
+      spl_set_id: 57a597d2-03f0-472e-b148-016d7169169d
+      label_effective_date: 2026-06-24
+      product_names: [TRODELVY]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      source_id: fda-label-sacituzumab-govitecan
+
+- <<: *drug_base
+  id: talazoparib
+  generic_name: talazoparib
+  brand_names: [Talzenna]
+  aliases: []
+  class_ids: [parp-inhibitor]
+  routes: [oral]
+  source_ids: [fda-label-talazoparib]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA217439
+      spl_set_id: c6fd147f-a77e-4a0b-9280-e82ecc41b4be
+      label_effective_date: 2026-04-10
+      product_names: [TALZENNA]
+      dosage_forms: [CAPSULE]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      source_id: fda-label-talazoparib
+
+- <<: *drug_base
+  id: tamoxifen
+  generic_name: tamoxifen
+  brand_names: [Soltamox, Nolvadex]
+  aliases: [tamoxifen citrate]
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-tamoxifen]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA021807
+      spl_set_id: 1e6ff055-590c-41e6-9530-1fdf04cdbd02
+      label_effective_date: 2021-11-29
+      product_names: [SOLTAMOX]
+      dosage_forms: [SOLUTION]
+      fda_routes: [ORAL]
+      safety_sections: *boxed_safety
+      source_id: fda-label-tamoxifen
+
+- <<: *drug_base
+  id: testosterone-enanthate
+  generic_name: testosterone enanthate
+  brand_names: [Delatestryl]
+  aliases: [testosterone]
+  class_ids: [endocrine-therapy]
+  routes: [intramuscular]
+  source_ids: [fda-label-testosterone-enanthate]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA212659
+      spl_set_id: 82a98132-9d5f-40a5-8c4f-f52f2a5de60e
+      label_effective_date: 2026-06-12
+      product_names: [TESTOSTERONE ENANTHATE]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAMUSCULAR]
+      safety_sections: *legacy_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-testosterone-enanthate
+
+- <<: *drug_base
+  id: thiotepa
+  generic_name: thiotepa
+  brand_names: [Tepadina, Tepylute]
+  aliases: []
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-thiotepa]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA208264
+      spl_set_id: 559e353c-2dc0-16ba-e054-00144ff8d46c
+      label_effective_date: 2026-01-30
+      product_names: [TEPADINA, TEPADINA AND SODIUM CHLORIDE]
+      dosage_forms: [POWDER]
+      fda_routes: [INTRACAVITARY, INTRAVENOUS, INTRAVESICAL]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-thiotepa
+
+- <<: *drug_base
+  id: toremifene
+  generic_name: toremifene
+  brand_names: [Fareston]
+  aliases: [toremifene citrate]
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-toremifene]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA212818
+      spl_set_id: e897546b-4136-4cb5-a262-d94cf3fa3298
+      label_effective_date: 2025-09-19
+      product_names: [TOREMIFENE CITRATE]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *boxed_safety
+      source_id: fda-label-toremifene
+
+- <<: *drug_base
+  id: trastuzumab
+  generic_name: trastuzumab
+  brand_names: [Herceptin, Kanjinti, Ogivri, Herzuma, Ontruzant, Trazimera, Hercessi]
+  aliases:
+    [trastuzumab-anns, trastuzumab-dkst, trastuzumab-pkrb, trastuzumab-dttb, trastuzumab-qyyp, trastuzumab-strf]
+  class_ids: [her2-directed-therapy]
+  routes: [intravenous]
+  source_ids: [fda-label-trastuzumab]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA103792
+      spl_set_id: 492dbdb2-077e-4064-bff3-372d6af0a7a2
+      label_effective_date: 2026-05-29
+      product_names: [HERCEPTIN]
+      dosage_forms: [VIAL]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      source_id: fda-label-trastuzumab
+
+- <<: *drug_base
+  id: trastuzumab-deruxtecan
+  generic_name: trastuzumab deruxtecan
+  brand_names: [Enhertu]
+  aliases: [trastuzumab deruxtecan-nxki, T-DXd, TDXd]
+  class_ids: [antibody-drug-conjugate, her2-directed-therapy]
+  routes: [intravenous]
+  source_ids: [fda-label-trastuzumab-deruxtecan]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA761139
+      spl_set_id: 7e67e73e-ddf4-4e4d-8b50-09d7514910b6
+      label_effective_date: 2026-05-15
+      product_names: [ENHERTU]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *boxed_safety
+      source_id: fda-label-trastuzumab-deruxtecan
+
+- <<: *drug_base
+  id: trastuzumab-hyaluronidase
+  generic_name: trastuzumab and hyaluronidase-oysk
+  brand_names: [Herceptin Hylecta]
+  aliases: [subcutaneous trastuzumab, trastuzumab hyaluronidase]
+  class_ids: [her2-directed-therapy]
+  routes: [subcutaneous]
+  source_ids: [fda-label-trastuzumab-hyaluronidase]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: BLA761106
+      spl_set_id: ebf30894-41cf-480c-8bc3-56f592a13813
+      label_effective_date: 2026-05-29
+      product_names: [HERCEPTIN HYLECTA]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [SUBCUTANEOUS]
+      safety_sections: *boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-trastuzumab-hyaluronidase
+
+- <<: *drug_base
+  id: tucatinib
+  generic_name: tucatinib
+  brand_names: [Tukysa]
+  aliases: []
+  class_ids: [her2-directed-therapy]
+  routes: [oral]
+  source_ids: [fda-label-tucatinib]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA213411
+      spl_set_id: f27eb1b9-b7fc-424e-988f-84dd7bb195a3
+      label_effective_date: 2024-11-04
+      product_names: [TUKYSA]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: *common_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-tucatinib
+
+- <<: *drug_base
+  id: vepdegestrant
+  generic_name: vepdegestrant
+  brand_names: [Veppanu]
+  aliases: []
+  class_ids: [endocrine-therapy]
+  routes: [oral]
+  source_ids: [fda-label-vepdegestrant]
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: NDA219835
+      spl_set_id: 484e21ba-8fe1-4c6d-b923-8ba4cf5b2f20
+      label_effective_date: 2026-06-12
+      product_names: [VEPPANU]
+      dosage_forms: [TABLET]
+      fda_routes: [ORAL]
+      safety_sections: [contraindications, warnings_and_cautions, adverse_reactions]
+      source_id: fda-label-vepdegestrant
+
+- <<: *drug_base
+  id: vinblastine
+  generic_name: vinblastine
+  brand_names: [Velban]
+  aliases: [vinblastine sulfate]
+  class_ids: [cytotoxic-chemotherapy]
+  routes: [intravenous]
+  source_ids: [fda-label-vinblastine]
+  support_status: catalogued
+  regulatory_labels:
+    - <<: *fda_label_base
+      application_number: ANDA089515
+      spl_set_id: f073b58e-56d6-4c8d-a2ce-b37719402d77
+      label_effective_date: 2025-04-15
+      product_names: [VINBLASTINE SULFATE]
+      dosage_forms: [INJECTABLE]
+      fda_routes: [INTRAVENOUS]
+      safety_sections: *legacy_boxed_safety
+      evidence_mapping_status: source_indexed
+      source_id: fda-label-vinblastine

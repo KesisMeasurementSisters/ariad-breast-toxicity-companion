@@ -1,0 +1,271 @@
+kind: drug_toxicity_presentation
+id: epirubicin-patient-side-effects
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+audience: patient
+drug_id: epirubicin
+monotherapy: true
+evidence_scope: drug_label
+evidence_ref:
+  kind: drug_toxicity_evidence
+  id: epirubicin-fda-label-categorical-safety
+  version: 1.0.0
+evidence_payload_hash: 8b79c6289a4656bc9dcc59681e14f035bb506b6c21e03de527c8855188a333e5
+source_ids: [fda-label-epirubicin]
+route_label: Medicine given into a vein (IV)
+subtitle: Side effects linked to epirubicin
+frequency_context: >-
+  This page groups side effects from official U.S. drug information into common
+  and serious effects. Side effects can be different for each person.
+cause_statement: Ariad cannot tell what is causing a symptom.
+source_context: >-
+  This draft uses official U.S. Food and Drug Administration (FDA) information
+  for epirubicin. A health professional has not reviewed these explanations and
+  actions yet. Follow the information from your own cancer team.
+frequency_method_id: null
+effects:
+  - id: low-blood-cells
+    display_name: Low blood cells
+    evidence_event_ids: [leukopenia, neutropenia, anemia, thrombocytopenia]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Epirubicin can lower blood cells that fight infection, carry oxygen, or help stop bleeding.
+    what_you_may_notice:
+      - You may not notice this change yourself.
+    safe_actions:
+      - Keep the blood-test appointments arranged by your cancer team.
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team: []
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells during treatment.
+
+  - id: menstrual-period-changes
+    display_name: Changes in menstrual periods
+    evidence_event_ids: [amenorrhea]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Menstrual periods may stop during treatment.
+    what_you_may_notice:
+      - A menstrual period that is late or does not come
+    safe_actions: []
+    contact_team:
+      - Tell your cancer team about changes in your menstrual periods or if pregnancy is possible.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: tiredness
+    display_name: Tiredness
+    evidence_event_ids: [lethargy]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may feel more tired or have less energy than usual.
+    what_you_may_notice:
+      - Needing more rest or finding usual activities harder
+    safe_actions:
+      - Balance activity with rest and ask for help when you need it.
+    contact_team:
+      - Contact your cancer team if tiredness is sudden, severe, or makes everyday activities difficult.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: nausea-or-vomiting
+    display_name: Nausea or vomiting
+    evidence_event_ids: [nausea-vomiting]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may feel sick to your stomach or throw up.
+    what_you_may_notice:
+      - A feeling that you may vomit
+      - Throwing up during the treatment period
+    safe_actions:
+      - Follow the nausea and vomiting plan provided by your cancer team.
+    contact_team:
+      - Contact your cancer team right away if symptoms are severe or keep you from eating or drinking.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: sore-mouth
+    display_name: Sore mouth
+    evidence_event_ids: [mucositis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: The inside of your mouth can become red or sore.
+    what_you_may_notice:
+      - Mouth pain, redness, or sores
+    safe_actions:
+      - Follow the mouth-care instructions given by your cancer team.
+    contact_team:
+      - Contact your cancer team if mouth pain or sores make it difficult to eat or drink.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: diarrhea
+    display_name: Diarrhea
+    evidence_event_ids: [diarrhea]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: You may have loose or watery stools.
+    what_you_may_notice:
+      - Loose or watery stools
+    safe_actions:
+      - Follow the diarrhea instructions given by your cancer team.
+    contact_team:
+      - Contact your cancer team right away if diarrhea is severe, does not stop, or makes it hard to drink.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: eye-irritation
+    display_name: Eye irritation
+    evidence_event_ids: [conjunctivitis-keratitis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your eye can become red, sore, or irritated.
+    what_you_may_notice:
+      - Red, watery, sore, or irritated eyes
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team for eye pain, changes in vision, or irritation that does not improve.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: hair-loss
+    display_name: Hair loss
+    evidence_event_ids: [alopecia]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your hair may become thinner or fall out during treatment.
+    what_you_may_notice:
+      - Partial or complete hair loss
+    safe_actions: []
+    contact_team:
+      - Ask your cancer team if you would like support with hair changes.
+    urgent_help: []
+    reassuring_monitoring:
+      - Hair may grow back after treatment.
+
+  - id: skin-irritation-near-iv
+    display_name: Skin changes where the IV enters your body
+    evidence_event_ids: [local-skin-toxicity]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Redness or irritation can happen near the place where epirubicin is given.
+    what_you_may_notice:
+      - Redness, soreness, or discomfort where the IV enters your skin
+    safe_actions: []
+    contact_team:
+      - Tell your nurse about any pain, burning, or skin change near the IV during treatment.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your care team will watch the IV site while the medicine is given.
+
+  - id: rash-or-itching
+    display_name: Rash or itching
+    evidence_event_ids: [rash-itch]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: common
+    meaning: Your skin may become itchy or develop a rash.
+    what_you_may_notice:
+      - New itching, redness, or a rash
+    safe_actions: []
+    contact_team:
+      - Contact your cancer team if a rash is severe, spreads, or does not improve.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: heart-problems
+    display_name: Heart problems
+    evidence_event_ids: [cardiac-toxicity]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Epirubicin can damage the heart during treatment or after treatment has ended.
+    what_you_may_notice:
+      - New chest pain or shortness of breath
+      - Dizziness or feeling lightheaded
+    safe_actions: []
+    contact_team:
+      - Contact a health professional right away for any of these changes.
+    urgent_help:
+      - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.
+    reassuring_monitoring:
+      - Your care team will check your heart before and during treatment and may continue checks afterward.
+
+  - id: another-blood-cancer-later
+    display_name: Another blood cancer later
+    evidence_event_ids: [secondary-malignancies]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Epirubicin can raise the chance of another blood cancer later.
+    what_you_may_notice:
+      - There may be no early symptom you can feel.
+    safe_actions:
+      - Keep the follow-up appointments your cancer team recommends, even after treatment ends.
+    contact_team:
+      - Ask your cancer team if you have questions about this long-term risk.
+    urgent_help: []
+    reassuring_monitoring: []
+
+  - id: severe-iv-site-injury
+    display_name: Severe injury near the IV site
+    evidence_event_ids: [extravasation-and-tissue-necrosis]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Epirubicin can severely damage the skin and tissue if it leaks out of the vein.
+    what_you_may_notice:
+      - Burning or stinging while the medicine is being given
+      - Pain, a blister, or a skin sore near the IV site
+    safe_actions: []
+    contact_team:
+      - Tell your nurse right away if you feel burning or stinging while the medicine is being given.
+      - Contact your cancer team right away if you have pain where the IV entered your skin after treatment.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your care team will watch the IV site while the medicine is given.
+
+  - id: serious-infection-or-low-blood-cells
+    display_name: Serious infection or low blood cells
+    evidence_event_ids: [infection, severe-myelosuppression]
+    frequency_source_event_id: null
+    frequency_band: null
+    presentation_group: serious
+    meaning: Epirubicin can lower blood cells and allow an infection to become serious.
+    what_you_may_notice:
+      - Fever or another new sign of infection
+      - You may not notice a low blood-cell count yourself.
+    safe_actions:
+      - Follow your cancer team's instructions for checking your temperature.
+    contact_team:
+      - Contact your cancer team right away for a fever or another sign of infection.
+    urgent_help: []
+    reassuring_monitoring:
+      - Your cancer team will check your blood cells during treatment.
+
+omitted_evidence_events: []
+
+escalation_summary:
+  heading: When to contact your cancer team
+  introduction: Follow the instructions given by your own cancer team.
+  contact_team:
+    - Contact your cancer team right away for a fever or another sign of infection.
+    - Contact a health professional right away for new chest pain, shortness of breath, dizziness, or feeling lightheaded.
+    - Tell your nurse right away about burning or stinging while the medicine is being given. Contact your cancer team right away for pain where the IV entered your skin after treatment.
+    - Contact your cancer team right away if nausea, vomiting, diarrhea, or mouth sores are severe or keep you from eating or drinking.
+    - Contact your cancer team for eye pain, vision changes, or a severe or spreading rash.
+  urgent_help:
+    - Get emergency medical help right away for severe chest pain, severe trouble breathing, passing out, or being hard to wake.

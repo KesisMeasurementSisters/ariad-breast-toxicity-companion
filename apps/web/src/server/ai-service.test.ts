@@ -248,8 +248,8 @@ describe("createSymptomSummary", () => {
         ...summaryRequest.facts,
         {
           id: "q-neuropathy-onset",
-          label: "Onset",
-          value: "Began today",
+          label: "When it started",
+          value: "Started today",
         },
       ],
     };
@@ -277,7 +277,7 @@ describe("createSymptomSummary", () => {
         {
           id: "q-neuropathy-weakness",
           label: "Weakness",
-          value: "No new weakness reported",
+          value: "No new weakness noticed",
         },
       ],
     };
@@ -296,7 +296,7 @@ describe("createSymptomSummary", () => {
 
     expect(generated.generationMode).toBe("deterministic_fallback");
     expect(generated.result.summaryItems[0]?.text).toBe(
-      "Weakness: No new weakness reported.",
+      "Weakness: No new weakness noticed.",
     );
   });
 
@@ -307,7 +307,7 @@ describe("createSymptomSummary", () => {
         {
           id: "q-neuropathy-weakness",
           label: "Weakness",
-          value: "No new weakness reported",
+          value: "No new weakness noticed",
         },
       ],
     };
@@ -317,7 +317,7 @@ describe("createSymptomSummary", () => {
       executorFor({
         summaryItems: [
           {
-            text: "No new weakness reported. Patient has new weakness.",
+            text: "No new weakness noticed. Patient has new weakness.",
             sourceFieldIds: ["q-neuropathy-weakness"],
           },
         ],
@@ -326,7 +326,7 @@ describe("createSymptomSummary", () => {
 
     expect(generated.generationMode).toBe("deterministic_fallback");
     expect(generated.result.summaryItems[0]?.text).toBe(
-      "Weakness: No new weakness reported.",
+      "Weakness: No new weakness noticed.",
     );
   });
 
@@ -373,7 +373,7 @@ describe("createSymptomSummary", () => {
     expect(calls).toBe(0);
     expect(generated.generationMode).toBe("deterministic_fallback");
     expect(JSON.stringify(generated.result)).not.toContain("stop taking");
-    expect(generated.result.omittedUncertainItems).toEqual(["Fever-reducing medicine"]);
+    expect(generated.result.omittedUncertainItems).toEqual(["Medicine that lowers fever"]);
   });
 
   it.each([
@@ -404,6 +404,6 @@ describe("createSymptomSummary", () => {
     expect(calls).toBe(0);
     expect(generated.generationMode).toBe("deterministic_fallback");
     expect(JSON.stringify(generated.result)).not.toContain(value);
-    expect(generated.result.omittedUncertainItems).toEqual(["Fever-reducing medicine"]);
+    expect(generated.result.omittedUncertainItems).toEqual(["Medicine that lowers fever"]);
   });
 });

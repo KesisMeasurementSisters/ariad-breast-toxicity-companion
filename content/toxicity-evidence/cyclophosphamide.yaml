@@ -1,0 +1,213 @@
+kind: drug_toxicity_evidence
+id: cyclophosphamide-fda-label-categorical-safety
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+drug_id: cyclophosphamide
+monotherapy: false
+evidence_scope: drug_label
+route: intravenous
+dose_mg_per_m2: null
+dose_description: Not tied to one dose; the FDA label combines clinical-study and postmarketing reports
+schedule: Not tied to one treatment schedule
+indication: Malignant diseases, including breast carcinoma
+population: >-
+  People exposed to cyclophosphamide in clinical studies or postmarketing
+  reports. The source population is of uncertain size and is not limited to
+  single-agent treatment.
+n_treatment: null
+denominator_status: unavailable
+comparator_description: null
+n_comparator: null
+source_id: fda-label-cyclophosphamide
+source_document_version: >-
+  NDA212501; FDA Reference ID 5546956; label revised 03/2025
+source_locator: >-
+  Highlights; Sections 5.1 through 5.11; Section 6.1; and Section 17,
+  Patient Counseling Information
+source_url: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212501s007lbl.pdf
+grading_system: null
+events:
+  - id: neutropenia
+    source_event_name: Neutropenia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The FDA calls this one of the most common adverse reactions but gives no percentage.
+
+  - id: febrile-neutropenia
+    source_event_name: Febrile neutropenia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The FDA calls this one of the most common adverse reactions but gives no percentage.
+
+  - id: fever
+    source_event_name: Fever
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The FDA calls this one of the most common adverse reactions but gives no percentage.
+
+  - id: alopecia
+    source_event_name: Alopecia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The FDA calls this one of the most common adverse reactions but gives no percentage.
+
+  - id: nausea
+    source_event_name: Nausea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The FDA calls this one of the most common adverse reactions but gives no percentage.
+
+  - id: vomiting
+    source_event_name: Vomiting
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The FDA calls this one of the most common adverse reactions but gives no percentage.
+
+  - id: diarrhea
+    source_event_name: Diarrhea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: The FDA calls this one of the most common adverse reactions but gives no percentage.
+
+  - id: myelosuppression-and-infections
+    source_event_name: Myelosuppression, immunosuppression, bone marrow failure, and infections
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.1 describes serious and sometimes fatal infections without an event rate.
+
+  - id: urinary-tract-and-renal-toxicity
+    source_event_name: Urinary tract and renal toxicity
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.2 describes potentially fatal urinary toxicity without an event rate.
+
+  - id: cardiotoxicity
+    source_event_name: Cardiotoxicity
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.3 describes potentially fatal heart toxicity without an event rate.
+
+  - id: pulmonary-toxicity
+    source_event_name: Pulmonary toxicity
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.4 describes lung toxicity and respiratory failure without an event rate.
+
+  - id: hypersensitivity
+    source_event_name: Hypersensitivity
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 4 reports anaphylactic reactions, including death, without an event rate.
+
+  - id: secondary-malignancies
+    source_event_name: Secondary malignancies
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.5 reports secondary malignancies without an event rate.
+
+  - id: veno-occlusive-liver-disease
+    source_event_name: Veno-occlusive liver disease
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.6 reports this potentially fatal liver toxicity without an event rate.
+
+  - id: embryo-fetal-toxicity
+    source_event_name: Embryo-fetal toxicity
+    frequency_status: not_applicable
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.8 describes fetal harm; an adverse-event frequency is not applicable.
+
+  - id: infertility
+    source_event_name: Infertility
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.9 describes potentially irreversible infertility without an event rate.
+
+  - id: hyponatremia
+    source_event_name: Hyponatremia
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: Section 5.11 describes potentially fatal low sodium or water intoxication without an event rate.
+notes:
+  - The FDA label does not provide percentages or a usable denominator for these reactions.
+  - Most-common is preserved as an FDA categorical claim and is not converted into Ariad's numerical frequency bands.
+  - Warning status is stored separately from frequency; serious does not mean common.
+  - The label safety evidence is not asserted to come from a single-agent treatment population.

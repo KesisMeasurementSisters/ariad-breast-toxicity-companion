@@ -105,7 +105,9 @@ export function compileRelease(
   const treatments = sortedObjects
     .filter(
       (object): object is TreatmentClass | Drug | Regimen =>
-        object.kind === "treatment_class" || object.kind === "drug" || object.kind === "regimen",
+        object.kind === "treatment_class" ||
+        (object.kind === "drug" && object.searchable) ||
+        object.kind === "regimen",
     )
     .map(toSearchRecord)
     .sort((left, right) => left.display_name.localeCompare(right.display_name) || left.id.localeCompare(right.id));

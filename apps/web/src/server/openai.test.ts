@@ -28,6 +28,7 @@ const originalEnvironment = {
   enable: process.env.ENABLE_GPT56,
   apiKey: process.env.OPENAI_API_KEY,
   model: process.env.OPENAI_MODEL,
+  timeout: process.env.AI_REQUEST_TIMEOUT_MS,
 };
 
 beforeAll(async () => {
@@ -43,9 +44,18 @@ afterEach(() => {
   else process.env.OPENAI_API_KEY = originalEnvironment.apiKey;
   if (originalEnvironment.model === undefined) delete process.env.OPENAI_MODEL;
   else process.env.OPENAI_MODEL = originalEnvironment.model;
+  if (originalEnvironment.timeout === undefined) delete process.env.AI_REQUEST_TIMEOUT_MS;
+  else process.env.AI_REQUEST_TIMEOUT_MS = originalEnvironment.timeout;
 });
 
 describe("GPT-5.6 runtime status", () => {
+  it("fails safe to the competition Luna model when no model is configured", () => {
+    process.env.ENABLE_GPT56 = "true";
+    process.env.OPENAI_API_KEY = "test-key";
+    delete process.env.OPENAI_MODEL;
+    expect(runtimeStatus()).toEqual({ enabled: true, model: "gpt-5.6-luna", reason: "ready" });
+  });
+
   it("defaults to deterministic-only mode when the feature flag is absent", () => {
     delete process.env.ENABLE_GPT56;
     process.env.OPENAI_API_KEY = "test-key";
@@ -65,6 +75,7 @@ describe("GPT-5.6 runtime status", () => {
     process.env.ENABLE_GPT56 = "true";
     process.env.OPENAI_API_KEY = "test-key";
     process.env.OPENAI_MODEL = "gpt-5.6";
+    delete process.env.AI_REQUEST_TIMEOUT_MS;
     openAiMock.parse.mockResolvedValue({ output_parsed: { value: "controlled" } });
 
     await expect(
@@ -78,7 +89,12 @@ describe("GPT-5.6 runtime status", () => {
     ).resolves.toEqual({ value: "controlled" });
 
     expect(openAiMock.construct).toHaveBeenCalledWith(
-      expect.objectContaining({ apiKey: "test-key", maxRetries: 0, logLevel: "off" }),
+      expect.objectContaining({
+        apiKey: "test-key",
+        timeout: 15_000,
+        maxRetries: 0,
+        logLevel: "off",
+      }),
     );
     expect(openAiMock.parse).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -87,7 +103,7 @@ describe("GPT-5.6 runtime status", () => {
         max_output_tokens: 40,
         truncation: "disabled",
       }),
-      expect.objectContaining({ maxRetries: 0 }),
+      expect.objectContaining({ timeout: 15_000, maxRetries: 0 }),
     );
   });
 

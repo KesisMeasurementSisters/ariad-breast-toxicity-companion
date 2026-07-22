@@ -159,10 +159,10 @@ describe("deterministic recognition", () => {
     expect(searchTreatments(release, "AC")[0]?.record.id).toBe("ac");
     expect(searchTreatments(release, "TCHP")[0]?.record.id).toBe("tchp");
     expect(searchTreatments(release, "capecitbine")[0]?.record.id).toBe(
-      "capecitabine-monotherapy",
+      "capecitabine",
     );
     expect(searchTreatments(release, "capecitabine")[0]?.record.id).toBe(
-      "capecitabine-monotherapy",
+      "capecitabine",
     );
   });
 
@@ -207,8 +207,8 @@ describe("transparent guidance fallback hierarchy", () => {
       "peripheral-neuropathy",
     );
     expect(guidance?.guidance_basis).toBe("component");
-    expect(guidance?.guidance_basis_label).toBe("Component guidance: paclitaxel");
-    expect(guidance?.fallback_reason).toContain("No complete pathway exists for the exact regimen");
+    expect(guidance?.guidance_basis_label).toBe("Information for one drug: paclitaxel");
+    expect(guidance?.fallback_reason).toContain("Ariad does not have a full guide for this treatment plan");
   });
 
   it("walks from a regimen to its nearest treatment class", () => {
@@ -223,8 +223,13 @@ describe("transparent guidance fallback hierarchy", () => {
     expect(guidance?.fallback_reason).toContain("broader");
   });
 
-  it("returns no guidance when no complete exact or fallback relationship exists", () => {
-    expect(assembleGuidance(release, "tchp", "peripheral-neuropathy")).toBeNull();
+  it("uses clearly labelled general guidance when no exact pathway exists", () => {
+    const guidance = assembleGuidance(release, "tchp", "peripheral-neuropathy");
+    expect(guidance?.guidance_basis).toBe("general");
+    expect(guidance?.guidance_basis_label).toBe("General symptom information");
+    expect(guidance?.fallback_reason).toBe(
+      "Ariad does not have a full guide for this treatment and symptom together.",
+    );
   });
 
   it("moves answer-relevant modules first without changing section membership", () => {

@@ -9,8 +9,8 @@ should I have ready when I call?
 
 Ariad provides two equal ways into one governed knowledge source:
 
-1. **I’m starting treatment** — search or enter a treatment code, review a
-   preparation path, and optionally save the treatment ID on the device.
+1. **I’m starting treatment** — search or enter a treatment code, then review
+   available side-effect information followed by treatment preparation.
 2. **I’m having a symptom** — use a controlled catalogue or free-text
    navigation, confirm a symptom category, add treatment context, answer
    observable questions, view fixed education, and prepare a neutral summary.
@@ -19,23 +19,51 @@ Ariad provides two equal ways into one governed knowledge source:
 
 The Build Week preview contains:
 
-- 23 drugs, five regimens, and ten treatment classes;
+- 53 canonical drug records, eight regimens, and ten treatment classes;
 - 28 patient-observable symptom concepts;
-- 19 observable features and 19 questions;
-- 22 draft educational modules;
-- three exact regimen–symptom relationships with complete six-section draft
-  guidance;
-- one weekly-paclitaxel preparation pathway;
-- 14 source records and one exact-version structured synthetic clinic
+- 47 observable features and 47 questions;
+- 155 active draft educational modules;
+- 81 treatment–symptom relationships: three exact regimen guidance paths, 25
+  clearly labelled general guidance fallbacks, and 53 source-linked drug-page
+  effect matches for the three sample symptoms;
+- preparation for all 53 drug choices and eight regimen choices: exact overlays
+  for weekly paclitaxel, capecitabine monotherapy, and AC, plus a clearly
+  labelled general fallback for every other choice;
+- 30 draft single-drug patient side-effect presentations, each backed by a
+  private exact FDA evidence record;
+- 101 active source records and one exact-version structured synthetic clinic
   configuration;
-- one immutable 144-object preview release,
-  `build-week-preview-2026-07-18@0.2.0`, with content hash
-  `80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
+- one exact-version 561-object active preview artifact,
+  `build-week-preview-2026-07-18@0.13.0`, with content hash
+  `bee4e69e21b0c434f4d444477300501b9d9acea8eafae18028fbeaa510a5e0ad`.
 
-The polished pathways are weekly paclitaxel/peripheral neuropathy,
-capecitabine/diarrhea, and AC/fever or infection concern. Catalogue breadth is a
-navigation capability, not a claim that every treatment–symptom combination is
-supported.
+The exact treatment-and-symptom pathways are weekly paclitaxel/peripheral
+neuropathy, capecitabine/diarrhea, and AC/fever or infection concern. The other
+25 symptom journeys are general fallbacks. The three exact preparation overlays
+use the same regimen IDs but remain a separate content purpose. No preparation
+module claims that a selected treatment caused, is associated with, or changes
+the urgency of a symptom.
+
+The expanded drug catalogue is a search and source-provenance foundation. Of
+the 53 canonical records, 52 point to exact FDA labels and identify their safety
+sections. Twenty-five have a breast-specific draft event-level evidence record;
+carboplatin has a separately governed cross-indication FDA single-agent record,
+and cyclophosphamide, doxorubicin, and epirubicin have non-numerical FDA
+label-category records. Pembrolizumab adds a cross-cancer FDA single-agent
+label-category record. Together they support 30 patient-only presentations with
+broad qualitative or categorical groups, while 23 drugs remain intentional
+no-page gaps. The private
+numerical evidence is not shipped in the browser release. The three complete symptom relationships remain regimen-level;
+the drug pages are education-only and do not calculate urgency or provide a
+treatment recommendation. See the [single-drug coverage ledger](./fda-single-drug-toxicity-coverage.md).
+
+For a multi-drug regimen, Ariad composes the existing single-drug presentations
+in the regimen's governed component order. Each whole-drug accordion starts
+closed and contains one complete matching presentation with its own source
+context and escalation summary. A visible boundary states the evidence boundary
+for that individual drug and does not present its groups as frequencies for the
+full regimen. Missing component evidence remains a clearly labelled accordion;
+Ariad does not borrow or infer a rate.
 
 ## Coverage hierarchy
 
@@ -46,12 +74,14 @@ The intended hierarchy is:
 3. clearly labelled treatment-class information;
 4. general symptom-safety information.
 
-The guidance resolver implements exact regimen/treatment → regimen component →
-nearest treatment class → general safety order, and labels any fallback basis
-plainly. The active release contains complete relationships only for its three
-exact demo combinations. If no eligible complete relationship or preparation
-path exists, the interface displays a coverage boundary rather than inferring
-content from catalogue membership alone.
+The symptom-guidance resolver implements exact regimen/treatment → regimen
+component → nearest treatment class → general safety order, and labels any
+fallback basis plainly. Preparation uses a stricter resolver: exact treatment
+modules win; otherwise only the authored `systemic-therapy` general set may be
+used. It never borrows preparation from a component drug or treatment class.
+If an eligible symptom relationship or preparation set is unavailable, the
+interface displays a coverage boundary rather than inferring content from
+catalogue membership alone.
 
 Support labels mean:
 
@@ -70,10 +100,16 @@ Support labels mean:
 - Three home-screen sample scenarios.
 - Treatment codes `THREAD-PAC-01`, `THREAD-CAPE-02`, and `THREAD-AC-03`.
 - Query-string code resolution through `?code=THREAD-PAC-01`.
+- Direct treatment-preview resolution through `?treatment=<canonical-drug-id>`.
+- Help for people who do not know the treatment name. The competition build
+  does not show or write a saved-treatment list.
+- Side-effect-first treatment pages followed by preparation modules grouped
+  under three plain-language questions and a separate safety note. The print
+  action includes all of these sections.
 - Structured fictional daytime/after-hours clinic contacts, rendered as
   non-actionable display data, plus explicit unresolved fever and
   supportive-care policy states.
-- Reset and clear-saved-treatment action.
+- Reset action for the active demonstration.
 - Summary copy, print, and plain-text download.
 
 Treatment codes and the demo clinic contain no personal information and do not
@@ -83,9 +119,11 @@ must be an exact, separately governed educational-module version. The universal
 emergency statement remains application-owned and cannot be changed by clinic
 data.
 
-The current runtime is deterministic only; all LLM calls are disabled. This
-does not change the product boundary or confer any review or approval on the
-130 governed draft objects in the active release. Configured/delegated local
+The repository default is deterministic-only. The competition deployment may
+enable bounded GPT-5.6 Luna for controlled symptom matching and neutral fact
+restatement; clinical guidance remains deterministic in either mode. This does
+not change the product boundary or confer any review or approval on the 460
+governed draft objects in the active release. Configured/delegated local
 policies are a future schema seam only: P0 blocks their publication until
 purpose compatibility and exact runtime rendering exist.
 

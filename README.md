@@ -14,12 +14,12 @@ cancer team.
 
 The central design choice is a hard separation of responsibilities:
 
-> **Current runtime mode — deterministic only.** By owner decision on
-> 2026-07-19, the optional GPT-5.6 adapter is disabled while development focuses
-> on governed deterministic behavior and clinic data. No patient input is sent
-> to OpenAI in this mode.
+> **Competition runtime — bounded language support with a deterministic
+> fallback.** On 2026-07-21, the owner reauthorized GPT-5.6 Luna for the
+> competition preview. The checked-in development setting still fails closed;
+> only the competition deployment explicitly enables model calls.
 
-> **If reauthorized in a later phase, GPT-5.6 may handle bounded
+> **GPT-5.6 may handle bounded
 > natural-language symptom navigation and neutral symptom-summary generation.
 > It never generates clinical guidance. Clinical guidance is assembled
 > deterministically from an immutable, source-controlled release.**
@@ -31,33 +31,49 @@ for clinical use, and cannot pass the ordinary production build gate.
 Built by **Kesis & Sisters** for the OpenAI Build Week 2026 **Apps for Your
 Life** track.
 
-- Live demo: **TODO — add public URL after deployment**
-- Demo video: **TODO — add public YouTube URL, no more than three minutes**
-- Primary Codex `/feedback` Session ID: **TODO before submission**
+- Live demo: [https://ariad.kesis.ca](https://ariad.kesis.ca)
 - Build evidence: [BUILD_WEEK.md](./BUILD_WEEK.md)
 
 ## What the prototype demonstrates
 
 - Two equal entry points: **I’m starting treatment** and **I’m having a
   symptom**.
-- Deterministic search across 23 drugs, five regimens, ten treatment classes,
-  and 28 patient-observable symptom concepts.
+- Deterministic search across 53 canonical drug records, eight regimens, ten
+  treatment classes, and 28 patient-observable symptom concepts.
+- Fifty-two drug records pin exact FDA label identities and safety-section
+  locations. Twenty-five now have separately governed single-agent FDA evidence
+  from breast-cancer populations; carboplatin adds one cross-indication FDA
+  single-agent map, while cyclophosphamide, doxorubicin, and epirubicin add
+  non-numerical FDA label-category maps. Pembrolizumab adds a cross-cancer FDA
+  single-agent label-category map. Twenty-three breast-label entries remain
+  source indexes.
 - Explicit coverage states: full demo guidance, education only, catalogued, or
   unsupported.
 - Three complete draft symptom pathways:
   - weekly paclitaxel + tingling, numbness, or burning;
   - capecitabine + diarrhea;
   - AC chemotherapy + fever, chills, or infection concern.
-- One complete draft weekly-paclitaxel treatment-preparation path.
+- A preparation guide for every one of the 53 drug choices and eight regimen
+  choices. Weekly paclitaxel, capecitabine monotherapy, and AC have exact draft
+  overlays; every other choice uses a clearly labelled general guide. The same
+  governed modules are presented as three plain-language preparation questions.
+- Thirty draft single-drug side-effect pages with qualitative frequency
+  or FDA label-category groups, plain-language disclosures, FDA-linked actions,
+  and a final escalation summary for each drug.
+- Multi-drug regimen pages compose those existing single-drug presentations in
+  closed whole-drug accordions, preserve their monotherapy evidence
+  boundaries, and retain a clear preparation notice for components without
+  eligible evidence.
 - Observable questions that may change section emphasis, but never calculate a
   grade, diagnosis, cause, or personal urgency.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
-  summaries. A bounded GPT-5.6 adapter is implemented but currently disabled.
-- A content-addressed preview release containing 144 exact object versions.
+  summaries, with competition-authorized GPT-5.6 Luna support for language
+  ambiguity and neutral restatement only.
+- A content-addressed preview release containing 561 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
-  treatment-code demos, local saved treatments, and copy/print/download symptom
-  summaries. The clinic's fever and supportive-care policy bindings remain
-  explicitly unresolved.
+  treatment-code demos, direct treatment links, and copy/print/download symptom
+  summaries. Treatment saving is disabled in the competition build. The clinic's
+  fever and supportive-care policy bindings remain explicitly unresolved.
 
 ## Product evidence
 
@@ -107,8 +123,8 @@ does not interpret answers to tell an individual what action to take.
 Every symptom path states that Ariad cannot determine the cause and keeps this
 universal statement visible:
 
-> If you think you may be experiencing a medical emergency, call 911 or your
-> local emergency service.
+> If you think this is a medical emergency, call 911 or your local emergency
+> service now.
 
 This statement is an application safety constant. Clinic configuration cannot
 replace, suppress, or edit it.
@@ -133,7 +149,7 @@ flowchart LR
     R --> Q
     UI -. "bounded, optional" .-> AI["Server-side GPT-5.6 adapter"]
     AI -. "controlled IDs or supplied facts only" .-> UI
-    LS["Versioned local storage: saved treatment IDs only"] <--> UI
+    LS["Dormant, explicit-opt-in treatment-saving adapter"] -.-> UI
   end
 
   DB["No database, accounts, RAG, analytics, or symptom history"]
@@ -153,11 +169,12 @@ More detail: [architecture](./docs/architecture.md), [data
 flow](./docs/data-flow.md), [knowledge model](./docs/knowledge-model.md), and
 [ADRs](./docs/adr/README.md).
 
-## Optional GPT-5.6 integration — currently disabled
+## Bounded GPT-5.6 competition integration
 
 The OpenAI API key remains server-side. The runtime model defaults to
-`gpt-5.6`, but `ENABLE_GPT56=false` is the repository and local default. The
-current development mode does not call OpenAI.
+`gpt-5.6-luna`, the efficient family tier suited to Ariad's small structured
+classification and restatement tasks. `ENABLE_GPT56=false` remains the safe
+repository and local default; the competition deployment opts in explicitly.
 
 1. **Natural-language symptom navigator.** The client first tries deterministic
    synonym/fuzzy matching. If confidence is insufficient, the server asks
@@ -186,32 +203,33 @@ pnpm dev
 Open `http://localhost:3000`. The development command compiles the explicitly
 labelled unreviewed preview before starting Next.js.
 
-Do not enable GPT-5.6 during the current deterministic and clinic-data phase.
-If the owner later reauthorizes model testing, the dormant server adapter
-requires these server-only values in `.env.local`:
+The owner reauthorized bounded model use for the competition preview on
+2026-07-21. To reproduce it locally, use only synthetic information and set
+these server-only values in `.env.local`:
 
 ```text
 OPENAI_API_KEY=<your key>
-OPENAI_MODEL=gpt-5.6
+OPENAI_MODEL=gpt-5.6-luna
 ENABLE_GPT56=true
 ```
 
-The checked-in example and current local configuration set
-`ENABLE_GPT56=false`. The API key may remain stored for later use; never commit
-`.env.local`.
+The checked-in example keeps `ENABLE_GPT56=false` so a fresh clone cannot send
+text to a model accidentally. The competition deployment sets it to `true`.
+Never commit `.env.local`.
 
 ### Environment variables
 
 | Variable | Purpose | Default/example |
 |---|---|---|
 | `OPENAI_API_KEY` | Server-only credential | blank |
-| `OPENAI_MODEL` | Runtime language model | `gpt-5.6` |
-| `ENABLE_GPT56` | Exact opt-in for optional model calls; keep disabled during the current phase | `false` |
+| `OPENAI_MODEL` | Runtime language model | `gpt-5.6-luna` |
+| `ENABLE_GPT56` | Exact opt-in for bounded model calls; disabled in a fresh clone | `false` |
 | `AI_MAX_INPUT_CHARS` | Server request input limit, clamped to 50–500 characters | `500` |
-| `AI_REQUEST_TIMEOUT_MS` | Provider timeout | `12000` |
+| `AI_REQUEST_TIMEOUT_MS` | Provider timeout | `15000` |
 | `CONTENT_RELEASE_ID` | Exact release manifest to compile | `build-week-preview-2026-07-18` |
 | `ALLOW_DRAFT_CONTENT` | Exact preview acknowledgement; never a production convenience flag | `false` |
 | `NEXT_PUBLIC_DEMO_MODE` | Preview-build marker; the mandatory UI notice comes from the compiled release | `true` for preview |
+| `NEXT_PUBLIC_ENABLE_TREATMENT_SAVING` | Exact opt-in for device-local saved treatments; forced off in the competition build | `false` |
 
 ## Validation and builds
 
@@ -237,33 +255,54 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.2.0`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.13.0`,
 with content hash
-`80656c44ab5ab0707ae3417234c10415455e852fbd361e1ac05cd43363dafd4b`.
+`bee4e69e21b0c434f4d444477300501b9d9acea8eafae18028fbeaa510a5e0ad`.
 
 ## Content and source governance
 
-The current release pins 144 object versions: 130 governed draft objects and
-14 source records. Its 22 patient-facing modules have zero recorded clinical
-approvals. The repository review queue contains 131 governed object versions
-because the superseded v1 and active v2 clinic configurations coexist; the
-release pins only v2. That structured synthetic configuration contains identity
+The current release pins 561 object versions: 460 governed draft objects and
+101 source records. Its 155 active patient-facing modules have zero recorded
+clinical approvals; all 30 drug presentations are also unreviewed drafts. The
+repository review queue contains 520 governed draft object versions, including
+159 patient-facing module versions and 30 private toxicity-evidence records.
+The release pins the v2 clinic configuration and patient-safe presentations,
+but deliberately excludes the numerical evidence payloads. That structured
+synthetic configuration contains identity
 and non-actionable contact data, not patient-facing clinical instructions. Its
-fever and supportive-care policy bindings are unresolved, and two modules retain
-explicit fever placeholders. Catalogue presence never implies a complete
-pathway. No schema, validation, or preview compilation result records or implies
-a clinical approval.
+fever and supportive-care policy bindings are unresolved, and four module
+versions retain explicit fever placeholders. The preview includes 25 general
+symptom fallbacks,
+but catalogue presence never implies an exact treatment-specific pathway. No
+schema, validation, or preview compilation result records or implies a clinical
+approval.
+
+The drug catalogue remains an identity-and-provenance foundation. A separate,
+source-controlled toxicity evidence store now contains 30 draft FDA evidence
+records: 25 breast-cancer single-agent populations, one cross-indication
+carboplatin single-agent population, and three FDA label-category records for
+cyclophosphamide, doxorubicin, and epirubicin without usable denominators.
+Pembrolizumab adds a cross-cancer FDA single-agent label-category record. Each
+stores its exact evidence boundary, source
+event names, frequency status, and available values outside the browser release.
+A content hash binds each evidence record to its patient-safe
+presentation. The three complete draft treatment-toxicity relationships remain
+regimen-level; the drug pages are education-only and do not create personalized
+symptom pathways or treatment recommendations. The full eligibility and gap
+ledger is [documented here](./docs/fda-single-drug-toxicity-coverage.md).
 
 Sources are recorded with organization, jurisdiction, canonical HTTPS link,
-date/version when available, access date, verification state, and notes.
-Ontario Health/Cancer Care Ontario is preferred, followed by Health Canada, BC
-Cancer, and eviQ for gaps or cross-checking. Ariad stores short metadata and
-clinician-reviewable paraphrases, not copied source documents.
+date/version when available, access date, verification state, and notes. Exact
+current FDA labels establish the initial breast-cancer drug identity and safety
+section index. All current single-drug toxicity drafts use FDA material only.
+Existing symptom pathways retain their governed Ontario Health/Cancer Care
+Ontario, Health Canada, BC Cancer, and eviQ sources. Ariad stores short metadata
+and clinician-reviewable paraphrases, not copied source documents.
 
-Before any clinical release, the owner must review every module and
-claim-to-source mapping, resolve the fever and diarrhea discrepancies, confirm
-the AC regimen variant, create real approval evidence, and compile a separate
-exact-version published release. See [content
+Before any clinical release, the owner must review every module, all 30
+evidence-to-presentation mappings, and each claim-to-source mapping; resolve the
+fever and diarrhea discrepancies; confirm the AC regimen variant; create real
+approval evidence; and compile a separate exact-version published release. See [content
 governance](./docs/content-governance.md) and the generated [review
 report](./content/review-report.md).
 
@@ -273,8 +312,8 @@ report](./content/review-report.md).
 - No names, birth dates, identifiers, contact capture, medical uploads, or
   electronic medical-record integration.
 - No database, server-side symptom history, longitudinal diary, or analytics.
-- Only saved treatment IDs and a notice flag persist in versioned browser local
-  storage.
+- The competition build does not save treatment choices. It removes any legacy
+  Ariad preference record when the application starts.
 - Symptom free text and answers remain ephemeral in the interface. When
   GPT-5.6 is enabled, the minimum required text/facts are sent to the bounded
   server endpoint and model provider; users are told not to enter identifying
@@ -295,17 +334,22 @@ and recorded consequential ones as [ADRs](./docs/adr/README.md).
 
 The dated [Build Week evidence log](./BUILD_WEEK.md) distinguishes human
 clinical/product decisions, Codex contributions, commands run, limitations,
-and commits. Run `/feedback` in the primary Codex task before submission and
-record the resulting Session ID there and above.
+and commits. Historical entries remain bound to the release and commit named in
+each entry; the current repository snapshot is summarized at the end.
 
 ## Deployment
 
-The app is prepared for a single Vercel deployment or the included standalone
-Docker image. No public deployment is claimed in this README.
+The competition preview is deployed to Cloudflare Workers through the official
+OpenNext adapter at [https://ariad.kesis.ca](https://ariad.kesis.ca). It is an
+explicitly labelled unreviewed prototype and is not a clinical release.
 
-- **Vercel preview:** use `pnpm build:preview` and configure server-only
-  environment variables in the project settings. Keep the prototype notice and
-  `clinical_use: false` release intact.
+- **Cloudflare preview:** use `pnpm build:cloudflare` to create the Workers
+  artifact, `pnpm preview:cloudflare` to test it in the Workers runtime, and
+  `pnpm deploy:cloudflare` to deploy. Keep `OPENAI_API_KEY` as a Workers secret;
+  the non-secret bounded runtime settings are versioned in
+  `apps/web/wrangler.jsonc`. The custom domain is `ariad.kesis.ca`.
+  GitHub Actions validates pushes and pull requests but does not deploy them;
+  verify the live Worker separately after every manual deployment.
 - **Docker preview:** pass the exact acknowledgement only to the controlled
   preview build:
 
@@ -313,6 +357,7 @@ Docker image. No public deployment is claimed in this README.
   docker build \
     --build-arg ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW \
     --build-arg NEXT_PUBLIC_DEMO_MODE=true \
+    --build-arg NEXT_PUBLIC_ENABLE_TREATMENT_SAVING=false \
     -t ariad-breast-preview -f apps/web/Dockerfile .
   docker run --rm -p 3000:3000 --env-file .env.local ariad-breast-preview
   ```
@@ -324,8 +369,10 @@ as a shortcut.
 ## Limitations and future direction
 
 - No content is approved for patient care.
-- Complete education exists only for three symptom combinations and one
-  preparation path; the remaining catalogue is primarily navigational.
+- Complete exact symptom education exists only for three symptom combinations.
+  Preparation is available for all 61 treatment choices, but only weekly
+  paclitaxel, capecitabine monotherapy, and AC have exact preparation overlays;
+  the remaining choices use the general guide.
 - The clinic's fever and supportive-care policy bindings, the Ontario/eviQ
   diarrhea wording discrepancy, and exact AC schedule remain owner-review
   items.

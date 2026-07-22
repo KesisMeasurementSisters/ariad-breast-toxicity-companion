@@ -5,13 +5,14 @@
   status: draft
   review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
   supersedes: null
-  superseded_by: null
+  superseded_by: { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.1.0 }
   audience: patient
   jurisdiction: Canada
   section: preparation
+  preparation_order: 10
   title: Your treatment at a glance
   paragraphs:
-    - Weekly paclitaxel is a breast-cancer chemotherapy regimen using paclitaxel, a taxane medicine given through a vein.
+    - Weekly paclitaxel is a breast cancer treatment. Paclitaxel is a type of chemotherapy called a taxane. It is given through a vein.
     - Your own schedule and instructions come from your cancer team.
   bullets: []
   applicability: { treatment_ids: [weekly-paclitaxel], symptom_ids: [] }
@@ -23,35 +24,104 @@
 
 - <<: *module_base
   id: weekly-paclitaxel-prep-possible-effects
-  title: Effects to know about
+  superseded_by: { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.1.0 }
+  preparation_order: 20
+  title: Side effects to know about
   paragraphs:
-    - Paclitaxel can be associated with several effects. Your experience may differ, and this prototype cannot predict which effects you will have.
+    - Several side effects can happen during treatment with paclitaxel. Each person is different. Ariad cannot tell which side effects you may have.
   bullets:
     - Tiredness, nausea, and hair loss can occur.
-    - Lowered blood counts and infection concerns can occur.
+    - Blood cell counts may fall. You may also need to watch for infection.
     - Tingling, numbness, burning, or pain in the hands or feet can occur.
   source_ids: [eviq-weekly-paclitaxel-breast-patient-information, cco-paclitaxel-patient-information]
   claim_ids: [claim-paclitaxel-possible-effects]
 
 - <<: *module_base
   id: weekly-paclitaxel-prep-practical
+  superseded_by: { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.1.0 }
+  preparation_order: 30
   title: A simple preparation checklist
   paragraphs: []
   bullets:
     - Save your cancer team's daytime and after-hours contact information.
     - Keep a working digital thermometer available and follow your team's fever instructions.
-    - Bring an up-to-date medication list and follow only the medicine instructions your team provided.
-    - Know how to reach your treatment area if you have questions before a visit.
+    - Bring a current list of your medicines. Follow only the medicine instructions from your team.
+    - Know how to reach the place where you get treatment if you have questions before a visit.
   source_ids: [eviq-weekly-paclitaxel-breast-patient-information, cco-fever-patient-guide]
   claim_ids: [claim-treatment-preparation-checklist]
 
 - <<: *module_base
   id: weekly-paclitaxel-prep-warning-boundary
-  title: Warning information is fixed, not personalized
+  superseded_by: { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.1.0 }
+  preparation_order: 40
+  title: Ariad gives general warning information
   paragraphs:
-    - Ariad can show source-controlled warning information, but it cannot decide whether a symptom is caused by treatment or tell you what action you personally need.
-    - Follow the instructions provided by your cancer team. If you think you may be experiencing a medical emergency, call 911 or your local emergency service.
+    - Ariad shows general warning information from listed sources. It cannot tell what caused a symptom or what you personally need to do.
+    - Follow the instructions from your cancer team. If you think this is a medical emergency, call 911 or your local emergency service now.
   bullets: []
   source_ids: [cco-paclitaxel-patient-information, cco-fever-patient-guide]
   claim_ids: [claim-ariad-boundary, claim-universal-emergency-boundary]
 
+- &weekly_paclitaxel_prep_successor_base
+  kind: educational_module
+  id: weekly-paclitaxel-prep-overview
+  version: 1.1.0
+  status: draft
+  review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+  supersedes: { kind: educational_module, id: weekly-paclitaxel-prep-overview, version: 1.0.0 }
+  superseded_by: null
+  audience: patient
+  jurisdiction: Canada
+  section: preparation
+  preparation_order: 10
+  title: Your treatment at a glance
+  paragraphs:
+    - Paclitaxel is a cancer medicine given through a vein.
+    - Your cancer team will give you your own treatment plan.
+  bullets: []
+  applicability: { treatment_ids: [weekly-paclitaxel], symptom_ids: [] }
+  priority_tags: []
+  source_ids: [cco-paclitaxel-patient-information]
+  claim_ids: [claim-weekly-paclitaxel-treatment-identity, claim-paclitaxel-intravenous-route, claim-team-owned-treatment-plan]
+  placeholders: []
+  review_due: null
+
+- <<: *weekly_paclitaxel_prep_successor_base
+  id: weekly-paclitaxel-prep-possible-effects
+  supersedes: { kind: educational_module, id: weekly-paclitaxel-prep-possible-effects, version: 1.0.0 }
+  preparation_order: 20
+  title: Ask about tests before you start
+  paragraphs:
+    - Your cancer team may arrange blood tests before treatment. Ask which tests you need.
+  bullets:
+    - Keep any test appointments your team gives you.
+    - Ask your team if you are not sure that a test is complete.
+  source_ids: [cco-paclitaxel-patient-information, ccs-having-chemotherapy-preparation]
+  claim_ids: [claim-weekly-paclitaxel-preparation-tests, claim-team-owned-test-plan]
+
+- <<: *weekly_paclitaxel_prep_successor_base
+  id: weekly-paclitaxel-prep-practical
+  supersedes: { kind: educational_module, id: weekly-paclitaxel-prep-practical, version: 1.0.0 }
+  preparation_order: 30
+  title: A simple preparation checklist
+  paragraphs:
+    - Keep your medicine list and questions with your treatment information.
+  bullets:
+    - List all prescription medicines and medicines you buy without a prescription.
+    - Add vitamins, herbs, and other supplements.
+    - Share the list with your cancer team. Tell them if the list changes.
+    - Write down what you want to ask. Include what to expect and who to call with questions.
+  source_ids: [cco-paclitaxel-patient-information, bc-cancer-systemic-therapy-preparation, ccs-chemotherapy-questions-preparation]
+  claim_ids: [claim-weekly-paclitaxel-preparation-medicine-list, claim-weekly-paclitaxel-preparation-question-list]
+
+- <<: *weekly_paclitaxel_prep_successor_base
+  id: weekly-paclitaxel-prep-warning-boundary
+  supersedes: { kind: educational_module, id: weekly-paclitaxel-prep-warning-boundary, version: 1.0.0 }
+  preparation_order: 40
+  title: Know Ariad's limits
+  paragraphs:
+    - Ariad does not know your care plan. Follow the plan from your cancer team.
+    - Ariad cannot find the cause of a symptom or tell how serious it is. If you think this is a medical emergency, call 911 or your local emergency service now.
+  bullets: []
+  source_ids: [cco-paclitaxel-patient-information]
+  claim_ids: [claim-ariad-boundary, claim-universal-emergency-boundary]

@@ -1,0 +1,130 @@
+kind: drug_toxicity_evidence
+id: doxorubicin-fda-label-categorical-safety
+version: 1.0.0
+status: draft
+review: { reviewer: null, reviewed_at: null, review_due: null, approval_id: null }
+supersedes: null
+superseded_by: null
+drug_id: doxorubicin
+monotherapy: false
+evidence_scope: drug_label
+route: intravenous
+dose_mg_per_m2: null
+dose_description: >-
+  Not tied to one dose; the FDA label's numerical breast-cancer safety table
+  reports doxorubicin with cyclophosphamide and cannot be attributed to
+  doxorubicin alone
+schedule: Not tied to one treatment schedule
+indication: Breast cancer and other labelled cancers
+population: >-
+  People described across the doxorubicin FDA label. The label identifies
+  three most-common reactions without event-specific doxorubicin-alone rates.
+  Its numerical breast-cancer safety table reports the AC combination and is
+  excluded from individual-drug frequency mapping.
+n_treatment: null
+denominator_status: unavailable
+comparator_description: null
+n_comparator: null
+source_id: fda-label-doxorubicin
+source_document_version: >-
+  NDA050629; SPL set 1fd148fb-0fbc-4b6f-b790-23546fb46a71; version 28;
+  effective 2026-05-05
+source_locator: >-
+  Highlights, Adverse Reactions; Boxed Warning; Sections 5.1 through 5.4;
+  Section 6.1, Table 2; Section 17; and FDA-approved Patient Information
+source_url: >-
+  https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1fd148fb-0fbc-4b6f-b790-23546fb46a71&version=28
+grading_system: null
+events:
+  - id: alopecia
+    source_event_name: Alopecia
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA identifies this as a most-common reaction but does not provide an
+      event-specific doxorubicin-alone percentage or denominator.
+
+  - id: nausea
+    source_event_name: Nausea
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA identifies this as a most-common reaction but does not provide an
+      event-specific doxorubicin-alone percentage or denominator.
+
+  - id: vomiting
+    source_event_name: Vomiting
+    frequency_status: reported
+    source_frequency_category: most_common
+    frequency_basis: adverse_reaction
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The FDA identifies this as a most-common reaction but does not provide an
+      event-specific doxorubicin-alone percentage or denominator.
+
+  - id: cardiomyopathy-and-arrhythmias
+    source_event_name: Cardiomyopathy and Arrhythmias
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.1 provides dose-dependent cardiomyopathy estimates, not one
+      doxorubicin-alone rate or denominator for the broader patient row.
+
+  - id: secondary-malignancies
+    source_event_name: Secondary Malignancies
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      Section 5.2 reports long-term cumulative incidences from separate breast
+      trials, not one doxorubicin-alone rate or denominator.
+
+  - id: extravasation-and-tissue-necrosis
+    source_event_name: Extravasation and Tissue Necrosis
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The boxed warning and Section 5.3 describe severe local tissue injury
+      without an event rate.
+
+  - id: severe-myelosuppression
+    source_event_name: Severe Myelosuppression
+    frequency_status: not_reported
+    frequency_basis: warning
+    all_grade_pct: null
+    severe_pct: null
+    fatal_pct: null
+    severe_source_label: null
+    frequency_note: >-
+      The boxed warning and Section 5.4 describe serious infection, transfusion,
+      hospitalization, and death without an event rate.
+notes:
+  - The FDA label's Table 2 rates come from doxorubicin plus cyclophosphamide and are not attributed to doxorubicin alone.
+  - Most-common is preserved as an FDA categorical claim and is not converted into Ariad's numerical frequency bands.
+  - Warning status is stored separately from frequency; serious does not mean common.
+  - This record maps the three FDA-defined most-common reactions and four boxed warnings; it is not an exhaustive transcription of the label.
+  - The label safety evidence is not asserted to come from a single-agent treatment population.
