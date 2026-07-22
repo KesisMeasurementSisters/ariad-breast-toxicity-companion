@@ -24,6 +24,7 @@
     "content:build": "tsx scripts/content-cli.ts build",
     "content:build:preview": "ALLOW_DRAFT_CONTENT=ARIAD_EXPLICIT_UNREVIEWED_PREVIEW tsx scripts/content-cli.ts build",
     "content:report": "tsx scripts/content-cli.ts report",
+    "docs:audit": "node scripts/docs-audit.mjs",
     "safety:scan": "tsx scripts/safety-scan.ts"
   },
   "devDependencies": {

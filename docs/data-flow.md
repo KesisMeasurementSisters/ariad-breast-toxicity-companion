@@ -139,10 +139,10 @@ React state and are cleared by reset or normal session termination. Direct
 `?treatment=` links remain supported; as normal web addresses, they may appear
 in browser history even though Ariad does not add them to a saved list.
 
-The current owner-directed mode sets `ENABLE_GPT56=false`, so no request data
-crosses the OpenAI provider boundary. If GPT-5.6 is explicitly re-enabled in a
-later phase, the minimum request data crosses that boundary. Users are always
-asked not to enter identifying information; this prototype is not authorized
-for PHI.
+The repository default sets `ENABLE_GPT56=false`, so local development sends no
+request data across the OpenAI provider boundary. The competition deployment
+may explicitly enable bounded GPT-5.6 Luna; only the minimum classifier text or
+summary facts then cross that boundary. Users are always asked not to enter
+identifying information; this prototype is not authorized for PHI.
 
 See [threat model](./threat-model.md) and [architecture](./architecture.md).

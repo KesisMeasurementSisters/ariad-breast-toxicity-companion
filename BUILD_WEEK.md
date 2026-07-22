@@ -134,7 +134,8 @@
 - No public deployment or video is claimed.
 - Manual screen-reader smoke testing and final cross-browser/device review
   remain submission gates.
-- `/feedback` Codex Session ID: **TODO before submission**.
+- No `/feedback` Codex Session ID was recorded at this initial checkpoint; no
+  identifier is claimed in the repository.
 
 ## 2026-07-19 — Deterministic and clinic-data focus
 
@@ -805,3 +806,55 @@
 - Manual keyboard-only and screen-reader smoke tests remain unchecked. The
   exact-final automated accessibility suite is green, but that is not recorded
   as a substitute for assistive-technology testing by a person.
+
+## 2026-07-21 — current release and judge-facing documentation audit
+
+### Current repository snapshot
+
+- The active source-controlled preview is
+  `build-week-preview-2026-07-18@0.13.0`, content hash
+  `bee4e69e21b0c434f4d444477300501b9d9acea8eafae18028fbeaa510a5e0ad`.
+- It pins 561 exact object versions: 460 governed draft objects and 101 source
+  records. The governed set includes 155 active patient-facing modules, 30
+  patient drug presentations, and 81 treatment–symptom relationships.
+- The repository review queue contains 520 governed draft object versions,
+  including 159 patient-facing module versions and 30 private toxicity-evidence
+  records. No clinical approval is recorded.
+- Treatment overview pages now present available side-effect information before
+  treatment preparation. Commit `78bb42e` records that application change and
+  its ordering tests.
+- Cloudflare deployment remains a separate manual action. A branch push and a
+  green CI run do not establish that the live Worker contains the latest commit.
+
+### Documentation cleanup
+
+- Updated the README and current-state architecture, scope, knowledge-model,
+  governance, safety, toxicity-coverage, and submission documents to the exact
+  `0.13.0` release inventory and current runtime boundary.
+- Removed empty video and session-ID placeholders. Replaced the large unchecked
+  submission checklist with a concise handoff that separates repository facts,
+  owner-controlled submission evidence, post-judging key rotation, and future
+  clinical-release gates.
+- Marked the open clinician review record as historical evidence bound to
+  release `0.2.0`; its unfilled clinician fields are deliberate and cannot be
+  treated as approval of `0.13.0`.
+- Preserved four governed fever-policy placeholders because they truthfully
+  record unresolved clinical-owner decisions. They are not software cleanup
+  items and must not be removed or marked resolved without real review.
+- Added `pnpm docs:audit` and the same CI gate. It verifies current release facts
+  in judge-facing snapshot documents, rejects unfinished-work markers and stale
+  treatment-order wording, and checks all local Markdown links.
+
+### Verification
+
+- `pnpm docs:audit` — 28 Markdown files checked; no unfinished-work markers;
+  all local links resolved.
+- `pnpm lint` — passed.
+- `pnpm typecheck` — all three workspace packages passed.
+- `pnpm test` — 180 unit and golden tests passed across 19 files.
+- `pnpm content:validate` — 0 errors and 0 warnings.
+- `pnpm safety:scan` — 0 findings.
+- `pnpm content:report` — regenerated and reconciled to 520 governed draft
+  objects, 159 patient-facing module versions, 30 private evidence records, 30
+  patient presentations, 104 repository source records, four unresolved module
+  placeholders, and two unresolved clinic policy bindings.

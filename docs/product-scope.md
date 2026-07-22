@@ -10,7 +10,7 @@ should I have ready when I call?
 Ariad provides two equal ways into one governed knowledge source:
 
 1. **I’m starting treatment** — search or enter a treatment code, then review
-   preparation and available side-effect information.
+   available side-effect information followed by treatment preparation.
 2. **I’m having a symptom** — use a controlled catalogue or free-text
    navigation, confirm a symptom category, add treatment context, answer
    observable questions, view fixed education, and prepare a neutral summary.
@@ -21,10 +21,11 @@ The Build Week preview contains:
 
 - 53 canonical drug records, eight regimens, and ten treatment classes;
 - 28 patient-observable symptom concepts;
-- 19 observable features and 19 questions;
-- 139 active draft educational modules;
-- three exact regimen–symptom relationships and 25 clearly labelled general
-  symptom fallbacks, each with complete six-section draft guidance;
+- 47 observable features and 47 questions;
+- 155 active draft educational modules;
+- 81 treatment–symptom relationships: three exact regimen guidance paths, 25
+  clearly labelled general guidance fallbacks, and 53 source-linked drug-page
+  effect matches for the three sample symptoms;
 - preparation for all 53 drug choices and eight regimen choices: exact overlays
   for weekly paclitaxel, capecitabine monotherapy, and AC, plus a clearly
   labelled general fallback for every other choice;
@@ -32,9 +33,9 @@ The Build Week preview contains:
   private exact FDA evidence record;
 - 101 active source records and one exact-version structured synthetic clinic
   configuration;
-- one exact-version 492-object active preview artifact,
-  `build-week-preview-2026-07-18@0.12.0`, with content hash
-  `e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
+- one exact-version 561-object active preview artifact,
+  `build-week-preview-2026-07-18@0.13.0`, with content hash
+  `bee4e69e21b0c434f4d444477300501b9d9acea8eafae18028fbeaa510a5e0ad`.
 
 The exact treatment-and-symptom pathways are weekly paclitaxel/peripheral
 neuropathy, capecitabine/diarrhea, and AC/fever or infection concern. The other
@@ -102,9 +103,9 @@ Support labels mean:
 - Direct treatment-preview resolution through `?treatment=<canonical-drug-id>`.
 - Help for people who do not know the treatment name. The competition build
   does not show or write a saved-treatment list.
-- Preparation-first treatment pages that group the governed modules under three
-  plain-language questions, followed by a separate safety note and side-effect
-  education. The print action includes all of these sections.
+- Side-effect-first treatment pages followed by preparation modules grouped
+  under three plain-language questions and a separate safety note. The print
+  action includes all of these sections.
 - Structured fictional daytime/after-hours clinic contacts, rendered as
   non-actionable display data, plus explicit unresolved fever and
   supportive-care policy states.
@@ -118,9 +119,11 @@ must be an exact, separately governed educational-module version. The universal
 emergency statement remains application-owned and cannot be changed by clinic
 data.
 
-The current runtime is deterministic only; all LLM calls are disabled. This
-does not change the product boundary or confer any review or approval on the
-391 governed draft objects in the active release. Configured/delegated local
+The repository default is deterministic-only. The competition deployment may
+enable bounded GPT-5.6 Luna for controlled symptom matching and neutral fact
+restatement; clinical guidance remains deterministic in either mode. This does
+not change the product boundary or confer any review or approval on the 460
+governed draft objects in the active release. Configured/delegated local
 policies are a future schema seam only: P0 blocks their publication until
 purpose compatibility and exact runtime rendering exist.
 

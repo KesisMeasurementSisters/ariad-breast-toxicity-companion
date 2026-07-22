@@ -4,10 +4,11 @@
 
 Ariad is a small TypeScript monorepo with one deployable Next.js application and
 two extractable knowledge packages. Clinical content is compiled at build time;
-the runtime includes health reporting and two dormant, bounded OpenAI adapters.
-The current owner-directed mode sets `ENABLE_GPT56=false`, so no provider call
-is made. There is no database, graph database, vector store, CMS, or patient
-backend.
+the runtime includes health reporting and two bounded, optional OpenAI adapters.
+The repository default sets `ENABLE_GPT56=false`; the competition deployment
+explicitly enables GPT-5.6 Luna for controlled symptom matching and neutral
+restatement only. There is no database, graph database, vector store, CMS, or
+patient backend.
 
 ```mermaid
 flowchart TB

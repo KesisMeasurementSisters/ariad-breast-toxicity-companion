@@ -1,5 +1,9 @@
 # Ariad: Breast clinician review record — ARIAD-CRR-2026-001
 
+> **Historical open record for release `0.2.0`.** Unfilled fields are deliberate
+> clinician-review entries, not completed evidence and not work required to run
+> the Build Week preview. This record must not be reused for release `0.13.0`.
+
 > This record documents clinician-led review of an exact frozen draft. Do not
 > include patient information. Completion records clinical review only; it does
 > not authorize publication, deployment, patient testing, clinical use, or a
@@ -42,10 +46,10 @@
 - [ ] Weekly paclitaxel and peripheral neuropathy
 - [ ] Capecitabine and diarrhea
 - [ ] AC and fever/infection concern
-- [x] Full current release — attach a disposition row for all 130 governed objects
+- [x] Full frozen `0.2.0` release — attach a disposition row for all 130 governed objects
 - [ ] Other exact scope
 
-The declared scope is the full current-release review of all 130 governed
+The declared scope is the full frozen-release review of all 130 governed
 objects plus all 14 source records.
 
 Explicit exclusions:

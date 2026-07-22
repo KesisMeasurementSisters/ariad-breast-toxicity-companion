@@ -32,8 +32,6 @@ Built by **Kesis & Sisters** for the OpenAI Build Week 2026 **Apps for Your
 Life** track.
 
 - Live demo: [https://ariad.kesis.ca](https://ariad.kesis.ca)
-- Demo video: **TODO — add public YouTube URL, no more than three minutes**
-- Primary Codex `/feedback` Session ID: **TODO before submission**
 - Build evidence: [BUILD_WEEK.md](./BUILD_WEEK.md)
 
 ## What the prototype demonstrates
@@ -71,7 +69,7 @@ Life** track.
 - Deterministic controlled-vocabulary symptom matching and neutral fact
   summaries, with competition-authorized GPT-5.6 Luna support for language
   ambiguity and neutral restatement only.
-- A content-addressed preview release containing 492 exact object versions.
+- A content-addressed preview release containing 561 exact object versions.
 - Source panels, an exact-version structured synthetic clinic configuration,
   treatment-code demos, direct treatment links, and copy/print/download symptom
   summaries. Treatment saving is disabled in the competition build. The clinic's
@@ -257,25 +255,24 @@ only available release is a draft preview. Use `pnpm content:build:preview` or
 `pnpm build:preview` only for the conspicuously labelled Build Week artifact.
 The ordinary production path must not silently ship drafts.
 
-The active preview is release `build-week-preview-2026-07-18`, version `0.12.0`,
+The active preview is release `build-week-preview-2026-07-18`, version `0.13.0`,
 with content hash
-`e6e48a385d21e8ec8692642439a6fc4d272828b0e809f3e97e76d69a08f59e56`.
+`bee4e69e21b0c434f4d444477300501b9d9acea8eafae18028fbeaa510a5e0ad`.
 
 ## Content and source governance
 
-The current release pins 492 object versions: 391 governed draft objects and
-101 source records. Its 139 patient-facing modules have zero recorded clinical
-approvals; all 30 drug presentations are also unreviewed drafts. The repository
-review queue contains 451 governed object versions: the 391 release objects, 25
-superseded symptom versions, four superseded weekly-paclitaxel preparation
-modules, the retained v1 clinic configuration, and 30 private draft
-toxicity-evidence records.
+The current release pins 561 object versions: 460 governed draft objects and
+101 source records. Its 155 active patient-facing modules have zero recorded
+clinical approvals; all 30 drug presentations are also unreviewed drafts. The
+repository review queue contains 520 governed draft object versions, including
+159 patient-facing module versions and 30 private toxicity-evidence records.
 The release pins the v2 clinic configuration and patient-safe presentations,
 but deliberately excludes the numerical evidence payloads. That structured
 synthetic configuration contains identity
 and non-actionable contact data, not patient-facing clinical instructions. Its
-fever and supportive-care policy bindings are unresolved, and two modules retain
-explicit fever placeholders. The preview includes 25 general symptom fallbacks,
+fever and supportive-care policy bindings are unresolved, and four module
+versions retain explicit fever placeholders. The preview includes 25 general
+symptom fallbacks,
 but catalogue presence never implies an exact treatment-specific pathway. No
 schema, validation, or preview compilation result records or implies a clinical
 approval.
@@ -302,7 +299,7 @@ Existing symptom pathways retain their governed Ontario Health/Cancer Care
 Ontario, Health Canada, BC Cancer, and eviQ sources. Ariad stores short metadata
 and clinician-reviewable paraphrases, not copied source documents.
 
-Before any clinical release, the owner must review every module, all 27
+Before any clinical release, the owner must review every module, all 30
 evidence-to-presentation mappings, and each claim-to-source mapping; resolve the
 fever and diarrhea discrepancies; confirm the AC regimen variant; create real
 approval evidence; and compile a separate exact-version published release. See [content
@@ -337,8 +334,8 @@ and recorded consequential ones as [ADRs](./docs/adr/README.md).
 
 The dated [Build Week evidence log](./BUILD_WEEK.md) distinguishes human
 clinical/product decisions, Codex contributions, commands run, limitations,
-and commits. Run `/feedback` in the primary Codex task before submission and
-record the resulting Session ID there and above.
+and commits. Historical entries remain bound to the release and commit named in
+each entry; the current repository snapshot is summarized at the end.
 
 ## Deployment
 
@@ -351,6 +348,8 @@ explicitly labelled unreviewed prototype and is not a clinical release.
   `pnpm deploy:cloudflare` to deploy. Keep `OPENAI_API_KEY` as a Workers secret;
   the non-secret bounded runtime settings are versioned in
   `apps/web/wrangler.jsonc`. The custom domain is `ariad.kesis.ca`.
+  GitHub Actions validates pushes and pull requests but does not deploy them;
+  verify the live Worker separately after every manual deployment.
 - **Docker preview:** pass the exact acknowledgement only to the controlled
   preview build:
 
